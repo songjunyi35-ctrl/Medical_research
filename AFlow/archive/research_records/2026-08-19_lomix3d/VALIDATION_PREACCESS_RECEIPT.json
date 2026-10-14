@@ -1,0 +1,62 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_lomix3d_validation_preaccess_receipt",
+  "schema_version": 1,
+  "status": "frozen_before_fixed_validation108_access",
+  "method": "three_decoder_stage_lomix3d_raw_logit_adaptation",
+  "training": {
+    "report": "workspace/BraTS/sammed3d_t1ce_wt/plain_lomix3d_20260819/seed20260846/TRAIN_DONE.json",
+    "report_sha256": "6c9ebaab275637ea8669d150340552e9f8cc9dfb946b734f368f8b476d303440",
+    "elapsed_seconds": 1045.636245727539,
+    "reload_max_abs_difference": 0.0,
+    "stripped_deploy_max_abs_difference": 0.0,
+    "peak_gpu_memory_bytes": 25605481984,
+    "test_access": false
+  },
+  "implementation_receipt": {
+    "path": "archive/research_records/2026-08-19_lomix3d/IMPLEMENTATION_RECEIPT.json",
+    "sha256": "05b540aeae35cce48e1835d28626167cf57f7447fd1d28dfb79bb3d1c3fa6f9a",
+    "all_gates_passed": true
+  },
+  "checkpoints": {
+    "176": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_lomix3d_20260819/seed20260846/plain_128_lomix3d_global_epoch176.pth", "sha256": "3df0724407e3df37735fcbdb1eecb32c036a5e5fd6280c9b2553290c995b4c6d"},
+    "184": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_lomix3d_20260819/seed20260846/plain_128_lomix3d_global_epoch184.pth", "sha256": "eed6234860c9eea1538061287460914e95d162bd596b8b81198ddd38e0ee38d3"},
+    "192": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_lomix3d_20260819/seed20260846/plain_128_lomix3d_global_epoch192.pth", "sha256": "51e0a8b4b4ed95035bcf15bfcfcf7bd41253f14d9e605a1941395f4760cb9dbb"},
+    "200": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_lomix3d_20260819/seed20260846/plain_128_lomix3d_global_epoch200.pth", "sha256": "f9bfcca36a904341f4eeebf1c71f218b997ab3e753be4815daa2789b2c7245fd"}
+  },
+  "fixed_validation": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 50,
+    "threshold": 0.0,
+    "tta": false,
+    "sam": false,
+    "postprocessing": false
+  },
+  "comparison": {
+    "kd_validation_report": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/KD_VALIDATION.json",
+    "kd_validation_report_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57",
+    "matched_control": "same global epoch from the frozen KD report",
+    "best_single_reference": "voxel-KD global epoch200"
+  },
+  "selection": "maximum LoMix Scan Dice among global epochs176/184/192/200; Subject Dice exact-tie-break",
+  "promotion_gates": [
+    "selected LoMix scan and subject Dice strictly beat matched control at the same epoch",
+    "selected LoMix scan and subject Dice strictly beat voxel-KD epoch200",
+    "selected LoMix point hit is no more than one of 108 cases below voxel-KD epoch200",
+    "paired scan and subject bootstrap 95% CI lower bounds versus voxel-KD epoch200 are both at least -0.003",
+    "formal reload and stripped deploy differences are zero",
+    "all implementation/GPU-smoke gates passed and saved-epoch mean Softplus weights did not collapse"
+  ],
+  "evaluator": {
+    "path": "scripts/evaluate_t1ce_wt_plain_lomix3d_validation.py",
+    "sha256": "1c08c53cd9cc5ce8012d680927cdc8d0d0484edc613d93f4ff207e1d916b61c4"
+  },
+  "if_gate_fails": "do not access test270 and do not tune operation, alpha rule, loss, epoch, threshold, checkpoint, or postprocessing",
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

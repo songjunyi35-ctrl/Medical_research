@@ -1,0 +1,37 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_logit_ensemble_result",
+  "status": "new_reused_internal_test_high",
+  "method": "0.75 * historical_epoch168_logit + 0.25 * EMA168_logit",
+  "validation": {
+    "selected_ema_weight": 0.25,
+    "scan": 0.7341710969253823,
+    "subject": 0.7244897158585843,
+    "point_hit": 0.9444444444444444,
+    "scan_gain": 0.002569877990969905,
+    "subject_gain": 0.0023691503774552116,
+    "point_hit_gain": 0.01851851851851849,
+    "report_sha256": "66681f5d811f25c6fc67eeafa12b7356b5e0962f98c20be66d5e60b53254460a"
+  },
+  "test270": {
+    "scan": 0.7450540643599298,
+    "subject": 0.7273446085740205,
+    "point_hit": 0.9555555555555556,
+    "scan_gain": 0.00385011511820334,
+    "scan_gain_95ci": [0.0031705282297399312, 0.004564966769130142],
+    "subject_gain": 0.00416512270184124,
+    "subject_gain_95ci": [0.0031414174329207705, 0.005268742378373271],
+    "point_hit_gain": 0.02592592592592602,
+    "cases_improved": 222,
+    "cases_tied": 2,
+    "cases_worse": 46,
+    "subjects_improved": 100,
+    "subjects_worse": 19,
+    "report_sha256": "b49cf72a7d749afd28bc3009d0f7ad27b63ce5642424cc8eeb183e4eec7dbc7c"
+  },
+  "inference_compute_relative_to_single_locator": "approximately_2x",
+  "not_pristine_blind_test": true,
+  "result_will_not_trigger_tuning": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": true
+}

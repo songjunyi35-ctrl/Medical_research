@@ -1,0 +1,4014 @@
+{
+  "access": {
+    "confirmation": false,
+    "fixed_validation": false,
+    "new_train_only_inner": true,
+    "outer": false,
+    "rhuh": false,
+    "test270": false,
+    "ucsd75": false
+  },
+  "aggregate": {
+    "all_gates_passed": false,
+    "gates": {
+      "all_fold_style_gates": false,
+      "flip8_mean_scan_above_001": true,
+      "flip8_mean_subject_positive": true,
+      "identity_mean_scan_above_001": true,
+      "identity_mean_subject_positive": true
+    },
+    "means": {
+      "flip8": {
+        "scan_dice": 0.008910172008684714,
+        "subject_dice": 0.006649319265289444
+      },
+      "identity": {
+        "scan_dice": 0.009320416517767827,
+        "subject_dice": 0.007467432002703112
+      }
+    }
+  },
+  "bootstrap": {
+    "confidence": 0.95,
+    "samples": 10000,
+    "seeds": {
+      "e": 20261331,
+      "f": 20261332
+    },
+    "unit": "patient_cluster_all_timepoints"
+  },
+  "comparisons": {
+    "e": {
+      "flip8": {
+        "all_gates_passed": true,
+        "candidate": {
+          "point_denominator": 42,
+          "point_hits": 41,
+          "scan_dice": 0.7842800948226777,
+          "scan_dice_95ci": [
+            0.7479157769896312,
+            0.8207782813913779
+          ],
+          "scans": 42,
+          "subject_dice": 0.7853177289380985,
+          "subject_dice_95ci": [
+            0.7479888769956635,
+            0.8211687380542168
+          ],
+          "subjects": 17
+        },
+        "control": {
+          "point_denominator": 42,
+          "point_hits": 40,
+          "scan_dice": 0.7666463896479344,
+          "scan_dice_95ci": [
+            0.7286326698815385,
+            0.8064709340463364
+          ],
+          "scans": 42,
+          "subject_dice": 0.7736108531908845,
+          "subject_dice_95ci": [
+            0.7362969453483428,
+            0.8113410160158011
+          ],
+          "subjects": 17
+        },
+        "delta": {
+          "point_hits": 1,
+          "scan_dice": 0.017633705174743275,
+          "scan_dice_95ci": [
+            0.004484772418762747,
+            0.028602978201245143
+          ],
+          "subject_dice": 0.011706875747213963,
+          "subject_dice_95ci": [
+            -0.0003441510651530754,
+            0.02335606112794552
+          ]
+        },
+        "gates": {
+          "point_within_one": true,
+          "scan_ci_safe": true,
+          "scan_positive": true,
+          "subject_ci_safe": true,
+          "subject_positive": true
+        }
+      },
+      "identity": {
+        "all_gates_passed": true,
+        "candidate": {
+          "point_denominator": 42,
+          "point_hits": 40,
+          "scan_dice": 0.7788539633326822,
+          "scan_dice_95ci": [
+            0.7404909195164087,
+            0.8158893666547529
+          ],
+          "scans": 42,
+          "subject_dice": 0.7790386414839174,
+          "subject_dice_95ci": [
+            0.741754298995666,
+            0.8155718220265696
+          ],
+          "subjects": 17
+        },
+        "control": {
+          "point_denominator": 42,
+          "point_hits": 40,
+          "scan_dice": 0.7608101531748706,
+          "scan_dice_95ci": [
+            0.721502066950404,
+            0.8017240373321589
+          ],
+          "scans": 42,
+          "subject_dice": 0.76634261670975,
+          "subject_dice_95ci": [
+            0.72726448688078,
+            0.8056532211721308
+          ],
+          "subjects": 17
+        },
+        "delta": {
+          "point_hits": 0,
+          "scan_dice": 0.018043810157811646,
+          "scan_dice_95ci": [
+            0.005431424321486961,
+            0.029630890696942323
+          ],
+          "subject_dice": 0.012696024774167425,
+          "subject_dice_95ci": [
+            0.00353870457673654,
+            0.02196303869255041
+          ]
+        },
+        "gates": {
+          "point_within_one": true,
+          "scan_ci_safe": true,
+          "scan_positive": true,
+          "subject_ci_safe": true,
+          "subject_positive": true
+        }
+      }
+    },
+    "f": {
+      "flip8": {
+        "all_gates_passed": false,
+        "candidate": {
+          "point_denominator": 42,
+          "point_hits": 42,
+          "scan_dice": 0.7700357254328809,
+          "scan_dice_95ci": [
+            0.7133087556441482,
+            0.809187190990322
+          ],
+          "scans": 42,
+          "subject_dice": 0.7556365656600617,
+          "subject_dice_95ci": [
+            0.7090298859210604,
+            0.7970812389471791
+          ],
+          "subjects": 19
+        },
+        "control": {
+          "point_denominator": 42,
+          "point_hits": 42,
+          "scan_dice": 0.7698490865902547,
+          "scan_dice_95ci": [
+            0.7117924334122969,
+            0.8095774891669627
+          ],
+          "scans": 42,
+          "subject_dice": 0.7540448028766967,
+          "subject_dice_95ci": [
+            0.7007313647504001,
+            0.7993920854254392
+          ],
+          "subjects": 19
+        },
+        "delta": {
+          "point_hits": 0,
+          "scan_dice": 0.00018663884262615227,
+          "scan_dice_95ci": [
+            -0.007964852101813111,
+            0.008943651043488175
+          ],
+          "subject_dice": 0.001591762783364925,
+          "subject_dice_95ci": [
+            -0.009649284338798112,
+            0.014830018005016054
+          ]
+        },
+        "gates": {
+          "point_within_one": true,
+          "scan_ci_safe": false,
+          "scan_positive": true,
+          "subject_ci_safe": false,
+          "subject_positive": true
+        }
+      },
+      "identity": {
+        "all_gates_passed": false,
+        "candidate": {
+          "point_denominator": 42,
+          "point_hits": 40,
+          "scan_dice": 0.7636494664383144,
+          "scan_dice_95ci": [
+            0.7069282614750028,
+            0.8024984611587942
+          ],
+          "scans": 42,
+          "subject_dice": 0.7487301167114397,
+          "subject_dice_95ci": [
+            0.7005685230926975,
+            0.7916677040933233
+          ],
+          "subjects": 19
+        },
+        "control": {
+          "point_denominator": 42,
+          "point_hits": 42,
+          "scan_dice": 0.7630524435605904,
+          "scan_dice_95ci": [
+            0.7035122795827187,
+            0.8037057023447393
+          ],
+          "scans": 42,
+          "subject_dice": 0.7464912774802009,
+          "subject_dice_95ci": [
+            0.6903205733954453,
+            0.7939781536101402
+          ],
+          "subjects": 19
+        },
+        "delta": {
+          "point_hits": -2,
+          "scan_dice": 0.0005970228777240072,
+          "scan_dice_95ci": [
+            -0.0068399565346707715,
+            0.008472690209669571
+          ],
+          "subject_dice": 0.0022388392312387984,
+          "subject_dice_95ci": [
+            -0.00792088846985928,
+            0.01407946156394375
+          ]
+        },
+        "gates": {
+          "point_within_one": false,
+          "scan_ci_safe": false,
+          "scan_positive": true,
+          "subject_ci_safe": false,
+          "subject_positive": true
+        }
+      }
+    }
+  },
+  "created_utc": "2026-09-05T23:34:19.653335+00:00",
+  "elapsed_seconds": 27.759956564754248,
+  "preaccess_sha256": "1d6e32828cc349fde6c476e2e03b817f8982b9cc9643732b5a55e94e409b2944",
+  "raw_models": {
+    "e": {
+      "canonical": {
+        "elapsed_seconds": 7.064290012232959,
+        "forwards": 336,
+        "per_case": {
+          "flip8": [
+            {
+              "case_id": "BraTS-GLI-02137-100",
+              "dice": 0.6414465564058257,
+              "intersection_voxels": 15591,
+              "point_flat_index": 1727165,
+              "point_hit": false,
+              "predicted_voxels": 30665,
+              "prediction_mask_sha256": "a59b8d70ac60eec4f9a878d5e2fb6f560f958e01d80ad3660cc223571ca6b7c3",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 17947
+            },
+            {
+              "case_id": "BraTS-GLI-02137-101",
+              "dice": 0.6459312391788276,
+              "intersection_voxels": 10446,
+              "point_flat_index": 1873077,
+              "point_hit": true,
+              "predicted_voxels": 20192,
+              "prediction_mask_sha256": "65fb2a38a94b47d0ea9cb2377a962f40cb7b082f13aff8b37ecf21022fd220e0",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 12152
+            },
+            {
+              "case_id": "BraTS-GLI-02137-102",
+              "dice": 0.7681326359121552,
+              "intersection_voxels": 20339,
+              "point_flat_index": 1450459,
+              "point_hit": true,
+              "predicted_voxels": 25329,
+              "prediction_mask_sha256": "4373b37c3b0356d5664d34b88d93c70e76ad48054d39c1e41b9c7ee238aa084a",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 27628
+            },
+            {
+              "case_id": "BraTS-GLI-02137-103",
+              "dice": 0.5588487141949562,
+              "intersection_voxels": 10116,
+              "point_flat_index": 1973831,
+              "point_hit": true,
+              "predicted_voxels": 12979,
+              "prediction_mask_sha256": "319f0affa43909388b7a80d56019cc0538a67b95223d487086f1a42cba25bff0",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 23224
+            },
+            {
+              "case_id": "BraTS-GLI-02145-100",
+              "dice": 0.8018781493357765,
+              "intersection_voxels": 14004,
+              "point_flat_index": 1298782,
+              "point_hit": true,
+              "predicted_voxels": 19835,
+              "prediction_mask_sha256": "b8d4634c06a07aed7817275fe873c8ffa64dd4449daca25b8c85f57de15b2aa2",
+              "subject_id": "BraTS-GLI-02145",
+              "target_voxels": 15093
+            },
+            {
+              "case_id": "BraTS-GLI-02145-101",
+              "dice": 0.8618866452053459,
+              "intersection_voxels": 22088,
+              "point_flat_index": 1348573,
+              "point_hit": true,
+              "predicted_voxels": 28175,
+              "prediction_mask_sha256": "4792509a124c16756a31bc7aaec05919425a9977e5cd15d034feff6b1b0c3138",
+              "subject_id": "BraTS-GLI-02145",
+              "target_voxels": 23080
+            },
+            {
+              "case_id": "BraTS-GLI-02155-100",
+              "dice": 0.8402988453701608,
+              "intersection_voxels": 18558,
+              "point_flat_index": 1352804,
+              "point_hit": true,
+              "predicted_voxels": 20218,
+              "prediction_mask_sha256": "8525f41a0ea1d78fe2052eab7b98302a6f8dd8493dcb5b623c9f92ff82b37449",
+              "subject_id": "BraTS-GLI-02155",
+              "target_voxels": 23952
+            },
+            {
+              "case_id": "BraTS-GLI-02155-101",
+              "dice": 0.861252701209152,
+              "intersection_voxels": 26105,
+              "point_flat_index": 1319524,
+              "point_hit": true,
+              "predicted_voxels": 28062,
+              "prediction_mask_sha256": "906b1046eab303b4a3dae13198305f801d4159c100dcf0138d46799465cc28db",
+              "subject_id": "BraTS-GLI-02155",
+              "target_voxels": 32559
+            },
+            {
+              "case_id": "BraTS-GLI-02166-100",
+              "dice": 0.812971127862324,
+              "intersection_voxels": 8574,
+              "point_flat_index": 610505,
+              "point_hit": true,
+              "predicted_voxels": 11225,
+              "prediction_mask_sha256": "c6b250a0e693d37e06d5ec8e888f0e095228af73142fed3ebf60db60e46084b3",
+              "subject_id": "BraTS-GLI-02166",
+              "target_voxels": 9868
+            },
+            {
+              "case_id": "BraTS-GLI-02166-101",
+              "dice": 0.8059389376829779,
+              "intersection_voxels": 9635,
+              "point_flat_index": 430914,
+              "point_hit": true,
+              "predicted_voxels": 12882,
+              "prediction_mask_sha256": "b89346c136b1549b9c5466c6aa3b57f9804ecc7f8bbd95586a6e9ad0eb82b9a5",
+              "subject_id": "BraTS-GLI-02166",
+              "target_voxels": 11028
+            },
+            {
+              "case_id": "BraTS-GLI-02191-100",
+              "dice": 0.681923076923077,
+              "intersection_voxels": 14184,
+              "point_flat_index": 1926086,
+              "point_hit": true,
+              "predicted_voxels": 24673,
+              "prediction_mask_sha256": "28e705b746b08fdc59e7dc07fc59caf1cbf4d25854a3e49b8b2504813d45c83e",
+              "subject_id": "BraTS-GLI-02191",
+              "target_voxels": 16927
+            },
+            {
+              "case_id": "BraTS-GLI-02191-101",
+              "dice": 0.7107936299888591,
+              "intersection_voxels": 16269,
+              "point_flat_index": 1809201,
+              "point_hit": true,
+              "predicted_voxels": 20765,
+              "prediction_mask_sha256": "9d0e92a37d8f9a5d1dee4d31bd268bd6170567cc4adc6061a68523ef90956936",
+              "subject_id": "BraTS-GLI-02191",
+              "target_voxels": 25012
+            },
+            {
+              "case_id": "BraTS-GLI-02198-100",
+              "dice": 0.8320357608493202,
+              "intersection_voxels": 22336,
+              "point_flat_index": 1512410,
+              "point_hit": true,
+              "predicted_voxels": 28371,
+              "prediction_mask_sha256": "65b3d29d59ff05064614701fc19db288aad3189007f5d7158f099b51b5e27537",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 25319
+            },
+            {
+              "case_id": "BraTS-GLI-02198-101",
+              "dice": 0.8490994207728318,
+              "intersection_voxels": 26753,
+              "point_flat_index": 1545178,
+              "point_hit": true,
+              "predicted_voxels": 32267,
+              "prediction_mask_sha256": "4020fc5138c71bfeac337ee92d6a37b42597e42787682e574881b9a128859661",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 30748
+            },
+            {
+              "case_id": "BraTS-GLI-02198-102",
+              "dice": 0.7973475877934908,
+              "intersection_voxels": 23568,
+              "point_flat_index": 1561559,
+              "point_hit": true,
+              "predicted_voxels": 31271,
+              "prediction_mask_sha256": "899417836db41ded6ceab31f2a5d70dd75f6c0a7951e85e178fbe1afe34456cf",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 27845
+            },
+            {
+              "case_id": "BraTS-GLI-02198-103",
+              "dice": 0.821304347826087,
+              "intersection_voxels": 22668,
+              "point_flat_index": 1545176,
+              "point_hit": true,
+              "predicted_voxels": 28370,
+              "prediction_mask_sha256": "d5fbc18e3792f7a416b802a4b1b28277104fd2aa1211da36910f46963ade104f",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 26830
+            },
+            {
+              "case_id": "BraTS-GLI-02198-104",
+              "dice": 0.7920547204080844,
+              "intersection_voxels": 20496,
+              "point_flat_index": 1610452,
+              "point_hit": true,
+              "predicted_voxels": 26608,
+              "prediction_mask_sha256": "223b1b3b6f72fc6e766fa92604569d25c7b5e310e7ac41f50b8bb9bd3ba563d9",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 25146
+            },
+            {
+              "case_id": "BraTS-GLI-02260-100",
+              "dice": 0.7775138781533273,
+              "intersection_voxels": 27662,
+              "point_flat_index": 1679419,
+              "point_hit": true,
+              "predicted_voxels": 32104,
+              "prediction_mask_sha256": "2523d4162d727cd777bdfbc48e071a65b03b1157c626d48198f5ac73d72429c4",
+              "subject_id": "BraTS-GLI-02260",
+              "target_voxels": 39051
+            },
+            {
+              "case_id": "BraTS-GLI-02292-100",
+              "dice": 0.8525056891507157,
+              "intersection_voxels": 86537,
+              "point_flat_index": 528198,
+              "point_hit": true,
+              "predicted_voxels": 99337,
+              "prediction_mask_sha256": "9487fa065f31212fe8f625e346085099d3f99c04dd0387bde377a4231f50b5dc",
+              "subject_id": "BraTS-GLI-02292",
+              "target_voxels": 103681
+            },
+            {
+              "case_id": "BraTS-GLI-02307-100",
+              "dice": 0.75045550749977,
+              "intersection_voxels": 20388,
+              "point_flat_index": 1396165,
+              "point_hit": true,
+              "predicted_voxels": 31359,
+              "prediction_mask_sha256": "5cdfe952071e5e6199f3d7f34ad0ce7173b2f6ecf22202fbb57d603e005619d8",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 22976
+            },
+            {
+              "case_id": "BraTS-GLI-02307-101",
+              "dice": 0.5146632461211366,
+              "intersection_voxels": 14645,
+              "point_flat_index": 1777327,
+              "point_hit": true,
+              "predicted_voxels": 38616,
+              "prediction_mask_sha256": "6d52f88e41211b24777e2e797e85b17d5e443e3b13e4d50f405d00fe79f2ecf1",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 18295
+            },
+            {
+              "case_id": "BraTS-GLI-02307-102",
+              "dice": 0.6647223963585815,
+              "intersection_voxels": 24388,
+              "point_flat_index": 1167299,
+              "point_hit": true,
+              "predicted_voxels": 38537,
+              "prediction_mask_sha256": "996977feb4697cc72adc6cc2a35527c8fb31758e36d3e4b341f9d6f956e9485c",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 34841
+            },
+            {
+              "case_id": "BraTS-GLI-02355-100",
+              "dice": 0.9200240280050541,
+              "intersection_voxels": 88832,
+              "point_flat_index": 1531209,
+              "point_hit": true,
+              "predicted_voxels": 99716,
+              "prediction_mask_sha256": "fb0d42c1ede11f4303a2f411162fd5e23e20e10062d11c28efae8b36c56e7fc8",
+              "subject_id": "BraTS-GLI-02355",
+              "target_voxels": 93392
+            },
+            {
+              "case_id": "BraTS-GLI-02360-100",
+              "dice": 0.6513326833555333,
+              "intersection_voxels": 23716,
+              "point_flat_index": 1678161,
+              "point_hit": true,
+              "predicted_voxels": 31919,
+              "prediction_mask_sha256": "9dfb3018c16c81bb8d581c469b1a45d1283795d66d6c18fbac30783351c849e4",
+              "subject_id": "BraTS-GLI-02360",
+              "target_voxels": 40904
+            },
+            {
+              "case_id": "BraTS-GLI-02514-100",
+              "dice": 0.6334547725616738,
+              "intersection_voxels": 30428,
+              "point_flat_index": 1172801,
+              "point_hit": false,
+              "predicted_voxels": 53561,
+              "prediction_mask_sha256": "6ae4e68e13d45cf0eabf4d5f055030d8d3076352a1d92bab4e0dcebd349c0352",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 42509
+            },
+            {
+              "case_id": "BraTS-GLI-02514-101",
+              "dice": 0.6474568577840913,
+              "intersection_voxels": 38513,
+              "point_flat_index": 1435461,
+              "point_hit": true,
+              "predicted_voxels": 68216,
+              "prediction_mask_sha256": "acb7378608c7976b584a97e602620897b5058ff38b7990bbb86adb4a7117ca4c",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 50751
+            },
+            {
+              "case_id": "BraTS-GLI-02514-102",
+              "dice": 0.7912993542017188,
+              "intersection_voxels": 39271,
+              "point_flat_index": 1386175,
+              "point_hit": true,
+              "predicted_voxels": 48095,
+              "prediction_mask_sha256": "c63099fbb92d3b608860c5f153a21af576c927373f720fe74011544717cdd3fa",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 51162
+            },
+            {
+              "case_id": "BraTS-GLI-02514-103",
+              "dice": 0.799373531714957,
+              "intersection_voxels": 45936,
+              "point_flat_index": 1430751,
+              "point_hit": true,
+              "predicted_voxels": 58713,
+              "prediction_mask_sha256": "7c710f58f5c3f927db9a8e21f0e42c9c31186e42f6df18a3d20d004103d826bf",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 56217
+            },
+            {
+              "case_id": "BraTS-GLI-02514-104",
+              "dice": 0.773524440331327,
+              "intersection_voxels": 50568,
+              "point_flat_index": 1286629,
+              "point_hit": true,
+              "predicted_voxels": 66659,
+              "prediction_mask_sha256": "6e576ebf3bdfdc7f0830da27eb323e6b195e28c1a564964279d07c7b24e2e4c2",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 64088
+            },
+            {
+              "case_id": "BraTS-GLI-02514-105",
+              "dice": 0.8083117058778775,
+              "intersection_voxels": 47808,
+              "point_flat_index": 1306845,
+              "point_hit": true,
+              "predicted_voxels": 57549,
+              "prediction_mask_sha256": "e1106f43a085d69d94d7db90491445f24885d55a04ce76eadd72e22b217447ad",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 60742
+            },
+            {
+              "case_id": "BraTS-GLI-02518-100",
+              "dice": 0.8208197026516663,
+              "intersection_voxels": 15431,
+              "point_flat_index": 759256,
+              "point_hit": true,
+              "predicted_voxels": 18961,
+              "prediction_mask_sha256": "4ef4b50be7489fbe9af1bb6fdedbbdc4f8220f4eb4c2fd1b86e18a76b4f800ef",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 18638
+            },
+            {
+              "case_id": "BraTS-GLI-02518-101",
+              "dice": 0.890493719616714,
+              "intersection_voxels": 47535,
+              "point_flat_index": 661213,
+              "point_hit": true,
+              "predicted_voxels": 54310,
+              "prediction_mask_sha256": "5cf247dd1bdb4ee54aa99b7ebef11b8b511ce514f867cb5e3c7f7420a965b7e8",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 52451
+            },
+            {
+              "case_id": "BraTS-GLI-02518-102",
+              "dice": 0.8797382588844261,
+              "intersection_voxels": 72062,
+              "point_flat_index": 728160,
+              "point_hit": true,
+              "predicted_voxels": 75847,
+              "prediction_mask_sha256": "466e99cbe28453f8f97efe31444f01266b3e72842ed1b897b3bdb1fb3dca4e5b",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 87979
+            },
+            {
+              "case_id": "BraTS-GLI-02518-103",
+              "dice": 0.8554352554694075,
+              "intersection_voxels": 105201,
+              "point_flat_index": 911573,
+              "point_hit": true,
+              "predicted_voxels": 120307,
+              "prediction_mask_sha256": "8e940d6f8399bd1e2ed532b1ef969a1839bc468a19af2432493b36ec9e505db8",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 125652
+            },
+            {
+              "case_id": "BraTS-GLI-02776-100",
+              "dice": 0.7733050847457628,
+              "intersection_voxels": 8760,
+              "point_flat_index": 664801,
+              "point_hit": true,
+              "predicted_voxels": 10477,
+              "prediction_mask_sha256": "c1cf9094fc96ca125e150d34ce09da8c6f59bb08c6aebd078c4acb070714c708",
+              "subject_id": "BraTS-GLI-02776",
+              "target_voxels": 12179
+            },
+            {
+              "case_id": "BraTS-GLI-02776-101",
+              "dice": 0.7573389508018483,
+              "intersection_voxels": 11145,
+              "point_flat_index": 583002,
+              "point_hit": true,
+              "predicted_voxels": 15728,
+              "prediction_mask_sha256": "f1ddbff017f9a1e75df0e25808220d1ee4496f560d072309bf335f96b6a09f36",
+              "subject_id": "BraTS-GLI-02776",
+              "target_voxels": 13704
+            },
+            {
+              "case_id": "BraTS-GLI-02778-100",
+              "dice": 0.6885952730495047,
+              "intersection_voxels": 26032,
+              "point_flat_index": 1383474,
+              "point_hit": true,
+              "predicted_voxels": 32162,
+              "prediction_mask_sha256": "3e801a0479abefef7ebb5aa569c88d9ddd664072941c109c40e091aec49bc7c5",
+              "subject_id": "BraTS-GLI-02778",
+              "target_voxels": 43447
+            },
+            {
+              "case_id": "BraTS-GLI-02778-101",
+              "dice": 0.7971875858280693,
+              "intersection_voxels": 36282,
+              "point_flat_index": 1399121,
+              "point_hit": true,
+              "predicted_voxels": 44882,
+              "prediction_mask_sha256": "09ceb8dfcf36a8a89148a9c9ca3a47b1195480e1ef90766d7ecaee4fe2439a88",
+              "subject_id": "BraTS-GLI-02778",
+              "target_voxels": 46143
+            },
+            {
+              "case_id": "BraTS-GLI-02937-100",
+              "dice": 0.7383015049955736,
+              "intersection_voxels": 23351,
+              "point_flat_index": 728668,
+              "point_hit": true,
+              "predicted_voxels": 35514,
+              "prediction_mask_sha256": "1c6cf6ae0660f76e321635236ff6b0ec44a86d8924073d0492be8f0832352544",
+              "subject_id": "BraTS-GLI-02937",
+              "target_voxels": 27742
+            },
+            {
+              "case_id": "BraTS-GLI-02937-101",
+              "dice": 0.7102435895566991,
+              "intersection_voxels": 24361,
+              "point_flat_index": 595412,
+              "point_hit": true,
+              "predicted_voxels": 40529,
+              "prediction_mask_sha256": "3d9a7f90a82591263a86117dab02adbe1032c82bc1515d981e7b6233480be61d",
+              "subject_id": "BraTS-GLI-02937",
+              "target_voxels": 28070
+            },
+            {
+              "case_id": "BraTS-GLI-03013-100",
+              "dice": 0.8017075372740984,
+              "intersection_voxels": 76812,
+              "point_flat_index": 1626320,
+              "point_hit": true,
+              "predicted_voxels": 106879,
+              "prediction_mask_sha256": "5a4a254ca28170cabc4c949092b23ae4dc6a4adab1e0e7ef6343febcceb3a28d",
+              "subject_id": "BraTS-GLI-03013",
+              "target_voxels": 84742
+            },
+            {
+              "case_id": "BraTS-GLI-03013-101",
+              "dice": 0.8181997143044626,
+              "intersection_voxels": 81048,
+              "point_flat_index": 1614794,
+              "point_hit": true,
+              "predicted_voxels": 110121,
+              "prediction_mask_sha256": "df91f54539010857901c937ee7777766b2dae321464f773a8c5ebd4b1987fca7",
+              "subject_id": "BraTS-GLI-03013",
+              "target_voxels": 87992
+            }
+          ],
+          "identity": [
+            {
+              "case_id": "BraTS-GLI-02137-100",
+              "dice": 0.6310188557093146,
+              "intersection_voxels": 15595,
+              "point_flat_index": 1727165,
+              "point_hit": false,
+              "predicted_voxels": 31481,
+              "prediction_mask_sha256": "f7d60e0d8ff365a9b0224f83bb793b23f24f8b5156b1b27c85838a1124c8de30",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 17947
+            },
+            {
+              "case_id": "BraTS-GLI-02137-101",
+              "dice": 0.6400739827373613,
+              "intersection_voxels": 10382,
+              "point_flat_index": 1873077,
+              "point_hit": true,
+              "predicted_voxels": 20288,
+              "prediction_mask_sha256": "8f3987b1e4aa54feb15a9682d888a7bfcfc62859862886a2dafffe3e008890eb",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 12152
+            },
+            {
+              "case_id": "BraTS-GLI-02137-102",
+              "dice": 0.7606151282148403,
+              "intersection_voxels": 20081,
+              "point_flat_index": 1434074,
+              "point_hit": true,
+              "predicted_voxels": 25174,
+              "prediction_mask_sha256": "85f1cfc4ecfd271de193dd284505b928f423525c4f5017647369ed59ddd3c5ca",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 27628
+            },
+            {
+              "case_id": "BraTS-GLI-02137-103",
+              "dice": 0.5409087086918744,
+              "intersection_voxels": 9649,
+              "point_flat_index": 1760561,
+              "point_hit": true,
+              "predicted_voxels": 12453,
+              "prediction_mask_sha256": "d474a3a5a6734776aaa5f2955f06adb9f3419955f841c74b608a331deb731b2d",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 23224
+            },
+            {
+              "case_id": "BraTS-GLI-02145-100",
+              "dice": 0.808100177227694,
+              "intersection_voxels": 13907,
+              "point_flat_index": 1315176,
+              "point_hit": true,
+              "predicted_voxels": 19326,
+              "prediction_mask_sha256": "642e0d310f4fc1de965588397b37320d670ea18ad95ef809bf362f49886c7364",
+              "subject_id": "BraTS-GLI-02145",
+              "target_voxels": 15093
+            },
+            {
+              "case_id": "BraTS-GLI-02145-101",
+              "dice": 0.8573769532393047,
+              "intersection_voxels": 21975,
+              "point_flat_index": 1413070,
+              "point_hit": true,
+              "predicted_voxels": 28181,
+              "prediction_mask_sha256": "83098506c5e2238ec9f6b839755604813683719c1b31b127c1bd033dfe003331",
+              "subject_id": "BraTS-GLI-02145",
+              "target_voxels": 23080
+            },
+            {
+              "case_id": "BraTS-GLI-02155-100",
+              "dice": 0.8438623292595255,
+              "intersection_voxels": 18781,
+              "point_flat_index": 1352803,
+              "point_hit": true,
+              "predicted_voxels": 20560,
+              "prediction_mask_sha256": "f1dd04b8bdf0eb9e47f9d97ff4e73c3dbaa9bc00c058d534acae9b356186cc1c",
+              "subject_id": "BraTS-GLI-02155",
+              "target_voxels": 23952
+            },
+            {
+              "case_id": "BraTS-GLI-02155-101",
+              "dice": 0.8647276084949215,
+              "intersection_voxels": 26222,
+              "point_flat_index": 1369700,
+              "point_hit": true,
+              "predicted_voxels": 28089,
+              "prediction_mask_sha256": "175ed639bfb2e07ac064f441de26bae370c42f56051a8d0c87f5e08351e99f97",
+              "subject_id": "BraTS-GLI-02155",
+              "target_voxels": 32559
+            },
+            {
+              "case_id": "BraTS-GLI-02166-100",
+              "dice": 0.778573036236777,
+              "intersection_voxels": 8648,
+              "point_flat_index": 576441,
+              "point_hit": true,
+              "predicted_voxels": 12347,
+              "prediction_mask_sha256": "6006854fa953937b7f8c2ea1d8350d85f3443b47fa306745a219de57429e4641",
+              "subject_id": "BraTS-GLI-02166",
+              "target_voxels": 9868
+            },
+            {
+              "case_id": "BraTS-GLI-02166-101",
+              "dice": 0.7562177472548791,
+              "intersection_voxels": 9745,
+              "point_flat_index": 529227,
+              "point_hit": true,
+              "predicted_voxels": 14745,
+              "prediction_mask_sha256": "3d0d35cb2c75f3d88fd40fdb061e8b0835e1d0f89429688e38047ecaecb3c1db",
+              "subject_id": "BraTS-GLI-02166",
+              "target_voxels": 11028
+            },
+            {
+              "case_id": "BraTS-GLI-02191-100",
+              "dice": 0.6856791815325001,
+              "intersection_voxels": 14510,
+              "point_flat_index": 1811138,
+              "point_hit": true,
+              "predicted_voxels": 25396,
+              "prediction_mask_sha256": "ce1f33a5b4f477172535e095f8af085797ce79dd3c9e7f552022b6d7e56e833e",
+              "subject_id": "BraTS-GLI-02191",
+              "target_voxels": 16927
+            },
+            {
+              "case_id": "BraTS-GLI-02191-101",
+              "dice": 0.7121396151633318,
+              "intersection_voxels": 16710,
+              "point_flat_index": 1827524,
+              "point_hit": true,
+              "predicted_voxels": 21917,
+              "prediction_mask_sha256": "ceb382bc2341221436116424f488cd4cfabe70e6a15ac3a9f1b5d3e93d7fc3f5",
+              "subject_id": "BraTS-GLI-02191",
+              "target_voxels": 25012
+            },
+            {
+              "case_id": "BraTS-GLI-02198-100",
+              "dice": 0.8285419810799868,
+              "intersection_voxels": 22509,
+              "point_flat_index": 1414362,
+              "point_hit": true,
+              "predicted_voxels": 29015,
+              "prediction_mask_sha256": "bdeebd254b507b04f7d07bfc3ad4ff7858855092b9f82ec47a6bd8a3192e7c7b",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 25319
+            },
+            {
+              "case_id": "BraTS-GLI-02198-101",
+              "dice": 0.8461261712211985,
+              "intersection_voxels": 27046,
+              "point_flat_index": 1349083,
+              "point_hit": true,
+              "predicted_voxels": 33181,
+              "prediction_mask_sha256": "e1b7485af1f4d115ae4b81a9dec8b4e536752b89f2364399abf3d553b9a0a971",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 30748
+            },
+            {
+              "case_id": "BraTS-GLI-02198-102",
+              "dice": 0.7952205330173723,
+              "intersection_voxels": 23826,
+              "point_flat_index": 1627732,
+              "point_hit": true,
+              "predicted_voxels": 32078,
+              "prediction_mask_sha256": "0126e18514384d6486932afd5d737ac3303d84fc8285254170414c645468a268",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 27845
+            },
+            {
+              "case_id": "BraTS-GLI-02198-103",
+              "dice": 0.8144105190409526,
+              "intersection_voxels": 22979,
+              "point_flat_index": 1512408,
+              "point_hit": true,
+              "predicted_voxels": 29601,
+              "prediction_mask_sha256": "ad8db7d43064f44dfa22b4e6d85737b703a28b34c51247dfd3b985f6aaee8b5b",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 26830
+            },
+            {
+              "case_id": "BraTS-GLI-02198-104",
+              "dice": 0.7863590772316951,
+              "intersection_voxels": 20776,
+              "point_flat_index": 1578324,
+              "point_hit": true,
+              "predicted_voxels": 27695,
+              "prediction_mask_sha256": "607fff76c54a22ebc95740184c1f12f2fc53f69cca063681571d7b0a5da9d46b",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 25146
+            },
+            {
+              "case_id": "BraTS-GLI-02260-100",
+              "dice": 0.7637130196607058,
+              "intersection_voxels": 26628,
+              "point_flat_index": 1942712,
+              "point_hit": true,
+              "predicted_voxels": 30682,
+              "prediction_mask_sha256": "7687d26ec46a0603bc3c6a1cebebd18a005771cca85cc7c3c86e124fdf0ff2cb",
+              "subject_id": "BraTS-GLI-02260",
+              "target_voxels": 39051
+            },
+            {
+              "case_id": "BraTS-GLI-02292-100",
+              "dice": 0.8521260215563189,
+              "intersection_voxels": 86334,
+              "point_flat_index": 479300,
+              "point_hit": true,
+              "predicted_voxels": 98951,
+              "prediction_mask_sha256": "4ad3776f849db239bab3e4825167bf4911b4aeebf27624f3a8ba76c4a0d63730",
+              "subject_id": "BraTS-GLI-02292",
+              "target_voxels": 103681
+            },
+            {
+              "case_id": "BraTS-GLI-02307-100",
+              "dice": 0.7300991398162997,
+              "intersection_voxels": 20031,
+              "point_flat_index": 1396037,
+              "point_hit": true,
+              "predicted_voxels": 31896,
+              "prediction_mask_sha256": "fd433b8e9acef24c2e8f99247f5e39361344e26873afd44921655aeb49cb1de5",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 22976
+            },
+            {
+              "case_id": "BraTS-GLI-02307-101",
+              "dice": 0.5089905067066623,
+              "intersection_voxels": 14932,
+              "point_flat_index": 1760816,
+              "point_hit": true,
+              "predicted_voxels": 40378,
+              "prediction_mask_sha256": "f20919a9bede3306642b0ddcfc6a23c3c6f687cccee7145d3762c732ab46146a",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 18295
+            },
+            {
+              "case_id": "BraTS-GLI-02307-102",
+              "dice": 0.674290806475568,
+              "intersection_voxels": 24970,
+              "point_flat_index": 1167426,
+              "point_hit": true,
+              "predicted_voxels": 39222,
+              "prediction_mask_sha256": "bbed0110f0bc3088720069f9e92bbbfb2a00480d69ee9fe3fe4bac3d7b46ad62",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 34841
+            },
+            {
+              "case_id": "BraTS-GLI-02355-100",
+              "dice": 0.9155006603929338,
+              "intersection_voxels": 88723,
+              "point_flat_index": 1496657,
+              "point_hit": true,
+              "predicted_voxels": 100432,
+              "prediction_mask_sha256": "e0407c9615de72adf53f4867fb209fcb66359025d8215f0a8c06a72bbeb75573",
+              "subject_id": "BraTS-GLI-02355",
+              "target_voxels": 93392
+            },
+            {
+              "case_id": "BraTS-GLI-02360-100",
+              "dice": 0.6168603269152789,
+              "intersection_voxels": 22058,
+              "point_flat_index": 1645523,
+              "point_hit": true,
+              "predicted_voxels": 30613,
+              "prediction_mask_sha256": "150c33f3adac80ec5e952984d04e7da059cbf92261e82d59cf9ebd1ef0bc0aed",
+              "subject_id": "BraTS-GLI-02360",
+              "target_voxels": 40904
+            },
+            {
+              "case_id": "BraTS-GLI-02514-100",
+              "dice": 0.6522101420522181,
+              "intersection_voxels": 32874,
+              "point_flat_index": 1075134,
+              "point_hit": true,
+              "predicted_voxels": 58299,
+              "prediction_mask_sha256": "d6631e205757e132a9de727baaad30c4be7c3e1c28609098bdd5c56c5183d9d1",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 42509
+            },
+            {
+              "case_id": "BraTS-GLI-02514-101",
+              "dice": 0.6399972890086243,
+              "intersection_voxels": 37772,
+              "point_flat_index": 1569747,
+              "point_hit": true,
+              "predicted_voxels": 67287,
+              "prediction_mask_sha256": "4a71d4460758ce020116d221613ed1af512f10b85c7d14cc30c8cf156a5f96e6",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 50751
+            },
+            {
+              "case_id": "BraTS-GLI-02514-102",
+              "dice": 0.7774324121733047,
+              "intersection_voxels": 38893,
+              "point_flat_index": 1353663,
+              "point_hit": true,
+              "predicted_voxels": 48893,
+              "prediction_mask_sha256": "0e0d577b74289400829ca6cfb57d3e73861a8f1732f8910c51d4fe048914430f",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 51162
+            },
+            {
+              "case_id": "BraTS-GLI-02514-103",
+              "dice": 0.7927664072925151,
+              "intersection_voxels": 45745,
+              "point_flat_index": 1414497,
+              "point_hit": true,
+              "predicted_voxels": 59189,
+              "prediction_mask_sha256": "e4cd070819f5465fb1008e75e10f596987c58ef658230422bb0172115df6482e",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 56217
+            },
+            {
+              "case_id": "BraTS-GLI-02514-104",
+              "dice": 0.7727519685340639,
+              "intersection_voxels": 50492,
+              "point_flat_index": 1254118,
+              "point_hit": true,
+              "predicted_voxels": 66593,
+              "prediction_mask_sha256": "165c6864b6b87a5025d4a281230f0815023f0fd1331d22b50a9ce8b3fe4258b8",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 64088
+            },
+            {
+              "case_id": "BraTS-GLI-02514-105",
+              "dice": 0.799551157808834,
+              "intersection_voxels": 47028,
+              "point_flat_index": 1398753,
+              "point_hit": true,
+              "predicted_voxels": 56894,
+              "prediction_mask_sha256": "ea324eb9dd34344a8fda20ca39a3ff58b1743cc010b409d18623c613883e6eae",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 60742
+            },
+            {
+              "case_id": "BraTS-GLI-02518-100",
+              "dice": 0.8180835639910373,
+              "intersection_voxels": 15517,
+              "point_flat_index": 712638,
+              "point_hit": true,
+              "predicted_voxels": 19297,
+              "prediction_mask_sha256": "3c05f63ae385bd9f7949bd5636af9a383cafdeeb38253e49b8f39dda21d48517",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 18638
+            },
+            {
+              "case_id": "BraTS-GLI-02518-101",
+              "dice": 0.8843133606252326,
+              "intersection_voxels": 47523,
+              "point_flat_index": 695387,
+              "point_hit": true,
+              "predicted_voxels": 55029,
+              "prediction_mask_sha256": "697a77e5fc174722e2d2c9fd5268d8a4c2223e95830336cc3048709cd0735f9d",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 52451
+            },
+            {
+              "case_id": "BraTS-GLI-02518-102",
+              "dice": 0.883959085584552,
+              "intersection_voxels": 73198,
+              "point_flat_index": 744799,
+              "point_hit": true,
+              "predicted_voxels": 77635,
+              "prediction_mask_sha256": "0eb87e8c0b22d5ca57cb0c6bc87cd498cf2b7a40e053ec196eec84a7ead0cfd1",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 87979
+            },
+            {
+              "case_id": "BraTS-GLI-02518-103",
+              "dice": 0.860859559521166,
+              "intersection_voxels": 106611,
+              "point_flat_index": 436943,
+              "point_hit": true,
+              "predicted_voxels": 122033,
+              "prediction_mask_sha256": "ba4b43db8679cadeccb5b99eb3dc4cf505d047537a2d0d1b4cdaf5ff71a67d76",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 125652
+            },
+            {
+              "case_id": "BraTS-GLI-02776-100",
+              "dice": 0.7685698328822442,
+              "intersection_voxels": 8945,
+              "point_flat_index": 632674,
+              "point_hit": true,
+              "predicted_voxels": 11098,
+              "prediction_mask_sha256": "7639b4371327a8dc80ad81bea085dd0f665bd60305c5576b23da019dc6916ae7",
+              "subject_id": "BraTS-GLI-02776",
+              "target_voxels": 12179
+            },
+            {
+              "case_id": "BraTS-GLI-02776-101",
+              "dice": 0.730588779488535,
+              "intersection_voxels": 11056,
+              "point_flat_index": 452310,
+              "point_hit": true,
+              "predicted_voxels": 16562,
+              "prediction_mask_sha256": "e39130cbeb21969c07d80a3867ba76508511c1af4f4db89836c332d96247d7b3",
+              "subject_id": "BraTS-GLI-02776",
+              "target_voxels": 13704
+            },
+            {
+              "case_id": "BraTS-GLI-02778-100",
+              "dice": 0.6824397071490095,
+              "intersection_voxels": 25354,
+              "point_flat_index": 1383474,
+              "point_hit": true,
+              "predicted_voxels": 30857,
+              "prediction_mask_sha256": "a1a393d620d20eabab127dcd3489608dc0edf0e361d7780c45b037361ecaf632",
+              "subject_id": "BraTS-GLI-02778",
+              "target_voxels": 43447
+            },
+            {
+              "case_id": "BraTS-GLI-02778-101",
+              "dice": 0.8041532862342111,
+              "intersection_voxels": 37562,
+              "point_flat_index": 1513044,
+              "point_hit": true,
+              "predicted_voxels": 47277,
+              "prediction_mask_sha256": "a7cacd021430bc0cc0f0bc354b886df8bda82b7bb76f6de5be65a6d1854113ff",
+              "subject_id": "BraTS-GLI-02778",
+              "target_voxels": 46143
+            },
+            {
+              "case_id": "BraTS-GLI-02937-100",
+              "dice": 0.7416764157207449,
+              "intersection_voxels": 23457,
+              "point_flat_index": 648540,
+              "point_hit": true,
+              "predicted_voxels": 35512,
+              "prediction_mask_sha256": "2370e476908fb9c93271b078bbea2a132ed05ba9b23bc510573d3bb330e6a6ed",
+              "subject_id": "BraTS-GLI-02937",
+              "target_voxels": 27742
+            },
+            {
+              "case_id": "BraTS-GLI-02937-101",
+              "dice": 0.7108032041567439,
+              "intersection_voxels": 24624,
+              "point_flat_index": 615511,
+              "point_hit": false,
+              "predicted_voxels": 41215,
+              "prediction_mask_sha256": "0b470606efbc78eba2f6f186fd61c18fad3ebfbe87f6a016e82f060cbc522d06",
+              "subject_id": "BraTS-GLI-02937",
+              "target_voxels": 28070
+            },
+            {
+              "case_id": "BraTS-GLI-03013-100",
+              "dice": 0.8048876791947227,
+              "intersection_voxels": 76443,
+              "point_flat_index": 1626321,
+              "point_hit": true,
+              "predicted_voxels": 105205,
+              "prediction_mask_sha256": "4ff057757e575c6620967d3bcc56e07c39f0f9c2d73b26b95ab3569b8e060d36",
+              "subject_id": "BraTS-GLI-03013",
+              "target_voxels": 84742
+            },
+            {
+              "case_id": "BraTS-GLI-03013-101",
+              "dice": 0.817450495049505,
+              "intersection_voxels": 80581,
+              "point_flat_index": 1577944,
+              "point_hit": true,
+              "predicted_voxels": 109160,
+              "prediction_mask_sha256": "f541c05f4b95619cf3b7c57e4b82a551bbd3a5a85bc166f48acedc49b7d21604",
+              "subject_id": "BraTS-GLI-03013",
+              "target_voxels": 87992
+            }
+          ]
+        }
+      },
+      "no_n4": {
+        "elapsed_seconds": 6.414008898660541,
+        "forwards": 336,
+        "per_case": {
+          "flip8": [
+            {
+              "case_id": "BraTS-GLI-02137-100",
+              "dice": 0.6413918145333795,
+              "intersection_voxels": 15742,
+              "point_flat_index": 1743548,
+              "point_hit": false,
+              "predicted_voxels": 31140,
+              "prediction_mask_sha256": "3a0fdec202c4e05a60a1c3036d50ea935d36b13e659012d5b92c7cfe412f7e81",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 17947
+            },
+            {
+              "case_id": "BraTS-GLI-02137-101",
+              "dice": 0.674073567619308,
+              "intersection_voxels": 9859,
+              "point_flat_index": 1414617,
+              "point_hit": true,
+              "predicted_voxels": 17100,
+              "prediction_mask_sha256": "dad0f439d4a5e5344783925d97439376a3b537df06543a965083c186488664ab",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 12152
+            },
+            {
+              "case_id": "BraTS-GLI-02137-102",
+              "dice": 0.7784909990676325,
+              "intersection_voxels": 21709,
+              "point_flat_index": 1641659,
+              "point_hit": true,
+              "predicted_voxels": 28144,
+              "prediction_mask_sha256": "5f7e393c30deacf44a9abba209225b5a8e83d40985cec414758dca9095b0ed37",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 27628
+            },
+            {
+              "case_id": "BraTS-GLI-02137-103",
+              "dice": 0.6806852828727677,
+              "intersection_voxels": 14065,
+              "point_flat_index": 1777074,
+              "point_hit": true,
+              "predicted_voxels": 18102,
+              "prediction_mask_sha256": "a9c4c725052607df166078fd5d1c3280a016119d4493c4e852791e6c2fe8440b",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 23224
+            },
+            {
+              "case_id": "BraTS-GLI-02145-100",
+              "dice": 0.8153051999183412,
+              "intersection_voxels": 13978,
+              "point_flat_index": 1348446,
+              "point_hit": true,
+              "predicted_voxels": 19196,
+              "prediction_mask_sha256": "d1729a25e73b606b03bd2df8cb500e16ab7c70dbd1496a558a3761d97e2ca09e",
+              "subject_id": "BraTS-GLI-02145",
+              "target_voxels": 15093
+            },
+            {
+              "case_id": "BraTS-GLI-02145-101",
+              "dice": 0.8553238199780461,
+              "intersection_voxels": 21428,
+              "point_flat_index": 1348444,
+              "point_hit": true,
+              "predicted_voxels": 27025,
+              "prediction_mask_sha256": "b4a8237a8ee9e87fa75ab2ed349c79619bc673e95d4ebc15a293a770dc2bd78e",
+              "subject_id": "BraTS-GLI-02145",
+              "target_voxels": 23080
+            },
+            {
+              "case_id": "BraTS-GLI-02155-100",
+              "dice": 0.8603625245686831,
+              "intersection_voxels": 19698,
+              "point_flat_index": 1256805,
+              "point_hit": true,
+              "predicted_voxels": 21838,
+              "prediction_mask_sha256": "9d5fd16d8eba6242fd864f16a26d7a0c18635fbf4cf2b791c362ec6c2135a70b",
+              "subject_id": "BraTS-GLI-02155",
+              "target_voxels": 23952
+            },
+            {
+              "case_id": "BraTS-GLI-02155-101",
+              "dice": 0.8676262691170801,
+              "intersection_voxels": 27004,
+              "point_flat_index": 1256931,
+              "point_hit": true,
+              "predicted_voxels": 29689,
+              "prediction_mask_sha256": "62b567b1ed7cc2fee5f5471027cc475831ee800481f93371bd188b13637abacb",
+              "subject_id": "BraTS-GLI-02155",
+              "target_voxels": 32559
+            },
+            {
+              "case_id": "BraTS-GLI-02166-100",
+              "dice": 0.77891667403022,
+              "intersection_voxels": 8815,
+              "point_flat_index": 512072,
+              "point_hit": true,
+              "predicted_voxels": 12766,
+              "prediction_mask_sha256": "ea3227fc4e478921c997d23a3e77e81fd1ffebf831671383002c090ad52b2e04",
+              "subject_id": "BraTS-GLI-02166",
+              "target_voxels": 9868
+            },
+            {
+              "case_id": "BraTS-GLI-02166-101",
+              "dice": 0.778948211639364,
+              "intersection_voxels": 9724,
+              "point_flat_index": 511945,
+              "point_hit": true,
+              "predicted_voxels": 13939,
+              "prediction_mask_sha256": "1884267cdf60ba50bc1e24053eda9c6b4579bb0a3b8d9c15eb67c9c2e7d2f354",
+              "subject_id": "BraTS-GLI-02166",
+              "target_voxels": 11028
+            },
+            {
+              "case_id": "BraTS-GLI-02191-100",
+              "dice": 0.7319699183033057,
+              "intersection_voxels": 13529,
+              "point_flat_index": 1808563,
+              "point_hit": true,
+              "predicted_voxels": 20039,
+              "prediction_mask_sha256": "22b893d2db033de9316608088da614072616e355d343f4708eb7e054af4fc685",
+              "subject_id": "BraTS-GLI-02191",
+              "target_voxels": 16927
+            },
+            {
+              "case_id": "BraTS-GLI-02191-101",
+              "dice": 0.7660804527996766,
+              "intersection_voxels": 18949,
+              "point_flat_index": 1825076,
+              "point_hit": true,
+              "predicted_voxels": 24458,
+              "prediction_mask_sha256": "372c3939580d28e18ff6148c59db20430a08f671b63f9e2fd6308a47d35d0c63",
+              "subject_id": "BraTS-GLI-02191",
+              "target_voxels": 25012
+            },
+            {
+              "case_id": "BraTS-GLI-02198-100",
+              "dice": 0.8214664261673206,
+              "intersection_voxels": 22088,
+              "point_flat_index": 1512281,
+              "point_hit": true,
+              "predicted_voxels": 28458,
+              "prediction_mask_sha256": "8a4339e153a9b386df5258709040cf35cec05ee353415aaeefff6108ff7a5832",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 25319
+            },
+            {
+              "case_id": "BraTS-GLI-02198-101",
+              "dice": 0.8504453529402621,
+              "intersection_voxels": 27355,
+              "point_flat_index": 1577687,
+              "point_hit": true,
+              "predicted_voxels": 33583,
+              "prediction_mask_sha256": "e6b87affc5b81c5e339590798c1924fd43ca8922143a47d16c24d228300cd4f8",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 30748
+            },
+            {
+              "case_id": "BraTS-GLI-02198-102",
+              "dice": 0.7981678641981783,
+              "intersection_voxels": 22828,
+              "point_flat_index": 1398107,
+              "point_hit": true,
+              "predicted_voxels": 29356,
+              "prediction_mask_sha256": "bdc7e2d875cc541c61547ffc77fd7bc602a1e4c4fa00694f00d13b3cab90c27c",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 27845
+            },
+            {
+              "case_id": "BraTS-GLI-02198-103",
+              "dice": 0.8187472927315256,
+              "intersection_voxels": 23627,
+              "point_flat_index": 1677272,
+              "point_hit": true,
+              "predicted_voxels": 30885,
+              "prediction_mask_sha256": "09c70080b9eb72f498ff4066d46e1c451e234f23ce155dbfe897a1dd4f340ed2",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 26830
+            },
+            {
+              "case_id": "BraTS-GLI-02198-104",
+              "dice": 0.7868286828682868,
+              "intersection_voxels": 20980,
+              "point_flat_index": 757331,
+              "point_hit": true,
+              "predicted_voxels": 28182,
+              "prediction_mask_sha256": "1c33772cce1669774f7755019d28c867866eea720f3f9cefdd46807922e8dcb6",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 25146
+            },
+            {
+              "case_id": "BraTS-GLI-02260-100",
+              "dice": 0.813501853468453,
+              "intersection_voxels": 32150,
+              "point_flat_index": 1711669,
+              "point_hit": true,
+              "predicted_voxels": 39990,
+              "prediction_mask_sha256": "82381ee63f3da63a809f2cbf1ff63025021329a00a4c8fc77b615848db2a2391",
+              "subject_id": "BraTS-GLI-02260",
+              "target_voxels": 39051
+            },
+            {
+              "case_id": "BraTS-GLI-02292-100",
+              "dice": 0.8502479768988624,
+              "intersection_voxels": 84947,
+              "point_flat_index": 526400,
+              "point_hit": true,
+              "predicted_voxels": 96136,
+              "prediction_mask_sha256": "8306be354a9cef3b372ced607bb5cf9f217b4bc8965541ec2c91f9e4065bfd94",
+              "subject_id": "BraTS-GLI-02292",
+              "target_voxels": 103681
+            },
+            {
+              "case_id": "BraTS-GLI-02307-100",
+              "dice": 0.7865818159918093,
+              "intersection_voxels": 19591,
+              "point_flat_index": 1724987,
+              "point_hit": true,
+              "predicted_voxels": 26837,
+              "prediction_mask_sha256": "5e21a096972418c01c8f6b714f22d9ed601c9181617a7e7ea8f78bb23e44e788",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 22976
+            },
+            {
+              "case_id": "BraTS-GLI-02307-101",
+              "dice": 0.5474092939751993,
+              "intersection_voxels": 13111,
+              "point_flat_index": 1760689,
+              "point_hit": true,
+              "predicted_voxels": 29607,
+              "prediction_mask_sha256": "35c38bef6b82527f804f44d04139a61cd6ebf41f845a4fb137ced233d6484fe6",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 18295
+            },
+            {
+              "case_id": "BraTS-GLI-02307-102",
+              "dice": 0.6414447628785805,
+              "intersection_voxels": 22270,
+              "point_flat_index": 1199813,
+              "point_hit": true,
+              "predicted_voxels": 34596,
+              "prediction_mask_sha256": "30d94a4f8e3dd7d467f3f2e480ba6111bf7af089b193aa7e9feb346820f98a14",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 34841
+            },
+            {
+              "case_id": "BraTS-GLI-02355-100",
+              "dice": 0.8961611271452068,
+              "intersection_voxels": 86631,
+              "point_flat_index": 1350870,
+              "point_hit": true,
+              "predicted_voxels": 99946,
+              "prediction_mask_sha256": "79c1eba5401d27586e374842f3ff737c14d5f844c0ebb8179e34d9f47396c457",
+              "subject_id": "BraTS-GLI-02355",
+              "target_voxels": 93392
+            },
+            {
+              "case_id": "BraTS-GLI-02360-100",
+              "dice": 0.6210295606510686,
+              "intersection_voxels": 27910,
+              "point_flat_index": 1630037,
+              "point_hit": true,
+              "predicted_voxels": 48979,
+              "prediction_mask_sha256": "85f58e8d884e87a4e1ea89d9345c5c92db5eb4ebd8caad735721cc8676e15338",
+              "subject_id": "BraTS-GLI-02360",
+              "target_voxels": 40904
+            },
+            {
+              "case_id": "BraTS-GLI-02514-100",
+              "dice": 0.7010592389172224,
+              "intersection_voxels": 28592,
+              "point_flat_index": 1091645,
+              "point_hit": true,
+              "predicted_voxels": 39059,
+              "prediction_mask_sha256": "0615473ac714e892872db9b933946d075acb75ee5c4f13d3ac42b8f49ff391cf",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 42509
+            },
+            {
+              "case_id": "BraTS-GLI-02514-101",
+              "dice": 0.7750287003681564,
+              "intersection_voxels": 39156,
+              "point_flat_index": 1435334,
+              "point_hit": true,
+              "predicted_voxels": 50293,
+              "prediction_mask_sha256": "7dacf5b29025df6dc2e51d2b0c0c915e194730da2b7f412f9a2b7ededb2271ab",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 50751
+            },
+            {
+              "case_id": "BraTS-GLI-02514-102",
+              "dice": 0.7906400937866354,
+              "intersection_voxels": 42151,
+              "point_flat_index": 1561945,
+              "point_hit": true,
+              "predicted_voxels": 55463,
+              "prediction_mask_sha256": "fd3c997d75064fa2399def6bf19408bf2787f1ca3f8e582627f8b9f8fb6e5724",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 51162
+            },
+            {
+              "case_id": "BraTS-GLI-02514-103",
+              "dice": 0.821786009533358,
+              "intersection_voxels": 46721,
+              "point_flat_index": 1496542,
+              "point_hit": true,
+              "predicted_voxels": 57489,
+              "prediction_mask_sha256": "bc54d36ec5a177e99cb68d043ab0a83dd4a435e5c6985de1ee1a45adca4ffcdf",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 56217
+            },
+            {
+              "case_id": "BraTS-GLI-02514-104",
+              "dice": 0.8156012936047602,
+              "intersection_voxels": 54348,
+              "point_flat_index": 1270116,
+              "point_hit": true,
+              "predicted_voxels": 69183,
+              "prediction_mask_sha256": "5529933ccac5e69753429677c1b662c9c457f719e28e041ba6a8fc40200629cd",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 64088
+            },
+            {
+              "case_id": "BraTS-GLI-02514-105",
+              "dice": 0.809677750410509,
+              "intersection_voxels": 47337,
+              "point_flat_index": 1290973,
+              "point_hit": true,
+              "predicted_voxels": 56186,
+              "prediction_mask_sha256": "997b7459cfbc02e27d11d0f34cd26de15147366598be84d0cfb09500edca788c",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 60742
+            },
+            {
+              "case_id": "BraTS-GLI-02518-100",
+              "dice": 0.895552508343898,
+              "intersection_voxels": 17307,
+              "point_flat_index": 810425,
+              "point_hit": true,
+              "predicted_voxels": 20013,
+              "prediction_mask_sha256": "930cfd7e70991d607e6508d32229d669e68a9859ecc5bc78562d5592f8c8440b",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 18638
+            },
+            {
+              "case_id": "BraTS-GLI-02518-101",
+              "dice": 0.9073178064431271,
+              "intersection_voxels": 48287,
+              "point_flat_index": 810551,
+              "point_hit": true,
+              "predicted_voxels": 53988,
+              "prediction_mask_sha256": "7ca686d6f5614a4d799259428bcb1970708627f89195fc2312d973cdb7a9bfba",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 52451
+            },
+            {
+              "case_id": "BraTS-GLI-02518-102",
+              "dice": 0.8888325577745991,
+              "intersection_voxels": 73634,
+              "point_flat_index": 826938,
+              "point_hit": true,
+              "predicted_voxels": 77708,
+              "prediction_mask_sha256": "c4b57041be171afd2d299f2fe6728b76aaec46b004d20f52576a18bc57c0d7f4",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 87979
+            },
+            {
+              "case_id": "BraTS-GLI-02518-103",
+              "dice": 0.8806574569087545,
+              "intersection_voxels": 107320,
+              "point_flat_index": 678601,
+              "point_hit": true,
+              "predicted_voxels": 118075,
+              "prediction_mask_sha256": "a887aba0d36cdb1f45c7b7fff5738f454b0cf8628776458d6fd859e74b71f63a",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 125652
+            },
+            {
+              "case_id": "BraTS-GLI-02776-100",
+              "dice": 0.7816748939118385,
+              "intersection_voxels": 9026,
+              "point_flat_index": 615516,
+              "point_hit": true,
+              "predicted_voxels": 10915,
+              "prediction_mask_sha256": "b95f3236b0a521c67d41ff807bed21495dca1b6f376e06791ba16a9a34274241",
+              "subject_id": "BraTS-GLI-02776",
+              "target_voxels": 12179
+            },
+            {
+              "case_id": "BraTS-GLI-02776-101",
+              "dice": 0.799502487562189,
+              "intersection_voxels": 11249,
+              "point_flat_index": 582618,
+              "point_hit": true,
+              "predicted_voxels": 14436,
+              "prediction_mask_sha256": "d6df542201377e8d9e9db466f66c6e32d63976d00191996ea9cb891336ecd303",
+              "subject_id": "BraTS-GLI-02776",
+              "target_voxels": 13704
+            },
+            {
+              "case_id": "BraTS-GLI-02778-100",
+              "dice": 0.7048347734318317,
+              "intersection_voxels": 26715,
+              "point_flat_index": 1399987,
+              "point_hit": true,
+              "predicted_voxels": 32358,
+              "prediction_mask_sha256": "96aabf2d70921f8298ba646215e701bc606452bc9195c9cb2fe34391231c75b0",
+              "subject_id": "BraTS-GLI-02778",
+              "target_voxels": 43447
+            },
+            {
+              "case_id": "BraTS-GLI-02778-101",
+              "dice": 0.8215113189499416,
+              "intersection_voxels": 38648,
+              "point_flat_index": 1498822,
+              "point_hit": true,
+              "predicted_voxels": 47947,
+              "prediction_mask_sha256": "8cc8c0b0514fed8d05c36e50d347a948ae42cc9fbc27195a61df9db56a02a1c2",
+              "subject_id": "BraTS-GLI-02778",
+              "target_voxels": 46143
+            },
+            {
+              "case_id": "BraTS-GLI-02937-100",
+              "dice": 0.7264128709915628,
+              "intersection_voxels": 23117,
+              "point_flat_index": 728797,
+              "point_hit": true,
+              "predicted_voxels": 35905,
+              "prediction_mask_sha256": "75bd3fe244e28611ec4b96e2ec8b95344cc7d116def779f424752900f4ee8a48",
+              "subject_id": "BraTS-GLI-02937",
+              "target_voxels": 27742
+            },
+            {
+              "case_id": "BraTS-GLI-02937-101",
+              "dice": 0.7013166199415815,
+              "intersection_voxels": 23890,
+              "point_flat_index": 777314,
+              "point_hit": true,
+              "predicted_voxels": 40059,
+              "prediction_mask_sha256": "eadcf38b5f8f3e5f16d43831f372ce43932949cfcc0639dafe439cef9a696e82",
+              "subject_id": "BraTS-GLI-02937",
+              "target_voxels": 28070
+            },
+            {
+              "case_id": "BraTS-GLI-03013-100",
+              "dice": 0.8216408969343199,
+              "intersection_voxels": 72350,
+              "point_flat_index": 1626449,
+              "point_hit": true,
+              "predicted_voxels": 91369,
+              "prediction_mask_sha256": "454ac7e6b9eb2d8ec5d7f482fd89dba565099ee5eac7c990355bc4bbff6d705c",
+              "subject_id": "BraTS-GLI-03013",
+              "target_voxels": 84742
+            },
+            {
+              "case_id": "BraTS-GLI-03013-101",
+              "dice": 0.8355099603756174,
+              "intersection_voxels": 76963,
+              "point_flat_index": 1402592,
+              "point_hit": true,
+              "predicted_voxels": 96238,
+              "prediction_mask_sha256": "ea49a7ece433751ea088b314c1cc7be02fd3bd997fa872f3c6bce34c4e041c25",
+              "subject_id": "BraTS-GLI-03013",
+              "target_voxels": 87992
+            }
+          ],
+          "identity": [
+            {
+              "case_id": "BraTS-GLI-02137-100",
+              "dice": 0.6325290330344786,
+              "intersection_voxels": 15768,
+              "point_flat_index": 1642690,
+              "point_hit": true,
+              "predicted_voxels": 31910,
+              "prediction_mask_sha256": "3dec64f7a38f3e992b7482b43de305cef9322949cab4e36b37059472de735e7a",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 17947
+            },
+            {
+              "case_id": "BraTS-GLI-02137-101",
+              "dice": 0.6564027533003026,
+              "intersection_voxels": 9870,
+              "point_flat_index": 1398360,
+              "point_hit": true,
+              "predicted_voxels": 17921,
+              "prediction_mask_sha256": "9015b486d46d4b16f0299c39406de98a19523c4153bb45a19945949ad24c1eee",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 12152
+            },
+            {
+              "case_id": "BraTS-GLI-02137-102",
+              "dice": 0.7741246872320694,
+              "intersection_voxels": 22121,
+              "point_flat_index": 1368158,
+              "point_hit": true,
+              "predicted_voxels": 29523,
+              "prediction_mask_sha256": "f4b10ab5b63b19c22fe209308268c0f705cd0158f8ad2cfd316cf95668383607",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 27628
+            },
+            {
+              "case_id": "BraTS-GLI-02137-103",
+              "dice": 0.6700367431954879,
+              "intersection_voxels": 14315,
+              "point_flat_index": 1777075,
+              "point_hit": true,
+              "predicted_voxels": 19505,
+              "prediction_mask_sha256": "2abe4e7a6cdcff99bf1f1fe215f21ffacfc66c340fcb6e2662f28ad004f583bd",
+              "subject_id": "BraTS-GLI-02137",
+              "target_voxels": 23224
+            },
+            {
+              "case_id": "BraTS-GLI-02145-100",
+              "dice": 0.8085057138724143,
+              "intersection_voxels": 13973,
+              "point_flat_index": 1266525,
+              "point_hit": true,
+              "predicted_voxels": 19472,
+              "prediction_mask_sha256": "daa336c1e3b9a579b9fcb21da2dfacb7cd93bad3728de4d5ef8a1b29a584bc46",
+              "subject_id": "BraTS-GLI-02145",
+              "target_voxels": 15093
+            },
+            {
+              "case_id": "BraTS-GLI-02145-101",
+              "dice": 0.8471409141978594,
+              "intersection_voxels": 21489,
+              "point_flat_index": 1348445,
+              "point_hit": true,
+              "predicted_voxels": 27653,
+              "prediction_mask_sha256": "469bb62683f35c6437158582a0ebf55c1ba1d90cb916788dd3832f1add7735d4",
+              "subject_id": "BraTS-GLI-02145",
+              "target_voxels": 23080
+            },
+            {
+              "case_id": "BraTS-GLI-02155-100",
+              "dice": 0.8526227034703115,
+              "intersection_voxels": 19213,
+              "point_flat_index": 1240546,
+              "point_hit": true,
+              "predicted_voxels": 21116,
+              "prediction_mask_sha256": "855dd6ede6229b68f7fe2e49540b6ca4d2a7f8fc8c0a0cbdaf277b67745f7d42",
+              "subject_id": "BraTS-GLI-02155",
+              "target_voxels": 23952
+            },
+            {
+              "case_id": "BraTS-GLI-02155-101",
+              "dice": 0.866489661276048,
+              "intersection_voxels": 26924,
+              "point_flat_index": 1240548,
+              "point_hit": true,
+              "predicted_voxels": 29586,
+              "prediction_mask_sha256": "ac227f2c292e617845a9903415e876b49dc842b15c7b52ae25ade47b4ce1eed2",
+              "subject_id": "BraTS-GLI-02155",
+              "target_voxels": 32559
+            },
+            {
+              "case_id": "BraTS-GLI-02166-100",
+              "dice": 0.7648852375709325,
+              "intersection_voxels": 9031,
+              "point_flat_index": 495816,
+              "point_hit": true,
+              "predicted_voxels": 13746,
+              "prediction_mask_sha256": "414ec17acea564b2cde8c42b07e5d8f85da7cdae6fddc84f2af6e832aac70c8b",
+              "subject_id": "BraTS-GLI-02166",
+              "target_voxels": 9868
+            },
+            {
+              "case_id": "BraTS-GLI-02166-101",
+              "dice": 0.7439281942977825,
+              "intersection_voxels": 9863,
+              "point_flat_index": 511944,
+              "point_hit": true,
+              "predicted_voxels": 15488,
+              "prediction_mask_sha256": "e204308e62b594a0df6e488d4bd1c8dbc4cfded290c57fc1efb3e8fb461a1f86",
+              "subject_id": "BraTS-GLI-02166",
+              "target_voxels": 11028
+            },
+            {
+              "case_id": "BraTS-GLI-02191-100",
+              "dice": 0.706885415321018,
+              "intersection_voxels": 13680,
+              "point_flat_index": 1792307,
+              "point_hit": true,
+              "predicted_voxels": 21778,
+              "prediction_mask_sha256": "d901ee1e69b6a6fc2a3f2b7507151c95cffd01362dd847989fc786043f1205de",
+              "subject_id": "BraTS-GLI-02191",
+              "target_voxels": 16927
+            },
+            {
+              "case_id": "BraTS-GLI-02191-101",
+              "dice": 0.7317249698431846,
+              "intersection_voxels": 18198,
+              "point_flat_index": 1808692,
+              "point_hit": true,
+              "predicted_voxels": 24728,
+              "prediction_mask_sha256": "765dddd7290bd4765dbc63f2aaba4a68dc9bda7eba589b979b35c6dc66817729",
+              "subject_id": "BraTS-GLI-02191",
+              "target_voxels": 25012
+            },
+            {
+              "case_id": "BraTS-GLI-02198-100",
+              "dice": 0.8202940307328606,
+              "intersection_voxels": 22207,
+              "point_flat_index": 1414235,
+              "point_hit": true,
+              "predicted_voxels": 28825,
+              "prediction_mask_sha256": "cd9910315b9ce0ce89a61f09078a1186e21bbda7e6b4130d74ccfaeacf097cb3",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 25319
+            },
+            {
+              "case_id": "BraTS-GLI-02198-101",
+              "dice": 0.8486877799996899,
+              "intersection_voxels": 27374,
+              "point_flat_index": 1430618,
+              "point_hit": true,
+              "predicted_voxels": 33761,
+              "prediction_mask_sha256": "2d292dcbd8638b8457b53141ce6286570b19d8c2f1e12c524726ced9a98b1716",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 30748
+            },
+            {
+              "case_id": "BraTS-GLI-02198-102",
+              "dice": 0.7996030018631053,
+              "intersection_voxels": 22961,
+              "point_flat_index": 1398108,
+              "point_hit": true,
+              "predicted_voxels": 29586,
+              "prediction_mask_sha256": "5a4443affa37968289e52673ed28050d3e7bd675b883a1322004ed5692c908d7",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 27845
+            },
+            {
+              "case_id": "BraTS-GLI-02198-103",
+              "dice": 0.8180015308607612,
+              "intersection_voxels": 23511,
+              "point_flat_index": 691538,
+              "point_hit": true,
+              "predicted_voxels": 30654,
+              "prediction_mask_sha256": "3609682ae26e6b21180d757cd865b7a9bf127dcfff8861b98361cf9ebf9c55de",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 26830
+            },
+            {
+              "case_id": "BraTS-GLI-02198-104",
+              "dice": 0.7837928340216542,
+              "intersection_voxels": 21066,
+              "point_flat_index": 724175,
+              "point_hit": true,
+              "predicted_voxels": 28608,
+              "prediction_mask_sha256": "229ef5e7cb81548f2cf46d6c6bb8de2b7174ed804bb44baadf72ebf4777c5a33",
+              "subject_id": "BraTS-GLI-02198",
+              "target_voxels": 25146
+            },
+            {
+              "case_id": "BraTS-GLI-02260-100",
+              "dice": 0.7953053355564819,
+              "intersection_voxels": 30527,
+              "point_flat_index": 1663289,
+              "point_hit": true,
+              "predicted_voxels": 37717,
+              "prediction_mask_sha256": "ebe013a1dd3ee089f1ac915464110250407210492a1cd1d26b41499df0d8a4b4",
+              "subject_id": "BraTS-GLI-02260",
+              "target_voxels": 39051
+            },
+            {
+              "case_id": "BraTS-GLI-02292-100",
+              "dice": 0.8481047340550073,
+              "intersection_voxels": 85123,
+              "point_flat_index": 608304,
+              "point_hit": true,
+              "predicted_voxels": 97056,
+              "prediction_mask_sha256": "22c6e2900caa334b98c9f87d95fd79b309d6d893ea20dc86d6b4fb58f4b3c59d",
+              "subject_id": "BraTS-GLI-02292",
+              "target_voxels": 103681
+            },
+            {
+              "case_id": "BraTS-GLI-02307-100",
+              "dice": 0.7717752157904267,
+              "intersection_voxels": 19179,
+              "point_flat_index": 1445950,
+              "point_hit": true,
+              "predicted_voxels": 26725,
+              "prediction_mask_sha256": "7f2481d194719c33ec2aa2906a85b9387e956a4b1aa71129a5c0094aa15bf70e",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 22976
+            },
+            {
+              "case_id": "BraTS-GLI-02307-101",
+              "dice": 0.5480662983425414,
+              "intersection_voxels": 12896,
+              "point_flat_index": 1744177,
+              "point_hit": true,
+              "predicted_voxels": 28765,
+              "prediction_mask_sha256": "3beed9819be45d4ce11061e616240e5f74657cef1d64d375d3aa9d997ec19fad",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 18295
+            },
+            {
+              "case_id": "BraTS-GLI-02307-102",
+              "dice": 0.62760610966425,
+              "intersection_voxels": 22291,
+              "point_flat_index": 1264842,
+              "point_hit": true,
+              "predicted_voxels": 36194,
+              "prediction_mask_sha256": "2c0341c100a25f61bf7e346b2708a5c05573977c6c9603c7f7081e2a461d0284",
+              "subject_id": "BraTS-GLI-02307",
+              "target_voxels": 34841
+            },
+            {
+              "case_id": "BraTS-GLI-02355-100",
+              "dice": 0.8975543048418947,
+              "intersection_voxels": 87950,
+              "point_flat_index": 1515080,
+              "point_hit": true,
+              "predicted_voxels": 102585,
+              "prediction_mask_sha256": "4a7ed9d92b1bc76e8e4694bc58318b3dd9a4b8ea8a4b849a655c48618bd5ba4b",
+              "subject_id": "BraTS-GLI-02355",
+              "target_voxels": 93392
+            },
+            {
+              "case_id": "BraTS-GLI-02360-100",
+              "dice": 0.6325869408967767,
+              "intersection_voxels": 28604,
+              "point_flat_index": 1531220,
+              "point_hit": true,
+              "predicted_voxels": 49531,
+              "prediction_mask_sha256": "d1b8f7f19af2b115686f208576eed3961362fcbb2a404bbba7fb67897aa58bad",
+              "subject_id": "BraTS-GLI-02360",
+              "target_voxels": 40904
+            },
+            {
+              "case_id": "BraTS-GLI-02514-100",
+              "dice": 0.7080696494181545,
+              "intersection_voxels": 28811,
+              "point_flat_index": 1320014,
+              "point_hit": true,
+              "predicted_voxels": 38870,
+              "prediction_mask_sha256": "b28b45823104e145930fbacfc9174a00fe4c32c9cf84a6340903f666ef644f5f",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 42509
+            },
+            {
+              "case_id": "BraTS-GLI-02514-101",
+              "dice": 0.7769906265416873,
+              "intersection_voxels": 39374,
+              "point_flat_index": 1435461,
+              "point_hit": true,
+              "predicted_voxels": 50599,
+              "prediction_mask_sha256": "61cce0f4e37a260423b10d7fcb23ce88c26e7b7bdbe2a2fc68778d3e298a0dfa",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 50751
+            },
+            {
+              "case_id": "BraTS-GLI-02514-102",
+              "dice": 0.7961829647128853,
+              "intersection_voxels": 42802,
+              "point_flat_index": 1528405,
+              "point_hit": true,
+              "predicted_voxels": 56356,
+              "prediction_mask_sha256": "70b3ec70c630a4433468515557633347cce4741aceb607ea79a8d59c39f4364d",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 51162
+            },
+            {
+              "case_id": "BraTS-GLI-02514-103",
+              "dice": 0.8265965413350517,
+              "intersection_voxels": 47464,
+              "point_flat_index": 1480030,
+              "point_hit": true,
+              "predicted_voxels": 58625,
+              "prediction_mask_sha256": "fa50ebca8e47c9d5c8517cd6e58e57f636041257552cce0109392c696e4d7efa",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 56217
+            },
+            {
+              "case_id": "BraTS-GLI-02514-104",
+              "dice": 0.8203023564702195,
+              "intersection_voxels": 54966,
+              "point_flat_index": 1269987,
+              "point_hit": true,
+              "predicted_voxels": 69926,
+              "prediction_mask_sha256": "a9de25c5b8a861c68100158d136872d5008a213427c68c6e6add2c3760c48d2f",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 64088
+            },
+            {
+              "case_id": "BraTS-GLI-02514-105",
+              "dice": 0.8118147161026956,
+              "intersection_voxels": 48126,
+              "point_flat_index": 1258334,
+              "point_hit": true,
+              "predicted_voxels": 57822,
+              "prediction_mask_sha256": "e8dcd54dee138a865277a423522a53425fa160036aa19aab2f0f4a73f53421ec",
+              "subject_id": "BraTS-GLI-02514",
+              "target_voxels": 60742
+            },
+            {
+              "case_id": "BraTS-GLI-02518-100",
+              "dice": 0.8842024930043246,
+              "intersection_voxels": 17379,
+              "point_flat_index": 810681,
+              "point_hit": true,
+              "predicted_voxels": 20672,
+              "prediction_mask_sha256": "d9d009dfb5058bc2d3ab6ebd4d36b8e0cc77bbac775f511f52cd70b6e8a0f7b9",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 18638
+            },
+            {
+              "case_id": "BraTS-GLI-02518-101",
+              "dice": 0.9048114897888347,
+              "intersection_voxels": 48226,
+              "point_flat_index": 810807,
+              "point_hit": true,
+              "predicted_voxels": 54148,
+              "prediction_mask_sha256": "7fbb2d03d2c9cef40feae3865c59741dc06642f8295705f3025138393961c4fa",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 52451
+            },
+            {
+              "case_id": "BraTS-GLI-02518-102",
+              "dice": 0.8893998675735869,
+              "intersection_voxels": 73878,
+              "point_flat_index": 827195,
+              "point_hit": true,
+              "predicted_voxels": 78151,
+              "prediction_mask_sha256": "5620c3478fcea5e1045c82c0c6fddb0f91123a1bc6cf1ae2ce42906b73578ff2",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 87979
+            },
+            {
+              "case_id": "BraTS-GLI-02518-103",
+              "dice": 0.8820049609974215,
+              "intersection_voxels": 108095,
+              "point_flat_index": 826936,
+              "point_hit": true,
+              "predicted_voxels": 119460,
+              "prediction_mask_sha256": "0460bfd089c712133357ebd798c237f327d1b71664b13c01aefeb6c06fec7e4d",
+              "subject_id": "BraTS-GLI-02518",
+              "target_voxels": 125652
+            },
+            {
+              "case_id": "BraTS-GLI-02776-100",
+              "dice": 0.7734331311567084,
+              "intersection_voxels": 8990,
+              "point_flat_index": 599132,
+              "point_hit": true,
+              "predicted_voxels": 11068,
+              "prediction_mask_sha256": "649eddc400939a7fefb1e06a32192ad1178b616f84f28f5e07b739c04e47bd18",
+              "subject_id": "BraTS-GLI-02776",
+              "target_voxels": 12179
+            },
+            {
+              "case_id": "BraTS-GLI-02776-101",
+              "dice": 0.7889157132360659,
+              "intersection_voxels": 11274,
+              "point_flat_index": 582619,
+              "point_hit": true,
+              "predicted_voxels": 14877,
+              "prediction_mask_sha256": "05ed6ae9c0cb95a07196283dc1f2557e4b5b4c7b69ac135a7292d5abfc365975",
+              "subject_id": "BraTS-GLI-02776",
+              "target_voxels": 13704
+            },
+            {
+              "case_id": "BraTS-GLI-02778-100",
+              "dice": 0.7066924219129841,
+              "intersection_voxels": 26890,
+              "point_flat_index": 1316693,
+              "point_hit": true,
+              "predicted_voxels": 32654,
+              "prediction_mask_sha256": "b8ae1621c023544f81d980615f0806f3ce7fe459eb84c0a85132e51c2e46cc6d",
+              "subject_id": "BraTS-GLI-02778",
+              "target_voxels": 43447
+            },
+            {
+              "case_id": "BraTS-GLI-02778-101",
+              "dice": 0.8193303460293752,
+              "intersection_voxels": 39495,
+              "point_flat_index": 1482053,
+              "point_hit": true,
+              "predicted_voxels": 50265,
+              "prediction_mask_sha256": "04aba36cb3562a4710362b0feef364621c2dfa4fa79244ae22d4e75c0faec406",
+              "subject_id": "BraTS-GLI-02778",
+              "target_voxels": 46143
+            },
+            {
+              "case_id": "BraTS-GLI-02937-100",
+              "dice": 0.727063040598457,
+              "intersection_voxels": 23326,
+              "point_flat_index": 813290,
+              "point_hit": false,
+              "predicted_voxels": 36423,
+              "prediction_mask_sha256": "b18182344ba2640fb28d924bb5c911ab25128ed6cde5b9d9e44fc6d59159412c",
+              "subject_id": "BraTS-GLI-02937",
+              "target_voxels": 27742
+            },
+            {
+              "case_id": "BraTS-GLI-02937-101",
+              "dice": 0.6944468584339967,
+              "intersection_voxels": 23973,
+              "point_flat_index": 797032,
+              "point_hit": false,
+              "predicted_voxels": 40972,
+              "prediction_mask_sha256": "07a42da4cd2d169264e612fcc0a9583558eccd0f29fb5f3c9a162637860a8b7c",
+              "subject_id": "BraTS-GLI-02937",
+              "target_voxels": 28070
+            },
+            {
+              "case_id": "BraTS-GLI-03013-100",
+              "dice": 0.8227377267951957,
+              "intersection_voxels": 72440,
+              "point_flat_index": 1626449,
+              "point_hit": true,
+              "predicted_voxels": 91353,
+              "prediction_mask_sha256": "620c5bc53c375fdb7ee340a32631eb40ed5f3897f2167c4bd67d7e9e8d46120e",
+              "subject_id": "BraTS-GLI-03013",
+              "target_voxels": 84742
+            },
+            {
+              "case_id": "BraTS-GLI-03013-101",
+              "dice": 0.8322174126276735,
+              "intersection_voxels": 78057,
+              "point_flat_index": 1368675,
+              "point_hit": true,
+              "predicted_voxels": 99596,
+              "prediction_mask_sha256": "9f2100684e692f6ec04b247ab5d5e3520bf8d4025645e2e2272478294982d791",
+              "subject_id": "BraTS-GLI-03013",
+              "target_voxels": 87992
+            }
+          ]
+        }
+      }
+    },
+    "f": {
+      "canonical": {
+        "elapsed_seconds": 6.394115433096886,
+        "forwards": 336,
+        "per_case": {
+          "flip8": [
+            {
+              "case_id": "BraTS-GLI-00009-100",
+              "dice": 0.7541260278273839,
+              "intersection_voxels": 38428,
+              "point_flat_index": 931398,
+              "point_hit": true,
+              "predicted_voxels": 48975,
+              "prediction_mask_sha256": "0e200581f642558a584971d1021728e99d8e84fc9e826872c6af610a33e1f991",
+              "subject_id": "BraTS-GLI-00009",
+              "target_voxels": 52939
+            },
+            {
+              "case_id": "BraTS-GLI-00009-101",
+              "dice": 0.7740449281860207,
+              "intersection_voxels": 50066,
+              "point_flat_index": 866235,
+              "point_hit": true,
+              "predicted_voxels": 63306,
+              "prediction_mask_sha256": "42e7d744b7d90664d4deaca088f0e79d3d8ff7101335085ceade4c157bd4b056",
+              "subject_id": "BraTS-GLI-00009",
+              "target_voxels": 66056
+            },
+            {
+              "case_id": "BraTS-GLI-00080-100",
+              "dice": 0.8114889140316401,
+              "intersection_voxels": 20441,
+              "point_flat_index": 745192,
+              "point_hit": true,
+              "predicted_voxels": 25679,
+              "prediction_mask_sha256": "7a85ee5d9506c2082ebebe139c0e97d53c82bee6f3b640c8160debe4505de875",
+              "subject_id": "BraTS-GLI-00080",
+              "target_voxels": 24700
+            },
+            {
+              "case_id": "BraTS-GLI-00080-101",
+              "dice": 0.9100045937330346,
+              "intersection_voxels": 65372,
+              "point_flat_index": 598745,
+              "point_hit": true,
+              "predicted_voxels": 74074,
+              "prediction_mask_sha256": "644a3902aec4210768279d507dddb8179363551b3bcb0aad9b5bca6302b6900b",
+              "subject_id": "BraTS-GLI-00080",
+              "target_voxels": 69600
+            },
+            {
+              "case_id": "BraTS-GLI-00463-100",
+              "dice": 0.8481107165619594,
+              "intersection_voxels": 23287,
+              "point_flat_index": 334902,
+              "point_hit": true,
+              "predicted_voxels": 29232,
+              "prediction_mask_sha256": "9e544a847a690bbfcbb260dafece1ab875a68bc73a3d84f890a30d2fa10d079d",
+              "subject_id": "BraTS-GLI-00463",
+              "target_voxels": 25683
+            },
+            {
+              "case_id": "BraTS-GLI-00463-101",
+              "dice": 0.7987861308998558,
+              "intersection_voxels": 18557,
+              "point_flat_index": 318518,
+              "point_hit": true,
+              "predicted_voxels": 26179,
+              "prediction_mask_sha256": "ce287e31eb453e925a7290b725b9eb28da305cabbf160b1f132e80aa3499f323",
+              "subject_id": "BraTS-GLI-00463",
+              "target_voxels": 20284
+            },
+            {
+              "case_id": "BraTS-GLI-02093-100",
+              "dice": 0.8499169814952956,
+              "intersection_voxels": 17660,
+              "point_flat_index": 896352,
+              "point_hit": true,
+              "predicted_voxels": 19331,
+              "prediction_mask_sha256": "daaebc8678674ab76985f20a35d1d641fe7ebd19c7e89706db660876d29392ae",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 22226
+            },
+            {
+              "case_id": "BraTS-GLI-02093-101",
+              "dice": 0.832171480058804,
+              "intersection_voxels": 17548,
+              "point_flat_index": 912481,
+              "point_hit": true,
+              "predicted_voxels": 20868,
+              "prediction_mask_sha256": "7edf6809947ff2d66f5cc14a4d3356fe33d0d1d1e59d3cd73bc9f9402efaa203",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21306
+            },
+            {
+              "case_id": "BraTS-GLI-02093-102",
+              "dice": 0.8529988239905919,
+              "intersection_voxels": 18496,
+              "point_flat_index": 896351,
+              "point_hit": true,
+              "predicted_voxels": 20081,
+              "prediction_mask_sha256": "932ccd46507d7f9a22084192e68b1ff397590d748ea11fa693620e83a29c346e",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 23286
+            },
+            {
+              "case_id": "BraTS-GLI-02093-103",
+              "dice": 0.8332770677598264,
+              "intersection_voxels": 17278,
+              "point_flat_index": 765794,
+              "point_hit": true,
+              "predicted_voxels": 20199,
+              "prediction_mask_sha256": "3aa870ff98185bccb5cffe410080639c940a2e74372983311ef69766eb831daa",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21271
+            },
+            {
+              "case_id": "BraTS-GLI-02093-104",
+              "dice": 0.8746740664545607,
+              "intersection_voxels": 18282,
+              "point_flat_index": 896225,
+              "point_hit": true,
+              "predicted_voxels": 20054,
+              "prediction_mask_sha256": "251e445795ae82d0e06fcf93bbbc37fb172fd0ec2e178e16c355793890e1d2da",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21749
+            },
+            {
+              "case_id": "BraTS-GLI-02093-105",
+              "dice": 0.8706071420130929,
+              "intersection_voxels": 18419,
+              "point_flat_index": 896352,
+              "point_hit": true,
+              "predicted_voxels": 20464,
+              "prediction_mask_sha256": "409b05045e1107a26f074221f1d6b333c2b56b813814e7bd9fdacad5784b0756",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21849
+            },
+            {
+              "case_id": "BraTS-GLI-02093-106",
+              "dice": 0.8701831228740506,
+              "intersection_voxels": 18675,
+              "point_flat_index": 912864,
+              "point_hit": true,
+              "predicted_voxels": 20274,
+              "prediction_mask_sha256": "14aac71b41551d79159e1f93310d278ec2a02c0e395f3ce66fc23abe1a4962b3",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 22648
+            },
+            {
+              "case_id": "BraTS-GLI-02093-107",
+              "dice": 0.8171995043370508,
+              "intersection_voxels": 16487,
+              "point_flat_index": 782046,
+              "point_hit": true,
+              "predicted_voxels": 19951,
+              "prediction_mask_sha256": "ecff24addbd3cb88432d0fec3677faa1c614f50826454c00a356c5b323b9410a",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 20399
+            },
+            {
+              "case_id": "BraTS-GLI-02093-108",
+              "dice": 0.829497059419996,
+              "intersection_voxels": 16361,
+              "point_flat_index": 782048,
+              "point_hit": true,
+              "predicted_voxels": 20251,
+              "prediction_mask_sha256": "0e84511feab6a66db6e8bc2dc703088e7ad8d4f7eafecc6fa930400bcb98d4fb",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 19197
+            },
+            {
+              "case_id": "BraTS-GLI-02093-109",
+              "dice": 0.8285123966942148,
+              "intersection_voxels": 16040,
+              "point_flat_index": 765532,
+              "point_hit": true,
+              "predicted_voxels": 19217,
+              "prediction_mask_sha256": "121efbed04d0ef19e1724c9fbaaf5b6625548314d29085c29894e37deebfb11c",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 19503
+            },
+            {
+              "case_id": "BraTS-GLI-02167-100",
+              "dice": 0.6515194872088365,
+              "intersection_voxels": 5692,
+              "point_flat_index": 1763650,
+              "point_hit": true,
+              "predicted_voxels": 7908,
+              "prediction_mask_sha256": "c9f51850d9f193b53d8413a33d908fb8fec245a424c61e243c43330293002b93",
+              "subject_id": "BraTS-GLI-02167",
+              "target_voxels": 9565
+            },
+            {
+              "case_id": "BraTS-GLI-02167-101",
+              "dice": 0.7347270726689948,
+              "intersection_voxels": 7679,
+              "point_flat_index": 1812546,
+              "point_hit": true,
+              "predicted_voxels": 10199,
+              "prediction_mask_sha256": "e51cd91bb34a6e3aa8f8e7986a50c16c8a02a6b2bd01c48a04129168d274e722",
+              "subject_id": "BraTS-GLI-02167",
+              "target_voxels": 10704
+            },
+            {
+              "case_id": "BraTS-GLI-02265-100",
+              "dice": 0.8958261975828155,
+              "intersection_voxels": 109848,
+              "point_flat_index": 564195,
+              "point_hit": true,
+              "predicted_voxels": 124855,
+              "prediction_mask_sha256": "eabeaea1d6b94c6c4707bea60033e2e13ba20671776cd577ec57915f57990d6b",
+              "subject_id": "BraTS-GLI-02265",
+              "target_voxels": 120389
+            },
+            {
+              "case_id": "BraTS-GLI-02333-100",
+              "dice": 0.8338073819288265,
+              "intersection_voxels": 50422,
+              "point_flat_index": 383293,
+              "point_hit": true,
+              "predicted_voxels": 59130,
+              "prediction_mask_sha256": "04b7017dfaedee0cead0a7b3d117d2e46da0ab3e4d37ab8e83ec3d5ccb2fc457",
+              "subject_id": "BraTS-GLI-02333",
+              "target_voxels": 61814
+            },
+            {
+              "case_id": "BraTS-GLI-02369-100",
+              "dice": 0.474588985434769,
+              "intersection_voxels": 3796,
+              "point_flat_index": 1925165,
+              "point_hit": true,
+              "predicted_voxels": 9196,
+              "prediction_mask_sha256": "d9d7a0a9b341ae16a633be3355086767ba659416793b2abd803482f9073130f1",
+              "subject_id": "BraTS-GLI-02369",
+              "target_voxels": 6801
+            },
+            {
+              "case_id": "BraTS-GLI-02556-100",
+              "dice": 0.791018853711105,
+              "intersection_voxels": 37802,
+              "point_flat_index": 1726286,
+              "point_hit": true,
+              "predicted_voxels": 43316,
+              "prediction_mask_sha256": "0d735df0da3379580917e968d3e95eb55c6fd6b6a0a6212e31da108b5eb405fd",
+              "subject_id": "BraTS-GLI-02556",
+              "target_voxels": 52262
+            },
+            {
+              "case_id": "BraTS-GLI-02556-101",
+              "dice": 0.8182240358868458,
+              "intersection_voxels": 41405,
+              "point_flat_index": 1435704,
+              "point_hit": true,
+              "predicted_voxels": 52338,
+              "prediction_mask_sha256": "e84436503e4a12b23cc2fb837f496441219752b34f8cc23bc82dab65c1203022",
+              "subject_id": "BraTS-GLI-02556",
+              "target_voxels": 48869
+            },
+            {
+              "case_id": "BraTS-GLI-02707-100",
+              "dice": 0.882827942325667,
+              "intersection_voxels": 28808,
+              "point_flat_index": 1694693,
+              "point_hit": true,
+              "predicted_voxels": 33064,
+              "prediction_mask_sha256": "a17157c2589637b61bddff5ac9be9fe6a8f2437fe8325b205be95cf8a1ff489d",
+              "subject_id": "BraTS-GLI-02707",
+              "target_voxels": 32199
+            },
+            {
+              "case_id": "BraTS-GLI-02799-100",
+              "dice": 0.6092785323690245,
+              "intersection_voxels": 5181,
+              "point_flat_index": 484802,
+              "point_hit": true,
+              "predicted_voxels": 7892,
+              "prediction_mask_sha256": "b54667f6824e39ddfaa5fc5676c61fd06b6a2f1a2de138a0db1b4a74964bb208",
+              "subject_id": "BraTS-GLI-02799",
+              "target_voxels": 9115
+            },
+            {
+              "case_id": "BraTS-GLI-02799-101",
+              "dice": 0.6334751773049645,
+              "intersection_voxels": 4466,
+              "point_flat_index": 500030,
+              "point_hit": true,
+              "predicted_voxels": 6949,
+              "prediction_mask_sha256": "780600fc796a5a2eaad8a34450b6c7306a9bd4642d4d337dc98399b9cfa8508f",
+              "subject_id": "BraTS-GLI-02799",
+              "target_voxels": 7151
+            },
+            {
+              "case_id": "BraTS-GLI-02820-100",
+              "dice": 0.756548270105348,
+              "intersection_voxels": 19713,
+              "point_flat_index": 1485015,
+              "point_hit": true,
+              "predicted_voxels": 25509,
+              "prediction_mask_sha256": "248ece7a49b3e8ee9810f6882a31266ef31cff55317b3751d4efafbdea7014fc",
+              "subject_id": "BraTS-GLI-02820",
+              "target_voxels": 26604
+            },
+            {
+              "case_id": "BraTS-GLI-02820-101",
+              "dice": 0.7699932417211084,
+              "intersection_voxels": 29053,
+              "point_flat_index": 1138777,
+              "point_hit": true,
+              "predicted_voxels": 41607,
+              "prediction_mask_sha256": "2e0be3dc718ef5c8b081075c1726eabd695e482b2fc71bc239a53f49d2d862cc",
+              "subject_id": "BraTS-GLI-02820",
+              "target_voxels": 33856
+            },
+            {
+              "case_id": "BraTS-GLI-02823-100",
+              "dice": 0.8424344780133859,
+              "intersection_voxels": 13468,
+              "point_flat_index": 503758,
+              "point_hit": true,
+              "predicted_voxels": 17709,
+              "prediction_mask_sha256": "6e9ee33a9658d0a3a009eff3f8d29291a9b9bbd16a852cb2452c80061951f06a",
+              "subject_id": "BraTS-GLI-02823",
+              "target_voxels": 14265
+            },
+            {
+              "case_id": "BraTS-GLI-02823-101",
+              "dice": 0.7133939718209381,
+              "intersection_voxels": 12000,
+              "point_flat_index": 652365,
+              "point_hit": true,
+              "predicted_voxels": 19250,
+              "prediction_mask_sha256": "4d42e6295e9bf8a4a9468625cc1ad5fe7b75b71ff775455b22f5af61ca52346a",
+              "subject_id": "BraTS-GLI-02823",
+              "target_voxels": 14392
+            },
+            {
+              "case_id": "BraTS-GLI-02868-100",
+              "dice": 0.8379409149293549,
+              "intersection_voxels": 84808,
+              "point_flat_index": 417368,
+              "point_hit": true,
+              "predicted_voxels": 110375,
+              "prediction_mask_sha256": "6ef80299964d7d30c22eb16eeca93b5f31d78044e773bbea8f59abb14f0c7ef3",
+              "subject_id": "BraTS-GLI-02868",
+              "target_voxels": 92045
+            },
+            {
+              "case_id": "BraTS-GLI-02868-101",
+              "dice": 0.6041616024113958,
+              "intersection_voxels": 12427,
+              "point_flat_index": 759384,
+              "point_hit": true,
+              "predicted_voxels": 26022,
+              "prediction_mask_sha256": "c7b2faf9a6ca386a02967559ff873ad5b8eab08899437321a94362a3e9831b36",
+              "subject_id": "BraTS-GLI-02868",
+              "target_voxels": 15116
+            },
+            {
+              "case_id": "BraTS-GLI-02890-100",
+              "dice": 0.5766274509803921,
+              "intersection_voxels": 7352,
+              "point_flat_index": 829286,
+              "point_hit": true,
+              "predicted_voxels": 13913,
+              "prediction_mask_sha256": "29ac22c30620e8f60f056893947906dc9f898b617b43ce760f7cd90fbe39c13d",
+              "subject_id": "BraTS-GLI-02890",
+              "target_voxels": 11587
+            },
+            {
+              "case_id": "BraTS-GLI-02890-101",
+              "dice": 0.5105942483744703,
+              "intersection_voxels": 7892,
+              "point_flat_index": 698214,
+              "point_hit": true,
+              "predicted_voxels": 18609,
+              "prediction_mask_sha256": "6a07970a110ab24aa74f34eaffa049c766787fa23de98cfdd07cd52bbae47b6d",
+              "subject_id": "BraTS-GLI-02890",
+              "target_voxels": 12304
+            },
+            {
+              "case_id": "BraTS-GLI-02916-100",
+              "dice": 0.743439796071375,
+              "intersection_voxels": 4958,
+              "point_flat_index": 1583952,
+              "point_hit": true,
+              "predicted_voxels": 6382,
+              "prediction_mask_sha256": "41745a1181810ed50cc52a2ece48127f3d67da0d81045285ca861e003d817eab",
+              "subject_id": "BraTS-GLI-02916",
+              "target_voxels": 6956
+            },
+            {
+              "case_id": "BraTS-GLI-02916-101",
+              "dice": 0.6647270499961718,
+              "intersection_voxels": 4341,
+              "point_flat_index": 1452248,
+              "point_hit": true,
+              "predicted_voxels": 5799,
+              "prediction_mask_sha256": "cbc2adb206ff7eed3975ba92ca1fe2df98e8eb32028343a1e18e1e546fea4ece",
+              "subject_id": "BraTS-GLI-02916",
+              "target_voxels": 7262
+            },
+            {
+              "case_id": "BraTS-GLI-02948-100",
+              "dice": 0.6855106888361046,
+              "intersection_voxels": 7215,
+              "point_flat_index": 681945,
+              "point_hit": true,
+              "predicted_voxels": 10874,
+              "prediction_mask_sha256": "4010a4d83c6e7020938be47163071eb5a604eba9fac99d019862012e83ef3293",
+              "subject_id": "BraTS-GLI-02948",
+              "target_voxels": 10176
+            },
+            {
+              "case_id": "BraTS-GLI-02948-101",
+              "dice": 0.6679645473641068,
+              "intersection_voxels": 6519,
+              "point_flat_index": 681947,
+              "point_hit": true,
+              "predicted_voxels": 10658,
+              "prediction_mask_sha256": "e6dc120a21eb8edcbae2262fdf339b077e7f5826e8730d7f784dde04a98e14c8",
+              "subject_id": "BraTS-GLI-02948",
+              "target_voxels": 8861
+            },
+            {
+              "case_id": "BraTS-GLI-03052-100",
+              "dice": 0.7774028594288099,
+              "intersection_voxels": 11174,
+              "point_flat_index": 455239,
+              "point_hit": true,
+              "predicted_voxels": 15756,
+              "prediction_mask_sha256": "d095940b10e8cd1f0694becf3017b3c6d8922fbb773decf67535def087a67764",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 12991
+            },
+            {
+              "case_id": "BraTS-GLI-03052-101",
+              "dice": 0.811882949390732,
+              "intersection_voxels": 18256,
+              "point_flat_index": 1241296,
+              "point_hit": true,
+              "predicted_voxels": 24736,
+              "prediction_mask_sha256": "aba56d69d91dcd702677785f0573a39129e5ff0a2cf81ed1c69bb4bda9ed6812",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 20236
+            },
+            {
+              "case_id": "BraTS-GLI-03052-102",
+              "dice": 0.8701233952386888,
+              "intersection_voxels": 76791,
+              "point_flat_index": 831952,
+              "point_hit": true,
+              "predicted_voxels": 93187,
+              "prediction_mask_sha256": "6bea20178211d3974bdab2d913a954b61461e5f24dce39b29442598b1e185684",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 83319
+            },
+            {
+              "case_id": "BraTS-GLI-03062-100",
+              "dice": 0.8200235493490916,
+              "intersection_voxels": 37259,
+              "point_flat_index": 1006914,
+              "point_hit": true,
+              "predicted_voxels": 47437,
+              "prediction_mask_sha256": "73068732a19f657d6c869b1e09702eb5a07adf159aa48f4c717e2e006007f6f9",
+              "subject_id": "BraTS-GLI-03062",
+              "target_voxels": 43436
+            }
+          ],
+          "identity": [
+            {
+              "case_id": "BraTS-GLI-00009-100",
+              "dice": 0.7492432283681252,
+              "intersection_voxels": 38117,
+              "point_flat_index": 948546,
+              "point_hit": true,
+              "predicted_voxels": 48809,
+              "prediction_mask_sha256": "62668e82e0dcdad9406b1cede2bda6585baa90b92bf7d0796ed19f494480eb15",
+              "subject_id": "BraTS-GLI-00009",
+              "target_voxels": 52939
+            },
+            {
+              "case_id": "BraTS-GLI-00009-101",
+              "dice": 0.775264984669022,
+              "intersection_voxels": 49810,
+              "point_flat_index": 816068,
+              "point_hit": true,
+              "predicted_voxels": 62442,
+              "prediction_mask_sha256": "9a4a1ba4871afc7972cc7acd0350ace33187e29cba225e6c437308412804a8a6",
+              "subject_id": "BraTS-GLI-00009",
+              "target_voxels": 66056
+            },
+            {
+              "case_id": "BraTS-GLI-00080-100",
+              "dice": 0.811199743456127,
+              "intersection_voxels": 20237,
+              "point_flat_index": 761576,
+              "point_hit": true,
+              "predicted_voxels": 25194,
+              "prediction_mask_sha256": "edd643f5894674eb0b403bfbd325d883737c12fca7c9f9ccf395c920b85e823a",
+              "subject_id": "BraTS-GLI-00080",
+              "target_voxels": 24700
+            },
+            {
+              "case_id": "BraTS-GLI-00080-101",
+              "dice": 0.9054920971780094,
+              "intersection_voxels": 65281,
+              "point_flat_index": 271451,
+              "point_hit": true,
+              "predicted_voxels": 74589,
+              "prediction_mask_sha256": "11e50aed61bf9300e3086c2d966eae3897991d687e1696ab2be7093dec465ec5",
+              "subject_id": "BraTS-GLI-00080",
+              "target_voxels": 69600
+            },
+            {
+              "case_id": "BraTS-GLI-00463-100",
+              "dice": 0.8470451701815148,
+              "intersection_voxels": 23356,
+              "point_flat_index": 317509,
+              "point_hit": true,
+              "predicted_voxels": 29464,
+              "prediction_mask_sha256": "5ff58c444d685e6b6b97a444e70ee510b7757bf8ddffcfe8a4a895eac5edc01c",
+              "subject_id": "BraTS-GLI-00463",
+              "target_voxels": 25683
+            },
+            {
+              "case_id": "BraTS-GLI-00463-101",
+              "dice": 0.7969639468690702,
+              "intersection_voxels": 18480,
+              "point_flat_index": 269498,
+              "point_hit": true,
+              "predicted_voxels": 26092,
+              "prediction_mask_sha256": "d1633b6486753335afce0e6b1d32041ee7eacd2e27c328bae299a92dce94345d",
+              "subject_id": "BraTS-GLI-00463",
+              "target_voxels": 20284
+            },
+            {
+              "case_id": "BraTS-GLI-02093-100",
+              "dice": 0.8498208480649219,
+              "intersection_voxels": 17907,
+              "point_flat_index": 881245,
+              "point_hit": true,
+              "predicted_voxels": 19917,
+              "prediction_mask_sha256": "045b301f62dc94e99bbc5dec057076561692fac641edc8732cf1798a7b790e5b",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 22226
+            },
+            {
+              "case_id": "BraTS-GLI-02093-101",
+              "dice": 0.8245177641150796,
+              "intersection_voxels": 17568,
+              "point_flat_index": 813529,
+              "point_hit": true,
+              "predicted_voxels": 21308,
+              "prediction_mask_sha256": "794137d24ce9896823de5b92965ea37ce5ec84677484eb8f256550a3c1ea0533",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21306
+            },
+            {
+              "case_id": "BraTS-GLI-02093-102",
+              "dice": 0.849696718097742,
+              "intersection_voxels": 18421,
+              "point_flat_index": 652361,
+              "point_hit": true,
+              "predicted_voxels": 20073,
+              "prediction_mask_sha256": "b0e01449bdf0fd50762a4db8059c6ba44cb3978859dad7ce2a9d5e0fb11855c4",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 23286
+            },
+            {
+              "case_id": "BraTS-GLI-02093-103",
+              "dice": 0.8235378853356381,
+              "intersection_voxels": 17151,
+              "point_flat_index": 797272,
+              "point_hit": true,
+              "predicted_voxels": 20381,
+              "prediction_mask_sha256": "1698d12edc3a38db21529a9749985e37208928311272becfd853b75225b2d71d",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21271
+            },
+            {
+              "case_id": "BraTS-GLI-02093-104",
+              "dice": 0.8693488972874707,
+              "intersection_voxels": 18172,
+              "point_flat_index": 896225,
+              "point_hit": true,
+              "predicted_voxels": 20057,
+              "prediction_mask_sha256": "7b1879ac87b525abaab702a8f84b3dbaac688c6b7ec90bcfdc7817d943cad0e1",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21749
+            },
+            {
+              "case_id": "BraTS-GLI-02093-105",
+              "dice": 0.8642113878171401,
+              "intersection_voxels": 18479,
+              "point_flat_index": 652367,
+              "point_hit": true,
+              "predicted_voxels": 20916,
+              "prediction_mask_sha256": "2185a6723e6c1d1ccc6c2b564481917ef5500015e29d07d28769075f2b549cc3",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21849
+            },
+            {
+              "case_id": "BraTS-GLI-02093-106",
+              "dice": 0.8555210601918354,
+              "intersection_voxels": 18463,
+              "point_flat_index": 912865,
+              "point_hit": true,
+              "predicted_voxels": 20514,
+              "prediction_mask_sha256": "b0db7629d11c879120b29155f17d8f3ead4e0c1f376820a23d13df6448665f53",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 22648
+            },
+            {
+              "case_id": "BraTS-GLI-02093-107",
+              "dice": 0.8098853727833839,
+              "intersection_voxels": 16533,
+              "point_flat_index": 896224,
+              "point_hit": true,
+              "predicted_voxels": 20429,
+              "prediction_mask_sha256": "104b96d972cb1fbbdfc61586c4c59a865e7931e0add57fbad0ef0330a1029286",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 20399
+            },
+            {
+              "case_id": "BraTS-GLI-02093-108",
+              "dice": 0.8217449461171542,
+              "intersection_voxels": 16280,
+              "point_flat_index": 912611,
+              "point_hit": true,
+              "predicted_voxels": 20426,
+              "prediction_mask_sha256": "30b4eb2eedaa2e50211145895fff1de44cdfc2d98416782345c83a82f9706d5c",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 19197
+            },
+            {
+              "case_id": "BraTS-GLI-02093-109",
+              "dice": 0.8177830224981402,
+              "intersection_voxels": 15939,
+              "point_flat_index": 912608,
+              "point_hit": true,
+              "predicted_voxels": 19478,
+              "prediction_mask_sha256": "8fa6f1cb933c033cd4d5508f4346f6122b961e69a5fe698f7f9ebe4c75b6f22c",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 19503
+            },
+            {
+              "case_id": "BraTS-GLI-02167-100",
+              "dice": 0.6660544511668107,
+              "intersection_voxels": 6165,
+              "point_flat_index": 1763650,
+              "point_hit": true,
+              "predicted_voxels": 8947,
+              "prediction_mask_sha256": "0fe9817a8127f611965300d0cca4fdca0db83277ee5451a76af7497450441dbb",
+              "subject_id": "BraTS-GLI-02167",
+              "target_voxels": 9565
+            },
+            {
+              "case_id": "BraTS-GLI-02167-101",
+              "dice": 0.7045792375929034,
+              "intersection_voxels": 7347,
+              "point_flat_index": 1796034,
+              "point_hit": true,
+              "predicted_voxels": 10151,
+              "prediction_mask_sha256": "3a2eb58a34328c5c6e76ffe18b203d7bae915327f41323d1aa7262272a21971e",
+              "subject_id": "BraTS-GLI-02167",
+              "target_voxels": 10704
+            },
+            {
+              "case_id": "BraTS-GLI-02265-100",
+              "dice": 0.8872989971381948,
+              "intersection_voxels": 108207,
+              "point_flat_index": 859365,
+              "point_hit": true,
+              "predicted_voxels": 123513,
+              "prediction_mask_sha256": "ad57520bb2b4d5cbf9f1aed87a5dd12b20411585bc4c2f7aeef3314634d8d565",
+              "subject_id": "BraTS-GLI-02265",
+              "target_voxels": 120389
+            },
+            {
+              "case_id": "BraTS-GLI-02333-100",
+              "dice": 0.8281572477531924,
+              "intersection_voxels": 50359,
+              "point_flat_index": 383423,
+              "point_hit": true,
+              "predicted_voxels": 59803,
+              "prediction_mask_sha256": "03ab5e0ff4d470205713fd407a6b53aa96ef79466bc679e9751d085bcc0f4ca1",
+              "subject_id": "BraTS-GLI-02333",
+              "target_voxels": 61814
+            },
+            {
+              "case_id": "BraTS-GLI-02369-100",
+              "dice": 0.4417017093550325,
+              "intersection_voxels": 4044,
+              "point_flat_index": 1925168,
+              "point_hit": true,
+              "predicted_voxels": 11510,
+              "prediction_mask_sha256": "4d2aea296f6b01110a5505491170266974901d93fdbcf39d733ed162c8ef2e7f",
+              "subject_id": "BraTS-GLI-02369",
+              "target_voxels": 6801
+            },
+            {
+              "case_id": "BraTS-GLI-02556-100",
+              "dice": 0.7997251533742331,
+              "intersection_voxels": 40736,
+              "point_flat_index": 1480272,
+              "point_hit": true,
+              "predicted_voxels": 49613,
+              "prediction_mask_sha256": "8c5e76dbb3b03f88f5c5203b4eebe789cc980f5a037516335cc4b3e2aac1d852",
+              "subject_id": "BraTS-GLI-02556",
+              "target_voxels": 52262
+            },
+            {
+              "case_id": "BraTS-GLI-02556-101",
+              "dice": 0.801856571887614,
+              "intersection_voxels": 40426,
+              "point_flat_index": 1582141,
+              "point_hit": true,
+              "predicted_voxels": 51962,
+              "prediction_mask_sha256": "e80acd83d2d5fecc9a1661823787821c029eec402b87174899baba6587950a1f",
+              "subject_id": "BraTS-GLI-02556",
+              "target_voxels": 48869
+            },
+            {
+              "case_id": "BraTS-GLI-02707-100",
+              "dice": 0.8821986334797463,
+              "intersection_voxels": 28922,
+              "point_flat_index": 1631833,
+              "point_hit": true,
+              "predicted_voxels": 33369,
+              "prediction_mask_sha256": "a0ff70265f39bfdd98ef07a069069886def313aa7235d28ac21dc63911e067c7",
+              "subject_id": "BraTS-GLI-02707",
+              "target_voxels": 32199
+            },
+            {
+              "case_id": "BraTS-GLI-02799-100",
+              "dice": 0.578514325727957,
+              "intersection_voxels": 4957,
+              "point_flat_index": 501185,
+              "point_hit": true,
+              "predicted_voxels": 8022,
+              "prediction_mask_sha256": "ff7e19e6ec23ff89669348f57a8d93c15471b09d0e3355f3db0bfb654ddc693a",
+              "subject_id": "BraTS-GLI-02799",
+              "target_voxels": 9115
+            },
+            {
+              "case_id": "BraTS-GLI-02799-101",
+              "dice": 0.624680125106625,
+              "intersection_voxels": 4394,
+              "point_flat_index": 500030,
+              "point_hit": true,
+              "predicted_voxels": 6917,
+              "prediction_mask_sha256": "026d2aaf765411f484f143b7a71a213a6975000b6ec13f4ef26305659f0a3cff",
+              "subject_id": "BraTS-GLI-02799",
+              "target_voxels": 7151
+            },
+            {
+              "case_id": "BraTS-GLI-02820-100",
+              "dice": 0.7636411829300617,
+              "intersection_voxels": 20167,
+              "point_flat_index": 1535322,
+              "point_hit": true,
+              "predicted_voxels": 26214,
+              "prediction_mask_sha256": "c2390eb2b311dca1cb41738c3852599c44f076178aed9cb3a06d0018a7de2114",
+              "subject_id": "BraTS-GLI-02820",
+              "target_voxels": 26604
+            },
+            {
+              "case_id": "BraTS-GLI-02820-101",
+              "dice": 0.7848822800495663,
+              "intersection_voxels": 28503,
+              "point_flat_index": 1155033,
+              "point_hit": true,
+              "predicted_voxels": 38774,
+              "prediction_mask_sha256": "80808c3a663577b87879bc7b180493c8c8788cefeaa6e71cb26348a59688f061",
+              "subject_id": "BraTS-GLI-02820",
+              "target_voxels": 33856
+            },
+            {
+              "case_id": "BraTS-GLI-02823-100",
+              "dice": 0.8334678671220118,
+              "intersection_voxels": 13423,
+              "point_flat_index": 503758,
+              "point_hit": true,
+              "predicted_voxels": 17945,
+              "prediction_mask_sha256": "be2dd24bd96b22c4128302c7619274956483c92b09ab7a1fc4a1c8dd23dba455",
+              "subject_id": "BraTS-GLI-02823",
+              "target_voxels": 14265
+            },
+            {
+              "case_id": "BraTS-GLI-02823-101",
+              "dice": 0.7186858316221766,
+              "intersection_voxels": 12250,
+              "point_flat_index": 586578,
+              "point_hit": true,
+              "predicted_voxels": 19698,
+              "prediction_mask_sha256": "a85bccf120badc95d5b5be7ecd66ddbfe781fd134bd94b1db4b61d69418a3250",
+              "subject_id": "BraTS-GLI-02823",
+              "target_voxels": 14392
+            },
+            {
+              "case_id": "BraTS-GLI-02868-100",
+              "dice": 0.8336879884679879,
+              "intersection_voxels": 85017,
+              "point_flat_index": 627657,
+              "point_hit": true,
+              "predicted_voxels": 111909,
+              "prediction_mask_sha256": "0e26844e57dadb5e71c86870e348bbd3299f6d2e939002d2ed94f83c626aa8ef",
+              "subject_id": "BraTS-GLI-02868",
+              "target_voxels": 92045
+            },
+            {
+              "case_id": "BraTS-GLI-02868-101",
+              "dice": 0.6018891410998023,
+              "intersection_voxels": 12330,
+              "point_flat_index": 431803,
+              "point_hit": true,
+              "predicted_voxels": 25855,
+              "prediction_mask_sha256": "69929b1a01e6073bb87d657f40c713f6e01d321da99193c61b89ca64643dbf61",
+              "subject_id": "BraTS-GLI-02868",
+              "target_voxels": 15116
+            },
+            {
+              "case_id": "BraTS-GLI-02890-100",
+              "dice": 0.5631179581512992,
+              "intersection_voxels": 7347,
+              "point_flat_index": 812646,
+              "point_hit": true,
+              "predicted_voxels": 14507,
+              "prediction_mask_sha256": "f976ea39bd2603b433f8e64322f6d4b73a38c14a44e63234741e187d26fa0e73",
+              "subject_id": "BraTS-GLI-02890",
+              "target_voxels": 11587
+            },
+            {
+              "case_id": "BraTS-GLI-02890-101",
+              "dice": 0.5321835540498923,
+              "intersection_voxels": 7776,
+              "point_flat_index": 714470,
+              "point_hit": true,
+              "predicted_voxels": 16919,
+              "prediction_mask_sha256": "bccd3cf320aef76822182f642230d1390a14484924eaabc6483b66133a9eef20",
+              "subject_id": "BraTS-GLI-02890",
+              "target_voxels": 12304
+            },
+            {
+              "case_id": "BraTS-GLI-02916-100",
+              "dice": 0.7377024817952147,
+              "intersection_voxels": 4964,
+              "point_flat_index": 1584207,
+              "point_hit": true,
+              "predicted_voxels": 6502,
+              "prediction_mask_sha256": "2fde10619ab290cde2028da8797f75c9b19256d443f95b4813aebbdfe6eeb301",
+              "subject_id": "BraTS-GLI-02916",
+              "target_voxels": 6956
+            },
+            {
+              "case_id": "BraTS-GLI-02916-101",
+              "dice": 0.6744100566051606,
+              "intersection_voxels": 4587,
+              "point_flat_index": 1452376,
+              "point_hit": true,
+              "predicted_voxels": 6341,
+              "prediction_mask_sha256": "c06dfff3bdaf5deb40d2b9f3f81da83a3e7104d2b15fa389066a4c708effe3a3",
+              "subject_id": "BraTS-GLI-02916",
+              "target_voxels": 7262
+            },
+            {
+              "case_id": "BraTS-GLI-02948-100",
+              "dice": 0.6285002491280518,
+              "intersection_voxels": 6307,
+              "point_flat_index": 698327,
+              "point_hit": true,
+              "predicted_voxels": 9894,
+              "prediction_mask_sha256": "ac854d307c3c92c7abcc74111c94714abaec99d5c68a911198626baafb6dbbc9",
+              "subject_id": "BraTS-GLI-02948",
+              "target_voxels": 10176
+            },
+            {
+              "case_id": "BraTS-GLI-02948-101",
+              "dice": 0.6360260913196186,
+              "intersection_voxels": 6338,
+              "point_flat_index": 666071,
+              "point_hit": true,
+              "predicted_voxels": 11069,
+              "prediction_mask_sha256": "e0803b1e9526291fd41b86d701043107300f1cbd20ec9501d2f2d5af0714cfba",
+              "subject_id": "BraTS-GLI-02948",
+              "target_voxels": 8861
+            },
+            {
+              "case_id": "BraTS-GLI-03052-100",
+              "dice": 0.7756101021566402,
+              "intersection_voxels": 10933,
+              "point_flat_index": 455240,
+              "point_hit": true,
+              "predicted_voxels": 15201,
+              "prediction_mask_sha256": "a7ef86b0b7c8a9b4a0cc4cea163190ae65cb0da92b3c1a3fab1e020a3849b646",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 12991
+            },
+            {
+              "case_id": "BraTS-GLI-03052-101",
+              "dice": 0.8080808080808081,
+              "intersection_voxels": 18320,
+              "point_flat_index": 1241296,
+              "point_hit": true,
+              "predicted_voxels": 25106,
+              "prediction_mask_sha256": "96697ca1b4787563253404376cc7eee25f341288bd7008a5b918694f135915b8",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 20236
+            },
+            {
+              "case_id": "BraTS-GLI-03052-102",
+              "dice": 0.8658096693383928,
+              "intersection_voxels": 76209,
+              "point_flat_index": 1320172,
+              "point_hit": true,
+              "predicted_voxels": 92722,
+              "prediction_mask_sha256": "e796fab19b897c9cfc9a8c7b91aee1fd4b32093b4760c8a218ff3f2744d10d3c",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 83319
+            },
+            {
+              "case_id": "BraTS-GLI-03062-100",
+              "dice": 0.8044638420154269,
+              "intersection_voxels": 37233,
+              "point_flat_index": 990400,
+              "point_hit": true,
+              "predicted_voxels": 49130,
+              "prediction_mask_sha256": "508b4a682e52619a19eb2330b0e424cdb1af84ac3115bce656a8412a06514350",
+              "subject_id": "BraTS-GLI-03062",
+              "target_voxels": 43436
+            }
+          ]
+        }
+      },
+      "no_n4": {
+        "elapsed_seconds": 6.396513103507459,
+        "forwards": 336,
+        "per_case": {
+          "flip8": [
+            {
+              "case_id": "BraTS-GLI-00009-100",
+              "dice": 0.7645872410802526,
+              "intersection_voxels": 37909,
+              "point_flat_index": 882118,
+              "point_hit": true,
+              "predicted_voxels": 46223,
+              "prediction_mask_sha256": "973d5c8b0050d25d40912edf74ff7f29a98f70032cd576764bf010fe0327c097",
+              "subject_id": "BraTS-GLI-00009",
+              "target_voxels": 52939
+            },
+            {
+              "case_id": "BraTS-GLI-00009-101",
+              "dice": 0.7778620885895855,
+              "intersection_voxels": 49206,
+              "point_flat_index": 815419,
+              "point_hit": true,
+              "predicted_voxels": 60460,
+              "prediction_mask_sha256": "892882d21c61b94e6a7f492903f1fd900eb4aba76be3273996eabb29d8007d25",
+              "subject_id": "BraTS-GLI-00009",
+              "target_voxels": 66056
+            },
+            {
+              "case_id": "BraTS-GLI-00080-100",
+              "dice": 0.8039868518714877,
+              "intersection_voxels": 18956,
+              "point_flat_index": 745070,
+              "point_hit": true,
+              "predicted_voxels": 22455,
+              "prediction_mask_sha256": "7ee71d17cc26c9e6d74ce8dbc9ae60f7bc7292409be67ec7e6a5e0ba36d5b05a",
+              "subject_id": "BraTS-GLI-00080",
+              "target_voxels": 24700
+            },
+            {
+              "case_id": "BraTS-GLI-00080-101",
+              "dice": 0.9104810630284943,
+              "intersection_voxels": 64066,
+              "point_flat_index": 631515,
+              "point_hit": true,
+              "predicted_voxels": 71130,
+              "prediction_mask_sha256": "7536a0b2030a3aefbc0f26c42b9052de91ae040374cef66de56e455d095c47f2",
+              "subject_id": "BraTS-GLI-00080",
+              "target_voxels": 69600
+            },
+            {
+              "case_id": "BraTS-GLI-00463-100",
+              "dice": 0.8513810217900699,
+              "intersection_voxels": 23072,
+              "point_flat_index": 284610,
+              "point_hit": true,
+              "predicted_voxels": 28516,
+              "prediction_mask_sha256": "8a51c26a965bc4af2f08c9fafc238a96b6525fc8cb02bb6d8728708d9bb23441",
+              "subject_id": "BraTS-GLI-00463",
+              "target_voxels": 25683
+            },
+            {
+              "case_id": "BraTS-GLI-00463-101",
+              "dice": 0.8153002968714318,
+              "intersection_voxels": 17851,
+              "point_flat_index": 302134,
+              "point_hit": true,
+              "predicted_voxels": 23506,
+              "prediction_mask_sha256": "1fb13abc4cef54e9b2ae17404f20449d52ab1bff5eb0cc7c92e010f4aaf2f1a7",
+              "subject_id": "BraTS-GLI-00463",
+              "target_voxels": 20284
+            },
+            {
+              "case_id": "BraTS-GLI-02093-100",
+              "dice": 0.860881723249006,
+              "intersection_voxels": 19703,
+              "point_flat_index": 830690,
+              "point_hit": true,
+              "predicted_voxels": 23548,
+              "prediction_mask_sha256": "4e430e487c07d091b90c98cf604eac064eb0e1f8fc2e917f413f9307deb1e00e",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 22226
+            },
+            {
+              "case_id": "BraTS-GLI-02093-101",
+              "dice": 0.8362501444919662,
+              "intersection_voxels": 18086,
+              "point_flat_index": 816203,
+              "point_hit": true,
+              "predicted_voxels": 21949,
+              "prediction_mask_sha256": "aafc2a131ca1b44b6cf835330ded09608de2d734d046dcb71fa8c21be3d1374f",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21306
+            },
+            {
+              "case_id": "BraTS-GLI-02093-102",
+              "dice": 0.8533722505993954,
+              "intersection_voxels": 20466,
+              "point_flat_index": 814434,
+              "point_hit": true,
+              "predicted_voxels": 24679,
+              "prediction_mask_sha256": "099a6712a821879ade5747d45b69ccff1c64ded53d33660d2c0b0fabb7ed9c90",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 23286
+            },
+            {
+              "case_id": "BraTS-GLI-02093-103",
+              "dice": 0.8348388642626093,
+              "intersection_voxels": 17421,
+              "point_flat_index": 832588,
+              "point_hit": true,
+              "predicted_voxels": 20464,
+              "prediction_mask_sha256": "10bfb31754dab249fb063cfe33e6f0e95607859d98517cf5fb047abd8dbc5ff3",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21271
+            },
+            {
+              "case_id": "BraTS-GLI-02093-104",
+              "dice": 0.8619346318917135,
+              "intersection_voxels": 19581,
+              "point_flat_index": 552662,
+              "point_hit": true,
+              "predicted_voxels": 23686,
+              "prediction_mask_sha256": "9a3aa08ec2ad9d634fd1b83b8600cd11cda3cf1c476779b240957cfe62295e0f",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21749
+            },
+            {
+              "case_id": "BraTS-GLI-02093-105",
+              "dice": 0.864923147510897,
+              "intersection_voxels": 18851,
+              "point_flat_index": 552661,
+              "point_hit": true,
+              "predicted_voxels": 21741,
+              "prediction_mask_sha256": "ca709675ed0fc4b83db60437767e0bd87f165eb6f02d6204addaa438de50f4ca",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21849
+            },
+            {
+              "case_id": "BraTS-GLI-02093-106",
+              "dice": 0.8742458564155471,
+              "intersection_voxels": 19490,
+              "point_flat_index": 552917,
+              "point_hit": true,
+              "predicted_voxels": 21939,
+              "prediction_mask_sha256": "ea5ac2559717e41c0e910edce2e453c06ba0c7a16f5c2f3ee4a0cc21d572a4f8",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 22648
+            },
+            {
+              "case_id": "BraTS-GLI-02093-107",
+              "dice": 0.8149855365584064,
+              "intersection_voxels": 17327,
+              "point_flat_index": 602192,
+              "point_hit": true,
+              "predicted_voxels": 22122,
+              "prediction_mask_sha256": "ffbcc3125960248fc76442f191b7dee1b3de357d4321b14a3b32e39d570c7bbf",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 20399
+            },
+            {
+              "case_id": "BraTS-GLI-02093-108",
+              "dice": 0.8169904669965006,
+              "intersection_voxels": 16926,
+              "point_flat_index": 781796,
+              "point_hit": true,
+              "predicted_voxels": 22238,
+              "prediction_mask_sha256": "f2e8cd2302f58daca6b6b60ce4f51129afa0221250583883d651bc10289cb9cf",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 19197
+            },
+            {
+              "case_id": "BraTS-GLI-02093-109",
+              "dice": 0.8259667119223614,
+              "intersection_voxels": 16426,
+              "point_flat_index": 584666,
+              "point_hit": true,
+              "predicted_voxels": 20271,
+              "prediction_mask_sha256": "0660638e8c60094971766aa69f3de59672957f658afa0e30eb8c3cd90197aa13",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 19503
+            },
+            {
+              "case_id": "BraTS-GLI-02167-100",
+              "dice": 0.6624203821656051,
+              "intersection_voxels": 6812,
+              "point_flat_index": 1763651,
+              "point_hit": true,
+              "predicted_voxels": 11002,
+              "prediction_mask_sha256": "e2f0bb49e3e4b1160aa25f03752191b7478b2dca82cc40a904d73fb0054901da",
+              "subject_id": "BraTS-GLI-02167",
+              "target_voxels": 9565
+            },
+            {
+              "case_id": "BraTS-GLI-02167-101",
+              "dice": 0.6603297192930343,
+              "intersection_voxels": 6669,
+              "point_flat_index": 1747267,
+              "point_hit": true,
+              "predicted_voxels": 9495,
+              "prediction_mask_sha256": "54fa304f19e9c014dc2d70b669a0087a34147a0188cb350bb65306499b152cac",
+              "subject_id": "BraTS-GLI-02167",
+              "target_voxels": 10704
+            },
+            {
+              "case_id": "BraTS-GLI-02265-100",
+              "dice": 0.8607131272695627,
+              "intersection_voxels": 108795,
+              "point_flat_index": 713700,
+              "point_hit": true,
+              "predicted_voxels": 132413,
+              "prediction_mask_sha256": "9045301ef50a06568dd19ee83930c8bee2ae6498e4f367da2ca86c2ef848dd5d",
+              "subject_id": "BraTS-GLI-02265",
+              "target_voxels": 120389
+            },
+            {
+              "case_id": "BraTS-GLI-02333-100",
+              "dice": 0.8362359929796139,
+              "intersection_voxels": 52649,
+              "point_flat_index": 383418,
+              "point_hit": true,
+              "predicted_voxels": 64105,
+              "prediction_mask_sha256": "03a590a55d712bd2a6bd612ac7baed6eafe4993ded2594180dbf89d794971fbb",
+              "subject_id": "BraTS-GLI-02333",
+              "target_voxels": 61814
+            },
+            {
+              "case_id": "BraTS-GLI-02369-100",
+              "dice": 0.5653542295587385,
+              "intersection_voxels": 4401,
+              "point_flat_index": 1628341,
+              "point_hit": true,
+              "predicted_voxels": 8768,
+              "prediction_mask_sha256": "bbf138b83c6fcf14741bad9cd6a53e8059fab9426e12cfe94aab6c9acffccb0a",
+              "subject_id": "BraTS-GLI-02369",
+              "target_voxels": 6801
+            },
+            {
+              "case_id": "BraTS-GLI-02556-100",
+              "dice": 0.8013993825013962,
+              "intersection_voxels": 38026,
+              "point_flat_index": 1496910,
+              "point_hit": true,
+              "predicted_voxels": 42637,
+              "prediction_mask_sha256": "35cd69abb82cef140ffdbaae233c4ec9e70f6fe3f361d92687540a664b2afb7e",
+              "subject_id": "BraTS-GLI-02556",
+              "target_voxels": 52262
+            },
+            {
+              "case_id": "BraTS-GLI-02556-101",
+              "dice": 0.8373314620821012,
+              "intersection_voxels": 41764,
+              "point_flat_index": 1564859,
+              "point_hit": true,
+              "predicted_voxels": 50886,
+              "prediction_mask_sha256": "417ea2e58f410f79e0ae94a416688a5dada82836fdc5e410896227102b17b250",
+              "subject_id": "BraTS-GLI-02556",
+              "target_voxels": 48869
+            },
+            {
+              "case_id": "BraTS-GLI-02707-100",
+              "dice": 0.8717551336691205,
+              "intersection_voxels": 30375,
+              "point_flat_index": 1480661,
+              "point_hit": true,
+              "predicted_voxels": 37488,
+              "prediction_mask_sha256": "5017e7c7ccd070ac4260728b773056cb966a9088fe13100c9de30728928bb966",
+              "subject_id": "BraTS-GLI-02707",
+              "target_voxels": 32199
+            },
+            {
+              "case_id": "BraTS-GLI-02799-100",
+              "dice": 0.6195809248554913,
+              "intersection_voxels": 5145,
+              "point_flat_index": 599484,
+              "point_hit": true,
+              "predicted_voxels": 7493,
+              "prediction_mask_sha256": "1b258a9e8c53f114d46d880e2d64ac7e1d330c2f296c502e300e7aa289f55459",
+              "subject_id": "BraTS-GLI-02799",
+              "target_voxels": 9115
+            },
+            {
+              "case_id": "BraTS-GLI-02799-101",
+              "dice": 0.6255161023947151,
+              "intersection_voxels": 4545,
+              "point_flat_index": 483645,
+              "point_hit": true,
+              "predicted_voxels": 7381,
+              "prediction_mask_sha256": "0b2890c490b2caa07f476404d4f11ed37b78d400787bc38830265eeb4e4213ac",
+              "subject_id": "BraTS-GLI-02799",
+              "target_voxels": 7151
+            },
+            {
+              "case_id": "BraTS-GLI-02820-100",
+              "dice": 0.7735652576365319,
+              "intersection_voxels": 20057,
+              "point_flat_index": 1091923,
+              "point_hit": true,
+              "predicted_voxels": 25252,
+              "prediction_mask_sha256": "40d0bfefd8cc8922f26ab6632d9b38b1e3e3a0504f51e24595406284d409ee1a",
+              "subject_id": "BraTS-GLI-02820",
+              "target_voxels": 26604
+            },
+            {
+              "case_id": "BraTS-GLI-02820-101",
+              "dice": 0.7925450569554219,
+              "intersection_voxels": 27726,
+              "point_flat_index": 1154774,
+              "point_hit": true,
+              "predicted_voxels": 36111,
+              "prediction_mask_sha256": "878d573a7a83a014d9e180ac9f31e60c5867d6b2337fab4e786ca4ef15c5f4e2",
+              "subject_id": "BraTS-GLI-02820",
+              "target_voxels": 33856
+            },
+            {
+              "case_id": "BraTS-GLI-02823-100",
+              "dice": 0.8481601488563087,
+              "intersection_voxels": 13219,
+              "point_flat_index": 798795,
+              "point_hit": true,
+              "predicted_voxels": 16906,
+              "prediction_mask_sha256": "28fbd59f037a072f791bc9a0efdfb4e70a31538fc44687ee35c3ccf7db884440",
+              "subject_id": "BraTS-GLI-02823",
+              "target_voxels": 14265
+            },
+            {
+              "case_id": "BraTS-GLI-02823-101",
+              "dice": 0.718718412105247,
+              "intersection_voxels": 11732,
+              "point_flat_index": 798797,
+              "point_hit": true,
+              "predicted_voxels": 18255,
+              "prediction_mask_sha256": "0ce29f90e331d02124987e66234bc19a0671e5c9a4b5c0adfc6cc79e2fbb39bf",
+              "subject_id": "BraTS-GLI-02823",
+              "target_voxels": 14392
+            },
+            {
+              "case_id": "BraTS-GLI-02868-100",
+              "dice": 0.8546877581985067,
+              "intersection_voxels": 85341,
+              "point_flat_index": 660553,
+              "point_hit": true,
+              "predicted_voxels": 107656,
+              "prediction_mask_sha256": "fe62276a32f7981e7470817352e99cc744c654909bcc9cbd94d949f2467aaec4",
+              "subject_id": "BraTS-GLI-02868",
+              "target_voxels": 92045
+            },
+            {
+              "case_id": "BraTS-GLI-02868-101",
+              "dice": 0.5701817792412925,
+              "intersection_voxels": 10649,
+              "point_flat_index": 480451,
+              "point_hit": true,
+              "predicted_voxels": 22237,
+              "prediction_mask_sha256": "f1d129c35438701146321b08a88df90976d9718b64f1a41dca07ed6238465586",
+              "subject_id": "BraTS-GLI-02868",
+              "target_voxels": 15116
+            },
+            {
+              "case_id": "BraTS-GLI-02890-100",
+              "dice": 0.5807977157133934,
+              "intersection_voxels": 6509,
+              "point_flat_index": 729573,
+              "point_hit": true,
+              "predicted_voxels": 10827,
+              "prediction_mask_sha256": "29866d016cd6645b069af88072943f31afbbe85ee8ae9ee9fa56f6cabe9ec5dc",
+              "subject_id": "BraTS-GLI-02890",
+              "target_voxels": 11587
+            },
+            {
+              "case_id": "BraTS-GLI-02890-101",
+              "dice": 0.5595642768850433,
+              "intersection_voxels": 7243,
+              "point_flat_index": 370272,
+              "point_hit": true,
+              "predicted_voxels": 13584,
+              "prediction_mask_sha256": "3f020ed3ea86d6d910632e6043f6df0a55d682353750051e7eadf1a4ab9942ab",
+              "subject_id": "BraTS-GLI-02890",
+              "target_voxels": 12304
+            },
+            {
+              "case_id": "BraTS-GLI-02916-100",
+              "dice": 0.7118068944243079,
+              "intersection_voxels": 4615,
+              "point_flat_index": 1583952,
+              "point_hit": true,
+              "predicted_voxels": 6011,
+              "prediction_mask_sha256": "88392df8ddc3c476396618540bf39a1e313f341b15e8c8ae16b1bd13655df25f",
+              "subject_id": "BraTS-GLI-02916",
+              "target_voxels": 6956
+            },
+            {
+              "case_id": "BraTS-GLI-02916-101",
+              "dice": 0.6219409926050163,
+              "intersection_voxels": 4079,
+              "point_flat_index": 1470282,
+              "point_hit": true,
+              "predicted_voxels": 5855,
+              "prediction_mask_sha256": "b639add90a34884d761f6a44121734d42a07fb6b01073de4668e536c4f707b4c",
+              "subject_id": "BraTS-GLI-02916",
+              "target_voxels": 7262
+            },
+            {
+              "case_id": "BraTS-GLI-02948-100",
+              "dice": 0.6661706783369803,
+              "intersection_voxels": 7611,
+              "point_flat_index": 698199,
+              "point_hit": true,
+              "predicted_voxels": 12674,
+              "prediction_mask_sha256": "aec1534628a6cf3cd386245328598dcd77ce67fb5e8ee278d80ae9d04694a125",
+              "subject_id": "BraTS-GLI-02948",
+              "target_voxels": 10176
+            },
+            {
+              "case_id": "BraTS-GLI-02948-101",
+              "dice": 0.6468226498684757,
+              "intersection_voxels": 7008,
+              "point_flat_index": 681817,
+              "point_hit": true,
+              "predicted_voxels": 12808,
+              "prediction_mask_sha256": "9b0dd2d6f664ebc54ade01bf1fb328b656481cc45258f3141fc75b0ab2402369",
+              "subject_id": "BraTS-GLI-02948",
+              "target_voxels": 8861
+            },
+            {
+              "case_id": "BraTS-GLI-03052-100",
+              "dice": 0.7475011739451265,
+              "intersection_voxels": 11143,
+              "point_flat_index": 355790,
+              "point_hit": true,
+              "predicted_voxels": 16823,
+              "prediction_mask_sha256": "12f3f70a7d6bfef77e38c627b6595f091d7f7409a429be29cc120ee559f768ae",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 12991
+            },
+            {
+              "case_id": "BraTS-GLI-03052-101",
+              "dice": 0.8232491213171986,
+              "intersection_voxels": 17450,
+              "point_flat_index": 1241167,
+              "point_hit": true,
+              "predicted_voxels": 22157,
+              "prediction_mask_sha256": "284bae806d6a5ad9134cae989ccddf0badfe41a0288642f9dadb820a4d4a6caa",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 20236
+            },
+            {
+              "case_id": "BraTS-GLI-03052-102",
+              "dice": 0.8995790669219196,
+              "intersection_voxels": 76829,
+              "point_flat_index": 1304683,
+              "point_hit": true,
+              "predicted_voxels": 87492,
+              "prediction_mask_sha256": "7dd0ce916695342a6f2b71124d673c72f45aa43d3e570279a254fff013d3a449",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 83319
+            },
+            {
+              "case_id": "BraTS-GLI-03062-100",
+              "dice": 0.8175851312711203,
+              "intersection_voxels": 37743,
+              "point_flat_index": 1007041,
+              "point_hit": true,
+              "predicted_voxels": 48892,
+              "prediction_mask_sha256": "d4ee74c9172c7963637ee43fcddf2b58e27da671226d46f3499a54f1617abb82",
+              "subject_id": "BraTS-GLI-03062",
+              "target_voxels": 43436
+            }
+          ],
+          "identity": [
+            {
+              "case_id": "BraTS-GLI-00009-100",
+              "dice": 0.7669739734065301,
+              "intersection_voxels": 38560,
+              "point_flat_index": 881990,
+              "point_hit": true,
+              "predicted_voxels": 47612,
+              "prediction_mask_sha256": "7c0cf2dbfeee52419eab3b8423e7f1b4a1257ae8d307d297abbe746d15361e9b",
+              "subject_id": "BraTS-GLI-00009",
+              "target_voxels": 52939
+            },
+            {
+              "case_id": "BraTS-GLI-00009-101",
+              "dice": 0.7775891341256367,
+              "intersection_voxels": 50151,
+              "point_flat_index": 815418,
+              "point_hit": true,
+              "predicted_voxels": 62935,
+              "prediction_mask_sha256": "1fc3b480dccaad9c6e7ea7399ba7d58ebacadea6597262470ab57f76b44405e1",
+              "subject_id": "BraTS-GLI-00009",
+              "target_voxels": 66056
+            },
+            {
+              "case_id": "BraTS-GLI-00080-100",
+              "dice": 0.7986588574823869,
+              "intersection_voxels": 18818,
+              "point_flat_index": 761454,
+              "point_hit": true,
+              "predicted_voxels": 22424,
+              "prediction_mask_sha256": "189dfcc5e2537fbcb2e8405ac945102ce5529f33e4e0b9b5e001268fb4ab6dc6",
+              "subject_id": "BraTS-GLI-00080",
+              "target_voxels": 24700
+            },
+            {
+              "case_id": "BraTS-GLI-00080-101",
+              "dice": 0.905125393512787,
+              "intersection_voxels": 63972,
+              "point_flat_index": 648796,
+              "point_hit": true,
+              "predicted_voxels": 71755,
+              "prediction_mask_sha256": "bf8ab7640b04d8481eaba78aa2598cca272c92497de238a79e91ae4f465f4cd1",
+              "subject_id": "BraTS-GLI-00080",
+              "target_voxels": 69600
+            },
+            {
+              "case_id": "BraTS-GLI-00463-100",
+              "dice": 0.8454195338310183,
+              "intersection_voxels": 23159,
+              "point_flat_index": 270009,
+              "point_hit": true,
+              "predicted_voxels": 29104,
+              "prediction_mask_sha256": "3c5804c1dbcc9ae0b7855ebcc84c24341286f594453a8ef9f0b809893f375983",
+              "subject_id": "BraTS-GLI-00463",
+              "target_voxels": 25683
+            },
+            {
+              "case_id": "BraTS-GLI-00463-101",
+              "dice": 0.8045176935512843,
+              "intersection_voxels": 17915,
+              "point_flat_index": 285882,
+              "point_hit": true,
+              "predicted_voxels": 24252,
+              "prediction_mask_sha256": "312e94466b18f94d1c301c049e81490d7f22446fb8f27226b27d8eafc0dabfd8",
+              "subject_id": "BraTS-GLI-00463",
+              "target_voxels": 20284
+            },
+            {
+              "case_id": "BraTS-GLI-02093-100",
+              "dice": 0.8545677821148195,
+              "intersection_voxels": 19485,
+              "point_flat_index": 782050,
+              "point_hit": true,
+              "predicted_voxels": 23376,
+              "prediction_mask_sha256": "52c13eabb600a1e68a30ec94cad10afe6b5d11c5657d01bd060dbb2fc3d10d20",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 22226
+            },
+            {
+              "case_id": "BraTS-GLI-02093-101",
+              "dice": 0.827109074922486,
+              "intersection_voxels": 17873,
+              "point_flat_index": 750419,
+              "point_hit": true,
+              "predicted_voxels": 21912,
+              "prediction_mask_sha256": "d20c64844cefd40bb52e706997ac6d788bf00d4a0a242a41761a460f9545db02",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21306
+            },
+            {
+              "case_id": "BraTS-GLI-02093-102",
+              "dice": 0.8436431846602751,
+              "intersection_voxels": 20239,
+              "point_flat_index": 782048,
+              "point_hit": true,
+              "predicted_voxels": 24694,
+              "prediction_mask_sha256": "b45cc74e07821170599d98b0a7dc1fb183be4cf7ae417c52509c20af53fcff8a",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 23286
+            },
+            {
+              "case_id": "BraTS-GLI-02093-103",
+              "dice": 0.8277330809275911,
+              "intersection_voxels": 17490,
+              "point_flat_index": 734162,
+              "point_hit": false,
+              "predicted_voxels": 20989,
+              "prediction_mask_sha256": "b61011efdd40eb85134e942964ec3df145cac45066ffd913fe1b8818ccb9be84",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21271
+            },
+            {
+              "case_id": "BraTS-GLI-02093-104",
+              "dice": 0.8472696057931459,
+              "intersection_voxels": 19247,
+              "point_flat_index": 552662,
+              "point_hit": true,
+              "predicted_voxels": 23684,
+              "prediction_mask_sha256": "d3aa2bfbd2e7b44314cfdbbc67017b71360b2dd9f48e29bba6ad31ee7a7756fa",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21749
+            },
+            {
+              "case_id": "BraTS-GLI-02093-105",
+              "dice": 0.8563021759956206,
+              "intersection_voxels": 18771,
+              "point_flat_index": 668750,
+              "point_hit": true,
+              "predicted_voxels": 21993,
+              "prediction_mask_sha256": "f53b5c6d506f6e939739cc70bfc55cd2af2107ce96efcbae6f70c87fae87c412",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 21849
+            },
+            {
+              "case_id": "BraTS-GLI-02093-106",
+              "dice": 0.8662094930751647,
+              "intersection_voxels": 19326,
+              "point_flat_index": 782179,
+              "point_hit": true,
+              "predicted_voxels": 21974,
+              "prediction_mask_sha256": "34b5fd154bb485dc958baf64b69146f9c31fcbcb6a2ac5b8d015dc0229ecd4e1",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 22648
+            },
+            {
+              "case_id": "BraTS-GLI-02093-107",
+              "dice": 0.8141377209018891,
+              "intersection_voxels": 17368,
+              "point_flat_index": 781796,
+              "point_hit": true,
+              "predicted_voxels": 22267,
+              "prediction_mask_sha256": "e4b24327168141779dc9f6d1d2f6a335fe5fed4b7739982d7f3b129465f91a9a",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 20399
+            },
+            {
+              "case_id": "BraTS-GLI-02093-108",
+              "dice": 0.8155069963580602,
+              "intersection_voxels": 17018,
+              "point_flat_index": 781796,
+              "point_hit": true,
+              "predicted_voxels": 22539,
+              "prediction_mask_sha256": "b508ee1a8d52cd27b7e9b0efc2874dd2e9e01f200d6a218f198c4092cf9225fb",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 19197
+            },
+            {
+              "case_id": "BraTS-GLI-02093-109",
+              "dice": 0.8245662077721626,
+              "intersection_voxels": 16561,
+              "point_flat_index": 601050,
+              "point_hit": true,
+              "predicted_voxels": 20666,
+              "prediction_mask_sha256": "01fedf75fc35bdd1776d7f0e75ca67d934fae7671201d5319d00ced91df389b5",
+              "subject_id": "BraTS-GLI-02093",
+              "target_voxels": 19503
+            },
+            {
+              "case_id": "BraTS-GLI-02167-100",
+              "dice": 0.6359640920142136,
+              "intersection_voxels": 6801,
+              "point_flat_index": 1763651,
+              "point_hit": true,
+              "predicted_voxels": 11823,
+              "prediction_mask_sha256": "99db3e6a2bbe3a57032f1b2fc643efd4a0288c0aead11414b2c1996eaf365e25",
+              "subject_id": "BraTS-GLI-02167",
+              "target_voxels": 9565
+            },
+            {
+              "case_id": "BraTS-GLI-02167-101",
+              "dice": 0.641300719973299,
+              "intersection_voxels": 6725,
+              "point_flat_index": 1322947,
+              "point_hit": true,
+              "predicted_voxels": 10269,
+              "prediction_mask_sha256": "d148aff0020b968d251e2c90bdce09398a0b9bf8f945b158711019d8ff8b760d",
+              "subject_id": "BraTS-GLI-02167",
+              "target_voxels": 10704
+            },
+            {
+              "case_id": "BraTS-GLI-02265-100",
+              "dice": 0.863201293515506,
+              "intersection_voxels": 109709,
+              "point_flat_index": 681064,
+              "point_hit": true,
+              "predicted_voxels": 133802,
+              "prediction_mask_sha256": "82e6aaa4bc117be44e3237444ed266ab1af5e9c3284ce62bd987af2a1bd89b0a",
+              "subject_id": "BraTS-GLI-02265",
+              "target_voxels": 120389
+            },
+            {
+              "case_id": "BraTS-GLI-02333-100",
+              "dice": 0.823975258789219,
+              "intersection_voxels": 51421,
+              "point_flat_index": 367168,
+              "point_hit": true,
+              "predicted_voxels": 62998,
+              "prediction_mask_sha256": "1fdec81045dda5cce77e5b037a33e241e30ce9bf9a4b9f69406867bbf9c46860",
+              "subject_id": "BraTS-GLI-02333",
+              "target_voxels": 61814
+            },
+            {
+              "case_id": "BraTS-GLI-02369-100",
+              "dice": 0.5253314545570998,
+              "intersection_voxels": 4101,
+              "point_flat_index": 1694130,
+              "point_hit": false,
+              "predicted_voxels": 8812,
+              "prediction_mask_sha256": "8aebc8cce54ef2e4584cff09d35f49831618637a9a82d9b4534bc368e49a6518",
+              "subject_id": "BraTS-GLI-02369",
+              "target_voxels": 6801
+            },
+            {
+              "case_id": "BraTS-GLI-02556-100",
+              "dice": 0.7772984951002011,
+              "intersection_voxels": 36130,
+              "point_flat_index": 1497037,
+              "point_hit": true,
+              "predicted_voxels": 40701,
+              "prediction_mask_sha256": "0c2348f2b457b23510496f7d486894d23f3b4b0ce3e9fbd96db0548bfcc7e36b",
+              "subject_id": "BraTS-GLI-02556",
+              "target_voxels": 52262
+            },
+            {
+              "case_id": "BraTS-GLI-02556-101",
+              "dice": 0.8311877097085736,
+              "intersection_voxels": 41741,
+              "point_flat_index": 1565115,
+              "point_hit": true,
+              "predicted_voxels": 51568,
+              "prediction_mask_sha256": "0d746d763196e753ff0bc3cc0d34d397246a5ef0d6cae66f1744fbe8a68f1912",
+              "subject_id": "BraTS-GLI-02556",
+              "target_voxels": 48869
+            },
+            {
+              "case_id": "BraTS-GLI-02707-100",
+              "dice": 0.8683020932308313,
+              "intersection_voxels": 30157,
+              "point_flat_index": 1497427,
+              "point_hit": true,
+              "predicted_voxels": 37263,
+              "prediction_mask_sha256": "802aa1e96a64b0b355af87a2c6ff2b7ca5a0beb50b69ece440081fb44504ae97",
+              "subject_id": "BraTS-GLI-02707",
+              "target_voxels": 32199
+            },
+            {
+              "case_id": "BraTS-GLI-02799-100",
+              "dice": 0.6096375666022601,
+              "intersection_voxels": 5206,
+              "point_flat_index": 483644,
+              "point_hit": true,
+              "predicted_voxels": 7964,
+              "prediction_mask_sha256": "a91f770cc41b5b6db3d8602df0e741c889fa3ad0712b98625ef121d69447f854",
+              "subject_id": "BraTS-GLI-02799",
+              "target_voxels": 9115
+            },
+            {
+              "case_id": "BraTS-GLI-02799-101",
+              "dice": 0.6100920705160231,
+              "intersection_voxels": 4274,
+              "point_flat_index": 529333,
+              "point_hit": true,
+              "predicted_voxels": 6860,
+              "prediction_mask_sha256": "4cb31994e46e5cab0f7f44ba79777a3d461b07e2aba9cd0b3ca068b1ae5bf13b",
+              "subject_id": "BraTS-GLI-02799",
+              "target_voxels": 7151
+            },
+            {
+              "case_id": "BraTS-GLI-02820-100",
+              "dice": 0.7678724900382843,
+              "intersection_voxels": 19656,
+              "point_flat_index": 1517271,
+              "point_hit": true,
+              "predicted_voxels": 24592,
+              "prediction_mask_sha256": "58a7370057a9d9159eab3f6cd103249f48c9fcc10623105cc9effa758ca9c64a",
+              "subject_id": "BraTS-GLI-02820",
+              "target_voxels": 26604
+            },
+            {
+              "case_id": "BraTS-GLI-02820-101",
+              "dice": 0.7761080944563707,
+              "intersection_voxels": 27657,
+              "point_flat_index": 1138390,
+              "point_hit": true,
+              "predicted_voxels": 37415,
+              "prediction_mask_sha256": "1c8189d245cb92a0c895e51f322c8ae7c1295c728ca577d0a34d695e9869bbb7",
+              "subject_id": "BraTS-GLI-02820",
+              "target_voxels": 33856
+            },
+            {
+              "case_id": "BraTS-GLI-02823-100",
+              "dice": 0.8307490308865825,
+              "intersection_voxels": 13287,
+              "point_flat_index": 931288,
+              "point_hit": true,
+              "predicted_voxels": 17723,
+              "prediction_mask_sha256": "2d9c8460f4da6068f78b3525627f8ca779ea2e3dc5f1d96489436eb4d3d16e21",
+              "subject_id": "BraTS-GLI-02823",
+              "target_voxels": 14265
+            },
+            {
+              "case_id": "BraTS-GLI-02823-101",
+              "dice": 0.7191997299702354,
+              "intersection_voxels": 11719,
+              "point_flat_index": 798796,
+              "point_hit": true,
+              "predicted_voxels": 18197,
+              "prediction_mask_sha256": "332a65ea80921f9aa02f434ce808a27a5f35e5ed662b80cbc0b2f6a172addf10",
+              "subject_id": "BraTS-GLI-02823",
+              "target_voxels": 14392
+            },
+            {
+              "case_id": "BraTS-GLI-02868-100",
+              "dice": 0.8481480196129954,
+              "intersection_voxels": 85537,
+              "point_flat_index": 529476,
+              "point_hit": true,
+              "predicted_voxels": 109658,
+              "prediction_mask_sha256": "d71b7bee6d82b7927c71e5df218e2aebb92a07a9281bbf1257ee30e6c2639c39",
+              "subject_id": "BraTS-GLI-02868",
+              "target_voxels": 92045
+            },
+            {
+              "case_id": "BraTS-GLI-02868-101",
+              "dice": 0.5908363064303171,
+              "intersection_voxels": 10516,
+              "point_flat_index": 513210,
+              "point_hit": true,
+              "predicted_voxels": 20481,
+              "prediction_mask_sha256": "0702445001cdbd62216c693b11933787da5aeb02ed9f6820f37375f11115a19f",
+              "subject_id": "BraTS-GLI-02868",
+              "target_voxels": 15116
+            },
+            {
+              "case_id": "BraTS-GLI-02890-100",
+              "dice": 0.5816642388929352,
+              "intersection_voxels": 6389,
+              "point_flat_index": 745957,
+              "point_hit": true,
+              "predicted_voxels": 10381,
+              "prediction_mask_sha256": "db3933970334886c99803894d39bef608f52d0cbad58194e4d5d1544c071e9a4",
+              "subject_id": "BraTS-GLI-02890",
+              "target_voxels": 11587
+            },
+            {
+              "case_id": "BraTS-GLI-02890-101",
+              "dice": 0.5646135498018697,
+              "intersection_voxels": 7338,
+              "point_flat_index": 730470,
+              "point_hit": true,
+              "predicted_voxels": 13689,
+              "prediction_mask_sha256": "82af96dbdb8dad75d29d762a246645de3036ecb021ff4aa4d06878256819a659",
+              "subject_id": "BraTS-GLI-02890",
+              "target_voxels": 12304
+            },
+            {
+              "case_id": "BraTS-GLI-02916-100",
+              "dice": 0.7287413058110837,
+              "intersection_voxels": 4872,
+              "point_flat_index": 1584080,
+              "point_hit": true,
+              "predicted_voxels": 6415,
+              "prediction_mask_sha256": "34de3cdf7730df785e79acc9c41d475b7628ef248d51222a42c6e05ac17b143c",
+              "subject_id": "BraTS-GLI-02916",
+              "target_voxels": 6956
+            },
+            {
+              "case_id": "BraTS-GLI-02916-101",
+              "dice": 0.6469595833638965,
+              "intersection_voxels": 4410,
+              "point_flat_index": 1470283,
+              "point_hit": true,
+              "predicted_voxels": 6371,
+              "prediction_mask_sha256": "643dc7d1e482de14348e5e0118f3826d542a80c5a0518b0d938407b8a83e0ba2",
+              "subject_id": "BraTS-GLI-02916",
+              "target_voxels": 7262
+            },
+            {
+              "case_id": "BraTS-GLI-02948-100",
+              "dice": 0.6566374023911413,
+              "intersection_voxels": 7442,
+              "point_flat_index": 698200,
+              "point_hit": true,
+              "predicted_voxels": 12491,
+              "prediction_mask_sha256": "869232fbdd0f2a6339d32d6702177988feb33fe7e1bf87be803be66dec5ea8cf",
+              "subject_id": "BraTS-GLI-02948",
+              "target_voxels": 10176
+            },
+            {
+              "case_id": "BraTS-GLI-02948-101",
+              "dice": 0.6307142857142857,
+              "intersection_voxels": 7064,
+              "point_flat_index": 698202,
+              "point_hit": true,
+              "predicted_voxels": 13539,
+              "prediction_mask_sha256": "32e11f1f9ee677697019b4d30c4eb78529a1cf2b8dcde9726995ffe1d4e96c0b",
+              "subject_id": "BraTS-GLI-02948",
+              "target_voxels": 8861
+            },
+            {
+              "case_id": "BraTS-GLI-03052-100",
+              "dice": 0.7324798292991932,
+              "intersection_voxels": 10985,
+              "point_flat_index": 306504,
+              "point_hit": true,
+              "predicted_voxels": 17003,
+              "prediction_mask_sha256": "fd6c6a086ee75ce1610d68b76b8240865c0b48b5b999edcf0ac2c31323075a54",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 12991
+            },
+            {
+              "case_id": "BraTS-GLI-03052-101",
+              "dice": 0.8235777267785964,
+              "intersection_voxels": 17046,
+              "point_flat_index": 1224782,
+              "point_hit": true,
+              "predicted_voxels": 21159,
+              "prediction_mask_sha256": "b6ddf383add2413cbf05ee138401f53045f6b27b54e1df562ac6b36166db7e64",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 20236
+            },
+            {
+              "case_id": "BraTS-GLI-03052-102",
+              "dice": 0.8965323599606907,
+              "intersection_voxels": 76632,
+              "point_flat_index": 1337445,
+              "point_hit": true,
+              "predicted_voxels": 87633,
+              "prediction_mask_sha256": "b1b91561ef3237ea106cf2b922ba0bd9100c5ce4728d3fd450a373d05f504a3d",
+              "subject_id": "BraTS-GLI-03052",
+              "target_voxels": 83319
+            },
+            {
+              "case_id": "BraTS-GLI-03062-100",
+              "dice": 0.8168229745626436,
+              "intersection_voxels": 37843,
+              "point_flat_index": 990657,
+              "point_hit": true,
+              "predicted_voxels": 49223,
+              "prediction_mask_sha256": "303e53cc588604385c7dfbc77c237ef2200e28dfb1c365bd4aaf005ada5052db",
+              "subject_id": "BraTS-GLI-03062",
+              "target_voxels": 43436
+            }
+          ]
+        }
+      }
+    }
+  },
+  "schema": "aflow.no_n4_clean.inner",
+  "stage_b_authorized": false,
+  "total_forwards": 1344
+}

@@ -1,0 +1,105 @@
+{
+  "all_gates_passed": true,
+  "arm": "dmrfb_dilation2",
+  "confirmation_access": false,
+  "cuda_bfloat16_initial_plain_max_abs_difference": 0.0,
+  "estimated_formal_seconds": 1068.4740295410156,
+  "gates": {
+    "cuda_bfloat16_initial_plain_identity": true,
+    "memory": true,
+    "runtime": true,
+    "step1_projection": true,
+    "step2_all_adapter": true
+  },
+  "gradient_audits": [
+    {
+      "adapter.branches.0.weight": {
+        "finite": true,
+        "nonzero": false
+      },
+      "adapter.branches.1.weight": {
+        "finite": true,
+        "nonzero": false
+      },
+      "adapter.branches.2.weight": {
+        "finite": true,
+        "nonzero": false
+      },
+      "adapter.norm.bias": {
+        "finite": true,
+        "nonzero": false
+      },
+      "adapter.norm.weight": {
+        "finite": true,
+        "nonzero": false
+      },
+      "adapter.projection.bias": {
+        "finite": true,
+        "nonzero": true
+      },
+      "adapter.projection.weight": {
+        "finite": true,
+        "nonzero": true
+      }
+    },
+    {
+      "adapter.branches.0.weight": {
+        "finite": true,
+        "nonzero": true
+      },
+      "adapter.branches.1.weight": {
+        "finite": true,
+        "nonzero": true
+      },
+      "adapter.branches.2.weight": {
+        "finite": true,
+        "nonzero": true
+      },
+      "adapter.norm.bias": {
+        "finite": true,
+        "nonzero": true
+      },
+      "adapter.norm.weight": {
+        "finite": true,
+        "nonzero": true
+      },
+      "adapter.projection.bias": {
+        "finite": true,
+        "nonzero": true
+      },
+      "adapter.projection.weight": {
+        "finite": true,
+        "nonzero": true
+      }
+    }
+  ],
+  "measured_steps": 3,
+  "outer_selector_access": false,
+  "pairing": {
+    "first_batch_augmented_image_sha256": "1e6e6f9fa6664bd1e1877ecf9c1ceef10d24383aba464373d232b07ce6325db0",
+    "first_batch_augmented_label_sha256": "e3e63a8685fa8f95d8e69ca20494bfee8583e0fa97ea00f99a8954f152ec9ea5",
+    "first_batch_case_ids": [
+      "BraTS-GLI-02524-100",
+      "BraTS-GLI-03021-100",
+      "BraTS-GLI-02895-101",
+      "BraTS-GLI-02206-103",
+      "BraTS-GLI-02940-101",
+      "BraTS-GLI-02654-100",
+      "BraTS-GLI-02799-101",
+      "BraTS-GLI-02143-100"
+    ],
+    "first_batch_case_ids_sha256": "3c12e2f49c201a8e03279658204243b4e9f736c861e74e9e16e7d4ff117de08d",
+    "first_batch_raw_image_sha256": "d1fd62f978db9330e3ca48366bf537d181bd3035b70a40d04c0722dea92295c5",
+    "first_batch_raw_label_sha256": "6413caefb1170a77d4a69a117b8cae18ac77692b6b153bac13722f4c693609af",
+    "initial_adapter_state_sha256": "7a225052c54167822a7e93441c8e243a397fa4cc1ba2c2be918adb7cd91c8059",
+    "initial_student_state_sha256": "886e008124bece0d0a17ead3a8e890ffa7a360aa094bd5c379af0690ed4d7f91"
+  },
+  "peak_gpu_memory_bytes": 21818996736,
+  "runner_sha256": "6619d019147f367a8061b3e88bb727f797baaf42b936c53c01e69c304294b829",
+  "schema": "aflow.sammed3d.t1ce_wt_dmrfb_adapter_gpu_smoke",
+  "schema_version": 1,
+  "status": "complete",
+  "test_access": false,
+  "validation_access": false,
+  "warmup_steps": 1
+}

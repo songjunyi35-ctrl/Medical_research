@@ -1,0 +1,90 @@
+{
+  "access": {
+    "image_or_cache_access": false,
+    "new_model_inference": false,
+    "selection_or_tuning": false
+  },
+  "analyzer_sha256": "e9443d00917e854875cf89024fd2f50130c2b1c8fdd214d634ecf5434ea18ef1",
+  "cohorts": {
+    "post": {
+      "models": {
+        "full_flip8": {
+          "dice": 0.5941601883282366,
+          "point_denominator": 29,
+          "point_hits": 14
+        },
+        "full_identity": {
+          "dice": 0.5856829290277097,
+          "point_denominator": 29,
+          "point_hits": 14
+        },
+        "gcsam_identity": {
+          "dice": 0.5860636522627833,
+          "point_denominator": 29,
+          "point_hits": 13
+        }
+      },
+      "raw_label4_present": 28,
+      "subjects": 29,
+      "target_wt": {
+        "max": 99118,
+        "mean": 52122.275862068964,
+        "median": 46761.0,
+        "min": 9511
+      }
+    },
+    "pre": {
+      "models": {
+        "full_flip8": {
+          "dice": 0.7445360620188854,
+          "point_denominator": 74,
+          "point_hits": 74
+        },
+        "full_identity": {
+          "dice": 0.7301819237250659,
+          "point_denominator": 74,
+          "point_hits": 74
+        },
+        "gcsam_identity": {
+          "dice": 0.736542294983265,
+          "point_denominator": 74,
+          "point_hits": 72
+        }
+      },
+      "raw_label4_present": 0,
+      "subjects": 74,
+      "target_wt": {
+        "max": 151087,
+        "mean": 64485.83783783784,
+        "median": 60307.5,
+        "min": 4889
+      }
+    }
+  },
+  "forbidden_use": "no causal surgery effect, day/grade/RC routing, threshold/postprocessing, or cohort retest",
+  "grade": 4,
+  "interpretation": "Grade4-only postoperative performance and point hit remain much lower even though postop targets are smaller. Groups are different patients and differ in surgery, RC, timing, scanner/case mix; this rules out grade or larger target as sufficient explanations but is not a causal before-after estimate.",
+  "post_minus_pre": {
+    "model_dice": {
+      "full_flip8": -0.15037587369064886,
+      "full_identity": -0.14449899469735616,
+      "gcsam_identity": -0.15047864272048161
+    },
+    "model_point_rate": {
+      "full_flip8": -0.5172413793103448,
+      "full_identity": -0.5172413793103448,
+      "gcsam_identity": -0.5246971109040075
+    },
+    "target_mean": -12363.561975768876,
+    "target_median": -13546.5
+  },
+  "schema": "aflow.waw.grade4_pre_post_description",
+  "schema_version": 1,
+  "source_sha256": {
+    "archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/RAW_WAW152.json": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91",
+    "archive/research_records/2026-09-06_waw_postop_only31_frozen_panel/RAW_WAW_POSTOP31.json": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98",
+    "archive/reviews/2026-09-06_waw_gliomai_source_audit/FROZEN_COHORT.json": "25de15904d8db5e6d6e304bc73058dba4f43e7534ae0a533f4f06636613a263a",
+    "archive/reviews/2026-09-06_waw_postop_only31_source_audit/FROZEN_COHORT.json": "965b2fe0f331d782dbb6bb136d6089c1181419a9a75dbd8f198cbeff33284180"
+  },
+  "status": "unpaired_patient_disjoint_posthoc_description_no_causal_test"
+}

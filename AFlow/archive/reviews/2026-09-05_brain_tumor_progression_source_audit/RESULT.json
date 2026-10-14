@@ -1,0 +1,33 @@
+{
+  "schema": "aflow.brain_tumor_progression.source_audit",
+  "created_utc": "2026-09-05",
+  "status": "closed_controlled_and_non_brats_wt_label_provenance",
+  "official": {
+    "collection": "BRAIN-TUMOR-PROGRESSION",
+    "doi": "10.7937/K9/TCIA.2018.15quzvnb",
+    "subjects": 20,
+    "studies": 40,
+    "series": 383,
+    "images": 8798,
+    "bytes_label": "3.16GB",
+    "timepoints": ["within 90 days after chemoradiation", "at progression"],
+    "modalities": ["T1 pre/post contrast", "FLAIR", "T2", "ADC", "perfusion"],
+    "mask_description": "binary tumor masks generated using T1w images",
+    "registration": "all series coregistered to T1+C",
+    "license": "NIH Controlled Data Access Policy"
+  },
+  "gaps": {
+    "public_uncontrolled_access": false,
+    "manual_or_expert_mask_provenance_stated": false,
+    "brats_whole_tumor_semantics_stated": false,
+    "flair_edema_included_in_mask_stated": false,
+    "dataset_author_publication_recommended": false
+  },
+  "third_party_derivative_rejected": {
+    "directories": 11,
+    "operations": ["DICOM to NIfTI", "nearest-neighbor resize256x256", "reduce to22 slices", "pad to24 slices"],
+    "reason": "partial modified derivative cannot establish official full-cohort label provenance or native geometry"
+  },
+  "access": {"controlled_application": false, "manifest_or_dicom_download": false, "mask_voxels": false, "model_inference": false, "metrics": false},
+  "decision": "Do not use for the current BraTS-WT external leaderboard. Reconsider only with controlled access and primary evidence that masks are expert/manual and semantically compatible."
+}

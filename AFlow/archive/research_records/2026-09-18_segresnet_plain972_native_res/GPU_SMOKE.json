@@ -1,0 +1,255 @@
+{
+  "utc": "2026-09-18T07:26:04.139831+00:00",
+  "status": "passed",
+  "memory_ceiling_bytes": 38654705664,
+  "candidates": [
+    8,
+    6,
+    4
+  ],
+  "fits_on_both_ranks": {
+    "8": false,
+    "6": false,
+    "4": true
+  },
+  "memory_probe_by_rank_no_benchmark": [
+    [
+      {
+        "per_gpu_batch": 8,
+        "cudnn_benchmark": false,
+        "ok": false,
+        "error": "OOM: CUDA out of memory. Tried to allocate 2.54 GiB. GPU 0 has a total capacity of 39.39 GiB of which 462.31 MiB is free. Process 1533100 has 38.93 GiB memory in use. Of the allocated memory 38.38 GiB is allocated by PyTorch, and 67.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocat",
+        "seconds_per_step_after_warmup": null,
+        "first_steps": [],
+        "peak_allocated_bytes": 41207979520,
+        "peak_reserved_bytes": 41278242816,
+        "fits_ceiling": false,
+        "steps_per_epoch": 61,
+        "estimated_training_seconds_per_epoch": null
+      },
+      {
+        "per_gpu_batch": 6,
+        "cudnn_benchmark": false,
+        "ok": true,
+        "error": null,
+        "seconds_per_step_after_warmup": 0.7066088033219179,
+        "first_steps": [
+          {
+            "loss": 0.9078627824783325,
+            "train_dice": 0.21929606795310974,
+            "grad_norm_before_clip": 1.078749656677246,
+            "augmentation_fallbacks": 0.0
+          },
+          {
+            "loss": 0.8077702522277832,
+            "train_dice": 0.49700576066970825,
+            "grad_norm_before_clip": 0.960672914981842,
+            "augmentation_fallbacks": 0.0
+          }
+        ],
+        "peak_allocated_bytes": 41245708800,
+        "peak_reserved_bytes": 41343254528,
+        "fits_ceiling": false,
+        "steps_per_epoch": 81,
+        "estimated_training_seconds_per_epoch": 57.235313069075346
+      },
+      {
+        "per_gpu_batch": 4,
+        "cudnn_benchmark": false,
+        "ok": true,
+        "error": null,
+        "seconds_per_step_after_warmup": 0.512488592416048,
+        "first_steps": [
+          {
+            "loss": 0.9027026891708374,
+            "train_dice": 0.24590429663658142,
+            "grad_norm_before_clip": 1.2336785793304443,
+            "augmentation_fallbacks": 0.0
+          },
+          {
+            "loss": 0.8219484686851501,
+            "train_dice": 0.4603866934776306,
+            "grad_norm_before_clip": 1.2066216468811035,
+            "augmentation_fallbacks": 0.0
+          }
+        ],
+        "peak_allocated_bytes": 27531497984,
+        "peak_reserved_bytes": 31700549632,
+        "fits_ceiling": true,
+        "steps_per_epoch": 122,
+        "estimated_training_seconds_per_epoch": 62.52360827475786
+      }
+    ],
+    [
+      {
+        "per_gpu_batch": 8,
+        "cudnn_benchmark": false,
+        "ok": false,
+        "error": "OOM: CUDA out of memory. Tried to allocate 2.54 GiB. GPU 1 has a total capacity of 39.39 GiB of which 462.31 MiB is free. Process 1533101 has 38.93 GiB memory in use. Of the allocated memory 38.38 GiB is allocated by PyTorch, and 67.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocat",
+        "seconds_per_step_after_warmup": null,
+        "first_steps": [],
+        "peak_allocated_bytes": 41207979520,
+        "peak_reserved_bytes": 41278242816,
+        "fits_ceiling": false,
+        "steps_per_epoch": 61,
+        "estimated_training_seconds_per_epoch": null
+      },
+      {
+        "per_gpu_batch": 6,
+        "cudnn_benchmark": false,
+        "ok": true,
+        "error": null,
+        "seconds_per_step_after_warmup": 0.7044959403574467,
+        "first_steps": [
+          {
+            "loss": 0.9167628288269043,
+            "train_dice": 0.19083242118358612,
+            "grad_norm_before_clip": 0.8805421590805054,
+            "augmentation_fallbacks": 0.0
+          },
+          {
+            "loss": 0.8497397303581238,
+            "train_dice": 0.4695657193660736,
+            "grad_norm_before_clip": 1.5234558582305908,
+            "augmentation_fallbacks": 0.0
+          }
+        ],
+        "peak_allocated_bytes": 41245708800,
+        "peak_reserved_bytes": 41343254528,
+        "fits_ceiling": false,
+        "steps_per_epoch": 81,
+        "estimated_training_seconds_per_epoch": 57.06417116895318
+      },
+      {
+        "per_gpu_batch": 4,
+        "cudnn_benchmark": false,
+        "ok": true,
+        "error": null,
+        "seconds_per_step_after_warmup": 0.5119998070100943,
+        "first_steps": [
+          {
+            "loss": 0.9158815145492554,
+            "train_dice": 0.19734901189804077,
+            "grad_norm_before_clip": 1.0840972661972046,
+            "augmentation_fallbacks": 0.0
+          },
+          {
+            "loss": 0.8474940061569214,
+            "train_dice": 0.44445687532424927,
+            "grad_norm_before_clip": 1.578452229499817,
+            "augmentation_fallbacks": 0.0
+          }
+        ],
+        "peak_allocated_bytes": 27531497984,
+        "peak_reserved_bytes": 31700549632,
+        "fits_ceiling": true,
+        "steps_per_epoch": 122,
+        "estimated_training_seconds_per_epoch": 62.4639764552315
+      }
+    ]
+  ],
+  "speed_probe_with_benchmark": [
+    [
+      {
+        "per_gpu_batch": 4,
+        "cudnn_benchmark": true,
+        "ok": true,
+        "error": null,
+        "seconds_per_step_after_warmup": 0.5131030716001987,
+        "first_steps": [
+          {
+            "loss": 0.9027026891708374,
+            "train_dice": 0.24590429663658142,
+            "grad_norm_before_clip": 1.2336443662643433,
+            "augmentation_fallbacks": 0.0
+          },
+          {
+            "loss": 0.8219465613365173,
+            "train_dice": 0.4604208171367645,
+            "grad_norm_before_clip": 1.2066296339035034,
+            "augmentation_fallbacks": 0.0
+          }
+        ],
+        "peak_allocated_bytes": 27531497984,
+        "peak_reserved_bytes": 31700549632,
+        "fits_ceiling": true,
+        "steps_per_epoch": 122,
+        "estimated_training_seconds_per_epoch": 62.59857473522425
+      },
+      {
+        "per_gpu_batch": 4,
+        "cudnn_benchmark": true,
+        "ok": true,
+        "error": null,
+        "seconds_per_step_after_warmup": 0.5115790205697218,
+        "first_steps": [
+          {
+            "loss": 0.9158815145492554,
+            "train_dice": 0.19734901189804077,
+            "grad_norm_before_clip": 1.0841082334518433,
+            "augmentation_fallbacks": 0.0
+          },
+          {
+            "loss": 0.8474922180175781,
+            "train_dice": 0.4444359540939331,
+            "grad_norm_before_clip": 1.578352928161621,
+            "augmentation_fallbacks": 0.0
+          }
+        ],
+        "peak_allocated_bytes": 27531497984,
+        "peak_reserved_bytes": 31700549632,
+        "fits_ceiling": true,
+        "steps_per_epoch": 122,
+        "estimated_training_seconds_per_epoch": 62.41264050950606
+      }
+    ]
+  ],
+  "ddp_check": [
+    {
+      "rank": 0,
+      "per_gpu_batch": 4,
+      "distributed_steps": [
+        {
+          "loss": 0.9047348201274872,
+          "train_dice": 0.23694174736738205,
+          "grad_norm_before_clip": 1.1894810199737549,
+          "augmentation_fallbacks": 0.0
+        },
+        {
+          "loss": 0.8167988359928131,
+          "train_dice": 0.49635910987854004,
+          "grad_norm_before_clip": 1.1080968379974365,
+          "augmentation_fallbacks": 0.0
+        }
+      ],
+      "max_parameter_difference": 0.0,
+      "parameter_change": 0.00040027499198913574,
+      "peak_allocated_bytes": 27550767616,
+      "peak_reserved_bytes": 37690015744
+    },
+    {
+      "rank": 1,
+      "per_gpu_batch": 4,
+      "distributed_steps": [
+        {
+          "loss": 0.9047348201274872,
+          "train_dice": 0.23694174736738205,
+          "grad_norm_before_clip": 1.1894810199737549,
+          "augmentation_fallbacks": 0.0
+        },
+        {
+          "loss": 0.8167988359928131,
+          "train_dice": 0.49635910987854004,
+          "grad_norm_before_clip": 1.1080968379974365,
+          "augmentation_fallbacks": 0.0
+        }
+      ],
+      "max_parameter_difference": 0.0,
+      "parameter_change": 0.00040027499198913574,
+      "peak_allocated_bytes": 27550767616,
+      "peak_reserved_bytes": 37690015744
+    }
+  ],
+  "real_model_parameters": 4700897,
+  "patient_pixels_access": false
+}

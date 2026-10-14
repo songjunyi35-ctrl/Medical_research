@@ -1,0 +1,67 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_final_test_result",
+  "schema_version": 1,
+  "status": "complete",
+  "configuration_freeze": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/FROZEN_E8_CONFIGURATION_20260723.json",
+    "sha256": "2019f5a3239ce67616271879e8468b62fa09603aa70d54fe2f8f5ebe3ef5ab03",
+    "frozen_at_utc": "2026-07-23T04:01:52Z"
+  },
+  "test_evaluation": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/FROZEN_e8_test270_cumulative3_s20260723.json",
+    "sha256": "91f6ff7e9426d74e6d7fae73fe172806c1427da17d951b18614e65a9389700db",
+    "created_at_utc": "2026-07-23T04:05:20.869018+00:00",
+    "elapsed_seconds": 90.77479219436646,
+    "cases": 270,
+    "subjects": 119,
+    "checkpoint_sha256": "4a325a6ffca148941c5d66f4802f331d13b8ddb7862da299981e8fd6be84d7c8",
+    "manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "seed": 20260723,
+    "scan_macro": {
+      "dice_c1_c2_c3": [
+        0.5305524299300574,
+        0.5448258087336758,
+        0.5498283787305348
+      ],
+      "dice_c3_median": 0.5755899305710677,
+      "dice_c3_std_population": 0.15794298856533437,
+      "iou_c3_mean": 0.3945992927666333
+    },
+    "subject_balanced": {
+      "dice_c1_c2_c3": [
+        0.513000611145219,
+        0.5269048110764304,
+        0.531978206067159
+      ],
+      "dice_c3_std_population": 0.14516877357605046
+    }
+  },
+  "validation": {
+    "selected_epoch": 8,
+    "independent_scan_macro_dice_c3": 0.5358880711676558,
+    "independent_subject_balanced_dice_c3": 0.5353692764043558,
+    "same_seed_untouched_base_scan_macro_dice_c3": 0.30731176609196625,
+    "same_seed_validation_c3_absolute_gain": 0.22857630507568955
+  },
+  "historical_test_comparison": {
+    "untouched_base_report": "workspace/BraTS/t1ce_official_geometry3_test/full_270_single_b200_v2.json",
+    "untouched_base_report_sha256": "18b6e245fe0a566ec7498d3f478b1d9e4405d4ae951b4b09e4031223ade37460",
+    "untouched_base_seed": 20260722,
+    "untouched_base_scan_macro_dice_c3": 0.3300964369885911,
+    "trained_scan_macro_dice_c3": 0.5498283787305348,
+    "unpaired_absolute_difference": 0.2197319417419437,
+    "caveat": "Same cases and nominal cumulative-click/recurrent-mask protocol, but different click RNG seeds; this is not a paired comparison."
+  },
+  "test_history_disclosure": {
+    "test_used_for_current_training": false,
+    "test_used_for_current_epoch_selection": false,
+    "test_used_for_current_threshold_tta_or_postprocess_search": false,
+    "test_previously_evaluated_in_project_history": true,
+    "interpretation": "Held out from the current fit and epoch selection, but not a globally pristine external test set."
+  },
+  "runtime": {
+    "worker": "1007515",
+    "accelerator": "NVIDIA B200",
+    "active_compute_after_evaluation": false
+  }
+}

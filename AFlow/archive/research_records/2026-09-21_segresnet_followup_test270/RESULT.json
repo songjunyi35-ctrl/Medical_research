@@ -1,0 +1,164 @@
+{
+  "utc": "2026-09-21T13:26:10.631462+00:00",
+  "status": "both_fixed_tests_complete",
+  "candidates": {
+    "native": {
+      "epoch": 166,
+      "scan_dice": 0.7662715751815725,
+      "subject_dice": 0.7509584770378779,
+      "point_hits": 236,
+      "comparisons": {
+        "pretrained179_native": {
+          "scan_delta": 0.0017270382355760645,
+          "subject_delta": 0.002199513268988339,
+          "scan_delta_ci95": [
+            -0.0046066005997674716,
+            0.008775581848905029
+          ],
+          "subject_delta_ci95": [
+            -0.005406388526297167,
+            0.010035536456018351
+          ],
+          "scan_delta_ci97_5": [
+            -0.005598882360028803,
+            0.009925218031847403
+          ],
+          "subject_delta_ci97_5": [
+            -0.006550663742980284,
+            0.0109976613985672
+          ],
+          "point_hits_delta": -14,
+          "improved_scans": 134,
+          "worse_scans": 136,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        },
+        "native173": {
+          "scan_delta": -0.0023063219152390955,
+          "subject_delta": -0.0031854339986152587,
+          "scan_delta_ci95": [
+            -0.00907754383751068,
+            0.005791036780550626
+          ],
+          "subject_delta_ci95": [
+            -0.010886641857361015,
+            0.005776273910603838
+          ],
+          "scan_delta_ci97_5": [
+            -0.009978029652680713,
+            0.007240196596419028
+          ],
+          "subject_delta_ci97_5": [
+            -0.01202133007097144,
+            0.007293409599979023
+          ],
+          "point_hits_delta": -26,
+          "improved_scans": 105,
+          "worse_scans": 165,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        },
+        "pure193_native": {
+          "scan_delta": 0.005137655677066909,
+          "subject_delta": 0.0039915614842283295,
+          "scan_delta_ci95": [
+            -0.0020558085375017945,
+            0.012751042628662326
+          ],
+          "subject_delta_ci95": [
+            -0.0038060360484566086,
+            0.012179698558023372
+          ],
+          "scan_delta_ci97_5": [
+            -0.002969339290033083,
+            0.014062415243621703
+          ],
+          "subject_delta_ci97_5": [
+            -0.004913831391836144,
+            0.013453078863474466
+          ],
+          "point_hits_delta": -11,
+          "improved_scans": 151,
+          "worse_scans": 119,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        }
+      },
+      "runtime": {
+        "inference_seconds": 27.312918096780777,
+        "peak_allocated_bytes": 3470007808,
+        "gpu": "NVIDIA A100-SXM4-40GB"
+      }
+    },
+    "patient": {
+      "epoch": 172,
+      "scan_dice": 0.7599672248518026,
+      "subject_dice": 0.7456465547325231,
+      "point_hits": 250,
+      "comparisons": {
+        "pretrained179": {
+          "scan_delta": -0.0016815113800543325,
+          "subject_delta": -0.00021205489375010313,
+          "scan_delta_ci95": [
+            -0.008388813482488582,
+            0.005860208393799224
+          ],
+          "subject_delta_ci95": [
+            -0.008023442785654748,
+            0.008078250286563261
+          ],
+          "scan_delta_ci97_5": [
+            -0.009439987063888681,
+            0.006957209040892625
+          ],
+          "subject_delta_ci97_5": [
+            -0.009064107181540888,
+            0.009560955375986028
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 113,
+          "worse_scans": 157,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        },
+        "pure193": {
+          "scan_delta": 0.0007884438322098167,
+          "subject_delta": 0.0006619312583941042,
+          "scan_delta_ci95": [
+            -0.005891989931508502,
+            0.008408736614881005
+          ],
+          "subject_delta_ci95": [
+            -0.00714313231038154,
+            0.009361787577569274
+          ],
+          "scan_delta_ci97_5": [
+            -0.00682269813555504,
+            0.009793345377606236
+          ],
+          "subject_delta_ci97_5": [
+            -0.008345804745950983,
+            0.010779315188203633
+          ],
+          "point_hits_delta": 8,
+          "improved_scans": 122,
+          "worse_scans": 148,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        }
+      },
+      "runtime": {
+        "inference_seconds": 10.16708854585886,
+        "peak_allocated_bytes": 1313313280,
+        "gpu": "NVIDIA A100-SXM4-40GB"
+      }
+    }
+  },
+  "test_access": true,
+  "current_test_tuning": false,
+  "new_outer_confirmation_access": false,
+  "evidence": {
+    "archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/RESULT.json": "26fe5d3924d49d3face8c310f6c02c4273f8ce6d3141a9d7a47acbdbb2f1e9b0",
+    "archive/research_records/2026-09-21_segresnet_patient_equal_e172_test270/RESULT.json": "3406f646d77cdec389b86f48ed512870cff321f241ea951e0a87150d0d9c0d5e"
+  }
+}

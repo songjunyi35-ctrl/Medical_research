@@ -1,0 +1,130 @@
+{
+  "all_gates_passed": true,
+  "arm": "kas",
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-20T07:02:24.692272+00:00",
+  "elapsed_seconds": 6.168790817260742,
+  "estimated_formal_seconds": 1083.9697723388672,
+  "gates": {
+    "kas_gradient_gate": true,
+    "losses_finite": true,
+    "peak_allocated_at_most_32_gib": true,
+    "stripped_deploy_max_abs_difference_zero": true
+  },
+  "gradient_audit": {
+    "deepest_feature": {
+      "finite": true,
+      "nonzero": true,
+      "norm": 0.108110710978508
+    },
+    "final_logits": {
+      "finite": true,
+      "nonzero": true,
+      "norm": 0.008457724936306477
+    },
+    "projector_bias": {
+      "finite": true,
+      "nonzero": true,
+      "norm": 33.25
+    },
+    "projector_weight": {
+      "finite": true,
+      "nonzero": true,
+      "norm": 1807.659423828125
+    }
+  },
+  "initial_student_state_sha256": "90e344496af0c848365e1b4f8ba83da1d2c7288413587df5ed0313a3e1513778",
+  "kas": {
+    "components": [
+      "raw_mse",
+      "sigmoid_dice_consistency",
+      "per_volume_contrastive"
+    ],
+    "deploy": "plain student final raw logit only",
+    "enabled": true,
+    "gamma": 0.01,
+    "method": "teacher-free KAS-on-voxel-KD",
+    "projector": "Conv3d128to1 kernel1 training-only",
+    "teacher_forwards": 0,
+    "weight": 0.01
+  },
+  "losses": {
+    "contrastive": 0.2762264609336853,
+    "dice_consistency": 0.9427287578582764,
+    "grad_norm_before_clip": 22.196910858154297,
+    "kas_raw": 235.5052032470703,
+    "kas_weighted": 2.3550519943237305,
+    "mse": 234.28623962402344,
+    "supervised": 0.18653039634227753,
+    "total": 2.5415823459625244,
+    "train_dsc": 0.8193178176879883
+  },
+  "measured_step_seconds": [
+    0.36011171340942383,
+    0.36047911643981934,
+    0.36036229133605957
+  ],
+  "measured_steps": 3,
+  "median_step_seconds": 0.36036229133605957,
+  "outer_selector_access": false,
+  "pairing": {
+    "first_batch_augmented_image_dtype": "torch.float32",
+    "first_batch_augmented_image_sha256": "b2c3361d3a48c33b72cd8c57ece44eccf40c0090fd21b452f7c1da0af043d495",
+    "first_batch_augmented_image_shape": [
+      8,
+      1,
+      128,
+      128,
+      128
+    ],
+    "first_batch_augmented_label_dtype": "torch.float32",
+    "first_batch_augmented_label_sha256": "916cffc5cc8db7c86b0ecbf50d55a4bb5627d10a375af1d3b7b4bbbe6741b8f9",
+    "first_batch_augmented_label_shape": [
+      8,
+      1,
+      128,
+      128,
+      128
+    ],
+    "first_batch_case_ids": [
+      "BraTS-GLI-02195-100",
+      "BraTS-GLI-03049-101",
+      "BraTS-GLI-02755-101",
+      "BraTS-GLI-02093-106",
+      "BraTS-GLI-02808-101",
+      "BraTS-GLI-02827-100",
+      "BraTS-GLI-02948-100",
+      "BraTS-GLI-02632-101"
+    ],
+    "first_batch_case_ids_sha256": "eee75643ca58a739b5b0f2bc9637959ac110071c9e3d2cb36e49d65b8b4f0019",
+    "first_batch_raw_image_dtype": "torch.float32",
+    "first_batch_raw_image_sha256": "e4c84b5cd440d1877d946e71d7f09e2ecf0fe638cc4b4a3e058d36d712bd0092",
+    "first_batch_raw_image_shape": [
+      8,
+      1,
+      128,
+      128,
+      128
+    ],
+    "first_batch_raw_label_dtype": "torch.float32",
+    "first_batch_raw_label_sha256": "1815cd73c2dad38c6ee53021c57c2e5b900e4d95ad66dc0ccbcba567c83d2428",
+    "first_batch_raw_label_shape": [
+      8,
+      1,
+      128,
+      128,
+      128
+    ],
+    "tensor_hash_rule": "CPU contiguous C-order raw bytes; dtype and shape recorded by source tensor contract"
+  },
+  "peak_gpu_memory_bytes": 24070016000,
+  "peak_gpu_reserved_bytes": 25193086976,
+  "runner_sha256": "289168d96d3494449d9b822513fd759c69aff1b4d1c502fc59b114c1cde62ea8",
+  "schema": "aflow.sammed3d.t1ce_wt_plain_iad_kas_gpu_smoke",
+  "schema_version": 1,
+  "status": "complete",
+  "stripped_deploy_max_abs_difference": 0.0,
+  "test_access": false,
+  "validation_access": false,
+  "warmup_steps": 1
+}

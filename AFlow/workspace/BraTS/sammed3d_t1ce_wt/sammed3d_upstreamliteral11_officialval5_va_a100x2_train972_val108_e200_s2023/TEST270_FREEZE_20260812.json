@@ -1,0 +1,88 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt.upstream_literal_test_freeze",
+  "schema_version": 1,
+  "status": "frozen_before_test_nifti_open",
+  "created_at_utc": "2026-08-12T13:26:16Z",
+  "authorization": {
+    "operator_request": "ok去270个 test上测评一下吧",
+    "token": "USER_AUTHORIZED_270_TEST_2026-08-12"
+  },
+  "training": {
+    "output": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023",
+    "completed_epochs": 200,
+    "test_access_during_training": false,
+    "train_cases": 972,
+    "validation_cases": 108,
+    "train_done_sha256": "8eb3b06067af7ff43e68585cc8ca4300f98370994f902a2ceb85162e9b8dfffd",
+    "best_json_sha256": "b303dc2e547a2654a1e9c6e1a99df901df8f6671480f15f6090a2b371662c7e3",
+    "train_config_sha256": "90561787dee1c73105ffb4d389f87b8f414cc2c03666ea451bd4f35d29d92538",
+    "selected_checkpoint_reload_sha256": "948e179632b1234c51f8b01a03eb70b0abda31ab90973c7430a399d6c9539095"
+  },
+  "model": {
+    "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/sam_model_val_official_best5.pth",
+    "checkpoint_sha256": "c0c85a0fb90f6301344053f97cabe8a4972bd9febd4c6ae248f3a0908598fe31",
+    "checkpoint_epoch": 21,
+    "selection_metric": "validation mean per-case best Dice over clicks 1..5",
+    "selection_value": 0.5713061351995669,
+    "selection_used_test": false,
+    "strict_reload_bitwise_identical": true,
+    "trainable_during_training": "100509232/100509232",
+    "adapters_enabled": false
+  },
+  "test": {
+    "manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/sealed_test/test_cases_t1ce.jsonl",
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "cases": 270,
+    "subjects": 119,
+    "case_overlap_with_development": 0,
+    "subject_overlap_with_development": 0,
+    "cache": "/tmp/aflow_t1ce_wt_official15_va_128/test_authorized_20260812",
+    "output": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/test270_epoch21_official15_upstreamliteral5_s2023_20260812"
+  },
+  "preprocessing": {
+    "input": "T1ce single channel",
+    "target": "WT={1,2,3}; label 4 excluded",
+    "order": [
+      "paired image/label resampling to 1.5 mm isotropic",
+      "canonical orientation",
+      "GT-centered CropOrPad to 128^3",
+      "positive-voxel sample z-score applied to whole patch"
+    ],
+    "image_interpolation": "linear",
+    "label_interpolation": "nearest via TorchIO LabelMap",
+    "n4": false,
+    "test_augmentation": false,
+    "uses_gt_for_localization": true
+  },
+  "inference": {
+    "clicks": 5,
+    "clicks_1_2": "upstream RITM current point",
+    "clicks_3_5": "upstream uniform XOR current point",
+    "prompt_history": "current point only",
+    "recurrent_low_resolution_mask": true,
+    "prediction_threshold": "sigmoid > 0.5 (raw logit > 0)",
+    "case_seed": "SHA256(seed=2023,case_id)",
+    "precision": "FP16 autocast",
+    "primary_metric": "scan-macro mean per-case max Dice over clicks 1..5",
+    "secondary_metrics": [
+      "scan-macro final-click-5 Dice",
+      "scan-macro click1..5 Dice",
+      "subject-balanced best-of-5/final-5/click1..5 Dice"
+    ],
+    "world_size": 2,
+    "test_used_for_selection_or_adaptation": false
+  },
+  "implementation": {
+    "development_cache_builder": "scripts/build_t1ce_wt_official15_cache.py",
+    "development_cache_builder_sha256": "ee882e0eed4704b398568dd2a36683ac1312cb429c5be85de1636816599114c9",
+    "test_cache_builder": "scripts/build_t1ce_wt_official15_test_cache.py",
+    "test_cache_builder_sha256": "a65d6d38bcf0493161bbcfd3e7732b238ad22e9eb0572155e04f502ffa8b8099",
+    "training_and_inference_source": "scripts/train_sammed3d_t1ce_wt_upstream_literal_va.py",
+    "training_and_inference_source_sha256": "fda8a458cc692289092038a64469aa4538d37e3750d13cc2737f537f088b7d19",
+    "test_evaluator": "scripts/evaluate_t1ce_wt_upstream_literal_test.py",
+    "test_evaluator_sha256": "dc756b8835dba89dd2c684ca6959a58b5a2ccabf834254891d702c934fdb264c",
+    "targeted_test": "tests/test_official15_sealed_test.py",
+    "targeted_test_sha256": "fada34f48ef57f4fe06aff066a0cdb151e297ff5c06d99f53dbe03c4691da319",
+    "regression_result": "22 passed"
+  }
+}

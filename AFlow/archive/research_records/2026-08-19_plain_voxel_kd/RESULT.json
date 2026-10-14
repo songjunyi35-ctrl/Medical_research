@@ -1,0 +1,37 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_voxel_kd_result",
+  "status": "new_single_model_reused_internal_test_high",
+  "checkpoint_sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+  "temperature": 2.0,
+  "kd_weight": 0.3,
+  "teacher": "0.75 historical168 logit + 0.25 EMA168 logit",
+  "validation": {
+    "global_epoch": 200,
+    "scan": 0.7343843078447713,
+    "subject": 0.7244341433615912,
+    "point_hit": 0.9351851851851852,
+    "matched_control_scan": 0.7336056602221949,
+    "matched_control_subject": 0.723671900062334,
+    "validation_report_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57"
+  },
+  "test270": {
+    "scan": 0.7429763529587675,
+    "subject": 0.7251785333709223,
+    "point_hit": 0.9555555555555556,
+    "scan_gain_vs_historical": 0.0017724037170410156,
+    "scan_gain_95ci": [-0.0004888598593296828, 0.0039022296446341053],
+    "subject_gain_vs_historical": 0.0019990474987430736,
+    "subject_gain_95ci": [-0.001733946605097677, 0.005344233687351398],
+    "point_hit_gain_vs_historical": 0.02592592592592602,
+    "scan_delta_vs_ensemble": -0.002077711401162324,
+    "subject_delta_vs_ensemble": -0.0021660752030981663,
+    "report_sha256": "36a72112595c8606537d2182d31a2558ea982e2f327a82c7a8cc6d4b079e7b0e"
+  },
+  "training_wall_time_relative_to_control": 1.786,
+  "inference_models": 1,
+  "not_pristine_blind_test": true,
+  "result_will_not_trigger_tuning": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": true
+}

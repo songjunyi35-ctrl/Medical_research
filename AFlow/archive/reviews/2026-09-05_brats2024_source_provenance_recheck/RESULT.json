@@ -1,0 +1,50 @@
+{
+  "schema": "aflow.brats2024_source_provenance_recheck",
+  "created_utc": "2026-09-05T21:13:36Z",
+  "status": "official_archive_parity_unresolved_on_authenticated_self_sign",
+  "official": {
+    "entity_id": "syn60086071",
+    "entity_version": 2,
+    "modified_utc": "2024-06-17T21:24:56.161Z",
+    "file_handle_id": "143397620",
+    "historically_frozen_zip_md5": "1d910b17d6cd32e38aa6296b8dfb7c77",
+    "anonymous_entity_http": 200,
+    "anonymous_download_http": 403,
+    "download_error": "There are unmet access requirements that must be met to read content in the requested container.",
+    "access_requirement": {
+      "id": 9606685,
+      "version": 3,
+      "name": "BraTS 2024 Post-Challenge Data Access",
+      "type": "SelfSignAccessRequirement",
+      "access_type": "DOWNLOAD",
+      "certified_user_required": false,
+      "validated_profile_required": false
+    }
+  },
+  "raw_response_sha256": {
+    "entity": "b79d94efdee8519f6aee508dd5745a0ba22bf8ed26e4cba775401f9f45c3f1a1",
+    "access_requirements": "0d8f59e123ba5ad4afe7681b901450f738df454238c08de236f2d719b0348f88",
+    "access_requirement_9606685": "639d91d4ba72276511286bda174bd54863169096cb4609ff6b1a721d77757029",
+    "download_error": "471f520cc47d65552c9c8be8d1116ac056b7daca8fd78535dc08073c65064449"
+  },
+  "local": {
+    "source": "three Kaggle version-2 mirrors uploaded 2026-05-28",
+    "inventory_scans": 1350,
+    "inventory_subjects": 613,
+    "official_archive_available": false,
+    "synapse_cli_available": false,
+    "synapseclient_available": false
+  },
+  "interpretation": {
+    "development_fit_tune_execution": "historically authorized by the user despite unresolved archive parity",
+    "official_source_byte_claim": false,
+    "test_access_authorized_by_this_recheck": false,
+    "required_to_resolve": [
+      "a user logs into Synapse and self-signs requirement 9606685",
+      "obtain the official version-2 archive",
+      "verify MD5 1d910b17d6cd32e38aa6296b8dfb7c77",
+      "run archive-to-local per-file SHA-256 parity"
+    ]
+  },
+  "access": {"official_archive_downloaded": false, "image_or_label_voxels": false, "model_inference": false, "metrics": false}
+}

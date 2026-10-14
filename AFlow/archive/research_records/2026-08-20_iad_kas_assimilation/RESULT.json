@@ -1,0 +1,81 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_iad_kas_result",
+  "schema_version": 1,
+  "status": "fixed_validation_negative_stopped_without_new_test",
+  "method": "teacher_free_kas_on_voxel_kd200",
+  "selected_epoch": 232,
+  "validation": {
+    "cases": 108,
+    "subjects": 50,
+    "summaries": {
+      "control": {
+        "208": [0.7331303855473245, 0.7232976970431351, 0.9351851851851852],
+        "216": [0.7329258495182903, 0.7230357796095666, 0.9351851851851852],
+        "224": [0.7344133711799428, 0.7246696099709896, 0.9259259259259259],
+        "232": [0.7341341837136833, 0.7246180203557014, 0.9166666666666666]
+      },
+      "kas": {
+        "208": [0.73261384293437, 0.7230287465666022, 0.9259259259259259],
+        "216": [0.7318542780423606, 0.7219555534919102, 0.9166666666666666],
+        "224": [0.7328065322643077, 0.7228618593513966, 0.9166666666666666],
+        "232": [0.7329153554445064, 0.7231990399459999, 0.9166666666666666]
+      }
+    },
+    "selected_minus_control": {
+      "scan": -0.001218828269177013,
+      "scan_95ci": [-0.0030201621163912394, 0.0004613347558511623],
+      "subject": -0.0014189804097016656,
+      "subject_95ci": [-0.0033754979545871414, 0.00041141608357429354],
+      "point": 0.0,
+      "cases_improved_tied_worse": [46, 0, 62],
+      "subjects_improved_tied_worse": [19, 0, 31]
+    },
+    "selected_minus_kd200": {
+      "scan": -0.0014689524002649166,
+      "scan_95ci": [-0.0028703738728331194, -0.0001511889751310702],
+      "subject": -0.0012351034155913764,
+      "subject_95ci": [-0.00306181226670742, 0.0004195643054942284],
+      "point": -0.0185185185185186,
+      "cases_improved_tied_worse": [50, 0, 58],
+      "subjects_improved_tied_worse": [21, 0, 29]
+    }
+  },
+  "promotion": {
+    "all_gates_passed": false,
+    "authorized_for_test": false,
+    "failed": ["beats control scan", "beats control subject", "beats KD200 scan", "beats KD200 subject", "point hits>=100", "subject CI lower>=-0.003"]
+  },
+  "mechanism": {
+    "raw_kas_epoch201": 48.06202753553999,
+    "raw_kas_epoch232": 1.5396328948913736,
+    "weighted_kas_epoch201": 0.4806202753553999,
+    "weighted_kas_epoch232": 0.015396328948913737,
+    "intuition_supported": false,
+    "interpretation": "KAS self-consistency was optimized but accepted-paper weighting harmed final segmentation relative to matched control"
+  },
+  "cost": {
+    "control_seconds": 1098.5249516963959,
+    "kas_seconds": 1159.9770300388336,
+    "parallel_wall_seconds": 1159.9770300388336,
+    "control_peak_gpu_bytes": 21784635904,
+    "kas_peak_gpu_bytes": 21912053248,
+    "workspace_megabytes_approx": 217,
+    "deploy_parameter_count": 4700897,
+    "deploy_forwards": 1
+  },
+  "artifacts": {
+    "raw_validation_sha256": "c727472954103b1f21b7e2e1bac02ea67a0c85837bde3b359fc13db70e6a6c0c",
+    "validation_started_sha256": "41f9976d98c3d579af8627aadb7f8a40d95c5a28a3edabb5a082b85fde800916",
+    "validation_preaccess_sha256": "328568f0d1f7d44a8c11ae99689efe7f9d012ed08676e1abd77b9f91739ba989",
+    "pairing_receipt_sha256": "cc8e21276f3e5a29ff472aa68e2ddb0e11b8b56e497a4f1db6a084806cd83856",
+    "control_training_sha256": "ce987642413fbf86ccbb45ec263851b8a12cfbec6f21d2325521529b583c6392",
+    "kas_training_sha256": "dbcab505677de22ed77865643e51c4efc26690d45728695bdc496f10fdc8855e",
+    "selected_checkpoint_sha256": "845a6448a5d472c643146ecd11b43e03f440a29eae34ec029344f47d7acda409"
+  },
+  "start_checkpoint_historical_validation_access": true,
+  "start_checkpoint_historical_test_access_after_selection": true,
+  "validation_access": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

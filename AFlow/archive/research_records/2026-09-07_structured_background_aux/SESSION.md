@@ -1,0 +1,25 @@
+# 训练期切除腔辅助监督执行记录
+
+- 2026-09-07：用户批准原confirmation排除后的864 scans复用开发，固定313/78患者，实际fit684/dev180。AUTHORIZATION与SPLIT已归档。
+- 七问与PREREG先于implementation/training/dev访问。唯一因素辅助监督权重0→0.1；teacher-free matched control，两seed固定168轮，全部完成后再dev。
+- fit-only RC cache684例重建WT全部byte exact；561例含RC；缓存1,434,451,968 bytes，SHA41f82d7b…；builder28.17秒（不含前置源cache重hash），dev RC未访问。
+- CPU export初版有2.384e−7浮点差，0训练前修正为两次单通道末层运算。CPU6 tests通过；GPU4步×2arm合成初值/增强/首主loss相同、control aux grad0/candidate非0、导出error0，峰值22,187,291,136 bytes。
+- IMPLEMENTATION_FREEZE与TRAIN_PREACCESS在正式前写入。2026-09-07 06:39:13 UTC control GPU0启动、06:39:25 UTC candidate GPU1启动，seed2026090711。两初值SHA=`7d1d3a18b6d25a060a8e3ff7f59a7b3233110cc34d0e3f450e87c7ccfb1f0ff8`。
+- 前3轮按保存日志复核采样与增强全部exact，约43–44秒/轮。训练loss仅用作工程观察，不访问dev、不决定epoch/seed/weight。
+- 当前工具会话：control91910、candidate24053；不要因观察超时重复启动。训练输出位于workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_{control,candidate}。第一pair完成后按冻结协议运行seed2026090712；四份TRAIN_DONE齐全才运行evaluate_structured_background_aux。
+- Goal产品卡上次仍blocked，但本次用户已解除科学角色阻塞并实际启动训练；可用工具不能将goal设active。不以目标卡状态冒充没有运行作业。
+- 06:49:39 UTC启动固定流程监督器，PID775932、工具会话65466；首pair主进程control772686、candidate773051，已核对非DataLoader子进程。监督器检查PID及启动时间：首pair成功后自动启动seed2026090712，再进行冻结dev评测和结果归档。任一失败记录CHAIN_FAILURE并停止后续。人工/后继agent不要重复启动第二pair或dev。
+- 06:50 UTC两臂完成15轮、训练正常；CHAIN_PROGRESS阶段first_pair_running。后续以CHAIN_PROGRESS/CHAIN_DONE/CHAIN_FAILURE和实际进程状态确认；CHAIN_DONE完成后还需更新当前handoff与方法目录、运行三validator。
+- 07:11 UTC续接实查Goal已恢复active；监督器会话65466经poll仍live。训练第一对约44轮，无dev访问。
+- 07:15左右完成归档器3个独立合成测试：通过/失败两种gate、JSON字典排序与bootstrap seed映射、篡改intersection拒绝，全部passed。未修改冻结训练/评测代码。
+- TRAINING_SNAPSHOT_01保存control51/candidate50轮完整训练曲线及日志快照SHA，图SHA=`57349846724027071982b1be5b8d33399f704af8457e17c370ba3e967fbde31a`；只含augmented sampled fit，不作开发表现或选择依据。
+- 等待期间完成独立历史UCSD56 bootstrap数值精度审计：原Scan负区间贴零，20组10k有17组跨0、百万次也跨0；Subject4/20跨0、百万次略负。只补充历史解释边界，原预注册区间和当前训练/dev门完全不变，0新forward/0当前dev。报告位于archive/reviews/2026-09-07_ucsd56_bootstrap_precision/RESULT.md。
+- 08:40–08:42 UTC第一pair固定168轮全部完成：control7222.56秒、candidate7294.20秒，峰值均22,187,487,744 bytes，export error均0；168轮sampler/augmentation、初值和采样权重全exact，双checkpoint重SHA过。末10轮fit Dice0.785106/0.785573，辅助loss1.000954/0.154948；只说明辅助任务学到、主任务训练拟合几乎tie，不能提前作dev结论。见PAIR1_TRAINING_REVIEW.json。
+- 监督器已自动启动第二seed2026090712：control PID804755、candidate PID804756，CHAIN_PROGRESS为second_pair_running；两初值SHA均41c4c08f…，首轮已完成。监督器仍由会话65466管理；不要手工重复启动。dev仍0访问。
+- 第二pair等待期间完成fit-only文件可用性审计：684目录均只有T1c/seg，其他MRI模态全0；历史四模态路径/mnt/bn/liveaim/songjunyi/brats2024当前不可用。本轮未下载额外模态、未提议或启动新教师，0额外像素/开发/模型访问；只记录未来多模态路线的数据前提。
+- 第二pair约55轮时再次检查168方案实现冻结、患者边界、当前采样/增强配对，均通过；新患者均衡采样仍未启动。代码整合全仓pytest779 passed、27既有warnings、0失败，当前训练继续，dev未访问。
+- 第二seed跨过100轮后保存[TRAINING_SNAPSHOT_02](TRAINING_SNAPSHOT_02.png)和同名JSON：control103/candidate102轮，图SHA=fdaa203ada0088b8f557cd8709b6924b9c19c4e7c3843095cfdcefbc2abb52f1。可见辅助loss下降而主任务训练曲线接近；仅fit日志，不据此决定开发表现或提前停止。监督器65466经轮询仍live，未进入dev。
+- 约第二pair113/111轮时，已在dev揭示前冻结archive/reviews/2026-09-07_development_error_description/PLAN.md与脚本哈希。10项合成测试通过。正式RESULT和VERIFICATION后用describe_reused_development_errors --study auxiliary离线解释漏画/多画；不增加前向、不改晋级门，不以子组替代全队列结论。
+- 约第二pair140轮后重核当前IMPLEMENTATION_FREEZE和下一患者采样IDEA/PREREG哈希，全部exact；新增取舍/错误描述工具后的全仓回归792 passed、27既有warnings、42.80秒、0失败。监督器65466仍live，开发尚未运行。
+- 10:43:44 UTC监督器65466正常exit0，CHAIN_DONE已写。四条168轮全部完成；唯一dev720 forwards/23.12秒，独立重算通过。两seed Scan差−0.002718/−0.004959、Subject差−0.003989/−0.004329、Point−4/−2，全部性能门失败，关闭0.1配方；四Dice CI跨0，不称显著有害。原raw、RESULT、VERIFICATION、四checkpoint均归档。
+- 10:44 UTC按揭示前冻结计划运行count-only错误描述，输出archive/reviews/2026-09-07_development_error_description/AUXILIARY.json，0新forward；正式训练/开发方案未改。catalog/handoff已写最终负结果，下一患者采样仍按先验方案等待closure与启动。

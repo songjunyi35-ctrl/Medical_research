@@ -1,0 +1,57 @@
+{
+  "utc": "2026-09-21T15:28:17.003791+00:00",
+  "configs": {
+    "fixed193": {
+      "threshold": 0.5,
+      "components": [
+        {
+          "checkpoint_path": "archive/research_records/2026-09-17_segresnet_plain972_e193_test270/checkpoint_epoch193.pth",
+          "checkpoint_sha256": "157fc5af363fc42b2c993df07639693ed8d9f193b8cadd11810a39f62c0f54a5",
+          "mode": "128"
+        }
+      ]
+    },
+    "native173": {
+      "threshold": 0.5,
+      "components": [
+        {
+          "checkpoint_path": "archive/research_records/2026-09-20_segresnet_native_res_e173_test270/checkpoint_epoch173.pth",
+          "checkpoint_sha256": "57d6159802c9ac46e374c48d6f6ed42cd656422fa3b802c70cc5883351a33af4",
+          "mode": "native"
+        }
+      ]
+    },
+    "selected_workflow": {
+      "threshold": 0.4,
+      "components": [
+        {
+          "source_id": "ref_native173",
+          "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/deployment/2026-09-20_segresnet_native_res_e173_test270_57d6159802c9ac46.pth",
+          "checkpoint_sha256": "57d6159802c9ac46e374c48d6f6ed42cd656422fa3b802c70cc5883351a33af4",
+          "mode": "native",
+          "stored_epoch": 173,
+          "epoch_scope": "original source run"
+        },
+        {
+          "source_id": "ref_combination166",
+          "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/deployment/2026-09-21_segresnet_pretrain_native_res_b2a37a7ed4ea7392.pth",
+          "checkpoint_sha256": "b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18",
+          "mode": "native",
+          "stored_epoch": 166,
+          "epoch_scope": "original source run"
+        }
+      ]
+    }
+  },
+  "deployment_manifest_sha256": "6aaee46e601cd9fa6377a073930e45a5b5512f1ff4ec33f3fa1a6274ad62a30d",
+  "roles": [
+    "train972/444",
+    "validation108/50"
+  ],
+  "test_pixels_or_predictions_accessed": false,
+  "used_for_selection_or_training": false,
+  "augmentation": false,
+  "grid": "native crop; existing train/validation canvas160x208x160; excludes padding",
+  "purpose": "describe fitting gap, not causal diagnosis or independent generalization",
+  "code_sha256": "99013f179195b8208e45c3b2f00517e3a420f8597fdc83617a163468dffc3bd8"
+}

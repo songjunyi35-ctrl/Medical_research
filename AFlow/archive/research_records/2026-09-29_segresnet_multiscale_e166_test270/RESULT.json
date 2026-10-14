@@ -1,0 +1,189 @@
+{
+  "scan_dice": 0.7713861345761904,
+  "subject_dice": 0.7578172936552943,
+  "scan_ci95": [
+    0.7478110292830721,
+    0.7919727192604714
+  ],
+  "subject_ci95": [
+    0.7342436571965119,
+    0.7794504004138776
+  ],
+  "point_hit": 0.9185185185185185,
+  "scans": 270,
+  "subjects": 119,
+  "bootstrap": "10000 patient cluster percentile95 seed20260917",
+  "status": "complete_test270",
+  "utc": "2026-09-29T10:40:19.486058+00:00",
+  "method": "segresnet_multiscale_native_epoch166_test270_20260929",
+  "epoch": 166,
+  "checkpoint_sha256": "0645c5e781571ceff2e6d26c62ca52e12e985cf2c1b097f07d7b8a0bc7b48ce2",
+  "point_hits": 248,
+  "point_denominator": 270,
+  "grid": "native 1mm crop; 160x208x168 canvas; padding excluded",
+  "runtime": {
+    "inference_seconds": 28.722526364028454,
+    "peak_allocated_bytes": 3503562240,
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "evaluation_gpus": 1,
+    "batch": 2,
+    "torch_version": "2.7.1+cu126"
+  },
+  "comparisons": {
+    "old_combo166_native": {
+      "scan_delta": 0.005114559394617875,
+      "subject_delta": 0.006858816617416316,
+      "scan_delta_ci95": [
+        0.0005897503470365486,
+        0.009713120104473524
+      ],
+      "subject_delta_ci95": [
+        0.0018363191737435986,
+        0.012036481640570347
+      ],
+      "scan_delta_ci97_5": [
+        -0.00012852730614903006,
+        0.010365434403393194
+      ],
+      "subject_delta_ci97_5": [
+        0.0011457849406710297,
+        0.012823115547989171
+      ],
+      "point_hits_delta": 12,
+      "improved_scans": 172,
+      "worse_scans": 98,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+    },
+    "native173": {
+      "scan_delta": 0.0028082374793787796,
+      "subject_delta": 0.003673382618801058,
+      "scan_delta_ci95": [
+        -0.004115046783224547,
+        0.011823902365274218
+      ],
+      "subject_delta_ci95": [
+        -0.004745389590387465,
+        0.014118251185831597
+      ],
+      "scan_delta_ci97_5": [
+        -0.004972993148382219,
+        0.013338011413122715
+      ],
+      "subject_delta_ci97_5": [
+        -0.005632153084273031,
+        0.015765446642026035
+      ],
+      "point_hits_delta": -14,
+      "improved_scans": 128,
+      "worse_scans": 142,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+    },
+    "fixed_pure193_native": {
+      "scan_delta": 0.010252215071684785,
+      "subject_delta": 0.010850378101644645,
+      "scan_delta_ci95": [
+        0.0040742326998168595,
+        0.016867021575761847
+      ],
+      "subject_delta_ci95": [
+        0.00360640732181475,
+        0.018433765183282484
+      ],
+      "scan_delta_ci97_5": [
+        0.0031834073767297044,
+        0.017955509503298307
+      ],
+      "subject_delta_ci97_5": [
+        0.0025593907293095324,
+        0.0196505452130389
+      ],
+      "point_hits_delta": 1,
+      "improved_scans": 171,
+      "worse_scans": 99,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+    }
+  },
+  "reference_summaries": {
+    "old_combo166_native": {
+      "scan_dice": 0.7662715751815725,
+      "subject_dice": 0.7509584770378779,
+      "scan_ci95": [
+        0.7428793159639216,
+        0.7865154968474072
+      ],
+      "subject_ci95": [
+        0.726629325488285,
+        0.773245992698245
+      ],
+      "point_hit": 0.8740740740740741,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917"
+    },
+    "native173": {
+      "scan_dice": 0.7685778970968116,
+      "subject_dice": 0.7541439110364931,
+      "scan_ci95": [
+        0.7416500259035631,
+        0.7920286297597838
+      ],
+      "subject_ci95": [
+        0.7265641472638678,
+        0.7789672230994029
+      ],
+      "point_hit": 0.9703703703703703,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917"
+    },
+    "fixed_pure193_native": {
+      "scan_dice": 0.7611339195045056,
+      "subject_dice": 0.7469669155536497,
+      "scan_ci95": [
+        0.7343093263169596,
+        0.7842419272063188
+      ],
+      "subject_ci95": [
+        0.7199032398025018,
+        0.7710899732039892
+      ],
+      "point_hit": 0.9148148148148149,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917"
+    }
+  },
+  "test_access": true,
+  "test_tuned_development": true,
+  "prior_test_informed_development": true,
+  "current_test_used_for_selection_or_retuning": false,
+  "not_pristine_blind": true,
+  "not_external": true,
+  "new_outer_confirmation_access": false,
+  "validation_gate_passed": false,
+  "evaluation_status": "user-authorized fixed exploratory test after failed validation gate",
+  "numeric_comparability_note": "Same native payload and scoring function; old combo166 used the same deterministic bf16 batch2 mode. Native173/pure193 are historical reports with earlier numeric mode; no reference re-forward.",
+  "selection": "108 validation highest Scan chose166; test did not select epoch",
+  "forward_cost": {
+    "main_model_forwards_per_scan": 1,
+    "canvas_voxels": 5591040,
+    "input_voxel_equivalents_128_cubed": 2.666015625,
+    "auxiliary_heads_in_deployment": false,
+    "not_a_measured_latency_ratio": true
+  },
+  "evidence": {
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/checkpoint_epoch166.pth": "0645c5e781571ceff2e6d26c62ca52e12e985cf2c1b097f07d7b8a0bc7b48ce2",
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/SELECTION_RECEIPT.json": "d2c37bbd00e173c702d8b34820938403ad16dd7b16239b3de2713ae9c83e2fb2",
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/PREACCESS.json": "412b3b694da545fe3fd41dc40a39cb81de22bee5925ffe7869a0a988c5e5e7b5",
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/MODEL_PREACCESS.json": "36864a4b2274b64b30303270e92742e8f8493ced0f28a24395f95370975b411d",
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/PREFLIGHT.json": "45441de3fb974da3c28425edbe918c4d94ed57668d0489b9ce55881109610416",
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/CANONICAL_RECEIPT.json": "b02f557e88187e187c95d6a3014870bfadfd28202e3873bcbd7bb29fd40a6d46",
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/NATIVE_CACHE_PREACCESS.json": "3ef126499b8034f06d912f554b478b9cb6927590ad5408a87aff2eeadaa7a9a0",
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/CACHE_RECEIPT.json": "c820298cddd38b007f0199aa7b3718bd96749e831fcc7bc24f62ba97cf158335",
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/RAW_TEST270.json": "47817e524d0d85676434732505c07dc6d09a2cf98212ac55743786733f1f23cc",
+    "archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/FREEZE.json": "80830b225f900e0d331e27f0229a919587a4758f26ab97f80172d42e4f887b64"
+  }
+}

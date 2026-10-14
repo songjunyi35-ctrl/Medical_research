@@ -1,0 +1,68 @@
+{
+  "baseline": {
+    "checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "name": "true-128^3 full756 epoch168",
+    "point_hit": 0.9296296296296296,
+    "scan": 0.7412039492417265,
+    "subject": 0.7231794858721793
+  },
+  "candidate": {
+    "checkpoint_sha256": "a25e8519b3f9a66ee5c389ad94f0e62ac548dfd6339468637c8f2c3536139b67",
+    "name": "true-160^3 full756 epoch200",
+    "point_hit": 0.8740740740740741,
+    "scan": 0.7370602971218803,
+    "subject": 0.7197286296541299
+  },
+  "candidate_has_higher_scan_and_subject_point_estimates": false,
+  "candidate_minus_baseline": {
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20260832,
+    "point_hit": -0.05555555555555547,
+    "scan": -0.004143652119846256,
+    "scan_95ci": [
+      -0.010490990806914244,
+      0.0017661090828564564
+    ],
+    "subject": -0.0034508562180492787,
+    "subject_95ci": [
+      -0.012074525654275189,
+      0.0048195617814944134
+    ]
+  },
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-18T12:06:08.632960+00:00",
+  "distribution": {
+    "cases_improved": 150,
+    "cases_tied": 1,
+    "cases_worse": 119,
+    "median_case_delta": 0.00285261869430542,
+    "median_subject_delta": 0.0021890997886657715,
+    "point_transitions": {
+      "hit_to_hit": 228,
+      "hit_to_miss": 23,
+      "miss_to_hit": 8,
+      "miss_to_miss": 11
+    },
+    "subjects_improved": 65,
+    "subjects_tied": 0,
+    "subjects_worse": 54
+  },
+  "evidence_scope": "descriptive paired comparison on a reused internal test set",
+  "inputs": {
+    "baseline": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/FINAL_TEST270_EPOCH168.json",
+      "sha256": "91433c4b6b88b233d827e41b0d038f459c25ef41dec224c84e154e90f370bb8c"
+    },
+    "candidate": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/full756_160_seed20260829_epoch200/FINAL_TEST270_TRUE160_EPOCH200.json",
+      "sha256": "973e4cc452e4ea7b9de3a190d5ad293724f2cd94e0a82f861f521a2e15477f35"
+    }
+  },
+  "interpretation": "The true-160 epoch200 candidate did not improve the reused internal test point estimate over true-128 epoch168. Cross-resolution Dice deltas also include nearest-exact label rasterization differences between the 128 and 160 grids.",
+  "not_pristine_blind_test": true,
+  "outer_selector_access": false,
+  "result_will_not_trigger_tuning": true,
+  "schema": "aflow.sammed3d.t1ce_wt_true160_epoch200_vs_true128_epoch168_test270",
+  "schema_version": 1,
+  "test_access": true
+}

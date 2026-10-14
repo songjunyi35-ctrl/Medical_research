@@ -1,0 +1,178 @@
+{
+  "atom_cache": {
+    "atoms_sha256": "d194cd10f46fd8409dba2aef4bf87cba1fa0583237f5931424000a41ac4d9308",
+    "autocast": "bfloat16 model forward; float32 stored atoms and fusion",
+    "core_sha256": "471fb419fe7e04ff7b7888d6b133446ea3da948bfd1ad1f98324c0fba6c62a78",
+    "dtype": "float32",
+    "evidence_level": "exact",
+    "index_sha256": "4da4b3db787a8281fb37d134ed7a2e4dcd6b7365fcedf1463a5550aabf1f02de",
+    "parity": {
+      "actual_scan_macro_dsc": 0.7004216820470339,
+      "actual_subject_macro_dsc": 0.6953731986886416,
+      "aggregate_absolute_tolerance": 1e-05,
+      "expected_scan_macro_dsc": 0.700418962602465,
+      "expected_subject_macro_dsc": 0.6953719490880098,
+      "identity_ensemble_scan_macro_dsc": 0.6978964845969668,
+      "identity_seed_scan_macro_dsc": [
+        0.6956362924566285,
+        0.6963512470333191,
+        0.6990433568598253
+      ],
+      "maximum_per_case_absolute_dice_error": 0.00027145610058565417,
+      "passed": true,
+      "per_case_absolute_tolerance": 0.0005,
+      "raw_tta_scan_macro_dsc": 0.6982310965259036,
+      "reference": {
+        "acquisition": "fixed",
+        "fusion": "logit_mean",
+        "gate12_q": 0,
+        "gate3_q": 0,
+        "min_component_voxels": 500,
+        "model_mask": 7,
+        "schema_version": 1,
+        "threshold_q": -20,
+        "uncertainty_beta_q": 0,
+        "view_policy": "all8"
+      }
+    },
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_robust_mcts_atoms_f32"
+  },
+  "authoritative_handoff": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md",
+    "sha256": "d21a9ceab05ff25390eaaeaa8c3d592bdf365ce7bf0bc7a0667fc9c17a07a5fb"
+  },
+  "config": {
+    "bootstrap_replicates": 10000,
+    "checkpoint_every": 10,
+    "max_simulations_per_fold": 512,
+    "memory_cache_gib": 8.0,
+    "outer_fold": "all",
+    "progressive_widening_alpha": 0.5,
+    "progressive_widening_k": 2.0,
+    "seed": 20260813,
+    "selector_top_k": 8,
+    "uct_exploration": 0.02,
+    "unique_workflows_per_fold": 128
+  },
+  "created_at_utc": "2026-08-13T07:50:37.204226+00:00",
+  "evidence_status": "validation-only nested development analysis",
+  "forbidden_inputs": [
+    "270-case revealed test",
+    "sealed_test",
+    "test reports"
+  ],
+  "geometry": "GT-centered N4 128^3 oracle geometry; not automatic localization",
+  "mandatory_anchor": {
+    "budget_semantics": "counts as one unique workflow but creates no synthetic tree visits",
+    "spec": {
+      "acquisition": "fixed",
+      "fusion": "logit_mean",
+      "gate12_q": 0,
+      "gate3_q": 0,
+      "min_component_voxels": 500,
+      "model_mask": 7,
+      "schema_version": 1,
+      "threshold_q": -20,
+      "uncertainty_beta_q": 0,
+      "view_policy": "all8"
+    },
+    "workflow_id": "aad54fdc70bcc6d52132fd9b5f9355dc0aabb77d850752a06b5a8a898ce4758a"
+  },
+  "mcts_source_sha256": "471fb419fe7e04ff7b7888d6b133446ea3da948bfd1ad1f98324c0fba6c62a78",
+  "reward": {
+    "complexity_penalty_weight": 0.0005,
+    "compute_penalty_weight": 0.002,
+    "paired_se_weight": 0.25,
+    "primary_accuracy": "subject-macro Dice"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_inference_workflow_mcts.run_manifest",
+  "schema_version": 1,
+  "search_source_sha256": "11d6bc7e3d564c5cf247373161580164669cb1505c05d8ca16b367582c4a4e3e",
+  "search_space": {
+    "acquisition_actions": [
+      "fixed:1:identity",
+      "fixed:1:single_flips",
+      "fixed:1:all8",
+      "fixed:2:identity",
+      "fixed:2:single_flips",
+      "fixed:2:all8",
+      "fixed:3:identity",
+      "fixed:3:single_flips",
+      "fixed:3:all8",
+      "fixed:4:identity",
+      "fixed:4:single_flips",
+      "fixed:4:all8",
+      "fixed:5:identity",
+      "fixed:5:single_flips",
+      "fixed:5:all8",
+      "fixed:6:identity",
+      "fixed:6:single_flips",
+      "fixed:6:all8",
+      "fixed:7:identity",
+      "fixed:7:single_flips",
+      "fixed:7:all8",
+      "adaptive:0:5",
+      "adaptive:0:10",
+      "adaptive:0:20",
+      "adaptive:0:30",
+      "adaptive:0:40",
+      "adaptive:5:5",
+      "adaptive:5:10",
+      "adaptive:5:20",
+      "adaptive:5:30",
+      "adaptive:5:40",
+      "adaptive:10:10",
+      "adaptive:10:20",
+      "adaptive:10:30",
+      "adaptive:10:40",
+      "adaptive:20:20",
+      "adaptive:20:30",
+      "adaptive:20:40",
+      "adaptive:30:30",
+      "adaptive:30:40"
+    ],
+    "beta_actions": [
+      0,
+      10,
+      -10,
+      5,
+      -5,
+      20,
+      -20
+    ],
+    "component_actions": [
+      500,
+      0,
+      100,
+      1000,
+      250,
+      750,
+      1500,
+      2000
+    ],
+    "fusion_actions": [
+      "logit_mean",
+      "probability_mean",
+      "logit_median"
+    ],
+    "threshold_actions": [
+      -20,
+      0,
+      -10,
+      -30,
+      -15,
+      -5,
+      5,
+      10
+    ]
+  },
+  "search_space_sha256": "bb873f487fea83718d28c725e6435a07e01989cddc21b708cf715071f1b18379",
+  "split": "validation",
+  "test_access": false,
+  "uses_gray_loss": false,
+  "validation_cache": {
+    "index_sha256": "72fddef3c7a8755f0712b864efbb7328e2d8ae97313ac7ca7a0306d4b612ce44",
+    "labels_sha256": "29412786312e1166f177583866eaa63d7b10460cf9e31ad5fe009cbb6e89a967",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/validation"
+  }
+}

@@ -1,0 +1,470 @@
+{
+  "all_three_zero_count": 5,
+  "all_three_zero_dice_cases": [
+    {
+      "case_id": "WAW-389_0",
+      "mask_labels": [
+        0,
+        2
+      ],
+      "scanner": "SIGNA Architect",
+      "who_grade": 2
+    },
+    {
+      "case_id": "WAW-505_0",
+      "mask_labels": [
+        0,
+        2
+      ],
+      "scanner": "SIGNA Architect",
+      "who_grade": 2
+    },
+    {
+      "case_id": "WAW-59_0",
+      "mask_labels": [
+        0,
+        2
+      ],
+      "scanner": "SIGNA Architect",
+      "who_grade": 2
+    },
+    {
+      "case_id": "WAW-713_0",
+      "mask_labels": [
+        0,
+        2
+      ],
+      "scanner": "SIGNA Architect",
+      "who_grade": 2
+    },
+    {
+      "case_id": "WAW-889_0",
+      "mask_labels": [
+        0,
+        2,
+        3
+      ],
+      "scanner": "Achieva",
+      "who_grade": 2
+    }
+  ],
+  "analyzer_sha256": "8a0ad8c441c42a711781b9c08dd8cbb45c1d293e3f57895802c3fbf33e37fc26",
+  "candidate_rescue_harm": {
+    "full_flip8": {
+      "full_identity_below_0_5": 20,
+      "newly_harmed_below_0_5": 3,
+      "point_gained": 2,
+      "point_lost": 0,
+      "rescued_to_at_least_0_5": 4
+    },
+    "gcsam_identity": {
+      "full_identity_below_0_5": 20,
+      "newly_harmed_below_0_5": 4,
+      "point_gained": 4,
+      "point_lost": 5,
+      "rescued_to_at_least_0_5": 6
+    }
+  },
+  "cases": 152,
+  "forbidden_use": "no label/grade/scanner router, case exclusion, threshold/postprocessing, or cohort retest",
+  "image_or_cache_access": false,
+  "interpretation": "Four of five common zero-Dice cases contain only FLAIR-abnormality label2 and all five are grade2. T1 contrast-only input has a target observability limitation; this is not permission to use GT label composition for routing or exclusion.",
+  "label_observability_groups": {
+    "enhancing_label3_absent": {
+      "cases": 29,
+      "grade_counts": {
+        "2": 20,
+        "3": 7,
+        "4": 2
+      },
+      "models": {
+        "full_flip8": {
+          "dice_mean": 0.6202696343862961,
+          "dice_zero": 4,
+          "point_hits": 24
+        },
+        "full_identity": {
+          "dice_mean": 0.6105956667961412,
+          "dice_zero": 4,
+          "point_hits": 24
+        },
+        "gcsam_identity": {
+          "dice_mean": 0.6202303966055965,
+          "dice_zero": 4,
+          "point_hits": 24
+        }
+      }
+    },
+    "enhancing_label3_present": {
+      "cases": 123,
+      "grade_counts": {
+        "2": 24,
+        "3": 27,
+        "4": 72
+      },
+      "models": {
+        "full_flip8": {
+          "dice_mean": 0.7107584193602315,
+          "dice_zero": 2,
+          "point_hits": 119
+        },
+        "full_identity": {
+          "dice_mean": 0.7005380524611222,
+          "dice_zero": 1,
+          "point_hits": 117
+        },
+        "gcsam_identity": {
+          "dice_mean": 0.7108999550936297,
+          "dice_zero": 1,
+          "point_hits": 116
+        }
+      }
+    },
+    "only_flair_abnormality_label2": {
+      "cases": 26,
+      "grade_counts": {
+        "2": 18,
+        "3": 6,
+        "4": 2
+      },
+      "models": {
+        "full_flip8": {
+          "dice_mean": 0.6203633620680636,
+          "dice_zero": 4,
+          "point_hits": 21
+        },
+        "full_identity": {
+          "dice_mean": 0.6082941909057734,
+          "dice_zero": 4,
+          "point_hits": 21
+        },
+        "gcsam_identity": {
+          "dice_mean": 0.6250692845454076,
+          "dice_zero": 4,
+          "point_hits": 21
+        }
+      }
+    }
+  },
+  "label_pattern_counts": {
+    "(0, 1, 2)": 3,
+    "(0, 1, 2, 3)": 81,
+    "(0, 2)": 26,
+    "(0, 2, 3)": 42
+  },
+  "models": {
+    "full_flip8": {
+      "dice_below_0_2": 7,
+      "dice_below_0_5": 19,
+      "dice_mean_when_point_hits": 0.723982395044319,
+      "dice_mean_when_point_misses": 0.2090691652414925,
+      "dice_zero": 6,
+      "point_misses": 9,
+      "worst8": [
+        {
+          "case_id": "WAW-59_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-389_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-505_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-713_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-889_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": false,
+          "scanner": "Achieva",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-962_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": false,
+          "scanner": "Avanto",
+          "who_grade": 3
+        },
+        {
+          "case_id": "WAW-141_0",
+          "dice": 0.1813962777339255,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": true,
+          "scanner": "Avanto; SIGNA Architect",
+          "who_grade": 4
+        },
+        {
+          "case_id": "WAW-947_0",
+          "dice": 0.24006096786485456,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": true,
+          "scanner": "",
+          "who_grade": 3
+        }
+      ]
+    },
+    "full_identity": {
+      "dice_below_0_2": 6,
+      "dice_below_0_5": 20,
+      "dice_mean_when_point_hits": 0.7157893222594135,
+      "dice_mean_when_point_misses": 0.2679236682935309,
+      "dice_zero": 5,
+      "point_misses": 11,
+      "worst8": [
+        {
+          "case_id": "WAW-59_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-389_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-505_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-713_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-889_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": false,
+          "scanner": "Achieva",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-962_0",
+          "dice": 0.047604150372803584,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": false,
+          "scanner": "Avanto",
+          "who_grade": 3
+        },
+        {
+          "case_id": "WAW-141_0",
+          "dice": 0.21434743424170066,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": true,
+          "scanner": "Avanto; SIGNA Architect",
+          "who_grade": 4
+        },
+        {
+          "case_id": "WAW-4_0",
+          "dice": 0.27231996503114414,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        }
+      ]
+    },
+    "gcsam_identity": {
+      "dice_below_0_2": 7,
+      "dice_below_0_5": 18,
+      "dice_mean_when_point_hits": 0.7278045492485171,
+      "dice_mean_when_point_misses": 0.2945615902738624,
+      "dice_zero": 5,
+      "point_misses": 12,
+      "worst8": [
+        {
+          "case_id": "WAW-59_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-389_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-505_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-713_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2
+          ],
+          "point_hit": false,
+          "scanner": "SIGNA Architect",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-889_0",
+          "dice": 0.0,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": false,
+          "scanner": "Achieva",
+          "who_grade": 2
+        },
+        {
+          "case_id": "WAW-201_0",
+          "dice": 0.13074270458674775,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": false,
+          "scanner": "Avanto",
+          "who_grade": 4
+        },
+        {
+          "case_id": "WAW-947_0",
+          "dice": 0.1456875308033514,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": true,
+          "scanner": "",
+          "who_grade": 3
+        },
+        {
+          "case_id": "WAW-962_0",
+          "dice": 0.2064466615502686,
+          "mask_labels": [
+            0,
+            2,
+            3
+          ],
+          "point_hit": true,
+          "scanner": "Avanto",
+          "who_grade": 3
+        }
+      ]
+    }
+  },
+  "new_model_inference": false,
+  "schema": "aflow.waw_gliomai152.posthoc_failure_tail",
+  "schema_version": 1,
+  "source_sha256": {
+    "cohort": "25de15904d8db5e6d6e304bc73058dba4f43e7534ae0a533f4f06636613a263a",
+    "raw": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91"
+  },
+  "status": "posthoc_descriptive_saved_rows_and_label_metadata_no_selection"
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "aflow.brats.t1ce_wt_voxel_kd_972_draw_budget_implementation_receipt",
+  "schema_version": 1,
+  "status": "passed_prevalidation",
+  "created_utc": "2026-08-24T00:00:00Z",
+  "implementation": {
+    "trainer_path": "scripts/train_t1ce_wt_voxel_kd_972_draw_budget.py",
+    "trainer_sha256": "8cf5f22ba99287637e9f6c44f5b3ca726d5029973ab4fd3c0ad3848db94ec4fa",
+    "test_path": "tests/test_t1ce_wt_voxel_kd_972_draw_budget.py",
+    "test_sha256": "34d0324cd2d5731553ec0c2fbdeb6547ced89bf310a9c266b88fb3cf3c36cf69",
+    "validation_evaluator_path": "scripts/evaluate_t1ce_wt_voxel_kd_972_draw_budget_validation.py",
+    "validation_evaluator_sha256": "6ec8b6d852c2ca1f8144795760dbd4a5bae125e30e499e1e81948d6e33b4ed71",
+    "validation_test_path": "tests/test_t1ce_wt_voxel_kd_972_draw_budget_validation.py",
+    "validation_test_sha256": "495aed3e7161adf2972794f7ba638b7ba8d37c3027fa65ce7ede649f9d157799"
+  },
+  "frozen_documents": {
+    "idea_sha256": "b61ca77285a259bab0b45a25bcd46bb9e546f18d4a043e1649e2f644d28023a9",
+    "prereg_sha256": "ce1afcb81ee8c56303898c4122673dfaefa24210aa993a5725e363b9cbe173a8",
+    "native_artifact_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+    "native_weight_sha256": "81d3fa6a907f791c4d0b97efe95ece5e057d15b85673463cadbeecc2b3f148ec"
+  },
+  "synthetic": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_t1ce_wt_voxel_kd_972_draw_budget.py",
+    "passed": 6,
+    "failed": 0,
+    "elapsed_seconds": 9.24,
+    "all_gates_passed": true
+  },
+  "gpu_smoke": {
+    "budget752_control": {
+      "report_sha256": "98091be752116cecbec65866a5ee5c4ecea158dd08a706e8b2f36de30b44afeb",
+      "peak_gpu_memory_bytes": 21788257792,
+      "extrapolated_formal_seconds": 1912.9784083366394,
+      "reload_max_abs_difference": 0.0,
+      "all_gates_passed": true
+    },
+    "budget968_candidate": {
+      "report_sha256": "bbd34fd1c8b84eb9cb0aa0693c5e3c09e736c74e5181e78604ea5bc88a011b73",
+      "peak_gpu_memory_bytes": 21788257792,
+      "extrapolated_formal_seconds": 2472.0802768468857,
+      "reload_max_abs_difference": 0.0,
+      "all_gates_passed": true
+    },
+    "all_gates_passed": true
+  },
+  "formal": {
+    "budget752_control": {
+      "report_sha256": "b45cba3cf5ac8c4d9eb394cf34f6718abfb34cae3bd2fdc94924643f2d58d103",
+      "elapsed_seconds": 1923.3196766376495,
+      "peak_gpu_memory_bytes": 21788257792,
+      "total_optimizer_steps": 3008,
+      "all_gates_passed": true
+    },
+    "budget968_candidate": {
+      "report_sha256": "1e66ca4fa428684b004bddb422c2642fcc3f5a09e1a0d7488db44377ef7c8c2a",
+      "elapsed_seconds": 2477.484495639801,
+      "peak_gpu_memory_bytes": 21788257792,
+      "total_optimizer_steps": 3872,
+      "all_gates_passed": true
+    },
+    "all_gates_passed": true
+  },
+  "validation_contract_tests": {
+    "passed": 10,
+    "failed": 0,
+    "all_gates_passed": true
+  },
+  "all_preformal_gates_passed": true,
+  "all_gates_passed": true,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

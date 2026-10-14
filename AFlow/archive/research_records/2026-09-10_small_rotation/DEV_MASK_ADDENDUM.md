@@ -1,0 +1,13 @@
+# 正式开发读出前：只增加预测掩膜归档
+
+2026-09-10，四候选正式开发尚未执行；seed11已训练、seed12仍训练。原IDEA、PREREG、训练代码及DEVELOPMENT_IMPLEMENTATION_FREEZE不修改。
+
+补充的是独立工程归档：新入口evaluate_resumed_with_masks调用原冻结evaluate_small_rotation.main，只以透明子类观察每次forward返回的segmentation_logits，保存相同logit>0掩膜，原LocatorOutput对象原样返回。不增加模型forward，不移动/过滤病例，不改变数值、阈值、Point定义、模型、bootstrap、排序或任何原科学门。
+
+先做合成输出对象/参数key/随机流不变测试，及原fit前8例、旧native控制checkpoint的GPU两次配对输出byte exact测试；不使用新候选检查点做效果选择。四候选全部完成后，额外DEV_MASK_PREACCESS绑定观察器、原入口/冻结收据、所有最终checkpoint和输出索引计划，再且仅再启动一次原开发循环。此归档包装是明确的执行前工程补充，不冒称最初训练前就包含了它。
+
+四个模型×180例×128³二值mask共180MiB，存本记录dev_prediction_masks，先保留>1GiB余量；仅CPU拷贝/打包增加少量时间。原raw指标文件不回写。DEV_MASK_INDEX将绑定raw SHA与观察计数。原统计finalizer完成后，再从实际mask独立重算720例交并/体积/Dice和保存Point命中；logits未保存，不声称独立重算argmax。
+
+可以使用已存在、哈希冻结的180例原始类别cache作零额外前向错误拆解，但它仅用于解释，不更改旋转/备用模糊参数或晋级规则。若归档/核验失败，记录部分访问，不为补mask重跑开发或按部分结果选模型；必须解决工程证据问题才进入后续训练/测试。
+
+原开发主入口依然是数值计算权威；新增观察器仅负责可核验输出。实际正式命令为`python -m scripts.evaluate_resumed_with_masks --study small_rotation`，后接原finalize_small_rotation与verify_resumed_development_masks。没有新增test/outer/confirmation访问。

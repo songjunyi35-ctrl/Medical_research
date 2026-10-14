@@ -1,0 +1,36 @@
+{
+  "id": "panel_10",
+  "components": [
+    {
+      "source_id": "ref_native173",
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/deployment/2026-09-20_segresnet_native_res_e173_test270_57d6159802c9ac46.pth",
+      "checkpoint_sha256": "57d6159802c9ac46e374c48d6f6ed42cd656422fa3b802c70cc5883351a33af4",
+      "mode": "native",
+      "stored_epoch": 173,
+      "epoch_scope": "original source run"
+    },
+    {
+      "source_id": "ref_combination166",
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/deployment/2026-09-21_segresnet_pretrain_native_res_b2a37a7ed4ea7392.pth",
+      "checkpoint_sha256": "b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18",
+      "mode": "native",
+      "stored_epoch": 166,
+      "epoch_scope": "original source run"
+    }
+  ],
+  "threshold": 0.4,
+  "forward_equivalents": 5.33203125,
+  "formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+  "component_ids": [
+    "ref_native173",
+    "ref_combination166"
+  ],
+  "only_external_input": "T1ce",
+  "threshold_space": "sigmoid_probability",
+  "threshold_raw_logit": -0.4054651081081643,
+  "no_labels_or_case_lookup": true,
+  "test_tuned": true,
+  "source_report": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_10.json",
+  "source_report_sha256": "682f33fc6bf3b25c8d08db1b430cb1310dcb3cb8de7316b6668ee2dc9adf19a6",
+  "role": "overall"
+}

@@ -1,0 +1,10 @@
+{
+  "completed_cases": 2,
+  "created_utc": "2026-09-08T06:02:26.550925+00:00",
+  "development_or_test_access": false,
+  "error": "ValueError('unverified physical distance units')",
+  "first_case_report_exists": true,
+  "fit_label_access_attempted": true,
+  "new_forwards": 0,
+  "traceback": "multiprocessing.pool.RemoteTraceback: \n\"\"\"\nTraceback (most recent call last):\n  File \"/usr/lib/python3.11/multiprocessing/pool.py\", line 125, in worker\n    result = (True, func(*args, **kwds))\n                    ^^^^^^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_fit_spatial_roundtrip.py\", line 48, in worker\n    raise ValueError('unverified physical distance units')\nValueError: unverified physical distance units\n\"\"\"\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_fit_spatial_roundtrip.py\", line 155, in main\n    row = iterator.next(timeout=20)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.11/multiprocessing/pool.py\", line 873, in next\n    raise value\nValueError: unverified physical distance units\n"
+}

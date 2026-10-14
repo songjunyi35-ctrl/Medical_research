@@ -1,0 +1,31 @@
+{
+  "schema": "aflow.qin_gbm_treatment_response.source_audit",
+  "created_utc": "2026-09-05T16:20:00Z",
+  "status": "closed_no_voxel_tumor_ground_truth",
+  "official": {
+    "subjects": 54,
+    "studies": 106,
+    "series": 1942,
+    "images": 589314,
+    "size_gb": 33.51,
+    "data_types": ["MR"],
+    "setting": "post-surgery pre-therapy double baseline 2-5 days apart",
+    "t1_postcontrast": {"matrix": [256, 216], "slices": 23, "slice_thickness_mm": 5}
+  },
+  "gates": {
+    "t1ce_available": true,
+    "glioblastoma": true,
+    "voxel_tumor_ground_truth": false,
+    "eligible_for_dice_point_external_confirmation": false
+  },
+  "access": {
+    "official_web": true,
+    "manifest": false,
+    "dicom": false,
+    "segmentation": false,
+    "model_inference": false,
+    "new_metrics": false
+  },
+  "large_download_bytes": 0,
+  "next_decision": "do not use for current WT evaluation; a future unlabeled input-stability task would require a separate objective"
+}

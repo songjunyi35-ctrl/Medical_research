@@ -1,0 +1,80 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_batch_cvar50_amendment",
+  "schema_version": 1,
+  "amendment_id": "001_new_uniform_control_and_numeric_contract",
+  "timing": "before implementation, synthetic tests, GPU smoke, formal training, or new method validation access",
+  "reason": "run a new same-runner uniform control so tiny per-case reduction differences cannot confound the aggregation factor",
+  "supersedes": {
+    "old_control_plan": "reuse archived KAS teacher-free control as the sole matched causal control",
+    "new_control_plan": "train uniform_mean8 and batch_cvar50_top4 in parallel with the same new runner; archived control remains a historical comparator"
+  },
+  "accurate_method_name": "source-inspired batch-empirical CVaR50 / Average-Top4-of8 on per-scan DiceCE",
+  "source_boundaries": [
+    "source image-level AT-k ranks the entire train image set, not each minibatch",
+    "source fixed AT10% begins at epoch2; its ACDC 2D-slice Dice decreased for both reported backbones",
+    "source curriculum N-to5% plus sigmoid boxcar smoothing is not implemented",
+    "source full method also contains pixel Bottom-all-but-sigma filtering, not implemented",
+    "batch top4/8 is not dataset,subject,or population CVaR and has no BraTS/true3D evidence"
+  ],
+  "arms": {
+    "uniform_mean8": {
+      "aggregation": "arithmetic mean of all8 attached per-draw DiceCE losses"
+    },
+    "batch_cvar50_top4": {
+      "aggregation": "arithmetic mean of the four attached per-draw DiceCE losses with largest detached values"
+    }
+  },
+  "only_changed_factor": "batch aggregation mean8 versus largest4 mean",
+  "per_draw_loss": {
+    "unit": "scan draw after independent augmentation; duplicate case IDs remain separate draws",
+    "dice": "same MONAI DiceLoss semantics as historical DiceCELoss: sigmoid=true,squared_pred=false,smooth_nr=1e-5,smooth_dr=1e-5,batch=false",
+    "ce": "BCEWithLogits reduction=none then channel/spatial mean per draw",
+    "total": "dice_i+0.1*ce_i",
+    "dtype": "bfloat16 model forward; float32 per-draw loss and aggregation"
+  },
+  "stable_selection": {
+    "code": "torch.argsort(per_draw_loss.detach(),descending=true,stable=true)[:4]",
+    "tie_break": "earlier batch draw index",
+    "selected_loss_path": "index original attached per_draw_loss and mean",
+    "unselected_logit_gradient": 0,
+    "duplicate_draws": "may occupy multiple selected positions; never deduplicate"
+  },
+  "training_contract": {
+    "seed": 20260860,
+    "batch_size": 8,
+    "drop_last": true,
+    "optimizer_samples_per_epoch": 752,
+    "global_epochs": [201, 232],
+    "checkpoint_epochs": [208, 216, 224, 232],
+    "lr": 1e-5,
+    "weight_decay": 1e-5,
+    "clip_grad_norm": 5.0,
+    "clip_error_if_nonfinite": true,
+    "formal_peak_allocated_stop_gib": 24,
+    "formal_runtime_stop_minutes": 45
+  },
+  "parity_and_pairing_gates": [
+    "uniform per-draw mean matches legacy DiceCELoss scalar within1e-7 in value and raw-logit gradient",
+    "uniform full-model one-step AdamW update matches legacy scalar path exactly or within frozen tensor tolerance before formal",
+    "uniform and CVaR arms initial state,first batch,201-232 case order,and CUDA RNG hashes are identical",
+    "all8 per-draw values finite; stable selected indices equal a manual lexicographic reference",
+    "selection and aggregation consume no CPU/CUDA RNG"
+  ],
+  "validation": {
+    "selection": "candidate maximum Scan, then Subject, then earlier epoch",
+    "causal_comparator": "same-epoch new uniform_mean8 arm",
+    "historical_hurdle": "KD200 Scan/Subject/Point",
+    "bottom27_gate": "candidate minus new uniform mean Dice strictly positive",
+    "boundary27_gate": "candidate minus new uniform mean Dice nonnegative",
+    "strata_warning": "same reused validation,13-case overlap,not independent confirmation"
+  },
+  "planned_outputs": {
+    "uniform_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_batch_cvar50_20260820/uniform_mean8_seed20260860",
+    "candidate_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_batch_cvar50_20260820/batch_cvar50_top4_seed20260860",
+    "validation": "workspace/BraTS/sammed3d_t1ce_wt/plain_batch_cvar50_20260820/BATCH_CVAR50_VALIDATION.json"
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

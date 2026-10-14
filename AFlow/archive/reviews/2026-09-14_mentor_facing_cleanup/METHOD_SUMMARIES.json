@@ -1,0 +1,322 @@
+[
+  {
+    "title": "师兄路线基础模型复现｜已完成",
+    "intuition": "先得到可信的研究起点。",
+    "problem": "没有基准就无法判断后续改进。",
+    "procedure": "单通道T1ce，按基础模型的真实标签中心裁剪与交互方式训练、评估。",
+    "outcome": "内部测试五点击最佳Scan 0.594226，患者Dice 0.580970。",
+    "interpretation": "支持复现同量级结果；不是全自动，也不是未公开细节的精确复制。",
+    "cost": "需交互；冻结为8月13日起点，不再追着测试调基线。",
+    "source": "archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md"
+  },
+  {
+    "title": "图像自身决定脑区裁剪｜已采用",
+    "intuition": "先去掉黑背景，让脑组织占更大输入面积。",
+    "problem": "整幅图缩小时，脑和小病灶被压得过小。",
+    "procedure": "只根据图像非零区域裁剪；匹配比较中其他因素保持一致。",
+    "outcome": "早期三点击协议Scan 0.571109→0.625359。",
+    "interpretation": "支持空间处理，但与五点击复现协议不同；这是后续设计的背景依据。",
+    "cost": "推理次数不增加，保留为自动系统输入处理。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "已知位置条件下的局部精修｜历史支线",
+    "intuition": "先知道肿瘤在哪里，再局部补漏。",
+    "problem": "粗模型仍漏分，局部精修可能更容易。",
+    "procedure": "固定粗分割，用小修正网络处理真实标签辅助定位的区域。",
+    "outcome": "内部测试Scan 0.703798，患者Dice 0.686637。",
+    "interpretation": "支持辅助定位下的精修；不能当全自动成绩。",
+    "cost": "多阶段、依赖位置提示，仅保留机制证据。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "围绕自动点的小窗口修补｜未晋级",
+    "intuition": "只修补一个小窗口，节约计算。",
+    "problem": "想兼顾局部细节与低成本。",
+    "procedure": "围绕预测点裁小块，训练局部修正器。",
+    "outcome": "验证Dice仅约+0.000190，未达到预定要求。",
+    "interpretation": "当前实现收益不足，不能泛化为所有局部方法无效。",
+    "cost": "增加模块但收益小，停止该配方。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "直接输出的自动分割网络｜主线成立",
+    "intuition": "小网络能给出好答案，就直接采用它。",
+    "problem": "小网络的答案接旧大模型后反而下降。",
+    "procedure": "图像自身裁剪后直接输出整体肿瘤，不再依赖标签点击或旧解码器。",
+    "outcome": "旧开发0.716125接旧模型后0.599324；自动内部测试Scan 0.725820。",
+    "interpretation": "支持采用任务对齐的直接输出；整条路线变化不是一个模块的净贡献。",
+    "cost": "轻量模型单次推理，成为后续基座。",
+    "source": "archive/research_documents/2026-08-17_root_cleanup/PLAIN_LOCATOR_TEST270_RESULT_20260817.md"
+  },
+  {
+    "title": "单独预测肿瘤中心｜未晋级",
+    "intuition": "增加一张中心热图，希望定位更稳。",
+    "problem": "分割和定位点是不同目标。",
+    "procedure": "在相同分割网络上加专用中心输出，与分割最高点对照。",
+    "outcome": "旧验证中心头点命中0.638889，分割最高点0.935185。",
+    "interpretation": "当前中心定义不可靠，没有实现定位改善。",
+    "cost": "额外输出和训练目标未带来收益，停止。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "灰度强度修正｜未晋级",
+    "intuition": "利用肿瘤与周围组织的亮度区别修正答案。",
+    "problem": "希望灰度帮助边界及漏分。",
+    "procedure": "比较匹配的小修正层与额外强度分支。",
+    "outcome": "开发Scan差−0.002638、患者Dice差−0.003331，定位也变差。",
+    "interpretation": "不支持当前实现，不代表所有强度信息无用。",
+    "cost": "不进入后续测试，不继续扫灰度权重。",
+    "source": "archive/research_documents/2026-08-17_root_cleanup/INTENSITY_RESIDUAL_RESULT_20260817.md"
+  },
+  {
+    "title": "更充分的低学习率训练｜有效进步",
+    "intuition": "先不换模型，让它继续收敛。",
+    "problem": "100轮可能只是预算截断。",
+    "procedure": "延长训练并在后段降低学习率，开发后固定168轮。",
+    "outcome": "同内部测试Scan 0.725820→0.741204，患者Dice升至0.723179。",
+    "interpretation": "支持训练时程与学习率收尾组合，不能拆成单一因素。",
+    "cost": "训练更久，部署仍单次前向，保留。",
+    "source": "archive/research_records/2026-08-18_plain_long_schedule/RESULT.md"
+  },
+  {
+    "title": "全图提高到160³分辨率｜未晋级",
+    "intuition": "更多像素或许能保住小病灶。",
+    "problem": "128³缩放有细节损失。",
+    "procedure": "从原始图像重建更大网格并训练，非放大旧缓存。",
+    "outcome": "内部测试Scan 0.737060，低于128³历史0.741204；标签栅格不同。",
+    "interpretation": "没有支持当前全图加分辨率方案，不能称纯同网格消融。",
+    "cost": "计算约1.95倍，停止这一固定方案。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "训练权重平滑平均｜部分有效",
+    "intuition": "平均近期训练权重，减少参数抖动。",
+    "problem": "单次训练末期可能不稳定。",
+    "procedure": "维护指数移动平均权重，推理只使用这一份模型。",
+    "outcome": "单独内部测试Scan 0.740696，未超过当时强基座，但错误模式有互补。",
+    "interpretation": "支持稳定和互补价值，不是单独最强模型。",
+    "cost": "训练多一份影子权重，部署单次；作为融合成员。",
+    "source": "archive/research_records/2026-08-19_plain_ema/EMA168_TEST270_RESULT.md"
+  },
+  {
+    "title": "两个模型的输出融合｜有效但更贵",
+    "intuition": "把两种互补判断结合起来。",
+    "problem": "一个模型擅长分割，另一个定位更稳。",
+    "procedure": "固定75%历史模型与25%平滑模型的输出平均，其他推理规则不变。",
+    "outcome": "内部测试Scan 0.745054，患者Dice 0.727345，点命中258/270。",
+    "interpretation": "支持输出互补；这是当时纪录，不是当前最高。",
+    "cost": "需要两次前向；随后研究压缩回单模型。",
+    "source": "archive/research_records/2026-08-19_plain_logit_ensemble/RESULT.md"
+  },
+  {
+    "title": "直接平均不同模型参数｜明确负结果",
+    "intuition": "希望只留一个模型却获得融合收益。",
+    "problem": "输出融合要计算两遍。",
+    "procedure": "使用固定比例直接平均两个不同训练种子的参数。",
+    "outcome": "固定验证Scan 0.731601→0.431343，108例全部下降。",
+    "interpretation": "当前参数平均失败，不否定输出平均；不同内部表示不能直接相加。",
+    "cost": "零训练快速排除，不继续扫比例。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "知识蒸馏压缩融合｜部分保留收益",
+    "intuition": "让一个学生模型学会两个模型的判断。",
+    "problem": "希望减小融合部署成本。",
+    "procedure": "继续训练学生，加入固定教师指导，并设同训练时程的无教师对照。",
+    "outcome": "内部测试Scan 0.742976、患者Dice 0.725179、点258/270，单次前向。",
+    "interpretation": "保留部分融合收益；继续训练贡献较大，蒸馏净增益小、区间跨0。",
+    "cost": "训练较贵，推理由两次回到一次；不是超过融合。",
+    "source": "archive/research_records/2026-08-19_plain_voxel_kd/RESULT.md"
+  },
+  {
+    "title": "肿瘤、边界、背景分开蒸馏｜未晋级",
+    "intuition": "别让大量背景淹没教师的关键答案。",
+    "problem": "普通逐体素指导可能过度关注背景。",
+    "procedure": "在既有蒸馏上分区域平衡额外指导，比较同轮基座。",
+    "outcome": "同轮开发Scan约+0.000441、患者Dice+0.000688，但不及基座后续最佳轮次。",
+    "interpretation": "有局部弱迹象，未形成更好最终模型。",
+    "cost": "推理不增加，当前区域权重配方停止。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "小而安全的修正层、边界及域信息｜部分有效",
+    "intuition": "先不破坏旧答案，再学习少量修正。",
+    "problem": "大改结构可能造成负迁移。",
+    "procedure": "冻结基座，加初始不改变输出的小层，再比较边界或域条件。",
+    "outcome": "辅助定位验证中，普通安全修正层约+0.003；额外边界和域条件未证明增益。",
+    "interpretation": "支持小修正层，不支持额外条件就是收益来源。",
+    "cost": "旧辅助定位支线，不混入自动主榜。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "先预测哪里错，再选择修补｜未晋级",
+    "intuition": "只修改可能出错的位置。",
+    "problem": "精修可能改坏已正确区域。",
+    "procedure": "增加错误预测门，和不加门的匹配修正器比较。",
+    "outcome": "两种子平均开发Scan约低0.001780。",
+    "interpretation": "预测错误位置本身也不可靠，当前实现失败。",
+    "cost": "增加模块无净收益，停止。",
+    "source": "archive/research_documents/2026-08-17_root_cleanup/ELPGR3D_A2_RESULT_20260814.md"
+  },
+  {
+    "title": "旧修正器的工作流与推理剪枝｜受限效率证据",
+    "intuition": "删掉重复的模型或镜像计算。",
+    "problem": "多模型、多视图计算太贵。",
+    "procedure": "在固定旧修正器中比较不同成员与视图组合，加入随机和贪心对照。",
+    "outcome": "旧验证约0.7004；有2.78倍和13.66倍修正器阶段加速。",
+    "interpretation": "存在冗余，但树搜索未胜简单方法；依赖已知位置输入。",
+    "cost": "不是当前自动模型或临床端到端加速，仅保留历史机制。",
+    "source": "archive/research_documents/2026-08-17_root_cleanup/INFERENCE_PRUNING_RESULT_20260814.md"
+  },
+  {
+    "title": "新增训练数据从第一轮参与｜重要进步",
+    "intuition": "新增病例应尽早影响模型学到的表示。",
+    "problem": "训练末期才补数据可能学得不充分。",
+    "procedure": "比较从头使用756与972例的匹配训练，保持计算预算等条件。",
+    "outcome": "完整972模型内部测试Scan 0.751760，患者Dice 0.737327，点262/270。",
+    "interpretation": "支持更充分的数据使用；原验证区间门失败后测试获单独探索授权。",
+    "cost": "完整重训，部署仍单次；保留证据身份限制。",
+    "source": "archive/research_records/2026-08-24_voxel_kd_fulltrajectory_972/RESULT.md"
+  },
+  {
+    "title": "更多训练种子和更宽网络｜未稳定晋级",
+    "intuition": "增加模型多样性或容量。",
+    "problem": "希望超过单条训练轨迹的局限。",
+    "procedure": "做固定多种子融合及更宽网络匹配比较。",
+    "outcome": "部分验证点估计改善，但区间或其他门未全过；更宽不等于更好。",
+    "interpretation": "当前实现没有稳定最终优势，不称容量理论上限。",
+    "cost": "增加训练、存储或推理成本，关闭已试方案。",
+    "source": "archive/research_records/2026-08-25_full972_multiseed_ensemble_distill/RESULT.md"
+  },
+  {
+    "title": "梯度中心化与锐度感知优化｜单次Scan点估计高、复制不足",
+    "intuition": "让参数更新避开容易抖动的解。",
+    "problem": "一个好检查点不等于稳定训练方法。",
+    "procedure": "改变优化更新方式，并做固定轮次复制。",
+    "outcome": "fit864/184轮检查点内部测试Scan 0.752003；比完整972模型0.751760高0.000244，点少10例；后续复制未稳定通过。",
+    "interpretation": "两检查点还差训练数据、轮次和种子，不能把测试微小领先归因优化器，更不能称显著全面突破。",
+    "cost": "推理单次，训练成本增加；保留检查点，不夸大配方稳定性。",
+    "source": "archive/research_records/2026-08-31_gcsam_full972_stability/RESULT.md"
+  },
+  {
+    "title": "固定八镜像预测平均｜当前内部总体纪录",
+    "intuition": "同一图像从不同方向看，再综合判断。",
+    "problem": "模型对方向仍敏感。",
+    "procedure": "同一权重做八方向预测，翻回后平均；不改阈值或后处理。",
+    "outcome": "内部测试Scan 0.757270、患者Dice 0.741254、点265/270。",
+    "interpretation": "相对同权重单次Scan提升有区间支持；患者Dice区间跨0。早期内层复制仅学生侧隔离，教师历史训练有患者重叠，不是全链路独立确认。",
+    "cost": "一个模型但八次前向，是有成本的提升。",
+    "source": "archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/RESULT.md"
+  },
+  {
+    "title": "镜像一致训练、其他更新与强度预处理｜未稳定晋级",
+    "intuition": "希望把推理鲁棒性直接学进模型。",
+    "problem": "多视图有效但推理昂贵，训练稳定性仍不足。",
+    "procedure": "分别尝试镜像一致训练、不同权重更新、不做或调整N4强度校正等固定比较。",
+    "outcome": "没有形成稳定通过所有门的新主模型；不能把某一局部正值当整体成功。",
+    "interpretation": "只否定已试配方，不称所有预处理或优化无效。",
+    "cost": "相关逐项记录保留，当前不自动继续旧参数搜索。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "患者均衡采样｜Dice改善、定位不稳",
+    "intuition": "让患者而非扫描次数决定训练机会。",
+    "problem": "多时间点患者可能被过度重复训练。",
+    "procedure": "只改抽样机会，模型、训练和单次推理不变。",
+    "outcome": "开发180扫描/78患者：两模型Scan 0.753475/0.755906，相对对照+0.006713/+0.011729。",
+    "interpretation": "四Dice区间为正，但一个模型点命中少3，联合门失败；不是完全无效。",
+    "cost": "不增加部署成本，保留分割正证据，不绕过定位门。",
+    "source": "archive/research_records/2026-09-07_subject_balanced_sampling/RESULT.md"
+  },
+  {
+    "title": "切除腔辅助监督｜当前配方失败",
+    "intuition": "让模型更明确知道什么不是目标肿瘤。",
+    "problem": "切除腔会造成术后误分和错误定位点。",
+    "procedure": "训练时增加切除腔预测，比较原任务对照；部署仍只输出肿瘤。",
+    "outcome": "开发两个模型Scan平均差约−0.003839，定位也下降。",
+    "interpretation": "辅助任务学会不等于主分割受益。",
+    "cost": "无额外部署前向，当前辅助权重配方停止。",
+    "source": "archive/research_records/2026-09-07_structured_background_aux/RESULT.md"
+  },
+  {
+    "title": "空间、方向与成像增强｜固定配方未通过",
+    "intuition": "让训练病例看起来稍有变化，增强鲁棒性。",
+    "problem": "希望改善朝向、形状或成像差异下的错误。",
+    "procedure": "分别增加弱弹性、小角度旋转、图像模糊；匹配对照不混改其他因素。",
+    "outcome": "9月10日完成多组双种子对照，这些增强配方未稳定同时通过分割与定位要求。",
+    "interpretation": "没有支持本轮配方，不是分割任务达到上限。",
+    "cost": "新增训练成本较大，已关闭精确配方。",
+    "source": "archive/research_records/2026-09-10_resumed_eight_hour/RESULT.md"
+  },
+  {
+    "title": "软占比标签与缩放保真检查｜未获模型晋级",
+    "intuition": "保留小区域在一个体素中占多少的信息。",
+    "problem": "硬标签缩放可能丢失小病灶或边界。",
+    "procedure": "先检查原生标签缩放，再试训练用软占比目标，评分目标保持固定。",
+    "outcome": "占比标签定位有改善，但分割未提高；保真检查本身不是模型成绩。",
+    "interpretation": "不能由标签往返保真度推出模型上限。",
+    "cost": "新增标签缓存和训练，固定目标方案关闭。",
+    "source": "archive/research_records/2026-09-10_fractional_occupancy/RESULT.md"
+  },
+  {
+    "title": "小区域清理、异质融合与定位点规则｜未晋级",
+    "intuition": "尝试清理假阳性或给定位点更可靠的规则。",
+    "problem": "分割和最高点的错误并不总同步。",
+    "procedure": "分别检验保护峰值的小区域清理、固定等权融合及点共识/几何中心。",
+    "outcome": "清理或融合未过原门；几何中心点表现明显较差。",
+    "interpretation": "不能靠挑单个指标或更换评分目标救结果。",
+    "cost": "保留负结果，不据已见测试继续选阈值或点规则。",
+    "source": "archive/reviews/2026-09-14_mentor_facing_cleanup/METHOD_CATALOG_DETAIL.md"
+  },
+  {
+    "title": "保留原始肿瘤子区标签｜仅工程完成",
+    "intuition": "先把现有栅格中的类别信息保留下来。",
+    "problem": "二分类标签不足以分析不同前景区域的错误。",
+    "procedure": "在相同128网格保存原始类别，并独立核对整体肿瘤与切除腔视图。",
+    "outcome": "训练684例重建核查通过；没有因此得到新模型Dice。",
+    "interpretation": "证明数据视图可用，不证明多区域训练一定提分。",
+    "cost": "约1.34GiB标签缓存；后续方法仍需独立预注册。",
+    "source": "archive/research_records/2026-09-10_fit_subregion_labels/RESULT.md"
+  },
+  {
+    "title": "自动模型的工作流搜索与剪枝｜开发通过、内部确认不稳",
+    "intuition": "只保留提供关键信息的少数镜像。",
+    "problem": "八视图精度高但贵。",
+    "procedure": "固定模型搜索128子集，与随机/贪心/树搜索同规则比较，再冻结最终代表。",
+    "outcome": "开发8次减2/3次，阶段快3.96/2.65倍；内部测试一模型少命中5例，双模型确认失败。",
+    "interpretation": "支持受限精度—成本研究，不支持稳定无损或树搜索优越。",
+    "cost": "有小幅Dice损失；测试方案关闭，不择seed重定结论。",
+    "source": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RESULT.md"
+  },
+  {
+    "title": "总耗时分解｜找到真正瓶颈",
+    "intuition": "先看时间花在哪里，再决定优化什么。",
+    "problem": "网络快几倍不一定整条流程快几倍。",
+    "procedure": "仅训练侧图像，从文件读取至输出分段计时，保持输入数值一致。",
+    "outcome": "小工程探针总加速仅1.027/1.022倍，约97%时间在预处理。",
+    "interpretation": "支持转向预处理瓶颈；不能把模型阶段倍率当端到端倍率。",
+    "cost": "零训练、无精度评估，是成本诊断。",
+    "source": "archive/research_records/2026-09-11_workflow_file_to_output_timing/RESULT.md"
+  },
+  {
+    "title": "病例间并行预处理｜批量工程复制通过",
+    "intuition": "让多个病例同时准备，GPU按序接收。",
+    "problem": "预处理占据大部分批量等待。",
+    "procedure": "单线程工作进程从1增至4，其他图像计算、模型八视图和输出不变。",
+    "outcome": "不同24扫描/12患者，两轮批量约3.52倍；96次输入核查通过，24病例四运行完整输出一致。",
+    "interpretation": "支持批量吞吐，不是单病例同比加速、精度提升或新并行算法。",
+    "cost": "多用3个CPU进程，采样内存和约2.8→5.7GiB，保留有条件批量选项。",
+    "source": "archive/research_records/2026-09-11_case_parallel_replication24/RESULT.md"
+  },
+  {
+    "title": "公开外部泛化与来源核查｜已完成多个队列",
+    "intuition": "换医院和阶段，检查内部结果是否还能成立。",
+    "problem": "内部报告集已多次使用，不能代表泛化。",
+    "procedure": "冻结模型后逐队列评估，并检查来源、患者交集、标签与几何。",
+    "outcome": "多个公开队列已报告，表现差异明显；没有一个模型处处最好。",
+    "interpretation": "已开展外部验证，但公开不等于隐藏盲测，同来源更正不增加独立队列。",
+    "cost": "保留队列特异结论；来源或授权不合格的分支不强行评测。",
+    "source": "AFLOW_BRATS_LEADERBOARD.md"
+  }
+]

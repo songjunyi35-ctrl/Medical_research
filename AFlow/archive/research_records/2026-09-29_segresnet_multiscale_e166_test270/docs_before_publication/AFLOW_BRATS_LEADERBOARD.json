@@ -1,0 +1,3344 @@
+{
+  "schema": "aflow.brats.t1ce_wt_leaderboard",
+  "schema_version": 1,
+  "updated_utc": "2026-09-21T15:28:20.865411+00:00",
+  "ucsd56_bootstrap_mc_precision_20260907": {
+    "status": "posthoc_numerical_sensitivity_original_preregistered_intervals_and_ranks_preserved",
+    "report_path": "archive/reviews/2026-09-07_ucsd56_bootstrap_precision/RESULT.json",
+    "report_sha256": "2b7eefb81bea413ffc305d82b175dc80ff357917e0b49a1ba8cb32c80620b60d",
+    "scan_replicates_crossing_zero_of20": 17,
+    "subject_replicates_crossing_zero_of20": 4,
+    "scan_million_draw_ci": [
+      -0.025713641752319563,
+      0.00013979044948300804
+    ],
+    "subject_million_draw_ci": [
+      -0.03176331672781563,
+      -0.000222847518945402
+    ],
+    "interpretation": "Negative point estimates remain; original scan CI barely below zero is Monte Carlo sensitive. Do not describe both endpoints as robust significant reversal, replace preregistered intervals, or select a seed/model from this audit.",
+    "new_model_forwards": 0
+  },
+  "input_source_correction_20260905": {
+    "cohort": "UCSD75",
+    "actual_image_provider": "Pittsburgh Fiber Data Hub data-nih/tcia curated mirror",
+    "mirror_is_official_tcia_distribution": false,
+    "mirror_image_dtype_counts": {
+      "uint8": 75
+    },
+    "official_clinical_mapping_verified_scans": 75,
+    "official_clinical_mapping_verified_subjects": 53,
+    "official_clinical_patient_overlap": 0,
+    "first_case_official_image_dtype": "float32",
+    "first_case_official_and_mirror_images_equal": false,
+    "first_case_official_and_mirror_label_values_equal": true,
+    "first_case_nonzero_image_voxels_lost_in_mirror": 575,
+    "full75_direct_source_fidelity": "completed;150/150_geometry_equal;75/75_label_arrays_equal;0/75_image_arrays_equal;official75_float32_mirror75_uint8",
+    "source_nonzero_voxels_quantized_to_zero_total": 18156,
+    "direct_source_comparison_path": "archive/reviews/2026-09-05_30h_chain_audit/UCSD_ALL75_DIRECT_SOURCE_COMPARISON.json",
+    "direct_source_comparison_sha256": "1dc05453fce200e11739dafbc1b73d33a5ef1bd491d3174b3ebb42504d101ac7",
+    "clinical_mapping_audit_path": "archive/reviews/2026-09-05_30h_chain_audit/UCSD_OFFICIAL_CLINICAL_MAPPING_AUDIT.json",
+    "official_first_case_receipt_path": "archive/reviews/2026-09-05_30h_chain_audit/UCSD_OFFICIAL_SOURCE_AUDIT_V3.json",
+    "interpretation": "old UCSD metrics describe the frozen uint8 mirror-derived inputs; a preregistered 2026-09-06 same-cohort source correction separately evaluates direct official float32 inputs without retuning"
+  },
+  "official_float_source_correction_20260906": {
+    "cohort": "same reused UCSD75; 75 scans/53 subjects; not a new independent external cohort",
+    "single_factor": "Pittsburgh Fiber Data Hub uint8 mirror images replaced by direct TCIA package 1019 float32 images",
+    "crop_origin_equal_cases": 75,
+    "crop_extent_equal_cases": 75,
+    "cached_label_array_equal_cases": 75,
+    "cached_image_array_equal_cases": 0,
+    "performance_promotion_gate": null,
+    "result_dependent_repeat": false,
+    "raw_report_path": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/RAW_OFFICIAL_FLOAT.json",
+    "raw_report_sha256": "a1155914b16b648f97f11a7d7a20cb27096d7eed9f9662db73f4905860da04d2"
+  },
+  "brats_africa95_external_20260906": {
+    "cohort": "TCIA BraTS-Africa package948 public post-challenge 95_Glioma",
+    "original_roles_combined_without_selection": {
+      "train": 60,
+      "validation": 15,
+      "test": 20
+    },
+    "publisher_other_neoplasms_excluded_before_pixels": 51,
+    "source_centers_collection_page_claim": 6,
+    "evaluated_glioma95_centers_from_package_datainfo": 4,
+    "institution_disjoint_from_brats2024_seven_sites": true,
+    "patient_id_bridge_available": false,
+    "expert_annotation": "nnU-Net preannotation manually refined by experienced board-certified neuroradiologist",
+    "raw_report_path": "archive/research_records/2026-09-06_brats_africa95_frozen_baselines/RAW_EXTERNAL95.json",
+    "raw_report_sha256": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3"
+  },
+  "cptac33_africa_informed_confirmation_20260906": {
+    "cohort": "CPTAC-GBM BraTS2021 public Training33 used external to this project",
+    "original_validation_excluded_without_seg": 6,
+    "hidden_test_used": false,
+    "official_sums_rows": 407245,
+    "selected_official_md5_and_dual_sha_exact": 66,
+    "hypothesis": "Africa-informed GCSAM identity minus Full identity Dice direction",
+    "hypothesis_result": "weak_uncertain_support; positive point estimate but paired CI crosses zero",
+    "raw_report_path": "archive/research_records/2026-09-06_cptac33_africa_informed_confirmation/RAW_CPTAC33.json",
+    "raw_report_sha256": "4b9d8c90e1b5ec45b0e664e560301db20affd6a96387f416a62b561f8d57b4fd"
+  },
+  "waw_gliomai152_external_20260906": {
+    "cohort": "WAW-GliomAI final Zenodo record22205631 preoperative T1c-mask exact intersection152",
+    "release_description_preoperative_exams": 156,
+    "final_strict_pairs": 152,
+    "source_institution": "Medical University of Warsaw",
+    "institution_disjoint_from_brats2024_seven_sites": true,
+    "patient_id_bridge_available": false,
+    "hidden_blind": false,
+    "expert_annotation": "FL-PoST/FeTS initialization reviewed and manually refined by radiologists with neuro-oncologic imaging expertise",
+    "official_archive_bytes": 3164137716,
+    "official_archive_md5": "0d24a3a2c76bc6fa9b5b6468679676b1",
+    "raw_report_path": "archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/RAW_WAW152.json",
+    "raw_report_sha256": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91"
+  },
+  "waw_postop_only31_external_20260906": {
+    "cohort": "WAW-GliomAI final postoperative earliest numeric day for31 patients absent from evaluated preop152",
+    "final_postop_exams": 160,
+    "final_postop_patients": 92,
+    "preop_patient_overlap": 0,
+    "days_postop_range": [
+      0.0,
+      22.0
+    ],
+    "blank_only_patients_excluded": 4,
+    "later_numeric_scans_excluded": 17,
+    "source_institution": "Medical University of Warsaw",
+    "hidden_blind": false,
+    "raw_report_path": "archive/research_records/2026-09-06_waw_postop_only31_frozen_panel/RAW_WAW_POSTOP31.json",
+    "raw_report_sha256": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98"
+  },
+  "ucsd_brats2024test56_external_20260906": {
+    "cohort": "UCSD-PTGBM package1221 BraTS-GLI 2024 test set; 59 studies/42 subjects released 2026-01-22; frozen 56 scans/41 subjects after excluding UCSD-PTGBM-0038 (union overlap via official v3 clinical mapping)",
+    "package_id": 1221,
+    "released_studies": 59,
+    "released_subjects": 42,
+    "excluded_subject": "UCSD-PTGBM-0038",
+    "union_patient_overlap_after_exclusion": 0,
+    "no_official_sums_dual_transfer_gate": true,
+    "hidden_blind": false,
+    "raw_report_path": "archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/RAW_UCSD_BRATS2024TEST56.json",
+    "raw_report_sha256": "74466d1cdc56d864d48e5d8604e00d004ecdb636882366546b4738a1b794201c",
+    "gcsam_minus_full_scan": -0.012312488049355374,
+    "gcsam_minus_full_scan_95ci": [
+      -0.025822025912622792,
+      -9.235571350130962e-05
+    ],
+    "flip8_minus_identity_scan": 0.002971109308731422,
+    "flip8_minus_identity_scan_95ci": [
+      -0.00273980804868736,
+      0.008749643998506586
+    ]
+  },
+  "provenance_correction_20260905": {
+    "scope": "recent A/B/C/D student-held-out inner development only; reported test/external metrics unchanged",
+    "teacher_train_overlap_scans_abcd": [
+      87,
+      72,
+      88,
+      72
+    ],
+    "teacher_train_overlap_subjects_abcd": [
+      39,
+      33,
+      39,
+      37
+    ],
+    "interpretation": "fresh student-fit split does not establish end-to-end teacher-training patient isolation; indirect leakage risk unquantified",
+    "audit_path": "archive/reviews/2026-09-05_30h_chain_audit/TEACHER_INNER_EXPOSURE.json"
+  },
+  "metric_definitions": {
+    "scan_dice": "equal-weight mean over scans",
+    "subject_dice": "mean within subject, then equal-weight mean over subjects",
+    "point_hit": "fraction whose raw-logit argmax lies inside GT WT; UCSD external denominator is the 75 source-WT-positive scans"
+  },
+  "external_ucsd75_direct_locator_rank_by_scan": [
+    {
+      "rank": 1,
+      "method": "gcsam_inner_fit864_epoch184_official_float32",
+      "scan_dice": 0.7558895047505697,
+      "scan_dice_95ci": [
+        0.7171913696726163,
+        0.7895746358732383
+      ],
+      "subject_dice": 0.7553118862820871,
+      "subject_dice_95ci": [
+        0.7079896559599059,
+        0.7968233179793043
+      ],
+      "point_hit": 0.9333333333333333,
+      "point_hits": 70,
+      "point_denominator": 75,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "UCSD-PTGBM same frozen patient-disjoint 75-scan difference cohort",
+        "scans": 75,
+        "subjects": 53,
+        "existing_case_overlap": 0,
+        "existing_subject_overlap": 0,
+        "all_wt_positive": true
+      },
+      "training_scope": {
+        "fit_scans": 864,
+        "train_inner_selection_scans": 108,
+        "not_full972_final": true
+      },
+      "input_source_version": "direct_TCIA_package_1019_float32",
+      "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "direct official float32 UCSD inputs use a 256^3 1mm MNI release grid while training BraTS copies use 182x218x182; same 75-case crop and labels match mirror but common 128^3 rasterization remains; compare source versions only within this reused cohort",
+      "evidence_status": "reused_source_correction_after_external_confirmation; public_not_hidden_blind; no_external_tuning; direct_official_float32; separate_brats_challenge_test_package_excluded",
+      "report_path": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/RAW_OFFICIAL_FLOAT.json",
+      "report_sha256": "a1155914b16b648f97f11a7d7a20cb27096d7eed9f9662db73f4905860da04d2",
+      "status": "highest_reused_ucsd75_official_float_scan_and_subject_point_estimates; point_tied; paired_dice_ci_vs_full972_crosses_zero; not_new_external_confirmation"
+    },
+    {
+      "rank": 2,
+      "method": "gcsam_inner_fit864_epoch184_mirror_uint8",
+      "scan_dice": 0.7556473382314046,
+      "scan_dice_95ci": [
+        0.7170801040331523,
+        0.7891719121734302
+      ],
+      "subject_dice": 0.7551516704964187,
+      "subject_dice_95ci": [
+        0.7078733323973679,
+        0.7965259456503317
+      ],
+      "point_hit": 0.9466666666666667,
+      "point_hits": 71,
+      "point_denominator": 75,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "UCSD-PTGBM same frozen patient-disjoint 75-scan difference cohort",
+        "scans": 75,
+        "subjects": 53,
+        "existing_case_overlap": 0,
+        "existing_subject_overlap": 0,
+        "all_wt_positive": true
+      },
+      "training_scope": {
+        "fit_scans": 864,
+        "train_inner_selection_scans": 108,
+        "not_full972_final": true
+      },
+      "input_source_version": "Pittsburgh_Fiber_Data_Hub_mirror_uint8",
+      "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "mirror uint8 UCSD inputs derive from the official 256^3 1mm MNI release grid while training BraTS copies use 182x218x182; source labels match but images are quantized; common 128^3 rasterization remains",
+      "evidence_status": "one_time_preregistered_patient_disjoint_external_confirmation; public_not_hidden_blind; no_external_tuning; mirror_uint8_source_corrected_provenance; separate_brats_challenge_test_package_excluded",
+      "report_path": "workspace/BraTS/ucsd_ptgbm_external_confirmation_20260902/UCSD_EXTERNAL_CONFIRMATION.json",
+      "report_sha256": "91910760fbab804ee17b3ad8027a035a6676b02307a6f34d8408ba858c42f593",
+      "status": "historical_mirror_uint8_row_preserved; source-limited; point71"
+    },
+    {
+      "rank": 3,
+      "method": "full972_random_init_voxel_kd_epoch168_official_float32",
+      "scan_dice": 0.746255042552948,
+      "scan_dice_95ci": [
+        0.7061778320670128,
+        0.782002838075161
+      ],
+      "subject_dice": 0.7401648632385446,
+      "subject_dice_95ci": [
+        0.68809843534756,
+        0.7846697561021121
+      ],
+      "point_hit": 0.9333333333333333,
+      "point_hits": 70,
+      "point_denominator": 75,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "UCSD-PTGBM same frozen patient-disjoint 75-scan difference cohort",
+        "scans": 75,
+        "subjects": 53,
+        "existing_case_overlap": 0,
+        "existing_subject_overlap": 0,
+        "all_wt_positive": true
+      },
+      "input_source_version": "direct_TCIA_package_1019_float32",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "direct official float32 UCSD inputs use a 256^3 1mm MNI release grid while training BraTS copies use 182x218x182; same 75-case crop and labels match mirror but common 128^3 rasterization remains; compare source versions only within this reused cohort",
+      "evidence_status": "reused_source_correction_after_external_confirmation; public_not_hidden_blind; no_external_tuning; direct_official_float32; separate_brats_challenge_test_package_excluded",
+      "report_path": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/RAW_OFFICIAL_FLOAT.json",
+      "report_sha256": "a1155914b16b648f97f11a7d7a20cb27096d7eed9f9662db73f4905860da04d2",
+      "status": "reused_ucsd75_official_float_rank3_scan; point_tied; not_new_external_confirmation"
+    },
+    {
+      "rank": 4,
+      "method": "full972_random_init_voxel_kd_epoch168_mirror_uint8",
+      "scan_dice": 0.7455541275938352,
+      "scan_dice_95ci": [
+        0.7047669399182002,
+        0.7815954048633575
+      ],
+      "subject_dice": 0.739054558458943,
+      "subject_dice_95ci": [
+        0.6860284541247401,
+        0.7845347816405712
+      ],
+      "point_hit": 0.9333333333333333,
+      "point_hits": 70,
+      "point_denominator": 75,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "UCSD-PTGBM same frozen patient-disjoint 75-scan difference cohort",
+        "scans": 75,
+        "subjects": 53,
+        "existing_case_overlap": 0,
+        "existing_subject_overlap": 0,
+        "all_wt_positive": true
+      },
+      "input_source_version": "Pittsburgh_Fiber_Data_Hub_mirror_uint8",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "mirror uint8 UCSD inputs derive from the official 256^3 1mm MNI release grid while training BraTS copies use 182x218x182; source labels match but images are quantized; common 128^3 rasterization remains",
+      "evidence_status": "one_time_preregistered_patient_disjoint_external_confirmation; public_not_hidden_blind; no_external_tuning; mirror_uint8_source_corrected_provenance; separate_brats_challenge_test_package_excluded",
+      "report_path": "workspace/BraTS/ucsd_ptgbm_external_confirmation_20260902/UCSD_EXTERNAL_CONFIRMATION.json",
+      "report_sha256": "91910760fbab804ee17b3ad8027a035a6676b02307a6f34d8408ba858c42f593",
+      "status": "historical_mirror_uint8_row_preserved; source-limited"
+    }
+  ],
+  "external_brats_africa95_direct_locator_rank_by_scan": [
+    {
+      "rank": 1,
+      "method": "gcsam_inner_fit864_epoch184_identity",
+      "scan_dice": 0.5916192193392555,
+      "scan_dice_95ci": [
+        0.5409138043330485,
+        0.6374087789122713
+      ],
+      "subject_dice": 0.5916192193392555,
+      "subject_dice_95ci": [
+        0.5409138043330485,
+        0.6374087789122713
+      ],
+      "point_hit": 0.8842105263157894,
+      "point_hits": 84,
+      "point_denominator": 95,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "BraTS-Africa public post-challenge 95_Glioma",
+        "scans": 95,
+        "subjects": 95,
+        "source_centers": 4,
+        "institution_disjoint": true,
+        "patient_id_bridge": false,
+        "all_wt_positive": true
+      },
+      "input_source_version": "TCIA_package948_official_NIfTI",
+      "training_scope": {
+        "fit_scans": 864,
+        "train_inner_selection_scans": 108,
+        "not_full972_final": true
+      },
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "publisher resampled heterogeneous 1.5T clinical scans with original 3-5mm through-plane spacing to 1mm; project then image-support-crops and rasterizes to 128^3; preoperative all-positive WT differs from post-treatment RC-excluded training semantics",
+      "evidence_status": "one_time_preregistered_public_postchallenge_external_confirmation; institution_disjoint_no_patient_id_bridge; not_hidden_blind; no_external_tuning; package948_official; original_train_validation_test_roles_combined_without_selection",
+      "report_path": "archive/research_records/2026-09-06_brats_africa95_frozen_baselines/RAW_EXTERNAL95.json",
+      "report_sha256": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+      "status": "highest_africa95_scan_subject_point_estimate_among_identity_models; paired_dice_ci_vs_full972_identity_positive; point_three_lower"
+    },
+    {
+      "rank": 2,
+      "method": "full972_random_init_voxel_kd_epoch168_flip8_tta",
+      "scan_dice": 0.526437659716765,
+      "scan_dice_95ci": [
+        0.4756464986472562,
+        0.5770474473869399
+      ],
+      "subject_dice": 0.526437659716765,
+      "subject_dice_95ci": [
+        0.4756464986472562,
+        0.5770474473869399
+      ],
+      "point_hit": 0.9263157894736842,
+      "point_hits": 88,
+      "point_denominator": 95,
+      "locator_forwards": 8,
+      "cohort": {
+        "name": "BraTS-Africa public post-challenge 95_Glioma",
+        "scans": 95,
+        "subjects": 95,
+        "source_centers": 4,
+        "institution_disjoint": true,
+        "patient_id_bridge": false,
+        "all_wt_positive": true
+      },
+      "input_source_version": "TCIA_package948_official_NIfTI",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "all 8 combinations of spatial-axis reflection; inverse-reflect each raw logit; ordered float32 equal mean",
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "publisher resampled heterogeneous 1.5T clinical scans with original 3-5mm through-plane spacing to 1mm; project then image-support-crops and rasterizes to 128^3; preoperative all-positive WT differs from post-treatment RC-excluded training semantics",
+      "evidence_status": "one_time_preregistered_public_postchallenge_external_confirmation; institution_disjoint_no_patient_id_bridge; not_hidden_blind; no_external_tuning; package948_official; original_train_validation_test_roles_combined_without_selection",
+      "report_path": "archive/research_records/2026-09-06_brats_africa95_frozen_baselines/RAW_EXTERNAL95.json",
+      "report_sha256": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+      "status": "highest_africa95_point_estimate; flip8_dice_delta_positive_but_paired_ci_crosses_zero; 8x_inference"
+    },
+    {
+      "rank": 3,
+      "method": "full972_random_init_voxel_kd_epoch168_identity",
+      "scan_dice": 0.5230025504563405,
+      "scan_dice_95ci": [
+        0.4755023307048984,
+        0.5677388555856394
+      ],
+      "subject_dice": 0.5230025504563405,
+      "subject_dice_95ci": [
+        0.4755023307048984,
+        0.5677388555856394
+      ],
+      "point_hit": 0.9157894736842105,
+      "point_hits": 87,
+      "point_denominator": 95,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "BraTS-Africa public post-challenge 95_Glioma",
+        "scans": 95,
+        "subjects": 95,
+        "source_centers": 4,
+        "institution_disjoint": true,
+        "patient_id_bridge": false,
+        "all_wt_positive": true
+      },
+      "input_source_version": "TCIA_package948_official_NIfTI",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "publisher resampled heterogeneous 1.5T clinical scans with original 3-5mm through-plane spacing to 1mm; project then image-support-crops and rasterizes to 128^3; preoperative all-positive WT differs from post-treatment RC-excluded training semantics",
+      "evidence_status": "one_time_preregistered_public_postchallenge_external_confirmation; institution_disjoint_no_patient_id_bridge; not_hidden_blind; no_external_tuning; package948_official; original_train_validation_test_roles_combined_without_selection",
+      "report_path": "archive/research_records/2026-09-06_brats_africa95_frozen_baselines/RAW_EXTERNAL95.json",
+      "report_sha256": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+      "status": "africa95_identity_rank3_by_scan; point87"
+    }
+  ],
+  "external_cptac33_direct_locator_rank_by_scan": [
+    {
+      "rank": 1,
+      "method": "full972_random_init_voxel_kd_epoch168_flip8_tta",
+      "scan_dice": 0.8445771173590393,
+      "scan_dice_95ci": [
+        0.8132902972601445,
+        0.8707951095638908
+      ],
+      "subject_dice": 0.8445771173590393,
+      "subject_dice_95ci": [
+        0.8132902972601445,
+        0.8707951095638908
+      ],
+      "point_hit": 1.0,
+      "point_hits": 33,
+      "point_denominator": 33,
+      "locator_forwards": 8,
+      "cohort": {
+        "name": "CPTAC-GBM BraTS2021 public Training33",
+        "scans": 33,
+        "subjects": 33,
+        "source_disjoint": true,
+        "patient_id_bridge": false,
+        "all_wt_positive": true,
+        "hidden_blind": false
+      },
+      "input_source_version": "TCIA_BraTS2021_package636_official_NIfTI",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "all 8 spatial reflections; inverse-reflect raw logits; ordered float32 equal mean",
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "BraTS2021 preoperative public Training labels used external to this project; source 1mm BraTS grid then image-support crop rasterized128^3; not original challenge validation/test and no BraTS2024 patient-ID bridge",
+      "evidence_status": "one_time_preregistered_africa_informed_public_training_external_confirmation; not_hidden_blind; no_external_tuning; official_package636_sums_and_dual_sha; validation6_without_seg_excluded_before_payload",
+      "report_path": "archive/research_records/2026-09-06_cptac33_africa_informed_confirmation/RAW_CPTAC33.json",
+      "report_sha256": "4b9d8c90e1b5ec45b0e664e560301db20affd6a96387f416a62b561f8d57b4fd",
+      "status": "highest_cptac33_scan_subject_point_tied; flip8_vs_identity_paired_dice_ci_positive; 8x"
+    },
+    {
+      "rank": 2,
+      "method": "gcsam_inner_fit864_epoch184_identity",
+      "scan_dice": 0.8432850801809273,
+      "scan_dice_95ci": [
+        0.812976588721178,
+        0.868437094104688
+      ],
+      "subject_dice": 0.8432850801809273,
+      "subject_dice_95ci": [
+        0.812976588721178,
+        0.868437094104688
+      ],
+      "point_hit": 1.0,
+      "point_hits": 33,
+      "point_denominator": 33,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "CPTAC-GBM BraTS2021 public Training33",
+        "scans": 33,
+        "subjects": 33,
+        "source_disjoint": true,
+        "patient_id_bridge": false,
+        "all_wt_positive": true,
+        "hidden_blind": false
+      },
+      "input_source_version": "TCIA_BraTS2021_package636_official_NIfTI",
+      "training_scope": {
+        "fit_scans": 864,
+        "inner_selection_scans": 108,
+        "not_full972_final": true
+      },
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "BraTS2021 preoperative public Training labels used external to this project; source 1mm BraTS grid then image-support crop rasterized128^3; not original challenge validation/test and no BraTS2024 patient-ID bridge",
+      "evidence_status": "one_time_preregistered_africa_informed_public_training_external_confirmation; not_hidden_blind; no_external_tuning; official_package636_sums_and_dual_sha; validation6_without_seg_excluded_before_payload",
+      "report_path": "archive/research_records/2026-09-06_cptac33_africa_informed_confirmation/RAW_CPTAC33.json",
+      "report_sha256": "4b9d8c90e1b5ec45b0e664e560301db20affd6a96387f416a62b561f8d57b4fd",
+      "status": "cptac33_rank2; africa_informed_direction_positive_but_ci_crosses_zero; point_tied"
+    },
+    {
+      "rank": 3,
+      "method": "full972_random_init_voxel_kd_epoch168_identity",
+      "scan_dice": 0.8413314638642593,
+      "scan_dice_95ci": [
+        0.8090997785254241,
+        0.8686125719143264
+      ],
+      "subject_dice": 0.8413314638642593,
+      "subject_dice_95ci": [
+        0.8090997785254241,
+        0.8686125719143264
+      ],
+      "point_hit": 1.0,
+      "point_hits": 33,
+      "point_denominator": 33,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "CPTAC-GBM BraTS2021 public Training33",
+        "scans": 33,
+        "subjects": 33,
+        "source_disjoint": true,
+        "patient_id_bridge": false,
+        "all_wt_positive": true,
+        "hidden_blind": false
+      },
+      "input_source_version": "TCIA_BraTS2021_package636_official_NIfTI",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "BraTS2021 preoperative public Training labels used external to this project; source 1mm BraTS grid then image-support crop rasterized128^3; not original challenge validation/test and no BraTS2024 patient-ID bridge",
+      "evidence_status": "one_time_preregistered_africa_informed_public_training_external_confirmation; not_hidden_blind; no_external_tuning; official_package636_sums_and_dual_sha; validation6_without_seg_excluded_before_payload",
+      "report_path": "archive/research_records/2026-09-06_cptac33_africa_informed_confirmation/RAW_CPTAC33.json",
+      "report_sha256": "4b9d8c90e1b5ec45b0e664e560301db20affd6a96387f416a62b561f8d57b4fd",
+      "status": "cptac33_identity_rank3; point_tied"
+    }
+  ],
+  "external_waw_gliomai152_direct_locator_rank_by_scan": [
+    {
+      "rank": 1,
+      "method": "gcsam_inner_fit864_epoch184_identity",
+      "scan_dice": 0.6936011577505181,
+      "scan_dice_95ci": [
+        0.660656320933675,
+        0.7234330158024777
+      ],
+      "subject_dice": 0.6936011577505181,
+      "subject_dice_95ci": [
+        0.660656320933675,
+        0.7234330158024777
+      ],
+      "point_hit": 0.9210526315789473,
+      "point_hits": 140,
+      "point_denominator": 152,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "WAW-GliomAI final public preoperative152",
+        "scans": 152,
+        "subjects": 152,
+        "institution_disjoint": true,
+        "patient_id_bridge": false,
+        "all_wt_positive": true,
+        "hidden_blind": false
+      },
+      "input_source_version": "Zenodo22205631_final_coreg_delayed_postcontrast_t1c",
+      "training_scope": {
+        "fit_scans": 864,
+        "inner_selection_scans": 108,
+        "not_full972_final": true
+      },
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "publisher coreg/skull-stripped/bias-corrected 1mm delayed post-contrast T1c is processed again by the frozen canonical N4/image-support-crop pipeline and rasterized128^3; preoperative all-positive labels differ from post-treatment training semantics",
+      "evidence_status": "one_time_preregistered_public_external_to_project; institution_disjoint_no_patient_id_bridge; not_hidden_blind; no_external_tuning; final_Zenodo_open_CC_BY_4_0; description156_corrected_to_final_exact152",
+      "report_path": "archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/RAW_WAW152.json",
+      "report_sha256": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91",
+      "status": "highest_waw152_scan_subject_point_estimate_overall_and_1x_by_0.000107_vs_flip8; paired_dice_ci_vs_full_identity_crosses_zero; point_three_lower_than_flip8"
+    },
+    {
+      "rank": 2,
+      "method": "full972_random_init_voxel_kd_epoch168_flip8_tta",
+      "scan_dice": 0.6934941117007307,
+      "scan_dice_95ci": [
+        0.6602732185502288,
+        0.7236152755820258
+      ],
+      "subject_dice": 0.6934941117007307,
+      "subject_dice_95ci": [
+        0.6602732185502288,
+        0.7236152755820258
+      ],
+      "point_hit": 0.9407894736842105,
+      "point_hits": 143,
+      "point_denominator": 152,
+      "locator_forwards": 8,
+      "cohort": {
+        "name": "WAW-GliomAI final public preoperative152",
+        "scans": 152,
+        "subjects": 152,
+        "institution_disjoint": true,
+        "patient_id_bridge": false,
+        "all_wt_positive": true,
+        "hidden_blind": false
+      },
+      "input_source_version": "Zenodo22205631_final_coreg_delayed_postcontrast_t1c",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "all 8 spatial reflections; inverse-reflect raw logits; ordered float32 equal mean",
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "publisher coreg/skull-stripped/bias-corrected 1mm delayed post-contrast T1c is processed again by the frozen canonical N4/image-support-crop pipeline and rasterized128^3; preoperative all-positive labels differ from post-treatment training semantics",
+      "evidence_status": "one_time_preregistered_public_external_to_project; institution_disjoint_no_patient_id_bridge; not_hidden_blind; no_external_tuning; final_Zenodo_open_CC_BY_4_0; description156_corrected_to_final_exact152",
+      "report_path": "archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/RAW_WAW152.json",
+      "report_sha256": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91",
+      "status": "waw152_rank2_by_scan_only_0.000107_below_gcsam; highest_point143; flip8_vs_identity_paired_dice_ci_positive; 8x"
+    },
+    {
+      "rank": 3,
+      "method": "full972_random_init_voxel_kd_epoch168_identity",
+      "scan_dice": 0.6833779920381983,
+      "scan_dice_95ci": [
+        0.6498105765436853,
+        0.7136585980622272
+      ],
+      "subject_dice": 0.6833779920381983,
+      "subject_dice_95ci": [
+        0.6498105765436853,
+        0.7136585980622272
+      ],
+      "point_hit": 0.9276315789473685,
+      "point_hits": 141,
+      "point_denominator": 152,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "WAW-GliomAI final public preoperative152",
+        "scans": 152,
+        "subjects": 152,
+        "institution_disjoint": true,
+        "patient_id_bridge": false,
+        "all_wt_positive": true,
+        "hidden_blind": false
+      },
+      "input_source_version": "Zenodo22205631_final_coreg_delayed_postcontrast_t1c",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "publisher coreg/skull-stripped/bias-corrected 1mm delayed post-contrast T1c is processed again by the frozen canonical N4/image-support-crop pipeline and rasterized128^3; preoperative all-positive labels differ from post-treatment training semantics",
+      "evidence_status": "one_time_preregistered_public_external_to_project; institution_disjoint_no_patient_id_bridge; not_hidden_blind; no_external_tuning; final_Zenodo_open_CC_BY_4_0; description156_corrected_to_final_exact152",
+      "report_path": "archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/RAW_WAW152.json",
+      "report_sha256": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91",
+      "status": "waw152_identity_rank3_by_scan; point141"
+    }
+  ],
+  "external_waw_postop_only31_direct_locator_rank_by_scan": [
+    {
+      "rank": 1,
+      "method": "full972_random_init_voxel_kd_epoch168_flip8_tta",
+      "scan_dice": 0.5989593880340819,
+      "scan_dice_95ci": [
+        0.5322282465257876,
+        0.662011922032433
+      ],
+      "subject_dice": 0.5989593880340819,
+      "subject_dice_95ci": [
+        0.5322282465257876,
+        0.662011922032433
+      ],
+      "point_hit": 0.4838709677419355,
+      "point_hits": 15,
+      "point_denominator": 31,
+      "locator_forwards": 8,
+      "cohort": {
+        "name": "WAW-GliomAI early postoperative patient-disjoint-from-preop31",
+        "scans": 31,
+        "subjects": 31,
+        "preop_patient_overlap": 0,
+        "days_postop_min": 0.0,
+        "days_postop_max": 22.0,
+        "institution_disjoint": true,
+        "patient_id_bridge": false,
+        "hidden_blind": false
+      },
+      "input_source_version": "Zenodo22205631_final_postop_coreg_t1c",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "all 8 spatial reflections; inverse-reflect raw logits; ordered float32 equal mean",
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "early postoperative day0-22 cohort with labels1/2/3 WT and resection-bed4 excluded; publisher coreg/skull-strip/bias-correct1mm then project N4/image-support-crop/rasterized128^3; one earliest numeric scan per new patient",
+      "evidence_status": "one_time_preregistered_public_external_to_project; patient_disjoint_from_revealed_waw_preop_by_same_release_ID; institution_disjoint_no_BraTS_patient_bridge; not_hidden_blind; no_external_tuning; official_Zenodo_MD5",
+      "report_path": "archive/research_records/2026-09-06_waw_postop_only31_frozen_panel/RAW_WAW_POSTOP31.json",
+      "report_sha256": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98",
+      "status": "highest_waw_postop31_scan_subject_and_point_tied; flip8_delta_positive_but_ci_crosses_zero; 8x"
+    },
+    {
+      "rank": 2,
+      "method": "gcsam_inner_fit864_epoch184_identity",
+      "scan_dice": 0.5933047248965418,
+      "scan_dice_95ci": [
+        0.5275003984828207,
+        0.6542934324254197
+      ],
+      "subject_dice": 0.5933047248965418,
+      "subject_dice_95ci": [
+        0.5275003984828207,
+        0.6542934324254197
+      ],
+      "point_hit": 0.45161290322580644,
+      "point_hits": 14,
+      "point_denominator": 31,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "WAW-GliomAI early postoperative patient-disjoint-from-preop31",
+        "scans": 31,
+        "subjects": 31,
+        "preop_patient_overlap": 0,
+        "days_postop_min": 0.0,
+        "days_postop_max": 22.0,
+        "institution_disjoint": true,
+        "patient_id_bridge": false,
+        "hidden_blind": false
+      },
+      "input_source_version": "Zenodo22205631_final_postop_coreg_t1c",
+      "training_scope": {
+        "fit_scans": 864,
+        "inner_selection_scans": 108,
+        "not_full972_final": true
+      },
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "early postoperative day0-22 cohort with labels1/2/3 WT and resection-bed4 excluded; publisher coreg/skull-strip/bias-correct1mm then project N4/image-support-crop/rasterized128^3; one earliest numeric scan per new patient",
+      "evidence_status": "one_time_preregistered_public_external_to_project; patient_disjoint_from_revealed_waw_preop_by_same_release_ID; institution_disjoint_no_BraTS_patient_bridge; not_hidden_blind; no_external_tuning; official_Zenodo_MD5",
+      "report_path": "archive/research_records/2026-09-06_waw_postop_only31_frozen_panel/RAW_WAW_POSTOP31.json",
+      "report_sha256": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98",
+      "status": "waw_postop31_rank2; gcsam_delta_positive_but_ci_crosses_zero; point_one_lower"
+    },
+    {
+      "rank": 3,
+      "method": "full972_random_init_voxel_kd_epoch168_identity",
+      "scan_dice": 0.5916474162897252,
+      "scan_dice_95ci": [
+        0.5222398053426635,
+        0.654847899093111
+      ],
+      "subject_dice": 0.5916474162897252,
+      "subject_dice_95ci": [
+        0.5222398053426635,
+        0.654847899093111
+      ],
+      "point_hit": 0.4838709677419355,
+      "point_hits": 15,
+      "point_denominator": 31,
+      "locator_forwards": 1,
+      "cohort": {
+        "name": "WAW-GliomAI early postoperative patient-disjoint-from-preop31",
+        "scans": 31,
+        "subjects": 31,
+        "preop_patient_overlap": 0,
+        "days_postop_min": 0.0,
+        "days_postop_max": 22.0,
+        "institution_disjoint": true,
+        "patient_id_bridge": false,
+        "hidden_blind": false
+      },
+      "input_source_version": "Zenodo22205631_final_postop_coreg_t1c",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "early postoperative day0-22 cohort with labels1/2/3 WT and resection-bed4 excluded; publisher coreg/skull-strip/bias-correct1mm then project N4/image-support-crop/rasterized128^3; one earliest numeric scan per new patient",
+      "evidence_status": "one_time_preregistered_public_external_to_project; patient_disjoint_from_revealed_waw_preop_by_same_release_ID; institution_disjoint_no_BraTS_patient_bridge; not_hidden_blind; no_external_tuning; official_Zenodo_MD5",
+      "report_path": "archive/research_records/2026-09-06_waw_postop_only31_frozen_panel/RAW_WAW_POSTOP31.json",
+      "report_sha256": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98",
+      "status": "waw_postop31_identity_rank3_by_scan; point_tied_highest15"
+    }
+  ],
+  "external_ucsd_brats2024test56_direct_locator_rank_by_scan": [
+    {
+      "rank": 1,
+      "method": "full972_random_init_voxel_kd_epoch168_flip8_tta",
+      "scan_dice": 0.7329728508045773,
+      "scan_dice_95ci": [
+        0.693044854948499,
+        0.7715257863559852
+      ],
+      "subject_dice": 0.7336249503541781,
+      "subject_dice_95ci": [
+        0.6948183544704217,
+        0.7715379237812917
+      ],
+      "point_hit": 1.0,
+      "point_hits": 56,
+      "point_denominator": 56,
+      "locator_forwards": 8,
+      "tta": true,
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "status": "highest_scan_subject_point_estimates; flip8_minus_identity_positive_but_ci_crosses_zero; 8x",
+      "tta_formula": "all 8 spatial reflections; inverse-reflect raw logits; ordered float32 equal mean",
+      "cohort": {
+        "name": "UCSD BraTS-GLI 2024 public test package patient-disjoint56",
+        "scans": 56,
+        "subjects": 41,
+        "union_patient_overlap": 0,
+        "prior_ucsd_main_release_overlap": 0,
+        "institution_disjoint": false,
+        "patient_id_bridge": true,
+        "hidden_blind": false
+      },
+      "input_source_version": "TCIA_UCSD-PTGBM_package1221_V2_20260122_clinicalV3_20260313",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "resolution": 128,
+      "threshold": 0.0,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "post-treatment WT labels1/2/3 with resection cavity4 excluded; native 256^3 1mm then project canonical N4/image-support-crop/rasterized128^3; UCSD is a BraTS2024 source site so this is a near-training-domain patient-disjoint cohort, not cross-institution generalization; do not mix with UCSD75, internal test270 or other external sections",
+      "evidence_status": "one_time_preregistered_public_post_challenge_external_to_project; patient_disjoint_from_1350_union_and_prior_UCSD_main_release_by_official_v3_mapping; same_institution_as_ucsd75_not_institution_disjoint; not_hidden_blind; no_external_tuning; dual_transfer_sha256_no_official_sums",
+      "report_path": "archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/RAW_UCSD_BRATS2024TEST56.json",
+      "report_sha256": "74466d1cdc56d864d48e5d8604e00d004ecdb636882366546b4738a1b794201c"
+    },
+    {
+      "rank": 2,
+      "method": "full972_random_init_voxel_kd_epoch168_identity",
+      "scan_dice": 0.7300017414958458,
+      "scan_dice_95ci": [
+        0.6906256422179026,
+        0.7667907162918564
+      ],
+      "subject_dice": 0.7307396916940746,
+      "subject_dice_95ci": [
+        0.6922749130277919,
+        0.7672108479682291
+      ],
+      "point_hit": 1.0,
+      "point_hits": 56,
+      "point_denominator": 56,
+      "locator_forwards": 1,
+      "tta": false,
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "status": "highest_1x_scan_subject_and_point56_of_56",
+      "cohort": {
+        "name": "UCSD BraTS-GLI 2024 public test package patient-disjoint56",
+        "scans": 56,
+        "subjects": 41,
+        "union_patient_overlap": 0,
+        "prior_ucsd_main_release_overlap": 0,
+        "institution_disjoint": false,
+        "patient_id_bridge": true,
+        "hidden_blind": false
+      },
+      "input_source_version": "TCIA_UCSD-PTGBM_package1221_V2_20260122_clinicalV3_20260313",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "resolution": 128,
+      "threshold": 0.0,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "post-treatment WT labels1/2/3 with resection cavity4 excluded; native 256^3 1mm then project canonical N4/image-support-crop/rasterized128^3; UCSD is a BraTS2024 source site so this is a near-training-domain patient-disjoint cohort, not cross-institution generalization; do not mix with UCSD75, internal test270 or other external sections",
+      "evidence_status": "one_time_preregistered_public_post_challenge_external_to_project; patient_disjoint_from_1350_union_and_prior_UCSD_main_release_by_official_v3_mapping; same_institution_as_ucsd75_not_institution_disjoint; not_hidden_blind; no_external_tuning; dual_transfer_sha256_no_official_sums",
+      "report_path": "archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/RAW_UCSD_BRATS2024TEST56.json",
+      "report_sha256": "74466d1cdc56d864d48e5d8604e00d004ecdb636882366546b4738a1b794201c"
+    },
+    {
+      "rank": 3,
+      "method": "gcsam_fit864_inner_selected_epoch184_identity",
+      "scan_dice": 0.7176892534464905,
+      "scan_dice_95ci": [
+        0.6719310669469873,
+        0.7612851579417863
+      ],
+      "subject_dice": 0.7155453215989994,
+      "subject_dice_95ci": [
+        0.6674780338223232,
+        0.7606798527488949
+      ],
+      "point_hit": 0.9285714285714286,
+      "point_hits": 52,
+      "point_denominator": 56,
+      "locator_forwards": 1,
+      "tta": false,
+      "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+      "status": "gcsam_minus_full_negative_point_estimates; original_paired_CIs_borderline_below_zero; scan_CI_Monte_Carlo_sensitive_not_robust_significant_decline; point_minus_4",
+      "cohort": {
+        "name": "UCSD BraTS-GLI 2024 public test package patient-disjoint56",
+        "scans": 56,
+        "subjects": 41,
+        "union_patient_overlap": 0,
+        "prior_ucsd_main_release_overlap": 0,
+        "institution_disjoint": false,
+        "patient_id_bridge": true,
+        "hidden_blind": false
+      },
+      "input_source_version": "TCIA_UCSD-PTGBM_package1221_V2_20260122_clinicalV3_20260313",
+      "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse corrected-v2 archive/member byte parity unresolved",
+      "resolution": 128,
+      "threshold": 0.0,
+      "sam": false,
+      "postprocessing": false,
+      "comparability_note": "post-treatment WT labels1/2/3 with resection cavity4 excluded; native 256^3 1mm then project canonical N4/image-support-crop/rasterized128^3; UCSD is a BraTS2024 source site so this is a near-training-domain patient-disjoint cohort, not cross-institution generalization; do not mix with UCSD75, internal test270 or other external sections",
+      "evidence_status": "one_time_preregistered_public_post_challenge_external_to_project; patient_disjoint_from_1350_union_and_prior_UCSD_main_release_by_official_v3_mapping; same_institution_as_ucsd75_not_institution_disjoint; not_hidden_blind; no_external_tuning; dual_transfer_sha256_no_official_sums",
+      "report_path": "archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/RAW_UCSD_BRATS2024TEST56.json",
+      "report_sha256": "74466d1cdc56d864d48e5d8604e00d004ecdb636882366546b4738a1b794201c"
+    }
+  ],
+  "test270_direct_locator_rank_by_scan": [
+    {
+      "method": "native_resolution_pure_segresnet_full972_epoch173_20260920",
+      "scan_dice": 0.7685778970968116,
+      "subject_dice": 0.7541439110364931,
+      "point_hit": 0.9703703703703703,
+      "point_hits": 262,
+      "point_denominator": 270,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "completed_epochs": 200,
+        "unique_scans_per_epoch": 972,
+        "optimizer_updates": 24400,
+        "per_gpu_batch": 4
+      },
+      "checkpoint_epoch": 173,
+      "checkpoint_path": "archive/research_records/2026-09-20_segresnet_native_res_e173_test270/checkpoint_epoch173.pth",
+      "checkpoint_sha256": "57d6159802c9ac46e374c48d6f6ed42cd656422fa3b802c70cc5883351a33af4",
+      "resolution": "native_1mm_crop_canvas_160x208x168",
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "distillation": false,
+      "scan_dice_95ci": [
+        0.7416500259035631,
+        0.7920286297597838
+      ],
+      "subject_dice_95ci": [
+        0.7265641472638678,
+        0.7789672230994029
+      ],
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "evidence_status": "user_authorized_validation_selected_epoch173; reused_internal_test; prior_test_informed_development; no_current_test_selection_or_retuning; not_pristine_blind; not_external",
+      "report_path": "archive/research_records/2026-09-20_segresnet_native_res_e173_test270/RAW_TEST270.json",
+      "report_sha256": "396840dbfcf1313fac584b1d7b0d149c7f32776fe0b1f543eb9f6d3ada0e7b34",
+      "status": "native-grid score; vs e193 resampled to the same native grid scan_delta +0.007444 CI [-0.000608, 0.014305]; 配对区间跨0，不确定",
+      "comparability_note": "SCORED ON THE NATIVE 1mm CROP GRID, NOT the 128^3 grid of the other rows; the same e193 baseline scores 0.761134 on this grid vs 0.759179 on 128^3, so this row must not be subtracted from 128^3 rows; rank position is by raw scan_dice only",
+      "baseline_e193_same_native_grid": {
+        "scan_dice": 0.7611339195045056,
+        "subject_dice": 0.7469669155536497,
+        "point_hit": 0.9148148148148149,
+        "grid128_recomputed_scan_dice": 0.7591787810195927
+      },
+      "paired_comparisons": {
+        "vs_e193_native_trilinear": {
+          "scan_delta": 0.007443977592306005,
+          "subject_delta": 0.007176995482843587,
+          "scan_delta_ci95": [
+            -0.0006079512878445482,
+            0.01430523594458211
+          ],
+          "subject_delta_ci95": [
+            -0.0026868089298190713,
+            0.016356902467970624
+          ],
+          "point_hits_delta": 15,
+          "improved_scans": 177,
+          "worse_scans": 93,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient cluster paired percentile95 seed20260918"
+        },
+        "vs_e193_native_nearest": {
+          "scan_delta": 0.010707444977015257,
+          "subject_delta": 0.01021944011133738,
+          "scan_delta_ci95": [
+            0.002800141050032806,
+            0.01743275236598565
+          ],
+          "subject_delta_ci95": [
+            0.0004293025792667679,
+            0.019196399106544308
+          ],
+          "point_hits_delta": 15,
+          "improved_scans": 194,
+          "worse_scans": 76,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient cluster paired percentile95 seed20260918"
+        }
+      },
+      "rank": 1
+    },
+    {
+      "method": "segresnet_pretrain_native_epoch166_test270_20260921",
+      "scan_dice": 0.7662715751815725,
+      "subject_dice": 0.7509584770378779,
+      "point_hit": 0.8740740740740741,
+      "point_hits": 236,
+      "point_denominator": 270,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 166,
+      "checkpoint_path": "archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/checkpoint_selected.pth",
+      "checkpoint_sha256": "b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18",
+      "resolution": "native_1mm_crop_canvas_160x208x168",
+      "score_grid": "native",
+      "threshold": 0.0,
+      "tta": false,
+      "postprocessing": false,
+      "sam": false,
+      "distillation": false,
+      "scan_dice_95ci": [
+        0.7428793159639216,
+        0.7865154968474072
+      ],
+      "subject_dice_95ci": [
+        0.726629325488285,
+        0.773245992698245
+      ],
+      "report_path": "archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/RAW_TEST270.json",
+      "report_sha256": "bc76b63a2666a4a30c234da2d23e7aa1e18caf991cd4658c7b1d1662dfa528fe",
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "completed_epochs": 200,
+        "optimizer_updates": 24400,
+        "public_pretraining_scans": 334,
+        "public_pretraining_epochs": 150
+      },
+      "evidence_status": "user_authorized_failed_validation_gate_exploratory; reused_internal; prior_test_informed; no_current_test_tuning; not_pristine_blind; not_external",
+      "validation_gate_passed": false,
+      "status": "fixed validation-selected checkpoint, one authorized test; paired CIs determine interpretation",
+      "comparability_note": "native grid, padding excluded; compare only with native-grid rows",
+      "paired_comparisons": {
+        "pretrained179_native": {
+          "scan_delta": 0.0017270382355760645,
+          "subject_delta": 0.002199513268988339,
+          "scan_delta_ci95": [
+            -0.0046066005997674716,
+            0.008775581848905029
+          ],
+          "subject_delta_ci95": [
+            -0.005406388526297167,
+            0.010035536456018351
+          ],
+          "scan_delta_ci97_5": [
+            -0.005598882360028803,
+            0.009925218031847403
+          ],
+          "subject_delta_ci97_5": [
+            -0.006550663742980284,
+            0.0109976613985672
+          ],
+          "point_hits_delta": -14,
+          "improved_scans": 134,
+          "worse_scans": 136,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        },
+        "native173": {
+          "scan_delta": -0.0023063219152390955,
+          "subject_delta": -0.0031854339986152587,
+          "scan_delta_ci95": [
+            -0.00907754383751068,
+            0.005791036780550626
+          ],
+          "subject_delta_ci95": [
+            -0.010886641857361015,
+            0.005776273910603838
+          ],
+          "scan_delta_ci97_5": [
+            -0.009978029652680713,
+            0.007240196596419028
+          ],
+          "subject_delta_ci97_5": [
+            -0.01202133007097144,
+            0.007293409599979023
+          ],
+          "point_hits_delta": -26,
+          "improved_scans": 105,
+          "worse_scans": 165,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        },
+        "pure193_native": {
+          "scan_delta": 0.005137655677066909,
+          "subject_delta": 0.0039915614842283295,
+          "scan_delta_ci95": [
+            -0.0020558085375017945,
+            0.012751042628662326
+          ],
+          "subject_delta_ci95": [
+            -0.0038060360484566086,
+            0.012179698558023372
+          ],
+          "scan_delta_ci97_5": [
+            -0.002969339290033083,
+            0.014062415243621703
+          ],
+          "subject_delta_ci97_5": [
+            -0.004913831391836144,
+            0.013453078863474466
+          ],
+          "point_hits_delta": -11,
+          "improved_scans": 151,
+          "worse_scans": 119,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        }
+      },
+      "rank": 2
+    },
+    {
+      "method": "segresnet_pretrained179_native_reference_20260921",
+      "scan_dice": 0.7645445369459964,
+      "subject_dice": 0.7487589637688897,
+      "point_hit": 0.9259259259259259,
+      "point_hits": 250,
+      "point_denominator": 270,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 179,
+      "checkpoint_path": "archive/research_records/2026-09-21_segresnet_external_pretrain/checkpoint_selected.pth",
+      "checkpoint_sha256": "7006d44a2a2f765562dc0155f914c967a27b22ffba476cea5e966f01d69f7ad0",
+      "resolution": "128^3 inference -> native crop trilinear logit scoring",
+      "score_grid": "native",
+      "threshold": 0.0,
+      "tta": false,
+      "postprocessing": false,
+      "sam": false,
+      "scan_dice_95ci": [
+        0.7391422040863997,
+        0.7866579653632746
+      ],
+      "subject_dice_95ci": [
+        0.722688947754393,
+        0.7723806767090529
+      ],
+      "report_path": "archive/research_records/2026-09-21_segresnet_followup_test270/PRETRAINED179_NATIVE_RAW.json",
+      "report_sha256": "3e1f4658639f8c0c270a6f15796e6255e7496549a9104e09a78e668b38e9a865",
+      "evidence_status": "already_tested_model_same_cohort_reference_reprojection; reused_internal; prior_test_informed; no_retuning; not_external",
+      "status": "reference scoring view of existing pretrained179, not a new training candidate",
+      "comparability_note": "native grid; same checkpoint as128 pretrained179 row, scores differ because evaluation raster differs; not an algorithm gain",
+      "grid_mapping": {
+        "from": [
+          128,
+          128,
+          128
+        ],
+        "to": "image-only native crop extent",
+        "mode": "trilinear",
+        "align_corners": false,
+        "threshold_after_mapping": 0.0
+      },
+      "rank": 3
+    },
+    {
+      "method": "segresnet_finetune_pretrained_20260921",
+      "scan_dice": 0.7616487362318569,
+      "subject_dice": 0.745858609626273,
+      "point_hit": 0.9111111111111111,
+      "point_hits": 246,
+      "point_denominator": 270,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 179,
+      "checkpoint_path": "archive/research_records/2026-09-21_segresnet_external_pretrain/checkpoint_selected.pth",
+      "checkpoint_sha256": "7006d44a2a2f765562dc0155f914c967a27b22ffba476cea5e966f01d69f7ad0",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "distillation": false,
+      "scan_dice_95ci": [
+        0.7364006474440639,
+        0.7836427056479309
+      ],
+      "subject_dice_95ci": [
+        0.7198505897239811,
+        0.7693483156150503
+      ],
+      "report_path": "archive/research_records/2026-09-21_segresnet_external_pretrain/RAW_TEST270.json",
+      "report_sha256": "ffa9cec8a98d223dc095d2521a31348173711aa56a57a045a2a1b0a4e9e5d4d7",
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "completed_epochs": 200,
+        "optimizer_updates": 24400,
+        "pretraining_scans": 334,
+        "pretrain_epochs": 150,
+        "pretrain_gpus": 1,
+        "finetune_gpus": 2
+      },
+      "evidence_status": "user_authorized_validation_selected; reused_internal; prior_test_informed; no_current_test_tuning; not_pristine_blind; not_external",
+      "status": "highest Scan/Subject point estimates among automatic 128^3-grid rows overall and 1x; validation promotion gate failed; paired test delta versus e193 CI crosses zero; Point not best",
+      "paired_comparisons": {
+        "vs_e193": {
+          "scan_delta": 0.002469955212264149,
+          "subject_delta": 0.0008739861521442065,
+          "scan_delta_ci95": [
+            -0.004343443667259604,
+            0.009627406715609944
+          ],
+          "subject_delta_ci95": [
+            -0.006509803585089868,
+            0.008558017796359391
+          ],
+          "scan_delta_ci97_5": [
+            -0.00536620287854775,
+            0.010705409554069793
+          ],
+          "subject_delta_ci97_5": [
+            -0.007619302834316315,
+            0.009588668233152813
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 140,
+          "worse_scans": 130,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        }
+      },
+      "comparability_note": "same N4 image-only braincrop128 test cache; different source initialization or semantic supervision; native-grid rows not directly comparable",
+      "rank": 4,
+      "rank_scope": "automatic reused internal test270/119, 128^3 grid; no cross-grid superiority claim"
+    },
+    {
+      "method": "segresnet_patient_equal_epoch172_test270_20260921",
+      "scan_dice": 0.7599672248518026,
+      "subject_dice": 0.7456465547325231,
+      "point_hit": 0.9259259259259259,
+      "point_hits": 250,
+      "point_denominator": 270,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 172,
+      "checkpoint_path": "archive/research_records/2026-09-21_segresnet_patient_equal_e172_test270/checkpoint_selected.pth",
+      "checkpoint_sha256": "46ad9f1ccbb85a2c8f7790a2d225265ddeb50c667f8091e08bf8006e4039083d",
+      "resolution": 128,
+      "score_grid": "128",
+      "threshold": 0.0,
+      "tta": false,
+      "postprocessing": false,
+      "sam": false,
+      "distillation": false,
+      "scan_dice_95ci": [
+        0.736341522980546,
+        0.7811556913806591
+      ],
+      "subject_dice_95ci": [
+        0.7209009864525634,
+        0.768238187128631
+      ],
+      "report_path": "archive/research_records/2026-09-21_segresnet_patient_equal_e172_test270/RAW_TEST270.json",
+      "report_sha256": "d3d59fdf737f6ba73f1ecbbe152f0867efbea24e9957b257b19e41ec622cf865",
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "completed_epochs": 200,
+        "optimizer_updates": 24400,
+        "public_pretraining_scans": 334,
+        "public_pretraining_epochs": 150
+      },
+      "evidence_status": "user_authorized_failed_validation_gate_exploratory; reused_internal; prior_test_informed; no_current_test_tuning; not_pristine_blind; not_external",
+      "validation_gate_passed": false,
+      "status": "fixed validation-selected checkpoint, one authorized test; paired CIs determine interpretation",
+      "comparability_note": "same canonical128 test cache; native-grid scores are not directly comparable",
+      "paired_comparisons": {
+        "pretrained179": {
+          "scan_delta": -0.0016815113800543325,
+          "subject_delta": -0.00021205489375010313,
+          "scan_delta_ci95": [
+            -0.008388813482488582,
+            0.005860208393799224
+          ],
+          "subject_delta_ci95": [
+            -0.008023442785654748,
+            0.008078250286563261
+          ],
+          "scan_delta_ci97_5": [
+            -0.009439987063888681,
+            0.006957209040892625
+          ],
+          "subject_delta_ci97_5": [
+            -0.009064107181540888,
+            0.009560955375986028
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 113,
+          "worse_scans": 157,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        },
+        "pure193": {
+          "scan_delta": 0.0007884438322098167,
+          "subject_delta": 0.0006619312583941042,
+          "scan_delta_ci95": [
+            -0.005891989931508502,
+            0.008408736614881005
+          ],
+          "subject_delta_ci95": [
+            -0.00714313231038154,
+            0.009361787577569274
+          ],
+          "scan_delta_ci97_5": [
+            -0.00682269813555504,
+            0.009793345377606236
+          ],
+          "subject_delta_ci97_5": [
+            -0.008345804745950983,
+            0.010779315188203633
+          ],
+          "point_hits_delta": 8,
+          "improved_scans": 122,
+          "worse_scans": 148,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        }
+      },
+      "rank": 5
+    },
+    {
+      "method": "pure_segresnet_full972_epoch193_20260917",
+      "scan_dice": 0.7591787810195927,
+      "subject_dice": 0.744984623474129,
+      "point_hit": 0.8962962962962963,
+      "point_hits": 242,
+      "point_denominator": 270,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "completed_epochs": 200,
+        "unique_scans_per_epoch": 972,
+        "optimizer_updates": 24400
+      },
+      "checkpoint_epoch": 193,
+      "checkpoint_path": "archive/research_records/2026-09-17_segresnet_plain972_e193_test270/checkpoint_epoch193.pth",
+      "checkpoint_sha256": "157fc5af363fc42b2c993df07639693ed8d9f193b8cadd11810a39f62c0f54a5",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "distillation": false,
+      "scan_dice_95ci": [
+        0.7326383671751395,
+        0.7819929167557874
+      ],
+      "subject_dice_95ci": [
+        0.7181918389144606,
+        0.7689152701217316
+      ],
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "evidence_status": "user_authorized_validation_selected_epoch193; reused_internal_test; prior_test_informed_development; no_current_test_selection_or_retuning; not_pristine_blind; not_external",
+      "report_path": "archive/research_records/2026-09-17_segresnet_plain972_e193_test270/RAW_TEST270.json",
+      "report_sha256": "68d681888d9a1647de2c58f07b443f3478db7fc3b10fc99ce41d649af038b505",
+      "status": "user-fixed comparison baseline; historical 128^3 Scan/Subject record, now surpassed in point estimate by pretrained179; no significant superiority established; Point not best",
+      "comparability_note": "image-derived N4 braincrop128; same test cache as prior true128 rows; historical training/sample recipes differ; legacy160 rasterization caveat retained",
+      "paired_comparisons": {
+        "plain99": {
+          "baseline_scan_dice": 0.7258200677236784,
+          "baseline_subject_dice": 0.7094125028480991,
+          "scan_delta": 0.03335871329591437,
+          "subject_delta": 0.035572120626029845,
+          "scan_ci95": [
+            0.02574486978326337,
+            0.041724668253346156
+          ],
+          "subject_ci95": [
+            0.0259134539221367,
+            0.045826165972887974
+          ],
+          "improved_scans": 228,
+          "worse_scans": 42,
+          "tied_scans": 0,
+          "point_hits_delta": -1,
+          "scope": "paired reused internal cohort; descriptive multiple comparisons, not external confirmation"
+        },
+        "plain168": {
+          "baseline_scan_dice": 0.7412039492417265,
+          "baseline_subject_dice": 0.7231794858721792,
+          "scan_delta": 0.01797483177786624,
+          "subject_delta": 0.021805137601949753,
+          "scan_ci95": [
+            0.012361851240469054,
+            0.023659667981003735
+          ],
+          "subject_ci95": [
+            0.01486550081098656,
+            0.028867641248706343
+          ],
+          "improved_scans": 209,
+          "worse_scans": 61,
+          "tied_scans": 0,
+          "point_hits_delta": -9,
+          "scope": "paired reused internal cohort; descriptive multiple comparisons, not external confirmation"
+        },
+        "full972_kd168": {
+          "baseline_scan_dice": 0.7517595372128266,
+          "baseline_subject_dice": 0.7373271071260757,
+          "scan_delta": 0.007419243806766139,
+          "subject_delta": 0.007657516348053093,
+          "scan_ci95": [
+            0.0017892358884298992,
+            0.012775741298711042
+          ],
+          "subject_ci95": [
+            0.0010383769184225747,
+            0.014099935718292907
+          ],
+          "improved_scans": 172,
+          "worse_scans": 98,
+          "tied_scans": 0,
+          "point_hits_delta": -20,
+          "scope": "paired reused internal cohort; descriptive multiple comparisons, not external confirmation"
+        },
+        "gcsam184": {
+          "baseline_scan_dice": 0.7520031755617648,
+          "baseline_subject_dice": 0.737266420317078,
+          "scan_delta": 0.007175605457828001,
+          "subject_delta": 0.007718203157050853,
+          "scan_ci95": [
+            0.0008379437241865221,
+            0.013952488061498111
+          ],
+          "subject_ci95": [
+            6.000440768605095e-06,
+            0.015710236270180235
+          ],
+          "improved_scans": 165,
+          "worse_scans": 105,
+          "tied_scans": 0,
+          "point_hits_delta": -10,
+          "scope": "paired reused internal cohort; descriptive multiple comparisons, not external confirmation"
+        },
+        "flip8_kd168": {
+          "baseline_scan_dice": 0.7572696616942132,
+          "baseline_subject_dice": 0.7412535853511771,
+          "scan_delta": 0.0019091193253795305,
+          "subject_delta": 0.0037310381229518175,
+          "scan_ci95": [
+            -0.004567081489240522,
+            0.009086117524281139
+          ],
+          "subject_ci95": [
+            -0.0042917983585066,
+            0.012397140325438384
+          ],
+          "improved_scans": 145,
+          "worse_scans": 125,
+          "tied_scans": 0,
+          "point_hits_delta": -23,
+          "scope": "paired reused internal cohort; descriptive multiple comparisons, not external confirmation"
+        }
+      },
+      "rank": 6
+    },
+    {
+      "method": "segresnet_semantic_regions_20260921",
+      "scan_dice": 0.7577180385313652,
+      "subject_dice": 0.743434021939166,
+      "point_hit": 0.8814814814814815,
+      "point_hits": 238,
+      "point_denominator": 270,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 158,
+      "checkpoint_path": "archive/research_records/2026-09-21_segresnet_semantic_regions/checkpoint_selected.pth",
+      "checkpoint_sha256": "8fe36fdb6ca68e0593b0b3230876b2751ade91e5f4b9dfd9734446205d8e432c",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "distillation": false,
+      "scan_dice_95ci": [
+        0.7320496848543019,
+        0.7797912152702703
+      ],
+      "subject_dice_95ci": [
+        0.7173468485425541,
+        0.7669618762716525
+      ],
+      "report_path": "archive/research_records/2026-09-21_segresnet_semantic_regions/RAW_TEST270.json",
+      "report_sha256": "55491089d54d9514e60d08469bf6e5893957a134f246111f9683ccea8829a1f5",
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "completed_epochs": 200,
+        "optimizer_updates": 24400,
+        "pretraining_scans": 0
+      },
+      "evidence_status": "user_authorized_validation_selected; reused_internal; prior_test_informed; no_current_test_tuning; not_pristine_blind; not_external",
+      "status": "未达到预设验证提升门; 差值区间跨0",
+      "paired_comparisons": {
+        "vs_e193": {
+          "scan_delta": -0.0014607424882275087,
+          "subject_delta": -0.0015506015349628205,
+          "scan_delta_ci95": [
+            -0.006823148988648674,
+            0.0035671651785093845
+          ],
+          "subject_delta_ci95": [
+            -0.007896642115186241,
+            0.004368469195195188
+          ],
+          "scan_delta_ci97_5": [
+            -0.007795975530062276,
+            0.004361393455453846
+          ],
+          "subject_delta_ci97_5": [
+            -0.009075304368994765,
+            0.005222254138334251
+          ],
+          "point_hits_delta": -4,
+          "improved_scans": 125,
+          "worse_scans": 145,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+        }
+      },
+      "comparability_note": "same N4 image-only braincrop128 test cache; different source initialization or semantic supervision; native-grid rows not directly comparable",
+      "rank": 7
+    },
+    {
+      "rank": 8,
+      "method": "full972_random_init_voxel_kd_epoch168_flip8_tta",
+      "scan_dice": 0.7572696616942132,
+      "subject_dice": 0.7412535853511771,
+      "point_hit": 0.9814814814814815,
+      "point_hits": 265,
+      "point_denominator": 270,
+      "locator_forwards": 8,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "all 8 combinations of spatial-axis reflection; inverse-reflect each raw logit; ordered float32 equal mean",
+      "sam": false,
+      "postprocessing": false,
+      "scan_dice_95ci": [
+        0.739088565033895,
+        0.7741517265513539
+      ],
+      "subject_dice_95ci": [
+        0.7141092440426474,
+        0.7661524792215904
+      ],
+      "paired_vs_identity": {
+        "scan_dice": 0.0055101244813866085,
+        "subject_dice": 0.003926478225101276,
+        "point_hits": 3,
+        "scan_dice_95ci": [
+          0.0027509939153161317,
+          0.008022352442559269
+        ],
+        "subject_dice_95ci": [
+          -0.00037875292107922,
+          0.007353958139034295
+        ]
+      },
+      "evidence_status": "two_fresh_inner_replications_all_gates_passed; user_authorized_post_test_development; reused_internal_test; not_pristine_blind; not_external; not_test_tuned; no_test_retuning_or_retest_allowed",
+      "report_path": "workspace/BraTS/sammed3d_t1ce_wt/flip8_tta_stability_20260904/FLIP8_TEST270.json",
+      "report_sha256": "29efc557aa12b6f82fd079edd84cc3c8c1e5ad4536880c016b664932234f45ad",
+      "status": "historical former highest scan/subject; retains highest overall point_hit265/270;8x_inference",
+      "absolute_ci_seed": 20260817,
+      "bootstrap_correction_path": "archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/BOOTSTRAP_CORRECTION.json"
+    },
+    {
+      "rank": 9,
+      "method": "gcsam_inner_fit864_epoch184",
+      "scan_dice": 0.7520031755617648,
+      "subject_dice": 0.7372664203170781,
+      "point_hit": 0.9333333333333333,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "training_scope": {
+        "fit_scans": 864,
+        "train_inner_selection_scans": 108,
+        "not_full972_final": true
+      },
+      "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+      "checkpoint_model_state_sha256": "eea33e1d3a1ab9505ba0b85aa915a9df59260b50a0991b49e1e9c77417690f02",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "evidence_status": "user_authorized_after_failed_train_inner_ci_gates; fit864_train_inner_selected; not_full972_final; reused_internal_test; not_pristine_blind; not_external; no_test_tuning_allowed",
+      "report_path": "workspace/BraTS/sammed3d_t1ce_wt/gcsam_full972_stability_20260831/GCSAM_INNER_E184_TEST270.json",
+      "report_sha256": "d0e2f48e1f499d65adddb3dbe30758caad27768bb75f737ea2cfe4a877c335d5",
+      "status": "historical former highest1x scan; superseded by pure_full972_epoch193; fit864 not full972"
+    },
+    {
+      "rank": 10,
+      "method": "full972_random_init_voxel_kd_epoch168",
+      "scan_dice": 0.7517595372128266,
+      "subject_dice": 0.7373271071260759,
+      "point_hit": 0.9703703703703703,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "sam": false,
+      "postprocessing": false,
+      "evidence_status": "user_authorized_after_failed_validation_ci_gate; reused_internal_test; not_pristine_blind; not_external; no_test_tuning_allowed",
+      "report_path": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/FULLTRAJECTORY_TEST270.json",
+      "report_sha256": "9827a75b88dc9239902c7e473a7d75e2d6058f4f515bfd2b4d93003ba7bd34cd",
+      "status": "historical former highest1x subject; retains highest1x point_hit262/270; failed_gate_exploratory"
+    },
+    {
+      "method": "fit684_native168_workflow_2026090711_full8",
+      "display_name": "Fit684 native168 seed2026090711 full8",
+      "scan_dice": 0.7480651837601154,
+      "subject_dice": 0.736042142969084,
+      "point_hit": 0.9703703703703703,
+      "point_hits": 262,
+      "point_denominator": 270,
+      "locator_forwards": 8,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "canonical views [0, 1, 2, 3, 4, 5, 6, 7]; inverse-reflected ordered float32 equal raw-logit mean",
+      "sam": false,
+      "postprocessing": false,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "scan_dice_95ci": [
+        0.7208383620450689,
+        0.771950763960778
+      ],
+      "subject_dice_95ci": [
+        0.7096752628623195,
+        0.7597969758064494
+      ],
+      "absolute_ci_seed": 2026091161,
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "status": "fixed panel control",
+      "test_tuned": false,
+      "external": false,
+      "rank": 11
+    },
+    {
+      "method": "fit684_native168_workflow_2026090712_full8",
+      "display_name": "Fit684 native168 seed2026090712 full8",
+      "scan_dice": 0.7469179438358103,
+      "subject_dice": 0.7323148958463254,
+      "point_hit": 0.9555555555555556,
+      "point_hits": 258,
+      "point_denominator": 270,
+      "locator_forwards": 8,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "canonical views [0, 1, 2, 3, 4, 5, 6, 7]; inverse-reflected ordered float32 equal raw-logit mean",
+      "sam": false,
+      "postprocessing": false,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "scan_dice_95ci": [
+        0.7193880304006286,
+        0.7702771968180678
+      ],
+      "subject_dice_95ci": [
+        0.7049669697327691,
+        0.75679290475029
+      ],
+      "absolute_ci_seed": 2026091162,
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "status": "fixed panel control",
+      "test_tuned": false,
+      "external": false,
+      "rank": 12
+    },
+    {
+      "rank": 13,
+      "method": "logit_ensemble_history075_ema168025",
+      "scan_dice": 0.7450540643599298,
+      "subject_dice": 0.7273446085740205,
+      "point_hit": 0.9555555555555556,
+      "locator_forwards": 2,
+      "status": "best_overall_reused_internal_test_point_estimate"
+    },
+    {
+      "method": "fit684_native168_workflow_2026090711_pruned",
+      "display_name": "Fit684 native168 seed2026090711 pruned",
+      "scan_dice": 0.7447954780939553,
+      "subject_dice": 0.7333336871597362,
+      "point_hit": 0.9518518518518518,
+      "point_hits": 257,
+      "point_denominator": 270,
+      "locator_forwards": 2,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "canonical views [0, 5]; inverse-reflected ordered float32 equal raw-logit mean",
+      "sam": false,
+      "postprocessing": false,
+      "views": [
+        0,
+        5
+      ],
+      "scan_dice_95ci": [
+        0.7171968952102193,
+        0.7691023091522181
+      ],
+      "subject_dice_95ci": [
+        0.7066117231321916,
+        0.7572078092201386
+      ],
+      "absolute_ci_seed": 2026091161,
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "status": "fixed pruned candidate; gates={'fixed_forwards_at_most4': True, 'point_floor': False, 'scan_ci_floor': False, 'scan_loss_at_most003': False, 'subject_ci_floor': False, 'subject_loss_at_most003': True}",
+      "test_tuned": false,
+      "external": false,
+      "rank": 14
+    },
+    {
+      "method": "fit684_native168_workflow_2026090712_pruned",
+      "display_name": "Fit684 native168 seed2026090712 pruned",
+      "scan_dice": 0.7446179348216565,
+      "subject_dice": 0.7297569663743867,
+      "point_hit": 0.9555555555555556,
+      "point_hits": 258,
+      "point_denominator": 270,
+      "locator_forwards": 3,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "canonical views [0, 5, 6]; inverse-reflected ordered float32 equal raw-logit mean",
+      "sam": false,
+      "postprocessing": false,
+      "views": [
+        0,
+        5,
+        6
+      ],
+      "scan_dice_95ci": [
+        0.7168830973451348,
+        0.7682569831721211
+      ],
+      "subject_dice_95ci": [
+        0.7018368193615198,
+        0.7545545868678554
+      ],
+      "absolute_ci_seed": 2026091162,
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "status": "fixed pruned candidate; gates={'fixed_forwards_at_most4': True, 'point_floor': True, 'scan_ci_floor': True, 'scan_loss_at_most003': True, 'subject_ci_floor': True, 'subject_loss_at_most003': True}",
+      "test_tuned": false,
+      "external": false,
+      "rank": 15
+    },
+    {
+      "rank": 16,
+      "method": "voxel_kd_single_global_epoch200",
+      "scan_dice": 0.7429763529587675,
+      "subject_dice": 0.7251785333709223,
+      "point_hit": 0.9555555555555556,
+      "locator_forwards": 1,
+      "status": "best_single_model_reused_internal_test_point_estimate"
+    },
+    {
+      "rank": 17,
+      "method": "historical_plain_true128_epoch168",
+      "scan_dice": 0.7412039492417265,
+      "subject_dice": 0.7231794858721793,
+      "point_hit": 0.9296296296296296,
+      "locator_forwards": 1
+    },
+    {
+      "method": "fit684_native168_workflow_2026090712_identity",
+      "display_name": "Fit684 native168 seed2026090712 identity",
+      "scan_dice": 0.7408682644505191,
+      "subject_dice": 0.7257709347311647,
+      "point_hit": 0.9333333333333333,
+      "point_hits": 252,
+      "point_denominator": 270,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "tta_formula": "canonical views [0]; inverse-reflected ordered float32 equal raw-logit mean",
+      "sam": false,
+      "postprocessing": false,
+      "views": [
+        0
+      ],
+      "scan_dice_95ci": [
+        0.7131194961977351,
+        0.7647121312462264
+      ],
+      "subject_dice_95ci": [
+        0.6979749898664283,
+        0.7506252894087119
+      ],
+      "absolute_ci_seed": 2026091162,
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "status": "fixed panel control",
+      "test_tuned": false,
+      "external": false,
+      "rank": 18
+    },
+    {
+      "rank": 19,
+      "method": "ema168_single_true128",
+      "scan_dice": 0.740696467541986,
+      "subject_dice": 0.724904822215897,
+      "point_hit": 0.9481481481481482,
+      "locator_forwards": 1
+    },
+    {
+      "method": "fit684_native168_workflow_2026090711_identity",
+      "display_name": "Fit684 native168 seed2026090711 identity",
+      "scan_dice": 0.7399875395827823,
+      "subject_dice": 0.7282008023823009,
+      "point_hit": 0.9333333333333333,
+      "point_hits": 252,
+      "point_denominator": 270,
+      "locator_forwards": 1,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "resolution": 128,
+      "threshold": 0.0,
+      "tta": false,
+      "tta_formula": "canonical views [0]; inverse-reflected ordered float32 equal raw-logit mean",
+      "sam": false,
+      "postprocessing": false,
+      "views": [
+        0
+      ],
+      "scan_dice_95ci": [
+        0.7117391411951461,
+        0.7647153675655494
+      ],
+      "subject_dice_95ci": [
+        0.7009951026956825,
+        0.7525091545235792
+      ],
+      "absolute_ci_seed": 2026091161,
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "status": "fixed panel control",
+      "test_tuned": false,
+      "external": false,
+      "rank": 20
+    },
+    {
+      "rank": 21,
+      "method": "plain_true160_full756_epoch200",
+      "scan_dice": 0.7370602971218803,
+      "subject_dice": 0.7197286296541299,
+      "point_hit": 0.8740740740740741,
+      "locator_forwards": 1,
+      "voxel_compute_relative_to_128": 1.953125,
+      "comparability_note": "labels rasterized on 160 grid"
+    },
+    {
+      "rank": 22,
+      "method": "plain_true128_epoch99",
+      "scan_dice": 0.725820068,
+      "subject_dice": 0.709412503,
+      "point_hit": 0.9,
+      "locator_forwards": 1
+    }
+  ],
+  "validation108_direct_locator_rank_by_scan": [
+    {
+      "rank": 1,
+      "method": "full972_random_init_voxel_kd_epoch168",
+      "scan_dice": 0.7400125352044901,
+      "subject_dice": 0.7312662169195357,
+      "point_hit": 0.9537037037037037,
+      "test_status": "failed_gate_user_authorized_exploratory"
+    },
+    {
+      "rank": 2,
+      "method": "full972_width16_seed20260961_epoch166",
+      "scan_dice": 0.7393352197552169,
+      "subject_dice": 0.7313203503972008,
+      "point_hit": 0.9722222222222222,
+      "test_status": "matched_control_no_test",
+      "checkpoint_sha256": "79816d8a70470f2ff7ae5e8036b14c9a80f1d3110322f8233597ac70c70b1df3",
+      "report_path": "workspace/BraTS/sammed3d_t1ce_wt/full972_width24_20260826/WIDTH_VALIDATION.json"
+    },
+    {
+      "rank": 3,
+      "method": "full972_width24_seed20260961_epoch166",
+      "scan_dice": 0.7364637101310547,
+      "subject_dice": 0.7277949770557739,
+      "point_hit": 0.9629629629629629,
+      "test_status": "failed_final_validation_no_test",
+      "checkpoint_sha256": "96e94d4b3b222d249e003c2dbb52ad9cf8f40a22c78893d2ae7fc0bd7c176f7d",
+      "report_path": "workspace/BraTS/sammed3d_t1ce_wt/full972_width24_20260826/WIDTH_VALIDATION.json",
+      "report_sha256": "d2152ea897740fdfbbf1e1665e5f60e2ea1819a392cb00ccce231674b8eb5608"
+    },
+    {
+      "rank": 4,
+      "method": "gt_routing_anchor_repeat3_control_epoch168",
+      "scan_dice": 0.7360134324817745,
+      "subject_dice": 0.7289731884002686,
+      "point_hit": 0.9537037037037037,
+      "locator_forwards": 1,
+      "test_status": "matched_control_no_test",
+      "checkpoint_sha256": "a128ba15906fb55824f74828e9d0566c01d3389aaa6f92baee7ab7f6d4b06be7",
+      "report_path": "workspace/BraTS/sammed3d_t1ce_wt/gt_best_teacher_routing_20260901/GT_BEST_ROUTING_VALIDATION.json",
+      "report_sha256": "ce89d554a792fe627bdf86bd3a7e4673b7efc754c9962404972b62a6427ce5ae"
+    },
+    {
+      "rank": 5,
+      "method": "voxel_kd_epoch200",
+      "scan_dice": 0.7343843078447713,
+      "subject_dice": 0.7244341433615912,
+      "point_hit": 0.9351851851851852
+    },
+    {
+      "rank": 6,
+      "method": "logit_ensemble_w025",
+      "scan_dice": 0.7341710969253823,
+      "subject_dice": 0.7244897158585843,
+      "point_hit": 0.9444444444444444
+    },
+    {
+      "rank": 7,
+      "method": "supervised_continuation_epoch200",
+      "scan_dice": 0.7336056602221949,
+      "subject_dice": 0.723671900062334,
+      "point_hit": 0.9351851851851852
+    },
+    {
+      "rank": 8,
+      "method": "reco_kd_epoch192",
+      "scan_dice": 0.7329596699111991,
+      "subject_dice": 0.7230718224956876,
+      "point_hit": 0.9444444444444444
+    },
+    {
+      "rank": 9,
+      "method": "gt_best_of3_routing_student_epoch168",
+      "scan_dice": 0.7329096158069593,
+      "subject_dice": 0.7259979703454743,
+      "point_hit": 0.9259259259259259,
+      "locator_forwards": 1,
+      "test_status": "failed_fixed_validation_no_test",
+      "checkpoint_sha256": "75c8f669a8b25ab92f4973a7e4f708f8cf1e3d4fe650393c36644bcdc8492473",
+      "report_path": "workspace/BraTS/sammed3d_t1ce_wt/gt_best_teacher_routing_20260901/GT_BEST_ROUTING_VALIDATION.json",
+      "report_sha256": "ce89d554a792fe627bdf86bd3a7e4673b7efc754c9962404972b62a6427ce5ae"
+    },
+    {
+      "rank": 10,
+      "method": "logit_ensemble_w050",
+      "scan_dice": 0.7320483033027914,
+      "subject_dice": 0.7226230208149979,
+      "point_hit": 0.9537037037037037
+    },
+    {
+      "rank": 11,
+      "method": "historical_epoch168",
+      "scan_dice": 0.7316012189344123,
+      "subject_dice": 0.7221205654811291,
+      "point_hit": 0.9259259259259259
+    },
+    {
+      "rank": 12,
+      "method": "ema168_single",
+      "scan_dice": 0.7188249026528664,
+      "subject_dice": 0.7102178477566866,
+      "point_hit": 0.9444444444444444
+    },
+    {
+      "rank": 13,
+      "method": "ema200_single",
+      "scan_dice": 0.7160174571391609,
+      "subject_dice": 0.7066965473549707,
+      "point_hit": 0.9351851851851852
+    },
+    {
+      "rank": 14,
+      "method": "raw200_same_seed",
+      "scan_dice": 0.7154093136045115,
+      "subject_dice": 0.7060074767222007,
+      "point_hit": 0.9351851851851852
+    },
+    {
+      "rank": 15,
+      "method": "raw168_same_seed",
+      "scan_dice": 0.7065542156773584,
+      "subject_dice": 0.6986708917539743,
+      "point_hit": 0.9351851851851852
+    },
+    {
+      "rank": 16,
+      "method": "cross_seed_parameter_soup_w025",
+      "scan_dice": 0.4313428622791199,
+      "subject_dice": 0.43048733373083886,
+      "point_hit": 0.7962962962962963
+    }
+  ],
+  "noncomparable_test_history": [
+    {
+      "method": "residual_refiner",
+      "scan_dice": 0.703798,
+      "subject_dice": 0.686637,
+      "protocol": "GT-centered oracle"
+    },
+    {
+      "method": "braincrop_sam_c3",
+      "scan_dice": 0.625359,
+      "subject_dice": 0.610042,
+      "protocol": "GT-derived clicks"
+    },
+    {
+      "method": "upstream_literal_best_of_five",
+      "scan_dice": 0.594226,
+      "subject_dice": 0.58097,
+      "protocol": "GT-centered interactive"
+    }
+  ],
+  "evidence_warning": "test270 is reused and previously revealed; leaderboard is not pristine blind or external evidence",
+  "training_source_warning": "all inherited checkpoints use a local BraTS2024 Kaggle mirror; official Synapse corrected-v2 zip/member byte parity is unresolved",
+  "latest_workflow_confirmation_20260911": {
+    "report": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+    "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+    "all_six_rows_recorded": true,
+    "reused_nonblind": true,
+    "test_used_for_selection": false,
+    "both_models_gate_passed": false
+  },
+  "test270_sammed3d_gtcentered_best5_rank_by_scan": [
+    {
+      "cohort": {
+        "scans": 270,
+        "subjects": 119,
+        "role": "reused_internal_test"
+      },
+      "point_hit": null,
+      "point_hit_reason": "not applicable: GT-centered interactive clicks, not automatic locator",
+      "resolution": "128^3 after1.5mm resampling",
+      "threshold_raw_logit": 0,
+      "tta": false,
+      "postprocessing": false,
+      "forward_cost": "1 image encoder + 5 interactive decoder calls per scan",
+      "reused": true,
+      "test_tuned": false,
+      "external": false,
+      "evidence_status": "user_authorized_reused_internal_test; no_test_tuning; GT_centered_interactive; grid matched via tensor SHA; historical recipe differs",
+      "method": "upstream_literal_best_of_five",
+      "scan_dice": 0.5942261963729785,
+      "subject_dice": 0.5809701177287975,
+      "scan_dice_ci95": [
+        0.5709523255587589,
+        0.6164072056862964
+      ],
+      "subject_dice_ci95": [
+        0.5579788734370908,
+        0.6028539575908859
+      ],
+      "checkpoint_epoch": 21,
+      "checkpoint_sha256": "c0c85a0fb90f6301344053f97cabe8a4972bd9febd4c6ae248f3a0908598fe31",
+      "report_path": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/test270_epoch21_official15_upstreamliteral5_s2023_20260812/test_report.json",
+      "report_sha256": "7bd59843459876bd006230b24bc111cdfd726896cb3e6748b54b24c0a9659b63",
+      "selection": "historical validation best5 epoch21 after200epochs",
+      "rank": 1
+    },
+    {
+      "cohort": {
+        "scans": 270,
+        "subjects": 119,
+        "role": "reused_internal_test"
+      },
+      "point_hit": null,
+      "point_hit_reason": "not applicable: GT-centered interactive clicks, not automatic locator",
+      "resolution": "128^3 after1.5mm resampling",
+      "threshold_raw_logit": 0,
+      "tta": false,
+      "postprocessing": false,
+      "forward_cost": "1 image encoder + 5 interactive decoder calls per scan",
+      "reused": true,
+      "test_tuned": false,
+      "external": false,
+      "evidence_status": "user_authorized_reused_internal_test; no_test_tuning; GT_centered_interactive; grid matched via tensor SHA; historical recipe differs",
+      "method": "sammed3d_graymean_single972_epoch050",
+      "scan_dice": 0.5664241748391101,
+      "subject_dice": 0.5505215173883997,
+      "scan_dice_ci95": [
+        0.5400700582876334,
+        0.5916355589458855
+      ],
+      "subject_dice_ci95": [
+        0.5240768420470684,
+        0.5755880708626088
+      ],
+      "checkpoint_epoch": 50,
+      "checkpoint_path": "archive/research_records/2026-09-17_sammed3d_graymean_e050_test270/checkpoint_epoch050.pth",
+      "checkpoint_sha256": "f90db2686482c59309fc38df6f1bc2ad081b87c4ed57b1fc34558404d9fae019",
+      "report_path": "archive/research_records/2026-09-17_sammed3d_graymean_e050_test270/RAW_TEST270.json",
+      "report_sha256": "b707074d877a46172052b19d1066619453b5966344895594f87ad0ee34e5a48f",
+      "selection": "fixed validation108 final5 epoch50; user fixed interim candidate; training continues to200",
+      "paired_delta_vs_vanilla": {
+        "scan": -0.02780202153386838,
+        "subject": -0.030448600340397803,
+        "scan_ci95": [
+          -0.036503589699895284,
+          -0.019795621570642127
+        ],
+        "subject_ci95": [
+          -0.04022007343713854,
+          -0.021231543259233834
+        ]
+      },
+      "rank": 2
+    },
+    {
+      "cohort": {
+        "scans": 270,
+        "subjects": 119,
+        "role": "reused_internal_test"
+      },
+      "point_hit": null,
+      "point_hit_reason": "not applicable: GT-centered interactive clicks, not automatic locator",
+      "resolution": "128^3 after1.5mm resampling",
+      "threshold_raw_logit": 0,
+      "tta": false,
+      "postprocessing": false,
+      "forward_cost": "1 image encoder + 5 interactive decoder calls per scan",
+      "reused": true,
+      "test_tuned": false,
+      "external": false,
+      "evidence_status": "post_test_user_directed_diagnostic; reused_internal; no_parameter_tuning; GT_centered_interactive; not_independent_confirmation",
+      "method": "sammed3d_graymean_single972_epoch161",
+      "scan_dice": 0.5151071934605075,
+      "subject_dice": 0.49631081095131124,
+      "scan_dice_ci95": [
+        0.4864952163983408,
+        0.5429072392833261
+      ],
+      "subject_dice_ci95": [
+        0.4685217699779274,
+        0.5232335725423414
+      ],
+      "checkpoint_epoch": 161,
+      "checkpoint_sha256": "b1300dd765e61502a7ac32c861a30a3816b8a9b492d5eb09a78c6b724d9d9123",
+      "report_path": "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/RAW_TEST270.json",
+      "report_sha256": "d8e8b4c98e7596c1e7d5571083c07e89f944ce3acef98c3c35e167815dd049cd",
+      "selection": "user chose latest161 after epoch50 test; frozen before this diagnostic; training stopped161/200",
+      "rank": 3,
+      "checkpoint_path": "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/checkpoint_epoch161.pth",
+      "post_test_diagnostic": true,
+      "test_informed_checkpoint_request": true,
+      "hyperparameters_test_tuned": false,
+      "paired_delta_vs_vanilla": {
+        "scan": -0.07911900291247097,
+        "subject": -0.0846593067774862,
+        "scan_ci95": [
+          -0.09230627962951696,
+          -0.0668751612899854
+        ],
+        "subject_ci95": [
+          -0.09845144776716207,
+          -0.07112864164238923
+        ]
+      },
+      "paired_delta_vs_epoch50": {
+        "scan": -0.05131698137860259,
+        "subject": -0.0542107064370884,
+        "scan_ci95": [
+          -0.0627234925298947,
+          -0.04080606193794094
+        ],
+        "subject_ci95": [
+          -0.06557921283897225,
+          -0.04332220163549062
+        ]
+      }
+    }
+  ],
+  "latest_graymean_e050_test270": {
+    "result_path": "archive/research_records/2026-09-17_sammed3d_graymean_e050_test270/RESULT.json",
+    "result_sha256": "d235324a753c5cb1c3552b86608dc87fd564b3ad12777550ba55bfcb1f64e4e9",
+    "epoch_fixed_before_test": 50,
+    "new_test_access": true,
+    "ongoing_training_unchanged": true,
+    "historical_baseline_row_precision_note": "noncomparable_test_history rounded values preserved; new matched-protocol table uses original raw full precision"
+  },
+  "latest_graymean_e161_test270": {
+    "result_path": "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/RESULT.json",
+    "result_sha256": "c82031366916460c2d751faf9a88a0cfffa430a01594f37593e8d3a7a928b1b3",
+    "post_test_diagnostic": true,
+    "test_informed_checkpoint_request": true,
+    "training_stopped_at_epoch": 161
+  },
+  "graymean_reproduction_audit_20260917": {
+    "report_path": "archive/reviews/2026-09-17_graymean_reproduction_audit/RESULT.md",
+    "same_test_input_and_scoring": true,
+    "matched_training_recipe": false,
+    "author_loss_implementation_confirmed": false,
+    "historical_baseline_optimizer_updates_per_epoch": 2,
+    "historical_baseline_selected_epoch21_applied_updates": 41,
+    "graymean_epoch1_2_updates_per_epoch": 972,
+    "graymean_epoch3_onward_updates_per_epoch": 122,
+    "graymean_selected_epoch50_updates": 7800,
+    "graymean_final_epoch161_updates": 21342,
+    "note": "scores/ranks unchanged; training recipes differ beyond gray loss; no new evaluation in this audit",
+    "report_sha256": "a0ad021e6b143ae6f211579245740862cd92a519b1ff4255b56e8aa96403727e",
+    "machine_report_path": "archive/reviews/2026-09-17_graymean_reproduction_audit/RESULT.json",
+    "machine_report_sha256": "8ffab93515ac55b59856e398f8defc6b5c79f8c6397fbff14b1bf665956375cd"
+  },
+  "latest_plain972_e193_test270": {
+    "result_path": "archive/research_records/2026-09-17_segresnet_plain972_e193_test270/RESULT.json",
+    "result_sha256": "8d3f5945b135620a910b3be96aea3f077ffd9bf94a3f7e16090f3b261edde501",
+    "all270_complete": true,
+    "reused_internal": true,
+    "prior_test_informed_development": true,
+    "current_test_used_for_selection": false,
+    "rank_scope": "historical best at 2026-09-17; retained user-fixed reference; current 128^3 point-estimate record is pretrained179"
+  },
+  "latest_native_res_e173_test270": {
+    "result_path": "archive/research_records/2026-09-20_segresnet_native_res_e173_test270/RESULT.json",
+    "result_sha256": "dcfda55e46b946d009b546f6b61264df5cdbd78314cdc58168613c2b51fdc67b",
+    "all270_complete": true,
+    "reused_internal": true,
+    "prior_test_informed_development": true,
+    "current_test_used_for_selection": false,
+    "grid": "native 1mm crop; canvas 160x208x168",
+    "same_grid_paired_scan_delta_vs_e193": 0.007443977592306005,
+    "same_grid_paired_scan_delta_ci95": [
+      -0.0006079512878445482,
+      0.01430523594458211
+    ],
+    "verdict": "配对区间跨0，不确定",
+    "rank_scope": "ranked by raw scan_dice among automatic direct locators; grid differs from 128^3 rows"
+  },
+  "latest_external_pretraining_20260921": {
+    "result_path": "archive/research_records/2026-09-21_segresnet_external_pretrain/RESULT.json",
+    "result_sha256": "b406c3bbc68e963fbf751a3b66e26ebdc3b1b1336e843d7b634652c99b3c826f",
+    "selected_epoch": 179,
+    "reused_internal": true,
+    "current_test_used_for_selection_or_retuning": false,
+    "validation_promotion_gate_passed": false,
+    "rank_scope": "automatic 128^3 Scan/Subject highest point estimates, overall and 1x; not Point; native grid excluded",
+    "paired_scan_delta": 0.002469955212264149,
+    "paired_scan_ci95": [
+      -0.004343443667259604,
+      0.009627406715609944
+    ]
+  },
+  "latest_followup_test270_20260921": {
+    "score_grid_leaders": {
+      "128": {
+        "method": "segresnet_finetune_pretrained_20260921",
+        "scan_dice": 0.7616487362318569,
+        "subject_dice": 0.745858609626273,
+        "point_hits": 246
+      },
+      "native": {
+        "method": "native_resolution_pure_segresnet_full972_epoch173_20260920",
+        "scan_dice": 0.7685778970968116,
+        "subject_dice": 0.7541439110364931,
+        "point_hits": 262
+      }
+    },
+    "scope": "automatic same-cohort scores, overall and1x Scan point estimates per grid; no cross-grid or significance claim",
+    "completed_candidates": [
+      "native",
+      "patient"
+    ]
+  },
+  "test270_tuned_native_rank_by_scan": [
+    {
+      "method": "panel_10",
+      "scan_dice": 0.7758914931930428,
+      "subject_dice": 0.7616941987411555,
+      "point_hit": 0.9666666666666667,
+      "point_hits": 261,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_10.json",
+      "checkpoint_sha256": "e78cb9dcc9d13d4db725903eaf1b4c819b4160f65d47eb8bbfbabe9a193dca6b",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.4,
+      "forward_equivalents": 5.33203125,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_10.json",
+      "report_sha256": "682f33fc6bf3b25c8d08db1b430cb1310dcb3cb8de7316b6668ee2dc9adf19a6",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7518267700847958,
+        0.7967372880713604
+      ],
+      "subject_ci95": [
+        0.7373659990847853,
+        0.7837364980262912
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 1,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.4,
+      "threshold_raw_logit": -0.4054651081081643,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "ensemble",
+      "ensemble_size": 2,
+      "locator_forwards": 2,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_11",
+      "scan_dice": 0.7758235470251356,
+      "subject_dice": 0.7615437654793713,
+      "point_hit": 0.9666666666666667,
+      "point_hits": 261,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_11.json",
+      "checkpoint_sha256": "604ec6d54362613771f3fec217cd9e20c3c74e933577c39f7db289e5e3b9839c",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 5.33203125,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_11.json",
+      "report_sha256": "594c84af913802e2ebdfa8c73018b44ad9375473a87af27ca52805f918046b64",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7516319614472347,
+        0.7967426836136864
+      ],
+      "subject_ci95": [
+        0.7370859598624208,
+        0.7837144058248401
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 2,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "ensemble",
+      "ensemble_size": 2,
+      "locator_forwards": 2,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_12",
+      "scan_dice": 0.7755611932044869,
+      "subject_dice": 0.7612529359381375,
+      "point_hit": 0.9666666666666667,
+      "point_hits": 261,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_12.json",
+      "checkpoint_sha256": "c18d881af53ab50aca8d48eee0697a3513862090ac347fdd058bfd96d0075c3f",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.6,
+      "forward_equivalents": 5.33203125,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_12.json",
+      "report_sha256": "d457c971fd05eb959d50f9a85c836cbdf69e362ba994ca18facddb786b6dadae",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7512418164690431,
+        0.7966199860850167
+      ],
+      "subject_ci95": [
+        0.7367907776495265,
+        0.7835424221484378
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 3,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.6,
+      "threshold_raw_logit": 0.4054651081081642,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "ensemble",
+      "ensemble_size": 2,
+      "locator_forwards": 2,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "A_6c53d508f4172cbf",
+      "scan_dice": 0.7728296451491377,
+      "subject_dice": 0.7588001315607568,
+      "point_hit": 0.937037037037037,
+      "point_hits": 253,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/A/selected_6c53d508f4172cbf.pth",
+      "checkpoint_sha256": "6c53d508f4172cbf72467a494ed95d1ea40bd2969735f3cb2ca0db81bc3786cd",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 8,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/A_6c53d508f4172cbf.json",
+      "report_sha256": "9c39746f2499f064f477932e9fbfa623fb47bbd1c511eb049e8ae286f21ecea0",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7495447298599087,
+        0.7930247173402887
+      ],
+      "subject_ci95": [
+        0.7345028355949463,
+        0.7807487438777921
+      ],
+      "role": "candidate",
+      "logit_formula": "single model",
+      "rank": 4,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "patch",
+      "ensemble_size": 1,
+      "locator_forwards": 8,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_02",
+      "scan_dice": 0.7728296451491377,
+      "subject_dice": 0.7588001315607568,
+      "point_hit": 0.937037037037037,
+      "point_hits": 253,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_02.json",
+      "checkpoint_sha256": "43b540ce2d692140ac770298ae151bed51e4748307053fd0a51030827a26aab1",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 8,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_02.json",
+      "report_sha256": "d7e25b968a117e21b1c94079c6a8fd410edee9c1535c485d77550f354eb83be7",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7495447298599087,
+        0.7930247173402887
+      ],
+      "subject_ci95": [
+        0.7345028355949463,
+        0.7807487438777921
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 5,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "patch",
+      "ensemble_size": 1,
+      "locator_forwards": 8,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_01",
+      "scan_dice": 0.772810870808155,
+      "subject_dice": 0.7587697461132528,
+      "point_hit": 0.937037037037037,
+      "point_hits": 253,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_01.json",
+      "checkpoint_sha256": "f7cd63b65f546d8ebf7e860d61b151d40f9aa3db02c4ed2c456d854c8a2c1e3c",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.4,
+      "forward_equivalents": 8,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_01.json",
+      "report_sha256": "79e39b142474a76f1c406d96c771425adbf2181eac0440c214d76ac2a3e3bee0",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7495526804608549,
+        0.7930046472529763
+      ],
+      "subject_ci95": [
+        0.7345519173005443,
+        0.7806045377701885
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 6,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.4,
+      "threshold_raw_logit": -0.4054651081081643,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "patch",
+      "ensemble_size": 1,
+      "locator_forwards": 8,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_03",
+      "scan_dice": 0.7727603591228936,
+      "subject_dice": 0.7587698676377905,
+      "point_hit": 0.937037037037037,
+      "point_hits": 253,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_03.json",
+      "checkpoint_sha256": "bd7f2e4a51d5c80216d3e80a038c20622809e0ad80a7648aa88b0dd960a0765b",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.6,
+      "forward_equivalents": 8,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_03.json",
+      "report_sha256": "560dbaf317b1e7c11a3d924b83f3f6a88d48319ce1dad35d1505d72f18d97784",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7493936208890285,
+        0.7929833266565389
+      ],
+      "subject_ci95": [
+        0.7344166089163784,
+        0.7808437764800942
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 7,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.6,
+      "threshold_raw_logit": 0.4054651081081642,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "patch",
+      "ensemble_size": 1,
+      "locator_forwards": 8,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "A_4b4a4f1c7b8e7175",
+      "scan_dice": 0.7701143015765706,
+      "subject_dice": 0.756940881360257,
+      "point_hit": 0.937037037037037,
+      "point_hits": 253,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/A/selected_4b4a4f1c7b8e7175.pth",
+      "checkpoint_sha256": "4b4a4f1c7b8e7175242d8171261f7acb7392eee30c83bbb0d467bab62ab42ad7",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 8,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/A_4b4a4f1c7b8e7175.json",
+      "report_sha256": "ad5084ff109968ec96ae910e9a8e17a113d8e3d59a2c70e08dfcfd5d1a25b1a8",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.746798296535871,
+        0.7904467211344587
+      ],
+      "subject_ci95": [
+        0.7330939971760022,
+        0.7786310352204349
+      ],
+      "role": "candidate",
+      "logit_formula": "single model",
+      "rank": 8,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "patch",
+      "ensemble_size": 1,
+      "locator_forwards": 8,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "A_1d7ffa9fe448c903",
+      "scan_dice": 0.7693737124298791,
+      "subject_dice": 0.7547860897333218,
+      "point_hit": 0.9259259259259259,
+      "point_hits": 250,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/A/selected_1d7ffa9fe448c903.pth",
+      "checkpoint_sha256": "1d7ffa9fe448c90337cc2fbfa1551afc0f4edacb4daa085d8e4522166d406cd5",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 8,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/A_1d7ffa9fe448c903.json",
+      "report_sha256": "3742015dd79609587577a61ecb99d10bbb137538688df360dbb5ae7832032ece",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7454578116289394,
+        0.7899614321812042
+      ],
+      "subject_ci95": [
+        0.7299951867368841,
+        0.7773767752995476
+      ],
+      "role": "candidate",
+      "logit_formula": "single model",
+      "rank": 9,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "patch",
+      "ensemble_size": 1,
+      "locator_forwards": 8,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_05",
+      "scan_dice": 0.7685731058155046,
+      "subject_dice": 0.7541423337296762,
+      "point_hit": 0.9666666666666667,
+      "point_hits": 261,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_05.json",
+      "checkpoint_sha256": "8cac78b2be589fa42a50b72c1187a85551f1597136efa010ecc2bd23d35dfc10",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 2.666015625,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_05.json",
+      "report_sha256": "c78ec46cd93de52c8e7d898aa6039a84c0fe57c5c53be07374658a5039dc04b1",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7416576510885646,
+        0.7920144344752673
+      ],
+      "subject_ci95": [
+        0.7265467338186472,
+        0.7789658057612078
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 10,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "ref_native173",
+      "scan_dice": 0.7685731058155046,
+      "subject_dice": 0.7541423337296762,
+      "point_hit": 0.9666666666666667,
+      "point_hits": 261,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-20_segresnet_native_res_e173_test270/checkpoint_epoch173.pth",
+      "checkpoint_sha256": "57d6159802c9ac46e374c48d6f6ed42cd656422fa3b802c70cc5883351a33af4",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 2.666015625,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_native173.json",
+      "report_sha256": "08f8b59198e78f50a338b23be18538a6811c00c014c94c5d217e43776cda21f6",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7416576510885646,
+        0.7920144344752673
+      ],
+      "subject_ci95": [
+        0.7265467338186472,
+        0.7789658057612078
+      ],
+      "role": "frozen_reference",
+      "logit_formula": "single model",
+      "rank": 11,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_04",
+      "scan_dice": 0.7685655883459735,
+      "subject_dice": 0.7541055971662687,
+      "point_hit": 0.9666666666666667,
+      "point_hits": 261,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_04.json",
+      "checkpoint_sha256": "2f7fc5f4af1f6326764e06b34192dbaef8dcdb00a31d1016bc26013d5aebc3ea",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.4,
+      "forward_equivalents": 2.666015625,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_04.json",
+      "report_sha256": "1350ea6aaac37d440de32fba349e3d30ab2a72ee551303c66ce469312cd61048",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7416825298825894,
+        0.7920044649463993
+      ],
+      "subject_ci95": [
+        0.7265083817526714,
+        0.7789076842965786
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 12,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.4,
+      "threshold_raw_logit": -0.4054651081081643,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_06",
+      "scan_dice": 0.7685375867294831,
+      "subject_dice": 0.7541328931970587,
+      "point_hit": 0.9666666666666667,
+      "point_hits": 261,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_06.json",
+      "checkpoint_sha256": "2557e818aadb5efa085c31781334512080ae8ed93c19b4edf523cbecf2e927a0",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.6,
+      "forward_equivalents": 2.666015625,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_06.json",
+      "report_sha256": "d9a464f2106485eff83fb2fd430e697f66783c86c64dd8cd53b5b65e52b9b66a",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7415723716932975,
+        0.7919280702901174
+      ],
+      "subject_ci95": [
+        0.7265337974420424,
+        0.7789691244472284
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 13,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.6,
+      "threshold_raw_logit": 0.4054651081081642,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_09",
+      "scan_dice": 0.7664379539110361,
+      "subject_dice": 0.7511287254159784,
+      "point_hit": 0.8777777777777778,
+      "point_hits": 237,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_09.json",
+      "checkpoint_sha256": "da8625cf5bb4f6dfb8da97b3b9832cbb5ff3f61e6de8bf4bf653f7e2e36dbc0d",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.6,
+      "forward_equivalents": 2.666015625,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_09.json",
+      "report_sha256": "c91480fc28b8e69dc7a854f159d5d1359d2da0d76b01d5d6122c68a5067ce887",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7429565632106956,
+        0.7867324694497475
+      ],
+      "subject_ci95": [
+        0.7267125447007002,
+        0.773461540137917
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 14,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.6,
+      "threshold_raw_logit": 0.4054651081081642,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_08",
+      "scan_dice": 0.7662824873637366,
+      "subject_dice": 0.7509717929148172,
+      "point_hit": 0.8777777777777778,
+      "point_hits": 237,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_08.json",
+      "checkpoint_sha256": "6ca0215450294262460b730a81ea9c6d011f38923e2615bfe1d6a096b65c2e19",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 2.666015625,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_08.json",
+      "report_sha256": "4d0b2a0ef3b45dece9c6e7e2cfc5a9e6bbf962b18da095cc5800b263a3757c1c",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7428921258653095,
+        0.7865227797673452
+      ],
+      "subject_ci95": [
+        0.7266533273383368,
+        0.7732618697275936
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 15,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "ref_combination166",
+      "scan_dice": 0.7662824873637366,
+      "subject_dice": 0.7509717929148172,
+      "point_hit": 0.8777777777777778,
+      "point_hits": 237,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_segresnet_pretrain_native_res/checkpoint_selected.pth",
+      "checkpoint_sha256": "b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 2.666015625,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_combination166.json",
+      "report_sha256": "5a25fc6e7c392023f49be93c4ebf47c2d36428404375989c378952816a4f9c36",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7428921258653095,
+        0.7865227797673452
+      ],
+      "subject_ci95": [
+        0.7266533273383368,
+        0.7732618697275936
+      ],
+      "role": "frozen_reference",
+      "logit_formula": "single model",
+      "rank": 16,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "panel_07",
+      "scan_dice": 0.7660184172273874,
+      "subject_dice": 0.7507076589737569,
+      "point_hit": 0.8777777777777778,
+      "point_hits": 237,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_t1ce_test270_10h/deployment_candidates/panel_07.json",
+      "checkpoint_sha256": "a37beafb09f5d9d1fa1827fbb40925a0067395605161855c3f6914a3c8cf5984",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.4,
+      "forward_equivalents": 2.666015625,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_07.json",
+      "report_sha256": "afb88c18721e9f9e5435dcc6b463b6254072de2dce00a7702a2a6edfe32056fe",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7426689965224905,
+        0.7862502109171033
+      ],
+      "subject_ci95": [
+        0.7264398516994487,
+        0.772953611539238
+      ],
+      "role": "fixed_output_panel",
+      "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+      "rank": 17,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.4,
+      "threshold_raw_logit": -0.4054651081081643,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "B_4d6b52d8b95261de",
+      "scan_dice": 0.7645429876769269,
+      "subject_dice": 0.7487583760661146,
+      "point_hit": 0.9222222222222223,
+      "point_hits": 249,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/B/selected_4d6b52d8b95261de.pth",
+      "checkpoint_sha256": "4d6b52d8b95261de0128a747e9499a4fa9983065286cd1b4d3f78c62954464af",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 1,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/B_4d6b52d8b95261de.json",
+      "report_sha256": "9e8c7972fee7689b2bb49929f05d4e11034ec3398e08eb43ed375a3a12b2d0e4",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7391463965193251,
+        0.7866536240650102
+      ],
+      "subject_ci95": [
+        0.7226943794317001,
+        0.7723834861119232
+      ],
+      "role": "candidate",
+      "logit_formula": "single model",
+      "rank": 18,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "128",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "ref_pretrained179",
+      "scan_dice": 0.7645429876769269,
+      "subject_dice": 0.7487583760661146,
+      "point_hit": 0.9222222222222223,
+      "point_hits": 249,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_segresnet_external_pretrain/checkpoint_selected.pth",
+      "checkpoint_sha256": "7006d44a2a2f765562dc0155f914c967a27b22ffba476cea5e966f01d69f7ad0",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 1,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_pretrained179.json",
+      "report_sha256": "ed820fde8dc7538d94742b2223d8af4d3a5ac13a7be76bc10cd0a59cb53c3a2e",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7391463965193251,
+        0.7866536240650102
+      ],
+      "subject_ci95": [
+        0.7226943794317001,
+        0.7723834861119232
+      ],
+      "role": "frozen_reference",
+      "logit_formula": "single model",
+      "rank": 19,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "128",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "ref_patient172",
+      "scan_dice": 0.7623272435633835,
+      "subject_dice": 0.7480787801843602,
+      "point_hit": 0.937037037037037,
+      "point_hits": 253,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-21_segresnet_patient_equal_loss/checkpoint_selected.pth",
+      "checkpoint_sha256": "46ad9f1ccbb85a2c8f7790a2d225265ddeb50c667f8091e08bf8006e4039083d",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 1,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_patient172.json",
+      "report_sha256": "d42df1557b00a545188db9eb96dd150afba16e3f813e16486fe47078b4858a95",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7385140719833162,
+        0.7835380269184368
+      ],
+      "subject_ci95": [
+        0.7232193422442537,
+        0.770794559857188
+      ],
+      "role": "frozen_reference",
+      "logit_formula": "single model",
+      "rank": 20,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "128",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    },
+    {
+      "method": "ref_pure193",
+      "scan_dice": 0.7611350699897421,
+      "subject_dice": 0.7469640195734509,
+      "point_hit": 0.9111111111111111,
+      "point_hits": 246,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_path": "archive/research_records/2026-09-17_segresnet_plain972_e193_test270/checkpoint_epoch193.pth",
+      "checkpoint_sha256": "157fc5af363fc42b2c993df07639693ed8d9f193b8cadd11810a39f62c0f54a5",
+      "grid": "native 1mm crop; padding excluded",
+      "threshold": 0.5,
+      "forward_equivalents": 1,
+      "report_path": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_pure193.json",
+      "report_sha256": "0eff8c538a7a708b9990d8fd5795b033723cfaa8ed3d0a64e8f211fd229867c3",
+      "evidence_status": "test-tuned; reused internal; not independent confirmation",
+      "test_tuned": true,
+      "scan_ci95": [
+        0.7343229207629701,
+        0.7842474853616246
+      ],
+      "subject_ci95": [
+        0.7198988711882498,
+        0.771099466417873
+      ],
+      "role": "frozen_reference",
+      "logit_formula": "single model",
+      "rank": 21,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "input_modality": "T1ce",
+      "input_mode": "128",
+      "ensemble_size": 1,
+      "locator_forwards": 1,
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32"
+    }
+  ]
+}

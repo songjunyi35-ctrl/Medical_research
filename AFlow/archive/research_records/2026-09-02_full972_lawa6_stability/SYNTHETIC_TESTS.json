@@ -1,0 +1,25 @@
+{
+  "schema": "aflow.brats.t1ce_wt_lawa6_synthetic_tests",
+  "schema_version": 1,
+  "status": "passed",
+  "created_at_utc": "2026-09-02T03:15:40Z",
+  "command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q tests/test_lawa6_utils.py",
+  "passed": 5,
+  "failed": 0,
+  "contracts": [
+    "uniform CPU float64 accumulation and original dtype restoration",
+    "non-floating buffer exactness rejection",
+    "state key and tensor metadata rejection",
+    "exactly six captures required",
+    "formal epochs 163-168 and smoke epochs 1-6 frozen"
+  ],
+  "test_sha256": "ef5279d8503f04aa690ad77dbed511d4535270cd795c1295990dc45d381f87a9",
+  "utility_sha256": "fdbbdb298e3d968bb70d429298a3f9255dab94faaf18fc58f46e8ae82d411a3d",
+  "access": {
+    "train_only_inner": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  }
+}

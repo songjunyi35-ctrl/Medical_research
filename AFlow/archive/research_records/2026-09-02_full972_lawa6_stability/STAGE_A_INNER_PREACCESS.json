@@ -1,0 +1,47 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_lawa6_stage_a_inner.preaccess",
+  "schema_version": 1,
+  "status": "frozen_before_train_only_inner",
+  "created_at_utc": "2026-09-02T06:40:51Z",
+  "evaluator_sha256": "96c9d26d0f181f71237efc849aab833187ca8f7614f94ef0e8ed4f91e47df8db",
+  "runner_sha256": "158f9e4df2fa87c6dbf21d24457c482f612567ea9737db5bb061e608ed17858a",
+  "report_sha256": {
+    "stagea_seed20261061": "9b0ed913e49aa61b3da4be7b7679d6527ce27a04083abb6119176befd911b6bb",
+    "stagea_seed20261062": "43aac1d866b05192814696a91777bee945b6d70897f40b59c242bb298abbc19b"
+  },
+  "checkpoint_sha256": {
+    "stagea_seed20261061": {
+      "raw": "30cb1718eb2141d225ef46e65b2d95cd0da052a867b676c6b4c2fa42ffdf8187",
+      "lawa6": "efb5521fb2d7c2293c5d05da9254f2452c3295a0af850031955affbf312dbfec"
+    },
+    "stagea_seed20261062": {
+      "raw": "81c9cfa8dd1e26247dd0e029c25e180957306ce4951713d2fb1d275965d2c57e",
+      "lawa6": "f16e47374b18e5b366040bb5a18660e6c826a6978b87b202a48b387e12269c1a"
+    }
+  },
+  "split": {
+    "fit_sha256": "bf741b71121a9523047926fab6b6e3e7b880f7696adeec349cb6fbf01dbf1a7f",
+    "inner_sha256": "331c0c79baad1c459a635ab27088c1210512593959851c2faa8ad8d7e1955f60",
+    "manifest_sha256": "5e6f938ff40c32682748e249a7f355a90ad75ecb1d7a3a77038b0614fc781cdc",
+    "fit_cases": 864,
+    "fit_subjects": 393,
+    "inner_cases": 108,
+    "inner_subjects": 51,
+    "case_overlap": 0,
+    "subject_overlap": 0
+  },
+  "comparison": "within each fresh seed: uniform epoch163-168 LAWA6 minus exact same-run raw epoch168",
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 20261064,
+    "ci_lower_safety_margin": -0.003
+  },
+  "promotion": "both seeds must each pass positive Scan and Subject deltas, non-lower Point, and Scan/Subject CI lower bounds >= -0.003",
+  "access": {
+    "train_only_inner": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  }
+}

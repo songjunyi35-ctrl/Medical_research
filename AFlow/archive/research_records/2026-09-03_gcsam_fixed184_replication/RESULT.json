@@ -1,0 +1,80 @@
+{
+  "schema": "aflow.brats.gcsam_fixed184_replication.result",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T14:56:36.519138+00:00",
+  "status": "complete_failed_stage_a",
+  "decision": {
+    "stage_a_passed": false,
+    "stage_b_authorized": false,
+    "fixed_validation108_authorized": false,
+    "reason": "Both replications failed preregistered gates and the two-replication mean Scan Dice delta was negative."
+  },
+  "method": {
+    "candidate": "paper-form GCSAM-wrapped AdamW",
+    "control": "AdamW",
+    "gcsam_rho": 0.05,
+    "fixed_epoch": 184,
+    "only_changed_factor": "student optimizer update",
+    "inference_forwards": 1
+  },
+  "access": {
+    "fit": true,
+    "inner_metrics": true,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  },
+  "replications": {
+    "a": {
+      "cohort": {"cases": 108, "subjects": 47, "manifest_sha256": "73068bcd2989bc84b87e99830e069620c0446a5c49c44e26010dd178bac6a3d3"},
+      "control": {"scan_dice": 0.739166642246009, "subject_dice": 0.722541102257075, "point_hits": 103},
+      "candidate": {"scan_dice": 0.7379525651534399, "subject_dice": 0.7260947585687146, "point_hits": 104},
+      "candidate_minus_control": {"scan_dice": -0.0012140770925691835, "subject_dice": 0.0035536563116396577, "point_hits": 1},
+      "paired_95ci": {"scan_dice": [-0.008946318979616518, 0.006706371114382313], "subject_dice": [-0.009745641639059846, 0.017919231210075687]},
+      "scientific_gates": {"passed": 2, "total": 5, "all_passed": false}
+    },
+    "b": {
+      "cohort": {"cases": 108, "subjects": 45, "manifest_sha256": "6639a7c381296b17986fbac4ef25be981d378457412d2246bb87ff2a8cc2192c"},
+      "control": {"scan_dice": 0.7672490251285059, "subject_dice": 0.7482817416815531, "point_hits": 104},
+      "candidate": {"scan_dice": 0.7674254372164055, "subject_dice": 0.7460515888532002, "point_hits": 102},
+      "candidate_minus_control": {"scan_dice": 0.00017641208789966726, "subject_dice": -0.002230152828352792, "point_hits": -2},
+      "paired_95ci": {"scan_dice": [-0.005494351202139147, 0.006664928993969051], "subject_dice": [-0.010571160351473189, 0.007986596038574894]},
+      "scientific_gates": {"passed": 1, "total": 5, "all_passed": false}
+    }
+  },
+  "cross_replication": {
+    "mean_candidate_minus_control_scan_dice": -0.0005188325023347581,
+    "mean_candidate_minus_control_subject_dice": 0.0006617517416434328,
+    "both_mean_deltas_positive": false
+  },
+  "pairing": {
+    "initial_state_exact": true,
+    "sampling_weight_exact": true,
+    "all_184_epoch_sampler_indices_exact": true,
+    "first_augmented_batch_exact": true,
+    "first_pass_loss_exact": true
+  },
+  "cost": {
+    "formal_gpu_hours": 19.141884461508855,
+    "paired_stage_wall_hours": 9.591586253245671,
+    "gcsam_vs_control_time_ratio": [1.5779695706133272, 1.5807335922085333],
+    "peak_gpu_memory_bytes": 21859250688,
+    "workspace_bytes_human": "109M",
+    "new_multigib_cache": false
+  },
+  "artifacts": {
+    "idea_sha256": "54896ebda0f4c117d4d8b13d887ffb77e4fdb4dc77342fcfb3cb6acc2a1ce640",
+    "prereg_sha256": "3afbeb97293e1813df2faef39e2bb136d66534638092f02681a7929b667be04f",
+    "preaccess_sha256": "af239bdffbcb7a864de583c44723f0e9b6cff96048e6e592e63e44c1d2ba75ab",
+    "raw_inner_sha256": "0cb5004a522b36059eb1b2f02690003a450b5ea4967b80d0a66d9b165d7c5a6d",
+    "evaluator_sha256": "d0aaa02d7feb124ad2a97cf742213288212fdf84096f1f251419e71eeef6d55c",
+    "checkpoint_sha256": {
+      "a_adamw_control": "436637a62447baceffcbaf92f521b6e54048733cd69577ac7f6547cda8285566",
+      "a_gcsam_candidate": "5d1334d2b5ebe09e9bee9a3d511cbedd38c4da6562f5993adf6670ac724b3bcc",
+      "b_adamw_control": "22304d5bec3c03d8e9357bbeda933a17f97ec7ceb6ebca78c5feeb76bded3cad",
+      "b_gcsam_candidate": "d4162fa0b37fb952e8e910a75cea4d2a96922f12330d3d9f9675ca9b307660d0"
+    }
+  }
+}

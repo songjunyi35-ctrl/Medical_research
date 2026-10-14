@@ -1,0 +1,163 @@
+{
+  "utc": "2026-09-21T15:31:58.109836+00:00",
+  "status": "complete",
+  "configs": {
+    "fixed193": {
+      "threshold": 0.5,
+      "components": [
+        {
+          "checkpoint_path": "archive/research_records/2026-09-17_segresnet_plain972_e193_test270/checkpoint_epoch193.pth",
+          "checkpoint_sha256": "157fc5af363fc42b2c993df07639693ed8d9f193b8cadd11810a39f62c0f54a5",
+          "mode": "128"
+        }
+      ]
+    },
+    "native173": {
+      "threshold": 0.5,
+      "components": [
+        {
+          "checkpoint_path": "archive/research_records/2026-09-20_segresnet_native_res_e173_test270/checkpoint_epoch173.pth",
+          "checkpoint_sha256": "57d6159802c9ac46e374c48d6f6ed42cd656422fa3b802c70cc5883351a33af4",
+          "mode": "native"
+        }
+      ]
+    },
+    "selected_workflow": {
+      "threshold": 0.4,
+      "components": [
+        {
+          "source_id": "ref_native173",
+          "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/deployment/2026-09-20_segresnet_native_res_e173_test270_57d6159802c9ac46.pth",
+          "checkpoint_sha256": "57d6159802c9ac46e374c48d6f6ed42cd656422fa3b802c70cc5883351a33af4",
+          "mode": "native",
+          "stored_epoch": 173,
+          "epoch_scope": "original source run"
+        },
+        {
+          "source_id": "ref_combination166",
+          "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/deployment/2026-09-21_segresnet_pretrain_native_res_b2a37a7ed4ea7392.pth",
+          "checkpoint_sha256": "b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18",
+          "mode": "native",
+          "stored_epoch": 166,
+          "epoch_scope": "original source run"
+        }
+      ]
+    }
+  },
+  "train": {
+    "fixed193": {
+      "scan_dice": 0.8095401227084752,
+      "subject_dice": 0.8023855295680143,
+      "scan_ci95": [
+        0.8018819019242254,
+        0.8165692592836872
+      ],
+      "subject_ci95": [
+        0.7935788682783637,
+        0.8104195718496582
+      ],
+      "point_hit": 0.9310699588477366,
+      "scans": 972,
+      "subjects": 444,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 905
+    },
+    "native173": {
+      "scan_dice": 0.8103271161688618,
+      "subject_dice": 0.8036259210024106,
+      "scan_ci95": [
+        0.8017500619089497,
+        0.8180992461871559
+      ],
+      "subject_ci95": [
+        0.7940220655906074,
+        0.8121354797613671
+      ],
+      "point_hit": 0.9835390946502057,
+      "scans": 972,
+      "subjects": 444,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 956
+    },
+    "selected_workflow": {
+      "scan_dice": 0.8175228346756023,
+      "subject_dice": 0.8113939462406021,
+      "scan_ci95": [
+        0.809222292752697,
+        0.8250973042384391
+      ],
+      "subject_ci95": [
+        0.8018655856480179,
+        0.8197729885083749
+      ],
+      "point_hit": 0.9763374485596708,
+      "scans": 972,
+      "subjects": 444,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 949
+    }
+  },
+  "validation": {
+    "fixed193": {
+      "scan_dice": 0.7426715524372016,
+      "subject_dice": 0.7337706221119126,
+      "scan_ci95": [
+        0.6935550964623374,
+        0.7835581299212374
+      ],
+      "subject_ci95": [
+        0.6882372452207982,
+        0.7743471233785827
+      ],
+      "point_hit": 0.9074074074074074,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 98
+    },
+    "native173": {
+      "scan_dice": 0.7460986287000599,
+      "subject_dice": 0.7351343096059569,
+      "scan_ci95": [
+        0.6987390775431068,
+        0.785754702871897
+      ],
+      "subject_ci95": [
+        0.6903127072822696,
+        0.7754290276853739
+      ],
+      "point_hit": 0.9351851851851852,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 101
+    },
+    "selected_workflow": {
+      "scan_dice": 0.754431383893314,
+      "subject_dice": 0.7435625442185035,
+      "scan_ci95": [
+        0.707345427092574,
+        0.793581915597539
+      ],
+      "subject_ci95": [
+        0.6989244157394668,
+        0.7833362576853232
+      ],
+      "point_hit": 0.9259259259259259,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 100
+    }
+  },
+  "train_minus_validation_scan": {
+    "fixed193": 0.06686857027127358,
+    "native173": 0.06422848746880183,
+    "selected_workflow": 0.06309145078228828
+  },
+  "seconds": 214.31123823672533,
+  "test_access": false,
+  "no_selection_or_training_changed": true,
+  "interpretation": "clean fitting-gap description only; reused validation and target-selected workflow, not an independent generalization estimate; cannot infer overfitting cause or modality ceiling from gap alone",
+  "deployment_manifest_sha256": "6aaee46e601cd9fa6377a073930e45a5b5512f1ff4ec33f3fa1a6274ad62a30d"
+}

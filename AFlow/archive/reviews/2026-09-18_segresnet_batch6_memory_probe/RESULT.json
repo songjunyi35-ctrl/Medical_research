@@ -1,0 +1,98 @@
+{
+  "utc": "2026-09-18T06:37:04.836977+00:00",
+  "status": "passed_no_oom",
+  "ranks": [
+    {
+      "rank": 0,
+      "gpu": "NVIDIA A100-SXM4-40GB",
+      "per_gpu_batch": 6,
+      "global_batch": 12,
+      "shape": [
+        6,
+        1,
+        128,
+        128,
+        128
+      ],
+      "precision": "bfloat16 autocast",
+      "optimizer": "AdamW with original Dice+0.1BCE, augmentation, backward, clip5 and optimizer.step",
+      "steps": [
+        {
+          "loss": 0.9040586054325104,
+          "train_dice": 0.22866325825452805,
+          "grad_norm_before_clip": 1.0790833234786987,
+          "augmentation_fallbacks": 0.0
+        },
+        {
+          "loss": 0.8053795993328094,
+          "train_dice": 0.5073628723621368,
+          "grad_norm_before_clip": 0.8813859820365906,
+          "augmentation_fallbacks": 0.0
+        },
+        {
+          "loss": 0.7676586210727692,
+          "train_dice": 0.8439803421497345,
+          "grad_norm_before_clip": 0.7354353666305542,
+          "augmentation_fallbacks": 0.0
+        }
+      ],
+      "parameter_change": 0.0005972981452941895,
+      "peak_allocated_bytes": 16248159232,
+      "peak_reserved_bytes": 17309892608,
+      "gpu_total_bytes": 42298834944,
+      "free_before_bytes": 41855287296,
+      "elapsed_seconds": 1.3942514434456825
+    },
+    {
+      "rank": 1,
+      "gpu": "NVIDIA A100-SXM4-40GB",
+      "per_gpu_batch": 6,
+      "global_batch": 12,
+      "shape": [
+        6,
+        1,
+        128,
+        128,
+        128
+      ],
+      "precision": "bfloat16 autocast",
+      "optimizer": "AdamW with original Dice+0.1BCE, augmentation, backward, clip5 and optimizer.step",
+      "steps": [
+        {
+          "loss": 0.9040586054325104,
+          "train_dice": 0.22866325825452805,
+          "grad_norm_before_clip": 1.0790833234786987,
+          "augmentation_fallbacks": 0.0
+        },
+        {
+          "loss": 0.8053795993328094,
+          "train_dice": 0.5073628723621368,
+          "grad_norm_before_clip": 0.8813859820365906,
+          "augmentation_fallbacks": 0.0
+        },
+        {
+          "loss": 0.7676586210727692,
+          "train_dice": 0.8439803421497345,
+          "grad_norm_before_clip": 0.7354353666305542,
+          "augmentation_fallbacks": 0.0
+        }
+      ],
+      "parameter_change": 0.0005972981452941895,
+      "peak_allocated_bytes": 16248159232,
+      "peak_reserved_bytes": 17309892608,
+      "gpu_total_bytes": 42298834944,
+      "free_before_bytes": 41855287296,
+      "elapsed_seconds": 1.3930845148861408
+    }
+  ],
+  "patient_pixels_access": false,
+  "formal_training_resumed": false,
+  "model_checkpoints_modified": false,
+  "new_accuracy_result": false,
+  "scope": "3 full forward/backward/optimizer steps on synthetic data; same128cubed SegResNet and bf16 recipe; not a long-run guarantee",
+  "source_sha256": {
+    "archive/reviews/2026-09-18_segresnet_batch6_memory_probe/probe.py": "660a1f93ec4f4e05a72af803dbaabea953d4927e22d430bce86dc482d984272d",
+    "scripts/train_segresnet_plain972_no_n4.py": "fc5d036e47c6c046cd5f34033d3fd921165d4e87cc179241526f89a0937f03c4",
+    "scripts/segresnet_plain972_no_n4_common.py": "74c2725099ba3449817704e8c7b9120eac5f93595050486dd203bacef04b159b"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20260819,
+    "unit": "subject"
+  },
+  "created_at_utc": "2026-08-14T09:39:30.386201+00:00",
+  "inputs": {
+    "capg": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/capg3d_dice01_pair_20260814/capg3d_capg_seed20260819/AUTO_SAM_VALIDATION.json",
+      "sha256": "200115f276782a83a476835966f7ca5f0f2022a8a55978363ef14be4ddba51c3"
+    },
+    "plain": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/capg3d_dice01_pair_20260814/capg3d_plain_seed20260819/AUTO_SAM_VALIDATION.json",
+      "sha256": "386c04c7b43c21ce50f69697f201acf1a36476d73f00b7876d99f441117bd2bc"
+    }
+  },
+  "interpretation": "did not pass the preregistered architecture threshold",
+  "passes_preregistered_success_threshold": false,
+  "point_hit_rate": {
+    "capg": 0.6388888888888888,
+    "capg_minus_plain": -0.2962962962962964,
+    "plain": 0.9351851851851852
+  },
+  "preregistered_success_threshold_scan_dsc": 0.005,
+  "primary_method": "sam_point_dense",
+  "results": {
+    "locator": {
+      "capg_minus_plain_scan_dsc": 0.002964705014014569,
+      "capg_minus_plain_subject_dsc": 0.0042434584290685666,
+      "capg_scan_dsc": 0.7190895158776839,
+      "capg_subject_dsc": 0.7104587519724141,
+      "cases": 108,
+      "improved_cases": 42,
+      "method": "locator",
+      "plain_scan_dsc": 0.7161248108636693,
+      "plain_subject_dsc": 0.7062152935433456,
+      "subject_bootstrap_95ci": [
+        -0.0037364870615093594,
+        0.013624472227394992
+      ],
+      "subjects": 50,
+      "tied_cases": 0,
+      "worsened_cases": 66
+    },
+    "sam_dense_only": {
+      "capg_minus_plain_scan_dsc": -0.0015395654659369333,
+      "capg_minus_plain_subject_dsc": -0.0005389166060929247,
+      "capg_scan_dsc": 0.5954246512461667,
+      "capg_subject_dsc": 0.6000449157910352,
+      "cases": 108,
+      "improved_cases": 50,
+      "method": "sam_dense_only",
+      "plain_scan_dsc": 0.5969642167121038,
+      "plain_subject_dsc": 0.6005838323971282,
+      "subject_bootstrap_95ci": [
+        -0.004057883656152249,
+        0.0028608969321438785
+      ],
+      "subjects": 50,
+      "tied_cases": 1,
+      "worsened_cases": 57
+    },
+    "sam_point_dense": {
+      "capg_minus_plain_scan_dsc": -0.0014142695506372182,
+      "capg_minus_plain_subject_dsc": -0.000702873899264648,
+      "capg_scan_dsc": 0.5979099604090129,
+      "capg_subject_dsc": 0.6011753096959143,
+      "cases": 108,
+      "improved_cases": 50,
+      "method": "sam_point_dense",
+      "plain_scan_dsc": 0.5993242299596502,
+      "plain_subject_dsc": 0.6018781835951789,
+      "subject_bootstrap_95ci": [
+        -0.004177899912219092,
+        0.002712895726051961
+      ],
+      "subjects": 50,
+      "tied_cases": 2,
+      "worsened_cases": 56
+    },
+    "sam_point_only": {
+      "capg_minus_plain_scan_dsc": -3.612111860212618e-05,
+      "capg_minus_plain_subject_dsc": -4.940582908607675e-05,
+      "capg_scan_dsc": 0.00027590437964447937,
+      "capg_subject_dsc": 0.00028771823695635456,
+      "cases": 108,
+      "improved_cases": 37,
+      "method": "sam_point_only",
+      "plain_scan_dsc": 0.00031202549824660555,
+      "plain_subject_dsc": 0.00033712406604243135,
+      "subject_bootstrap_95ci": [
+        -0.00018690718063651797,
+        4.913271317563777e-05
+      ],
+      "subjects": 50,
+      "tied_cases": 47,
+      "worsened_cases": 24
+    }
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_capg3d_paired_analysis",
+  "test_access": false
+}

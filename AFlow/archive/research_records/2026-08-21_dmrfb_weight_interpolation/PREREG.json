@@ -1,0 +1,24 @@
+{
+  "schema":"aflow.sammed3d.t1ce_wt_dmrfb_weight_interpolation_preregistration",
+  "schema_version":1,
+  "status":"frozen_before_checkpoint_generation_or_new_validation_access",
+  "method":"same_basin_kd200_zero_adapter_to_dmrfb216_weight_interpolation",
+  "endpoints":{
+    "alpha0":{"source":"KD200 loaded into dmrfb_dilation2 architecture with deterministic initial adapter","checkpoint_sha256":"56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7","validation":[0.7343843078447713,0.7244341433615912,0.9351851851851852]},
+    "alpha1":{"checkpoint":"workspace/BraTS/sammed3d_t1ce_wt/plain_dmrfb_adapter_20260821/dmrfb_dilation2_seed20260900/plain_128_dmrfb_dilation2_global_epoch216.pth","checkpoint_sha256":"df53d9bd61f1489746ae1240fffba1f8a3897d0de1416122a389e1d420def684","validation":[0.7342424767988699,0.7247423619386696,0.9259259259259259]}
+  },
+  "feasibility":{"state_keys":90,"keys_identical":true,"network_relative_l2":0.010226590558886528,"adapter_relative_l2":0.42574697732925415,"all_relative_l2":0.13178302347660065,"all_cosine":0.9915544986724854,"alpha0_5_bfloat16_forward_finite":true},
+  "alpha_grid":[0.25,0.5,0.75],
+  "interpolation":{"floating":"(1-alpha)*endpoint0+alpha*endpoint1 in float32 then cast to endpoint dtype","nonfloating":"require exact endpoint equality then copy","architecture_arm":"dmrfb_dilation2","deploy_parameters":4757985},
+  "fixed_validation":{"cache":"workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108","cache_index_sha256":"9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322","manifest":"data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl","manifest_sha256":"f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb","selection":"max Scan,then Subject,then smaller alpha","threshold":0.0,"tta":false,"sam":false,"postprocessing":false},
+  "bootstrap":{"samples":10000,"vs_kd_seeds":{"0.25":20261020,"0.5":20261021,"0.75":20261022},"vs_dmrfb_seeds":{"0.25":20261023,"0.5":20261024,"0.75":20261025},"algorithm":"paired percentile default_rng,linear quantile; scan108; subject50 after within-subject case mean"},
+  "promotion_gates_all_required":["selected interior Scan and Subject strictly beat KD200","selected interior Scan and Subject strictly beat DMRFB216","Point at least101/108","paired Scan and Subject CI lower versus both endpoints at least -0.003","all generation,reload,geometry,hash,and access gates pass"],
+  "if_fail":"stop without adding alpha,logit ensemble,threshold,or postprocessing search; no test270",
+  "cost":{"training":false,"checkpoints":3,"disk_megabytes_approx":60,"deploy_parameters":4757985,"deploy_forwards":1},
+  "source_dmrfb_validation_access":true,
+  "new_interpolation_validation_access":false,
+  "validation_access":false,
+  "outer_selector_access":false,
+  "confirmation_access":false,
+  "test_access":false
+}

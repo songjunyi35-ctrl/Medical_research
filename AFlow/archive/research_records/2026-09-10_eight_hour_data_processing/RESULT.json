@@ -1,0 +1,341 @@
+{
+  "schema": "aflow.eight_hour_data_processing_session",
+  "created_utc": "2026-09-10T11:28:47.364138+00:00",
+  "start_utc": "2026-09-10T03:28:19+00:00",
+  "planned_end_utc": "2026-09-10T11:28:19+00:00",
+  "elapsed_seconds": 28828.364138,
+  "eight_hours_elapsed": true,
+  "status": "eight_hour_scope_finished_target_not_achieved",
+  "leaderboard_surpassed": false,
+  "new_test_forwards": 0,
+  "formal_development_forwards": 5040,
+  "new_models": 6,
+  "new_training_gpu_hours": 12.889191530293061,
+  "new_training": {
+    "2026090711_native_elastic": {
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/weak_elastic_20260910/seed2026090711_native_elastic/fixed_epoch168.pth",
+      "checkpoint_sha256": "12bd86129ac5d387c4ffd608012f7aabdccbb30e2b5780b90c24e8f1455683d7",
+      "train_report_sha256": "ae22a58fd1ada87828aa5f7e43e1bf69b3a91e21d3627d4438901aaa663f195f",
+      "epochs": 168,
+      "steps": 20328,
+      "seconds": 7767.617155410349,
+      "peak_bytes": 22187487744
+    },
+    "2026090711_subject_elastic": {
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/weak_elastic_20260910/seed2026090711_subject_elastic/fixed_epoch168.pth",
+      "checkpoint_sha256": "273537ab9cc0de7e2bcd97ce1885ec9319436275f4f30ebc897c17ac41775e65",
+      "train_report_sha256": "c119053a9bca6e7f4d543faa1c6e23299a24d8943e26a015a7b56cc5217eaa95",
+      "epochs": 168,
+      "steps": 20328,
+      "seconds": 7763.08757083863,
+      "peak_bytes": 22187487744
+    },
+    "2026090712_native_elastic": {
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/weak_elastic_20260910/seed2026090712_native_elastic/fixed_epoch168.pth",
+      "checkpoint_sha256": "e8e75534e582ba692624ae403e13c9d5264dd42b462d6691ca31fd03f4aad93c",
+      "train_report_sha256": "69b19562b67813d61960f21dda7a7e348a945d04bfe7ac1e0ab7c80ba0d99486",
+      "epochs": 168,
+      "steps": 20328,
+      "seconds": 7754.745036773384,
+      "peak_bytes": 22187487744
+    },
+    "2026090712_subject_elastic": {
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/weak_elastic_20260910/seed2026090712_subject_elastic/fixed_epoch168.pth",
+      "checkpoint_sha256": "4fc95ae79768192c5033804b214f70f55ee36659492fe3934e62bc8141f795fe",
+      "train_report_sha256": "bddaa9265f85d7138b71355c648209f6c0c9f5471268af7ac97064d7e6cef121",
+      "epochs": 168,
+      "steps": 20328,
+      "seconds": 7769.978583753109,
+      "peak_bytes": 22187487744
+    },
+    "2026090711_fractional_occupancy": {
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/fractional_occupancy_20260910/seed2026090711_fractional_occupancy/fixed_epoch168.pth",
+      "checkpoint_sha256": "ea144d90429c733e998d4f38c980e8cbd542aa09e2ec1febeec8030941449d1e",
+      "train_report_sha256": "1626be7b2e75ce70a04218546a45d21d81ac77d90692974bf380082cfb42a0ad",
+      "epochs": 168,
+      "steps": 20328,
+      "seconds": 7673.087714090943,
+      "peak_bytes": 22187487744
+    },
+    "2026090712_fractional_occupancy": {
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/fractional_occupancy_20260910/seed2026090712_fractional_occupancy/fixed_epoch168.pth",
+      "checkpoint_sha256": "1ed5c7a850997076f4222c69e38d5c8cf676abd0d5631731dc4ea9e33ef85dae",
+      "train_report_sha256": "cd8dc8b53b5030007314cb067ad0db285ca2d8a77eec77c07957f21081b9c54c",
+      "epochs": 168,
+      "steps": 20328,
+      "seconds": 7672.573448188603,
+      "peak_bytes": 22187487744
+    }
+  },
+  "fit_scans": 684,
+  "fit_subjects": 313,
+  "dev_scans": 180,
+  "dev_subjects": 78,
+  "development_is_reused": true,
+  "former_development_consumed_as_training": false,
+  "access": {
+    "test": false,
+    "old_confirmation": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "external": false
+  },
+  "gpu_compute_apps": "",
+  "test_leaderboard_overall": {
+    "rank": 1,
+    "method": "full972_random_init_voxel_kd_epoch168_flip8_tta",
+    "scan_dice": 0.7572696616942132,
+    "subject_dice": 0.7412535853511771,
+    "point_hit": 0.9814814814814815,
+    "point_hits": 265,
+    "point_denominator": 270,
+    "locator_forwards": 8,
+    "cohort": {
+      "scans": 270,
+      "subjects": 119
+    },
+    "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+    "resolution": 128,
+    "threshold": 0.0,
+    "tta": true,
+    "tta_formula": "all 8 combinations of spatial-axis reflection; inverse-reflect each raw logit; ordered float32 equal mean",
+    "sam": false,
+    "postprocessing": false,
+    "scan_dice_95ci": [
+      0.739088565033895,
+      0.7741517265513539
+    ],
+    "subject_dice_95ci": [
+      0.7141092440426474,
+      0.7661524792215904
+    ],
+    "paired_vs_identity": {
+      "scan_dice": 0.0055101244813866085,
+      "subject_dice": 0.003926478225101276,
+      "point_hits": 3,
+      "scan_dice_95ci": [
+        0.0027509939153161317,
+        0.008022352442559269
+      ],
+      "subject_dice_95ci": [
+        -0.00037875292107922,
+        0.007353958139034295
+      ]
+    },
+    "evidence_status": "two_fresh_inner_replications_all_gates_passed; user_authorized_post_test_development; reused_internal_test; not_pristine_blind; not_external; not_test_tuned; no_test_retuning_or_retest_allowed",
+    "report_path": "workspace/BraTS/sammed3d_t1ce_wt/flip8_tta_stability_20260904/FLIP8_TEST270.json",
+    "report_sha256": "29efc557aa12b6f82fd079edd84cc3c8c1e5ad4536880c016b664932234f45ad",
+    "status": "highest_reused_internal_test_scan_subject_point_estimates; paired_scan_ci_vs_identity_positive; paired_subject_ci_crosses_zero; 8x_inference",
+    "absolute_ci_seed": 20260817,
+    "bootstrap_correction_path": "archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/BOOTSTRAP_CORRECTION.json"
+  },
+  "test_leaderboard_one_forward": {
+    "rank": 2,
+    "method": "gcsam_inner_fit864_epoch184",
+    "scan_dice": 0.7520031755617648,
+    "subject_dice": 0.7372664203170781,
+    "point_hit": 0.9333333333333333,
+    "locator_forwards": 1,
+    "cohort": {
+      "scans": 270,
+      "subjects": 119
+    },
+    "training_scope": {
+      "fit_scans": 864,
+      "train_inner_selection_scans": 108,
+      "not_full972_final": true
+    },
+    "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+    "checkpoint_model_state_sha256": "eea33e1d3a1ab9505ba0b85aa915a9df59260b50a0991b49e1e9c77417690f02",
+    "resolution": 128,
+    "threshold": 0.0,
+    "tta": false,
+    "sam": false,
+    "postprocessing": false,
+    "evidence_status": "user_authorized_after_failed_train_inner_ci_gates; fit864_train_inner_selected; not_full972_final; reused_internal_test; not_pristine_blind; not_external; no_test_tuning_allowed",
+    "report_path": "workspace/BraTS/sammed3d_t1ce_wt/gcsam_full972_stability_20260831/GCSAM_INNER_E184_TEST270.json",
+    "report_sha256": "d0e2f48e1f499d65adddb3dbe30758caad27768bb75f737ea2cfe4a877c335d5",
+    "status": "highest_1x_reused_internal_test_scan_point_estimate; rank2_overall_by_scan; subject_and_point_not_best; paired_dice_ci_crosses_zero"
+  },
+  "development_dice_positive_method": "subject_fixed_flip8",
+  "development_flip8_metrics": {
+    "2026090711": {
+      "flip8": {
+        "point_hits": 169,
+        "scan_cluster_95ci": [
+          0.733234924785078,
+          0.7816003868014947
+        ],
+        "scan_dice": 0.759243559157198,
+        "scans": 180,
+        "subject_95ci": [
+          0.7036837880430202,
+          0.7805541572761501
+        ],
+        "subject_dice": 0.7458882249971893,
+        "subjects": 78
+      },
+      "identity": {
+        "point_hits": 167,
+        "scan_cluster_95ci": [
+          0.7276547867632549,
+          0.7759116518759067
+        ],
+        "scan_dice": 0.7534748223629707,
+        "scans": 180,
+        "subject_95ci": [
+          0.6991448040130326,
+          0.774508335975886
+        ],
+        "subject_dice": 0.740633328822848,
+        "subjects": 78
+      }
+    },
+    "2026090712": {
+      "flip8": {
+        "point_hits": 160,
+        "scan_cluster_95ci": [
+          0.7350839358945013,
+          0.7809735962199708
+        ],
+        "scan_dice": 0.7589895032805076,
+        "scans": 180,
+        "subject_95ci": [
+          0.7077309539292868,
+          0.7793603278884776
+        ],
+        "subject_dice": 0.7459684723286907,
+        "subjects": 78
+      },
+      "identity": {
+        "point_hits": 168,
+        "scan_cluster_95ci": [
+          0.7326089375114803,
+          0.7771056190558597
+        ],
+        "scan_dice": 0.7559059562841979,
+        "scans": 180,
+        "subject_95ci": [
+          0.7051924997303635,
+          0.7757325058496527
+        ],
+        "subject_dice": 0.7427245214879262,
+        "subjects": 78
+      }
+    }
+  },
+  "development_flip8_comparisons": {
+    "2026090711": {
+      "improved": 135,
+      "point_delta": 2,
+      "scan_cluster_95ci": [
+        0.003818253381104681,
+        0.007667861598497258
+      ],
+      "scan_delta": 0.005768736794227292,
+      "subject_95ci": [
+        0.0026660287379831078,
+        0.007639378366016113
+      ],
+      "subject_delta": 0.0052548961743412725,
+      "tied": 1,
+      "worse": 44
+    },
+    "2026090712": {
+      "improved": 125,
+      "point_delta": -8,
+      "scan_cluster_95ci": [
+        0.0005812212260905095,
+        0.005469962937227189
+      ],
+      "scan_delta": 0.0030835469963097495,
+      "subject_95ci": [
+        0.0002310871018209463,
+        0.006332766345659574
+      ],
+      "subject_delta": 0.0032439508407644535,
+      "tied": 2,
+      "worse": 53
+    }
+  },
+  "development_flip8_all_gates_passed": false,
+  "method_statuses": {
+    "weak_elastic": "completed_reused_development_gate_failed",
+    "fractional_occupancy": "completed_reused_development_gate_failed",
+    "peak_protected_cleanup": "completed_development_gate_failed",
+    "data_recipe_ensemble": "completed_development_gate_failed",
+    "subject_fixed_flip8": "completed_development_gate_failed"
+  },
+  "point_audit_summary": {
+    "2026090711": {
+      "flip8_miss_count": 11,
+      "flip8_misses_within_one_input_voxel": 2,
+      "gained": 3,
+      "lost": 1,
+      "lost_point_cases_with_dice_improvement": 1,
+      "lost_point_distance_voxels": {
+        "maximum": 4.358898943540674,
+        "median": 4.358898943540674,
+        "minimum": 4.358898943540674
+      },
+      "net": 2
+    },
+    "2026090712": {
+      "flip8_miss_count": 20,
+      "flip8_misses_within_one_input_voxel": 7,
+      "gained": 3,
+      "lost": 11,
+      "lost_point_cases_with_dice_improvement": 6,
+      "lost_point_distance_voxels": {
+        "maximum": 4.123105625617661,
+        "median": 1.0,
+        "minimum": 1.0
+      },
+      "net": -8
+    }
+  },
+  "source_evidence_sha256": {
+    "archive/research_records/2026-09-10_weak_elastic/RESULT.json": "b78a49c568b61a047f5361b0a5f147ff45a6fdbed77aca99403669e1f5a4ba76",
+    "archive/research_records/2026-09-10_weak_elastic/RESULT.md": "b219be28c96b5488d6cb31389aee0fcee6bd6b9fcf8b2ddde011703556453f9d",
+    "archive/research_records/2026-09-10_weak_elastic/RAW_DEVELOPMENT.json": "c9ff58c495fb96f9fa607820140351c25bfe81e02e0290c6f2e4084145ae399e",
+    "archive/research_records/2026-09-10_weak_elastic/DEV_PREACCESS.json": "97424e50a668d553785f9d524e5962431106d43ba3987a4ffac15c059fc74d29",
+    "archive/research_records/2026-09-10_weak_elastic/VERIFICATION_RECEIPT.json": "d345dd1171177a76b2be8e07bfecf5b2d3497408701d3f8f3955c5727e083a17",
+    "archive/research_records/2026-09-10_fractional_occupancy/RESULT.json": "91c6f2e9b529d25f46f4b2faace340a2adf42a84ee55c6a400d0621053107902",
+    "archive/research_records/2026-09-10_fractional_occupancy/RESULT.md": "1c84028e52ed80de137192f5af2aaa65bfff4286fc61cef09f8eae33974a5471",
+    "archive/research_records/2026-09-10_fractional_occupancy/RAW_DEVELOPMENT.json": "b1474c2a6e0356559f6e5e15639fa9d705d5cce08c8c2a3556e142b0a06a1647",
+    "archive/research_records/2026-09-10_fractional_occupancy/DEV_PREACCESS.json": "1b2fda5cc926cec497aaa927c1a9a0f5caa7c8121adc1516e5f561bc8debb62d",
+    "archive/research_records/2026-09-10_fractional_occupancy/VERIFICATION_RECEIPT.json": "2a62aa441f4decc24acfedffec7d61f7065e8314ca3a167db7f51e9d2db7188c",
+    "archive/research_records/2026-09-10_peak_protected_cleanup/RESULT.json": "a8d60af92be3bc71e4f591eee90144d858b44bd1601b14be4cfa4130795ac2f0",
+    "archive/research_records/2026-09-10_peak_protected_cleanup/RESULT.md": "fc51272bb3495a340b3d66eba238104cf88588fc1372878932e81be513c78625",
+    "archive/research_records/2026-09-10_peak_protected_cleanup/RAW_DEVELOPMENT.json": "2f85c8e96be92c51475ad6cf7ae7612b349b305698769b0d887e52ea1a8ddad4",
+    "archive/research_records/2026-09-10_peak_protected_cleanup/DEV_PREACCESS.json": "90322f48029eef2f1fc6e45fef63ddb19f41e119e9e9e0433570fb2977316d3a",
+    "archive/research_records/2026-09-10_peak_protected_cleanup/VERIFICATION_RECEIPT.json": "3508448dd1454a5a617a66579098607603cb99611d0231f0b943af748899d02f",
+    "archive/research_records/2026-09-10_data_recipe_ensemble/RESULT.json": "066aec3933725d083452efa1552a32e2f276d717bb7a4228a78669dba1f30e7a",
+    "archive/research_records/2026-09-10_data_recipe_ensemble/RESULT.md": "8beec925c9e058c1a9830e189eef83c607d5fcca0e7a8f74ee9a92e59e69ee2b",
+    "archive/research_records/2026-09-10_data_recipe_ensemble/RAW_DEVELOPMENT.json": "4840f18597b651207484c18a309b62e074a153c74b24dc21cab98e304b2b5552",
+    "archive/research_records/2026-09-10_data_recipe_ensemble/DEV_PREACCESS.json": "f237a9ae10631d5a277ecebc106fc8a9d800ee7f49209370810dc44300e7972b",
+    "archive/research_records/2026-09-10_data_recipe_ensemble/VERIFICATION_RECEIPT.json": "814fc0bd235822645d1954df5790dcd80f428581a3a16789ab5dcbc97643d161",
+    "archive/research_records/2026-09-10_subject_fixed_flip8/RESULT.json": "842cb4d7573204634516511f73d5810eb6afe7df8ea776f62c19fdd555926cb9",
+    "archive/research_records/2026-09-10_subject_fixed_flip8/RESULT.md": "c0e08f0e7d46a56412ad49d39aa1201f8452bea78e4feeb6df64d20f5980be88",
+    "archive/research_records/2026-09-10_subject_fixed_flip8/RAW_DEVELOPMENT.json": "124e6c3634db004992d558f627a8a9097a6897cb7aaadafee06a173cf3e83afb",
+    "archive/research_records/2026-09-10_subject_fixed_flip8/DEV_PREACCESS.json": "5ac2ff89dc97728697887b106036c7e6cd1912e7caa90c7e404a75ed96035340",
+    "archive/research_records/2026-09-10_subject_fixed_flip8/VERIFICATION_RECEIPT.json": "c556ef8c000da79e119ac641efe94b9efb1fbdb84a33f0a8cd4570e56d04703f",
+    "archive/research_records/2026-09-10_subject_fixed_flip8/POINT_AUDIT.json": "fe8fdce25fcd8663f1a88547bf8d00ec67182b914134a300eedc3313d99286cf",
+    "archive/research_records/2026-09-10_fractional_occupancy/CACHE_RECEIPT.json": "dbc3fbef0c8ff2be3fdcf5b3ab1d77a5a8dec2435e2228d6dc7bc70d52427064",
+    "archive/research_records/2026-09-10_fractional_occupancy/CACHE_INDEX.json": "1d89c1c7d02eca3a458a61223d1f9eed40bb8bc8022a99b9c04fa5405413f182",
+    "archive/research_records/2026-09-10_fractional_occupancy/CACHE_PREACCESS.json": "81556c09dc3745a2bb2e337006d7c90b0f016dc35dc5cec8b86697cd0867d7c2",
+    "archive/research_records/2026-09-10_fractional_occupancy/CACHE_VERIFICATION.json": "82098145bbd5a9e424c503f6fac7603e050f925dae142f9c39eec095d46b2856",
+    "archive/research_records/2026-09-10_fractional_occupancy/DATASET_CPU_RECEIPT.json": "e59921cd30101960b2856fa977413673bc60e0fac66038913563f2b430f2e871",
+    "archive/research_records/2026-09-10_fractional_occupancy/TRAINING_REPLAY_FINAL.json": "eb4b6b828973bcc3e57f2dfb3456c3fb8c94b961ef48b9fc9cd18fae6ecb36bc"
+  },
+  "cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+  "leaderboard_json_sha256": "3fd91634b1122211c76bb61d392651df4f7a2618a697b3e17daffb5fcdad7cdc",
+  "label_cache_bytes": 2868903936,
+  "environment_incident": "default exec and patch reader lost repository access after10:50; authorized host /bin/sh execution recovered archival; no model rerun or metric change",
+  "late_execution_plan_amendments": [
+    "independent fixed0.5 cross-recipe fusion after constituent dev disclosure",
+    "independent fixed8-view inference on stronger patient models; original method gates retained"
+  ],
+  "inference_cost_scope": "identity1x; cross-recipe ensemble2x; fixed reflection8x; no new test deployed winner",
+  "next_priority": "diagnose and preregister boundary-robust automatic localization while retaining the demonstrated same-model multi-view segmentation benefit; do not change current Point truth, thresholds, or test gate posthoc"
+}

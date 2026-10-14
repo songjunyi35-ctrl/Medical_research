@@ -1,0 +1,70 @@
+{
+  "autocast": "bfloat16 model forward; float32 fusion",
+  "case_count": 24,
+  "checkpoint_sha256": [
+    "011a7b0f4a9ee193883662f03fc6d8a54cef9fd3b4c08c2871cdddbdfbe73f6a",
+    "c94f32c04cb89f51e1b83ae157bbce1d89371aa21b4267164e1ed645fa4d4cbc",
+    "c5d2b48db2666f097cb0d86e78c20ea95d163c07f98401714d25d755e99aceb0"
+  ],
+  "created_at_utc": "2026-08-14T03:22:01.155766+00:00",
+  "cuda": "12.6",
+  "cuda_memory_bytes": {
+    "allocated_after_model_load": 18818560,
+    "peak_allocated_during_measured_inference": 696172032
+  },
+  "device": "NVIDIA A100-SXM4-80GB",
+  "geometry": "GT-centered N4 128^3 oracle geometry; not automatic localization",
+  "latency_seconds": {
+    "maximum": 0.08328298944979906,
+    "mean": 0.07895329441331948,
+    "median": 0.07863501692190766,
+    "minimum": 0.07696416974067688,
+    "p95": 0.08114677090197801,
+    "sum": 3.789758131839335
+  },
+  "measured_member_view_forwards": 48,
+  "measurements": 48,
+  "member_view_forwards_per_case": 1,
+  "output_sanity": {
+    "all_finite_latency": true,
+    "case_ids_sha256": "c63a96d5b4a819ed336d7a06389511e53a212aa1c670eb34dcb86136cf37937f",
+    "foreground_voxel_max": 228206,
+    "foreground_voxel_min": 16083
+  },
+  "repeats": 2,
+  "runner_sha256": "4ff34ef03141e6fd3346eb99adf2cc0c0bc531790215be316c344f4c5a586573",
+  "schema": "aflow.sammed3d.t1ce_wt_mcts_online_benchmark",
+  "schema_version": 1,
+  "scope": "refiner-stage latency including host-to-device copy, selected model-view forwards, fusion, device-to-host copy and connected-component postprocess; excludes upstream SAM-Med3D coarse prediction and preprocessing",
+  "selected_model_slots": [
+    2
+  ],
+  "split": "validation inputs only",
+  "test_access": false,
+  "throughput_cases_per_second": 12.665715945493204,
+  "torch": "2.7.1+cu126",
+  "uses_labels": false,
+  "validation_cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/validation",
+  "validation_cache_index_sha256": "72fddef3c7a8755f0712b864efbb7328e2d8ae97313ac7ca7a0306d4b612ce44",
+  "wall_seconds_including_setup": 5.582661390304565,
+  "warmup_cases": 3,
+  "workflow": {
+    "selection_rule": "historical outer-fold-2 one-forward winner, frozen before the fixed1 online benchmark",
+    "source": "/mlx_devbox/users/songjunyi.666/playground/AFlow/FIXED1_DEPLOYMENT_CANDIDATE_20260814.json",
+    "source_sha256": "e162f1bc337fb83c19163a6723a6d62f136c2518caaeb7def2d04eda6651a6d4",
+    "spec": {
+      "acquisition": "fixed",
+      "fusion": "logit_mean",
+      "gate12_q": 0,
+      "gate3_q": 0,
+      "min_component_voxels": 500,
+      "model_mask": 4,
+      "schema_version": 1,
+      "threshold_q": -15,
+      "uncertainty_beta_q": 0,
+      "view_policy": "identity"
+    },
+    "status": "frozen for label-free engineering benchmark; development validation only; no non-inferiority claim",
+    "workflow_id": "a17525967e58097265974f736c6ab7ecb2b3af098e93da0f539c52d2db71818d"
+  }
+}

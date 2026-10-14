@@ -1,0 +1,90 @@
+{
+  "utc": "2026-10-10T03:42:34.434525+00:00",
+  "status": "passed",
+  "worker": 1127648,
+  "global_batch": 8,
+  "tail_global_batch": 4,
+  "ddp_checks": [
+    {
+      "rank": 0,
+      "peak_reserved_bytes": 38390464512,
+      "peak_allocated_bytes": 38278524416,
+      "bf16_all_ones_equivalence": {
+        "value_error": 0.0,
+        "gradient_error": 0.0
+      },
+      "steps": [
+        {
+          "per_gpu_batch": 4,
+          "losses": {
+            "loss": 1.4811097979545593,
+            "main_loss": 1.03221994638443,
+            "half_loss": 1.0246676802635193,
+            "quarter_loss": 1.5417839288711548,
+            "grad_norm": 1.6946896314620972,
+            "augmentation_fallbacks": 0.0
+          }
+        },
+        {
+          "per_gpu_batch": 2,
+          "losses": {
+            "loss": 1.4141032099723816,
+            "main_loss": 1.0307893753051758,
+            "half_loss": 1.0164251923561096,
+            "quarter_loss": 1.0336597561836243,
+            "grad_norm": 0.19902174174785614,
+            "augmentation_fallbacks": 0.0
+          }
+        }
+      ],
+      "max_parameter_difference_between_ranks": 0.0,
+      "parameter_change": 0.00039984285831451416,
+      "optimizer_steps": [
+        2
+      ]
+    },
+    {
+      "rank": 1,
+      "peak_reserved_bytes": 38390464512,
+      "peak_allocated_bytes": 38278524416,
+      "bf16_all_ones_equivalence": {
+        "value_error": 0.0,
+        "gradient_error": 0.0
+      },
+      "steps": [
+        {
+          "per_gpu_batch": 4,
+          "losses": {
+            "loss": 1.4811097979545593,
+            "main_loss": 1.03221994638443,
+            "half_loss": 1.0246676802635193,
+            "quarter_loss": 1.5417839288711548,
+            "grad_norm": 1.6946896314620972,
+            "augmentation_fallbacks": 0.0
+          }
+        },
+        {
+          "per_gpu_batch": 2,
+          "losses": {
+            "loss": 1.4141032099723816,
+            "main_loss": 1.0307893753051758,
+            "half_loss": 1.0164251923561096,
+            "quarter_loss": 1.0336597561836243,
+            "grad_norm": 0.19902174174785614,
+            "augmentation_fallbacks": 0.0
+          }
+        }
+      ],
+      "max_parameter_difference_between_ranks": 0.0,
+      "parameter_change": 0.00039984285831451416,
+      "optimizer_steps": [
+        2
+      ]
+    }
+  ],
+  "peak_reserved_bytes": 38390464512,
+  "memory_ceiling_bytes": 40802189312,
+  "strict_deployment_backbone_reload": true,
+  "patient_pixels_access": false,
+  "model_source_sha256": "3726eac66918b7afd32ae93500a554534d27528bc86a0fe9dd2a626ce5ac6b76"
+}

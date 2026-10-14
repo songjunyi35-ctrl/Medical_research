@@ -1,0 +1,60 @@
+{
+  "candidate": {
+    "allocated_after_model_load_bytes": 18818560,
+    "mean_latency_seconds": 0.38706210821207304,
+    "measurements": 96,
+    "member_view_forwards": 8,
+    "peak_allocated_bytes": 780058112,
+    "throughput_cases_per_second": 2.583564701332365,
+    "workflow_id": "a48d7c60047321da9933f5f29a924ff826b1dbcf533c4fa53e4aafbda8f63400"
+  },
+  "comparison": {
+    "cross_over_pair_speedups": [
+      2.762518277791246,
+      2.795853439488917
+    ],
+    "latency_reduction_fraction": 0.6401666579452558,
+    "member_view_forward_reduction_fraction": 0.6666666666666667,
+    "model_memory_reduction_fraction": 0.6666666666666667,
+    "peak_allocated_memory_reduction_fraction": 0.18110008949279355,
+    "speedup": 2.779064314300986
+  },
+  "created_at_utc": "2026-08-13T09:32:53.215421+00:00",
+  "design": "two-run cross-over: candidate/reference swap cuda:0 and cuda:1",
+  "device": "NVIDIA A100-SXM4-80GB",
+  "locked_reference": {
+    "allocated_after_model_load_bytes": 56455680,
+    "mean_latency_seconds": 1.075670492350279,
+    "measurements": 96,
+    "member_view_forwards": 24,
+    "peak_allocated_bytes": 952568320,
+    "throughput_cases_per_second": 0.929652720895092,
+    "workflow_id": "aad54fdc70bcc6d52132fd9b5f9355dc0aabb77d850752a06b5a8a898ce4758a"
+  },
+  "parity": {
+    "candidate": {
+      "cases": 8,
+      "identical_cases": 8,
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/mcts_efficiency_contribution_20260813/CANDIDATE_ONLINE_PARITY.json",
+      "sha256": "2baebdcbc142db7f846f5e06e5ad962f77bc9f544e1f444685f8448bec587b20"
+    },
+    "locked_reference": {
+      "cases": 8,
+      "identical_cases": 8,
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/mcts_efficiency_contribution_20260813/LOCKED_ONLINE_PARITY.json",
+      "sha256": "8910b1c72a29443bca6a9903319fea8c462eee41ddbd10c4f99c4e4a4071a664"
+    }
+  },
+  "receipts": {
+    "workspace/BraTS/sammed3d_t1ce_wt/mcts_efficiency_contribution_20260813/CANDIDATE_GPU0_RUN1.json": "f4eb835aae9f7a5fbf4a981450002e1a005f228bf8143c60b7605d20ef8f88ef",
+    "workspace/BraTS/sammed3d_t1ce_wt/mcts_efficiency_contribution_20260813/CANDIDATE_GPU1_RUN2.json": "1225b4bd6bdfd980c28c47a3b20fa3fb74e9ed0e3432f18e35ec8d270b905e95",
+    "workspace/BraTS/sammed3d_t1ce_wt/mcts_efficiency_contribution_20260813/LOCKED_GPU0_RUN2.json": "cca51dbd11689e622c6169ca516b351994e92ef3a4871543fce00b937033b960",
+    "workspace/BraTS/sammed3d_t1ce_wt/mcts_efficiency_contribution_20260813/LOCKED_GPU1_RUN1.json": "f41904a3028f2d9216b2012f0356b87e9b77e22402a8ba346b2265f9e2c1a0ff"
+  },
+  "runner_sha256": "c461a56cd0e42d83701acc94f3cd6c5b519d66fcdde836a642b5d7be01476bae",
+  "schema": "aflow.sammed3d.t1ce_wt_mcts_deployment_benchmark.summary",
+  "schema_version": 1,
+  "scope": "refiner-stage latency including host-to-device copy, selected model-view forwards, fusion, device-to-host copy and connected-component postprocess; excludes upstream SAM-Med3D coarse prediction and preprocessing",
+  "test_access": false,
+  "uses_labels": false
+}

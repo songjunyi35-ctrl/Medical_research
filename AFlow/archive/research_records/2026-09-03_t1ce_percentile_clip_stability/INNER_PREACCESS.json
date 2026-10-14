@@ -1,0 +1,110 @@
+{
+  "access": {
+    "confirmation": false,
+    "fit": true,
+    "fixed_validation108": false,
+    "inner_metrics": false,
+    "outer": false,
+    "test270": false,
+    "ucsd_external75": false
+  },
+  "bootstrap_samples": 10000,
+  "caches": {
+    "control": {
+      "images_sha256": "f772520ca0d99fca0edc60aa04a7c73e0d7818eea9fa0174a29038f8334644b9",
+      "index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+      "labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train"
+    },
+    "percentile_clip": {
+      "images_sha256": "3184f210c5f2cf1a2c46fc9247cf3f02d6d81beffa7a1d001c7743f31406f06a",
+      "index_sha256": "6e51c3b32f6b3ced4d11adabe75c20d1cf746e2bb6e59a8b3456c46801ad8755",
+      "labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+      "path": "/tmp/aflow_t1ce_percentile_clip_20260903/train"
+    }
+  },
+  "created_at_utc": "2026-09-04T02:27:32.129144+00:00",
+  "evaluator": "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_t1ce_wt_percentile_clip_replication_inner.py",
+  "evaluator_sha256": "3ebb437000ca4ecdd54560d0919a6b7205a69f3f7fc2ffebb39b0295fbf30926",
+  "fixed_epoch": 168,
+  "gates": "per IDEA/PREREG; no post-training change",
+  "inner_manifests": {
+    "a": {
+      "cases": 108,
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_percentile_clip_replications_20260903/replicate_a_inner_cases.jsonl",
+      "sha256": "d72f83dd04c2b6b6b49096641521af9bc524b618811bc51c5792a9877dd3682e",
+      "subjects": 50
+    },
+    "b": {
+      "cases": 108,
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_percentile_clip_replications_20260903/replicate_b_inner_cases.jsonl",
+      "sha256": "57495507e3f13df94a3821c0312e3d2869db8190a23ff9288990d8b0285b7a1a",
+      "subjects": 53
+    }
+  },
+  "pairing": {
+    "a": {
+      "all_epoch_augmentation_rng_exact": true,
+      "all_epoch_sampler_indices_exact": true,
+      "cache_images_intentionally_different": true,
+      "cache_labels_exact": true,
+      "epochs_compared": 168,
+      "first_augmented_label_exact": true,
+      "initial_state_exact": true,
+      "sampling_weight_exact": true
+    },
+    "b": {
+      "all_epoch_augmentation_rng_exact": true,
+      "all_epoch_sampler_indices_exact": true,
+      "cache_images_intentionally_different": true,
+      "cache_labels_exact": true,
+      "epochs_compared": 168,
+      "first_augmented_label_exact": true,
+      "initial_state_exact": true,
+      "sampling_weight_exact": true
+    }
+  },
+  "schema": "aflow.brats.percentile_clip_replication.inner_preaccess",
+  "schema_version": 1,
+  "split_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_percentile_clip_replications_20260903/split_manifest.json",
+  "split_manifest_sha256": "212ec309d9697e3b5ba1eb22d267272f8cf6e41a181ad4f8a8e29c7c4b932c9f",
+  "status": "frozen_after_four_trainings_before_inner_access",
+  "training_artifacts": {
+    "a_control": {
+      "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/percentile_clip_stability_20260903/formal_a_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "b3d61216d8a88bbdbfe8e6e35fc45cb6b89ca29c419f9ec57e664fa95f9187f1",
+      "initial_state_sha256": "ffe6a4cf1748ce717bdeee165b1653029d39da3ade74c918f461e6076d24e1a4",
+      "model_state_sha256": "a81a84a435025fed17afbd75c3b037a992ba7b6994d08d34f3f1f74a1e18c0c7",
+      "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/percentile_clip_stability_20260903/formal_a_control/TRAIN_DONE.json",
+      "report_sha256": "aeb34a39636491b66199d25146a3645ef1f6d1dfc9783fd1ffc8c56e3dfab024",
+      "sampling_weight_sha256": "df127bd6b8964a962da2993abce83300d07167f2b4b5ac3f98be2e09d3c7da56"
+    },
+    "a_percentile_clip": {
+      "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/percentile_clip_stability_20260903/formal_a_percentile_clip/fixed_epoch168.pth",
+      "checkpoint_sha256": "29e7a52de65f0d7c072e1d7bb320fe9145310c0671a23c7c1defb5b47928d13a",
+      "initial_state_sha256": "ffe6a4cf1748ce717bdeee165b1653029d39da3ade74c918f461e6076d24e1a4",
+      "model_state_sha256": "3ca420e450722d203bb53e99600e079036e10296eb68cad094682f83da3601a9",
+      "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/percentile_clip_stability_20260903/formal_a_percentile_clip/TRAIN_DONE.json",
+      "report_sha256": "bb9ca7330cc5583d22dd2fbb62e5dae7074dad51b9b8c7a09372c4dfa4ee2755",
+      "sampling_weight_sha256": "df127bd6b8964a962da2993abce83300d07167f2b4b5ac3f98be2e09d3c7da56"
+    },
+    "b_control": {
+      "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/percentile_clip_stability_20260903/formal_b_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "6ff94e6900be09492bcd3de7be0dbe9689d414cca80ebb6eb723b926ec2bedee",
+      "initial_state_sha256": "aab46b0ca404e5c9ea02b0942fe76195620628da8e0365bfbc5a979edb041d61",
+      "model_state_sha256": "ff2873b8f0eb7d283155344121d895aac4a25b2f616328555722fce80a0b80a1",
+      "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/percentile_clip_stability_20260903/formal_b_control/TRAIN_DONE.json",
+      "report_sha256": "f389d293f83879be11b93987d53fd5fa2d1040f9bbb00ebcf5a759c81d52ea77",
+      "sampling_weight_sha256": "da9eccff4e0fc7f943fbacfb9d95d8f1c7f2c0ef3b452df6716a196679ffefb5"
+    },
+    "b_percentile_clip": {
+      "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/percentile_clip_stability_20260903/formal_b_percentile_clip/fixed_epoch168.pth",
+      "checkpoint_sha256": "4c304fc730e9a0e15084858a47aee3514cf7f0564c5d4a8a4dfbcdd2207c78f6",
+      "initial_state_sha256": "aab46b0ca404e5c9ea02b0942fe76195620628da8e0365bfbc5a979edb041d61",
+      "model_state_sha256": "6465391c6b3676caf179884301838cc4cc35edb63d90ebb5d2cb1d408631a283",
+      "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/percentile_clip_stability_20260903/formal_b_percentile_clip/TRAIN_DONE.json",
+      "report_sha256": "76db1d1102d028ff6f1248777161ce8421b3383dd9863ab26a54223db9480568",
+      "sampling_weight_sha256": "da9eccff4e0fc7f943fbacfb9d95d8f1c7f2c0ef3b452df6716a196679ffefb5"
+    }
+  }
+}

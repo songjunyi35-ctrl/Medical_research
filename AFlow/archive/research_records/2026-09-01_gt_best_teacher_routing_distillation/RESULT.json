@@ -1,0 +1,50 @@
+{
+  "schema": "aflow.brats.t1ce_wt_gt_best_teacher_routing_result",
+  "schema_version": 1,
+  "status": "failed_fixed_validation_all_promotion_gates",
+  "cohort": {"role": "reused_fixed_validation", "scans": 108, "subjects": 50},
+  "metrics": {
+    "archived_full972_seed32": {"scan": 0.7400125352044901, "subject": 0.7312662169195357, "point_hits": 103},
+    "anchor_repeat3_control": {"scan": 0.7360134324817745, "subject": 0.7289731884002686, "point_hits": 103},
+    "gt_best_of3_candidate": {"scan": 0.7329096158069593, "subject": 0.7259979703454743, "point_hits": 100}
+  },
+  "candidate_minus_control": {
+    "scan": -0.003103816674815284,
+    "scan_95ci": [-0.010461848491319904, 0.0038228669272804697],
+    "subject": -0.002975218054794132,
+    "subject_95ci": [-0.011860025405529, 0.005455025019745028],
+    "point_hits": -3,
+    "scans_improved_worse": [53, 55],
+    "subjects_improved_worse": [24, 26]
+  },
+  "candidate_minus_archived": {
+    "scan": -0.007102919397530732,
+    "scan_95ci": [-0.01625157634003295, 0.0009243366101549731],
+    "subject": -0.0052682465740612585,
+    "subject_95ci": [-0.015250126879484882, 0.004309783973509358],
+    "point_hits": -3,
+    "scans_improved_worse": [54, 54],
+    "subjects_improved_worse": [25, 25]
+  },
+  "routing": {
+    "counts": [47215, 63869, 51540],
+    "fractions": [0.29033230027548207, 0.39274030893349077, 0.31692739079102716],
+    "total_draws": 162624
+  },
+  "gates": {"passed": 0, "total": 9, "candidate_authorized_for_test": false},
+  "cost": {
+    "control_seconds": 14883.579988479614,
+    "candidate_seconds": 14861.634930849075,
+    "control_peak_gib": 20.30923891067505,
+    "candidate_peak_gib": 20.371739387512207,
+    "inference_forwards": 1,
+    "new_cache": false
+  },
+  "access": {"fixed_validation108": true, "outer": false, "confirmation": false, "test270": false},
+  "evidence": {
+    "raw_validation_sha256": "ce89d554a792fe627bdf86bd3a7e4673b7efc754c9962404972b62a6427ce5ae",
+    "preaccess_sha256": "9d08d647b1cf7f90a10a83bbaeafffb3c384417051267e3eadc2e5a82f8873d5",
+    "control_checkpoint_sha256": "a128ba15906fb55824f74828e9d0566c01d3389aaa6f92baee7ab7f6d4b06be7",
+    "candidate_checkpoint_sha256": "75c8f669a8b25ab92f4973a7e4f708f8cf1e3d4fe650393c36644bcdc8492473"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "aflow.brats_africa95.cross_cohort_ucsd_description",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T02:13:00Z",
+  "status": "descriptive_only_noncausal_different_cohorts_and_targets",
+  "same_frozen_checkpoints": true,
+  "africa95_raw_sha256": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+  "ucsd75_official_float_raw_sha256": "a1155914b16b648f97f11a7d7a20cb27096d7eed9f9662db73f4905860da04d2",
+  "africa95": {"cases": 95, "target_voxels_mean": 103709.52631578948, "target_voxels_median": 103618.0, "full_identity": {"dice": 0.5230025504563405, "predicted_voxels_mean": 50535.53684210526, "prediction_to_target_ratio_mean": 0.5434276847237486, "ratio_median": 0.5258449149644001, "under_target_cases": 91}, "gcsam_identity": {"dice": 0.5916192193392555, "predicted_voxels_mean": 62255.14736842105, "prediction_to_target_ratio_mean": 0.6081797504756244, "ratio_median": 0.6324738871217979, "under_target_cases": 90}},
+  "ucsd75_official_float": {"cases": 75, "target_voxels_mean": 41997.04, "target_voxels_median": 30629.0, "full_identity": {"dice": 0.746255042552948, "predicted_voxels_mean": 41909.2, "prediction_to_target_ratio_mean": 1.0851521503357684, "ratio_median": 1.0248804407046432, "under_target_cases": 32}, "gcsam_identity": {"dice": 0.7558895047505697, "predicted_voxels_mean": 42194.426666666666, "prediction_to_target_ratio_mean": 1.1372446806005339, "ratio_median": 1.0398409893992933, "under_target_cases": 29}},
+  "interpretation": "Africa95 targets are much larger on the 128^3 grid and both models scale predicted extent insufficiently, unlike near-unity volume ratios on UCSD75. Cohorts differ in treatment stage, acquisition, labels, patients and grids, so this does not identify a single causal factor or authorize threshold tuning.",
+  "new_model_inference": false,
+  "tuning": false
+}

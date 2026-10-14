@@ -1,0 +1,118 @@
+{
+  "analysis_sha256": "8b3df2c9813a4bfed9544cf3ceb25de117220d1f0b32615ca9191af1ab2bfef7",
+  "assessment_scan_weights": {
+    "2026090711": {
+      "fold0": 0.36666666666666664,
+      "fold1": 0.3611111111111111,
+      "fold2": 0.2722222222222222
+    },
+    "2026090712": {
+      "fold0": 0.36666666666666664,
+      "fold1": 0.3611111111111111,
+      "fold2": 0.2722222222222222
+    }
+  },
+  "benchmark_sha256": "e751c43ef20344f2824a05ecce16fd68951b433a102f06926de86f06be6d0f74",
+  "created_utc": "2026-09-11T06:21:03.902929+00:00",
+  "expected_case_forwards": 1675,
+  "fit_cases": [
+    "BraTS-GLI-00005-100",
+    "BraTS-GLI-00005-101",
+    "BraTS-GLI-00009-100",
+    "BraTS-GLI-00009-101",
+    "BraTS-GLI-00020-100",
+    "BraTS-GLI-00020-101",
+    "BraTS-GLI-00027-100",
+    "BraTS-GLI-00027-101",
+    "BraTS-GLI-00033-100",
+    "BraTS-GLI-00033-101",
+    "BraTS-GLI-00063-100",
+    "BraTS-GLI-00063-101",
+    "BraTS-GLI-00078-100",
+    "BraTS-GLI-00078-101",
+    "BraTS-GLI-00080-100",
+    "BraTS-GLI-00080-101",
+    "BraTS-GLI-00485-100",
+    "BraTS-GLI-00485-101",
+    "BraTS-GLI-00512-100",
+    "BraTS-GLI-00512-101",
+    "BraTS-GLI-00518-100",
+    "BraTS-GLI-00518-101",
+    "BraTS-GLI-00533-100",
+    "BraTS-GLI-00533-101"
+  ],
+  "forwards_at_write": 0,
+  "labels_opened": false,
+  "measurements_per_policy": 48,
+  "models": [
+    {
+      "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "seed": 2026090711,
+      "sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "training_report_sha256": "6cbbf960f62657080b7cb1153ae30040ab42a2299cd38c49142543effd17a1f1"
+    },
+    {
+      "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "seed": 2026090712,
+      "sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "training_report_sha256": "0ccd09881b1c7e5a9f58c46b512d7ed2880cfc09b947022e59eb6066ab10b9a7"
+    }
+  ],
+  "parity_cases_per_model": 2,
+  "policies": {
+    "2026090711": {
+      "fold0": [
+        0,
+        7
+      ],
+      "fold1": [
+        0,
+        5
+      ],
+      "fold2": [
+        0,
+        5
+      ],
+      "full8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "2026090712": {
+      "fold0": [
+        0,
+        5,
+        6
+      ],
+      "fold1": [
+        0,
+        6,
+        7
+      ],
+      "fold2": [
+        0,
+        3,
+        5
+      ],
+      "full8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  "scope": "H2D through mask-point D2H; excludes file reads/preprocessing/model loading",
+  "verification_sha256": "3f21f5b910ddddcc0c88b279975d07bc155d35e4ac340ec565d4c1a02d8fbeb7",
+  "warmup_per_policy": 3
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_prompt_local_refiner_prereg_amendment",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-12T06:11:30Z",
+  "status": "frozen_after_second_engineering_smoke_and_before_formal_training",
+  "test_access": false,
+  "prior_records": {
+    "original_preregistration": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/PROMPT_LOCAL_REFINER_PREREG_20260812.json",
+      "sha256": "93ee5acc4152e5c20588ecbd63949fe78b84a53d5e7ab99ff1df8a27757dd7a1"
+    },
+    "dataloader_lifecycle_amendment": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/PROMPT_LOCAL_REFINER_PREREG_AMENDMENT_WORKER_EXIT_20260812.json",
+      "sha256": "1ca9cde88fd0fc8398ea2b7bb83e00a1c7c45cec4c7f002f493b879318493102"
+    }
+  },
+  "new_information_seen": {
+    "allowed": "second two-epoch engineering smoke only; formal training still never started",
+    "epoch_zero_global_validation_dsc": 0.669549,
+    "epoch_one_validation_dsc": 0.669774,
+    "epoch_two_validation_dsc": 0.669318,
+    "train_done_written": true,
+    "checkpoint_written": true,
+    "numerics": "finite, no NaN and no OOM",
+    "dataloader_children_after_training": 0,
+    "failure": "both ranks still hung after TRAIN_DONE despite persistent_workers=false",
+    "independent_diagnosis": "strace showed the main thread looping on 1-microsecond clock_nanosleep; GDB located it in NCCL asyncJobLaunch/groupLaunch while a cleanup thread was in commFree and NCCL/IB plugin threads remained active",
+    "disposition": "the second completed smoke torchrun was terminated by exact PID; formal training never started"
+  },
+  "change": {
+    "scope": "NCCL communicator process-exit lifecycle only",
+    "after_training": "rank 0 writes TRAIN_DONE and selected checkpoint; both ranks enter a final distributed barrier; after the barrier both call os._exit(0), allowing the OS to reclaim the broken NCCL communicator instead of entering hanging commFree",
+    "scientific_effect": "none: all optimizer steps, validation, selection, checkpoint and provenance writes finish before the final barrier and process exit",
+    "new_smoke_required": true
+  },
+  "unchanged": {
+    "model_loss_optimizer_sampling_augmentation_seed_geometry": "all unchanged",
+    "development_success_threshold": 0.68,
+    "target_reproduction_threshold": 0.70,
+    "automatic_cascade_and_test_gates": "unchanged"
+  },
+  "test_gate": "no sealed-test access"
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "aflow.brats.t1ce_percentile_clip_stability.implementation_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T15:17:10Z",
+  "status": "frozen_before_cache_split_model_training_or_inner_access",
+  "documents": {
+    "idea_sha256": "7504085184ea0e17d97268e9233ff4eb857f9f80c1b49e301aa1534416a24b0a",
+    "prereg_sha256": "cf4706a98e6053799f698d83dcd59efbfd87d7ff3880b6bea09624b4ed99e031"
+  },
+  "entry_points": {
+    "cache_builder": {
+      "path": "scripts/build_t1ce_wt_percentile_clip_cache.py",
+      "sha256": "473f6b076b00ca9bae301dc39590db37b106292ce0ab1aaf7e2bdbaab64fad68"
+    },
+    "split_builder": {
+      "path": "scripts/build_t1ce_wt_percentile_clip_replication_splits.py",
+      "sha256": "7e786c1f59b5d012ec608c2f3d2e2a1f1d828eede558ff389aa9a1131a0c0d9d"
+    },
+    "trainer": {
+      "path": "scripts/train_t1ce_wt_percentile_clip_replication.py",
+      "sha256": "f117d1aa05849672d96674f7ade2b9bec53cb1a6d23bad7ce1fba6a08275abc9"
+    },
+    "evaluator": {
+      "path": "scripts/evaluate_t1ce_wt_percentile_clip_replication_inner.py",
+      "sha256": "3ebb437000ca4ecdd54560d0919a6b7205a69f3f7fc2ffebb39b0295fbf30926"
+    },
+    "preaccess_freezer": {
+      "path": "scripts/freeze_t1ce_wt_percentile_clip_inner_preaccess.py",
+      "sha256": "1468b02c1fedfba48a0cedd893938fcae31d62813aec27d1ef0b548d2a7b1b34"
+    },
+    "stage_a_runner": {
+      "path": "scripts/run_t1ce_wt_percentile_clip_stage_a.sh",
+      "sha256": "e4f8264eec536dca9b53dcbcb90ee636b384858e2c22f0126bfce6ab4f83530f"
+    },
+    "tests": {
+      "path": "tests/test_percentile_clip_stability.py",
+      "sha256": "d849dbbb16cffdeff13359bfe656173dd7c9957db39add30a8e26d20a46f1451"
+    }
+  },
+  "checks": {
+    "pytest": "11 passed",
+    "python_compile": "passed",
+    "shell_syntax": "passed",
+    "historical_entry_points_modified": false
+  },
+  "storage": {
+    "candidate_cache_path": "/tmp/aflow_t1ce_percentile_clip_20260903/train",
+    "tmp_available_bytes": 593563856896,
+    "repository_available_bytes": 12164530176,
+    "existing_material_deleted": false
+  },
+  "access": {
+    "fit": false,
+    "inner_metrics": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -uo pipefail
+ROOT="/mlx_devbox/users/songjunyi.666/playground/AFlow"; PY="$ROOT/../sammed3d-venv/bin/python"; OUT="$ROOT/workspace/BraTS/sammed3d_t1ce_wt/full972_width24_20260826"; TRAIN="$ROOT/scripts/train_t1ce_wt_full972_width_inner.py"; CACHE="$ROOT/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train"; FIT="$ROOT/data/datasets/brats2024_t1ce_fulltrajectory_common_inner_seed20260930_v1/candidate_fit_cases.jsonl"; H="$ROOT/workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth"; E="$ROOT/workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/plain_128_full756_ema_fixed_epoch168.pth"
+cd "$ROOT"
+PYTHONDONTWRITEBYTECODE=1 "$PY" "$TRAIN" --arm width16_control --cache "$CACHE" --fit-case-ids "$FIT" --historical-teacher-checkpoint "$H" --ema-teacher-checkpoint "$E" --output-dir "$OUT/inner_formal_width16" --device cuda:0 > "$OUT/width16.log" 2>&1 & P0=$!
+PYTHONDONTWRITEBYTECODE=1 "$PY" "$TRAIN" --arm width24_candidate --cache "$CACHE" --fit-case-ids "$FIT" --historical-teacher-checkpoint "$H" --ema-teacher-checkpoint "$E" --output-dir "$OUT/inner_formal_width24" --device cuda:1 > "$OUT/width24.log" 2>&1 & P1=$!
+wait "$P0"; S0=$?; wait "$P1"; S1=$?; printf '{"width16_exit":%d,"width24_exit":%d}\n' "$S0" "$S1" > "$OUT/INNER_PAIR_EXIT.json"; test "$S0" -eq 0; test "$S1" -eq 0

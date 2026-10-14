@@ -1,0 +1,44 @@
+{
+  "schema": "aflow.brats.flip_equivariance_consistency.formal_launch_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-04T14:07:09Z",
+  "status": "authorized_after_prereg_amendment_tests_and_gpu_smoke",
+  "plan": {
+    "wave_1": ["replicate_c_control_w0_cuda0", "replicate_c_candidate_w01_cuda1"],
+    "wave_2": ["replicate_d_control_w0_cuda0", "replicate_d_candidate_w01_cuda1"],
+    "epochs_each": 168,
+    "all_four_complete_before_any_inner_access": true,
+    "estimated_wall_hours": [10, 14]
+  },
+  "frozen_sha256": {
+    "trainer": "80c8e3a7bea9a2530f9bccbf4e72157417d6c99edd37fec89eb4d6eb6aaadf17",
+    "evaluator": "1c3071fa6f72a1edb621eae0b3b7e879e451f65edbd5bdeed7c58130bb01fbe9",
+    "preaccess_freezer": "415bc6468a5d24f559596cdf251181bdbe2e60702933750908627d5db9a0c23f",
+    "runner": "f2e45f9c794ebb8dd0c2a072cd5d6a793e4248411faf3ff702a3f86ea5dc945b",
+    "split_manifest": "c18f81618de6d08a7769447746476a1c1da62f624d62e00ea6947ac8dcd2747e",
+    "idea": "a71b75ff8c7b775fc0606141c5b1c6258aeaf4670ec990c819dedb13f85e1175",
+    "prereg": "7ae74cd1891a4a67efa064ca2dffd4560064657661fd4d824902aff02bac5809",
+    "amendment_01": "80604f241a6a220bee667019721cd76c5785f88a56f8ae17cc6fe99f9ea84ad4"
+  },
+  "prelaunch": {
+    "formal_output_directories_absent": true,
+    "inner_preaccess_absent": true,
+    "inner_started_absent": true,
+    "inner_result_absent": true,
+    "repository_free": "12G",
+    "tmp_free": "480G",
+    "gpu0": "A100 80GB idle",
+    "gpu1": "A100 80GB idle",
+    "gpu_smoke_peak_each_bytes": 42005838848,
+    "formal_peak_gate_bytes": 64424509440
+  },
+  "access": {
+    "fit": true,
+    "c_or_d_inner": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

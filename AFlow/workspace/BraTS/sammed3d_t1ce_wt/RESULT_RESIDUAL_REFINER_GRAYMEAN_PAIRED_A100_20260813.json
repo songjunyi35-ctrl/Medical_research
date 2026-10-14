@@ -1,0 +1,22 @@
+{
+  "schema": "aflow.result.residual_refiner_graymean_paired_a100",
+  "created_date_utc": "2026-08-13",
+  "test_access": false,
+  "initial_validation_dsc": 0.6695482504071185,
+  "control_continuation": {
+    "best_validation_dsc": 0.6733628240655418,
+    "best_continuation_epoch": 16,
+    "delta_from_initialization": 0.0038145736584233036,
+    "checkpoint_sha256": "1f132b2cce747856a16c7700fe386fe385c090d7bb27bce5fb78a486c9c0325f"
+  },
+  "graymean_w1": {
+    "best_validation_dsc": 0.6724005015566945,
+    "best_continuation_epoch": 16,
+    "delta_from_initialization": 0.0028522511495759906,
+    "checkpoint_sha256": "a3c99a70406ac8b735a8484463d557446cf5f19e02f3371300dcd5089d61d812"
+  },
+  "paired_gray_minus_control": -0.0009623225088473,
+  "target_above_0_70_met": false,
+  "attribution_margin_0_005_met": false,
+  "conclusion": "Low-LR continuation improved the checkpoint slightly, but gray weight 1 had no independent benefit and did not solve the train/validation coarse-difficulty mismatch."
+}

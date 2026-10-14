@@ -1,0 +1,12 @@
+{
+  "schema": "aflow.brats.train_cache_redundancy_audit",
+  "schema_version": 1,
+  "status": "proved_redundant_no_deletion",
+  "superset": {"path": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train", "cases": 972, "index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd"},
+  "subset": {"path": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128", "cases": 756, "index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d"},
+  "comparison": {"all_subset_ids_in_superset": true, "same_case_order": false, "image_byte_exact_cases": 756, "label_byte_exact_cases": 756, "max_image_abs_delta": 0.0, "audited_tensor_bytes": 7927234560},
+  "candidate": {"exact_directory": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128", "directory_bytes": 7927508320, "requires_explicit_user_authorization": true, "deletion_performed": false, "rebuildable": true},
+  "evidence": {"v2_report": "archive/reviews/2026-09-02_disk_reclaim_audit/REDUNDANT_FORMAL128_AUDIT_V2.json", "v2_report_sha256": "015b44c5106d1918a8deb15992fac0ae38e473c657c84a7fcfa575250a86dce2", "runner_sha256": "bf23506219ff4ee424d606d9556c171c105e30747f3a8df0af83e97c1ce0a04c", "tests": "1 passed"},
+  "large_file_hash_scan": {"minimum_file_bytes_exclusive": 52428800, "files": 118, "bytes": 62853842170, "whole_file_duplicate_groups": 0, "potential_whole_file_duplicate_bytes": 0, "inventory_path": "archive/reviews/2026-09-02_disk_reclaim_audit/LARGE_FILE_HASHES.tsv", "inventory_sha256": "e39610c71fb2d1b0eb7343536960d8950f60e844ebbb127a2772c5141f96782c"},
+  "access": {"train_cache": true, "test270": false, "confirmation": false, "external": false, "model_inference": false}
+}

@@ -1,0 +1,57 @@
+{
+  "utc": "2026-09-21T06:42:58.726090+00:00",
+  "status": "interim_readonly_snapshot_not_final_result",
+  "cutoff_epoch": 79,
+  "target_epochs": 200,
+  "cohort": {
+    "scans": 108,
+    "subjects": 50
+  },
+  "same_finetune_epoch": {
+    "candidate": 0.7124934901517851,
+    "baseline": 0.7181798523567893,
+    "delta": -0.005686362205004181
+  },
+  "best_within_prefix": {
+    "candidate_epoch": 68,
+    "candidate": 0.7229784911981335,
+    "baseline_epoch": 79,
+    "baseline": 0.7181798523567893,
+    "paired": {
+      "scan_delta": 0.00479863884134425,
+      "scan_delta_ci95": [
+        -0.005480920106368629,
+        0.015151430734371658
+      ],
+      "scans": 108,
+      "subjects": 50,
+      "scope": "descriptive interim, selected checkpoints, reused validation; not independent confirmation"
+    }
+  },
+  "recent10": {
+    "epochs": [
+      70,
+      79
+    ],
+    "candidate_mean": 0.7151440094311342,
+    "baseline_mean": 0.7049621560369377,
+    "delta": 0.01018185339419655
+  },
+  "baseline_final_validation_scan_dice": 0.7400322695849119,
+  "candidate_gap_to_final_baseline": -0.01705377838677835,
+  "pretraining_cost_seconds": 2344.3765328899026,
+  "comparison_budget": "same downstream fine-tuning epochs; candidate additionally used 150 source-pretraining epochs/6300 updates, not same total compute",
+  "learning_rate": 0.0002,
+  "scheduled_decay_starts_epoch": 101,
+  "estimate_remaining_minutes": 61.881225044329966,
+  "new_model_forward": false,
+  "new_patient_pixels_access": false,
+  "new_test_access": false,
+  "new_outer_confirmation_access": false,
+  "training_or_stop_rule_changed": false,
+  "evidence": {
+    "workspace/BraTS/segresnet_t1ce_wt/two_ideas_20260921/finetune_pretrained/validation_e068.json": "a98a331c20d6193c8d81a62e0737455b6c5969ca39eeb23b383bec6e14b1c354",
+    "workspace/BraTS/segresnet_t1ce_wt/plain972_baseline_20260917/validation_e079.json": "7634fbe7946c543d162e34710581e5fda37972d2f864421612a9d70cc60d98f0",
+    "workspace/BraTS/segresnet_t1ce_wt/two_ideas_20260921/finetune_pretrained/validation_e079.json": "e5f8e9b08362c1f9eba10c7e611d8aaf5d8d240cd8b14c0d199f230e1bf522e3"
+  }
+}

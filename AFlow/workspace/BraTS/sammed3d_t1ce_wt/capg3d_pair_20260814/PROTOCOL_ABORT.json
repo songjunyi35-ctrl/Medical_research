@@ -1,0 +1,26 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_capg3d_protocol_abort",
+  "created_at_utc": "2026-08-14T08:00:00+00:00",
+  "test_access": false,
+  "status": "aborted_not_a_scientific_result",
+  "completed_epochs": 6,
+  "reason": "Both matched arms converged toward the all-background solution under DiceCE lambda_dice=1, lambda_ce=1. Validation locator DSC remained zero apart from a 1.19e-6 numerical trace in plain epoch 2, while total loss approached 1 as CE approached zero. Continuing to 100 epochs had no scientific value.",
+  "plain": {
+    "last_train_loss": 1.0658594724560573,
+    "last_train_dsc": 0.0,
+    "last_validation_dsc": 0.0,
+    "best_validation_dsc": 1.1915570010185345e-06,
+    "best_epoch": 2
+  },
+  "capg": {
+    "last_train_loss": 1.1645451232421498,
+    "last_train_dsc": 0.0,
+    "last_validation_dsc": 0.0,
+    "best_validation_dsc": 0.0,
+    "best_epoch": 1,
+    "last_automatic_point_hit_rate": 0.17592592592592593
+  },
+  "artifacts_preserved": true,
+  "replacement": "capg3d_dice01_pair_20260814",
+  "replacement_change": "Matched reduction of CE weight from 1.0 to 0.1; all architecture, data, augmentation, optimizer, learning-rate, epoch, selection, automatic-SAM, and decision protocols remain unchanged."
+}

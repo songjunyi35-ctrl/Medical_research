@@ -1,0 +1,55 @@
+{
+  "arm": "adamw_control",
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-31T02:43:52.975965+00:00",
+  "data_roles": {
+    "case_overlap": 0,
+    "fit": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_inner_seed20261001_v1/fit_cases.jsonl",
+      "sha256": "587dcd66828b4ad44cf23db224852511158af2fa11d00f66e269e99887ba8e6d"
+    },
+    "fit_cases": 8,
+    "fit_subjects": 4,
+    "inner_tune": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_inner_seed20261001_v1/inner_tune_cases.jsonl",
+      "sha256": "aa091a3a5259745b6987fafe9d6915db2576e10478a991917d34106f972b2c11"
+    },
+    "inner_tune_cases": 8,
+    "inner_tune_subjects": 3,
+    "subject_overlap": 0
+  },
+  "fixed_validation108_access": false,
+  "hyperparameters": {
+    "arm": "adamw_control",
+    "base_lr": 0.0002,
+    "batch_size": 8,
+    "cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "device": "cuda:0",
+    "ema_teacher_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/plain_128_full756_ema_fixed_epoch168.pth",
+    "epochs": 200,
+    "fit_case_ids": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_inner_seed20261001_v1/fit_cases.jsonl",
+    "historical_teacher_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "idea": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-31_gcsam_full972_stability/IDEA.md",
+    "inner_tune_case_ids": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_inner_seed20261001_v1/inner_tune_cases.jsonl",
+    "limit_fit_cases": 8,
+    "limit_inner_tune_cases": 8,
+    "min_lr": 1e-05,
+    "native_artifact": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-21_voxel_kd_data972_native_sampling/NATIVE_WT_VOLUMES.json",
+    "num_workers": 4,
+    "output_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_full972_stability_20260831/inner_smoke_v2_adamw_control",
+    "prereg": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-31_gcsam_full972_stability/PREREG.md",
+    "seed": 20261002,
+    "smoke": true,
+    "smoke_steps": 2,
+    "split_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_inner_seed20261001_v1/split_manifest.json",
+    "validation_batch_size": 8,
+    "weight_decay": 1e-05
+  },
+  "outer_access": false,
+  "runner_sha256": "c2c46fc1beae2dd39d22f003c177e51b62701eb7061a66b5561f43466e8c204d",
+  "schema": "aflow.sammed3d.t1ce_wt_gcsam_inner",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step",
+  "test270_access": false,
+  "train_only_inner_access": true
+}

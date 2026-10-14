@@ -1,0 +1,52 @@
+{
+  "achieved": {
+    "outer_test": {
+      "cases": 270,
+      "manifest_opened_by_builder": false,
+      "nifti_opened_by_builder": false,
+      "subjects": 119
+    },
+    "train": {
+      "cases": 972,
+      "subjects": 444
+    },
+    "validation": {
+      "cases": 108,
+      "subjects": 50
+    }
+  },
+  "checks": {
+    "case_overlap": 0,
+    "subject_overlap": 0,
+    "union_outer_train_cases": 1080
+  },
+  "excluded_raw_labels": [
+    4
+  ],
+  "foreground_raw_labels": [
+    1,
+    2,
+    3
+  ],
+  "group_unit": "subject_id_all_longitudinal_timepoints_together",
+  "outputs": {
+    "train_t1ce_wt.jsonl": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "validation_t1ce_wt.jsonl": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c"
+  },
+  "requested_ratio_within_outer_train": {
+    "train": 0.9,
+    "validation": 0.1
+  },
+  "schema": "aflow.brats2024.sammed3d_t1ce_wt_inner_split",
+  "schema_version": 1,
+  "seed": 20260723,
+  "source": {
+    "outer_split_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_random_subject_80_20_seed20260722_v1/split_manifest.json",
+    "outer_split_manifest_sha256": "215df5594550d939707b25dc3671082ae68cb000b8c1fa9615d9bcb604c0bc25",
+    "outer_train_jsonl": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_random_subject_80_20_seed20260722_v1/train_cases.jsonl",
+    "outer_train_jsonl_sha256": "aa2e55915e2a4bc7c2af2e95d6e08f2199397694fe4a92ea66999b534a22f63d"
+  },
+  "split_algorithm": "python_random_seeded_subject_shuffle_then_exact_validation_case_subset_sum",
+  "status": "frozen_before_training",
+  "task": "T1ce_to_binary_WT_interactive_segmentation"
+}

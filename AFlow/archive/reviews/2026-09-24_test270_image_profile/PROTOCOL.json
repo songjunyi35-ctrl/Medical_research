@@ -1,0 +1,43 @@
+{
+  "utc": "2026-09-24T05:25:44.153618+00:00",
+  "authorization": "user 2026-09-24: 从270个test出发，看270个test的数据特征来处理训练集；继续单T1ce/固定972-108-270。",
+  "scope": "read existing N4+brain-crop+128^3 image caches for train, validation and test; geometry metadata; historical native173 per-case test scores",
+  "test_tuned": true,
+  "new_test_image_pixel_access": true,
+  "new_test_label_pixel_access": false,
+  "test_labels_in_segmentation_training": false,
+  "new_model_forward": false,
+  "max_new_training_candidates": 0,
+  "reused_270": true,
+  "pixel_feature_lattice": "[::4,::4,::4] fixed across splits",
+  "features": [
+    "extent_x",
+    "extent_y",
+    "extent_z",
+    "nonzero_fraction",
+    "q01",
+    "q05",
+    "q25",
+    "q50",
+    "q75",
+    "q95",
+    "q99",
+    "contrast_q95_q05",
+    "high_signal_fraction",
+    "mean_abs_neighbor_change"
+  ],
+  "domain_auroc": "5fold StratifiedGroupKFold grouped by subject, seed20260924, balanced logistic regression, fixed C1",
+  "descriptive_screen": "AUROC>=0.75 and at least one feature median train-test shift>=0.5 training IQR plus |Spearman versus historical native173 test Dice|>=0.3; not a treatment effect or automatic training gate",
+  "prior_B": "2026-09-21 target-image-cluster case weighting stopped25 epochs; no training at this stage",
+  "frozen_files_sha256": {
+    "scripts/audit_test270_image_profile_20260924.py": "0ac2342d2950502fcdf841ad01a3928bec97b23af2179a11737195c6f43bf5b6",
+    "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65",
+    "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/sealed_test/test_cases_t1ce.jsonl": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train/index.json": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108/index.json": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/test270/index.json": "41bd6cf44553b8d156de49f2c57bb424cab60cfa26c06881bdfb96ff91de39d3",
+    "archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_native173.json": "08f8b59198e78f50a338b23be18538a6811c00c014c94c5d217e43776cda21f6"
+  },
+  "no_new_test_forward_or_label_input": true
+}

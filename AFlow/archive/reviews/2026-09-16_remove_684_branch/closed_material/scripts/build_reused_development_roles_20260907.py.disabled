@@ -1,0 +1,68 @@
+"""Freeze the user-authorized development roles using subject IDs only."""
+from collections import Counter
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+RECORD = ROOT / 'archive/research_records/2026-09-07_reused_development_roles'
+DEST = ROOT / 'data/datasets/brats2024_reused_development_20260907'
+SOURCE = ROOT / 'data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl'
+CONF = ROOT / 'data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/sealed_confirmation/confirmation_cases.jsonl'
+VAL = SOURCE.parent / 'validation_t1ce_wt.jsonl'
+TEST = SOURCE.parent / 'sealed_test/test_cases_t1ce.jsonl'
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def rows(path):
+    return [json.loads(x) for x in path.read_text().splitlines() if x.strip()]
+
+
+def sid(row):
+    return row.get('subject_id') or '-'.join(row['case_id'].split('-')[:3])
+
+
+def main():
+    if DEST.exists() or (RECORD / 'SPLIT.json').exists():
+        raise FileExistsError('immutable split already exists')
+    assert (RECORD / 'AUTHORIZATION.md').exists()
+    assert sha(SOURCE) == '6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65'
+    source, conf, val, test = (rows(p) for p in (SOURCE, CONF, VAL, TEST))
+    protected = {sid(r) for r in conf + val + test}
+    source_ids = {sid(r) for r in source}
+    assert len(source) == 972 and len(source_ids) == 444
+    assert len(source_ids & {sid(r) for r in conf}) == 53
+    assert not source_ids & {sid(r) for r in val + test}
+    eligible = [r for r in source if sid(r) not in protected]
+    subjects = sorted({sid(r) for r in eligible}, key=lambda s: hashlib.sha256(('2026090701:' + s).encode()).hexdigest())
+    assert len(eligible) == 864 and len(subjects) == 391
+    dev_ids = set(subjects[:78])
+    split_rows = {'fit': sorted([r for r in eligible if sid(r) not in dev_ids], key=lambda r: r['case_id']),
+                  'development': sorted([r for r in eligible if sid(r) in dev_ids], key=lambda r: r['case_id'])}
+    DEST.mkdir(parents=True)
+    results = {}
+    for role, items in split_rows.items():
+        path = DEST / (role + '_cases.jsonl')
+        with path.open('x') as f:
+            for row in items:
+                f.write(json.dumps(row, sort_keys=True) + '\n')
+        results[role] = {'path': str(path.relative_to(ROOT)), 'sha256': sha(path), 'scans': len(items), 'subjects': len({sid(r) for r in items}), 'subject_ids': sorted({sid(r) for r in items})}
+    result = {'schema': 'aflow.reused_development.roles', 'schema_version': 1,
+              'created_utc': datetime.now(timezone.utc).isoformat(), 'status': 'frozen_user_authorized_reused_development',
+              'algorithm': 'SHA256(2026090701:subject_id) ascending; first78 development; remaining313 fit',
+              'source_sha256': sha(SOURCE), 'authorization_sha256': sha(RECORD / 'AUTHORIZATION.md'),
+              'protected_manifests': {str(p.relative_to(ROOT)): sha(p) for p in (CONF, VAL, TEST)},
+              'excluded_from_original_train': {'subjects': 53, 'scans': 108},
+              'eligible': {'subjects': 391, 'scans': 864}, 'roles': results,
+              'access': {'metadata_only': True, 'image_arrays': False, 'evaluation_metrics': False, 'checkpoint_loaded': False},
+              'builder_sha256': sha(Path(__file__))}
+    (RECORD / 'SPLIT.json').write_text(json.dumps(result, indent=2, sort_keys=True) + '\n')
+    print(json.dumps({k: {x: v[x] for x in ('scans', 'subjects', 'sha256')} for k, v in results.items()}, indent=2))
+
+
+if __name__ == '__main__':
+    main()

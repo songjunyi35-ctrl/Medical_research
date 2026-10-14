@@ -1,0 +1,71 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_v2b_final_configuration_freeze",
+  "schema_version": 1,
+  "status": "frozen_before_v2b_test",
+  "frozen_at_utc": "2026-07-23T06:03:21Z",
+  "task": {
+    "input": "T1ce single channel",
+    "target": "binary WT raw labels {1,2,3}",
+    "excluded_raw_labels": [
+      4
+    ]
+  },
+  "data": {
+    "train_cases": 972,
+    "validation_cases": 108,
+    "test_cases": 270,
+    "test_subjects": 119,
+    "test_manifest": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/test_cases.jsonl",
+    "test_manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2"
+  },
+  "model": {
+    "id": "v2b",
+    "start": "v1 epoch-8 validation-selected checkpoint",
+    "refinement": "one completed epoch at constant learning rate 1e-5",
+    "strategy": "prompt encoder and mask decoder trainable; image encoder frozen",
+    "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/v2b_e8refine_lr1e5_e12_s20260724/sam_model_val_dice_best.pth",
+    "checkpoint_sha256": "2b7d5907c78ce2ea7e1b01ff393a5597289af08670f9b4cf2d6e203d2bed5015"
+  },
+  "interaction": {
+    "num_clicks": 3,
+    "first_click": "uniform GT foreground positive",
+    "later_clicks": "uniform prediction XOR GT",
+    "corrective_labels": "FN positive; FP negative",
+    "points": "all prior points accumulated",
+    "mask_prompt": "previous low-resolution mask recurrently supplied",
+    "prediction_threshold": "raw logit > 0"
+  },
+  "preprocessing": {
+    "orientation": "TorchIO ToCanonical",
+    "geometry": "GT-centered CropOrPad 128^3 after WT mapping",
+    "normalization": "positive-voxel TorchIO ZNormalization"
+  },
+  "validation_selection": {
+    "record": "workspace/BraTS/sammed3d_t1ce_wt/RETRAIN_VALIDATION_RESULT_20260723.json",
+    "record_sha256": "b19f6657340486a91bacbe48435b39e18b1e093c8efbc677d7185226c31fc3ba",
+    "independent_scan_macro_dice_c1_c2_c3": [
+      0.5222286179929561,
+      0.5362320013987463,
+      0.5390754588117633
+    ],
+    "independent_subject_balanced_dice_c3": 0.5395139017549534
+  },
+  "paired_test_reference": {
+    "id": "v1 epoch-8 frozen test",
+    "report": "workspace/BraTS/sammed3d_t1ce_wt/FROZEN_e8_test270_cumulative3_s20260723.json",
+    "report_sha256": "91f6ff7e9426d74e6d7fae73fe172806c1427da17d951b18614e65a9389700db",
+    "seed": 20260723
+  },
+  "test_authorization": {
+    "evaluations_allowed": 1,
+    "seed": 20260723,
+    "checkpoint_locked": true,
+    "threshold_tta_postprocess_search": false,
+    "test_result_will_not_drive_further_learning_rate_tuning": true
+  },
+  "evidence_boundary": {
+    "test_previously_evaluated_for_v1": true,
+    "test_not_globally_pristine": true,
+    "interpretation": "This is a same-seed paired comparison on the existing project test set, not a new external validation cohort."
+  }
+}

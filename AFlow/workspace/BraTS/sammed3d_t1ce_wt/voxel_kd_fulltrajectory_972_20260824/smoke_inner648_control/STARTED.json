@@ -1,0 +1,61 @@
+{
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-24T06:06:37.382268+00:00",
+  "data_roles": {
+    "case_overlap": 0,
+    "fit": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_fulltrajectory_common_inner_seed20260930_v1/control_fit_cases.jsonl",
+      "sha256": "724aaa38fcea4c3f9ad11d7b7828aeb625142911eb4d9c3d64bf71e197f10d61"
+    },
+    "fit_cases": 648,
+    "fit_subjects": 297,
+    "fresh_tune": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_fulltrajectory_common_inner_seed20260930_v1/common_inner_tune_cases.jsonl",
+      "sha256": "87dd75450fb1258b2f5ff2c87ae6635cff3077bb5dfb8109b95cb51681da8bef"
+    },
+    "fresh_tune_cases": 108,
+    "fresh_tune_subjects": 49,
+    "subject_overlap": 0
+  },
+  "fixed_validation108_access": false,
+  "hyperparameters": {
+    "arm": "inner648_control",
+    "base_lr": 0.0002,
+    "batch_size": 8,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "ce_weight": 0.1,
+    "constant_epochs": 100,
+    "device": "cuda:0",
+    "dropout": 0.1,
+    "ema_teacher_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/plain_128_full756_ema_fixed_epoch168.pth",
+    "epochs": 200,
+    "expected_parameter_count": 4700897,
+    "fit_case_ids": "data/datasets/brats2024_t1ce_fulltrajectory_common_inner_seed20260930_v1/control_fit_cases.jsonl",
+    "fresh_tune_case_ids": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_fulltrajectory_common_inner_seed20260930_v1/common_inner_tune_cases.jsonl",
+    "historical_teacher_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "idea": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-24_voxel_kd_fulltrajectory_972/IDEA.md",
+    "init_filters": 16,
+    "limit_fit_cases": null,
+    "limit_fresh_tune_cases": null,
+    "max_shift": 8,
+    "min_lr": 1e-05,
+    "native_artifact": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-21_voxel_kd_data972_native_sampling/NATIVE_WT_VOLUMES.json",
+    "num_workers": 4,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/smoke_inner648_control",
+    "prereg": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-24_voxel_kd_fulltrajectory_972/PREREG.md",
+    "seed": 20260931,
+    "smoke": true,
+    "smoke_steps": 4,
+    "split_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_fulltrajectory_common_inner_seed20260930_v1/split_manifest.json",
+    "validation_batch_size": 8,
+    "weight_decay": 1e-05
+  },
+  "inner_tune_access": true,
+  "outer_selector_access": false,
+  "runner_sha256": "3084ecd286cb384da8d138458e0452fd996dce6584265722d0ec7e3a199d5709",
+  "schema": "aflow.sammed3d.t1ce_wt_voxel_kd_fulltrajectory_inner",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step",
+  "test_access": false,
+  "validation_access": false
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "aflow.brats_africa95.posthoc_volume_description",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T02:08:00Z",
+  "status": "descriptive_only_not_threshold_or_model_selection",
+  "source_raw_report_sha256": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+  "target_wt_voxels_mean": 103709.52631578948,
+  "models": {
+    "full972_identity": {"predicted_voxels_mean": 50535.53684210526, "prediction_to_target_ratio_mean": 0.5434276847237486, "prediction_to_target_ratio_median": 0.5258449149644001, "under_target_volume_cases": 91, "over_target_volume_cases": 4},
+    "full972_flip8": {"predicted_voxels_mean": 49648.8, "prediction_to_target_ratio_mean": 0.496698133189673, "prediction_to_target_ratio_median": 0.5075316130572174, "under_target_volume_cases": 92, "over_target_volume_cases": 3},
+    "gcsam184_identity": {"predicted_voxels_mean": 62255.14736842105, "prediction_to_target_ratio_mean": 0.6081797504756244, "prediction_to_target_ratio_median": 0.6324738871217979, "under_target_volume_cases": 90, "over_target_volume_cases": 5}
+  },
+  "interpretation": "all three frozen outputs usually under-segment Africa95 WT; GCSAM predicts a larger region closer to target volume and has higher Dice while its point hit is lower. This does not authorize threshold calibration.",
+  "new_model_inference": false,
+  "tuning": false
+}

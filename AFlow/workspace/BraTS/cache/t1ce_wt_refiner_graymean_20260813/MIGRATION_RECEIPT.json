@@ -1,0 +1,41 @@
+{
+  "schema": "aflow.brats.refiner_cache_migration_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-13T06:51:00Z",
+  "reason": "The previous worker-ephemeral /tmp/aflow_refiner_graymean_20260813 was already missing during the single-repository audit. Rebuilt from persistent source cache with the frozen coarse checkpoint; no original temporary cache was deleted.",
+  "persistent_cache_root": "workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813",
+  "rebuild_command": "bash scripts/rebuild_t1ce_wt_refiner_cache.sh build",
+  "verification_command": "bash scripts/rebuild_t1ce_wt_refiner_cache.sh verify --full-hash",
+  "runtime": {
+    "gpus": [
+      "NVIDIA A100-SXM4-80GB",
+      "NVIDIA A100-SXM4-80GB"
+    ],
+    "worker_id": 1042986
+  },
+  "source": {
+    "cache_root": "workspace/BraTS/cache/t1ce_wt_gtcrop_n4_128",
+    "train_index_sha256": "99324e6ae3d71f38c058de8cb2c0afc7bee079fbaf6af521257e55d1259f9ebd",
+    "validation_index_sha256": "179a5ce1a89bf41b07ae633200950ead3d485e01e49ff8d9494437be531461da",
+    "coarse_checkpoint_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+    "seed": 20260723
+  },
+  "splits": {
+    "train": {
+      "count": 972,
+      "coarse_dsc": 0.8297756239057658,
+      "index_sha256": "34e9322a45b6501d841e2fab1dba43ef68353e767146ca547e5e8bb280aa95bf",
+      "logits_bytes": 4076863488,
+      "logits_sha256": "bb39991978e514ab79980657defde084cbca34ba041b9b0c324b41cd11cdaf67",
+      "source_path_is_repo_relative": true
+    },
+    "validation": {
+      "count": 108,
+      "coarse_dsc": 0.6365875325785683,
+      "index_sha256": "72fddef3c7a8755f0712b864efbb7328e2d8ae97313ac7ca7a0306d4b612ce44",
+      "logits_bytes": 452984832,
+      "logits_sha256": "7d7d4e3f21ed9ef873768486672f2043d3951b8363b2f6745d4ae86092a20fde",
+      "source_path_is_repo_relative": true
+    }
+  }
+}

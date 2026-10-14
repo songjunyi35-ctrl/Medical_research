@@ -1,0 +1,147 @@
+{
+  "analyzer_sha256": "a0fcc4f0db1593a93a1aed0913db16cb2ba768b0930a75bb063d116277a429a4",
+  "cohorts": [
+    {
+      "cohort": "Reused internal test270",
+      "delta": 0.0002436383489381384,
+      "delta_ci": [
+        -0.005655235725851661,
+        0.005739641802437181
+      ],
+      "full_ci": [
+        0.7334812238419222,
+        0.7683877902602155
+      ],
+      "full_points": 262,
+      "full_scan": 0.7517595372128266,
+      "gcsam_ci": [
+        0.7339302155542774,
+        0.7691406359300189
+      ],
+      "gcsam_points": 252,
+      "gcsam_scan": 0.7520031755617648,
+      "point_denominator": 270,
+      "scope": "270 scans/119 subjects; reused, not blind/external"
+    },
+    {
+      "cohort": "UCSD75 official-float",
+      "delta": 0.009634462197621664,
+      "delta_ci": [
+        -0.0021625930766264513,
+        0.025053405344486235
+      ],
+      "full_ci": [
+        0.7061778320670128,
+        0.782002838075161
+      ],
+      "full_points": 70,
+      "full_scan": 0.746255042552948,
+      "gcsam_ci": [
+        0.7171913696726163,
+        0.7895746358732383
+      ],
+      "gcsam_points": 70,
+      "gcsam_scan": 0.7558895047505697,
+      "point_denominator": 75,
+      "scope": "same-cohort source correction; reused public external"
+    },
+    {
+      "cohort": "BraTS-Africa95",
+      "delta": 0.06861666888291507,
+      "delta_ci": [
+        0.04447197577994147,
+        0.09249767550187686
+      ],
+      "full_ci": [
+        0.4755023307048984,
+        0.5677388555856394
+      ],
+      "full_points": 87,
+      "full_scan": 0.5230025504563405,
+      "gcsam_ci": [
+        0.5409138043330485,
+        0.6374087789122713
+      ],
+      "gcsam_points": 84,
+      "gcsam_scan": 0.5916192193392555,
+      "point_denominator": 95,
+      "scope": "public post-challenge; four centers; institution-disjoint/no patient bridge"
+    },
+    {
+      "cohort": "CPTAC33 public Training",
+      "delta": 0.0019536163166680534,
+      "delta_ci": [
+        -0.006645827155111695,
+        0.012383792985095133
+      ],
+      "full_ci": [
+        0.8090997785254241,
+        0.8686125719143264
+      ],
+      "full_points": 33,
+      "full_scan": 0.8413314638642593,
+      "gcsam_ci": [
+        0.812976588721178,
+        0.868437094104688
+      ],
+      "gcsam_points": 33,
+      "gcsam_scan": 0.8432850801809273,
+      "point_denominator": 33,
+      "scope": "public labels external to this project; Africa-informed confirmation, not hidden"
+    },
+    {
+      "cohort": "WAW-GliomAI152",
+      "delta": 0.010223165712319892,
+      "delta_ci": [
+        -0.003005097219784527,
+        0.023481424561937938
+      ],
+      "full_ci": [
+        0.6498105765436853,
+        0.7136585980622272
+      ],
+      "full_points": 141,
+      "full_scan": 0.6833779920381983,
+      "gcsam_ci": [
+        0.660656320933675,
+        0.7234330158024777
+      ],
+      "gcsam_points": 140,
+      "gcsam_scan": 0.6936011577505181,
+      "point_denominator": 152,
+      "scope": "public preoperative final T1c-mask intersection; institution-disjoint/no patient bridge"
+    },
+    {
+      "cohort": "WAW early-postop31",
+      "delta": 0.0016573086068167539,
+      "delta_ci": [
+        -0.01249757796488835,
+        0.016205274733148808
+      ],
+      "full_ci": [
+        0.5222398053426635,
+        0.654847899093111
+      ],
+      "full_points": 15,
+      "full_scan": 0.5916474162897252,
+      "gcsam_ci": [
+        0.5275003984828207,
+        0.6542934324254197
+      ],
+      "gcsam_points": 14,
+      "gcsam_scan": 0.5933047248965418,
+      "point_denominator": 31,
+      "scope": "public day0-22 earliest scan; patients absent from preop152; not hidden blind"
+    }
+  ],
+  "interpretation": "GCSAM-minus-Full Scan Dice is uncertain on internal270, UCSD75, CPTAC33, WAW preop152, and WAW early-postop31; only Africa95 has an interval entirely above zero. Point differences are -10/0/-3/0/-1/-1. Cohorts must not be pooled; Africa95 remains a domain-specific checkpoint advantage, not a monotonic or universal GCSAM law.",
+  "models": {
+    "full972_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+    "gcsam184_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d"
+  },
+  "new_model_inference": false,
+  "schema": "aflow.cross_cohort.frozen_checkpoint_synthesis",
+  "schema_version": 4,
+  "selection_or_tuning": false,
+  "status": "descriptive_separate_cohorts_no_pooled_ranking"
+}

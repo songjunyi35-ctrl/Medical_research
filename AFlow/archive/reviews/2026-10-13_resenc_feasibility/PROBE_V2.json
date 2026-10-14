@@ -1,0 +1,114 @@
+{
+  "recorded_at": "2026-10-13T13:28:49.051844+08:00",
+  "worker": 1132660,
+  "status": "synthetic_probe_complete",
+  "records_by_rank": [
+    [
+      {
+        "patch_size": [
+          96,
+          128,
+          128
+        ],
+        "per_gpu_batch": 1,
+        "global_batch": 2,
+        "rank": 0,
+        "parameters": 102349770,
+        "timed_updates": 30,
+        "warmup_updates": 10,
+        "median_update_seconds": 0.08975328877568245,
+        "p90_update_seconds": 0.09015425965189934,
+        "model_only_250000_updates_hours": 6.232867276089059,
+        "peak_allocated_gib": 9.047538757324219,
+        "peak_reserved_gib": 9.125,
+        "finite_loss_and_gradients": true,
+        "rank_parameter_sums_exact": true,
+        "loss_start": 1.182228446006775,
+        "loss_end": 0.867982804775238
+      },
+      {
+        "patch_size": [
+          128,
+          160,
+          128
+        ],
+        "per_gpu_batch": 1,
+        "global_batch": 2,
+        "rank": 0,
+        "parameters": 102349770,
+        "timed_updates": 30,
+        "warmup_updates": 10,
+        "median_update_seconds": 0.133263124153018,
+        "p90_update_seconds": 0.13340633735060692,
+        "model_only_250000_updates_hours": 9.254383621737361,
+        "peak_allocated_gib": 10.124070644378662,
+        "peak_reserved_gib": 10.22265625,
+        "finite_loss_and_gradients": true,
+        "rank_parameter_sums_exact": true,
+        "loss_start": 0.7507748603820801,
+        "loss_end": 0.5871834754943848
+      }
+    ],
+    [
+      {
+        "patch_size": [
+          96,
+          128,
+          128
+        ],
+        "per_gpu_batch": 1,
+        "global_batch": 2,
+        "rank": 1,
+        "parameters": 102349770,
+        "timed_updates": 30,
+        "warmup_updates": 10,
+        "median_update_seconds": 0.0898149237036705,
+        "p90_update_seconds": 0.09030293747782707,
+        "model_only_250000_updates_hours": 6.237147479421562,
+        "peak_allocated_gib": 9.047538757324219,
+        "peak_reserved_gib": 9.125,
+        "finite_loss_and_gradients": true,
+        "rank_parameter_sums_exact": true,
+        "loss_start": 1.182228446006775,
+        "loss_end": 0.867982804775238
+      },
+      {
+        "patch_size": [
+          128,
+          160,
+          128
+        ],
+        "per_gpu_batch": 1,
+        "global_batch": 2,
+        "rank": 1,
+        "parameters": 102349770,
+        "timed_updates": 30,
+        "warmup_updates": 10,
+        "median_update_seconds": 0.13343724608421326,
+        "p90_update_seconds": 0.13364935740828515,
+        "model_only_250000_updates_hours": 9.266475422514809,
+        "peak_allocated_gib": 10.124070644378662,
+        "peak_reserved_gib": 10.22265625,
+        "finite_loss_and_gradients": true,
+        "rank_parameter_sums_exact": true,
+        "loss_start": 0.7507748007774353,
+        "loss_end": 0.5871834754943848
+      }
+    ]
+  ],
+  "versions": {
+    "torch": "2.7.1+cu126",
+    "nnunetv2": "2.6.2",
+    "dynamic-network-architectures": "0.4.4"
+  },
+  "source_sha256": {
+    "/tmp/aflow_nnunet_probe_20261013/packages/dynamic_network_architectures/architectures/unet.py": "2a9954613116a101f58bdb360edea91fdaaa466543ffb4fade277b18c3b0ccd6",
+    "/tmp/aflow_nnunet_probe_20261013/packages/nnunetv2/experiment_planning/experiment_planners/residual_unets/residual_encoder_unet_planners.py": "c6137c9f609c3ef898252c2272f8837759a196bdc9b65050fe283faa696823ff",
+    "/tmp/aflow_nnunet_probe_20261013/packages/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py": "f54cb393900b034e0419f118ad1a750800fde777d0f362e71cbfb2959066533f",
+    "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/reviews/2026-10-13_resenc_feasibility/probe_v2.py": "b9e571614c39424a215d13ff05a8c4beeaee50f3f9699a7968299cf4ea4f3d5a"
+  },
+  "patient_pixel_access": false,
+  "patient_model_forwards": 0,
+  "formal_training_updates": 0,
+  "limitations": "Synthetic patch shapes, not dataset-planned M/L. Simplified local Dice+CE/deep supervision; excludes augmentation, loading, validation, checkpointing, preprocessing. Short warm steady-state timing extrapolation is not a measured full training duration. No claim of full nnU-Net numerical/smoke equivalence."
+}

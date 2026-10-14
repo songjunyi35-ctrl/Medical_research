@@ -1,0 +1,137 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_hard_ml1ace_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_implementation_smoke_training_new_validation_access",
+  "method": "foreground_hard_ml1ace_increment_on_kd200",
+  "primary_sources": {
+    "paper": "https://arxiv.org/html/2506.03942v4",
+    "official_repository": "https://github.com/cai4cai/Average-Calibration-Losses",
+    "repository_commit": "ccab5a1d1f435e35c4729d0055500502084166fe",
+    "hard_loss_blob": "a1f97e13f6af4c6daa38edd51064aea2e7d8a1f6"
+  },
+  "adaptation_warning": "official experiment is multi-channel softmax Dice:CE:ACE=1:1:1 long training; project is single-channel sigmoid WT and adds ACE1 to historical Dice1+CE0.1 continuation",
+  "start_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/kd_seed20260846/plain_128_kd_global_epoch200.pth",
+    "sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+    "historical_validation_access": true,
+    "historical_test_access_after_selection": true
+  },
+  "matched_control": {
+    "source": "existing teacher-free control from KAS experiment",
+    "directory": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/control_seed20260860",
+    "runner_sha256": "289168d96d3494449d9b822513fd759c69aff1b4d1c502fc59b114c1cde62ea8",
+    "training_report_sha256": "ce987642413fbf86ccbb45ec263851b8a12cfbec6f21d2325521529b583c6392",
+    "initial_student_state_sha256": "90e344496af0c848365e1b4f8ba83da1d2c7288413587df5ed0313a3e1513778",
+    "checkpoints": {
+      "208": "3c62166b5ca48b686ef9956cae0b78713505aeefc4db60341b2995fb3d3bb845",
+      "216": "9140f1ef188fda4158582eff1b6e41df91bd6355ced79965ea3ed51f2624c3b4",
+      "224": "5c2746dc938064f85757d5547f52bcc301f2e20310d75a09cb9f592968faf60c",
+      "232": "2d13e2bda6557318775d8c083d1bb3c0ad3b1d49d2a4c98f9c4dca6dd553245e"
+    }
+  },
+  "only_changed_factor": "add weight1 foreground single-channel hard mL1-ACE auxiliary loss",
+  "hard_ml1ace": {
+    "activation": "sigmoid(raw_logit.float32)",
+    "channels": "foreground only",
+    "per_volume": true,
+    "num_bins": 20,
+    "boundaries": "torch.linspace(0,1+torch.finfo(float32).eps,21)",
+    "bucketize_right": false,
+    "boundary_semantics": "probabilities exactly at internal boundary belong to lower bin; use torch.bucketize directly, never floor(p*num_bins)",
+    "bin_assignment": "torch.bucketize(probability.detach(), boundaries[1:], right=false)",
+    "bin_statistics": "stream count,sum_probability,sum_ground_truth per occupied bin; no membership matrix",
+    "empty_bins": "ignored via occupied-bin mean",
+    "empty_ground_truth_volume": "ACE contribution zero",
+    "reduction": "occupied bins mean, then batch mean",
+    "weight": 1.0,
+    "total": "historical DiceCE(lambda_dice1,lambda_ce0.1)+1.0*ACE"
+  },
+  "fixed_training": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "train_manifest": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "train_manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "cases": 756,
+    "subjects": 346,
+    "seed": 20260860,
+    "batch_size": 8,
+    "sampler": "weighted replacement,756 samples/epoch,same control Generator seed",
+    "max_shift": 8,
+    "optimizer": "fresh AdamW",
+    "lr": 0.00001,
+    "weight_decay": 0.00001,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "gradient_clip": 5.0,
+    "precision": "bfloat16 model forward; float32 ACE",
+    "global_epochs": [201, 232],
+    "checkpoint_epochs": [208, 216, 224, 232]
+  },
+  "pairing": {
+    "reference": "matched control TRAIN_DONE pairing evidence",
+    "required_equal": ["initial student state", "first batch case/raw/aug image/label hashes", "201-232 epoch case-order SHA", "201-232 CUDA RNG before/after SHA"]
+  },
+  "fixed_validation": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 50,
+    "checkpoint_selection": "maximum hACE Scan Dice among208/216/224/232; Subject exact tie-break",
+    "calibration": {
+      "macro_ace": "per-scan occupied-bin ACE then scan mean",
+      "official_micro_ace": "per-bin mean_p nanmean across scans; mean_gt count weighted across scans; occupied-bin mean absolute gap",
+      "pooled_voxel_ace": "both p and gt pooled by voxel count, supplemental only"
+    }
+  },
+  "promotion_gates_all_required": [
+    "selected hACE scan and subject strictly beat same-epoch control",
+    "selected hACE scan and subject strictly beat KD200",
+    "selected point hits at least100/108",
+    "paired scan and subject CI lower versus KD200 at least -0.003",
+    "macro ACE at least0.005 lower than same-epoch control and paired macro-ACE CI upper below0",
+    "official-micro ACE strictly lower than same-epoch control",
+    "all pairing, implementation, smoke, reload, deploy, hash and access gates pass"
+  ],
+  "technical_stop_gates": {
+    "reference": "official hard-bin values/counts and boundary cases match frozen synthetic reference",
+    "gradient": "ACE-to-logit gradient finite and nonzero; assignment detached but probability mean attached",
+    "loss": "ACE, supervised,total and gradient norm finite",
+    "pairing": "all hACE/control paired evidence equal",
+    "memory": "batch8 peak allocated greater than24GiB",
+    "deploy": "all checkpoint reload and deploy differences zero"
+  },
+  "bootstrap": {
+    "samples": 10000,
+    "hace_vs_control_seg_seeds": {"208": 20260930, "216": 20260931, "224": 20260932, "232": 20260933},
+    "hace_vs_kd200_seg_seeds": {"208": 20260934, "216": 20260935, "224": 20260936, "232": 20260937},
+    "hace_vs_control_macro_ace_seeds": {"208": 20260938, "216": 20260939, "224": 20260940, "232": 20260941}
+  },
+  "if_gates_fail": "stop without bin count,right,ACE weight,start,LR,epoch,checkpoint,threshold or postprocessing search; do not access test270",
+  "cost_budget": {
+    "new_cache": false,
+    "estimated_training_minutes": [18, 30],
+    "estimated_peak_gpu_gib": [20, 22],
+    "gpu_stop_gib": 24,
+    "estimated_disk_gib_max": 0.1,
+    "deploy_parameter_count": 4700897,
+    "deploy_forwards": 1
+  },
+  "primary_brats_wt_evidence": {
+    "baseline_wt_dice": 0.9212,
+    "hard_ml1ace_wt_dice": 0.9190,
+    "baseline_wt_macro_ace": 0.1577,
+    "hard_ml1ace_wt_macro_ace": 0.1421,
+    "interpretation": "source supports calibration improvement, not WT Dice improvement"
+  },
+  "planned_outputs": {
+    "training": "workspace/BraTS/sammed3d_t1ce_wt/plain_hard_ml1ace_20260820/seed20260860",
+    "validation": "workspace/BraTS/sammed3d_t1ce_wt/plain_hard_ml1ace_20260820/HARD_ML1ACE_VALIDATION.json",
+    "implementation_receipt": "archive/research_records/2026-08-20_hard_ml1ace/IMPLEMENTATION_RECEIPT.json"
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

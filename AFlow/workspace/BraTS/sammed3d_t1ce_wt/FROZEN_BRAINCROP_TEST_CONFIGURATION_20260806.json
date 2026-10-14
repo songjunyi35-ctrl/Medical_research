@@ -1,0 +1,121 @@
+{
+  "schema": "aflow.sammed3d.frozen_test_configuration",
+  "schema_version": 1,
+  "frozen_utc": "2026-08-06",
+  "run_identity": "sammed3d_braincrop_fullunfreeze_ddp2_train972_val108_e200_s20260806",
+  "authorization": {
+    "operator_directive_utc": "2026-08-06",
+    "directive": "Operator selected '\u5148\u8bad\u7ec3\u88c1\u8111\u81c2\uff0c\u518d\u6d4b test' -- train the crop-to-nonzero arm first, then take ONE test readout.",
+    "standing_freeze_overridden": "The handoff's permanent ban on reading the 270-case test was explicitly overridden by the operator on 2026-08-05 and reaffirmed on 2026-08-06 for this arm."
+  },
+  "model": {
+    "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_braincrop_fullunfreeze_ddp2_train972_val108_e200_s20260806/sam_model_val_dice_best.pth",
+    "checkpoint_sha256": "87dad82c67151128c7e99d64ae87f37c68547c769d2e610a56d432b554e0732a",
+    "selected_epoch": 78,
+    "selected_val_dice_trainer_metric": 0.6105339611445002,
+    "completed_epochs": 118,
+    "selection_used_test_data": false,
+    "unfreeze": "full image encoder; 100,509,232 trainable of 100,509,232"
+  },
+  "validation_result_before_any_test_access": {
+    "split": "validation 108, subject-clean, seed 20260723, 3 clicks",
+    "braincrop_scan_macro_c3": 0.606013941292724,
+    "braincrop_subject_balanced_c3": 0.604208652984175,
+    "reference_arm_scan_macro_c3": 0.5632824412736656,
+    "reference_arm_subject_balanced_c3": 0.5517716211479382,
+    "paired_delta_scan_macro": 0.0427,
+    "paired_delta_ci95": [
+      0.0248,
+      0.0604
+    ],
+    "improved_cases": 86,
+    "worsened_cases": 22,
+    "sign_test_p": 3.99e-10,
+    "prereg_falsifiable_threshold": 0.5633,
+    "threshold_cleared": true,
+    "by_size_common_axis_whole_head_voxels": {
+      "tiny_lt_2k": {
+        "n": 5,
+        "reference": 0.2581,
+        "braincrop": 0.0918,
+        "delta": -0.1663
+      },
+      "small_2k_8k": {
+        "n": 28,
+        "reference": 0.4802,
+        "braincrop": 0.5495,
+        "delta": 0.0693
+      },
+      "medium_8k_20k": {
+        "n": 42,
+        "reference": 0.5668,
+        "braincrop": 0.6166,
+        "delta": 0.0498
+      },
+      "large_gt_20k": {
+        "n": 33,
+        "reference": 0.6756,
+        "braincrop": 0.7185,
+        "delta": 0.0429
+      }
+    },
+    "tiny_bin_caveat": "The tiny-lesion regression is driven almost entirely by ONE subject, BraTS-GLI-02208, whose three timepoints moved -0.134 / -0.306 / -0.438. The other two tiny cases improved. With n=5 of which 3 share a subject, this bin is effectively a single subject and must not be read as a systematic small-lesion failure.",
+    "agent_prediction_miss": "The agent predicted crop-to-nonzero would help SMALL lesions most. The largest gain is in the 2k-8k bin, and the tiniest bin regressed. Recorded because the agent also mispredicted the sign of the inference-only probe earlier in this session."
+  },
+  "data": {
+    "test_manifest": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/test_cases.jsonl",
+    "expected_manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "expected_cases": 270,
+    "expected_subjects": 119,
+    "nifti_opened_at_freeze_time": false,
+    "test_cache_to_be_built_at": "/tmp/aflow_braincrop_cache/t1ce_wt_n4_braincrop_128/test"
+  },
+  "preprocessing": {
+    "spatial": "braincrop_resize",
+    "spatial_description": "crop to the bounding box of nonzero voxels, then resize that box to 128^3. Does NOT use the label: the box comes from image intensity only, so localization is not oracle.",
+    "uses_gt_for_localization": false,
+    "normalization": "source nonzero-voxel population z-score before resize; unchanged by the crop because the crop removes only zero voxels",
+    "n4_bias_field_correction": true,
+    "n4_shrink_factor": 2,
+    "must_match_training": "the test cache must be built by the same builder with the same flags; any deviation invalidates the readout"
+  },
+  "protocol": {
+    "input": "T1ce single channel",
+    "target": "WT = raw labels {1,2,3}; RC label 4 excluded",
+    "clicks": "3 accumulated corrective clicks; click1 uniform GT foreground, click2/3 uniform XOR error, FN positive, FP negative",
+    "prompt_history": "all points accumulated",
+    "mask_prompt": "previous low-resolution mask recurrently supplied",
+    "threshold": "raw logit > 0",
+    "seed": 20260723,
+    "postprocessing": "none; no threshold, TTA, morphology or connected-component search",
+    "aggregation": "scan-macro and subject-balanced, both reported"
+  },
+  "code_binding": {
+    "cache_builder": "scripts/build_t1ce_wt_braincrop_cache.py",
+    "cache_builder_sha256": "fcb1428300be5b376a82cb4413590d37204ac0b84ed2904ae891aa43e3b217c3",
+    "evaluator": "scripts/evaluate_sammed3d_t1ce_wt_braincrop.py",
+    "evaluator_sha256": "f7eed32b1395190ac0245fa8da7d2f18b264dcc7a73e82be6beaed3dc9c413b3",
+    "delegate_evaluator": "scripts/evaluate_sammed3d_t1ce_wt_cached.py",
+    "delegate_evaluator_sha256": "265cbfc2886b544cd4d84d859485825170b06bc61304cefa6a6f237ea49f3f23",
+    "trainer": "scripts/train_sammed3d_t1ce_wt_dpdsam_aligned.py",
+    "trainer_sha256": "d9fd11d3b4bf11bcdd01df19b9619fef2760dd9534c3e6e9e194c1f2cc4e2d0d",
+    "fail_closed": "if any hash here does not match at test time, abort; do not rewrite the hash"
+  },
+  "preregistration": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/BRAINCROP_PREREG_20260806.json",
+    "sha256": "8e52585b7d35c0b61c6fe99fce353ffb44d9dc3c9d4515963330d4f1d374af06"
+  },
+  "comparison_target": {
+    "reference_arm_test_scan_c3": 0.571109,
+    "reference_arm_test_subject_c3": 0.553484,
+    "note": "The reference arm is the whole-head-resize full-unfreeze arm on the SAME 270 cases. This arm differs from it in exactly one factor (spatial preprocessing), so the test delta IS a controlled contrast -- unlike the reference arm's own delta against the earlier LoRA/rank-0 arms, which was explicitly marked non-attributable."
+  },
+  "evidence_boundary": [
+    "Training and epoch selection used NO test data. This freeze is written before any test NIfTI is opened.",
+    "This will be the 6th consumption of these 270 cases by the project. It is an internal held-out readout, not clean external validation.",
+    "The result must NOT be used to select a next arm, tune hyperparameters, or choose between models.",
+    "No threshold, TTA, morphology, connected-component or postprocessing search was or will be run."
+  ],
+  "runs_allowed": 1,
+  "test_access_at_freeze_time": false
+}

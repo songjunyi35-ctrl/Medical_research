@@ -1,0 +1,19 @@
+{
+  "schema": "aflow.brats_africa95.frozen_baselines.implementation_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T01:29:18Z",
+  "status": "passed_before_source_payload_or_model_access",
+  "idea_sha256": "20d7a9d778097e224f7063aced0c17f2be1592e6384030a01b7b5202b107c262",
+  "preregistration_sha256": "ced348b400a1283dfb33fdc54315a2abdaaf0c291a614277580eff168b580b79",
+  "cohort_sha256": "a2ce66d546b43e3bc03242a51827a155c7601956b1af52eefddb4fe99a72c449",
+  "entrypoints": {
+    "protocol": {"path": "scripts/brats_africa95_protocol.py", "sha256": "9ab9f184371b39e49a7466b14b3578becef46f2cc2343ec1f2cc5943d52bf3f9"},
+    "download": {"path": "scripts/download_brats_africa95_source.py", "sha256": "4444f91aa33db965db74aad0a8db9778945f902208b5c2ebff426c1131898fc6"},
+    "cache": {"path": "scripts/build_brats_africa95_cache.py", "sha256": "7499f60b9a9216cf29ae5182b6c2f485e18b56c654af1988c356753bebf834fe"},
+    "evaluation": {"path": "scripts/evaluate_brats_africa95_frozen_baselines.py", "sha256": "674a3bc45d682acf670e1f44b1677f71e920e3437912dce18025617eb9bea35c"},
+    "smoke": {"path": "scripts/smoke_brats_africa95_frozen_baselines.py", "sha256": "2a4b6a344c617d8cc5effcadb3a3e58906f0a087cf837bdc52821feb695fcab5"}
+  },
+  "tests": {"path": "tests/test_brats_africa95_frozen_baselines.py", "sha256": "c33f986f0c1a17567a4e49f44b88fae60d7112317ea7883555ad009a4078ba3e", "passed": 5},
+  "synthetic_cuda_smoke": {"path": "archive/research_records/2026-09-06_brats_africa95_frozen_baselines/SMOKE_RECEIPT.json", "sha256": "9f166fdd4211c5fa16dc7cb28676731af1162af5982cecb4caad0de0d97e0385", "status": "passed", "source_access": false, "forwards": 9, "peak_gpu_memory_bytes": 705868800},
+  "formal_access": {"package_payload": false, "nifti_arrays": false, "label_values": false, "cache": false, "model_inference": false}
+}

@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+"""Archive paired development outcome; never access test or select hyperparameters."""
+import datetime, hashlib, json, os, subprocess
+from pathlib import Path
+import numpy as np
+ROOT=Path(__file__).resolve().parents[1]
+R=ROOT/'archive/research_records/2026-09-16_sammed3d_graymean_pair'
+W=ROOT/'workspace/BraTS/sammed3d_t1ce_wt/graymean_pair_20260916'
+def sha(p):
+ h=hashlib.sha256()
+ with open(p,'rb') as f:
+  for b in iter(lambda:f.read(8<<20),b''):h.update(b)
+ return h.hexdigest()
+def write(p,data):
+ p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+def paired_summary(a,b):
+ assert [r['case_id'] for r in a]==[r['case_id'] for r in b]
+ assert [r['subject_id'] for r in a]==[r['subject_id'] for r in b]
+ subjects=sorted({r['subject_id'] for r in a});rng=np.random.default_rng(20260916)
+ ids=rng.integers(0,len(subjects),size=(10000,len(subjects)))
+ n=np.array([sum(r['subject_id']==s for r in a) for s in subjects])
+ data={}
+ for name,rows in [('control',a),('graymean',b)]:
+  sums=np.array([sum(r['final5'] for r in rows if r['subject_id']==s) for s in subjects])
+  scan=sums[ids].sum(1)/n[ids].sum(1);subject=(sums/n)[ids].mean(1)
+  data[name]={'scan_final5':float(sums.sum()/n.sum()),'subject_final5':float((sums/n).mean()),'scan_best5':float(np.mean([r['best5'] for r in rows])),'scan_final5_ci95':np.quantile(scan,[.025,.975]).tolist(),'subject_final5_ci95':np.quantile(subject,[.025,.975]).tolist(),'_scan_boot':scan,'_subject_boot':subject}
+ diff={k:data['graymean'][k]-data['control'][k] for k in ['scan_final5','subject_final5','scan_best5']}
+ for metric in ['scan','subject']:
+  diff[metric+'_final5_ci95']=np.quantile(data['graymean']['_'+metric+'_boot']-data['control']['_'+metric+'_boot'],[.025,.975]).tolist()
+ for arm in data:
+  del data[arm]['_scan_boot'];del data[arm]['_subject_boot']
+ supported=diff['scan_final5']>=.01 and diff['subject_final5']>=0 and diff['scan_final5_ci95'][0]>0
+ return {'arms':data,'difference_graymean_minus_control':diff,'promotion_supported':bool(supported),'scans':len(a),'subjects':len(subjects),'bootstrap':'10000 patient-cluster paired resamples, seed20260916, percentile95; reused development, checkpoint selected on same cohort'}
+
+def finalize():
+ selected={};evidence={}
+ for arm in ['control','graymean']:
+  status=json.loads((W/arm/'STATUS.json').read_text())
+  if status['status']!='completed':raise RuntimeError(f'{arm} not complete')
+  best=json.loads((W/arm/'BEST.json').read_text());report=W/arm/best['report']
+  if sha(report)!=best['report_sha256'] or sha(W/arm/'best.pth')!=best['checkpoint_sha256']:raise RuntimeError('selected evidence changed')
+  selected[arm]=json.loads(report.read_text())['rows']
+  evidence[arm]={'epoch':best['epoch'],'last_complete_epoch':status['last_complete_epoch'],'report':str(report.relative_to(ROOT)),'report_sha256':sha(report),'checkpoint':str((W/arm/'best.pth').relative_to(ROOT)),'checkpoint_sha256':sha(W/arm/'best.pth'),'latest_checkpoint_sha256':sha(W/arm/'latest.pth'),'preaccess_sha256':sha(W/arm/'PREACCESS.json'),'development_preaccess_sha256':sha(W/arm/'DEVELOPMENT_PREACCESS.json'),'status':status}
+ result=paired_summary(selected['control'],selected['graymean']);result.update(updated_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),status='completed_development_only',evidence=evidence,prereg_sha256=sha(R/'PREREG.json'),implementation_sha256=sha(R/'IMPLEMENTATION_FREEZE.json'),cache_index_sha256=sha(R/'CACHE_INDEX.json'),test_outer_confirmation_access=False,exact_author_reproduction=False)
+ write(R/'RAW_PAIRED_DEVELOPMENT.json',selected);result['raw_report_sha256']=sha(R/'RAW_PAIRED_DEVELOPMENT.json');write(R/'RESULT.json',result)
+ delta=result['difference_graymean_minus_control'];v=result['arms'];supported=result['promotion_supported']
+ summary=f"复用开发180扫描/78患者，第5点击Scan Dice对照{v['control']['scan_final5']:.6f}、灰度{v['graymean']['scan_final5']:.6f}，差{delta['scan_final5']:+.6f}，患者整簇配对95%区间{delta['scan_final5_ci95']}；预注册支持门{'通过' if supported else '未通过'}。"
+ (R/'RESULT.md').write_text('# SAM-Med3D灰度均值本地配对复现结果\n\n'+summary+'\n\n'+
+ '唯一改动为首次提示灰度均值损失，其他输入、初始化、训练与交互固定。两组为SAM-Med3D全参数微调，各自按本开发集选择检查点；这是开发证据，不是独立确认，也不是师兄未公开代码的精确复制。平均亮度辅助轮廓的直觉'+('在本实现上得到开发支持' if supported else '未满足事前联合支持标准')+'，不能推广为普遍成立或不成立。\n\n'+
+ '原始逐病例报告见[配对数据](RAW_PAIRED_DEVELOPMENT.json)，完整指标、选择轮次、区间、哈希和成本见[机器报告](RESULT.json)。未新访问固定验证、旧外层、确认或测试；未更新测试排行榜数值。推理仍每patch一次编码加五次交互解码，灰度项不增推理成本。\n')
+ p=ROOT/'AFLOW_BRATS_RESULTS.md';s=p.read_text();marker='\n---\n\n[导师汇报正文]';entry='\n## 2026-09-16｜SAM-Med3D灰度均值配对完成（训练结束自动归档）\n\n**问题：** 师兄灰度项在SAM-Med3D本体上的效果待验证。\n**做法：** 两组只开关首次提示软灰度均值误差，其余固定。\n**结果：** '+summary+'\n**决定：** 保留正负结果，不自动进入测试，不追加权重搜索。[核对材料](archive/research_records/2026-09-16_sammed3d_graymean_pair/RESULT.md)\n';assert marker in s;p.write_text(s.replace(marker,entry+marker))
+ p=ROOT/'AFLOW_BRATS_METHOD_CATALOG.md';s=p.read_text();start=s.index('## SAM-Med3D首次提示灰度均值配对｜');end=s.find('\n## ',start+5);end=len(s) if end<0 else end
+ card='## SAM-Med3D首次提示灰度均值配对｜开发完成\n\n**一句话：** 让预测区域平均亮度接近真实肿瘤。 **出发点：** 旧SAM-Med3D五点击最佳0.594226，师兄灰度项细节未公开。\n**具体做法：** 两组固定数据、初始化、训练与交互，只开关首次提示灰度均值误差。\n**结果：** '+summary+'\n**是否支持直觉：** '+('本实现开发证据支持，未独立确认。' if supported else '未满足联合门，不等于所有灰度方法无效。')+'\n**代价/下一步：** 双卡全参数训练；灰度项不增推理前向，停止本配方，不自动开测试。[核对材料](archive/research_records/2026-09-16_sammed3d_graymean_pair/RESULT.md)\n';p.write_text(s[:start]+card+s[end:])
+ p=ROOT/'AFLOW_BRATS_HANDOFF_CURRENT.md';s=p.read_text();s=s.replace('当前待办是执行已冻结的SAM-Med3D灰度均值配对试跑与训练','SAM-Med3D灰度均值配对已完成开发，当前待办是审核结果而非继续训练');s+='\n最新配对已完成：'+summary+' 无新测试；[完整结果](archive/research_records/2026-09-16_sammed3d_graymean_pair/RESULT.md)。\n';p.write_text(s)
+ p=ROOT/'AFLOW_BRATS_WEEKLY_REPORT.md';s=p.read_text();s+='\nSAM-Med3D配对训练更新：'+summary+' 这是开发选择结果，不能与旧内部测试混排。[核对材料](archive/research_records/2026-09-16_sammed3d_graymean_pair/RESULT.md)\n';p.write_text(s)
+ receipts=[]
+ for name in ['doc_layout','method_catalog','leaderboard']:
+  cmd=[str(ROOT.parent/'sammed3d-venv/bin/python'),str(ROOT/f'scripts/verify_aflow_brats_{name}.py')]
+  run=subprocess.run(cmd,cwd=ROOT,text=True,capture_output=True,env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1'});receipts.append({'validator':name,'exit_code':run.returncode,'stdout':run.stdout,'stderr':run.stderr})
+ run=subprocess.run([str(ROOT.parent/'sammed3d-venv/bin/python'),str(ROOT/'scripts/verify_aflow_root_artifacts.py')],cwd=ROOT,text=True,capture_output=True);receipts.append({'validator':'root_artifacts','exit_code':run.returncode,'stdout':run.stdout,'stderr':run.stderr})
+ write(R/'FINAL_VALIDATORS.json',receipts)
+ if any(r['exit_code'] for r in receipts):raise RuntimeError('final documentation validation failed')
+ print(summary,flush=True)
+if __name__=='__main__':finalize()

@@ -1,0 +1,382 @@
+MSCL: Multi-stage Curriculum Learning for
+Postoperative Glioma Segmentation Based on
+Fine-tuning Foundation Model
+Anonymized Authors
+Anonymized Affiliations
+email@anonymized.com
+Abstract. Precise segmentation of postoperative glioma poses a piv-
+otal task in medical image processing due to the crucialness of assessing
+treatment protocols and directing further therapeutic measures. Despite
+numerous studies on primary tumors and the existence of highly effective
+models, research on residual tumors is relatively scarce due to difficul-
+ties in annotation and sample acquisition. Since preoperative glioma are
+tumorsbeforesurgicalresectionofpostoperativeglioma,providingsignif-
+icant assistance in the segmentation of gliomas postsurgery, we propose
+a curriculum learning approach for postoperative glioma segmentation.
+Instead of directly segmenting postoperative glioma, our method estab-
+lishes a multistage curriculum system based on the ease of data, enabling
+the model to engage in continuous learning from preoperative to post-
+operative data, which preserves the dark knowledge acquired in previous
+tasks. We train the public dataset of primary tumors at the first stage
+for easy data learning and postoperative glioma public dataset at the
+second stage for medium data learning, ultimately, we undertake target
+domain adaptation for background knowledge learning at the last stage
+for hard data learning. We evaluated the proposed method on three
+public postoperative glioma datasets and one private dataset, achiev-
+ing improvements in DSC by 11.7%, 15.1%, 8.2%, and 14.2% compared
+to fine-tuning foundation model directly; 11.4%, 7.8%, 14.5% and 8.7%
+compared to state-of-the-art methods.
+Keywords: Curriculum Learning · Foundation Model · Medical Image
+Segmentation.
+1 Introduction
+Glioma represents the most prevalent type of primary intracranial tumor, stem-
+ming from the malignant transformation of glial cells in the brain and spinal
+cord. Surgical resection is the primary choice of treatment for glioma. However,
+due to the location and invasive nature of the tumour, complete resection can
+be challenging, mainly when the tumour is situated in functional areas of the
+brain. Therefore, doctors should develop optimal treatment strategies based on
+the patient’s post-operative condition to effectively control tumour growth and
+2 Anonymized Author et al.
+improve prognosis. It underscores the importance of accurately identifying resid-
+ual tumours after surgery. Nevertheless, the identification of residual tumours
+is a very challenging task. Because of the inherent infiltrative growth pattern
+of gliomas, there is no clear boundary between the residual tumor and adjacent
+tissues, and the tumor tissues become fragmented after further surgery, all of
+which pose a great challenge in the segmentation of the residual tumor.
+Toeffectivelyaddressthechallengesposedbythesecomplexanddiversedata,
+Curriculum Learning, as a gradual learning strategy, is adopted in our method.
+In this paper, we establish a multi-stage curriculum system based on the com-
+plexity of the tumor, enabling the model to progressively learn from simple to
+complex knowledge and to continuously learn from preoperative to postopera-
+tive data, thereby retaining the tacit knowledge acquired from previous tasks.
+In the first stage, we incorporate publicly available datasets of smaller primary
+tumors into the training set, allowing the model to acquire the ability to segment
+primary tumors. In the second stage, we introduce datasets of residual tumors
+with gold standards, enabling the model to learn a certain level of ability to
+segment residual tumors. However, due to differences in background knowledge
+between public datasets and the target domain, applying the model from this
+stagetosegmentresidualtumorsinthetargetdomainmaynotyieldgoodresults.
+Therefore, we incorporate a third stage into the curriculum for target domain
+adaptation focused on background knowledge learning. Here we propose data
+simulation approaches for residual tumour segmentation, utilizing the preopera-
+tive dataset to simulate surgical resection and generate simulated postoperative
+residual tumours adding into the thrid stage training set. This method obtains
+precise boundaries and gold-standard masks of simulated post-operative tumors.
+For summarization, our major contributions are:
+1) We have established a multi-stage curriculum system based on the com-
+plexity of tumors, enabling the model to progressively learn from simple to
+complex knowledge. It continuously learns from preoperative to postoperative
+data, ultimately achieving excellent segmentation performance for postoperative
+gliomas in the target domain.
+2) We have proposed a data simulation model that utilizes the preoperative
+dataset to simulate resection operations, generating simulated diverse-volume
+postoperative gliomas for target domain background adaptation.
+3) We have designed a fine-tuning strategy that is combined with the opti-
+mization of prompt points in the last stage, which integrates a novel loss function
+that incorporates the MSE loss between the grayscale threshold of the predicted
+tumor region, calculated through hint points, and the gray-scale threshold of the
+actual tumor region into the loss of segmentation training. This integration aims
+to optimize the prompt points and achieve precise segmentation.
+2 Methodology
+The Fig.1. presents an overview of our method. The above part is the process of
+our curriculum learning system which is introduced in Section 3.1. The bottom
+MSCL 3
+Fig. 1. Overview of our framework for postoperative glioma segmentation. The upper
+part is the process of multi-stage curriculum learning system; the right side of the upper
+part are examples of each stage’s learning case; the lower part is data augmentation
+pipeline and training process which shows how to simuate postoperative glioma from
+preoperative and training losses in fine-tune.
+part of Fig.1. is the process of postoperative data simulation and training pro-
+cess. The loss function is a weighted sum of segmentation loss and our designed
+gray-scale threshold loss, which will be detailed in the latter part. A detailed
+explanation of the simulation process are provided in Section 2.2.
+2.1 Multi-Stage Curriculum System
+Our objective is to achieve precise segmentation of rare and difficult-to-segment
+post-operativegliomas.Mainstreamapproaches,suchasfine-tuningusingdatasets
+with gold standard annotations, have been employed; however, these methods
+struggle to adapt to the features of target domains sourced from multiple cen-
+ters, leading to catastrophic forgetting of accumulated knowledge. By designing
+a learning curriculum, we can assist the model in gradually establishing an un-
+derstanding of image features, thereby enhancing its generalization ability and
+recognition accuracy, mitigating overfitting issues, and strengthening the model’s
+adaptability to unseen data.
+In this paper, we have designed a multi-stage curriculum based on the frame-
+work of Difficulty Measurer + Training Scheduler, and incorporated the difficulty
+4 Anonymized Author et al.
+measurer at different stages as needed to select data in real-time for inclusion
+in the training set. The Training Scheduler employs the Baby Step Training
+Scheduler, with the process outlined below. Here we choose∗ ∈ {1, 2} and k = 3
+because there are two difficulty measurers and three stages in our method.
+Stage 1: Easy-data Learning The first step is to engage with easy data.
+Here, we select a public dataset of primary tumors, which is then processed by
+a difficulty measure, denoted C1, to determine the data that will be included
+in the training first phase curriculum. In this context,C1 serves as a volume
+measurer, selecting primary tumors with smaller volumes to be incorporated into
+the training set for the first phase. Since primary tumors are generally larger in
+size and have a relatively regular and uniform shape compared to postoperative
+gliomas, they pose a lower segmentation difficulty.
+Stage 2: Medium-data Learning However, due to the properties of post-
+operative gliomas, such as their blurred boundaries, infiltrative growth, and
+varying morphologies and sizes, the first-phase model cannot perform well in
+segmentation. Therefore, new data will be incorporated in the second phase.
+BRATS2024 is a post-operative glioma dataset with gold standards. Here, we
+use the model trained in the first phase as a difficulty measurerC2. Data from
+the BRATS2024 dataset that yield a Dice Similarity Coefficient (DSC) of less
+than 0.5 when tested through the model training from the previous stage are
+selected as training data for the second phase and added to the training set for
+learning.
+Stage 3: Hard-data LearningAfter the second phase of training, the model
+acquires the ability to segment postoperative gliomas. However, due to signifi-
+cant differences between the target domain data and the public dataset in terms
+of background, tumor volume, and other aspects, target domain adaptation is
+necessary to equip the model with generalization capabilities in the target do-
+main. Since clinically, postoperative gliomas are difficult to obtain and annotate,
+there is a scarcity of data with gold standards, making fine-tuning challenging. In
+contrast, primary tumors are relatively easier to access, and residual tumors are
+obtained from the resection of primary tumors. Consequently, a two-stage data
+simulation method is proposed for data augmentation to facilitate fine-tuning,
+enabling the model to generalize within the target domain. The detailed process
+will be introduced in section 2.2.
+2.2 Stage 3: Background Adaptation—Data Simulation
+Due to the nature of residual tumors, such as their fuzzy boundaries and infiltra-
+tive growth, annotating them is very challenging and time-consuming. However,
+one thing is certain: residual tumors are obtained from the resection of primary
+tumors. Consequently, a two-stage data simulation method is proposed. First,
+MSCL 5
+we simulate a noise-distributed polyhedron as the initial contours of each slice;
+second, using contours obtained from the first step as the initial contours, the
+level-set method is employed for iteration, with the resected volume controlled
+to obtain the simulated post-operative residual tumor.
+Fig. 2. (a) A nosie-distributed polyhedron in vtp format and nifti format. (b) An
+example of final mask. Left is tumor after level-set iteration, and we radomly cut
+tumors in several octants. Middle is the mask after cutting. Right is the final mask in
+nifti format. (c) The showcase of our level-set method iteraiton. The inside part of red
+contours will be resected in our approach.
+Step I: Noise-disturbed PolyhedronWe start by creating a geodesic polyhe-
+dron as a prototype for the initial contours of simulated post-operative tumours.
+Subsequently, we apply simplex noise to perturb the surface of the polyhedron
+in order to simulate the surgical resection process and the resulting residual cav-
+ity more accurately, introducing a perturbed sphere by radially displacing each
+vertex. The final volume is obtained through random affine transformations, so
+the final volume is:eV = T (V, Zs)
+Step II: Level-set MethodThe active contour model, initially proposed by
+Kass et al.[19] In 1988, image segmentation was transformed into a problem of
+solving the extremum of an energy function by constructing an energy function.
+However, early implementation, like the snake model[20], exhibits several limita-
+tions, including sensitivity to the initial position, susceptibility to local extrema,
+inability to converge to concave contours deeply, and the lack of automatic topol-
+ogy transformation capabilities.
+We incorporate the Level Set Method, a numerical technique for tracking
+contour and surface movements, to further control the volume of residual tu-
+mors, thereby simulating varying degrees of surgical resection among different
+physicians. The grayscale information of image pixels is utilized as energy to con-
+struct an energy function. This function controls the grayscale values inside and
+outside the curve, thereby facilitating the evolution of the curve. The equation
+is eq(4).
+6 Anonymized Author et al.
+Here I(x, y) represents the grayscale value of the original image at the co-
+ordinate (x, y), while c1 and c2 denote the mean grayscale values of the image
+regions inside and outside the curve, respectively. When the curve evolves to
+the target contour, Ec reaches its minimum value, and energy conservation is
+maintained both inside and outside. By adding some regularization terms toEc
+, an energy functional is obtained in eq(5).
+Ec =
+Z Z
+|I(x, y) − c1|2 dx dy
+Z Z
+|I(x, y) − c2|2 dx dy (1)
+E = µLength(C) + νArea(C) + Ec (2)
+∂
+∂t = δ(ϕ)
+
+µdiv
+ ∇u
+|∇u|
+
+− v − λ1(I − c1)2λ2(I − c2)2
+
+(3)
+Therefore, during the iteration process, we can obtain the level set functionϕand
+energy functionE for each iteration. In this paper, to obtain the excision cavity,
+we initiate from the edge of the foreground portion of the mask and iteratively
+search for the desired contour (E), which ultimately serves as the boundary of
+the excision cavity. The Fig.2. show five iterations of one slice of the mask with
+contours generated by the Level Set Method. Then, we obtained the preliminary
+mask. However, the level set-based method will retain the outermost tumor,
+which is inconsistent with the surgical resection strategy. Next, we will perform
+post-processing on the mask. The post-processing steps are relatively simple.
+We split each slice of the mask obtained in the previous step area by area and
+then select the regions we want to set to 0. The remaining areas are the final
+simulated residual tumors. We have provided the simulated residual tumor data
+to the neurosurgeon for evaluation, which has met the standard.
+2.3 Training Process
+The training process is shown in Algorithm 1. At each stage, we train our seg-
+mentor f (•) as follows: Let input simulated imageXi and label Yi , the prompt
+p = ( a, b, c| l) ,where a, b, c ∈ 0, 1, . . . , N− 1 and l ∈ {0, 1}, which
+represents foreground or background, the output is:Yo = f (Xi, p). In the train-
+ing process, we employ a segmentation loss in conjunction with a specifically
+designed gray-scale threshold loss function for supervision. As illustrated below,
+the segmentation loss is a weighted sum of the standard dice and cross-entropy
+losses. Here we chooseλ = 0.5 in eq(4).
+Moreover, in the third stage of hard data learning, the gray-scale threshold
+loss we designed calculates the mean squared error of the tumor gray-scale values
+within the ground truth tumor region and the predicted tumor region based on
+the initial given prompt pointsp0. So let grayscale calculatorG(•), predicted
+tumor regionRo and ground truth tumor regionRi calculated in eq(5). The used
+segmentor is a pre-trained SAM-Med 3D model.
+Lseg = λLdice + (1 − λ)Lentropy (4)
+Lth = M SE
+  ¯G (Ri) , ¯G (Ro)
+
+(5)
+MSCL 7
+Algorithm 1MSCL Training Process
+Require: D: Training Dataset;C∗(∗ = 1, 2, ....n): Difficulty Measurers
+Ensure: f ∗: the final model
+1: D′ = sort(D, C∗)
+2: {D1, D2, . . . , Dk} = D′ where C∗(da) < C∗(db), da ∈ Di, db ∈ Dj, ∀i < j
+3: Dtrain = ∅
+4: for s = 1 to k do
+5: Dtrain ← Dtrain ∪ D
+6: while not converged do
+7: train (f, Dtrain)
+8: end while
+9: end for
+3 Experiments
+3.1 Datasets and Implementation Details
+Brats2022 (1261 cases) and 2024 (1350 cases) are two public datasets. RHUH
+and ReMIND are two small-sample public datasets, which we use 40 and 29
+cases separately. Notably, the ReMIND dataset does not include post-operative
+data for all patients, and some tumors are not gliomas. Hence, the numbers
+displayed in the table represent the filtered quantities after such considerations.
+Moreover, the in-house dataset (60 cases) is from our local hospital.Here, we use
+pre-operative data to simulate post-operative data for data simulation in the
+third stage of our curriculumn learning systemand fine-tune the segment with
+them. Then, post-operative data is for validation.
+We used PyTorch for experiments on two Tesla v100 GPUs with an In-
+tel Xeon Gold 6230 processor on Linux. Our backbone was the SAM-Med 3D
+model. MRI images were preprocessed with normalization, intensity correction,
+and skull stripping, then transformed and resized to 128×128×128 using Tor-
+chIO. Training used a batch size of 1, learning rate of 8e-4, weight decay of 0.1,
+for 200 epochs.
+3.2 Results
+Comparison with State-of-the-art Methods We compared several state-
+of-the-art methods, including CNN-based, transformer-based, and foundation
+models, on three datasets. The results are presented in Table 2 below, and our
+approach outperforms traditional CNN based methods such as U-Net in terms
+of performance. As to nnU-Net and nnFormer, which are known as solid models,
+results of our model are also better than those.
+8 Anonymized Author et al.
+Fig. 3.Visualizationofdifferentstate-of-artmethodsandourmethodinthreedatasets.
+T able 1. Results of different state-of-art methods with different datasets and metrics
+reached. DSC represents dice similarity coeeficient, IOU represents intersection over
+union and HD represents hausdorff distance.
+Methods Brats2024 RHUH ReMIND In-house
+DSC IoU HD DSC IoU HD DSC IoU HD DSC IoU HD
+U-Net 51.9 40.1 23.8 24.9 17.7 56.4 48.1 35.6 39.1 50.8 34.1 26.1
+U-Net 3+ 46.9 35.3 29.9 22.3 14.4 61.1 36.2 23.3 52.3 40.3 25.2 21.2
+DeepResU-Net 46.5 35.2 22.9 18.7 12.9 70.3 47.2 34.4 41.8 66.4 49.7 29.9
+nnU-Net 72.8 58.9 18.6 66.0 51.4 47.3 60.9 44.6 18.9 78.3 72.8 22.8
+nnFormer 72.8 58.5 18.8 68.3 53.3 43.8 49.0 34.0 38.8 84.0 72.4 21.9
+SAM-Med 3D 73.1 57.1 16.6 49.6 33.2 15.5 67.2 51.5 19.6 69.8 53.6 16.2
+Ours 84.5 62.3 15.6 76.1 61.5 12.6 75.4 60.6 14.9 84.0 71.6 12.5
+T able 2. Ablation study of critical modules in our proposed method and their seg-
+mentation performances.
+Baseline CL Phase Threshold LossBrats2024 RHUH ReMIND In-house
+DSC IoU HD DSC IoU HD DSC IoU HD DSC IoU HD
+✓ - - 60.1 43.3 18.7 37.2 19.7 35.5 45.4 29.7 49.4 64.5 47.6 28.6
+✓ - ✓ 73.1 57.1 16.6 49.6 33.2 15.5 67.2 51.5 21.8 69.8 53.6 16.2
+✓ ✓ - 74.4 60.5 16.9 75.4 60.1 18.3 74.3 59.1 27.0 83.4 71.5 12.8
+✓ ✓ ✓ 84.5 62.3 15.6 76.1 61.5 12.6 75.4 60.6 27.0 84.0 71.6 12.5
+Ablation Study on Modules EmployedWe conducted an ablation study on
+different modules employed in the segmentation task. We explored various com-
+binations of experimental conditions: a) baseline: directly SAM-Med 3D model
+test; b) using our curriculumn learning strategy; c) gray-scale threshold loss
+function. The results are obtained in the following table. Based on the results
+obtained from the ablation experiments, it can be concluded that compared to
+directly testing on the SAM-Med3d model,using curriculumn learning strategy
+leads to a big improvement (38.2%, 28.9% and 18.9% in three datasets) in terms
+of DSC, IoU and HD, indicating that our simluation data is a key factor in
+MSCL 9
+improving segmentation performance. Furthermore, incorporating our designed
+loss function further enhances the metrics.
+4 Conclusion
+In this paper, we mainly address the issues of limited data and high annota-
+tion costs by proposing multi-stage curriculumn learning models that enable the
+model to engage in continuous learning from preoperative to postoperative data,
+which preserves the dark knowledge acquired in previous tasks. In the first stage,
+we choose pre-operative gliomas from pubilc datasets for easy-data-learning; in
+the second stage, we choose data from the public postoperative dataset that yield
+a DSC of less than 0.5 when tested through the model training from the previous
+stage; Ultimately, we undertake target domain adaptation for background knowl-
+edge learning, introducing a novel simulation method, which leverages few-shot
+primary tumors from the target domain to emulate postoperative gliomas using
+level-set method, enhancing our dataset. We evaluated the proposed method on
+three public postoperative glioma datasets and one private dataset, achieving im-
+provements in DSC by 11.7%, 15.1%, 8.2%, and 14.2% compared to fine-tuning
+foundation model directly; 11.4%, 7.8%, 14.5% and 8.7% compared to state-of-
+the-art methods. These results underscore the effectiveness and robustness of the
+proposed approach in addressing the challenges associated with post-operative
+glioma segmentation.
+References
+1. Basta, Marguerite B., et al.: Automated Segmentation and Recurrence Risk Pre-
+diction of Surgically Resected Lung Tumors with Adaptive Convolutional Neural
+Networks. arXiv preprint arXiv:2209.08423 (2022)
+2. Helland, Ragnhild Holden, et al.: "Segmentation of glioblastomas in early post-
+operative multi-modal MRI with deep neural networks." Scientific reports 13.1
+(2023): 18897.
+3. Yao, Yuan, et al. "Unsupervised Domain Adaptation through Shape Modeling for
+Medical Image Segmentation." International Conference on Medical Imaging with
+Deep Learning. PMLR (2022).
+4. Kirillov, Alexander, et al. "Segment anything." arXiv preprint arXiv:2304.02643
+(2023).
+5. Wang, Haoyu, et al. "Sam-med3d." arXiv preprint arXiv:2310.15161 (2023).
+6. Beiko, Jason, et al. "IDH1 mutant malignant astrocytomas are more amenable to
+surgical resection and have a survival benefit associated with maximal surgical re-
+section." Neuro-oncology 16.1 (2014): 81-91.
+7. Stein, Josh, Maxime Di Folco, and Julia A. Schnabel. "Influence of Prompting
+Strategies on Segment Anything Model (SAM) for Short-axis Cardiac MRI Seg-
+mentation." BVM Workshop. Wiesbaden: Springer Fachmedien Wiesbaden (2024).
+8. Mazurowski, Maciej A., et al. "Segment anything model for medical image analysis:
+an experimental study." Medical Image Analysis 89 (2023): 102918.
+10 Anonymized Author et al.
+9. Zhang, Yichi, Zhenrong Shen, and Rushi Jiao. "Segment anything model for medi-
+cal image segmentation: Current applications and future directions." Computers in
+Biology and Medicine (2024): 108238.
+10. Ma, Jun, et al. "Segment anything in medical images." Nature Communications
+15.1 (2024): 654.
+11. Sathish, Rachana, et al. "Task-Driven Prompt Evolution for Foundation Models."
+International Conference on Medical Image Computing and Computer-Assisted In-
+tervention. Cham: Springer Nature Switzerland (2023).
+12. Cheng, Junlong, et al. "Sam-med2d." arXiv preprint arXiv:2308.16184 (2023).
+13. Ermiş, Ekin, et al. "Fully automated brain resection cavity delineation for radiation
+target volume definition in glioblastoma patients using deep learning." Radiation
+oncology 15.1 (2020): 1-10.
+14. Pérez-García, Fernando, et al. "Simulation of brain resection for cavity segmenta-
+tion using self-supervised and semi-supervised learning." Medical Image Computing
+and Computer Assisted Intervention–MICCAI 2020: 23rd International Conference,
+Lima, Peru, October 4–8, 2020, Proceedings, Part III 23. Springer International
+Publishing (2020).
+15. Pérez-García, Fernando, et al. "A self-supervised learning strategy for post-
+operative brain cavity segmentation simulating resections." International Journal
+of Computer Assisted Radiology and Surgery 16 (2021): 1653-1661.
+16. T. A. Soomro et al., "Image Segmentation for MR Brain Tumor Detection Using
+Machine Learning: A Review," in IEEE Reviews in Biomedical Engineering, vol. 16,
+pp. 70-90, (2023).
+17. O. Ronneberger, P. Fischer, and T. Brox, "U-Net: Convolutional networks for
+biomedicalimagesegmentation,"inProc.MedicalImageComputingandComputer
+Assistant Intervention, (2015) pp. 234–241.
+18. KASS,M. snake Active contour models[J]. Proc.first Intl Conf.computer Vision,
+1988, 4.
+19. Caselles V . Geometric models for active contours[C]// International Conference
+on Image Processing. IEEE Computer Society, 1995.
+20. Santiago Cepeda, Sergio García-García, Ignacio Arrese, Francisco Herrero,
+Trinidad Escudero, Tomás Zamora, Rosario Sarabia, The Río Hortega University
+Hospital Glioblastoma dataset: A comprehensive collection of pre-operative, early
+post-operative and recurrence MRI scans (RHUH-GBM), Data in Brief, Volume 50,
+2023, 109617, ISSN 2352-3409. https://doi.org/10.1016/j.dib.2023.109617.
+21. Juvekar, P., Dorent, R., Kögl, F., Torio, E., Barr, C., Rigolo, L., Galvin, C., Jowkar,
+N., Kazi, A., Haouchine, N., Cheema, H., Navab, N., Pieper, S., Wells, W. M., Bi,
+W. L., Golby, A., Frisken, S., & Kapur, T. (2023). The Brain Resection Multimodal
+Imaging Database (ReMIND) (Version 1) [dataset]. The Cancer Imaging Archive.
+https://doi.org/10.7937/3RAG-D070.

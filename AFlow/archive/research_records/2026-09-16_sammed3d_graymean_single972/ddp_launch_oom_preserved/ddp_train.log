@@ -1,0 +1,161 @@
+NCCL version 2.26.2+cuda12.2
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py", line 118, in <module>
+[rank0]:     else:train(a.batch)
+[rank0]:          ^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py", line 90, in train
+[rank0]:     value=step(ddp,opt,scaler,batch['image'].to(device,non_blocking=True),batch['label'].to(device,non_blocking=True));n=len(batch['case_id'])*2;samples+=n;totals.append((n,value))
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py", line 32, in step
+[rank0]:     with torch.amp.autocast('cuda',dtype=torch.float16):loss,gray=ddp(image,target)
+[rank0]:                                                                   ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1637, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1464, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py", line 15, in forward
+[rank0]:     _,loss,_=upstream.upstream_train_interaction(model=self.sam,image=image,target=target,loss_fn=loss_fn)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_t1ce_wt_upstream_literal_va.py", line 261, in upstream_train_interaction
+[rank0]:     image_embedding = model.image_encoder(image)
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/third_party/SAM-Med3D/segment_anything/modeling/image_encoder3D.py", line 146, in forward
+[rank0]:     x = blk(x)
+[rank0]:         ^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/third_party/SAM-Med3D/segment_anything/modeling/image_encoder3D.py", line 209, in forward
+[rank0]:     x = self.attn(x)
+[rank0]:         ^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/third_party/SAM-Med3D/segment_anything/modeling/image_encoder3D.py", line 267, in forward
+[rank0]:     attn = (q * self.scale) @ k.transpose(-2, -1)
+[rank0]:            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 690.00 MiB. GPU 0 has a total capacity of 39.39 GiB of which 556.81 MiB is free. Process 2930104 has 26.35 GiB memory in use. Process 3032271 has 12.48 GiB memory in use. Of the allocated memory 10.87 GiB is allocated by PyTorch, and 512.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py", line 118, in <module>
+[rank1]:     else:train(a.batch)
+[rank1]:          ^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py", line 90, in train
+[rank1]:     value=step(ddp,opt,scaler,batch['image'].to(device,non_blocking=True),batch['label'].to(device,non_blocking=True));n=len(batch['case_id'])*2;samples+=n;totals.append((n,value))
+[rank1]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py", line 32, in step
+[rank1]:     with torch.amp.autocast('cuda',dtype=torch.float16):loss,gray=ddp(image,target)
+[rank1]:                                                                   ^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1637, in forward
+[rank1]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank1]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1464, in _run_ddp_forward
+[rank1]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py", line 15, in forward
+[rank1]:     _,loss,_=upstream.upstream_train_interaction(model=self.sam,image=image,target=target,loss_fn=loss_fn)
+[rank1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_t1ce_wt_upstream_literal_va.py", line 261, in upstream_train_interaction
+[rank1]:     image_embedding = model.image_encoder(image)
+[rank1]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/third_party/SAM-Med3D/segment_anything/modeling/image_encoder3D.py", line 146, in forward
+[rank1]:     x = blk(x)
+[rank1]:         ^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/third_party/SAM-Med3D/segment_anything/modeling/image_encoder3D.py", line 209, in forward
+[rank1]:     x = self.attn(x)
+[rank1]:         ^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/third_party/SAM-Med3D/segment_anything/modeling/image_encoder3D.py", line 267, in forward
+[rank1]:     attn = (q * self.scale) @ k.transpose(-2, -1)
+[rank1]:            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 690.00 MiB. GPU 1 has a total capacity of 39.39 GiB of which 556.81 MiB is free. Process 2930105 has 26.35 GiB memory in use. Process 3032278 has 12.48 GiB memory in use. Of the allocated memory 10.87 GiB is allocated by PyTorch, and 514.96 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]:[W916 14:22:56.488992447 ProcessGroupNCCL.cpp:1479] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0916 14:22:57.980000 7932 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 7941 closing signal SIGTERM
+E0916 14:22:58.244000 7932 torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 1 (pid: 7942) of binary: /mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/run.py", line 896, in <module>
+    main()
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train_sammed3d_single972_ddp.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-16_14:22:57
+  host      : trial-303166378-trialrun-303166378-worker-0
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 7942)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

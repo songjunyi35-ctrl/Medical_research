@@ -1,0 +1,73 @@
+{
+  "updated_at": "2026-10-10T16:13:08.693332+08:00",
+  "status": "completed200",
+  "last_complete_epoch": 200,
+  "completed_updates": 24400,
+  "best_epoch": 175,
+  "best_validation": {
+    "cases": 108,
+    "subjects": 50,
+    "locator_dsc_mean": 0.7460770391755633,
+    "locator_dsc_median": 0.7987114489078522,
+    "locator_dsc_std_population": 0.17435061944912147,
+    "locator_subject_dsc_mean": 0.7344573587604931,
+    "automatic_point_hit_rate": 0.9074074074074074,
+    "epoch": 175,
+    "created_utc": "2026-10-10T07:43:15.439927+00:00",
+    "role": "reused fixed validation108/50",
+    "grid": "native 1mm image-only brain crop (canvas padding excluded)",
+    "threshold_raw_logit": 0,
+    "test_access": false
+  },
+  "paired_current_multiscale166_to_candidate": {
+    "scan_delta": -0.0070150940230599155,
+    "subject_delta": -0.0052113595179149085,
+    "scan_delta_ci95": [
+      -0.023859581175128635,
+      0.0032029877574938624
+    ],
+    "subject_delta_ci95": [
+      -0.01795796925006878,
+      0.003979781196585715
+    ],
+    "point_hits_delta": 4,
+    "improved_scans": 48,
+    "worse_scans": 60,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient cluster paired percentile95 seed20260918"
+  },
+  "paired_fixed_pure193_native_to_candidate": {
+    "scan_delta": 0.0033958529432614646,
+    "subject_delta": 0.0006724140899521966,
+    "scan_delta_ci95": [
+      -0.008053710757591502,
+      0.012388155693246151
+    ],
+    "subject_delta_ci95": [
+      -0.008841977107382956,
+      0.009041114865669176
+    ],
+    "point_hits_delta": 0,
+    "improved_scans": 70,
+    "worse_scans": 38,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient cluster paired percentile95 seed20260918"
+  },
+  "promotion_gate_passed": false,
+  "target_scan": 0.7630921331986233,
+  "point_floor": 94,
+  "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/valid_region_20261010/best.pth",
+  "checkpoint_sha256": "4fcc2b5ebe178502de9d15f30f1eb03f6767152db6885d5dbed8f107df84b127",
+  "selected_validation_report_sha256": "da0d96c7ccc449baa72a167a87677726a94c87d87026f9c5e49333bd62956e06",
+  "source_pretrain_sha256": "3726eac66918b7afd32ae93500a554534d27528bc86a0fe9dd2a626ce5ac6b76",
+  "data_audit_sha256": "1871c65be72b088690b0c97682c3b4183a238065864f436ecfe41864e1bc6e3d",
+  "gpu_smoke_sha256": "b38505fd41587c952385ca95eb57d6e3c5b52126b96553bf1911fda83b59be7a",
+  "reload_check_sha256": "a4de0172263d836b4e381b1d8fead51c5e0214f8343200ad0cad35ab221a7e0d",
+  "test_tuned_development": true,
+  "new_test_model_forward": false,
+  "new_outer_confirmation_access": false,
+  "worker": 1127648,
+  "research_change": "valid-region main/auxiliary loss support only",
+  "no_score_based_epoch50_budget_stop": true,
+  "auxiliary_heads_discarded_for_deployment": true
+}

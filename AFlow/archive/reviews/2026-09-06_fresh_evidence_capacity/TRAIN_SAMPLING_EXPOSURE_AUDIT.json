@@ -1,0 +1,23 @@
+{
+  "schema": "aflow.train972.native_volume_sampling_exposure_audit",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T03:14:00Z",
+  "status": "train_only_formula_audit_no_new_method_or_metric",
+  "source_native_volume_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+  "cases": 972,
+  "effective_draws_per_epoch": 968,
+  "formula": "clip(sqrt(median_native_WT/native_WT_i),0.5,4.0), normalized for replacement sampling",
+  "median_native_wt_voxels": 41842.0,
+  "weight_min_max_ratio": 8.0,
+  "native_volume_quartiles": [
+    {"quartile": 1, "cases": 243, "volume_min_median_max": [294.0,12467.0,19516.0], "sampling_probability_mass": 0.4398901362413466, "expected_draws_per_epoch_group": 425.8136518816235, "expected_draws_per_case_epoch": 1.7523195550684094, "mean_probability_case_not_drawn_in_epoch": 0.1949255593791896},
+    {"quartile": 2, "cases": 243, "volume_min_median_max": [19516.0,29906.0,41815.0], "sampling_probability_mass": 0.2536828350612814, "expected_draws_per_epoch_group": 245.5649843393204, "expected_draws_per_case_epoch": 1.0105554911083143, "mean_probability_case_not_drawn_in_epoch": 0.3661841961001291},
+    {"quartile": 3, "cases": 243, "volume_min_median_max": [41869.0,59492.0,80640.0], "sampling_probability_mass": 0.17949891398436058, "expected_draws_per_epoch_group": 173.75494873686102, "expected_draws_per_case_epoch": 0.7150409413039548, "mean_probability_case_not_drawn_in_epoch": 0.49031293201598974},
+    {"quartile": 4, "cases": 243, "volume_min_median_max": [81194.0,117165.0,327711.0], "sampling_probability_mass": 0.12692811471301157, "expected_draws_per_epoch_group": 122.8664150421952, "expected_draws_per_case_epoch": 0.5056231071695275, "mean_probability_case_not_drawn_in_epoch": 0.6042013642193207}
+  ],
+  "upper_tails": {"above_p90": {"cases": 98, "probability_mass": 0.04469342217848184, "expected_draws_per_case_epoch": 0.4414615578445961}, "above_p95": {"cases": 49, "probability_mass": 0.021438833126178697, "expected_draws_per_case_epoch": 0.42352633604369344}, "above_p99": {"cases": 10, "probability_mass": 0.004373412220731829, "expected_draws_per_case_epoch": 0.42334630296684106}},
+  "interpretation": "the frozen sampler intentionally oversamples small WT and underexposes large WT per epoch, consistent with its historical Point-recovery goal. This may align with Africa95 absolute large-WT under-segmentation, but both compared checkpoints use native-volume sampling and cohort/target scales differ; it does not explain their causal difference or authorize reweighting.",
+  "image_label_or_model_access": false,
+  "validation_test_or_external_metric_access": false,
+  "new_method_proposed": false
+}

@@ -1,0 +1,11 @@
+# 精确体积占比target预注册
+
+IDEA.md七问全部参数/门构成本协议。唯一candidate arm=fractional_occupancy；seed2026090711/12；控制为structured_background_aux_20260907两control固定168轮，checkpoint SHA分别fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e、5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43。原raw SHA80e9bd449d7c72a61de0ecdbdfbc5bb3a61814e7770bbcc1c983ac097b4cd2c6。
+
+先写CACHE_PREACCESS：绑定IDEA/PREREG、area积分实现/合成测试/builder、fit/dev/index/source AUX receipt和684个原生标签SHA。生成/tmp/aflow-fractional-occupancy-20260910/targets.f16，存float16，固定fit manifest顺序，无重建图像。CACHE_RECEIPT应包含byte数、文件/index SHA、所有case质量/硬cache parity、原生label SHA、max/min/soft/hard体积和失败访问记录。禁止覆盖原cache或原标签。
+
+正式训练代码/CPU与GPU smoke/缓存与control报告SHA全部另冻结到IMPLEMENTATION_FREEZE/TRAIN_PREACCESS，条件为前一方法关闭和时间预算准入。新增入口覆盖dataset，旧hash-bound engine不改。RC辅助系数0，其旧标签仍可复用，不新增辅助loss。数据角色永久保持本方法fit684/313和reuseddev180/78，teacher=[]。
+
+训练完成双seed后单次DEV_PREACCESS绑定checkpoint、报告、168轮sampler/RNG与初值配对、评测实现。固定180×2=360forwards；保存病例Dice/Point坐标与命中/交并计数；10k簇bootstrap seeds2026091081/82。只全部科学/工程门过，且本session尚无test panel、时间足够时，事前固定seed11一次test270（control/candidate×identity/Flip8）才有资格另冻结，不按dev挑seed。test仍旧128³硬标签；最大4320forwards，identity复用第一个镜像atom。
+
+所有失败完整归档，当前hand off/catalog更新；test若运行，两榜均更新。工作总截止2026-09-10 11:28:19 UTC，不能延长训练轮次外加超时运行来假装8小时内完成。

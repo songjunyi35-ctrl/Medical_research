@@ -1,0 +1,45 @@
+{
+  "amendment_sha256": "124f319cebb3b37d542603da53adcb1bda8ab90e2b19573798c09c79efe30813",
+  "arm": "kas",
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-20T07:04:43.801292+00:00",
+  "data_role": {
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "cases": 756,
+    "subjects": 346,
+    "train": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+      "sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16"
+    }
+  },
+  "hyperparameters": {
+    "arm": "kas",
+    "batch_size": 8,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "continuation_epochs": 32,
+    "device": "cuda:0",
+    "implementation_receipt": "archive/research_records/2026-08-20_iad_kas_assimilation/IMPLEMENTATION_RECEIPT.json",
+    "initial_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/kd_seed20260846/plain_128_kd_global_epoch200.pth",
+    "lr": 1e-05,
+    "max_shift": 8,
+    "mode": "formal",
+    "num_workers": 4,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/kas_seed20260860",
+    "preregistration": "archive/research_records/2026-08-20_iad_kas_assimilation/PREREG.json",
+    "preregistration_amendment": "archive/research_records/2026-08-20_iad_kas_assimilation/AMENDMENT_001_PRE_IMPLEMENTATION.json",
+    "seed": 20260860,
+    "start_global_epoch": 200,
+    "train_case_ids": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "weight_decay": 1e-05
+  },
+  "implementation_receipt_sha256": "ebfb63681f159a9e8eeb18f1cd03c284830ef31dd89d51dd304fd1a73946253c",
+  "initial_student_state_sha256": "90e344496af0c848365e1b4f8ba83da1d2c7288413587df5ed0313a3e1513778",
+  "outer_selector_access": false,
+  "preregistration_sha256": "af4946913b31de2148ec11ecdf739823fcd31d2b0fff025ff19c346340b0edb0",
+  "runner_sha256": "289168d96d3494449d9b822513fd759c69aff1b4d1c502fc59b114c1cde62ea8",
+  "schema": "aflow.sammed3d.t1ce_wt_plain_iad_kas_continuation",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step",
+  "test_access": false,
+  "validation_access": false
+}

@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-09-07T06:49:39.793132+00:00",
+  "finalizer_sha256": "e2189ad1d6e3f53a19c91731ec113654bc9b0d011f7ac24f93d918e6e20d7339",
+  "first_pair": {
+    "candidate": {
+      "cmdline": "../sammed3d-venv/bin/python -u -m scripts.train_structured_background_aux --seed 2026090711 --arm candidate --device cuda:1 ",
+      "pid": 773051,
+      "start_ticks": "778161721"
+    },
+    "control": {
+      "cmdline": "../sammed3d-venv/bin/python -u -m scripts.train_structured_background_aux --seed 2026090711 --arm control --device cuda:0 ",
+      "pid": 772686,
+      "start_ticks": "778160387"
+    }
+  },
+  "implementation_freeze_sha256": "f29b7e9d8eb575cf97f6a49d7360ab9c8ab0a0197ab6859c917bb86994cb41ff",
+  "second_seed": 2026090712,
+  "supervisor_pid": 775932,
+  "supervisor_sha256": "4215a02a818d7fef0c5157ed320d46005a16cb7d04b11f36182223363d492b3d",
+  "workflow": [
+    "wait_first_pair_success",
+    "run_second_pair",
+    "verify_four_and_evaluate_dev",
+    "finalize_saved_counts"
+  ]
+}

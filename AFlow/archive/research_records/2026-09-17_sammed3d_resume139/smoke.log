@@ -1,0 +1,37 @@
+NCCL version 2.26.2+cuda12.2
+[{"rank": 0, "batch_per_gpu": 4, "world_size": 2, "steps": [{"loss": 0.11359745264053345, "gray": 0.007505366578698158, "grad_norm": 3.5804437008269208, "amp_retries": 0, "amp_scale": 128.0}, {"loss": 6.12440299987793, "gray": 0.00012486614286899567, "grad_norm": 135.58191949592222, "amp_retries": 0, "amp_scale": 128.0}, {"loss": 0.8606780767440796, "gray": 2.025966296059778e-06, "grad_norm": 14.746113970598415, "amp_retries": 0, "amp_scale": 128.0}], "seconds": 3.76757425814867, "encoder_change": 0.0024252161383628845, "max_parameter_difference": 0.0, "peak_allocated_bytes": 24081039360, "peak_reserved_bytes": 27063746560, "data_access": false}, {"rank": 1, "batch_per_gpu": 4, "world_size": 2, "steps": [{"loss": 0.11359745264053345, "gray": 0.007505366578698158, "grad_norm": 3.5804437008269208, "amp_retries": 0, "amp_scale": 128.0}, {"loss": 6.12440299987793, "gray": 0.00012486614286899567, "grad_norm": 135.58191949592222, "amp_retries": 0, "amp_scale": 128.0}, {"loss": 0.8606780767440796, "gray": 2.025966296059778e-06, "grad_norm": 14.746113970598415, "amp_retries": 0, "amp_scale": 128.0}], "seconds": 3.7675562240183353, "encoder_change": 0.0024252161383628845, "max_parameter_difference": 0.0, "peak_allocated_bytes": 24081039360, "peak_reserved_bytes": 27063746560, "data_access": false}]
+W0917 02:34:42.897000 623 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 628 closing signal SIGTERM
+E0917 02:34:43.162000 623 torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: -15) local_rank: 1 (pid: 629) of binary: /mlx_devbox/users/songjunyi.666/playground/AFlow/../sammed3d-venv/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/run.py", line 896, in <module>
+    main()
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+=========================================================
+scripts/train_sammed3d_single972_resume139.py FAILED
+---------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+---------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-17_02:34:42
+  host      : trial-303178222-trialrun-303178222-worker-0
+  rank      : 1 (local_rank: 1)
+  exitcode  : -15 (pid: 629)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 629
+=========================================================

@@ -1,0 +1,28 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_batch_cvar50_implementation_amendment",
+  "schema_version": 1,
+  "amendment_id": "004_restore_legacy_autocast_semantics_after_gpu_parity_failure",
+  "timing": "after v1 paired smoke, before formal training or new method validation access",
+  "observed_v1_uniform_parity": {
+    "loss_absolute_difference": 0.0003351569175720215,
+    "raw_logit_gradient_max_absolute_difference": 2.2351741790771484e-8,
+    "frozen_tolerance": 1e-7,
+    "gate_passed": false
+  },
+  "root_cause": "historical DiceCELoss is computed inside CUDA bfloat16 autocast; v1 per-draw helper explicitly cast logits to float32 outside autocast",
+  "train_batch_diagnostic": {
+    "same_autocast_per_draw_variant_loss_difference": 0.0,
+    "same_autocast_per_draw_variant_raw_logit_gradient_max_difference": 0.0,
+    "per_sample_loop_loss_difference": 2.9802322387695312e-8,
+    "validation_access": false,
+    "test_access": false
+  },
+  "fix": "evaluate per-draw Dice and BCE inside the same CUDA bfloat16 autocast context as legacy DiceCELoss; do not force logits to float32 before those operations; cast resulting per-draw scalars to float32",
+  "scientific_factor_changed": false,
+  "aggregation_changed": false,
+  "formal_optimizer_steps_before_fix": 0,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

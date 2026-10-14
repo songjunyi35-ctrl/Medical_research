@@ -1,0 +1,73 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_hard_ml1ace_preregistration_amendment",
+  "schema_version": 1,
+  "amendment": 1,
+  "timing": "before loss/model implementation, synthetic tests, GPU smoke, formal training, or new validation access",
+  "reason": "freeze exact optimizer/loader pairing, vectorized hard-bin algorithm, calibration aggregation, bootstrap and checkpoint contracts",
+  "parent_hashes": {
+    "idea_sha256": "189c7483f6944ecdcdd41c784ec409b776807f27d50b3470f2f83222b97043de",
+    "preregistration_sha256": "c279d8f17aaa935a626addfe8970acd8c8388708b285d14bb279ddd25d5bed08"
+  },
+  "loss_exact_contract": {
+    "logits": "cast raw logits to float32, then sigmoid",
+    "boundaries": "torch.linspace(0,1+torch.finfo(torch.float32).eps,21,device=probability.device,dtype=float32)",
+    "assignment": "torch.bucketize(probability.detach(),boundaries[1:],right=false); exact boundary goes to lower bin",
+    "vectorization": "flatten BxN probabilities/labels; add batch_index*20 to bin indices; bincount for counts and scatter_add for sum_probability/sum_target",
+    "gradient": "bin index detached; sum_probability uses attached probability; no detach elsewhere",
+    "occupied": "counts>0; per-case ACE nan/boolean mean only occupied bins",
+    "empty_target": "if target foreground sum is zero, set that case ACE to zero but retain it in batch mean",
+    "batch_reduction": "equal mean over eight case ACE values",
+    "prohibited": ["floor(probability*20)", "B-by-20-by-volume membership tensor", "detaching probability sums"]
+  },
+  "optimizer_loader_contract": {
+    "checkpoint": "load KD200 model state only; no historical optimizer state",
+    "optimizer": "AdamW single ordered student parameter group,lr1e-5,weight_decay1e-5,betas[0.9,0.999],eps1e-8,amsgrad=false,maximize=false,foreach=false,fused=false,capturable=false",
+    "zero_grad": "set_to_none=true",
+    "clip": "global student norm5",
+    "supervised": "MONAI DiceCELoss(sigmoid=true,squared_pred=false,lambda_dice1,lambda_ce0.1)",
+    "loader": "num_workers4,pin_memory=true,persistent_workers=true,drop_last=true,94steps/epoch",
+    "determinism": "cudnn benchmark=false,deterministic=true; reset Python/NumPy/CPU/CUDA RNG20260860 after model/loss/optimizer/loader construction"
+  },
+  "paired_reference": {
+    "control_training_report": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/control_seed20260860/TRAIN_DONE.json",
+    "control_training_report_sha256": "ce987642413fbf86ccbb45ec263851b8a12cfbec6f21d2325521529b583c6392",
+    "control_pairing_receipt": "archive/research_records/2026-08-20_iad_kas_assimilation/PAIRING_RECEIPT.json",
+    "control_pairing_receipt_sha256": "cc8e21276f3e5a29ff472aa68e2ddb0e11b8b56e497a4f1db6a084806cd83856",
+    "required": "initial state,first batch case/raw/aug image/raw/aug label,and all201-232 case-order/CUDA RNG before/after hashes exactly equal"
+  },
+  "calibration_evaluation": {
+    "input": "sigmoid raw foreground logit,20 hard bins,right=false,no threshold",
+    "per_case_stats": "for each bin store count,sum_probability,sum_target,mean_probability,mean_target,occupied",
+    "macro_ace": "occupied-bin mean absolute gap per case,then108-case equal mean",
+    "macro_ece": "count-weighted absolute gap per case,then108-case equal mean",
+    "macro_mce": "maximum occupied-bin absolute gap per case,then108-case equal mean",
+    "official_micro_ace": "per-bin mean_probability nanmean across cases; mean_target=sum_target/sum_count across cases; occupied-bin mean absolute gap",
+    "pooled_voxel_ace": "per-bin sum_probability/sum_count and sum_target/sum_count; occupied-bin mean absolute gap; supplemental only",
+    "selection": "none of these metrics may choose checkpoint; KAS/hACE checkpoint selection remains Scan Dice only"
+  },
+  "paired_bootstrap": {
+    "samples": 10000,
+    "method": "paired percentile with numpy.random.default_rng",
+    "hace_vs_control_seg_seeds": {"208": 20260930, "216": 20260931, "224": 20260932, "232": 20260933},
+    "hace_vs_kd200_seg_seeds": {"208": 20260934, "216": 20260935, "224": 20260936, "232": 20260937},
+    "hace_vs_control_macro_ace_seeds": {"208": 20260938, "216": 20260939, "224": 20260940, "232": 20260941},
+    "segmentation_units": "108 paired scans and50 pre-averaged subjects",
+    "macro_ace_unit": "108 paired per-case ACE deltas",
+    "additional_segmentation_safety": "paired Scan and Subject CI lower bounds must be >=-0.003 versus both same-epoch control and KD200"
+  },
+  "checkpoint_contract": {
+    "schema": "aflow.sammed3d.t1ce_wt_hard_ml1ace_checkpoint",
+    "files": "plain_128_hace_global_epoch{208,216,224,232}.pth",
+    "payload": "deploy model_state_dict plus loss/pairing/data/optimizer metadata; no auxiliary trainable state",
+    "reload": "all four strict reload and exact logits; deployment unchanged"
+  },
+  "source_boundaries": [
+    "official formula averages all M bins but code nanmeans occupied bins; project follows code",
+    "official foreground+background softmax is not strictly equivalent to single foreground sigmoid at exact bin boundaries; project freezes official one-channel behavior",
+    "source WT Dice declines0.0022 while WT macro ACE improves; calibration alone cannot authorize test"
+  ],
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

@@ -1,0 +1,46 @@
+{
+  "derived": "scripts/benchmark_case_parallel_replication24.py",
+  "derived_sha256": "4eb17e4521f364e138432fbdd64ec1b63ca14fd95205789e844123be516790bc",
+  "generator_sha256": "f6a0b3ff6e67320f656bb12b39971277309965a0e7bd00a50eace8ff1c2fba89",
+  "replacements": [
+    [
+      "2026-09-11_case_parallel_preprocessing'",
+      "2026-09-11_case_parallel_replication24'"
+    ],
+    [
+      "fit=p.rows(p.FIT)[:8]",
+      "all_fit=p.rows(p.FIT); excluded={r['subject_id'] for r in all_fit[:8]}; fit=[r for r in all_fit if r['subject_id'] not in excluded][:24]\n    assert len(fit)==24 and len({r['subject_id'] for r in fit})==12 and not excluded & {r['subject_id'] for r in fit}"
+    ],
+    [
+      "'scripts/benchmark_case_parallel_preprocessing.py'",
+      "'scripts/benchmark_case_parallel_replication24.py','scripts/create_case_parallel_replication24.py'"
+    ],
+    [
+      "'expected_forwards':280",
+      "'expected_forwards':792,'excluded_prior_subjects':sorted(excluded),'selected_subjects':12"
+    ],
+    [
+      "deadline=started+1200",
+      "deadline=started+2400"
+    ],
+    [
+      "'cases_per_second':8/outputs_done",
+      "'cases_per_second':24/outputs_done"
+    ],
+    [
+      "assert len(rows)==8",
+      "assert len(rows)==24"
+    ],
+    [
+      "assert calls[0]==280 and len(runs)==4 and len(baseline)==8",
+      "assert calls[0]==792 and len(runs)==4 and len(baseline)==24"
+    ],
+    [
+      "'input_exact':32,'output_exact':32",
+      "'input_exact':96,'output_exact':96"
+    ]
+  ],
+  "source": "scripts/benchmark_case_parallel_preprocessing.py",
+  "source_sha256": "473a18aec8b2e060587ba42370149034c1514b9341eb491040723c6757c7f668",
+  "source_unchanged": true
+}

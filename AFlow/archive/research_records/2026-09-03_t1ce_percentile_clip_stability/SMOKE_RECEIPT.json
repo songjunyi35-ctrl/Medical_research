@@ -1,0 +1,48 @@
+{
+  "schema": "aflow.brats.t1ce_percentile_clip_stability.smoke_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T16:10:46Z",
+  "status": "passed",
+  "scope": "replicate_a_two_steps_per_arm",
+  "pairing": {
+    "initial_state_exact": true,
+    "sampling_weight_exact": true,
+    "cache_labels_exact": true,
+    "cache_images_intentionally_different": true,
+    "first_augmented_label_exact": true,
+    "all_epoch_sampler_indices_exact": true,
+    "all_epoch_augmentation_rng_exact": true,
+    "epochs_compared": 1
+  },
+  "control": {
+    "first_batch_loss": 1.9163498878479004,
+    "elapsed_seconds": 2.4578404426574707,
+    "peak_gpu_memory_bytes": 21788258304,
+    "report_sha256": "e0f4b283099465cb7271f454ca3257cb751f673d654ba3eb51b631d0f18c59f2",
+    "checkpoint_sha256": "3b44c63e932b3afd8030dd3778a21fa11cd00446ba0f097341f4d0b4a2c1218a"
+  },
+  "candidate": {
+    "first_batch_loss": 1.9196412563323975,
+    "elapsed_seconds": 2.4956319332122803,
+    "peak_gpu_memory_bytes": 21788258304,
+    "report_sha256": "546af5ce32b0dd663823c3814e0aad0f4f94f6bc4b89adba30f39b5e7c5eaef5",
+    "checkpoint_sha256": "4420619292cabfb116142ba1705134a5b28c85c9e4cf6f3d5def2a512642fdfc"
+  },
+  "pre_model_sandbox_incident": {
+    "status": "environment_only_not_experiment_failure",
+    "reason": "restricted Python sandbox returned CUDA OS error 304 although nvidia-smi saw both GPUs",
+    "output_directories_created": false,
+    "optimizer_steps": 0,
+    "inner_access": false,
+    "resolution": "reran unchanged frozen commands in approved GPU-visible environment"
+  },
+  "access": {
+    "fit": true,
+    "inner_metrics": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

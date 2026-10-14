@@ -1,0 +1,48 @@
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_valid_region_multiscale_20261010.py", line 415, in <module>
+[rank0]:     {'smoke': smoke, 'train': train}[sys.argv[1]]()
+[rank0]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_valid_region_multiscale_20261010.py", line 214, in smoke
+[rank0]:     raise RuntimeError('bf16 all-ones equivalence failed')
+[rank0]: RuntimeError: bf16 all-ones equivalence failed
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_valid_region_multiscale_20261010.py", line 415, in <module>
+[rank1]:     {'smoke': smoke, 'train': train}[sys.argv[1]]()
+[rank1]:   File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_valid_region_multiscale_20261010.py", line 214, in smoke
+[rank1]:     raise RuntimeError('bf16 all-ones equivalence failed')
+[rank1]: RuntimeError: bf16 all-ones equivalence failed
+[rank0]:[W1010 03:39:53.045271316 ProcessGroupNCCL.cpp:1479] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1010 03:39:54.031000 506 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 510 closing signal SIGTERM
+E1010 03:39:54.245000 506 torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 1 (pid: 511) of binary: /mlx_devbox/users/songjunyi.666/playground/AFlow/../sammed3d-venv/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/run.py", line 896, in <module>
+    main()
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train_valid_region_multiscale_20261010.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-10-10_03:39:54
+  host      : trial-303598153-trialrun-303598153-worker-0
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 511)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -1,0 +1,81 @@
+{
+  "all_download_gates_passed": false,
+  "amendment_sha256": "38d47cd213ba6d4623e648f4f91e003b02508ce708f247db3978e7629c09253e",
+  "cohort_sha256": "8118827aa001dead98cc8cc1f6ee5a2fa9b797a6a8797329ba22f4766d669536",
+  "created_utc": "2026-09-05T15:50:43.735195+00:00",
+  "dicom": {
+    "expected_uncompressed_bytes": 21660158,
+    "extract_dir": "/tmp/aflow-remind-probe-20260905/dicom",
+    "response_headers": {
+      "Content-Disposition": "attachment; filename=\"1.3.6.1.4.1.14519.5.2.1.309430968157051488200208000420039817667.zip\"",
+      "Content-Type": "application/octet-stream"
+    },
+    "uncompressed_bytes": 21662944,
+    "zip_bytes": 8896341,
+    "zip_members": 193,
+    "zip_path": "/tmp/aflow-remind-probe-20260905/ReMIND-002-t1post.zip",
+    "zip_sha256": "f02b0bb6bbce214ff057f0944ce3ded6305ddcb774e321b89bdc3a488b26d599"
+  },
+  "model_inference": false,
+  "nrrd_repeat": {
+    "ReMIND-002-preop-SEG-cerebrum-MR-3D_AX_T1_postcontrast.nrrd": {
+      "bytes_a": 1947370,
+      "bytes_b": null,
+      "expected_browse_bytes": 1947370,
+      "passed": false,
+      "sha256_a": "63ddccbd3b3056120e6969cbe44bbe3f9819d08d40783af1caabed9facf55e88",
+      "sha256_b": null
+    },
+    "ReMIND-002-preop-SEG-tumor-MR-3D_AX_T1_postcontrast.nrrd": {
+      "bytes_a": 4747,
+      "bytes_b": null,
+      "expected_browse_bytes": 4747,
+      "passed": false,
+      "sha256_a": "2fb1bf3df9e00184fd62d25d0644f01764943ac524d97dc54a13992e28a41a72",
+      "sha256_b": null
+    }
+  },
+  "nrrd_transfer_a": {
+    "files": [
+      {
+        "bytes": 4747,
+        "official_path": "/ReMIND_NRRD_Seg_Sep_2023/ReMIND-002/ReMIND-002-preop-SEG-tumor-MR-3D_AX_T1_postcontrast.nrrd",
+        "path": "/tmp/aflow-remind-probe-20260905/nrrd_a/ReMIND-002-preop-SEG-tumor-MR-3D_AX_T1_postcontrast.nrrd",
+        "sha256": "2fb1bf3df9e00184fd62d25d0644f01764943ac524d97dc54a13992e28a41a72"
+      },
+      {
+        "bytes": 1947370,
+        "official_path": "/ReMIND_NRRD_Seg_Sep_2023/ReMIND-002/ReMIND-002-preop-SEG-cerebrum-MR-3D_AX_T1_postcontrast.nrrd",
+        "path": "/tmp/aflow-remind-probe-20260905/nrrd_a/ReMIND-002-preop-SEG-cerebrum-MR-3D_AX_T1_postcontrast.nrrd",
+        "sha256": "63ddccbd3b3056120e6969cbe44bbe3f9819d08d40783af1caabed9facf55e88"
+      }
+    ],
+    "message": "Completed: 1906K bytes transferred in 2 seconds\n (7243K bits/sec), in 2 files.\n",
+    "returncode": 0
+  },
+  "nrrd_transfer_b": {
+    "files": [
+      {
+        "bytes": null,
+        "official_path": "/ReMIND_NRRD_Seg_Sep_2023/ReMIND-002/ReMIND-002-preop-SEG-tumor-MR-3D_AX_T1_postcontrast.nrrd",
+        "path": "/tmp/aflow-remind-probe-20260905/nrrd_b/ReMIND-002-preop-SEG-tumor-MR-3D_AX_T1_postcontrast.nrrd",
+        "sha256": null
+      },
+      {
+        "bytes": null,
+        "official_path": "/ReMIND_NRRD_Seg_Sep_2023/ReMIND-002/ReMIND-002-preop-SEG-cerebrum-MR-3D_AX_T1_postcontrast.nrrd",
+        "path": "/tmp/aflow-remind-probe-20260905/nrrd_b/ReMIND-002-preop-SEG-cerebrum-MR-3D_AX_T1_postcontrast.nrrd",
+        "sha256": null
+      }
+    ],
+    "message": "\nSession Stop  (Error: Unable to connect via SSH)\nascp: Unable to connect via SSH, exiting.\n",
+    "returncode": 1
+  },
+  "other_candidate_pixels": false,
+  "preaccess_sha256": "cffc281338e43b3e25e854b2f229276e7c7a39b2b891537524c67875d276452b",
+  "probe": "ReMIND-002",
+  "publisher_checksum_caveat": "official sums contains empty-file MD5 for all356 rows; not used as content hash",
+  "runner_sha256": "39652e7e43b47920c30dc1bbe6e2b235a8db2cc220723c3663afba63ca0a30d9",
+  "schema": "aflow.remind_t1ce_source_probe.download",
+  "status": "downloaded_for_source_probe"
+}

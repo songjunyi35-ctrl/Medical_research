@@ -1,0 +1,39 @@
+{
+  "schema": "aflow.sammed3d.terminated_by_direction_change",
+  "schema_version": 1,
+  "run_identity": "fv_partial_last4_disclr10_train972_val108_e50_s20260725",
+  "terminated_utc": "2026-08-05",
+  "reason": "User directed a change of direction: stop this arm and start a faster next arm.",
+  "signal": "SIGINT (KeyboardInterrupt), trainer exit code 130",
+  "resume_authorized": false,
+  "scientific_result_eligible": false,
+  "completed_atomic_epochs": 7,
+  "interrupted_partial_epoch": 8,
+  "interrupted_at_train_step": "937/972",
+  "partial_epoch_counts_toward_results": false,
+  "preregistered_max_epochs": 50,
+  "completion_fraction": 0.14,
+  "last_completed_epoch": {
+    "epoch": 7,
+    "train_dice": 0.527733955945515,
+    "val_dice": 0.5071987142027529
+  },
+  "best_completed_epoch_so_far": {
+    "epoch": 7,
+    "val_dice": 0.5071987142027529,
+    "note": "NOT a selected checkpoint. Selection requires the full preregistered schedule; this arm never reached it."
+  },
+  "reference_values_not_compared_against": {
+    "rank0_selected_trainer_val_c3": 0.49248712568509356,
+    "lora_selected_trainer_val_c3": 0.5328167623,
+    "note": "This arm is incomplete and MUST NOT be compared against the matched arms."
+  },
+  "history_sha256": "69e12e624354ab7ed5bc638662e1d2c4428adda1a0511725f2672362df04df0b",
+  "test_access": false,
+  "boundaries": [
+    "No scientific conclusion may be drawn from this truncated arm.",
+    "No checkpoint from this run may be used for selection, reporting, or initialization of a matched comparison.",
+    "The preregistration FV_LAST4_PARTIAL_UNFREEZE_DISCLR_PREREG_20260724 remains unfulfilled.",
+    "270-case test was never accessed."
+  ]
+}

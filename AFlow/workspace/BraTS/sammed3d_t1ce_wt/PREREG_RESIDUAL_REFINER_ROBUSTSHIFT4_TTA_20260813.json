@@ -1,0 +1,24 @@
+{
+  "schema": "aflow.prereg.residual_refiner_robustshift4_tta_validation",
+  "created_date_utc": "2026-08-13",
+  "status": "frozen_before_validation_inference",
+  "test_access": false,
+  "checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_graymean_paired_a100_20260813/robustshift4_control/refiner_val_dice_best.pth",
+    "sha256": "011a7b0f4a9ee193883662f03fc6d8a54cef9fd3b4c08c2871cdddbdfbe73f6a",
+    "raw_validation_dsc": 0.695636292108921
+  },
+  "tta": {
+    "transforms": "all 8 combinations of reflections over the three spatial axes",
+    "aggregation": "float32 arithmetic mean of inverse-reflected logits",
+    "label_dependent": false
+  },
+  "reported_metrics": [
+    "raw threshold-0 Dice without TTA replay",
+    "raw threshold-0 Dice with TTA",
+    "TTA Dice with previously locked threshold -1.0 and remove components below 500 voxels"
+  ],
+  "new_threshold_search": false,
+  "target": "validation scan-macro Dice strictly above 0.70",
+  "claim_policy": "Report TTA/postprocessing explicitly and do not access test."
+}

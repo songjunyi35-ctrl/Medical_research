@@ -1,0 +1,22 @@
+{
+  "schema": "aflow.brats_africa95.frozen_baselines.result",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T02:08:00Z",
+  "status": "completed_once_and_closed",
+  "scope": {"name": "BraTS-Africa public post-challenge 95_Glioma", "scans": 95, "subjects": 95, "evaluated_centers": 4, "institution_disjoint": true, "patient_id_bridge": false, "hidden_blind": false, "not_test_tuned": true, "checkpoint_training_source": "local BraTS2024 Kaggle mirror", "checkpoint_training_source_official_synapse_parity": false},
+  "results": {
+    "gcsam184_identity": {"scan_dice": 0.5916192193392555, "subject_dice": 0.5916192193392555, "dice_95ci": [0.5409138043330485, 0.6374087789122713], "point_hits": 84, "point_denominator": 95, "forwards": 1},
+    "full972_kd168_flip8": {"scan_dice": 0.526437659716765, "subject_dice": 0.526437659716765, "dice_95ci": [0.4756464986472562, 0.5770474473869399], "point_hits": 88, "point_denominator": 95, "forwards": 8},
+    "full972_kd168_identity": {"scan_dice": 0.5230025504563405, "subject_dice": 0.5230025504563405, "dice_95ci": [0.4755023307048984, 0.5677388555856394], "point_hits": 87, "point_denominator": 95, "forwards": 1}
+  },
+  "comparisons": {
+    "gcsam_minus_full_identity": {"scan_dice": 0.06861666888291507, "subject_dice": 0.06861666888291507, "dice_95ci": [0.04447197577994147, 0.09249767550187686], "point_hits": -3, "improved": 80, "worse": 13, "tied": 2},
+    "full_flip8_minus_identity": {"scan_dice": 0.0034351092604245166, "subject_dice": 0.0034351092604245166, "dice_95ci": [-0.010536166287496688, 0.016814528182253582], "point_hits": 1, "improved": 52, "worse": 38, "tied": 5}
+  },
+  "interpretation": "Africa95 exposes severe cross-domain Dice loss and systematic under-segmentation. GCSAM identity has a broadly positive paired Dice advantage across all four center means but three fewer point hits. Flip8 has a small uncertain Dice delta and one more point hit. Results cannot resurrect GCSAM training or tune deployment.",
+  "posthoc_scope": {"gcsam_minus_full_by_target_quartile": [0.003906292387339733, 0.08202859120763577, 0.09694120624614072, 0.09258945163870182], "spearman_gcsam_advantage_vs_log10_target_volume": 0.32118673427805244, "gcsam_point_transitions_lost_gained": [4, 1], "interpretation": "advantage concentrates outside the smallest target quartile; descriptive only, no router/threshold selection"},
+  "cost": {"training": false, "source_bytes_two_copies": 555261168, "cache_bytes": 996147200, "main_cache_worker_wall_seconds_from_file_timestamps": 783.047660634, "cache_finalizer_seconds": 39.098076093010604, "model_forwards": 855, "model_elapsed_seconds": 17.147282387129962, "peak_gpu_memory_bytes": 5457695744},
+  "access": {"brats_africa95": true, "internal_test270": false, "fixed_validation108": false, "outer": false, "confirmation": false, "ucsd75": false, "utsw": false, "rhuh": false},
+  "decision": {"performance_promotion_gate": null, "tuning": false, "repeat": false, "cohort_closed": true},
+  "evidence": {"cohort_sha256": "a2ce66d546b43e3bc03242a51827a155c7601956b1af52eefddb4fe99a72c449", "source_download_sha256": "f5c129efcf073f24f39f94129e85f3e81c5614f67eb522ead651feac9a30324f", "cache_index_sha256": "1493bfde0e82309c3bfc73e2b2b9e1ab631921a6aeb988288f16ddbd9cba1c2e", "images_sha256": "f95959ac50335185d3ec89a777bbef8ac85d54328ebbd53bc434a3a69967ff82", "labels_sha256": "9e937ca9481c9f0661e666f478ba0f860b87d1bf689a54d09d3f70cc3e90b05b", "preaccess_sha256": "59f2ab8c746fb57d4480ebe105975bf5e2e53a4111b51370b72d0d299b0e45e8", "raw_report_sha256": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3", "verification_v2_sha256": "6a06a0764d8a1d8bef9dffc64948b118afcf94ed52d1043dab46f4b9c787c1ea", "verification_v3_sha256": "18aa6752c1a38330dcd1ceb1f98f778d2f5bfabcae65a2592f8d3caf1125329b", "center_correction_sha256": "defbdc616a816e11d0dcad6437fa6c72940adb762ee87834fe415897a38a6826", "posthoc_volume_sha256": "09bb0591e3359c430b3d7d3d4950b5f690dda439c5e391a1c6e99635a8a5690c", "posthoc_error_sha256": "5b712ddd6d963d3dc09c024c619fac7c667bd2825d576a60dc9ce07e97d4c4ef", "posthoc_precision_recall_sha256": "88574e9aadc94dd8894580602f884bcf05c304ab7ae0002ae0f728d1b6e5b160", "posthoc_center_cluster_sha256": "d6a41b9903a78f2d28ec08cab9708bd8884e02678019db6819b8340190818b34", "cross_cohort_ucsd_sha256": "44da31da22a9d8e56d5b23bd90d53f659e95ece89570b9d44b4864baed88dfa3", "checkpoint_head_audit_sha256": "97aacf9816bde7f474adcd53193ad0010c070e0fb23dfa07907dfa4c2c085d97"}
+}

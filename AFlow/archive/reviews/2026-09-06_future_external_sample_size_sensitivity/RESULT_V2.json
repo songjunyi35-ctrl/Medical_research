@@ -1,0 +1,121 @@
+{
+  "access": {
+    "cohort_reaccess": false,
+    "new_model_inference": false,
+    "selection_or_tuning": false
+  },
+  "alpha_two_sided": 0.05,
+  "analyzer_sha256": "e5d6b36fc205c83ca83abcc1bfd6b96e51897d2e559bcd2f6fc20d7a2ead70fa",
+  "excluded_from_sd_scenarios": {
+    "internal270": "reused internal and multiple scans per subject",
+    "ucsd75": "75 scans from53 subjects; scan independence invalid"
+  },
+  "formula": "ceil(((z_0.975 + z_0.80) * paired_delta_sd / target_mean_delta)^2)",
+  "limitations": "Observed SD varies strongly by cohort and effects are not transportable. Normal approximation ignores nonnormal tails, clustering, multiplicity, attrition, source failures, and selection. Use only as a lower-bound sensitivity range and preregister the meaningful delta before new data.",
+  "nominal_power": 0.8,
+  "observed_one_scan_per_subject_cohorts": {
+    "africa": {
+      "flip8_minus_full": {
+        "mean": 0.0034351092604245166,
+        "sample_sd": 0.0670325929579056
+      },
+      "gcsam_minus_full": {
+        "mean": 0.06861666888291507,
+        "sample_sd": 0.12097707761437765
+      },
+      "subjects": 95
+    },
+    "cptac": {
+      "flip8_minus_full": {
+        "mean": 0.003245653494780141,
+        "sample_sd": 0.007420502417667603
+      },
+      "gcsam_minus_full": {
+        "mean": 0.0019536163166680534,
+        "sample_sd": 0.028919183459537926
+      },
+      "subjects": 33
+    },
+    "waw": {
+      "flip8_minus_full": {
+        "mean": 0.010116119662532444,
+        "sample_sd": 0.03638917938464
+      },
+      "gcsam_minus_full": {
+        "mean": 0.010223165712319892,
+        "sample_sd": 0.08446113385426779
+      },
+      "subjects": 152
+    },
+    "waw_postop": {
+      "flip8_minus_full": {
+        "mean": 0.007311971744356783,
+        "sample_sd": 0.026794223259196597
+      },
+      "gcsam_minus_full": {
+        "mean": 0.0016573086068167539,
+        "sample_sd": 0.041664451030809825
+      },
+      "subjects": 31
+    }
+  },
+  "planning": {
+    "flip8_minus_full": {
+      "external_single_scan_sd_values": [
+        0.0670325929579056,
+        0.007420502417667603,
+        0.03638917938464,
+        0.026794223259196597
+      ],
+      "independent_subjects_needed": {
+        "0.005": {
+          "maximum_sd_scenario": 1411,
+          "median_sd_scenario": 314
+        },
+        "0.01": {
+          "maximum_sd_scenario": 353,
+          "median_sd_scenario": 79
+        },
+        "0.02": {
+          "maximum_sd_scenario": 89,
+          "median_sd_scenario": 20
+        }
+      },
+      "maximum_sd": 0.0670325929579056,
+      "median_sd": 0.0315917013219183
+    },
+    "gcsam_minus_full": {
+      "external_single_scan_sd_values": [
+        0.12097707761437765,
+        0.028919183459537926,
+        0.08446113385426779,
+        0.041664451030809825
+      ],
+      "independent_subjects_needed": {
+        "0.005": {
+          "maximum_sd_scenario": 4595,
+          "median_sd_scenario": 1249
+        },
+        "0.01": {
+          "maximum_sd_scenario": 1149,
+          "median_sd_scenario": 313
+        },
+        "0.02": {
+          "maximum_sd_scenario": 288,
+          "median_sd_scenario": 79
+        }
+      },
+      "maximum_sd": 0.12097707761437765,
+      "median_sd": 0.0630627924425388
+    }
+  },
+  "schema": "aflow.future_external.sample_size_sensitivity",
+  "schema_version": 2,
+  "source_sha256": {
+    "africa": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+    "cptac": "4b9d8c90e1b5ec45b0e664e560301db20affd6a96387f416a62b561f8d57b4fd",
+    "waw": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91",
+    "waw_postop": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98"
+  },
+  "status": "planning_sensitivity_not_confirmatory_power_guarantee"
+}

@@ -1,0 +1,148 @@
+{
+  "adaptive_routing_intelligence_supported": false,
+  "bindings": {
+    "adaptive_result": "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/FINAL_ADAPTIVE_ROUTER_RESULT.json",
+    "adaptive_result_sha256": "dbba96e593c4bcf7742edb7f1e8afc614b058c6625ec8548e418849aef74eddf",
+    "features": "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/stage_features_and_dice.npz",
+    "features_sha256": "98b6941ee50cf587361577fe5f386f7660600a94ac5945ccd4373a7c875ec334",
+    "prereg": "ADAPTIVE_ROUTER_CONTROL_PREREG_20260814.md",
+    "prereg_sha256": "9d49d1f74c697bda4bf7fc7d9a4a8963f56cd2dce3e75c9372e550ea07213e84",
+    "runner_sha256": "733018282db77b2adbb692cacf2025156c9d195e33efbe348473e5eebf5e0130"
+  },
+  "count_matched_random_routing": {
+    "0.000": {
+      "fraction_random_at_least_learned": 0.1374,
+      "learned_minus_random_mean": 0.00025595255931742944,
+      "learned_subject_macro_dsc": 0.6952598065929984,
+      "margin": 0.0,
+      "matching": "exact outer-fold 1/8/24 stop counts",
+      "random_subject_macro_dsc_ci95": [
+        0.6945805241025425,
+        0.6954502355460478
+      ],
+      "random_subject_macro_dsc_mean": 0.6950038540336809,
+      "random_subject_macro_dsc_std": 0.0002264357065726592,
+      "replicates": 10000,
+      "seed": 20260814
+    },
+    "0.001": {
+      "fraction_random_at_least_learned": 0.6594,
+      "learned_minus_random_mean": -8.954972334074274e-05,
+      "learned_subject_macro_dsc": 0.6949018898448506,
+      "margin": 0.001,
+      "matching": "exact outer-fold 1/8/24 stop counts",
+      "random_subject_macro_dsc_ci95": [
+        0.6945459768776358,
+        0.6954159662390917
+      ],
+      "random_subject_macro_dsc_mean": 0.6949914395681913,
+      "random_subject_macro_dsc_std": 0.00022210217958204683,
+      "replicates": 10000,
+      "seed": 20260815
+    },
+    "0.002": {
+      "fraction_random_at_least_learned": 1.0,
+      "learned_minus_random_mean": 0.0,
+      "learned_subject_macro_dsc": 0.6950155540214739,
+      "margin": 0.002,
+      "matching": "exact outer-fold 1/8/24 stop counts",
+      "random_subject_macro_dsc_ci95": [
+        0.6950155540214739,
+        0.6950155540214739
+      ],
+      "random_subject_macro_dsc_mean": 0.6950155540214739,
+      "random_subject_macro_dsc_std": 0.0,
+      "replicates": 10000,
+      "seed": 20260816
+    },
+    "0.005": {
+      "fraction_random_at_least_learned": 1.0,
+      "learned_minus_random_mean": 0.0,
+      "learned_subject_macro_dsc": 0.6950155540214739,
+      "margin": 0.005,
+      "matching": "exact outer-fold 1/8/24 stop counts",
+      "random_subject_macro_dsc_ci95": [
+        0.6950155540214739,
+        0.6950155540214739
+      ],
+      "random_subject_macro_dsc_mean": 0.6950155540214739,
+      "random_subject_macro_dsc_std": 0.0,
+      "replicates": 10000,
+      "seed": 20260817
+    }
+  },
+  "created_at_utc": "2026-08-14T03:19:41.425210+00:00",
+  "evidence_status": "post-preregistered control analysis on previously used validation",
+  "interpretation": "adaptive routing not supported beyond count-matched random allocation; attribute primary efficiency gain to fixed member/view redundancy",
+  "paired_subject_bootstrap": {
+    "adaptive_strict_minus_stage1": {
+      "ci95": [
+        -0.00025370409078146,
+        0.0007938717503032133
+      ],
+      "improved_subjects": 7,
+      "mean": 0.0002442525715244082,
+      "replicates": 10000,
+      "seed": 20260817,
+      "subjects": 50,
+      "unchanged_subjects": 38,
+      "worsened_subjects": 5
+    },
+    "adaptive_strict_minus_stage8": {
+      "ci95": [
+        -0.0028088456922769705,
+        0.0008514936526593015
+      ],
+      "improved_subjects": 15,
+      "mean": -0.0010107224510793819,
+      "replicates": 10000,
+      "seed": 20260818,
+      "subjects": 50,
+      "unchanged_subjects": 9,
+      "worsened_subjects": 26
+    },
+    "stage1_minus_locked": {
+      "ci95": [
+        -0.002498200189689573,
+        0.0018793412272865113
+      ],
+      "improved_subjects": 22,
+      "mean": -0.00035764466716755786,
+      "replicates": 10000,
+      "seed": 20260814,
+      "subjects": 50,
+      "unchanged_subjects": 0,
+      "worsened_subjects": 28
+    },
+    "stage8_minus_locked": {
+      "ci95": [
+        -0.00040801023027641127,
+        0.0022551944050756647
+      ],
+      "improved_subjects": 29,
+      "mean": 0.0008973303554362322,
+      "replicates": 10000,
+      "seed": 20260815,
+      "subjects": 50,
+      "unchanged_subjects": 0,
+      "worsened_subjects": 21
+    },
+    "stage8_minus_stage1": {
+      "ci95": [
+        -0.0006529448221264173,
+        0.0031882431080768048
+      ],
+      "improved_subjects": 31,
+      "mean": 0.0012549750226037901,
+      "replicates": 10000,
+      "seed": 20260816,
+      "subjects": 50,
+      "unchanged_subjects": 0,
+      "worsened_subjects": 19
+    }
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_adaptive_router.controls",
+  "schema_version": 1,
+  "split": "validation",
+  "test_access": false
+}

@@ -1,0 +1,87 @@
+{
+  "created_utc": "2026-09-17T02:44:21.750250+00:00",
+  "kind": "descriptive audit of existing reports only",
+  "snapshot_through_epoch": 140,
+  "cohort": "reused validation108 scans/50 subjects; same-cohort checkpoint selection",
+  "epochs": {
+    "5": {
+      "train": {
+        "loss": 2.2426905347486583,
+        "gray": 0.04702607567954824,
+        "grad_norm": 5.622818466076635
+      },
+      "scan_final5": 0.5196641480676687
+    },
+    "50": {
+      "train": {
+        "loss": 1.3768090485545343,
+        "gray": 0.009599617078762364,
+        "grad_norm": 3.061660199498934
+      },
+      "scan_final5": 0.5432994575250153
+    },
+    "100": {
+      "train": {
+        "loss": 1.0704615928018044,
+        "gray": 0.0048454365024243485,
+        "grad_norm": 2.252662841675213
+      },
+      "scan_final5": 0.5117673608645777
+    },
+    "140": {
+      "train": {
+        "loss": 0.7756485644681954,
+        "gray": 0.00154684331311668,
+        "grad_norm": 1.0286537833448555,
+        "amp_retries": 0.00823045267489712,
+        "amp_scale": 44095.20987654321
+      },
+      "scan_final5": 0.4851864122431783
+    }
+  },
+  "change_50_to_140": {
+    "scan_mean_delta": -0.058113045281836966,
+    "scans_lower": 83,
+    "scans_higher": 24,
+    "scans_equal": 1,
+    "median_scan_delta": -0.04479267609245277
+  },
+  "click_means": {
+    "50": [
+      0.5197716236816343,
+      0.5373721204588562,
+      0.5415948543085983,
+      0.5419676320006775,
+      0.5432994575250153
+    ],
+    "140": [
+      0.47639742992586914,
+      0.48422028737856804,
+      0.48405841744615474,
+      0.4847008483810858,
+      0.48518641224317816
+    ]
+  },
+  "gray_fraction_total_epoch140": 0.001994257946157917,
+  "limitations": [
+    "no matched no-gray control",
+    "loss magnitude fraction is not gradient contribution",
+    "no train Dice or validation grayscale error logged in these reports",
+    "no new CI or significance claim; epoch50 selected on same cohort",
+    "current recipe is not exact full-paper reproduction"
+  ],
+  "access": {
+    "new_model_inference": false,
+    "checkpoint_deserialization": false,
+    "patient_image_or_label_arrays": false,
+    "test_outer_confirmation": false
+  },
+  "evidence_sha256": {
+    "workspace/BraTS/sammed3d_t1ce_wt/graymean_single972_20260916/graymean/development_e050.json": "4f1a3c7c7edc247aaf0c621c241727ae76b834879a71d4ac1453a0b1f37e03b5",
+    "workspace/BraTS/sammed3d_t1ce_wt/graymean_single972_20260916/graymean/development_e140.json": "97b7e3f77abdde904dff3771369a1dca5c931ebda43c48113e70c720672f58f0",
+    "scripts/sammed3d_graymean_single972.py": "edad3f607d3924038ec0fd317082c9d33f2618d5079e7a07c448845243f3eeb0",
+    "scripts/train_sammed3d_single972_resume139.py": "8144ae3f718e75d1fbe1c537720b454d9dfe0a25080eba71dac1a8d3f98786c2",
+    "scripts/sammed3d_amp_recovery.py": "01a0f03c7ff74737ce4495e6e3a2058d943853a98da0920ac96fb44ea5e2b5ad"
+  },
+  "train_log_read_snapshot_sha256": "ab4f9b31a6f0c498e75ce46bffd3005462e781ff4b157daf24a140f30ae8818e"
+}

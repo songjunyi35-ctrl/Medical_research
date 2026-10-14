@@ -1,0 +1,77 @@
+{
+  "access": {
+    "confirmation": false,
+    "fit": true,
+    "fixed_validation108": false,
+    "inner_metrics": false,
+    "outer": false,
+    "test270": false,
+    "ucsd_external75": false
+  },
+  "all_gates_passed": true,
+  "arm": "gcsam_candidate",
+  "checkpoint": {
+    "model_state_sha256": "6f8134b8c0d80367510e434ef8abc990a835256099d44b28578c0272e623d08d",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/smoke_a_gcsam_candidate/smoke_epoch1.pth",
+    "sha256": "1035fc8faffb2e18e340d7d3ad1ef801ab2cd026b07db5020c7224cb4b72e433"
+  },
+  "created_at_utc": "2026-09-03T05:18:00.435964+00:00",
+  "data_roles": {
+    "fit": {
+      "cases": 8,
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_fixed184_replications_20260903/replicate_a_fit_cases.jsonl",
+      "sha256": "dab72a5e3d70ef6586eee1229cc8b1d5caf227f7921937e4d25244552b7a18a5",
+      "subjects": 3
+    },
+    "inner_dataset_constructed": false,
+    "inner_metrics_accessed": false
+  },
+  "elapsed_seconds": 3.2573344707489014,
+  "first_batch_loss": 2.025653123855591,
+  "first_batch_sha256": {
+    "image": "3b5c91ee692e828d63760cb7780bcef05d759a5043485576cd8832806561fa9c",
+    "label": "eda5c53372b15ac2f7804606cc3753fbe7220d56a7b23d375e16986dd118cda2"
+  },
+  "fixed_stop_epoch": 1,
+  "gates": {
+    "all_consumed_draws_exact": true,
+    "all_losses_finite": true,
+    "all_steps_exact": true,
+    "checkpoint_reload_exact": true,
+    "elapsed_within_arm_limit": true,
+    "epoch_count_exact": true,
+    "gcsam_rho_exact": true,
+    "no_inner_metrics": true,
+    "peak_at_most_24gib": true
+  },
+  "history": [
+    {
+      "consumed_draws": 16,
+      "elapsed_seconds": 3.154439687728882,
+      "epoch": 1,
+      "first_batch_loss": 2.025653123855591,
+      "first_batch_sha256": {
+        "image": "3b5c91ee692e828d63760cb7780bcef05d759a5043485576cd8832806561fa9c",
+        "label": "eda5c53372b15ac2f7804606cc3753fbe7220d56a7b23d375e16986dd118cda2"
+      },
+      "inner_metrics": null,
+      "learning_rate": 0.0002,
+      "mean_perturbation_norm": 0.05000000074505806,
+      "optimizer_steps": 2,
+      "sampler_index_sha256": "6ae274bcf56b1a1da3ba668b1ef1d6eb823be1eef34effe174958cb054e6846c",
+      "train_dice": 0.005233171146755922,
+      "train_kd_loss": 2.8947510719299316,
+      "train_loss": 1.9359140396118164,
+      "train_supervised_loss": 1.067488670349121
+    }
+  ],
+  "initial_state_sha256": "0329944e9955484c761ea82c5cbfa2aa0838b4ef94158373cd0e0874eed71186",
+  "parameter_count": 4700897,
+  "peak_gpu_memory_bytes": 21859578368,
+  "replicate": "a",
+  "runner_sha256": "4e79a507513be07b8b4a881f7e1831c7e0d8e421a7221373a3d6387f2a61749c",
+  "sampling_weight_sha256": "6f80b3a44bdc8cf8f1172619a7094a9983ed5e08c8eb020b1e657fed89f795de",
+  "schema": "aflow.sammed3d.t1ce_wt_gcsam_fixed184_replication_train",
+  "schema_version": 1,
+  "status": "complete"
+}

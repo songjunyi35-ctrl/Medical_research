@@ -1,0 +1,66 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dcd_validation_preaccess_receipt",
+  "schema_version": 1,
+  "status": "frozen_before_new_fixed_validation108_access",
+  "method": "dcd_increment_on_frozen_voxel_kd_continuation",
+  "training": {
+    "report": "workspace/BraTS/sammed3d_t1ce_wt/plain_dcd_20260819/seed20260846/TRAIN_DONE.json",
+    "report_sha256": "d1869fc9de40da6a8e4e1848579f2ff4d5abcf049b960913a6544277891361ac",
+    "elapsed_seconds": 5954.207632303238,
+    "reload_max_abs_difference": 0.0,
+    "stripped_deploy_max_abs_difference": 0.0,
+    "peak_gpu_memory_bytes": 32845999616,
+    "validation_access": false,
+    "test_access": false
+  },
+  "implementation_receipt": {
+    "path": "archive/research_records/2026-08-19_dcd_detail_distillation/IMPLEMENTATION_RECEIPT.json",
+    "sha256": "725069c39d2e83231b3ed596a3100c662a28560b22244c70132bd64e8d7ec2e6",
+    "all_gates_passed": true
+  },
+  "checkpoints": {
+    "176": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_dcd_20260819/seed20260846/plain_128_dcd_global_epoch176.pth", "sha256": "97e24950ad272bb38687f155b208b2d49935472046ee396ccdd368db64af2dbc", "mu": 0.00014529091286973994},
+    "184": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_dcd_20260819/seed20260846/plain_128_dcd_global_epoch184.pth", "sha256": "55dec937f0994235a36aca9322ca5575239dd80062df3a6caa23cc6df5524eba", "mu": 0.0032269755647873224},
+    "192": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_dcd_20260819/seed20260846/plain_128_dcd_global_epoch192.pth", "sha256": "a12a4614332b79ddc525b939ef3d53a1f133f851e6f37b05ba2fb1567ce1b55a", "mu": 0.007840323733655778},
+    "200": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_dcd_20260819/seed20260846/plain_128_dcd_global_epoch200.pth", "sha256": "9354a0f6ef9e6747729ca5be61e3faa357b76f558898940e52e8f7b274f543dd", "mu": 0.01}
+  },
+  "fixed_validation": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 50,
+    "threshold": 0.0,
+    "tta": false,
+    "sam": false,
+    "postprocessing": false
+  },
+  "comparison": {
+    "base_kd_validation_report": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/KD_VALIDATION.json",
+    "base_kd_validation_report_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57",
+    "same_epoch_base_kd_bootstrap_seeds": {"176": 20260890, "184": 20260891, "192": 20260892, "200": 20260893},
+    "kd200_bootstrap_seeds": {"176": 20260894, "184": 20260895, "192": 20260896, "200": 20260897},
+    "bootstrap": "paired percentile, 10000 draws; cases and pre-averaged subjects resampled separately"
+  },
+  "selection": "maximum DCD Scan Dice among global epochs176/184/192/200; Subject Dice exact tie-break",
+  "promotion_gates": [
+    "selected DCD scan and subject Dice strictly beat same-global-epoch base voxel-KD",
+    "selected DCD scan and subject Dice strictly beat voxel-KD epoch200",
+    "selected point hit is no more than one of 108 cases below voxel-KD epoch200",
+    "paired scan and subject bootstrap 95% CI lower bounds versus voxel-KD epoch200 are both at least -0.003",
+    "all implementation/smoke/formal reload/deploy/hash/access gates pass"
+  ],
+  "evaluator": {
+    "path": "scripts/evaluate_t1ce_wt_plain_dcd_validation.py",
+    "sha256": "fce0a80ed2557a0d3fad2af71d787e73b3a9a95ad54ff6877c29d0e57be763aa"
+  },
+  "detail_teacher_historical_validation_access": true,
+  "detail_teacher_historical_test_access_after_selection": true,
+  "if_gate_fails": "do not access test270 and do not tune teacher, wavelet, levels, bands, stages, mu, schedule, epoch, threshold, checkpoint, or postprocessing",
+  "validation_access": false,
+  "new_method_validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "aflow.brats.flip8_tta_stability.result",
+  "schema_version": 1,
+  "date_utc": "2026-09-04",
+  "status": "complete_test270_new_point_estimate_leader",
+  "evidence_scope": "post-test development; reused internal test270; not pristine blind; not external; not test-tuned",
+  "idea_supported": true,
+  "single_changed_factor": "identity 1x inference replaced by the complete fixed group of eight spatial reflections, inverse-reflected and averaged as ordered float32 raw logits",
+  "stage_a": {
+    "replicate_a_flip8_minus_identity": {
+      "scan_dice": 0.006667793878663488,
+      "subject_dice": 0.006930161171481578,
+      "point_hits": -1,
+      "scan_dice_95ci": [0.003717902162617511, 0.0094439852782649],
+      "subject_dice_95ci": [0.0036220888868517386, 0.010338102051712934]
+    },
+    "replicate_b_flip8_minus_identity": {
+      "scan_dice": 0.006988399502660987,
+      "subject_dice": 0.007332867502181647,
+      "point_hits": 3,
+      "scan_dice_95ci": [0.00402628071905356, 0.010414362691380498],
+      "subject_dice_95ci": [0.003228994998811161, 0.011788802317455584]
+    },
+    "mean_scan_delta": 0.006828096690662238,
+    "mean_subject_delta": 0.007131514336831612,
+    "all_gates_passed": true,
+    "test270_authorized": true
+  },
+  "test270": {
+    "cohort": {"scans": 270, "subjects": 119},
+    "identity": {"scan_dice": 0.7517595372128266, "subject_dice": 0.7373271071260759, "point_hits": 262, "point_hit": 0.9703703703703703},
+    "flip8": {
+      "scan_dice": 0.7572696616942132,
+      "subject_dice": 0.7412535853511771,
+      "point_hits": 265,
+      "point_hit": 0.9814814814814815,
+      "scan_dice_95ci": [0.739088565033895, 0.7741517265513539],
+      "subject_dice_95ci": [0.7141092440426474, 0.7661524792215904]
+    },
+    "flip8_minus_identity": {
+      "scan_dice": 0.0055101244813866085,
+      "subject_dice": 0.003926478225101276,
+      "point_hits": 3,
+      "scan_dice_95ci": [0.0027509939153161317, 0.008022352442559269],
+      "subject_dice_95ci": [-0.00037875292107922, 0.007353958139034295]
+    },
+    "flip8_minus_previous_scan_leader_point_estimate": {"scan_dice": 0.0052664861324484, "subject_dice": 0.003987165034099, "point_hits": 13},
+    "scans_improved_worse_tied": [217, 53, 0],
+    "subjects_improved_worse_tied": [96, 23, 0],
+    "identity_exact_full_summary_and_per_case_parity": true,
+    "all_preregistered_success_gates_passed": true
+  },
+  "uncertainty_interpretation": "The paired Scan interval versus identity is wholly positive. The paired Subject interval crosses zero, so the Subject point-estimate improvement is not called significant. No paired significance claim versus the prior GCSAM row is made.",
+  "implementation_deviation": {
+    "description": "The raw report absolute-CI helper used seed 20260826 although the pretest receipt froze 20260817.",
+    "impact": "No impact on point estimates, masks, points, paired comparison, paired seed 20261207, or success gates.",
+    "resolution": "Raw report preserved; absolute intervals recomputed once from saved per-case rows only with frozen seed20260817; no model inference, cache access, tuning, or retest.",
+    "correction_sha256": "f94fedaa7bc70357422bd0ea10f9d127527955de62822035d3b382c19eaf0e0f"
+  },
+  "cost": {
+    "stage_a_training_gpu_hours": 6.783,
+    "stage_a_dual_a100_wall_hours": 3.404,
+    "stage_a_inference_forwards": 1728,
+    "test270_inference_forwards": 2160,
+    "deployment_locator_forwards": 8,
+    "deployment_compute_multiplier": 8,
+    "workspace_storage": "55M",
+    "archive_storage_before_result_docs": "348K"
+  },
+  "access": {"fit": true, "fresh_inner": true, "fixed_validation108": false, "outer": false, "confirmation": false, "reused_internal_test270": true, "ucsd_external75": false},
+  "artifacts": {
+    "raw_test_report": {"path": "archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/RAW_TEST270.json", "sha256": "29efc557aa12b6f82fd079edd84cc3c8c1e5ad4536880c016b664932234f45ad"},
+    "test_started_receipt": {"path": "archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/TEST270_STARTED.json", "sha256": "04e4b05526e60161b2779da67a3134e00b2b074906b4bef553524150fabdba40"},
+    "pretest_receipt": {"path": "archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/TEST270_PREACCESS.json", "sha256": "9ee849448d4728a31ee54268ef0197c6713c35b79c1bc7c3bd16cf8f509b1609"},
+    "stage_a_report": {"path": "archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/STAGE_A_INNER.json", "sha256": "d516f3ad2fdb53ee0de4872596c331d772c935ec0b116dd1a9881e0cc6dcff68"},
+    "checkpoint": {"path": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/final_formal_full972_candidate/plain_fulltrajectory_full972_candidate_epoch168.pth", "sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b"}
+  },
+  "next_decision": "Promote the exact fixed Flip8 formula as the reused-test point-estimate leader; do not tune or rerun on test270. Seek independent external confirmation before making a general superiority claim."
+}

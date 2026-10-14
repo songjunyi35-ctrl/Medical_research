@@ -1,0 +1,31 @@
+{
+  "schema": "aflow.rc_supervision_gap.audit",
+  "schema_version": 1,
+  "status": "saved_metadata_only_no_new_model_or_evaluation",
+  "train972": {
+    "scans": 972,
+    "scans_with_raw_label4": 814,
+    "label4_prevalence": 0.8374485596707819,
+    "target_encoding": "single-channel WT labels1/2/3; label4 collapsed with ordinary background"
+  },
+  "waw_postop31": {
+    "scans": 31,
+    "scans_with_raw_label4": 30,
+    "label4_prevalence": 0.967741935483871,
+    "full_point_misses": 16,
+    "full_point_misses_on_gt_rc": 13,
+    "full_rc_fraction_of_misses": 0.8125,
+    "gcsam_point_misses": 17,
+    "gcsam_point_misses_on_gt_rc": 14,
+    "gcsam_rc_fraction_of_misses": 0.8235294117647058
+  },
+  "interpretation": "The models were exposed to many RC-containing training scans, so the failure is not simple absence of RC cases. Binary WT supervision collapses RC and ordinary background, while WAW early-postop has higher RC prevalence and most point misses land in RC. This supports a supervision-representation gap but does not prove a multi-class RC head will improve WT or point hit.",
+  "future_requirement": "Any explicit RC/CSF/surgery-aware model changes output and loss; it requires a new train-only development role, preregistration, matched control, and unseen validation before external access.",
+  "forbidden_use": "no GT-RC avoidance, no current-cohort postprocessing, no claim that RC head is proven, no retraining without new evidence",
+  "access": {"new_label_arrays": false, "model_inference": false, "training": false, "selection_or_tuning": false},
+  "source_sha256": {
+    "archive/reviews/2026-09-06_t1ce_observability_audit/RESULT.json": "139765822000b869f58c2dc1f44b06a70a98a9fa91c789087757ca5d2e1d4148",
+    "archive/reviews/2026-09-06_waw_postop_only31_source_audit/FROZEN_COHORT.json": "965b2fe0f331d782dbb6bb136d6089c1181419a9a75dbd8f198cbeff33284180",
+    "archive/research_records/2026-09-06_waw_postop_only31_frozen_panel/POSTHOC_ERRORS.json": "a49b2985eaf8635b9a3bc1b8e8bee78eb137cc87a94bc599620a3fa0ddd3cc0c"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_vm_dice_amendment",
+  "schema_version": 1,
+  "amendment_id": "001_pre_implementation_contract_and_strata",
+  "timing": "before implementation, synthetic tests, GPU smoke, formal training, or new method validation access",
+  "parent_idea_sha256": "72b5e157aa27d9b7d862a2b4fbb5bb1377a3b85724cb508ef4fb86b3f9a849a0",
+  "parent_preregistration_sha256": "a50aa875bb0b7cb509b8020f3eae1056d24a9cb56bb570f2f52d474b89cb0e0e",
+  "loss_contract": {
+    "arm_names": ["paper_dice_gamma0", "vm_dice_gamma1"],
+    "gamma0_modulation": "explicit torch.ones_like(probability), avoiding implicit 0**0 semantics",
+    "gamma1_modulation": "abs(target-probability.detach())",
+    "probability_path": "sigmoid(raw_logit.float()) remains attached in numerator and denominator",
+    "class_order": ["background", "foreground"],
+    "present_class_rule": "within each volume average only classes with at least one positive GT voxel; background is expected present",
+    "epsilon": 1e-6,
+    "dice_denominator": "sum modulation*(target.square()+probability.square())",
+    "ce": "0.1 times mean BCEWithLogits on the original one-channel foreground raw logit",
+    "total_reduction": "per-volume present-class mean then batch mean; add scalar CE",
+    "no_teacher": true
+  },
+  "optimizer_and_runtime": {
+    "single_parameter_group": "plain student parameters only",
+    "adamw": {"lr": 1e-5, "weight_decay": 1e-5, "betas": [0.9, 0.999], "eps": 1e-8, "amsgrad": false, "foreach": false, "fused": false},
+    "zero_grad_set_to_none": true,
+    "clip_grad_norm": 5.0,
+    "clip_error_if_nonfinite": true,
+    "formal_peak_memory_must_be_at_most_24gib": true,
+    "formal_status_must_fail_if_memory_or_pairing_gate_fails": true
+  },
+  "checkpoint_contract": {
+    "schema": "aflow.sammed3d.t1ce_wt_vm_dice_checkpoint",
+    "files": "plain_128_{arm}_global_epoch{208,216,224,232}.pth",
+    "payload": "plain model_state_dict, formula contract, pairing prefix, loss diagnostics, data and access provenance",
+    "reload": "all eight strict reload and exact logits",
+    "deploy": "plain 4,700,897-parameter locator only"
+  },
+  "frozen_strata": {
+    "kd200_bottom27": {
+      "definition": "KD_VALIDATION summaries.kd.200.per_case sorted by (locator_dsc ascending,case_id ascending), first27",
+      "included_cutoff_dice": 0.6852907538414001,
+      "excluded_next_dice": 0.6897181868553162,
+      "text_lines_sha256": "dd3828815ad4608ef3cac5d7586de42bf23b141cb23ef79fae1700ba5bf0aedb",
+      "case_ids": [
+        "BraTS-GLI-02657-100", "BraTS-GLI-02249-100", "BraTS-GLI-02208-102", "BraTS-GLI-02103-103", "BraTS-GLI-02208-100", "BraTS-GLI-02991-101", "BraTS-GLI-02208-101", "BraTS-GLI-02327-100", "BraTS-GLI-02103-104", "BraTS-GLI-02103-102", "BraTS-GLI-02249-101", "BraTS-GLI-02905-100", "BraTS-GLI-02905-101", "BraTS-GLI-02991-100", "BraTS-GLI-02720-100", "BraTS-GLI-02656-100", "BraTS-GLI-02792-100", "BraTS-GLI-02103-105", "BraTS-GLI-00498-100", "BraTS-GLI-02694-100", "BraTS-GLI-02910-101", "BraTS-GLI-02910-100", "BraTS-GLI-02792-101", "BraTS-GLI-02103-106", "BraTS-GLI-02387-100", "BraTS-GLI-02256-100", "BraTS-GLI-02912-101"
+      ]
+    },
+    "boundary_proxy_top27": {
+      "definition": "mask=label>0; V=foreground voxels; A=foreground-foreground adjacent pairs along positive z/y/x; proxy=(6V-2A)/V; sort by (proxy descending,case_id ascending), first27",
+      "grid_warning": "128-cubed resampled six-neighbor exposed-face proxy, not physical-mm surface area",
+      "included_cutoff_proxy": 0.7837987635898529,
+      "excluded_next_proxy": 0.7737909516380655,
+      "text_lines_sha256": "668ae9bfd782009e674c4437fa83be97455ac382371716ec7d8e4fb2ed759775",
+      "case_ids": [
+        "BraTS-GLI-02657-100", "BraTS-GLI-02249-100", "BraTS-GLI-02327-100", "BraTS-GLI-02905-100", "BraTS-GLI-02219-101", "BraTS-GLI-02249-101", "BraTS-GLI-02905-101", "BraTS-GLI-02208-102", "BraTS-GLI-02910-100", "BraTS-GLI-03059-101", "BraTS-GLI-02910-101", "BraTS-GLI-00498-100", "BraTS-GLI-02219-100", "BraTS-GLI-02208-101", "BraTS-GLI-00046-100", "BraTS-GLI-02647-100", "BraTS-GLI-00505-100", "BraTS-GLI-02720-100", "BraTS-GLI-02875-100", "BraTS-GLI-03007-100", "BraTS-GLI-02219-103", "BraTS-GLI-02919-100", "BraTS-GLI-03007-101", "BraTS-GLI-02875-101", "BraTS-GLI-02694-100", "BraTS-GLI-00505-101", "BraTS-GLI-02782-100"
+      ]
+    }
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

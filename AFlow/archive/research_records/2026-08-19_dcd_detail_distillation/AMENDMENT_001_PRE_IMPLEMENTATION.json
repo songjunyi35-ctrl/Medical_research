@@ -1,0 +1,41 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dcd_preregistration_amendment",
+  "schema_version": 1,
+  "amendment": 1,
+  "timing": "before model implementation, synthetic tests, GPU smoke, formal training, or new validation access",
+  "reason": "freeze wavelet filter orientation, parity gates, and teacher-basin evidence found during official-source engineering audit",
+  "wavelet_orientation": {
+    "official_runtime": "PyTorch conv3d with PyWavelets db4 dec bank followed by conv_transpose3d with rec bank",
+    "audit_observation": "full eight-band reconstruction MSE approximately 1.4-1.7 and maximum error approximately 4.8-6.4 on fixed even-sized tensors",
+    "frozen_project_choice": "paper-semantics orthogonal detail projection: PyTorch conv3d analysis and conv_transpose3d synthesis both use the same frozen db4 decomposition bank",
+    "corrected_audit_observation": "MSE approximately 2.6e-13 and maximum error approximately 4.5e-6",
+    "selection_timing": "chosen before any DCD implementation run or new validation/test access",
+    "validation_comparison_of_orientations_allowed": false
+  },
+  "canonical_db4": {
+    "tap_count": 8,
+    "subband_order": ["LLL", "LLH", "LHL", "LHH", "HLL", "HLH", "HHL", "HHH"],
+    "analysis_and_synthesis_bank_identical_under_pytorch_adjoint": true,
+    "full_band_reconstruction_max_abs_gate": 0.00001
+  },
+  "detail_teacher_alignment_evidence": {
+    "kd200_vs_history_parameter_cosine": 0.999208,
+    "kd200_vs_history_parameter_relative_l2": 0.03987,
+    "kd200_vs_history_fixed_synthetic_feature_cosine_by_stage": [0.99933, 0.99739, 0.99289, 0.98941],
+    "ema168_vs_history_parameter_cosine": 0.369009,
+    "ema168_vs_history_parameter_relative_l2": 1.12919,
+    "interpretation": "KD200 shares the history168 basin/channel basis; cross-seed EMA hidden channels are unsuitable for direct same-channel MSE"
+  },
+  "added_implementation_gates": [
+    "all-band float32 reconstruction max abs error <1e-5",
+    "DCD weight zero one-step student update exactly matches base voxel-KD",
+    "max-weight batch8 smoke gives finite nonzero DCD gradients at all four encoder stages and no teacher gradients",
+    "batch8 one-step mechanical formal extrapolation <=2 hours"
+  ],
+  "scientific_protocol_changed_after_data_access": false,
+  "validation_access": false,
+  "new_method_validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

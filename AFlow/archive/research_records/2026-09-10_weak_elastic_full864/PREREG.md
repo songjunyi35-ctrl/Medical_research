@@ -1,0 +1,9 @@
+# 条件性full864固定配对与一次旧榜评测
+
+IDEA.md全部七问、参数、成功/停止门构成本阶段冻结设计，写于Stage A新开发揭示前。实际准入须写TRAIN_PREACCESS.json（绑定Stage A RESULT/VERIFICATION及唯一selected_arm、完整864清单、smoke和实现SHA）。模型完成后另写TEST_PREACCESS.json（两fixed168 checkpoint和两训练报告SHA、测试manifest/cache索引及像素SHA、旧榜raw/数值、评测代码、输出、4320forwards、bootstrap/阈值/8反射顺序）。拒绝覆盖或再次运行。
+
+旧test270 manifest SHA=a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9，cache index SHA=41bd6cf44553b8d156de49f2c57bb424cab60cfa26c06881bdfb96ff91de39d3。固定input128³栅格使用同旧GT，不能用其他native-grid成绩替换。本阶段沿用历史测试评分float32 Dice与点坐标函数，保留每例计数供独立重算，说明浮点舍入。
+
+全864清单按case_id排序，内容仅来自哈希绑定旧fit/dev记录，不修改原313/78划分文件。训练与test/fixed validation/oldconfirmation患者disjoint先核manifest。模型元数据注明development180_consumed_as_training=True，不将重新在原dev预测称验证。
+
+Stage A失败则写未准入边界；Stage B工程失败保留已读/未读访问事实；任何test完成（包括科学门失败）都更新两个榜单并完成RESULT/机器结果/验证和三canonical文件。

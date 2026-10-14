@@ -1,0 +1,110 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt.residual_refiner_test_freeze",
+  "schema_version": 1,
+  "status": "frozen_before_test_nifti_open",
+  "created_at_utc": "2026-08-13T03:18:07Z",
+  "scope_note": "Frozen before this method's N4/GT-crop test cache is built. The same 270 internal test cases were already revealed by earlier project arms and are not a pristine external test.",
+  "authorization": {
+    "operator_request": "这个 0.668 这个 ckpt 是不是还没跑过 test？没有的话去跑一下吧",
+    "token": "USER_AUTHORIZED_RESIDUAL_REFINER_TEST270_2026-08-13"
+  },
+  "development_selection": {
+    "split": "972 train / 108 validation, subject-clean",
+    "selected_epoch": 58,
+    "selection_metric": "108-case validation scan-macro refined DSC",
+    "coarse_validation_dsc_h100": 0.6359485293721298,
+    "refined_validation_dsc_h100": 0.6683989912099032,
+    "absolute_gain_h100": 0.032450461837773524,
+    "selection_used_test": false,
+    "development_result_sha256": "8fe3c06f6bab079ef0e5e37fbe15a25fb00f2adfa741270b580fcf357063cef5",
+    "train_done_sha256": "da16735a54f98817e72a0527ce72f04ee925c5bfaba93cf1d90f333da7f36ccb"
+  },
+  "models": {
+    "base_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/sammed3d_native_gtcrop_fullunfreeze_ddp2_train972_val108_e100_s20260805/sam_model_val_dice_best.pth",
+    "base_checkpoint_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+    "base_epoch": 48,
+    "base_selection": "validation val_dice; no test selection",
+    "refiner_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/refiner_val_dice_best.pth",
+    "refiner_checkpoint_sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "refiner_epoch": 58,
+    "selection_used_test": false
+  },
+  "test": {
+    "manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/sealed_test/test_cases_t1ce.jsonl",
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "cases": 270,
+    "subjects": 119,
+    "case_overlap_with_development": 0,
+    "subject_overlap_with_development": 0,
+    "cache": "/tmp/aflow_t1ce_wt_gtcrop_n4_128/test_authorized_refiner_20260813",
+    "output": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/test270_epoch58_gtcrop_n4_refiner3_s20260723_20260813"
+  },
+  "preprocessing": {
+    "input": "T1ce single channel",
+    "target": "WT={1,2,3}; raw label 4 excluded",
+    "spatial": "TorchIO ToCanonical + GT-centered CropOrPad to native-resolution 128^3",
+    "uses_gt_for_localization": true,
+    "normalization": "post-crop positive-voxel sample z-score",
+    "n4_bias_field_correction": true,
+    "n4_shrink_factor": 2,
+    "test_augmentation": false,
+    "comparability_warning": "Oracle/GT-centered geometry; not an automatic end-to-end segmentation score and not the official15 preprocessing branch."
+  },
+  "inference": {
+    "coarse_model": "frozen SAM-Med3D stage-2 checkpoint",
+    "clicks": 3,
+    "click_protocol": "click 1 uniform GT foreground; clicks 2/3 uniform XOR error; FN positive and FP negative",
+    "prompt_history": "all points accumulated",
+    "recurrent_low_resolution_mask": true,
+    "coarse_threshold": "raw logit > 0",
+    "refiner_input": "N4 T1ce plus tanh(frozen click-3 raw logit / 5)",
+    "refiner_output": "frozen click-3 raw logit plus learned SegResNet residual",
+    "refined_threshold": "raw logit > 0",
+    "precision": "BF16 autocast on A100, matching the refiner validation implementation",
+    "seed": 20260723,
+    "world_size": 2,
+    "primary_metric": "270-case scan-macro refined DSC",
+    "paired_metrics": [
+      "same-run scan-macro coarse DSC",
+      "same-run scan-macro refined-minus-coarse DSC",
+      "subject-balanced coarse/refined/delta DSC",
+      "improved/worsened case counts",
+      "lesion-size strata on GT-crop target voxels"
+    ],
+    "postprocessing": "none; no threshold, TTA, morphology or connected-component search",
+    "test_used_for_adaptation": false,
+    "runs_allowed": 1
+  },
+  "hardware_note": {
+    "historical_training_and_validation": "H100",
+    "test": "2 x NVIDIA A100-SXM4-80GB",
+    "known_effect": "BF16 corrective-click branching is hardware-sensitive; therefore the scientific contrast is refined versus coarse generated in the same A100 test run.",
+    "a100_validation_smoke": {
+      "case_id": "BraTS-GLI-00046-100",
+      "coarse_dsc": 0.6191782520419709,
+      "refined_dsc": 0.6727739219104635,
+      "h100_recorded_coarse_dsc": 0.6131447553634644,
+      "h100_recorded_refined_dsc": 0.6655840873718262
+    }
+  },
+  "implementation": {
+    "development_cache_builder_sha256": "329660074d93362633fd858270ce62bdd2acc5ee52fa27874815318e37c84a4e",
+    "test_cache_builder": "scripts/build_t1ce_wt_gtcrop_n4_test_cache.py",
+    "test_cache_builder_sha256": "9ba85771a35630ad8a994a7fd39d3138bdd564ffa69855a7455752bd4c1723e3",
+    "coarse_inference_source": "scripts/cache_sammed3d_t1ce_wt_refiner_inputs.py",
+    "coarse_inference_source_sha256": "846cb0d8137ab1e8fd71adf26e98ca954baa95bb6e581362496dc4ea34c0683a",
+    "refiner_source": "scripts/train_sammed3d_t1ce_wt_residual_refiner.py",
+    "refiner_source_sha256": "9ad3cc1a7f2494690caf3ed351e852ec236568db4d68db26380decb1c5db96e8",
+    "test_evaluator": "scripts/evaluate_t1ce_wt_residual_refiner_test.py",
+    "test_evaluator_sha256": "2a821ed0b4082809246c05ac430914347af46aecad6f914f6d3fb395e07d935b",
+    "targeted_test": "tests/test_residual_refiner_sealed_test.py",
+    "targeted_test_sha256": "b7530c0a59bcf74966ff4e784d1dcfc0f8e73056933da000f50c30c106bd9015",
+    "regression_result": "9 passed (new residual-refiner tests plus existing official15 sealed-test tests)"
+  },
+  "evidence_boundary": [
+    "This score must be labeled GT-centered/oracle localization and kept separate from automatic brain-crop test results.",
+    "The 270-case internal test has already been revealed by earlier project arms, so it is not pristine external validation.",
+    "The result will be reported once and will not be used to tune the refiner, threshold, prompts, or postprocessing.",
+    "The official15 vanilla baseline and this older N4 residual-refiner branch use different preprocessing and interaction protocols; their raw Dice values are descriptive, not a controlled ablation."
+  ]
+}

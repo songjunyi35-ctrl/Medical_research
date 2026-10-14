@@ -1,0 +1,68 @@
+{
+  "schema": "aflow.brats.t1ce_wt_lawa6_stage_a_decision",
+  "schema_version": 1,
+  "status": "passed",
+  "created_at_utc": "2026-09-02T06:41:30Z",
+  "full972_final_authorized": true,
+  "method": "within-run uniform weight average of epochs 163-168 versus exact raw epoch168",
+  "cohort": {
+    "role": "fresh train-only inner",
+    "scans": 108,
+    "subjects": 51,
+    "fit_scans": 864,
+    "fit_subjects": 393,
+    "case_overlap": 0,
+    "subject_overlap": 0
+  },
+  "arms": {
+    "seed20261061": {
+      "raw": {"scan_dice": 0.7448037208782302, "subject_dice": 0.7314329999529458, "point_hits": 103},
+      "lawa6": {"scan_dice": 0.7471228255717842, "subject_dice": 0.7333883197576392, "point_hits": 106},
+      "delta": {
+        "scan_dice": 0.002319104693554066,
+        "scan_95ci": [0.0003448900387242989, 0.004336329687524724],
+        "subject_dice": 0.001955319804693362,
+        "subject_95ci": [-0.0005200370476623751, 0.004879791141043298],
+        "point_hits": 3,
+        "scans_improved_worse_tied": [69, 38, 1],
+        "subjects_improved_worse_tied": [29, 21, 1]
+      },
+      "all_five_gates_passed": true
+    },
+    "seed20261062": {
+      "raw": {"scan_dice": 0.7378623231693551, "subject_dice": 0.7261170120605457, "point_hits": 106},
+      "lawa6": {"scan_dice": 0.7391300256605502, "subject_dice": 0.7288895014162157, "point_hits": 107},
+      "delta": {
+        "scan_dice": 0.0012677024911951136,
+        "scan_95ci": [-0.0015338465709377217, 0.003764063319950192],
+        "subject_dice": 0.0027724893556700806,
+        "subject_95ci": [-0.00023904026552937528, 0.0056889591787278255],
+        "point_hits": 1,
+        "scans_improved_worse_tied": [67, 40, 1],
+        "subjects_improved_worse_tied": [35, 15, 1]
+      },
+      "all_five_gates_passed": true
+    }
+  },
+  "promotion_gates": {
+    "count": 10,
+    "passed": 10,
+    "failed": 0,
+    "all_gates_passed": true
+  },
+  "evidence": {
+    "raw_inner_report_sha256": "09cde688b29f8b98562acce5788c473475ad89781b0c4acd7c0a08c09fd51d6d",
+    "inner_started_sha256": "9218b402ee76c18f02b928e4fc276096a0205a8180b5eb1e31e02e44b1f91ffc",
+    "preaccess_receipt_sha256": "5e8544273703bd84d3d2a32f767982ecd2f82a59c532cbee7151637db7c058d8",
+    "trainer_sha256": "158f9e4df2fa87c6dbf21d24457c482f612567ea9737db5bb061e608ed17858a",
+    "evaluator_sha256": "96c9d26d0f181f71237efc849aab833187ca8f7614f94ef0e8ed4f91e47df8db"
+  },
+  "interpretation": "LAWA6 improved Scan, Subject, and Point on both independent fresh seeds; one Scan CI and both Subject CIs cross zero but all frozen safety lower bounds exceed -0.003, so the preregistered Full972 fresh-seed final is authorized.",
+  "access": {
+    "train_only_inner": true,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  }
+}

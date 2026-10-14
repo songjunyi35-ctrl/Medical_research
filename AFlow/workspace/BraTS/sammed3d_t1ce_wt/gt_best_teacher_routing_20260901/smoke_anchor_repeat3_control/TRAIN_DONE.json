@@ -1,0 +1,81 @@
+{
+  "access": {
+    "confirmation": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "test270": false,
+    "train_only_inner": false
+  },
+  "all_gates_passed": true,
+  "arm": "anchor_repeat3_control",
+  "checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gt_best_teacher_routing_20260901/smoke_anchor_repeat3_control/plain_anchor_repeat3_control_epoch1.pth",
+    "sha256": "5137ca3f77682524e1b6afbe13d185eb06b393f6f427fb3b6606b1a2cb2d7fcf"
+  },
+  "created_at_utc": "2026-09-01T10:59:32.240067+00:00",
+  "data_role": {
+    "cases": 8,
+    "subjects": 3,
+    "train": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl",
+      "sha256": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65"
+    }
+  },
+  "elapsed_seconds": 2.8256421089172363,
+  "gates": {
+    "all_losses_finite": true,
+    "all_steps_exact": true,
+    "all_teacher_forwards_exact": true,
+    "checkpoint_reload_exact": true,
+    "elapsed_within_6h": true,
+    "epoch_count_exact": true,
+    "peak_at_most_24gib": true
+  },
+  "history": [
+    {
+      "consumed_draws": 16,
+      "elapsed_seconds": 2.6175267696380615,
+      "epoch": 1,
+      "first_batch_sha256": {
+        "image": "4e09d74c76e1c8358a0279dada0f3be21691ff14d6f23941b3499b709ecac6d7",
+        "label": "adf38eae637411631752e7f093a375590c7af091c8e43c72bc5cbe7bf6424004"
+      },
+      "first_student_loss": 1.7517145872116089,
+      "learning_rate": 0.0002,
+      "optimizer_steps": 2,
+      "routing_counts": [
+        16,
+        0,
+        0
+      ],
+      "sampler_index_sha256": "322bcca3d78c69d1a5e1873623e203d87a325f51ad38c18cd47462ad2ac8f4f1",
+      "teacher_forward_count": 6,
+      "train_dice": 0.005525906693947036,
+      "train_kd_loss": 2.189189314842224,
+      "train_loss": 1.6928409337997437,
+      "train_supervised_loss": 1.0360841155052185
+    }
+  ],
+  "initial_state_sha256": "7bc9ce97f7fd1497dba93fc557efe8d0f04b83b5133e199b9afe587bb0ba4618",
+  "model_state_sha256": "01a9c54a957b9477a63956df23078b6cc1e5a59d3fe53b37859341cd07e77c00",
+  "peak_gpu_memory_bytes": 21806879232,
+  "routing": {
+    "method": "anchor_repeat3_control",
+    "teacher_file_sha256": [
+      "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "48c366ef9f5d3ba5c667482deda6df90fa7cd4bf03c314017e15c13f161dfd38",
+      "00db7860b7951d1f4b0affde6cad558f679421ba93dfe69157c31bd497b19ddb"
+    ],
+    "teacher_forwards_per_step": 3,
+    "total_counts": [
+      16,
+      0,
+      0
+    ]
+  },
+  "runner_sha256": "3058fc0959fafb920edf1c4220f08b7b4b267230b97fa324e6c76e3ae0d9a827",
+  "sampling_weight_sha256": "6f80b3a44bdc8cf8f1172619a7094a9983ed5e08c8eb020b1e657fed89f795de",
+  "schema": "aflow.sammed3d.t1ce_wt_gt_best_teacher_routing",
+  "schema_version": 1,
+  "status": "complete"
+}

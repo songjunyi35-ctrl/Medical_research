@@ -1,0 +1,36 @@
+import datetime, hashlib, json, shutil, sys, re
+from pathlib import Path
+root=Path.cwd();sys.path.insert(0,str(root))
+from scripts.finalize_sammed3d_graymean_pair import paired_summary
+r=root/'archive/research_records/2026-09-16_sammed3d_graymean_pair'; w=root/'workspace/BraTS/sammed3d_t1ce_wt/graymean_pair_20260916'
+def sha(p):
+ h=hashlib.sha256()
+ with p.open('rb') as f:
+  for b in iter(lambda:f.read(8<<20),b''):h.update(b)
+ return h.hexdigest()
+def put(p,x):p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+rows={};ev={};cost={}
+for arm in ['control','graymean']:
+ a=w/arm;report=a/'development_e005.json';d=json.loads(report.read_text());rows[arm]=d['rows'];best=json.loads((a/'BEST.json').read_text())
+ assert sha(report)==best['report_sha256'] and sha(a/'best.pth')==best['checkpoint_sha256']
+ logs=[json.loads(s) for s in (a/'TRAIN.jsonl').read_text().splitlines()];status=json.loads((a/'STATUS.json').read_text())
+ ev[arm]={n:{'path':str((a/n).relative_to(root)),'sha256':sha(a/n)} for n in ['development_e005.json','best.pth','latest.pth','BEST.json','PREACCESS.json','DEVELOPMENT_PREACCESS.json','STATUS.json','TRAIN.jsonl','console.log']}
+ cost[arm]={'complete_epochs':status['last_complete_epoch'],'training_seconds_complete_epochs':sum(x['training_seconds'] for x in logs),'elapsed_seconds_last_complete_epoch':status['elapsed_seconds'],'peak_allocated_bytes':status['peak_allocated_bytes'],'checkpoint_bytes':sum((a/n).stat().st_size for n in ['best.pth','latest.pth'])}
+result=paired_summary(rows['control'],rows['graymean']);result.update(status='interrupted_infrastructure_early_development_only',updated_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),evaluated_epoch=5,evidence=ev,cost=cost,exact_author_reproduction=False,test_outer_confirmation_access=False,fixed_validation_access=False,minimum_training_evaluation_verified=True,full_preregistered_run_completed=False,worker_observation={'old_worker':'1097281','login_error':'worker has not been ready yet','listed_worker':'1097833','last_supervisor_update':json.loads((r/'SUPERVISOR_STATUS.json').read_text()),'cause':'old worker unavailable; exact termination cause unknown'},disk_free_bytes=shutil.disk_usage(root).free)
+index=json.loads((r/'CACHE_INDEX.json').read_text());result['cache_bytes']=index['bytes'];result['verified_cache_files']=0
+for x in index['cases']:
+ assert sha(root/x['path'])==x['sha256'];result['verified_cache_files']+=1
+put(r/'RAW_EPOCH005_PAIRED.json',rows)
+result['hashes']={n:sha(r/n) for n in ['PREREG.json','IMPLEMENTATION_FREEZE.json','ANALYSIS_FREEZE.json','CACHE_INDEX.json','CACHE_PREACCESS.json','SMOKE.json','RAW_EPOCH005_PAIRED.json']}
+result['recorded_gpu_hours_lower_bound']=sum(x['elapsed_seconds_last_complete_epoch'] for x in cost.values())/3600
+put(r/'RESULT.json',result)
+d=result['difference_graymean_minus_control'];ci=d['scan_final5_ci95'];s=f'第5轮复用开发180扫描/78患者：第5点击Scan Dice对照0.500417、灰度0.484742，差{d["scan_final5"]:+.6f}，患者整簇配对95%区间[{ci[0]:+.6f}, {ci[1]:+.6f}]。'
+text='# SAM-Med3D灰度均值配对：最小链验证与中断归档\n\n'+s+'\n\n两组各完成6轮（每轮684例），第7轮日志中断；旧worker无法登录且不在当前列表。原始STATUS仍写running，已保留作证据，不能当作存活证明。完整200轮/48h方案未完成；中断确切原因未知，不伪记为非有限梯度或精度失败。\n\n唯一变化为首次提示软灰度均值损失权重0/1；保持Turbo初始化、684训练/180开发、1.5mm及128³真值中心裁剪、种子、优化器和点击协议不变。最终预测raw logit>0，采点raw logit>0.5；无测试时增强或后处理。按师兄公式补全本地未公开细节，不是作者代码精确复现，也非完整多阶段课程学习。\n\n早期检查点未通过冻结支持门，不能用未完成时程否定完整方法。Subject Dice对照0.504254、灰度0.488661；五点击最佳Scan为0.526544/0.509668，仅次指标。区间采用既定10000次患者整簇配对重采样、seed20260916；这是同一复用开发集，不是独立确认。未新增固定验证/outer/confirmation/test访问，不更新测试榜数值。\n\n## 成本与后续\n\n'+f'两张40GB A100一卡一组，已记录完整轮次累计至少{result["recorded_gpu_hours_lower_bound"]:.3f} GPU小时；不含未完成第7轮及空闲计费，实际账单未知。训练约332秒/轮/卡；按此速度200轮纯训练约18.5小时壁钟/37 GPU小时，另加评估与保存，原上限96 GPU小时。每卡峰值约6.64 GiB，共用缓存{index["bytes"]/(1<<30):.3f} GiB，两组检查点共{sum(v["checkpoint_bytes"] for v in cost.values())/(1<<30):.3f} GiB，核验时剩余{result["disk_free_bytes"]/(1<<30):.2f} GiB。推理每patch一次图像编码加五次交互解码，灰度项额外前向为0；依赖真值裁剪和模拟点击，不能与全自动主榜混排。\n\n最小训练—评估链已核验。未改冻结脚本、未追加阈值或权重搜索、未启动SegResNet。完整训练仍待恢复；现有入口拒绝覆盖续跑，恢复前需要独立续跑实现并验证优化器、调度器、随机状态和完整轮次一致性。不得把本报告当完整复现完成。\n\n[完整指标与哈希](RESULT.json) · [逐病例原始报告](RAW_EPOCH005_PAIRED.json) · [冻结七问](IDEA.md)\n'
+(r/'RESULT.md').write_text(text)
+put(r/'ARCHIVE_RECEIPT.json',{'updated_utc':result['updated_utc'],'result_sha256':sha(r/'RESULT.json'),'result_md_sha256':sha(r/'RESULT.md')})
+put(r/'RUN_STATUS.json',{'updated_utc':result['updated_utc'],'stage':'旧worker不可用，最小训练评估已归档，完整训练未完成','explanation':s,'full_run_completed':False})
+p=root/'AFLOW_BRATS_HANDOFF_CURRENT.md';t=p.read_text();t=re.sub(r'<!-- SAMMED3D_GRAYMEAN_STATUS -->.*?<!-- END_SAMMED3D_GRAYMEAN_STATUS -->','<!-- SAMMED3D_GRAYMEAN_STATUS -->\n'+s+' 两组各完成6轮，旧worker不可用；完整训练未完成。仅684训练/180复用开发，无新固定验证/外层/确认/测试访问。双卡已记录至少1.145 GPU小时，峰值约6.64 GiB/卡；缓存及检查点成本见[中断结果与后续边界](archive/research_records/2026-09-16_sammed3d_graymean_pair/RESULT.md)。最小链已验证；后续需核验续跑能力，不得从头重复训练或恢复SegResNet。\n<!-- END_SAMMED3D_GRAYMEAN_STATUS -->',t,flags=re.S);t=t.replace('缓存构建和自动训练队列已启动','缓存与最小训练评估已完成，完整训练因旧worker不可用中断').replace('GPU接入已完成，当前待办是执行已冻结的SAM-Med3D灰度均值配对试跑与训练','旧worker已不可用，当前待办是核验SAM-Med3D续跑能力；最小训练评估已归档');p.write_text(t)
+p=root/'AFLOW_BRATS_METHOD_CATALOG.md';t=p.read_text();start=t.index('## SAM-Med3D首次提示灰度均值配对｜');t=t[:start]+'## SAM-Med3D首次提示灰度均值配对｜最小链完成，完整训练中断\n\n**一句话：** 用平均亮度帮助描肿瘤轮廓。 **出发点：** 旧SAM-Med3D五点击最佳0.594226，需核验师兄灰度项。\n**具体做法：** 只开关首次提示灰度均值损失，固定数据、初始化、空间处理、优化器与交互。\n**结果：** '+s+' 两组各完成6轮，原worker不可用，完整时程未完成。\n**是否支持直觉：** 早期检查点未过支持门；不能据此否定完整训练方案，不是作者代码精确复现。\n**代价/下一步：** 双A100已记录至少1.145 GPU小时、峰值约6.64 GiB/卡；灰度项不增推理前向。保留检查点，核验续跑能力，无新测试。[核对材料](archive/research_records/2026-09-16_sammed3d_graymean_pair/RESULT.md)\n';p.write_text(t)
+p=root/'AFLOW_BRATS_RESULTS.md';t=p.read_text();marker='\n---\n\n[导师汇报正文]';entry='\n## 2026-09-16｜SAM-Med3D最小链验证与worker中断核验\n\n**问题：** 旧交接仍写运行中，但GPU worker已经不可用。\n**做法：** 沙箱外核查worker、冻结哈希、864份缓存、两组权重和既有逐病例报告；保留原脚本和收据。\n**结果：** '+s+' 各完成6轮，完整方案未完成；双卡已记录至少1.145 GPU小时，无新增测试访问。\n**决定：** 归档早期证据和基础设施失败边界，不当完整复现结论、不恢复SegResNet；下一步核验续跑。[核对材料](archive/research_records/2026-09-16_sammed3d_graymean_pair/RESULT.md)\n';assert marker in t;p.write_text(t.replace(marker,entry+marker))
+p=root/'AFLOW_BRATS_WEEKLY_REPORT.md';t=p.read_text().replace('科研结果截至2026-09-11','科研结果截至2026-09-16（含未完成训练的早期开发结果）');a=t.index('2026-09-16方向更正：');b=t.index('\n\n',a);t=t[:a]+'2026-09-16方向更正：以SAM-Med3D为唯一训练主线，已按师兄灰度均值公式完成配对最小训练评估。'+s+' 两组完成6轮后旧worker不可用，完整训练未完成；不能称复现论文0.731或最终精度负结果。双A100已记录至少1.145 GPU小时，无新测试。[核对材料](archive/research_records/2026-09-16_sammed3d_graymean_pair/RESULT.md)'+t[b:];p.write_text(t)
+print(json.dumps({'summary':s,'cost':cost,'cache_gib':index['bytes']/(1<<30),'gpu_hours':result['recorded_gpu_hours_lower_bound']},ensure_ascii=False))

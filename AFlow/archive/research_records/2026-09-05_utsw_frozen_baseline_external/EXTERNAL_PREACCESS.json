@@ -1,0 +1,88 @@
+{
+  "access": {
+    "confirmation": false,
+    "external_metrics": false,
+    "fixed_validation": false,
+    "model_checkpoint_loaded_on_gpu": false,
+    "model_forwards": false,
+    "new_utsw_subjects": false,
+    "outer": false,
+    "rhuh": false,
+    "test270": false,
+    "ucsd75": false
+  },
+  "cohort": {
+    "bytes_per_copy": 1813086599,
+    "cases": 362,
+    "files": 724,
+    "subjects": 362
+  },
+  "cohort_ids_sha256": "e4809dd7f43439309bef71784b3accff95be1a6915e044f46de352e780ec525c",
+  "created_utc": "2026-09-05T23:52:00.919594+00:00",
+  "disk_gate": {
+    "minimum_gib": 12,
+    "passed": true
+  },
+  "models": {
+    "full972_kd168": {
+      "epoch": 168,
+      "file_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/final_formal_full972_candidate/plain_fulltrajectory_full972_candidate_epoch168.pth",
+      "primary_view": "flip8",
+      "schema": "aflow.sammed3d.t1ce_wt_voxel_kd_fulltrajectory_final_checkpoint",
+      "state_sha256": "f24201eecc7bf4aaff92b8e0a50c85a31e6913f5c9701cca6ad7df3439618ea7"
+    },
+    "gcsam184": {
+      "epoch": 184,
+      "file_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_full972_stability_20260831/inner_formal_gcsam_candidate/post100_best.pth",
+      "primary_view": "identity",
+      "schema": "aflow.sammed3d.t1ce_wt_gcsam_inner.checkpoint",
+      "state_sha256": "eea33e1d3a1ab9505ba0b85aa915a9df59260b50a0991b49e1e9c77417690f02"
+    }
+  },
+  "prior_access": {
+    "full972_kd168": [
+      "fixed_validation",
+      "reused_test270",
+      "mirror_uint8_ucsd75"
+    ],
+    "gcsam184": [
+      "train_inner_selection",
+      "reused_test270",
+      "mirror_uint8_ucsd75",
+      "later_replication_failed"
+    ]
+  },
+  "protocol": {
+    "absolute_gates": {
+      "point_hits": 326,
+      "scan": 0.7,
+      "subject": 0.7
+    },
+    "bootstrap": {
+      "samples": 10000,
+      "seed": 20261391
+    },
+    "cache": "canonical positive-mask N4 primary FeTS",
+    "primary_absolute": {
+      "full972_kd168": "flip8",
+      "gcsam184": "identity"
+    },
+    "target": "UTSW label>0",
+    "threshold": 0.0,
+    "views": [
+      "identity",
+      "flip8"
+    ]
+  },
+  "runner_sha256": "8e433c089d36923d2a196d0490c631cec61f072518ff010a87c8e718b27537a2",
+  "schema": "aflow.utsw_frozen_baseline_external.preaccess",
+  "status": "frozen_before_utsw_source_and_gpu_model_access",
+  "time_gate": {
+    "deadline_utc": "2026-09-06T14:02:39+00:00",
+    "minimum_hours": 3,
+    "passed": true
+  },
+  "training_source_caveat": "Kaggle mirror; official corrected-v2 byte parity unresolved"
+}

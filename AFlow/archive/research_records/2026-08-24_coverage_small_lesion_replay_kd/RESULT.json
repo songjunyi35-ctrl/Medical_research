@@ -1,0 +1,76 @@
+{
+  "schema": "aflow.brats.t1ce_wt_coverage_small_lesion_replay_kd_result",
+  "schema_version": 1,
+  "status": "validation_negative_no_test",
+  "selected_candidate_epoch": 200,
+  "selected_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/coverage_small_lesion_replay_kd_20260824/formal_coverage_replay_candidate/plain_128_coverage_replay_candidate_global_epoch200.pth",
+    "sha256": "4a02e9ba0beb704a3b1a6429394df39bff5a706f418c12c10436230f7f658ae4",
+    "model_state_sha256": "9fab8778829a68b75075c7dd9c50fd627e6a047568067b5190ef61a55f645139"
+  },
+  "fixed_validation108": {
+    "candidate": {
+      "scan_dice": 0.734158289929231,
+      "subject_dice": 0.7249498731891315,
+      "point_hits": 98,
+      "point_rate": 0.9074074074074074
+    },
+    "same_epoch_control": {
+      "scan_dice": 0.7326775766495202,
+      "subject_dice": 0.72305966666057,
+      "point_hits": 99,
+      "point_rate": 0.9166666666666666
+    },
+    "archived_kd200": {
+      "scan_dice": 0.7343843078447713,
+      "subject_dice": 0.7244341433615912,
+      "point_hits": 101,
+      "point_rate": 0.9351851851851852
+    },
+    "candidate_minus_control": {
+      "scan": 0.0014807132797108756,
+      "scan_95ci": [-0.0002086343260964861, 0.003246221168794565],
+      "subject": 0.0018902065285614556,
+      "subject_95ci": [-0.0005251145153528136, 0.004555629135065134],
+      "point_hits": -1
+    },
+    "candidate_minus_kd200": {
+      "scan": -0.00022601791554027132,
+      "scan_95ci": [-0.0030981685793786138, 0.002469755474615979],
+      "subject": 0.0005157298275402611,
+      "subject_95ci": [-0.0026517061317960413, 0.0034908210620993654],
+      "point_hits": -3
+    }
+  },
+  "promotion": {
+    "candidate_authorized_for_test": false,
+    "failed_gates": [
+      "beats_kd200_scan",
+      "point_hits_at_least_101_of_108",
+      "scan_ci_lower_at_least_minus_0.003_vs_kd200"
+    ]
+  },
+  "cost": {
+    "control_formal_seconds": 1935.0089650154114,
+    "candidate_formal_seconds": 1938.5421857833862,
+    "peak_gpu_memory_bytes_per_arm": 21788257792,
+    "workspace_megabytes_approx": 253,
+    "inference_forwards": 1,
+    "parameter_count": 4700897
+  },
+  "evidence": {
+    "raw_validation_path": "workspace/BraTS/sammed3d_t1ce_wt/coverage_small_lesion_replay_kd_20260824/COVERAGE_REPLAY_VALIDATION.json",
+    "raw_validation_sha256": "9672f8e25b443ecc7ba88895f96c3f2f51b1d31d2cf8486fa94cf47d4602058e",
+    "preaccess_receipt_sha256": "a45cf8021db6cd97dca423418bef9b7051e0ae3b797a69bf71d454fd897b1ed3",
+    "implementation_receipt_sha256": "17535ed9fef216ad2fc15357b4b7f027cc558363e380665700cf5ef766ec26ae",
+    "control_training_report_sha256": "ffc51f7288defccfcb7c09213fc41b70e54e75662c6b13edffac65f6e9da0c8a",
+    "candidate_training_report_sha256": "0887859fe99aa77b4b2740c621cdc30b444576ee9de94803b599a73efe735579"
+  },
+  "access": {
+    "validation": true,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  },
+  "interpretation": "The coverage-first sampler improved Scan and Subject Dice over a same-compute native-volume replacement control, supporting the local data-coverage mechanism. It did not beat archived KD200 Scan, lost three Point hits, and missed the KD200 Scan CI safety gate, so the complete promotion hypothesis failed and test270 was not accessed."
+}

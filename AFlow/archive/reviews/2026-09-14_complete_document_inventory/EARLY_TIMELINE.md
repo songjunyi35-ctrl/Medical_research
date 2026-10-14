@@ -1,0 +1,209 @@
+# 早期长文中的日期章节导航
+
+只索引根文档和早期交接中带明确日期的一级至三级标题；这是导航，不是完整事件年表。长文也可能包含更早但没有日期标题的记录。
+
+- 2026-06-29：[9. 2026-06-29 GRPO-style segmentation 方向进展](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第646行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[10. 2026-06-30 系统盘清理后状态](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第698行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[11. 2026-06-30 GRPO clean 16/8 short run](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第755行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[12. 2026-06-30 GRPO 32/16 clean-val 复核](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第792行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[13. 2026-06-30 GRPO 32/16 多 seed 复核](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第821行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[14. 2026-06-30 当前实验结论摘要](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第858行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[15. 2026-06-30 GRPO g4 anchor0.05 ablation seed 2026](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第882行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[16. 2026-06-30 GRPO g4 anchor0.05 多 seed 复核](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第917行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[17. 2026-06-30 GRPO anchor 单变量 ablation](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第948行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[18. 2026-06-30 GRPO group-size 单变量 ablation](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第973行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[19. 2026-06-30 GRPO ablation 后系统盘清理](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1000行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[20. 2026-06-30 GRPO group-size 单变量多 seed 复核](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1029行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-06-30：[2026-06-30 GRPO clean 16/8 short run](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第460行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-06-30：[2026-06-30 GRPO 32/16 clean-val 复核](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第483行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-06-30：[2026-06-30 GRPO 32/16 多 seed 复核](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第500行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-06-30：[2026-06-30 GRPO g4 anchor0.05 ablation seed 2026](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第527行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-06-30：[2026-06-30 GRPO g4 anchor0.05 多 seed 复核](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第539行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-06-30：[2026-06-30 GRPO anchor 单变量 ablation](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第556行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-06-30：[2026-06-30 GRPO group-size 单变量 ablation](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第570行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-06-30：[2026-06-30 磁盘清理与继续方向](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第585行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-06-30：[2026-06-30 GRPO group-size 多 seed 复核](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第596行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-03：[21. 2026-07-03 GRPO anchor0.03 小范围探索与接手状态](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1066行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-03：[22. 2026-07-03 GRPO g4 anchor0.05 扩样本到 64/96 train](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1104行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-03：[23. 2026-07-03 GRPO g4 anchor0.05 full train 与文献启发下一步](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1179行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-03：[24. 2026-07-03 DPO-style pairwise preference ablation 负结果](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1260行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-03：[25. 2026-07-03 center-of-mass spatial reward ablation 负结果](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1345行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-03：[2026-07-03 GRPO anchor0.03 与当前交接结论](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第615行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-03：[2026-07-03 GRPO g4 anchor0.05 扩样本到 64/96](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第635行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-03：[2026-07-03 GRPO g4 anchor0.05 扩到 full train](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第672行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-03：[2026-07-03 DPO-style pairwise preference ablation](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第733行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-03：[2026-07-03 center-of-mass spatial reward ablation](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第775行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[26. 2026-07-06 原始 GRPO full-train 延长到 8 epoch，成为当前 clean-val best](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1411行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[27. 2026-07-06 A100 后续推进：原始 GRPO full-train 10 epoch 成为当前 clean-val best](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1479行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[28. 2026-07-06 insight 审计与跨领域 survey：算法是否真的 work](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1574行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[29. 2026-07-06 e12 seed2026 复核：训练内略高，reload audit 未超过 e10](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1656行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[30. 2026-07-06 boundary/surface reward 小实验：coef0.05/tol2 判负](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1717行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[31. 2026-07-06 boundary-weighted anchor 小实验：判负](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1794行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[32. 2026-07-06 hard-case curriculum 小实验：判负](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1870行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[33. 2026-07-06 rollout logit noise 小实验：接近但未超主线](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第1952行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[34. 2026-07-06 tumor_ET 跨目标迁移：seed2026 小正，seed2027 反转](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2024行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[35. 2026-07-06 tumor_TC 跨目标迁移：同样不是稳定正结果](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2105行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[36. 2026-07-06 RC anchor/KL schedule：seed2026 微正，seed2027 反转，不扩](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2207行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[37. 2026-07-06 RC rank advantage：未超过原始 GRPO，不补 seed2027](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2266行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-06：[2026-07-06 原始 GRPO full-train 8 epoch](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第809行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 A100 full-train 10 epoch](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第846行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 insight/survey 汇总](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第888行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 e12 seed2026 复核](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第922行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 surface reward 小实验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第945行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 boundary-weighted anchor 小实验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第973行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 hard-case curriculum 小实验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1004行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 rollout logit noise 小实验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1034行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 tumor_ET 跨目标迁移](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1066行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 tumor_TC 跨目标迁移](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1103行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 RC anchor/KL schedule 小实验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1152行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-06：[2026-07-06 RC rank advantage 小实验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1181行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-07：[38. 2026-07-07 RC mixed-soft reward：seed2026 仅微正，不补 seed2027](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2311行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-07：[39. 2026-07-07 RC GRPO+AWR / reward-weighted BC：三组 seed2026 均负](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2372行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-07：[40. 2026-07-07 5-agent 审计与 RC full-train supervised clean 对照：GRPO 小幅优势仍成立](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2433行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-07：[41. 2026-07-07 RC corrective GRPO：负结果，不扩 seed](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2510行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-07：[2026-07-07 RC mixed-soft reward 小实验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1206行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-07：[2026-07-07 RC GRPO+AWR 小实验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1243行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-07：[2026-07-07 RC full-train supervised clean 对照](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1273行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-07：[2026-07-07 RC corrective GRPO 小实验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1306行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-17：[42. 2026-07-17：B200 + BraTS2024 全量 subject-clean work #2 重启](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2553行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-17：[2026-07-17 当前结果：B200 + 全量 subject-clean work #2](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第126行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-17：[work #2：历史 200-scan 基础设施（已被 2026-07-17 全量协议取代）](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第283行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-17：[2026-07-17 B200 + BraTS2024 全量 subject-clean work #2](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1330行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-20：[2026-07-20 四模态统一纠偏（本节最高优先级，覆盖后文旧口径）](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第319行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-20：[43. 2026-07-20：work #1 审计、梯度分支与 continuation 完成](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2827行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-20：[44. 2026-07-20：MedTAWS 更名、1350-scan 文献对标与科研目标重置](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第2988行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-20：[45. 2026-07-20：四模态统一重启 Phase A 完成](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3067行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-20：[2026-07-20 当前推进：work #1 审计与 L0 partial-decoder continuation](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第20行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-20：[2026-07-20 Work #1 更名与 BraTS 2024 外部基准审计](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1002行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-20：[2026-07-20 四模态统一重启 Phase A：从 Work #1 重建](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1059行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-20：[2026-07-20 work #1 收口审计与 gradient-directed continuation](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1473行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-20：[2026-07-20 Work #1 更名与外部 SOTA 目标冻结](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1547行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-20：[2026-07-20 四模态统一重启周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1585行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-21：[2026-07-21 15:44 CST mask-token 语义审计纠正（历史基础，已被上节推进）](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第261行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-21：[2026-07-21 最新顺序纠正（覆盖本节及后文“先训练 checkpoint”的旧口径）](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第287行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-21：[46. 2026-07-21：Phase B 指标 parity、真实 smoke 与 paired split](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3167行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-21：[47. 2026-07-21：Work #1 冻结四模态 base 先测完成 tier1](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3246行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-21：[48. 2026-07-21 17:03:06（北京时间）：A1 baseline v2 单 seed preliminary](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3344行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-21：[49. 2026-07-21 17:39:58（北京时间）：A1 baseline v2 五 seed final](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3404行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-21：[50. 2026-07-21 21:01:37（北京时间）：官方 validation-protocol A0 对照](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3450行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-21：[2026-07-21 四模态 Phase B：公开指标 parity 与真实训练通路](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1164行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-21：[2026-07-21 Work #1 冻结四模态先测：baseline 与 MedTAWS tier1](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1210行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-21：[2026-07-21 17:03:06（北京时间）：oracle-interactive baseline v2 单 seed 初步结果](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1312行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-21：[2026-07-21 17:39:58（北京时间）：oracle-interactive baseline v2 五 seed final](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1363行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-21：[2026-07-21 21:01:37（北京时间）：官方 validation-protocol A0 对照完成](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1403行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-21：[2026-07-21 四模态 Phase B 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1637行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-21：[2026-07-21 Work #1 冻结 base 先测周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1660行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-21：[2026-07-21 17:03:06（北京时间）baseline v2 纠错与单 seed 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1701行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-21：[2026-07-21 17:39:58（北京时间）baseline v2 五 seed final 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1727行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-21：[2026-07-21 21:01:37（北京时间）官方提示协议 A0 对照周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1749行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 17:18 CST 当前最高优先级：撤销 0.011，正确三点击 DSC=0.330096](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第125行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[2026-07-22 17:02 CST 当前最高优先级：用户冻结的三点击 baseline 已完成但未复现](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第148行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[2026-07-22 16:52 CST 当前最高优先级：零训练自动 test baseline 已完成](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第167行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[2026-07-22 16:34 CST 当前最高优先级：只完成外层 80/20 切分](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第183行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[2026-07-22 16:21 CST 当前唯一执行口径](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第197行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[2026-07-22 14:55 CST DPD-SAM 单模态纠正（历史，已由上节推进）](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第222行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[2026-07-22 Paper1913 对齐纠正（历史，已被上节撤销）](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第241行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[51. 2026-07-22：Paper1913 对齐、P0 自动基线工程与双 B200 pilot](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3495行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[52. 2026-07-22 13:10 CST：四模态 P0/P0+ 正式长训启动](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3561行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[53. 2026-07-22 14:55 CST：DPD-SAM T1ce 二值任务替换四模态主线](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3645行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[54. 2026-07-22 16:21 CST：T1ce baseline 几何纠错与自动提示工程](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3698行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[55. 2026-07-22 16:34 CST：1350-case 随机 subject-clean 80/20 切分](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3756行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[56. 2026-07-22 16:52 CST：原始 SAM-Med3D T1ce 零训练自动 test baseline](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3791行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[58. 2026-07-22 17:18 CST：SAM-Med3D 官方接口根因纠错](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3820行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[57. 2026-07-22 17:02 CST：T1ce 三次累计 GT corrective-click test](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3853行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[59. 2026-07-22 18:17 CST：MedTAWS-GRPO 英文论文包](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3877行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[60. 2026-07-22 19:55 CST：残余肿瘤定义冻结为 official WT 后重算 Dice](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3917行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-22：[2026-07-22：Paper1913 对齐纠错与自动四模态 P0 pilot](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1446行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 13:10（北京时间）：P0/P0+ 正式四模态长训启动](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1488行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 14:55 CST：四模态结果终止，切换 DPD-SAM T1ce binary](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1570行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 16:21 CST：T1ce nearest-exact 纠错与 corrected baseline](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1590行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 16:34 CST：1350-case 外层 80/20 split](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1611行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 16:52 CST：原始 SAM-Med3D T1ce 自动零训练 test baseline](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1624行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 17:02 CST：原始 SAM-Med3D T1ce 三次累计 corrective-click](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1652行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 17:18 CST：SAM-Med3D 官方接口纠错与有效三点击结果](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1686行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 18:17 CST：论文结果口径冻结](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1722行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 19:55 CST：official-WT Dice 重聚合](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1744行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-22：[2026-07-22 Paper1913 自动四模态纠错周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1770行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 13:10 CST 正式四模态 baseline 长训周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1792行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 14:55 CST DPD-SAM 单模态方向纠正](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1825行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 16:21 CST T1ce corrected baseline 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1840行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 16:34 CST 全量 80/20 随机切分周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1858行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 16:52 CST 原始 SAM-Med3D T1ce 零训练 test 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1869行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 17:02 CST 三次累计 GT corrective-click 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1884行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 17:18 CST SAM-Med3D 官方接口纠错周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1903行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 18:17 CST MedTAWS-GRPO 论文初稿](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1922行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-22：[2026-07-22 19:55 CST official-WT Dice 核验](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1939行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-23：[61. 2026-07-23 12:07 CST：T1ce→WT SAM-Med3D 微调与冻结测试](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第3941行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-23：[62. 2026-07-23 13:58 CST：低学习率重训与短程精修](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第4001行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-23：[63. 2026-07-23 14:07 CST：v2b 冻结后 270-case test](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第4049行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-23：[64. 2026-07-23 14:38 CST：本地 checkpoint 保守清理](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第4082行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-23：[65. 2026-07-23 15:10 CST：whole-volume + encoder LoRA + augmentation 启动](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第4105行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-23：[66. 2026-07-23 15:22 CST：训练结束后自动冻结并评测 270 cases](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第4136行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-23：[2026-07-23 12:07 CST：T1ce→WT 微调冻结结果](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1765行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-23：[2026-07-23 13:58 CST：学习率重训结果](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1796行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-23：[2026-07-23 14:07 CST：v2b 冻结 test 结果](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1820行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-23：[2026-07-23 14:38 CST：本地存储清理](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1847行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-23：[2026-07-23 15:10 CST：FV-LoRA-Aug 正式训练进行中](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1863行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-23：[2026-07-23 15:22 CST：270-case 自动评测任务已挂载](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1882行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-23：[2026-07-23 12:07 CST T1ce→WT SAM-Med3D 微调周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1955行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-23：[2026-07-23 13:58 CST 低学习率重训周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1977行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-23：[2026-07-23 14:07 CST v2b 冻结 test 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第1995行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-23：[2026-07-23 14:38 CST 本地存储清理](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第2017行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-23：[2026-07-23 15:10 CST whole-volume encoder-PEFT 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第2032行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-23：[2026-07-23 15:22 CST 自动 test watcher 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第2048行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-24：[2026-07-24 10:36 CST 当前最高优先级：冻结 test 结论，回到 clean validation 做受控改进](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第75行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-24：[67. 2026-07-24 10:36 CST：FV-LoRA-Aug 完成、SHA 勘误与 270-case 结果](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第4172行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-24：[2026-07-24 10:36 CST：FV-LoRA-Aug 训练与冻结 test 结果](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1897行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-07-24：[2026-07-24 10:36 CST FV-LoRA-Aug 完成与冻结 test 周报](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第2060行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-07-25：[2026-07-25 04:20 CST 当前最高优先级：工程门通过，先完成 GPU smoke，禁止绕过](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第18行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-07-25：[2026-07-25 03:37 CST 当前最高优先级：matched rank-0 已完成，只在 clean validation 推进 partial-unfreeze](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md>)（第49行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF.md`）
+- 2026-08-10：[AFLOW BraTS handoff addendum — 2026-08-10](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF_20260810_ADDENDUM.md>)（第1行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF_20260810_ADDENDUM.md`）
+- 2026-08-12：[AFLOW BraTS storage-migration handoff — 2026-08-12](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF_20260812_STORAGE_MIGRATION.md>)（第1行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF_20260812_STORAGE_MIGRATION.md`）
+- 2026-08-12：[Official-training semantic alignment — 2026-08-12](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF_20260812_STORAGE_MIGRATION.md>)（第106行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF_20260812_STORAGE_MIGRATION.md`）
+- 2026-08-12：[Baseline completion and authorized test — 2026-08-12/13](<../../handoffs_pre_20260813/AFLOW_BRATS_HANDOFF_20260812_STORAGE_MIGRATION.md>)（第167行，`archive/handoffs_pre_20260813/AFLOW_BRATS_HANDOFF_20260812_STORAGE_MIGRATION.md`）
+- 2026-08-13：[AFlow BraTS / SAM-Med3D 单仓库权威交接（2026-08-13）](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第1行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-13：[2026-08-13 最终补充：robust residual refiner](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第26行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-13：[2026-08-13：官方预处理 vanilla SAM-Med3D baseline 复现完成](<../../handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md>)（第1943行，`archive/handoffs_pre_20260813/AFLOW_BRATS_RESULTS.md`）
+- 2026-08-13：[2026-08-13 最新进展：师兄路线 vanilla baseline 复现完成](<../../handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md>)（第6行，`archive/handoffs_pre_20260813/AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-13：[2026-08-13 以前的 BraTS 叙述文档归档](<../../handoffs_pre_20260813/README.md>)（第1行，`archive/handoffs_pre_20260813/README.md`）
+- 2026-08-14：[14. 2026-08-14 MCTS 推理效率进展（最新）](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第432行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-14：[16. 2026-08-14 后续优化：adaptive 负结果与固定剪枝正收益](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第530行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-14：[17. 2026-08-14 架构科研：显式门控负结果与 safe adapter 正收益](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第590行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-14：[18. 2026-08-14 seed17 全量复现与 boundary 消融](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第626行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-14：[19. 2026-08-14 DPD启发的Domain-SAGE正式负结果](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第649行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-14：[20. 2026-08-14 全自动定位与CAPG-3D正式结果](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第681行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-14：[MCTS 推理 workflow 效率结果（2026-08-14）](<../../../AFLOW_BRATS_RESULTS.md>)（第128行，`AFLOW_BRATS_RESULTS.md`）
+- 2026-08-14：[推理剪枝继续优化结果（2026-08-14，晚于上节）](<../../../AFLOW_BRATS_RESULTS.md>)（第190行，`AFLOW_BRATS_RESULTS.md`）
+- 2026-08-14：[架构创新结果（2026-08-14）](<../../../AFLOW_BRATS_RESULTS.md>)（第224行，`AFLOW_BRATS_RESULTS.md`）
+- 2026-08-14：[全自动brain-crop locator / CAPG-3D（2026-08-14）](<../../../AFLOW_BRATS_RESULTS.md>)（第269行，`AFLOW_BRATS_RESULTS.md`）
+- 2026-08-14：[2026-08-14 补充：MCTS 推理 workflow 效率优化](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第143行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-14：[2026-08-14 架构创新补充](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第190行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-14：[2026-08-14 追加：Adaptive router 与固定推理剪枝](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第221行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-14：[2026-08-14 补充：DPD启发的Domain-SAGE配对实验](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第248行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-14：[2026-08-14 补充：全自动locator与CAPG-3D](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第265行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-17：[21. 2026-08-17 plain locator 新 subject-clean 确认通过](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第715行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-17：[22. 2026-08-17 plain locator 在已揭示 270 test 的一次性补充测评](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第750行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-17：[23. 2026-08-17 intensity-aware residual 在新 inner split 判负](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第787行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-17：[当前项目记录：direct plain locator（2026-08-17）](<../../../AFLOW_BRATS_RESULTS.md>)（第9行，`AFLOW_BRATS_RESULTS.md`）
+- 2026-08-17：[全自动 locator 灰度残差检验（2026-08-17，正式负结果）](<../../../AFLOW_BRATS_RESULTS.md>)（第286行，`AFLOW_BRATS_RESULTS.md`）
+- 2026-08-17：[2026-08-17 最终补充：direct plain locator刷新项目记录](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第5行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-17：[2026-08-17 补充：灰度/强度 residual 没有晋级](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第282行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-18：[24. 2026-08-18 plain locator 长时程通过 fresh-inner 与 outer selector](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第807行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-18：[25. 2026-08-18 epoch168 固定checkpoint的一次性test270结果](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第846行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-18：[26. 2026-08-18 新 1M 会话入口：160³ 分辨率单因素已授权、尚未开跑](<../../../AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md>)（第879行，`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`）
+- 2026-08-18：[Plain locator 100→168 late-cosine（2026-08-18）](<../../../AFLOW_BRATS_RESULTS.md>)（第302行，`AFLOW_BRATS_RESULTS.md`）
+- 2026-08-18：[Epoch168 fixed test270（2026-08-18，晚于上一节）](<../../../AFLOW_BRATS_RESULTS.md>)（第328行，`AFLOW_BRATS_RESULTS.md`）
+- 2026-08-18：[2026-08-18 补充：100 epoch 截断与 late-cosine 正结果](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第294行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-08-18：[2026-08-18 追加：epoch168 一次性 test270 历史新高](<../../../AFLOW_BRATS_WEEKLY_REPORT.md>)（第314行，`AFLOW_BRATS_WEEKLY_REPORT.md`）
+- 2026-09-06：[Fable 8.5小时session成果（2026-09-06 13:32:17–22:02:17 UTC，实际连续工作8.5小时）](<../../../AFLOW_BRATS_HANDOFF_CURRENT.md>)（第437行，`AFLOW_BRATS_HANDOFF_CURRENT.md`）
+- 2026-09-06：[Fable接手快照（2026-09-06 13:25 UTC）](<../../../AFLOW_BRATS_HANDOFF_CURRENT.md>)（第447行，`AFLOW_BRATS_HANDOFF_CURRENT.md`）
+- 2026-09-07：[GPT-6再次接手（2026-09-07，原30小时轮次已完成）](<../../../AFLOW_BRATS_HANDOFF_CURRENT.md>)（第411行，`AFLOW_BRATS_HANDOFF_CURRENT.md`）
+- 2026-09-08：[2026-09-08最高优先级fit空间保真诊断已完成](<../../../AFLOW_BRATS_HANDOFF_CURRENT.md>)（第395行，`AFLOW_BRATS_HANDOFF_CURRENT.md`）
+- 2026-09-08：[2026-09-08数据处理调研记录](<../../../AFLOW_BRATS_HANDOFF_CURRENT.md>)（第403行，`AFLOW_BRATS_HANDOFF_CURRENT.md`）
+- 2026-09-10：[2026-09-10 第二个八小时续研：小角度旋转](<../../../AFLOW_BRATS_HANDOFF_CURRENT.md>)（第316行，`AFLOW_BRATS_HANDOFF_CURRENT.md`）
+- 2026-09-10：[2026-09-10最终覆盖状态（八小时已结束）](<../../../AFLOW_BRATS_HANDOFF_CURRENT.md>)（第331行，`AFLOW_BRATS_HANDOFF_CURRENT.md`）
+- 2026-09-10：[2026-09-10八小时轮次最新汇总（11:28 UTC）](<../../../AFLOW_BRATS_HANDOFF_CURRENT.md>)（第338行，`AFLOW_BRATS_HANDOFF_CURRENT.md`）
+- 2026-09-10：[2026-09-10 八小时自主科研（当前）](<../../../AFLOW_BRATS_HANDOFF_CURRENT.md>)（第351行，`AFLOW_BRATS_HANDOFF_CURRENT.md`）
+- 2026-09-10：[2026-09-10 第二个八小时续研：小角度旋转](<../../../AFLOW_BRATS_METHOD_CATALOG.md>)（第316行，`AFLOW_BRATS_METHOD_CATALOG.md`）
+- 2026-09-10：[2026-09-10最终方法状态覆盖](<../../../AFLOW_BRATS_METHOD_CATALOG.md>)（第331行，`AFLOW_BRATS_METHOD_CATALOG.md`）
+- 2026-09-10：[2026-09-10八小时轮次最新汇总（11:28 UTC）](<../../../AFLOW_BRATS_METHOD_CATALOG.md>)（第338行，`AFLOW_BRATS_METHOD_CATALOG.md`）

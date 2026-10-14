@@ -1,0 +1,121 @@
+{
+  "access": {
+    "africa95": false,
+    "confirmation": false,
+    "cptac33": false,
+    "fixed_validation108": false,
+    "internal_test270": false,
+    "outer": false,
+    "ucsd75": false,
+    "ucsd_brats2024test56": true,
+    "waw_post31": false,
+    "waw_pre152": false
+  },
+  "cohort": {
+    "cases": 56,
+    "excluded": "UCSD-PTGBM-0038 (3 studies; union overlap)",
+    "identity": "public post-challenge UCSD BraTS-GLI 2024 test package (TCIA package 1221, V2 2026-01-22); patient-disjoint from 1350-case union and prior UCSD main release via official v3 mapping; UCSD is a BraTS2024 source site -> NOT institution-disjoint; not hidden blind",
+    "subjects": 41
+  },
+  "comparisons": {
+    "full_flip8_minus_identity": {
+      "cases_improved": 32,
+      "cases_tied": 0,
+      "cases_worse": 24,
+      "flip8_minus_identity": {
+        "point_hits": 0,
+        "scan_dice": 0.002971109308731422,
+        "subject_dice": 0.0028852586601034558
+      },
+      "paired_scan_dice_95ci": [
+        -0.00273980804868736,
+        0.008749643998506586
+      ],
+      "paired_subject_dice_95ci": [
+        -0.002830106163532017,
+        0.008734669272517216
+      ],
+      "subjects_improved": 23,
+      "subjects_tied": 0,
+      "subjects_worse": 18
+    },
+    "gcsam_identity_minus_full_identity": {
+      "cases_improved": 21,
+      "cases_tied": 0,
+      "cases_worse": 35,
+      "gcsam_minus_full": {
+        "point_hits": -4,
+        "scan_dice": -0.012312488049355374,
+        "subject_dice": -0.015194370095075162
+      },
+      "paired_scan_dice_95ci": [
+        -0.025822025912622792,
+        -9.235571350130962e-05
+      ],
+      "paired_subject_dice_95ci": [
+        -0.03150656523074998,
+        -0.00026824969149647
+      ],
+      "subjects_improved": 15,
+      "subjects_tied": 0,
+      "subjects_worse": 26
+    }
+  },
+  "created_at_utc": "2026-09-06T14:08:39.823788+00:00",
+  "elapsed_seconds": 10.152125132270157,
+  "forwards": 504,
+  "interpretation_gates": {
+    "full_flip8_minus_identity": "positive_but_uncertain",
+    "gcsam_identity_minus_full_identity": "not_supported_or_reversed"
+  },
+  "peak_gpu_memory_bytes": 5438878720,
+  "rows": {
+    "full972_kd168_flip8": {
+      "cost": "8x",
+      "point_hits": 56,
+      "scan": 0.7329728508045773,
+      "scan_ci": [
+        0.693044854948499,
+        0.7715257863559852
+      ],
+      "subject": 0.7336249503541781,
+      "subject_ci": [
+        0.6948183544704217,
+        0.7715379237812917
+      ]
+    },
+    "full972_kd168_identity": {
+      "cost": "1x",
+      "point_hits": 56,
+      "scan": 0.7300017414958458,
+      "scan_ci": [
+        0.6906256422179026,
+        0.7667907162918564
+      ],
+      "subject": 0.7307396916940746,
+      "subject_ci": [
+        0.6922749130277919,
+        0.7672108479682291
+      ]
+    },
+    "gcsam184_identity": {
+      "cost": "1x",
+      "point_hits": 52,
+      "scan": 0.7176892534464905,
+      "scan_ci": [
+        0.6719310669469873,
+        0.7612851579417863
+      ],
+      "subject": 0.7155453215989994,
+      "subject_ci": [
+        0.6674780338223232,
+        0.7606798527488949
+      ]
+    }
+  },
+  "schema": "aflow.ucsd_brats2024test.result",
+  "schema_version": 1,
+  "status": "completed_one_time_closed",
+  "training_gpu_hours": 0,
+  "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse parity unresolved"
+}

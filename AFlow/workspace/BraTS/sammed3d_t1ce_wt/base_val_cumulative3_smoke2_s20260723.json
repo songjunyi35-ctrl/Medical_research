@@ -1,0 +1,240 @@
+{
+  "cases": [
+    {
+      "case_id": "BraTS-GLI-00046-100",
+      "clicks": [
+        {
+          "accumulated_points": 1,
+          "click_index": 1,
+          "label": 1,
+          "point_crop_grid": [
+            65,
+            59,
+            72
+          ],
+          "points_passed_to_encoder": 1,
+          "recurrent_mask_prompt": true,
+          "sampled_region": "gt_foreground",
+          "status": "sampled"
+        },
+        {
+          "accumulated_points": 2,
+          "click_index": 2,
+          "label": 0,
+          "point_crop_grid": [
+            59,
+            40,
+            82
+          ],
+          "points_passed_to_encoder": 2,
+          "recurrent_mask_prompt": true,
+          "sampled_region": "fp",
+          "status": "sampled"
+        },
+        {
+          "accumulated_points": 3,
+          "click_index": 3,
+          "label": 0,
+          "point_crop_grid": [
+            66,
+            49,
+            83
+          ],
+          "points_passed_to_encoder": 3,
+          "recurrent_mask_prompt": true,
+          "sampled_region": "fp",
+          "status": "sampled"
+        }
+      ],
+      "geometry": {
+        "crop_target_coverage": 1.0,
+        "crop_target_voxels": 27101,
+        "full_target_voxels": 27101
+      },
+      "metrics": {
+        "1": {
+          "dsc": 0.30876720836352345,
+          "iou": 0.18256931268743498,
+          "prediction_voxels": 30865,
+          "target_voxels": 27101
+        },
+        "2": {
+          "dsc": 0.33525873401585465,
+          "iou": 0.20138789184015315,
+          "prediction_voxels": 23105,
+          "target_voxels": 27101
+        },
+        "3": {
+          "dsc": 0.3023582695611432,
+          "iou": 0.1781048758049678,
+          "prediction_voxels": 11317,
+          "target_voxels": 27101
+        }
+      },
+      "subject_id": "BraTS-GLI-00046"
+    },
+    {
+      "case_id": "BraTS-GLI-00046-101",
+      "clicks": [
+        {
+          "accumulated_points": 1,
+          "click_index": 1,
+          "label": 1,
+          "point_crop_grid": [
+            50,
+            59,
+            48
+          ],
+          "points_passed_to_encoder": 1,
+          "recurrent_mask_prompt": true,
+          "sampled_region": "gt_foreground",
+          "status": "sampled"
+        },
+        {
+          "accumulated_points": 2,
+          "click_index": 2,
+          "label": 1,
+          "point_crop_grid": [
+            49,
+            68,
+            91
+          ],
+          "points_passed_to_encoder": 2,
+          "recurrent_mask_prompt": true,
+          "sampled_region": "fn",
+          "status": "sampled"
+        },
+        {
+          "accumulated_points": 3,
+          "click_index": 3,
+          "label": 1,
+          "point_crop_grid": [
+            87,
+            70,
+            50
+          ],
+          "points_passed_to_encoder": 3,
+          "recurrent_mask_prompt": true,
+          "sampled_region": "fn",
+          "status": "sampled"
+        }
+      ],
+      "geometry": {
+        "crop_target_coverage": 1.0,
+        "crop_target_voxels": 94862,
+        "full_target_voxels": 94862
+      },
+      "metrics": {
+        "1": {
+          "dsc": 0.21745411050282928,
+          "iou": 0.12199075029937648,
+          "prediction_voxels": 13823,
+          "target_voxels": 94862
+        },
+        "2": {
+          "dsc": 0.22390214593814173,
+          "iou": 0.12606408223853618,
+          "prediction_voxels": 16651,
+          "target_voxels": 94862
+        },
+        "3": {
+          "dsc": 0.21512342632556553,
+          "iou": 0.12052565958815958,
+          "prediction_voxels": 16581,
+          "target_voxels": 94862
+        }
+      },
+      "subject_id": "BraTS-GLI-00046"
+    }
+  ],
+  "created_at_utc": "2026-07-23T03:11:29.118333+00:00",
+  "data": {
+    "expected_split": "validation",
+    "full_manifest_cases": 108,
+    "manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+    "selected_cases": 2
+  },
+  "elapsed_seconds": 3.516422748565674,
+  "model": {
+    "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "model_type": "vit_b_ori"
+  },
+  "protocol": {
+    "clicks": "click1 uniform GT foreground; click2/3 uniform XOR error; FN positive, FP negative",
+    "geometry": "TorchIO ToCanonical + GT-centered CropOrPad 128^3",
+    "input": "T1ce single channel",
+    "mask_prompt": "previous low-resolution mask recurrently supplied",
+    "normalization": "TorchIO positive-voxel ZNormalization",
+    "num_clicks": 3,
+    "prompt_history": "all points accumulated",
+    "target": "WT = raw labels {1,2,3}; RC label 4 excluded",
+    "threshold": "raw logit > 0"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_checkpoint_evaluation",
+  "schema_version": 1,
+  "seed": 20260723,
+  "summary": {
+    "1": {
+      "clicks": {
+        "negative": 0,
+        "positive": 2,
+        "sampled": 2,
+        "skipped_exact": 0
+      },
+      "scan_macro": {
+        "cases": 2,
+        "dsc_mean": 0.26311065943317635,
+        "dsc_median": 0.26311065943317635,
+        "dsc_std_population": 0.04565654893034708,
+        "iou_mean": 0.15228003149340574
+      },
+      "subject_balanced": {
+        "dsc_mean": 0.26311065943317635,
+        "dsc_std_population": 0.0,
+        "subjects": 1
+      }
+    },
+    "2": {
+      "clicks": {
+        "negative": 1,
+        "positive": 1,
+        "sampled": 2,
+        "skipped_exact": 0
+      },
+      "scan_macro": {
+        "cases": 2,
+        "dsc_mean": 0.2795804399769982,
+        "dsc_median": 0.2795804399769982,
+        "dsc_std_population": 0.05567829403885646,
+        "iou_mean": 0.16372598703934466
+      },
+      "subject_balanced": {
+        "dsc_mean": 0.2795804399769982,
+        "dsc_std_population": 0.0,
+        "subjects": 1
+      }
+    },
+    "3": {
+      "clicks": {
+        "negative": 1,
+        "positive": 1,
+        "sampled": 2,
+        "skipped_exact": 0
+      },
+      "scan_macro": {
+        "cases": 2,
+        "dsc_mean": 0.2587408479433544,
+        "dsc_median": 0.2587408479433544,
+        "dsc_std_population": 0.04361742161778884,
+        "iou_mean": 0.1493152676965637
+      },
+      "subject_balanced": {
+        "dsc_mean": 0.2587408479433544,
+        "dsc_std_population": 0.0,
+        "subjects": 1
+      }
+    }
+  }
+}

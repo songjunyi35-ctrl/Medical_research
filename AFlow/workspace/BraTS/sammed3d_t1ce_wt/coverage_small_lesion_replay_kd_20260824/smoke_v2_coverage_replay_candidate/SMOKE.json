@@ -1,0 +1,153 @@
+{
+  "all_gates_passed": true,
+  "arm": "coverage_replay_candidate",
+  "checkpoint": {
+    "arm": "coverage_replay_candidate",
+    "global_epoch": 169,
+    "model_state_sha256": "4a0bce8673bb8c06f3d8465b4e970071f40b4e3fa0b5169569a087c6b65c9fb4",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/coverage_small_lesion_replay_kd_20260824/smoke_v2_coverage_replay_candidate/smoke_checkpoint.pth",
+    "sha256": "67c977f4df01d31f14c95cebcb41b953d352c0fad72df9caa6783617f5c02803"
+  },
+  "confirmation_access": false,
+  "extrapolated_formal_seconds": 1927.5119760036469,
+  "gates": {
+    "all_losses_gradients_finite": true,
+    "all_student_grad_norms_positive": true,
+    "formal_extrapolation_at_most_45min": true,
+    "four_steps_completed": true,
+    "peak_allocated_at_most_24gib": true,
+    "strict_reload_exact": true,
+    "teacher_gradients_absent": true
+  },
+  "median_measured_step_seconds": 0.6407952047884464,
+  "outer_selector_access": false,
+  "peak_gpu_memory_bytes": 21788257792,
+  "peak_gpu_reserved_bytes": 23613931520,
+  "reload_max_abs_difference": 0.0,
+  "runner_sha256": "afd16da769a1df1a2862ab87fcd1079938ee5c19d38cf469ae45a09688ef1ee9",
+  "sampler_gates": {
+    "all_adjacent_two_epoch_coverage_unions_complete": true,
+    "all_epoch_counts_exact": true,
+    "all_post_first_transitions_are_292_complement_plus_388_retained": true,
+    "sampler_epoch_count_exact": true
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_coverage_small_lesion_replay_kd_train.smoke",
+  "schema_version": 1,
+  "status": "passed",
+  "steps": [
+    {
+      "case_ids": [
+        "BraTS-GLI-02151-101",
+        "BraTS-GLI-02766-101",
+        "BraTS-GLI-02093-101",
+        "BraTS-GLI-02743-100",
+        "BraTS-GLI-02247-104",
+        "BraTS-GLI-02786-101",
+        "BraTS-GLI-02269-100",
+        "BraTS-GLI-02830-101"
+      ],
+      "dice": [
+        0.6775705218315125,
+        0.6937204003334045,
+        0.8441978693008423,
+        0.7763644456863403,
+        0.7411532402038574,
+        0.824999988079071,
+        0.8716832399368286,
+        0.8117362260818481
+      ],
+      "grad_norm_before_clip": 1.1883270740509033,
+      "kd": 0.004650002811104059,
+      "seconds": 3.4790219478309155,
+      "step": 1,
+      "supervised": 0.22573541104793549,
+      "total": 0.22713041305541992
+    },
+    {
+      "case_ids": [
+        "BraTS-GLI-02096-101",
+        "BraTS-GLI-02071-100",
+        "BraTS-GLI-02879-100",
+        "BraTS-GLI-02666-100",
+        "BraTS-GLI-02216-101",
+        "BraTS-GLI-02369-100",
+        "BraTS-GLI-02775-101",
+        "BraTS-GLI-02890-101"
+      ],
+      "dice": [
+        0.7807966470718384,
+        0.8816097378730774,
+        0.7577983736991882,
+        0.6828231811523438,
+        0.8226571679115295,
+        0.6573957204818726,
+        0.7880451083183289,
+        0.6288555860519409
+      ],
+      "grad_norm_before_clip": 0.9795458912849426,
+      "kd": 0.0036358051002025604,
+      "seconds": 0.6433844976127148,
+      "step": 2,
+      "supervised": 0.25473928451538086,
+      "total": 0.2558300197124481
+    },
+    {
+      "case_ids": [
+        "BraTS-GLI-02766-100",
+        "BraTS-GLI-02116-100",
+        "BraTS-GLI-02110-101",
+        "BraTS-GLI-02934-101",
+        "BraTS-GLI-02087-101",
+        "BraTS-GLI-02820-100",
+        "BraTS-GLI-02909-100",
+        "BraTS-GLI-02832-100"
+      ],
+      "dice": [
+        0.6852324604988098,
+        0.8721179366111755,
+        0.8731516599655151,
+        0.7255637049674988,
+        0.7972217202186584,
+        0.7832005620002747,
+        0.7875707149505615,
+        0.7861711978912354
+      ],
+      "grad_norm_before_clip": 0.647732675075531,
+      "kd": 0.005743848159909248,
+      "seconds": 0.6407952047884464,
+      "step": 3,
+      "supervised": 0.2175133377313614,
+      "total": 0.21923649311065674
+    },
+    {
+      "case_ids": [
+        "BraTS-GLI-02861-101",
+        "BraTS-GLI-02520-103",
+        "BraTS-GLI-02086-101",
+        "BraTS-GLI-02498-101",
+        "BraTS-GLI-02243-101",
+        "BraTS-GLI-00463-100",
+        "BraTS-GLI-02281-100",
+        "BraTS-GLI-02319-100"
+      ],
+      "dice": [
+        0.740887463092804,
+        0.8172982931137085,
+        0.8133254051208496,
+        0.7965568900108337,
+        0.7225969433784485,
+        0.8415376543998718,
+        0.8397598266601562,
+        0.7252212762832642
+      ],
+      "grad_norm_before_clip": 0.7946882247924805,
+      "kd": 0.003851568093523383,
+      "seconds": 0.6404388658702374,
+      "step": 4,
+      "supervised": 0.21790333092212677,
+      "total": 0.2190587967634201
+    }
+  ],
+  "test_access": false,
+  "validation_access": false
+}

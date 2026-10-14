@@ -1,0 +1,2841 @@
+{
+  "dataset": "RHUH-GBM",
+  "name": "Rio Hortega University Hospital Glioblastoma dataset",
+  "modality": "MRI (multiparametric)",
+  "sequences": [
+    "t1",
+    "t1ce",
+    "t2",
+    "flair",
+    "adc"
+  ],
+  "label_legend": {
+    "0": "background",
+    "1": "necrosis (necrotic tumor core)",
+    "2": "peritumoral region (edema / non-enhancing signal alteration)",
+    "3": "enhancing tumor"
+  },
+  "label_note": "Released masks use 1/2/3; upstream preprocessing README lists enhancing tumor as BraTS label 4 \u2014 verified empirically that the distributed NIfTI masks use 3 (value 4 never appears).",
+  "timepoint_legend": {
+    "0": "preop",
+    "1": "early_postop",
+    "2": "followup_recurrence"
+  },
+  "geometry_note": "Within each timepoint all 5 sequences + segmentation share identical grid+affine (skull-stripped, co-registered to T1ce, SRI atlas space). Most volumes are 240x240x155; RHUH-0028/0 is 230x230x138.",
+  "filename_note": "One segmentation is named RHUH-0035/2/segmentation.nii.gz (non-standard) instead of RHUH-0035_2_segmentations.nii.gz; this manifest records the actual path.",
+  "counts": {
+    "patients": 40,
+    "timepoints": 120,
+    "with_segmentation": 120
+  },
+  "studies": [
+    {
+      "patient_id": "RHUH-0001",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0001/0/RHUH-0001_0_t1.nii.gz",
+        "t1ce": "RHUH-0001/0/RHUH-0001_0_t1ce.nii.gz",
+        "t2": "RHUH-0001/0/RHUH-0001_0_t2.nii.gz",
+        "flair": "RHUH-0001/0/RHUH-0001_0_flair.nii.gz",
+        "adc": "RHUH-0001/0/RHUH-0001_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0001/0/RHUH-0001_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0001",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0001/1/RHUH-0001_1_t1.nii.gz",
+        "t1ce": "RHUH-0001/1/RHUH-0001_1_t1ce.nii.gz",
+        "t2": "RHUH-0001/1/RHUH-0001_1_t2.nii.gz",
+        "flair": "RHUH-0001/1/RHUH-0001_1_flair.nii.gz",
+        "adc": "RHUH-0001/1/RHUH-0001_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0001/1/RHUH-0001_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0001",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0001/2/RHUH-0001_2_t1.nii.gz",
+        "t1ce": "RHUH-0001/2/RHUH-0001_2_t1ce.nii.gz",
+        "t2": "RHUH-0001/2/RHUH-0001_2_t2.nii.gz",
+        "flair": "RHUH-0001/2/RHUH-0001_2_flair.nii.gz",
+        "adc": "RHUH-0001/2/RHUH-0001_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0001/2/RHUH-0001_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0002",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0002/0/RHUH-0002_0_t1.nii.gz",
+        "t1ce": "RHUH-0002/0/RHUH-0002_0_t1ce.nii.gz",
+        "t2": "RHUH-0002/0/RHUH-0002_0_t2.nii.gz",
+        "flair": "RHUH-0002/0/RHUH-0002_0_flair.nii.gz",
+        "adc": "RHUH-0002/0/RHUH-0002_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0002/0/RHUH-0002_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0002",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0002/1/RHUH-0002_1_t1.nii.gz",
+        "t1ce": "RHUH-0002/1/RHUH-0002_1_t1ce.nii.gz",
+        "t2": "RHUH-0002/1/RHUH-0002_1_t2.nii.gz",
+        "flair": "RHUH-0002/1/RHUH-0002_1_flair.nii.gz",
+        "adc": "RHUH-0002/1/RHUH-0002_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0002/1/RHUH-0002_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0002",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0002/2/RHUH-0002_2_t1.nii.gz",
+        "t1ce": "RHUH-0002/2/RHUH-0002_2_t1ce.nii.gz",
+        "t2": "RHUH-0002/2/RHUH-0002_2_t2.nii.gz",
+        "flair": "RHUH-0002/2/RHUH-0002_2_flair.nii.gz",
+        "adc": "RHUH-0002/2/RHUH-0002_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0002/2/RHUH-0002_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0003",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0003/0/RHUH-0003_0_t1.nii.gz",
+        "t1ce": "RHUH-0003/0/RHUH-0003_0_t1ce.nii.gz",
+        "t2": "RHUH-0003/0/RHUH-0003_0_t2.nii.gz",
+        "flair": "RHUH-0003/0/RHUH-0003_0_flair.nii.gz",
+        "adc": "RHUH-0003/0/RHUH-0003_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0003/0/RHUH-0003_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0003",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0003/1/RHUH-0003_1_t1.nii.gz",
+        "t1ce": "RHUH-0003/1/RHUH-0003_1_t1ce.nii.gz",
+        "t2": "RHUH-0003/1/RHUH-0003_1_t2.nii.gz",
+        "flair": "RHUH-0003/1/RHUH-0003_1_flair.nii.gz",
+        "adc": "RHUH-0003/1/RHUH-0003_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0003/1/RHUH-0003_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0003",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0003/2/RHUH-0003_2_t1.nii.gz",
+        "t1ce": "RHUH-0003/2/RHUH-0003_2_t1ce.nii.gz",
+        "t2": "RHUH-0003/2/RHUH-0003_2_t2.nii.gz",
+        "flair": "RHUH-0003/2/RHUH-0003_2_flair.nii.gz",
+        "adc": "RHUH-0003/2/RHUH-0003_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0003/2/RHUH-0003_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0004",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0004/0/RHUH-0004_0_t1.nii.gz",
+        "t1ce": "RHUH-0004/0/RHUH-0004_0_t1ce.nii.gz",
+        "t2": "RHUH-0004/0/RHUH-0004_0_t2.nii.gz",
+        "flair": "RHUH-0004/0/RHUH-0004_0_flair.nii.gz",
+        "adc": "RHUH-0004/0/RHUH-0004_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0004/0/RHUH-0004_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0004",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0004/1/RHUH-0004_1_t1.nii.gz",
+        "t1ce": "RHUH-0004/1/RHUH-0004_1_t1ce.nii.gz",
+        "t2": "RHUH-0004/1/RHUH-0004_1_t2.nii.gz",
+        "flair": "RHUH-0004/1/RHUH-0004_1_flair.nii.gz",
+        "adc": "RHUH-0004/1/RHUH-0004_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0004/1/RHUH-0004_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0004",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0004/2/RHUH-0004_2_t1.nii.gz",
+        "t1ce": "RHUH-0004/2/RHUH-0004_2_t1ce.nii.gz",
+        "t2": "RHUH-0004/2/RHUH-0004_2_t2.nii.gz",
+        "flair": "RHUH-0004/2/RHUH-0004_2_flair.nii.gz",
+        "adc": "RHUH-0004/2/RHUH-0004_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0004/2/RHUH-0004_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0005",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0005/0/RHUH-0005_0_t1.nii.gz",
+        "t1ce": "RHUH-0005/0/RHUH-0005_0_t1ce.nii.gz",
+        "t2": "RHUH-0005/0/RHUH-0005_0_t2.nii.gz",
+        "flair": "RHUH-0005/0/RHUH-0005_0_flair.nii.gz",
+        "adc": "RHUH-0005/0/RHUH-0005_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0005/0/RHUH-0005_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0005",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0005/1/RHUH-0005_1_t1.nii.gz",
+        "t1ce": "RHUH-0005/1/RHUH-0005_1_t1ce.nii.gz",
+        "t2": "RHUH-0005/1/RHUH-0005_1_t2.nii.gz",
+        "flair": "RHUH-0005/1/RHUH-0005_1_flair.nii.gz",
+        "adc": "RHUH-0005/1/RHUH-0005_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0005/1/RHUH-0005_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0005",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0005/2/RHUH-0005_2_t1.nii.gz",
+        "t1ce": "RHUH-0005/2/RHUH-0005_2_t1ce.nii.gz",
+        "t2": "RHUH-0005/2/RHUH-0005_2_t2.nii.gz",
+        "flair": "RHUH-0005/2/RHUH-0005_2_flair.nii.gz",
+        "adc": "RHUH-0005/2/RHUH-0005_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0005/2/RHUH-0005_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0006",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0006/0/RHUH-0006_0_t1.nii.gz",
+        "t1ce": "RHUH-0006/0/RHUH-0006_0_t1ce.nii.gz",
+        "t2": "RHUH-0006/0/RHUH-0006_0_t2.nii.gz",
+        "flair": "RHUH-0006/0/RHUH-0006_0_flair.nii.gz",
+        "adc": "RHUH-0006/0/RHUH-0006_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0006/0/RHUH-0006_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0006",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0006/1/RHUH-0006_1_t1.nii.gz",
+        "t1ce": "RHUH-0006/1/RHUH-0006_1_t1ce.nii.gz",
+        "t2": "RHUH-0006/1/RHUH-0006_1_t2.nii.gz",
+        "flair": "RHUH-0006/1/RHUH-0006_1_flair.nii.gz",
+        "adc": "RHUH-0006/1/RHUH-0006_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0006/1/RHUH-0006_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0006",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0006/2/RHUH-0006_2_t1.nii.gz",
+        "t1ce": "RHUH-0006/2/RHUH-0006_2_t1ce.nii.gz",
+        "t2": "RHUH-0006/2/RHUH-0006_2_t2.nii.gz",
+        "flair": "RHUH-0006/2/RHUH-0006_2_flair.nii.gz",
+        "adc": "RHUH-0006/2/RHUH-0006_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0006/2/RHUH-0006_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0007",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0007/0/RHUH-0007_0_t1.nii.gz",
+        "t1ce": "RHUH-0007/0/RHUH-0007_0_t1ce.nii.gz",
+        "t2": "RHUH-0007/0/RHUH-0007_0_t2.nii.gz",
+        "flair": "RHUH-0007/0/RHUH-0007_0_flair.nii.gz",
+        "adc": "RHUH-0007/0/RHUH-0007_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0007/0/RHUH-0007_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0007",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0007/1/RHUH-0007_1_t1.nii.gz",
+        "t1ce": "RHUH-0007/1/RHUH-0007_1_t1ce.nii.gz",
+        "t2": "RHUH-0007/1/RHUH-0007_1_t2.nii.gz",
+        "flair": "RHUH-0007/1/RHUH-0007_1_flair.nii.gz",
+        "adc": "RHUH-0007/1/RHUH-0007_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0007/1/RHUH-0007_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0007",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0007/2/RHUH-0007_2_t1.nii.gz",
+        "t1ce": "RHUH-0007/2/RHUH-0007_2_t1ce.nii.gz",
+        "t2": "RHUH-0007/2/RHUH-0007_2_t2.nii.gz",
+        "flair": "RHUH-0007/2/RHUH-0007_2_flair.nii.gz",
+        "adc": "RHUH-0007/2/RHUH-0007_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0007/2/RHUH-0007_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0008",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0008/0/RHUH-0008_0_t1.nii.gz",
+        "t1ce": "RHUH-0008/0/RHUH-0008_0_t1ce.nii.gz",
+        "t2": "RHUH-0008/0/RHUH-0008_0_t2.nii.gz",
+        "flair": "RHUH-0008/0/RHUH-0008_0_flair.nii.gz",
+        "adc": "RHUH-0008/0/RHUH-0008_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0008/0/RHUH-0008_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0008",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0008/1/RHUH-0008_1_t1.nii.gz",
+        "t1ce": "RHUH-0008/1/RHUH-0008_1_t1ce.nii.gz",
+        "t2": "RHUH-0008/1/RHUH-0008_1_t2.nii.gz",
+        "flair": "RHUH-0008/1/RHUH-0008_1_flair.nii.gz",
+        "adc": "RHUH-0008/1/RHUH-0008_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0008/1/RHUH-0008_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0008",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0008/2/RHUH-0008_2_t1.nii.gz",
+        "t1ce": "RHUH-0008/2/RHUH-0008_2_t1ce.nii.gz",
+        "t2": "RHUH-0008/2/RHUH-0008_2_t2.nii.gz",
+        "flair": "RHUH-0008/2/RHUH-0008_2_flair.nii.gz",
+        "adc": "RHUH-0008/2/RHUH-0008_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0008/2/RHUH-0008_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0009",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0009/0/RHUH-0009_0_t1.nii.gz",
+        "t1ce": "RHUH-0009/0/RHUH-0009_0_t1ce.nii.gz",
+        "t2": "RHUH-0009/0/RHUH-0009_0_t2.nii.gz",
+        "flair": "RHUH-0009/0/RHUH-0009_0_flair.nii.gz",
+        "adc": "RHUH-0009/0/RHUH-0009_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0009/0/RHUH-0009_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0009",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0009/1/RHUH-0009_1_t1.nii.gz",
+        "t1ce": "RHUH-0009/1/RHUH-0009_1_t1ce.nii.gz",
+        "t2": "RHUH-0009/1/RHUH-0009_1_t2.nii.gz",
+        "flair": "RHUH-0009/1/RHUH-0009_1_flair.nii.gz",
+        "adc": "RHUH-0009/1/RHUH-0009_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0009/1/RHUH-0009_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0009",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0009/2/RHUH-0009_2_t1.nii.gz",
+        "t1ce": "RHUH-0009/2/RHUH-0009_2_t1ce.nii.gz",
+        "t2": "RHUH-0009/2/RHUH-0009_2_t2.nii.gz",
+        "flair": "RHUH-0009/2/RHUH-0009_2_flair.nii.gz",
+        "adc": "RHUH-0009/2/RHUH-0009_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0009/2/RHUH-0009_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0010",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0010/0/RHUH-0010_0_t1.nii.gz",
+        "t1ce": "RHUH-0010/0/RHUH-0010_0_t1ce.nii.gz",
+        "t2": "RHUH-0010/0/RHUH-0010_0_t2.nii.gz",
+        "flair": "RHUH-0010/0/RHUH-0010_0_flair.nii.gz",
+        "adc": "RHUH-0010/0/RHUH-0010_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0010/0/RHUH-0010_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0010",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0010/1/RHUH-0010_1_t1.nii.gz",
+        "t1ce": "RHUH-0010/1/RHUH-0010_1_t1ce.nii.gz",
+        "t2": "RHUH-0010/1/RHUH-0010_1_t2.nii.gz",
+        "flair": "RHUH-0010/1/RHUH-0010_1_flair.nii.gz",
+        "adc": "RHUH-0010/1/RHUH-0010_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0010/1/RHUH-0010_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0010",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0010/2/RHUH-0010_2_t1.nii.gz",
+        "t1ce": "RHUH-0010/2/RHUH-0010_2_t1ce.nii.gz",
+        "t2": "RHUH-0010/2/RHUH-0010_2_t2.nii.gz",
+        "flair": "RHUH-0010/2/RHUH-0010_2_flair.nii.gz",
+        "adc": "RHUH-0010/2/RHUH-0010_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0010/2/RHUH-0010_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0011",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0011/0/RHUH-0011_0_t1.nii.gz",
+        "t1ce": "RHUH-0011/0/RHUH-0011_0_t1ce.nii.gz",
+        "t2": "RHUH-0011/0/RHUH-0011_0_t2.nii.gz",
+        "flair": "RHUH-0011/0/RHUH-0011_0_flair.nii.gz",
+        "adc": "RHUH-0011/0/RHUH-0011_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0011/0/RHUH-0011_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0011",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0011/1/RHUH-0011_1_t1.nii.gz",
+        "t1ce": "RHUH-0011/1/RHUH-0011_1_t1ce.nii.gz",
+        "t2": "RHUH-0011/1/RHUH-0011_1_t2.nii.gz",
+        "flair": "RHUH-0011/1/RHUH-0011_1_flair.nii.gz",
+        "adc": "RHUH-0011/1/RHUH-0011_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0011/1/RHUH-0011_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0011",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0011/2/RHUH-0011_2_t1.nii.gz",
+        "t1ce": "RHUH-0011/2/RHUH-0011_2_t1ce.nii.gz",
+        "t2": "RHUH-0011/2/RHUH-0011_2_t2.nii.gz",
+        "flair": "RHUH-0011/2/RHUH-0011_2_flair.nii.gz",
+        "adc": "RHUH-0011/2/RHUH-0011_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0011/2/RHUH-0011_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0012",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0012/0/RHUH-0012_0_t1.nii.gz",
+        "t1ce": "RHUH-0012/0/RHUH-0012_0_t1ce.nii.gz",
+        "t2": "RHUH-0012/0/RHUH-0012_0_t2.nii.gz",
+        "flair": "RHUH-0012/0/RHUH-0012_0_flair.nii.gz",
+        "adc": "RHUH-0012/0/RHUH-0012_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0012/0/RHUH-0012_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0012",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0012/1/RHUH-0012_1_t1.nii.gz",
+        "t1ce": "RHUH-0012/1/RHUH-0012_1_t1ce.nii.gz",
+        "t2": "RHUH-0012/1/RHUH-0012_1_t2.nii.gz",
+        "flair": "RHUH-0012/1/RHUH-0012_1_flair.nii.gz",
+        "adc": "RHUH-0012/1/RHUH-0012_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0012/1/RHUH-0012_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0012",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0012/2/RHUH-0012_2_t1.nii.gz",
+        "t1ce": "RHUH-0012/2/RHUH-0012_2_t1ce.nii.gz",
+        "t2": "RHUH-0012/2/RHUH-0012_2_t2.nii.gz",
+        "flair": "RHUH-0012/2/RHUH-0012_2_flair.nii.gz",
+        "adc": "RHUH-0012/2/RHUH-0012_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0012/2/RHUH-0012_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0013",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0013/0/RHUH-0013_0_t1.nii.gz",
+        "t1ce": "RHUH-0013/0/RHUH-0013_0_t1ce.nii.gz",
+        "t2": "RHUH-0013/0/RHUH-0013_0_t2.nii.gz",
+        "flair": "RHUH-0013/0/RHUH-0013_0_flair.nii.gz",
+        "adc": "RHUH-0013/0/RHUH-0013_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0013/0/RHUH-0013_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0013",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0013/1/RHUH-0013_1_t1.nii.gz",
+        "t1ce": "RHUH-0013/1/RHUH-0013_1_t1ce.nii.gz",
+        "t2": "RHUH-0013/1/RHUH-0013_1_t2.nii.gz",
+        "flair": "RHUH-0013/1/RHUH-0013_1_flair.nii.gz",
+        "adc": "RHUH-0013/1/RHUH-0013_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0013/1/RHUH-0013_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0013",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0013/2/RHUH-0013_2_t1.nii.gz",
+        "t1ce": "RHUH-0013/2/RHUH-0013_2_t1ce.nii.gz",
+        "t2": "RHUH-0013/2/RHUH-0013_2_t2.nii.gz",
+        "flair": "RHUH-0013/2/RHUH-0013_2_flair.nii.gz",
+        "adc": "RHUH-0013/2/RHUH-0013_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0013/2/RHUH-0013_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0014",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0014/0/RHUH-0014_0_t1.nii.gz",
+        "t1ce": "RHUH-0014/0/RHUH-0014_0_t1ce.nii.gz",
+        "t2": "RHUH-0014/0/RHUH-0014_0_t2.nii.gz",
+        "flair": "RHUH-0014/0/RHUH-0014_0_flair.nii.gz",
+        "adc": "RHUH-0014/0/RHUH-0014_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0014/0/RHUH-0014_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0014",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0014/1/RHUH-0014_1_t1.nii.gz",
+        "t1ce": "RHUH-0014/1/RHUH-0014_1_t1ce.nii.gz",
+        "t2": "RHUH-0014/1/RHUH-0014_1_t2.nii.gz",
+        "flair": "RHUH-0014/1/RHUH-0014_1_flair.nii.gz",
+        "adc": "RHUH-0014/1/RHUH-0014_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0014/1/RHUH-0014_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0014",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0014/2/RHUH-0014_2_t1.nii.gz",
+        "t1ce": "RHUH-0014/2/RHUH-0014_2_t1ce.nii.gz",
+        "t2": "RHUH-0014/2/RHUH-0014_2_t2.nii.gz",
+        "flair": "RHUH-0014/2/RHUH-0014_2_flair.nii.gz",
+        "adc": "RHUH-0014/2/RHUH-0014_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0014/2/RHUH-0014_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0015",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0015/0/RHUH-0015_0_t1.nii.gz",
+        "t1ce": "RHUH-0015/0/RHUH-0015_0_t1ce.nii.gz",
+        "t2": "RHUH-0015/0/RHUH-0015_0_t2.nii.gz",
+        "flair": "RHUH-0015/0/RHUH-0015_0_flair.nii.gz",
+        "adc": "RHUH-0015/0/RHUH-0015_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0015/0/RHUH-0015_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0015",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0015/1/RHUH-0015_1_t1.nii.gz",
+        "t1ce": "RHUH-0015/1/RHUH-0015_1_t1ce.nii.gz",
+        "t2": "RHUH-0015/1/RHUH-0015_1_t2.nii.gz",
+        "flair": "RHUH-0015/1/RHUH-0015_1_flair.nii.gz",
+        "adc": "RHUH-0015/1/RHUH-0015_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0015/1/RHUH-0015_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0015",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0015/2/RHUH-0015_2_t1.nii.gz",
+        "t1ce": "RHUH-0015/2/RHUH-0015_2_t1ce.nii.gz",
+        "t2": "RHUH-0015/2/RHUH-0015_2_t2.nii.gz",
+        "flair": "RHUH-0015/2/RHUH-0015_2_flair.nii.gz",
+        "adc": "RHUH-0015/2/RHUH-0015_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0015/2/RHUH-0015_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0016",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0016/0/RHUH-0016_0_t1.nii.gz",
+        "t1ce": "RHUH-0016/0/RHUH-0016_0_t1ce.nii.gz",
+        "t2": "RHUH-0016/0/RHUH-0016_0_t2.nii.gz",
+        "flair": "RHUH-0016/0/RHUH-0016_0_flair.nii.gz",
+        "adc": "RHUH-0016/0/RHUH-0016_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0016/0/RHUH-0016_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0016",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0016/1/RHUH-0016_1_t1.nii.gz",
+        "t1ce": "RHUH-0016/1/RHUH-0016_1_t1ce.nii.gz",
+        "t2": "RHUH-0016/1/RHUH-0016_1_t2.nii.gz",
+        "flair": "RHUH-0016/1/RHUH-0016_1_flair.nii.gz",
+        "adc": "RHUH-0016/1/RHUH-0016_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0016/1/RHUH-0016_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0016",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0016/2/RHUH-0016_2_t1.nii.gz",
+        "t1ce": "RHUH-0016/2/RHUH-0016_2_t1ce.nii.gz",
+        "t2": "RHUH-0016/2/RHUH-0016_2_t2.nii.gz",
+        "flair": "RHUH-0016/2/RHUH-0016_2_flair.nii.gz",
+        "adc": "RHUH-0016/2/RHUH-0016_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0016/2/RHUH-0016_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0017",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0017/0/RHUH-0017_0_t1.nii.gz",
+        "t1ce": "RHUH-0017/0/RHUH-0017_0_t1ce.nii.gz",
+        "t2": "RHUH-0017/0/RHUH-0017_0_t2.nii.gz",
+        "flair": "RHUH-0017/0/RHUH-0017_0_flair.nii.gz",
+        "adc": "RHUH-0017/0/RHUH-0017_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0017/0/RHUH-0017_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0017",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0017/1/RHUH-0017_1_t1.nii.gz",
+        "t1ce": "RHUH-0017/1/RHUH-0017_1_t1ce.nii.gz",
+        "t2": "RHUH-0017/1/RHUH-0017_1_t2.nii.gz",
+        "flair": "RHUH-0017/1/RHUH-0017_1_flair.nii.gz",
+        "adc": "RHUH-0017/1/RHUH-0017_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0017/1/RHUH-0017_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0017",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0017/2/RHUH-0017_2_t1.nii.gz",
+        "t1ce": "RHUH-0017/2/RHUH-0017_2_t1ce.nii.gz",
+        "t2": "RHUH-0017/2/RHUH-0017_2_t2.nii.gz",
+        "flair": "RHUH-0017/2/RHUH-0017_2_flair.nii.gz",
+        "adc": "RHUH-0017/2/RHUH-0017_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0017/2/RHUH-0017_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0018",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0018/0/RHUH-0018_0_t1.nii.gz",
+        "t1ce": "RHUH-0018/0/RHUH-0018_0_t1ce.nii.gz",
+        "t2": "RHUH-0018/0/RHUH-0018_0_t2.nii.gz",
+        "flair": "RHUH-0018/0/RHUH-0018_0_flair.nii.gz",
+        "adc": "RHUH-0018/0/RHUH-0018_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0018/0/RHUH-0018_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0018",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0018/1/RHUH-0018_1_t1.nii.gz",
+        "t1ce": "RHUH-0018/1/RHUH-0018_1_t1ce.nii.gz",
+        "t2": "RHUH-0018/1/RHUH-0018_1_t2.nii.gz",
+        "flair": "RHUH-0018/1/RHUH-0018_1_flair.nii.gz",
+        "adc": "RHUH-0018/1/RHUH-0018_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0018/1/RHUH-0018_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0018",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0018/2/RHUH-0018_2_t1.nii.gz",
+        "t1ce": "RHUH-0018/2/RHUH-0018_2_t1ce.nii.gz",
+        "t2": "RHUH-0018/2/RHUH-0018_2_t2.nii.gz",
+        "flair": "RHUH-0018/2/RHUH-0018_2_flair.nii.gz",
+        "adc": "RHUH-0018/2/RHUH-0018_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0018/2/RHUH-0018_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0019",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0019/0/RHUH-0019_0_t1.nii.gz",
+        "t1ce": "RHUH-0019/0/RHUH-0019_0_t1ce.nii.gz",
+        "t2": "RHUH-0019/0/RHUH-0019_0_t2.nii.gz",
+        "flair": "RHUH-0019/0/RHUH-0019_0_flair.nii.gz",
+        "adc": "RHUH-0019/0/RHUH-0019_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0019/0/RHUH-0019_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0019",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0019/1/RHUH-0019_1_t1.nii.gz",
+        "t1ce": "RHUH-0019/1/RHUH-0019_1_t1ce.nii.gz",
+        "t2": "RHUH-0019/1/RHUH-0019_1_t2.nii.gz",
+        "flair": "RHUH-0019/1/RHUH-0019_1_flair.nii.gz",
+        "adc": "RHUH-0019/1/RHUH-0019_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0019/1/RHUH-0019_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0019",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0019/2/RHUH-0019_2_t1.nii.gz",
+        "t1ce": "RHUH-0019/2/RHUH-0019_2_t1ce.nii.gz",
+        "t2": "RHUH-0019/2/RHUH-0019_2_t2.nii.gz",
+        "flair": "RHUH-0019/2/RHUH-0019_2_flair.nii.gz",
+        "adc": "RHUH-0019/2/RHUH-0019_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0019/2/RHUH-0019_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0020",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0020/0/RHUH-0020_0_t1.nii.gz",
+        "t1ce": "RHUH-0020/0/RHUH-0020_0_t1ce.nii.gz",
+        "t2": "RHUH-0020/0/RHUH-0020_0_t2.nii.gz",
+        "flair": "RHUH-0020/0/RHUH-0020_0_flair.nii.gz",
+        "adc": "RHUH-0020/0/RHUH-0020_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0020/0/RHUH-0020_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0020",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0020/1/RHUH-0020_1_t1.nii.gz",
+        "t1ce": "RHUH-0020/1/RHUH-0020_1_t1ce.nii.gz",
+        "t2": "RHUH-0020/1/RHUH-0020_1_t2.nii.gz",
+        "flair": "RHUH-0020/1/RHUH-0020_1_flair.nii.gz",
+        "adc": "RHUH-0020/1/RHUH-0020_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0020/1/RHUH-0020_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0020",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0020/2/RHUH-0020_2_t1.nii.gz",
+        "t1ce": "RHUH-0020/2/RHUH-0020_2_t1ce.nii.gz",
+        "t2": "RHUH-0020/2/RHUH-0020_2_t2.nii.gz",
+        "flair": "RHUH-0020/2/RHUH-0020_2_flair.nii.gz",
+        "adc": "RHUH-0020/2/RHUH-0020_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0020/2/RHUH-0020_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0021",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0021/0/RHUH-0021_0_t1.nii.gz",
+        "t1ce": "RHUH-0021/0/RHUH-0021_0_t1ce.nii.gz",
+        "t2": "RHUH-0021/0/RHUH-0021_0_t2.nii.gz",
+        "flair": "RHUH-0021/0/RHUH-0021_0_flair.nii.gz",
+        "adc": "RHUH-0021/0/RHUH-0021_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0021/0/RHUH-0021_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0021",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0021/1/RHUH-0021_1_t1.nii.gz",
+        "t1ce": "RHUH-0021/1/RHUH-0021_1_t1ce.nii.gz",
+        "t2": "RHUH-0021/1/RHUH-0021_1_t2.nii.gz",
+        "flair": "RHUH-0021/1/RHUH-0021_1_flair.nii.gz",
+        "adc": "RHUH-0021/1/RHUH-0021_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0021/1/RHUH-0021_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0021",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0021/2/RHUH-0021_2_t1.nii.gz",
+        "t1ce": "RHUH-0021/2/RHUH-0021_2_t1ce.nii.gz",
+        "t2": "RHUH-0021/2/RHUH-0021_2_t2.nii.gz",
+        "flair": "RHUH-0021/2/RHUH-0021_2_flair.nii.gz",
+        "adc": "RHUH-0021/2/RHUH-0021_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0021/2/RHUH-0021_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0022",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0022/0/RHUH-0022_0_t1.nii.gz",
+        "t1ce": "RHUH-0022/0/RHUH-0022_0_t1ce.nii.gz",
+        "t2": "RHUH-0022/0/RHUH-0022_0_t2.nii.gz",
+        "flair": "RHUH-0022/0/RHUH-0022_0_flair.nii.gz",
+        "adc": "RHUH-0022/0/RHUH-0022_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0022/0/RHUH-0022_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0022",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0022/1/RHUH-0022_1_t1.nii.gz",
+        "t1ce": "RHUH-0022/1/RHUH-0022_1_t1ce.nii.gz",
+        "t2": "RHUH-0022/1/RHUH-0022_1_t2.nii.gz",
+        "flair": "RHUH-0022/1/RHUH-0022_1_flair.nii.gz",
+        "adc": "RHUH-0022/1/RHUH-0022_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0022/1/RHUH-0022_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0022",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0022/2/RHUH-0022_2_t1.nii.gz",
+        "t1ce": "RHUH-0022/2/RHUH-0022_2_t1ce.nii.gz",
+        "t2": "RHUH-0022/2/RHUH-0022_2_t2.nii.gz",
+        "flair": "RHUH-0022/2/RHUH-0022_2_flair.nii.gz",
+        "adc": "RHUH-0022/2/RHUH-0022_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0022/2/RHUH-0022_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0023",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0023/0/RHUH-0023_0_t1.nii.gz",
+        "t1ce": "RHUH-0023/0/RHUH-0023_0_t1ce.nii.gz",
+        "t2": "RHUH-0023/0/RHUH-0023_0_t2.nii.gz",
+        "flair": "RHUH-0023/0/RHUH-0023_0_flair.nii.gz",
+        "adc": "RHUH-0023/0/RHUH-0023_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0023/0/RHUH-0023_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0023",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0023/1/RHUH-0023_1_t1.nii.gz",
+        "t1ce": "RHUH-0023/1/RHUH-0023_1_t1ce.nii.gz",
+        "t2": "RHUH-0023/1/RHUH-0023_1_t2.nii.gz",
+        "flair": "RHUH-0023/1/RHUH-0023_1_flair.nii.gz",
+        "adc": "RHUH-0023/1/RHUH-0023_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0023/1/RHUH-0023_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0023",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0023/2/RHUH-0023_2_t1.nii.gz",
+        "t1ce": "RHUH-0023/2/RHUH-0023_2_t1ce.nii.gz",
+        "t2": "RHUH-0023/2/RHUH-0023_2_t2.nii.gz",
+        "flair": "RHUH-0023/2/RHUH-0023_2_flair.nii.gz",
+        "adc": "RHUH-0023/2/RHUH-0023_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0023/2/RHUH-0023_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0024",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0024/0/RHUH-0024_0_t1.nii.gz",
+        "t1ce": "RHUH-0024/0/RHUH-0024_0_t1ce.nii.gz",
+        "t2": "RHUH-0024/0/RHUH-0024_0_t2.nii.gz",
+        "flair": "RHUH-0024/0/RHUH-0024_0_flair.nii.gz",
+        "adc": "RHUH-0024/0/RHUH-0024_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0024/0/RHUH-0024_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0024",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0024/1/RHUH-0024_1_t1.nii.gz",
+        "t1ce": "RHUH-0024/1/RHUH-0024_1_t1ce.nii.gz",
+        "t2": "RHUH-0024/1/RHUH-0024_1_t2.nii.gz",
+        "flair": "RHUH-0024/1/RHUH-0024_1_flair.nii.gz",
+        "adc": "RHUH-0024/1/RHUH-0024_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0024/1/RHUH-0024_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0024",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0024/2/RHUH-0024_2_t1.nii.gz",
+        "t1ce": "RHUH-0024/2/RHUH-0024_2_t1ce.nii.gz",
+        "t2": "RHUH-0024/2/RHUH-0024_2_t2.nii.gz",
+        "flair": "RHUH-0024/2/RHUH-0024_2_flair.nii.gz",
+        "adc": "RHUH-0024/2/RHUH-0024_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0024/2/RHUH-0024_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0025",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0025/0/RHUH-0025_0_t1.nii.gz",
+        "t1ce": "RHUH-0025/0/RHUH-0025_0_t1ce.nii.gz",
+        "t2": "RHUH-0025/0/RHUH-0025_0_t2.nii.gz",
+        "flair": "RHUH-0025/0/RHUH-0025_0_flair.nii.gz",
+        "adc": "RHUH-0025/0/RHUH-0025_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0025/0/RHUH-0025_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0025",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0025/1/RHUH-0025_1_t1.nii.gz",
+        "t1ce": "RHUH-0025/1/RHUH-0025_1_t1ce.nii.gz",
+        "t2": "RHUH-0025/1/RHUH-0025_1_t2.nii.gz",
+        "flair": "RHUH-0025/1/RHUH-0025_1_flair.nii.gz",
+        "adc": "RHUH-0025/1/RHUH-0025_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0025/1/RHUH-0025_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0025",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0025/2/RHUH-0025_2_t1.nii.gz",
+        "t1ce": "RHUH-0025/2/RHUH-0025_2_t1ce.nii.gz",
+        "t2": "RHUH-0025/2/RHUH-0025_2_t2.nii.gz",
+        "flair": "RHUH-0025/2/RHUH-0025_2_flair.nii.gz",
+        "adc": "RHUH-0025/2/RHUH-0025_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0025/2/RHUH-0025_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0026",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0026/0/RHUH-0026_0_t1.nii.gz",
+        "t1ce": "RHUH-0026/0/RHUH-0026_0_t1ce.nii.gz",
+        "t2": "RHUH-0026/0/RHUH-0026_0_t2.nii.gz",
+        "flair": "RHUH-0026/0/RHUH-0026_0_flair.nii.gz",
+        "adc": "RHUH-0026/0/RHUH-0026_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0026/0/RHUH-0026_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0026",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0026/1/RHUH-0026_1_t1.nii.gz",
+        "t1ce": "RHUH-0026/1/RHUH-0026_1_t1ce.nii.gz",
+        "t2": "RHUH-0026/1/RHUH-0026_1_t2.nii.gz",
+        "flair": "RHUH-0026/1/RHUH-0026_1_flair.nii.gz",
+        "adc": "RHUH-0026/1/RHUH-0026_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0026/1/RHUH-0026_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0026",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0026/2/RHUH-0026_2_t1.nii.gz",
+        "t1ce": "RHUH-0026/2/RHUH-0026_2_t1ce.nii.gz",
+        "t2": "RHUH-0026/2/RHUH-0026_2_t2.nii.gz",
+        "flair": "RHUH-0026/2/RHUH-0026_2_flair.nii.gz",
+        "adc": "RHUH-0026/2/RHUH-0026_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0026/2/RHUH-0026_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0027",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0027/0/RHUH-0027_0_t1.nii.gz",
+        "t1ce": "RHUH-0027/0/RHUH-0027_0_t1ce.nii.gz",
+        "t2": "RHUH-0027/0/RHUH-0027_0_t2.nii.gz",
+        "flair": "RHUH-0027/0/RHUH-0027_0_flair.nii.gz",
+        "adc": "RHUH-0027/0/RHUH-0027_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0027/0/RHUH-0027_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0027",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0027/1/RHUH-0027_1_t1.nii.gz",
+        "t1ce": "RHUH-0027/1/RHUH-0027_1_t1ce.nii.gz",
+        "t2": "RHUH-0027/1/RHUH-0027_1_t2.nii.gz",
+        "flair": "RHUH-0027/1/RHUH-0027_1_flair.nii.gz",
+        "adc": "RHUH-0027/1/RHUH-0027_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0027/1/RHUH-0027_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0027",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0027/2/RHUH-0027_2_t1.nii.gz",
+        "t1ce": "RHUH-0027/2/RHUH-0027_2_t1ce.nii.gz",
+        "t2": "RHUH-0027/2/RHUH-0027_2_t2.nii.gz",
+        "flair": "RHUH-0027/2/RHUH-0027_2_flair.nii.gz",
+        "adc": "RHUH-0027/2/RHUH-0027_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0027/2/RHUH-0027_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0028",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        230,
+        230,
+        138
+      ],
+      "images": {
+        "t1": "RHUH-0028/0/RHUH-0028_0_t1.nii.gz",
+        "t1ce": "RHUH-0028/0/RHUH-0028_0_t1ce.nii.gz",
+        "t2": "RHUH-0028/0/RHUH-0028_0_t2.nii.gz",
+        "flair": "RHUH-0028/0/RHUH-0028_0_flair.nii.gz",
+        "adc": "RHUH-0028/0/RHUH-0028_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0028/0/RHUH-0028_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0028",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0028/1/RHUH-0028_1_t1.nii.gz",
+        "t1ce": "RHUH-0028/1/RHUH-0028_1_t1ce.nii.gz",
+        "t2": "RHUH-0028/1/RHUH-0028_1_t2.nii.gz",
+        "flair": "RHUH-0028/1/RHUH-0028_1_flair.nii.gz",
+        "adc": "RHUH-0028/1/RHUH-0028_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0028/1/RHUH-0028_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0028",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0028/2/RHUH-0028_2_t1.nii.gz",
+        "t1ce": "RHUH-0028/2/RHUH-0028_2_t1ce.nii.gz",
+        "t2": "RHUH-0028/2/RHUH-0028_2_t2.nii.gz",
+        "flair": "RHUH-0028/2/RHUH-0028_2_flair.nii.gz",
+        "adc": "RHUH-0028/2/RHUH-0028_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0028/2/RHUH-0028_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0029",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0029/0/RHUH-0029_0_t1.nii.gz",
+        "t1ce": "RHUH-0029/0/RHUH-0029_0_t1ce.nii.gz",
+        "t2": "RHUH-0029/0/RHUH-0029_0_t2.nii.gz",
+        "flair": "RHUH-0029/0/RHUH-0029_0_flair.nii.gz",
+        "adc": "RHUH-0029/0/RHUH-0029_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0029/0/RHUH-0029_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0029",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0029/1/RHUH-0029_1_t1.nii.gz",
+        "t1ce": "RHUH-0029/1/RHUH-0029_1_t1ce.nii.gz",
+        "t2": "RHUH-0029/1/RHUH-0029_1_t2.nii.gz",
+        "flair": "RHUH-0029/1/RHUH-0029_1_flair.nii.gz",
+        "adc": "RHUH-0029/1/RHUH-0029_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0029/1/RHUH-0029_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0029",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0029/2/RHUH-0029_2_t1.nii.gz",
+        "t1ce": "RHUH-0029/2/RHUH-0029_2_t1ce.nii.gz",
+        "t2": "RHUH-0029/2/RHUH-0029_2_t2.nii.gz",
+        "flair": "RHUH-0029/2/RHUH-0029_2_flair.nii.gz",
+        "adc": "RHUH-0029/2/RHUH-0029_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0029/2/RHUH-0029_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0030",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0030/0/RHUH-0030_0_t1.nii.gz",
+        "t1ce": "RHUH-0030/0/RHUH-0030_0_t1ce.nii.gz",
+        "t2": "RHUH-0030/0/RHUH-0030_0_t2.nii.gz",
+        "flair": "RHUH-0030/0/RHUH-0030_0_flair.nii.gz",
+        "adc": "RHUH-0030/0/RHUH-0030_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0030/0/RHUH-0030_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0030",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0030/1/RHUH-0030_1_t1.nii.gz",
+        "t1ce": "RHUH-0030/1/RHUH-0030_1_t1ce.nii.gz",
+        "t2": "RHUH-0030/1/RHUH-0030_1_t2.nii.gz",
+        "flair": "RHUH-0030/1/RHUH-0030_1_flair.nii.gz",
+        "adc": "RHUH-0030/1/RHUH-0030_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0030/1/RHUH-0030_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0030",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0030/2/RHUH-0030_2_t1.nii.gz",
+        "t1ce": "RHUH-0030/2/RHUH-0030_2_t1ce.nii.gz",
+        "t2": "RHUH-0030/2/RHUH-0030_2_t2.nii.gz",
+        "flair": "RHUH-0030/2/RHUH-0030_2_flair.nii.gz",
+        "adc": "RHUH-0030/2/RHUH-0030_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0030/2/RHUH-0030_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0031",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0031/0/RHUH-0031_0_t1.nii.gz",
+        "t1ce": "RHUH-0031/0/RHUH-0031_0_t1ce.nii.gz",
+        "t2": "RHUH-0031/0/RHUH-0031_0_t2.nii.gz",
+        "flair": "RHUH-0031/0/RHUH-0031_0_flair.nii.gz",
+        "adc": "RHUH-0031/0/RHUH-0031_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0031/0/RHUH-0031_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0031",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0031/1/RHUH-0031_1_t1.nii.gz",
+        "t1ce": "RHUH-0031/1/RHUH-0031_1_t1ce.nii.gz",
+        "t2": "RHUH-0031/1/RHUH-0031_1_t2.nii.gz",
+        "flair": "RHUH-0031/1/RHUH-0031_1_flair.nii.gz",
+        "adc": "RHUH-0031/1/RHUH-0031_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0031/1/RHUH-0031_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0031",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0031/2/RHUH-0031_2_t1.nii.gz",
+        "t1ce": "RHUH-0031/2/RHUH-0031_2_t1ce.nii.gz",
+        "t2": "RHUH-0031/2/RHUH-0031_2_t2.nii.gz",
+        "flair": "RHUH-0031/2/RHUH-0031_2_flair.nii.gz",
+        "adc": "RHUH-0031/2/RHUH-0031_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0031/2/RHUH-0031_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0032",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0032/0/RHUH-0032_0_t1.nii.gz",
+        "t1ce": "RHUH-0032/0/RHUH-0032_0_t1ce.nii.gz",
+        "t2": "RHUH-0032/0/RHUH-0032_0_t2.nii.gz",
+        "flair": "RHUH-0032/0/RHUH-0032_0_flair.nii.gz",
+        "adc": "RHUH-0032/0/RHUH-0032_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0032/0/RHUH-0032_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0032",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0032/1/RHUH-0032_1_t1.nii.gz",
+        "t1ce": "RHUH-0032/1/RHUH-0032_1_t1ce.nii.gz",
+        "t2": "RHUH-0032/1/RHUH-0032_1_t2.nii.gz",
+        "flair": "RHUH-0032/1/RHUH-0032_1_flair.nii.gz",
+        "adc": "RHUH-0032/1/RHUH-0032_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0032/1/RHUH-0032_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0032",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0032/2/RHUH-0032_2_t1.nii.gz",
+        "t1ce": "RHUH-0032/2/RHUH-0032_2_t1ce.nii.gz",
+        "t2": "RHUH-0032/2/RHUH-0032_2_t2.nii.gz",
+        "flair": "RHUH-0032/2/RHUH-0032_2_flair.nii.gz",
+        "adc": "RHUH-0032/2/RHUH-0032_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0032/2/RHUH-0032_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0033",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0033/0/RHUH-0033_0_t1.nii.gz",
+        "t1ce": "RHUH-0033/0/RHUH-0033_0_t1ce.nii.gz",
+        "t2": "RHUH-0033/0/RHUH-0033_0_t2.nii.gz",
+        "flair": "RHUH-0033/0/RHUH-0033_0_flair.nii.gz",
+        "adc": "RHUH-0033/0/RHUH-0033_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0033/0/RHUH-0033_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0033",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0033/1/RHUH-0033_1_t1.nii.gz",
+        "t1ce": "RHUH-0033/1/RHUH-0033_1_t1ce.nii.gz",
+        "t2": "RHUH-0033/1/RHUH-0033_1_t2.nii.gz",
+        "flair": "RHUH-0033/1/RHUH-0033_1_flair.nii.gz",
+        "adc": "RHUH-0033/1/RHUH-0033_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0033/1/RHUH-0033_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0033",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0033/2/RHUH-0033_2_t1.nii.gz",
+        "t1ce": "RHUH-0033/2/RHUH-0033_2_t1ce.nii.gz",
+        "t2": "RHUH-0033/2/RHUH-0033_2_t2.nii.gz",
+        "flair": "RHUH-0033/2/RHUH-0033_2_flair.nii.gz",
+        "adc": "RHUH-0033/2/RHUH-0033_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0033/2/RHUH-0033_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0034",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0034/0/RHUH-0034_0_t1.nii.gz",
+        "t1ce": "RHUH-0034/0/RHUH-0034_0_t1ce.nii.gz",
+        "t2": "RHUH-0034/0/RHUH-0034_0_t2.nii.gz",
+        "flair": "RHUH-0034/0/RHUH-0034_0_flair.nii.gz",
+        "adc": "RHUH-0034/0/RHUH-0034_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0034/0/RHUH-0034_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0034",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0034/1/RHUH-0034_1_t1.nii.gz",
+        "t1ce": "RHUH-0034/1/RHUH-0034_1_t1ce.nii.gz",
+        "t2": "RHUH-0034/1/RHUH-0034_1_t2.nii.gz",
+        "flair": "RHUH-0034/1/RHUH-0034_1_flair.nii.gz",
+        "adc": "RHUH-0034/1/RHUH-0034_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0034/1/RHUH-0034_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0034",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0034/2/RHUH-0034_2_t1.nii.gz",
+        "t1ce": "RHUH-0034/2/RHUH-0034_2_t1ce.nii.gz",
+        "t2": "RHUH-0034/2/RHUH-0034_2_t2.nii.gz",
+        "flair": "RHUH-0034/2/RHUH-0034_2_flair.nii.gz",
+        "adc": "RHUH-0034/2/RHUH-0034_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0034/2/RHUH-0034_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0035",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0035/0/RHUH-0035_0_t1.nii.gz",
+        "t1ce": "RHUH-0035/0/RHUH-0035_0_t1ce.nii.gz",
+        "t2": "RHUH-0035/0/RHUH-0035_0_t2.nii.gz",
+        "flair": "RHUH-0035/0/RHUH-0035_0_flair.nii.gz",
+        "adc": "RHUH-0035/0/RHUH-0035_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0035/0/RHUH-0035_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0035",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0035/1/RHUH-0035_1_t1.nii.gz",
+        "t1ce": "RHUH-0035/1/RHUH-0035_1_t1ce.nii.gz",
+        "t2": "RHUH-0035/1/RHUH-0035_1_t2.nii.gz",
+        "flair": "RHUH-0035/1/RHUH-0035_1_flair.nii.gz",
+        "adc": "RHUH-0035/1/RHUH-0035_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0035/1/RHUH-0035_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0035",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0035/2/RHUH-0035_2_t1.nii.gz",
+        "t1ce": "RHUH-0035/2/RHUH-0035_2_t1ce.nii.gz",
+        "t2": "RHUH-0035/2/RHUH-0035_2_t2.nii.gz",
+        "flair": "RHUH-0035/2/RHUH-0035_2_flair.nii.gz",
+        "adc": "RHUH-0035/2/RHUH-0035_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0035/2/segmentation.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0036",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0036/0/RHUH-0036_0_t1.nii.gz",
+        "t1ce": "RHUH-0036/0/RHUH-0036_0_t1ce.nii.gz",
+        "t2": "RHUH-0036/0/RHUH-0036_0_t2.nii.gz",
+        "flair": "RHUH-0036/0/RHUH-0036_0_flair.nii.gz",
+        "adc": "RHUH-0036/0/RHUH-0036_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0036/0/RHUH-0036_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0036",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0036/1/RHUH-0036_1_t1.nii.gz",
+        "t1ce": "RHUH-0036/1/RHUH-0036_1_t1ce.nii.gz",
+        "t2": "RHUH-0036/1/RHUH-0036_1_t2.nii.gz",
+        "flair": "RHUH-0036/1/RHUH-0036_1_flair.nii.gz",
+        "adc": "RHUH-0036/1/RHUH-0036_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0036/1/RHUH-0036_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0036",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0036/2/RHUH-0036_2_t1.nii.gz",
+        "t1ce": "RHUH-0036/2/RHUH-0036_2_t1ce.nii.gz",
+        "t2": "RHUH-0036/2/RHUH-0036_2_t2.nii.gz",
+        "flair": "RHUH-0036/2/RHUH-0036_2_flair.nii.gz",
+        "adc": "RHUH-0036/2/RHUH-0036_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0036/2/RHUH-0036_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0037",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0037/0/RHUH-0037_0_t1.nii.gz",
+        "t1ce": "RHUH-0037/0/RHUH-0037_0_t1ce.nii.gz",
+        "t2": "RHUH-0037/0/RHUH-0037_0_t2.nii.gz",
+        "flair": "RHUH-0037/0/RHUH-0037_0_flair.nii.gz",
+        "adc": "RHUH-0037/0/RHUH-0037_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0037/0/RHUH-0037_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0037",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0037/1/RHUH-0037_1_t1.nii.gz",
+        "t1ce": "RHUH-0037/1/RHUH-0037_1_t1ce.nii.gz",
+        "t2": "RHUH-0037/1/RHUH-0037_1_t2.nii.gz",
+        "flair": "RHUH-0037/1/RHUH-0037_1_flair.nii.gz",
+        "adc": "RHUH-0037/1/RHUH-0037_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0037/1/RHUH-0037_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0037",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0037/2/RHUH-0037_2_t1.nii.gz",
+        "t1ce": "RHUH-0037/2/RHUH-0037_2_t1ce.nii.gz",
+        "t2": "RHUH-0037/2/RHUH-0037_2_t2.nii.gz",
+        "flair": "RHUH-0037/2/RHUH-0037_2_flair.nii.gz",
+        "adc": "RHUH-0037/2/RHUH-0037_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0037/2/RHUH-0037_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0038",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0038/0/RHUH-0038_0_t1.nii.gz",
+        "t1ce": "RHUH-0038/0/RHUH-0038_0_t1ce.nii.gz",
+        "t2": "RHUH-0038/0/RHUH-0038_0_t2.nii.gz",
+        "flair": "RHUH-0038/0/RHUH-0038_0_flair.nii.gz",
+        "adc": "RHUH-0038/0/RHUH-0038_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0038/0/RHUH-0038_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0038",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0038/1/RHUH-0038_1_t1.nii.gz",
+        "t1ce": "RHUH-0038/1/RHUH-0038_1_t1ce.nii.gz",
+        "t2": "RHUH-0038/1/RHUH-0038_1_t2.nii.gz",
+        "flair": "RHUH-0038/1/RHUH-0038_1_flair.nii.gz",
+        "adc": "RHUH-0038/1/RHUH-0038_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0038/1/RHUH-0038_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0038",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0038/2/RHUH-0038_2_t1.nii.gz",
+        "t1ce": "RHUH-0038/2/RHUH-0038_2_t1ce.nii.gz",
+        "t2": "RHUH-0038/2/RHUH-0038_2_t2.nii.gz",
+        "flair": "RHUH-0038/2/RHUH-0038_2_flair.nii.gz",
+        "adc": "RHUH-0038/2/RHUH-0038_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0038/2/RHUH-0038_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0039",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0039/0/RHUH-0039_0_t1.nii.gz",
+        "t1ce": "RHUH-0039/0/RHUH-0039_0_t1ce.nii.gz",
+        "t2": "RHUH-0039/0/RHUH-0039_0_t2.nii.gz",
+        "flair": "RHUH-0039/0/RHUH-0039_0_flair.nii.gz",
+        "adc": "RHUH-0039/0/RHUH-0039_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0039/0/RHUH-0039_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0039",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0039/1/RHUH-0039_1_t1.nii.gz",
+        "t1ce": "RHUH-0039/1/RHUH-0039_1_t1ce.nii.gz",
+        "t2": "RHUH-0039/1/RHUH-0039_1_t2.nii.gz",
+        "flair": "RHUH-0039/1/RHUH-0039_1_flair.nii.gz",
+        "adc": "RHUH-0039/1/RHUH-0039_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0039/1/RHUH-0039_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0039",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0039/2/RHUH-0039_2_t1.nii.gz",
+        "t1ce": "RHUH-0039/2/RHUH-0039_2_t1ce.nii.gz",
+        "t2": "RHUH-0039/2/RHUH-0039_2_t2.nii.gz",
+        "flair": "RHUH-0039/2/RHUH-0039_2_flair.nii.gz",
+        "adc": "RHUH-0039/2/RHUH-0039_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0039/2/RHUH-0039_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0040",
+      "timepoint": 0,
+      "timepoint_name": "preop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0040/0/RHUH-0040_0_t1.nii.gz",
+        "t1ce": "RHUH-0040/0/RHUH-0040_0_t1ce.nii.gz",
+        "t2": "RHUH-0040/0/RHUH-0040_0_t2.nii.gz",
+        "flair": "RHUH-0040/0/RHUH-0040_0_flair.nii.gz",
+        "adc": "RHUH-0040/0/RHUH-0040_0_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0040/0/RHUH-0040_0_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "patient_id": "RHUH-0040",
+      "timepoint": 1,
+      "timepoint_name": "early_postop",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0040/1/RHUH-0040_1_t1.nii.gz",
+        "t1ce": "RHUH-0040/1/RHUH-0040_1_t1ce.nii.gz",
+        "t2": "RHUH-0040/1/RHUH-0040_1_t2.nii.gz",
+        "flair": "RHUH-0040/1/RHUH-0040_1_flair.nii.gz",
+        "adc": "RHUH-0040/1/RHUH-0040_1_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0040/1/RHUH-0040_1_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        2
+      ]
+    },
+    {
+      "patient_id": "RHUH-0040",
+      "timepoint": 2,
+      "timepoint_name": "followup_recurrence",
+      "shape": [
+        240,
+        240,
+        155
+      ],
+      "images": {
+        "t1": "RHUH-0040/2/RHUH-0040_2_t1.nii.gz",
+        "t1ce": "RHUH-0040/2/RHUH-0040_2_t1ce.nii.gz",
+        "t2": "RHUH-0040/2/RHUH-0040_2_t2.nii.gz",
+        "flair": "RHUH-0040/2/RHUH-0040_2_flair.nii.gz",
+        "adc": "RHUH-0040/2/RHUH-0040_2_adc.nii.gz"
+      },
+      "segmentation": "RHUH-0040/2/RHUH-0040_2_segmentations.nii.gz",
+      "labels_present": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

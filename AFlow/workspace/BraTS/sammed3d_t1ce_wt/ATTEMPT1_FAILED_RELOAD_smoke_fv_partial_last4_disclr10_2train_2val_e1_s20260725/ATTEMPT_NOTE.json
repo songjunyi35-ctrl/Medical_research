@@ -1,0 +1,18 @@
+{
+  "schema": "aflow.sammed3d.smoke_attempt_note",
+  "attempt": 1,
+  "date_utc": "2026-08-05",
+  "outcome": "train+val completed; failed at strict checkpoint reload",
+  "root_cause": "torch 2.7.1 defaults torch.load(weights_only=True) since torch 2.6; sammed3d/peft.py:370 omits weights_only, and the checkpoint stores args.output_dir as pathlib.PosixPath",
+  "not_a_model_or_protocol_failure": true,
+  "scientific_status": "non-scientific engineering smoke, retained only as evidence; never used for any selection",
+  "resolution": "PYTHONPATH=workspace/BraTS/env_shims sitecustomize registers pathlib.PosixPath as a torch safe global; zero frozen files modified",
+  "observed": {
+    "train_dice": 0.22207456082105637,
+    "train_loss": 0.8534855246543884,
+    "val_dice": 0.018977261090185493,
+    "val_loss": 0.9922760128974915,
+    "cuda_peak_memory_allocated_bytes": 2793473024,
+    "cuda_peak_memory_reserved_bytes": 3395289088
+  }
+}

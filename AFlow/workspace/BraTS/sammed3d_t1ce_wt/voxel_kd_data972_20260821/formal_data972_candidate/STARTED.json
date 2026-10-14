@@ -1,0 +1,52 @@
+{
+  "arm": "data972_candidate",
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-21T05:56:51.192059+00:00",
+  "data_role": {
+    "cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "cases": 972,
+    "retired_selector_confirmation_reclassified_as_train": true,
+    "role": "data972_candidate",
+    "subjects": 444,
+    "train": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl",
+      "sha256": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65"
+    }
+  },
+  "initial_state_sha256": "496c7069c72cd5ac9a19b864d5ba704a65bd99ba3b0ebc087f0f02b66010628e",
+  "mode": "formal",
+  "optimizer_contract": {
+    "amsgrad": false,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "capturable": false,
+    "class": "AdamW",
+    "eps": 1e-08,
+    "foreach": false,
+    "fused": false,
+    "maximize": false,
+    "parameter_tensors": 83,
+    "weight_decay": 1e-05
+  },
+  "outer_selector_access": false,
+  "runner_sha256": "4f57a5728ef923fbeca0b87c922f5d650b8f1bb1acb08395a20d33a5d1f60892",
+  "sampling_contract": {
+    "consumed_draws_per_epoch": 752,
+    "dropped_draws_per_epoch": 4,
+    "generator_seed": 20260846,
+    "optimizer_steps_per_epoch": 94,
+    "population_count": 972,
+    "replacement": true,
+    "sampler_num_samples": 756,
+    "weight_source": "selected cached 128^3 label positive voxels",
+    "weights_sha256": "5ede4dbf5736855616ae071c365314a53eca96e7a5abaa2e650f5c87b41a9716"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_voxel_kd_data972_train.started",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step",
+  "test_access": false,
+  "validation_access": false
+}

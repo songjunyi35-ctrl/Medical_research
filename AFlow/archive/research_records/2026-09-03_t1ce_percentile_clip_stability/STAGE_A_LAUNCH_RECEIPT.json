@@ -1,0 +1,43 @@
+{
+  "schema": "aflow.brats.t1ce_percentile_clip_stability.stage_a_launch",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T16:12:10Z",
+  "status": "frozen_before_formal_stage_a",
+  "documents": {
+    "idea_sha256": "7504085184ea0e17d97268e9233ff4eb857f9f80c1b49e301aa1534416a24b0a",
+    "prereg_sha256": "cf4706a98e6053799f698d83dcd59efbfd87d7ff3880b6bea09624b4ed99e031",
+    "amendment_001_sha256": "0b6ce72205ef18e304dd706ff9fe7610c2151c8f8a300f8d7bb7c89ffd78a8cb"
+  },
+  "receipts": {
+    "implementation_v1_sha256": "7503382636065dd52ca80f0f54368a619776028933d02e8467c0447c114726c7",
+    "implementation_v2_sha256": "d3a3f02284b7cb3f4f324992139bc0ed62bb5d0d28ada2a9823b0b9e4e5f6574",
+    "cache_sha256": "4d322316dde89b4be6f32bbec93b04f12eecbe6e63d5f7c7daa6ad42eaffd454",
+    "smoke_sha256": "ed7b2510654a860013115ce484729f48837fa61a0ccb38b1971cc82a6f441518"
+  },
+  "artifacts": {
+    "split_manifest_sha256": "212ec309d9697e3b5ba1eb22d267272f8cf6e41a181ad4f8a8e29c7c4b932c9f",
+    "control_cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "candidate_cache_index_sha256": "6e51c3b32f6b3ced4d11adabe75c20d1cf746e2bb6e59a8b3456c46801ad8755",
+    "control_labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+    "candidate_labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724"
+  },
+  "formal_runs": [
+    {"replicate": "a", "arm": "control", "seed": 20261112, "device": "cuda:0", "epoch": 168},
+    {"replicate": "a", "arm": "percentile_clip", "seed": 20261112, "device": "cuda:1", "epoch": 168},
+    {"replicate": "b", "arm": "control", "seed": 20261114, "device": "cuda:0", "epoch": 168},
+    {"replicate": "b", "arm": "percentile_clip", "seed": 20261114, "device": "cuda:1", "epoch": 168}
+  ],
+  "sequence": "replicate A pair in parallel, then replicate B pair in parallel; freeze all four before one-time inner readout",
+  "runner_sha256": "e4f8264eec536dca9b53dcbcb90ee636b384858e2c22f0126bfce6ab4f83530f",
+  "candidate_cache_index_argument": "6e51c3b32f6b3ced4d11adabe75c20d1cf746e2bb6e59a8b3456c46801ad8755",
+  "formal_output_directories_absent": true,
+  "access": {
+    "fit": true,
+    "inner_metrics": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

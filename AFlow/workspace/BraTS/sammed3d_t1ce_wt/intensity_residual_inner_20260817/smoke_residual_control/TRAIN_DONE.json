@@ -1,0 +1,141 @@
+{
+  "arm": "residual_control",
+  "best_checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/intensity_residual_inner_20260817/smoke_residual_control/inner_tune_dice_best.pth",
+    "sha256": "8620c0dd036380627c6c50cfacc9909f2c97bde0ea64f1b5cf1e2400c7393ce6"
+  },
+  "cache": {
+    "index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train"
+  },
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-17T07:13:13.799055+00:00",
+  "data_roles": {
+    "case_overlap": 0,
+    "fit": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_intensity_inner_seed20260820_v1/fit_cases.jsonl",
+      "sha256": "947a5364fd2550f5e63af835612a9b97157f7c51eee28c5333de81260dfea19e"
+    },
+    "fit_cases": 8,
+    "inner_tune": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_intensity_inner_seed20260820_v1/inner_tune_cases.jsonl",
+      "sha256": "711f441addbc28208ee07e22f9fd14f4345313c123f809b81f1fb02d8826b3f8"
+    },
+    "inner_tune_cases": 4,
+    "subject_overlap": 0
+  },
+  "elapsed_seconds": 1.9348037242889404,
+  "history": [
+    {
+      "elapsed_seconds": 1.9039514064788818,
+      "epoch": 1,
+      "stale_epochs": 0,
+      "strict_new_high": true,
+      "train_base_dsc": 0.03853487444575876,
+      "train_dsc": 0.038723994308384135,
+      "train_loss": 1.0449147522449493,
+      "train_residual_abs_mean": 0.0013444862270262092,
+      "validation": {
+        "automatic_point_hit_rate": 0.0,
+        "base_scan_dsc_mean": 0.034107386600226164,
+        "cases": 4,
+        "per_case": [
+          {
+            "automatic_point": [
+              87,
+              76,
+              33
+            ],
+            "automatic_point_hits_gt": false,
+            "base_dsc": 0.028219273313879967,
+            "case_id": "BraTS-GLI-00005-100",
+            "dsc": 0.0280100479722023,
+            "residual_abs_mean": 0.0036993282847106457,
+            "subject_id": "BraTS-GLI-00005"
+          },
+          {
+            "automatic_point": [
+              69,
+              16,
+              35
+            ],
+            "automatic_point_hits_gt": false,
+            "base_dsc": 0.026556972414255142,
+            "case_id": "BraTS-GLI-00005-101",
+            "dsc": 0.026136010885238647,
+            "residual_abs_mean": 0.003700113156810403,
+            "subject_id": "BraTS-GLI-00005"
+          },
+          {
+            "automatic_point": [
+              60,
+              100,
+              111
+            ],
+            "automatic_point_hits_gt": false,
+            "base_dsc": 0.03163706511259079,
+            "case_id": "BraTS-GLI-00027-100",
+            "dsc": 0.03157950937747955,
+            "residual_abs_mean": 0.0036994630936533213,
+            "subject_id": "BraTS-GLI-00027"
+          },
+          {
+            "automatic_point": [
+              60,
+              109,
+              106
+            ],
+            "automatic_point_hits_gt": false,
+            "base_dsc": 0.05001623556017876,
+            "case_id": "BraTS-GLI-00027-101",
+            "dsc": 0.05016633868217468,
+            "residual_abs_mean": 0.0036994924303144217,
+            "subject_id": "BraTS-GLI-00027"
+          }
+        ],
+        "scan_dsc_mean": 0.033972976729273796,
+        "scan_dsc_median": 0.029794778674840927,
+        "scan_dsc_std_population": 0.009551547129971232,
+        "subject_dsc_mean": 0.033972976729273796,
+        "subjects": 2
+      }
+    }
+  ],
+  "hyperparameters": {
+    "arm": "residual_control",
+    "batch_size": 2,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "ce_weight": 0.1,
+    "device": "cuda:0",
+    "dropout": 0.1,
+    "epochs": 1,
+    "fit_case_ids": "data/datasets/brats2024_t1ce_intensity_inner_seed20260820_v1/fit_cases.jsonl",
+    "init_filters": 16,
+    "inner_tune_case_ids": "data/datasets/brats2024_t1ce_intensity_inner_seed20260820_v1/inner_tune_cases.jsonl",
+    "intensity_kernel": 7,
+    "limit_fit_cases": 8,
+    "limit_tune_cases": 4,
+    "lr": 0.0002,
+    "max_shift": 8,
+    "min_epochs": 1,
+    "num_workers": 0,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/intensity_residual_inner_20260817/smoke_residual_control",
+    "patience": 1,
+    "residual_channels": 8,
+    "seed": 20260821,
+    "validation_batch_size": 2,
+    "weight_decay": 1e-05
+  },
+  "outer_selector_access": false,
+  "parameter_count": 4703962,
+  "peak_gpu_memory_bytes": 6152718848,
+  "runner_sha256": "0b26d4479c06330f9021f3414ba1a187be68289a5d9c3096ab786ddc1cac2f09",
+  "schema": "aflow.sammed3d.t1ce_wt_intensity_residual_training",
+  "schema_version": 1,
+  "selection": {
+    "epoch": 1,
+    "metric": "inner-tune scan-macro DSC at fixed raw-logit threshold 0",
+    "value": 0.033972976729273796
+  },
+  "test_access": false
+}

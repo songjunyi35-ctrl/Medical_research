@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_segresnet_native_res.py", line 29, in <module>
+    try:main()
+        ^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_segresnet_native_res.py", line 21, in main
+    stage('synthetic_gpu_smoke',[PY,'-m','torch.distributed.run','--standalone','--nproc_per_node=2','scripts/train_segresnet_native_res.py','smoke'])
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_segresnet_native_res.py", line 12, in stage
+    with (R/(name+'.log')).open('a') as f:subprocess.run(cmd,cwd=ROOT,env=ENV,stdout=f,stderr=subprocess.STDOUT,check=True)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python', '-m', 'torch.distributed.run', '--standalone', '--nproc_per_node=2', 'scripts/train_segresnet_native_res.py', 'smoke']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_segresnet_native_res.py", line 43, in <module>
+    try:main()
+        ^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_segresnet_native_res.py", line 38, in main
+    stage('training',[PY,'scripts/watch_segresnet_native_res.py'])
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_segresnet_native_res.py", line 12, in stage
+    with (R/(name+'.log')).open('a') as f:subprocess.run(cmd,cwd=ROOT,env=ENV,stdout=f,stderr=subprocess.STDOUT,check=True)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python', 'scripts/watch_segresnet_native_res.py']' returned non-zero exit status 1.

@@ -1,0 +1,44 @@
+{
+  "schema": "aflow.remind_dicomseg_source_probe.result",
+  "status": "failed_source_slice_gap_exactness_before_pixel_array",
+  "downloads": {
+    "all_gates_passed": true,
+    "t1ce_repeat_manifest_exact": true,
+    "tumor_dicom_repeat_exact": true,
+    "cerebrum_dicom_repeat_exact": true,
+    "t1ce_zip_bytes": 8896341,
+    "tumor_zip_bytes_each": 5340,
+    "cerebrum_zip_bytes_each": 792967
+  },
+  "source_header": {
+    "positions": 192,
+    "unique_positions": 192,
+    "unique_sop_instance_uids": 192,
+    "unique_instance_numbers": 192,
+    "orientation_variants": 1,
+    "slice_thickness_declared_mm": 1.0,
+    "spacing_between_slices_declared_mm": 1.0,
+    "projected_gap_min_mm": 0.9993478272843319,
+    "projected_gap_median_mm": 0.999861846498451,
+    "projected_gap_max_mm": 1.0007222836165788,
+    "projected_gap_max_median_error_mm": 0.000860437118127777,
+    "frozen_tolerance_mm": 0.00001,
+    "passed": false
+  },
+  "failure_boundary": "after T1ce DICOM headers; before any T1ce or SEG pixel_array access",
+  "interpretation": "likely finite Decimal String position/orientation precision, but tolerance is not changed post-access",
+  "scope": "closes this exact DICOM SEG source-probe implementation, not the general ReMIND dataset",
+  "access": {
+    "dicom_headers": true,
+    "t1ce_pixel_array": false,
+    "dicomseg_pixel_array": false,
+    "old_nrrd_array": false,
+    "other_candidate_pixels": false,
+    "checkpoint": false,
+    "model_forwards": 0,
+    "metrics": false
+  },
+  "preaccess_sha256": "9f4be7b56c59e71be59d8a33be8dfe62e200384770950fcf2aeef37c7072a8cd",
+  "download_receipt_sha256": "270ab28554f76f11142f6956efbfcb8cd54c659dbe5318e29c082c335880c4f9",
+  "implementation_sha256": "eb144f40b8f00582efe9482e3f7aec51cf924eaced438ebcfff0866c10c0fabb"
+}

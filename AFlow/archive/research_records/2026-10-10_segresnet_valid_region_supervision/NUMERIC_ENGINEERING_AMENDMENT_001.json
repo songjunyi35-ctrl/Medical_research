@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-10T03:41:37.896902+00:00",
+  "reason": "v1 cast weighted prediction reduction to sigmoid bf16 dtype, while original torch.sum under CUDA autocast reduces to float32; this introduced an unintended bf16 rounding difference in all-ones gate",
+  "old_synthetic_failure": {
+    "value_error": 0.00020807981491088867,
+    "gradient_error": 1.9073486328125e-06
+  },
+  "fix": "use original torch.sum actual reduction dtype, without changing smoothing/loss coefficients/masks/gates",
+  "v1_sources_and_receipts_preserved": true,
+  "new_patient_pixels_access": false,
+  "new_patient_model_forward": false,
+  "training_updates": 0,
+  "gate_not_relaxed": true,
+  "new_sources": {
+    "valid_region_multiscale_20261010_common_v2.py": "aedcb0dc389a92d899dacb0d03d083b91f8e52b35ee2c5ba4d4b1bf2be7367b3",
+    "check_valid_region_multiscale_20261010_v2.py": "560190c23c48632f867b7f056487a4ff751c73a7b7e7d4a6891f994bed7e34cb",
+    "train_valid_region_multiscale_20261010_v2.py": "57d0ccc78235b46ffc56159d719451c3a6b76f3163fb4e7b50b002f858aca664"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_retrain_plan",
+  "schema_version": 1,
+  "status": "frozen_before_retraining",
+  "created_at_utc": "2026-07-23T04:48:20Z",
+  "motivation": {
+    "previous_train_dice_epoch10": 0.6938777222018305,
+    "previous_validation_peak_epoch": 8,
+    "previous_validation_peak_c3": 0.5368570731095841,
+    "previous_validation_epoch10_c3": 0.5164225695555581,
+    "interpretation": "Validation declined after epoch 8 while training Dice increased, indicating overfitting or an overly large constant learning rate rather than too few epochs alone."
+  },
+  "common_protocol": {
+    "train_manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+    "train_manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "train_cases": 972,
+    "validation_manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+    "validation_manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+    "validation_cases": 108,
+    "input": "T1ce single channel",
+    "target": "WT raw labels {1,2,3}; RC 4 excluded",
+    "strategy": "prompt encoder and mask decoder trainable; image encoder frozen",
+    "loss": "mean DiceCELoss across three accumulated corrective clicks",
+    "batch_size": 1,
+    "weight_decay": 0.0001,
+    "amp_dtype": "bf16",
+    "train_seed": 20260724,
+    "validation_seed": 20260723,
+    "selection": "validation final-click scan-macro Dice",
+    "threshold_tta_postprocess_search": false,
+    "test_access": false
+  },
+  "arms": [
+    {
+      "id": "v2a",
+      "hypothesis": "A lower constant learning rate from the untouched base may delay overfitting and improve the validation peak.",
+      "checkpoint": "../SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+      "checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+      "learning_rate": 0.00003,
+      "epochs": 20,
+      "output": "workspace/BraTS/sammed3d_t1ce_wt/v2a_base_lr3e5_e20_s20260724"
+    },
+    {
+      "id": "v2b",
+      "hypothesis": "Low-rate refinement from the previous epoch-8 optimum may improve the local validation optimum without repeating high-rate overfitting.",
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/decoder_cumulative3_logit0_train972_val108_e10_s20260723_v3_isolated/sam_model_val_dice_best.pth",
+      "checkpoint_sha256": "4a325a6ffca148941c5d66f4802f331d13b8ddb7862da299981e8fd6be84d7c8",
+      "learning_rate": 0.00001,
+      "epochs": 12,
+      "output": "workspace/BraTS/sammed3d_t1ce_wt/v2b_e8refine_lr1e5_e12_s20260724"
+    }
+  ],
+  "comparison": {
+    "reference_validation_report": "workspace/BraTS/sammed3d_t1ce_wt/best_e8_val108_cumulative3_s20260723.json",
+    "reference_validation_report_sha256": "df6cd4efa9df2b757f27551f135d8e9f20dbca6a188c69c55421e9bebc2eb95e",
+    "reference_independent_c3": 0.5358880711676558,
+    "candidate_evaluation": "Strictly reload each selected checkpoint and evaluate the same 108-case validation manifest with seed 20260723.",
+    "test_policy": "Do not evaluate the 270-case test during this retraining round."
+  },
+  "implementation": {
+    "trainer": "scripts/train_sammed3d_t1ce_wt.py",
+    "trainer_sha256": "aa34738d773c9b402b91503e988b9700c437afc51bdcfe5f7ffae913e03c18ef"
+  }
+}

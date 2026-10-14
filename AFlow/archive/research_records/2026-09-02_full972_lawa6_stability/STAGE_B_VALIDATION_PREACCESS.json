@@ -1,0 +1,43 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_lawa6_stage_b_validation.preaccess",
+  "schema_version": 1,
+  "status": "frozen_before_fixed_validation",
+  "created_at_utc": "2026-09-02T10:12:31Z",
+  "evaluator_sha256": "8462b81592c60b72e118081e9c9eca74a283039b788af8ae758e3dbe68754987",
+  "runner_sha256": "be33d68018cad32bfd940609d86daa654b49fd461fa91e5e82a451dd1436e5db",
+  "train_report_sha256": "7bf7c7e1dcc664067bc5db4cb68d565e12f6fba7cac858a0ad2fcf22983a7bf3",
+  "checkpoint_sha256": {
+    "raw": "9a432bd1d3ab9206fc48e5c61fd0e06b2ad817b56a9c78b7dc3a989695152543",
+    "lawa6": "aac84cf2970159a50c0b5b442cff1ff54cb7557c4a01d97b1d86d4e25ff160f3"
+  },
+  "checkpoint_model_state_sha256": {
+    "raw": "2982780e137891757c58ff25b3e4d6ca6bfb809481ca91845c1b6dd42c0537dd",
+    "lawa6": "09fa2af2fcbfb8259f39e60ea393e9e97b09821ecd32910f0f1458a40c478847"
+  },
+  "archived_validation_sha256": "30cd65c78ad1ed2a2b5748652f48ec05cde3b54468b44a66eba77d062d3ce129",
+  "validation_manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+  "validation_cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+  "training_audit": {
+    "status": "complete",
+    "all_engineering_gates_passed": true,
+    "epochs": 168,
+    "captured_epochs": [163, 164, 165, 166, 167, 168],
+    "relative_l2_lawa_to_raw": 0.014190347299622857,
+    "peak_gpu_memory_bytes": 21796646912,
+    "elapsed_seconds": 12218.444561004639
+  },
+  "comparison": "fresh Full972 seed20261063 LAWA6 versus same-run raw168 and archived Full972 seed32",
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 20261065,
+    "ci_lower_safety_margin": -0.003
+  },
+  "promotion": "all eleven frozen Stage B gates must pass before one fixed reused-test report",
+  "access": {
+    "train_only_inner": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  }
+}

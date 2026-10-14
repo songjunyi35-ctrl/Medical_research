@@ -1,0 +1,48 @@
+{
+  "schema": "aflow.brats.handoff_consolidation",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-13",
+  "purpose": "在保留历史依据的同时，为新 agent 提供唯一、准确的 T1ce/WT 入口",
+  "active_documents": {
+    "handoff": "T1CE_MAINLINE.md",
+    "result_ledger": "AFLOW_BRATS_RESULTS.md",
+    "weekly_report": "AFLOW_BRATS_WEEKLY_REPORT.md"
+  },
+  "archive": {
+    "path": "archive/handoffs_pre_20260813",
+    "method": "同一文件系统内移动，内容原样保留",
+    "archived_historical_files": 10,
+    "deleted_files": 0,
+    "model_or_result_artifacts_moved": 0,
+    "source_files_moved": 0,
+    "manifest_or_data_files_moved": 0,
+    "index": "archive/handoffs_pre_20260813/README.md"
+  },
+  "entrypoint_correction": {
+    "file": "scripts/run_worker_research.sh",
+    "mode": "reproduce-official15-t1ce-wt",
+    "old_historical_target": "scripts/run_t1ce_wt_official15_reproduction_va_20260812.sh",
+    "active_upstream_literal_target": "scripts/run_t1ce_wt_upstream_literal_va_a100_20260812.sh",
+    "reason": "旧入口仍使用项目三点击 trainer，只是一个已经中止的协议审计实验"
+  },
+  "verified_contract": {
+    "task": "BraTS 2024 T1ce -> WT={1,2,3}; raw label 4 excluded",
+    "split": "972 train / 108 validation / 270 已揭示的固定 test",
+    "vanilla_test_best_of_five": 0.5942261963729785,
+    "vanilla_test_click_five": 0.5857539437866496,
+    "braincrop_old_protocol_test_click_three": 0.625359,
+    "best_formal_development_dice": 0.6683989912099032,
+    "achieved_0_68": false
+  },
+  "validation": {
+    "worker_shell_syntax": "通过",
+    "upstream_launcher_shell_syntax": "通过",
+    "active_code_paths": "均存在",
+    "root_active_markdown_broken_links": 0,
+    "stale_root_references_to_archived_handoffs": 0,
+    "manifest_counts_and_sha256": "已核验",
+    "baseline_checkpoint_sha256": "c0c85a0fb90f6301344053f97cabe8a4972bd9febd4c6ae248f3a0908598fe31",
+    "baseline_test_report_sha256": "7bd59843459876bd006230b24bc111cdfd726896cb3e6748b54b24c0a9659b63"
+  },
+  "safety": "未删除 checkpoint、结果账本、manifest、cache、原始数据或源代码。物理删除 artifact 属于另一项操作，必须给出精确目标清单并取得明确批准。"
+}

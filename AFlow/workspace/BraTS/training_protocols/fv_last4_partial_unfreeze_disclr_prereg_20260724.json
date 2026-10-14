@@ -1,0 +1,256 @@
+{
+  "authorization": {
+    "development_training": true,
+    "test_access": false
+  },
+  "data": {
+    "train": {
+      "manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+      "manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+      "rows": 972,
+      "subjects": 444
+    },
+    "validation": {
+      "manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+      "manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+      "rows": 108,
+      "subjects": 50
+    }
+  },
+  "decision": {
+    "advance_requires": {
+      "paired_subject_bootstrap_ci_lower_strictly_positive": true,
+      "subject_balanced_c3_delta_strictly_positive": true
+    },
+    "bootstrap": {
+      "confidence_level": 0.95,
+      "iterations": 10000,
+      "method": "subject-level paired percentile with linear quantiles",
+      "seed": 20260724
+    },
+    "estimand_scope": "conditional closed-loop contrast between two selected single-seed models on the 50 development subjects",
+    "independent_validation": {
+      "cases": 108,
+      "reselect_checkpoint": false,
+      "run_once_after_trainer_selection": true,
+      "subjects": 50
+    },
+    "primary_estimand": "partial-unfreeze minus selected LoRA subject-balanced click-3 DSC",
+    "prompt_trajectory": "C1 same GT-defined distribution; C2/C3 model-specific adaptive XOR, coordinates need not match; not identical-prompt network-only",
+    "reference": {
+      "checkpoint_sha256": "c1d1bd79791aa7beeffc541095472dec968630cc70ea7967128c86552bd7f1ec",
+      "matched_audit": "workspace/BraTS/research_audits/FV_LORA_VS_RANK0_MATCHED_VAL108_CPU_PAIRED_20260724.json",
+      "matched_audit_sha256": "e9918aedb8825ca87147d61f321c03f296e0014ddf07426f7017e08770ce01ee",
+      "subject_balanced_c3": 0.5214101623252374
+    }
+  },
+  "forbidden": [
+    "test_or_sealed_access",
+    "test_driven_decision",
+    "threshold_search",
+    "tta",
+    "morphology",
+    "connected_components",
+    "postprocessing",
+    "MedTAWS",
+    "GRPO",
+    "full_image_encoder_unfreeze",
+    "hyperparameter_sweep",
+    "resume_after_any_completed_epoch"
+  ],
+  "initialization": {
+    "adapter_config": {
+      "encoder_qv_lora": {
+        "alpha": 8.0,
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "enabled": false,
+        "projections": [
+          "q",
+          "v"
+        ],
+        "rank": 0
+      },
+      "model_type": "vit_b_ori",
+      "schema_version": 1,
+      "target_token": {
+        "embedding_dim": 384,
+        "enabled": false,
+        "vocab": [
+          "tumor_WT",
+          "tumor_TC",
+          "tumor_ET",
+          "label_SNFH",
+          "label_RC",
+          "label_NETC"
+        ]
+      }
+    },
+    "checkpoint": "../SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "fresh_load_required": true
+  },
+  "interaction": {
+    "clicks": {
+      "first": "uniform GT foreground positive",
+      "history": "all points accumulated",
+      "later": "uniform prediction XOR GT; FN positive, FP negative",
+      "num_clicks": 3
+    },
+    "input": "T1ce single channel",
+    "loss": "mean MONAI DiceCELoss over all three click predictions",
+    "mask_prompt": "previous low-resolution mask recurrently supplied",
+    "prediction_threshold": "raw logit > 0",
+    "target": {
+      "excluded_raw_labels": [
+        4
+      ],
+      "foreground_raw_labels": [
+        1,
+        2,
+        3
+      ],
+      "name": "official WT"
+    }
+  },
+  "optimization": {
+    "accumulation_steps": 2,
+    "amp_dtype": "bf16",
+    "batch_size": 1,
+    "early_stopping": {
+      "max_epochs": 50,
+      "min_delta": 0.0,
+      "minimum_complete_epochs": 20,
+      "patience_complete_epochs": 20,
+      "strict_new_high_required": true,
+      "tie_rule": "retain earliest"
+    },
+    "gradient_clipping": false,
+    "num_workers": 2,
+    "partial_unfreeze_policy": {
+      "counts": {
+        "total_parameters": 100509232,
+        "trainable_parameters": 35951920
+      },
+      "heads": {
+        "mask_decoder_trainable": true,
+        "prompt_encoder_trainable": true,
+        "target_embedding_enabled": false
+      },
+      "image_encoder": {
+        "depth": 12,
+        "frozen_blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "lora_enabled": false,
+        "non_block_parameters_trainable": false,
+        "trainable_blocks": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "update": "base_weight_partial_unfreeze"
+      },
+      "model_type": "vit_b_ori",
+      "optimizer": {
+        "groups": [
+          {
+            "lr": 1e-05,
+            "name": "image_encoder_blocks_8_11",
+            "parameter_fingerprint_sha256": "7a4430f6a2138824f21f72d87b8b60615d2b1a17e36dfe9ddde4675cdf06c4e7",
+            "parameter_numel": 28367616,
+            "parameter_tensors": 60,
+            "weight_decay": 0.1
+          },
+          {
+            "lr": 0.0001,
+            "name": "prompt_encoder_and_mask_decoder",
+            "parameter_fingerprint_sha256": "df886afa019777db6838916722cf1908d792a9137549eeb525c6190cfbc22afa",
+            "parameter_numel": 7584304,
+            "parameter_tensors": 134,
+            "weight_decay": 0.1
+          }
+        ],
+        "type": "AdamW"
+      },
+      "schema": "aflow.sammed3d.t1ce_wt_last_four_partial_unfreeze",
+      "schema_version": 1
+    },
+    "scheduler": null,
+    "selection": {
+      "checkpoint": "sam_model_val_dice_best.pth",
+      "metric": "trainer validation final-click scan-macro DSC",
+      "mode": "strict argmax",
+      "tie_rule": "retain earliest"
+    },
+    "rng_reseed_after_model_setup": true,
+    "train_seed": 20260725,
+    "validation_seed": 20260723
+  },
+  "output": {
+    "allow_nonempty": false,
+    "run_id": "fv_partial_last4_disclr10_train972_val108_e50_s20260725",
+    "run_path": "workspace/BraTS/sammed3d_t1ce_wt/fv_partial_last4_disclr10_train972_val108_e50_s20260725"
+  },
+  "parent_md_path": "workspace/BraTS/research_audits/FV_LAST4_PARTIAL_UNFREEZE_DISCLR_PREREG_20260724.md",
+  "parent_md_sha256": "111968f92c09f35272a5ddd35741c3ad1a5b2803a09f307b2a6993473e156156",
+  "preprocessing": {
+    "augmentation": {
+      "applies_to": "train split only",
+      "name": "affine_elastic_noise",
+      "validation_augmentation": false
+    },
+    "geometry": {
+      "image_interpolation": "trilinear align_corners=False",
+      "label_interpolation": "nearest-exact",
+      "name": "whole_resize",
+      "shape": [
+        128,
+        128,
+        128
+      ],
+      "uses_gt_for_localization": false
+    },
+    "normalization": "source nonzero-voxel population z-score exactly once",
+    "orientation": "ToCanonical"
+  },
+  "restart": {
+    "exact_resume_supported": false,
+    "infrastructure_restart_allowed_only_before_completed_epoch": 1,
+    "retain_failed_directory_and_log": true
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_partial_unfreeze_prereg",
+  "schema_version": 1,
+  "smoke": {
+    "authorized": true,
+    "cases": {
+      "train": 2,
+      "validation": 2
+    },
+    "epochs": 1,
+    "metric_is_scientific_result": false,
+    "purpose": "finite forward/backward/save/strict-reload and resource measurement only",
+    "resume_allowed": false
+  },
+  "status": "development_only_train_authorized"
+}

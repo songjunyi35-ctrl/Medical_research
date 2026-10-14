@@ -1,0 +1,36 @@
+{
+  "schema": "aflow.ucsd_ptgbm.external_confirmation.descriptive_sensitivity_audit",
+  "schema_version": 1,
+  "status": "posthoc_description_only_not_for_selection",
+  "source_raw_report_sha256": "91910760fbab804ee17b3ad8027a035a6676b02307a6f34d8408ba858c42f593",
+  "gcsam_minus_full972_kd_scan": {
+    "mean": 0.010093210637569428,
+    "median": -0.0003287196159362793,
+    "quantiles_0_10_25_50_75_90_100": [-0.08957710862159729, -0.0373499870300293, -0.009890705347061157, -0.0003287196159362793, 0.01526188850402832, 0.04328976869583133, 0.489233173429966],
+    "gcsam_better_cases": 36,
+    "kd_better_cases": 38,
+    "tied_cases": 1,
+    "mean_when_gcsam_better": 0.04236725904047489,
+    "mean_when_gcsam_worse": -0.0202165928326155,
+    "largest_gain_case": {"case_id": "BraTS-GLI-02313-100", "delta": 0.489233173429966, "kd_dice": 0.12270405143499374, "gcsam_dice": 0.6119372248649597},
+    "leave_largest_gain_case_out_mean": 0.0036183462755100147
+  },
+  "gcsam_minus_full972_kd_subject": {
+    "mean": 0.016097112037475755,
+    "median": -0.0003287196159362793,
+    "gcsam_better_subjects": 25,
+    "kd_better_subjects": 27,
+    "tied_subjects": 1,
+    "leave_largest_gain_single_scan_subject_out_mean": 0.006998341626081711
+  },
+  "point_misses": {
+    "kd_misses": 5,
+    "gcsam_misses": 4,
+    "common_misses": ["BraTS-GLI-02276-100", "BraTS-GLI-02420-101"],
+    "kd_only_misses": ["BraTS-GLI-02257-101", "BraTS-GLI-02272-100", "BraTS-GLI-02313-100"],
+    "gcsam_only_misses": ["BraTS-GLI-02272-101", "BraTS-GLI-02418-101"]
+  },
+  "interpretation": "GCSAM external point-estimate lead is magnitude-driven rather than a majority win and is strongly influenced by one large rescue case. The preregistered paired confidence intervals crossing zero remain the authoritative uncertainty statement.",
+  "new_model_inference": false,
+  "result_dependent_tuning_or_rerun": false
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_locator_test270.freeze",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-17T05:47:56Z",
+  "authorization": "USER_AUTHORIZED_PLAIN_LOCATOR_TEST270_2026-08-17",
+  "decision_locked_before_test_inference": true,
+  "evidence_scope": "supplementary evaluation on a previously revealed internal test set",
+  "not_pristine_blind_test": true,
+  "not_external_confirmation": true,
+  "checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_locator_subjectclean_confirm_20260817/plain_seed20260819/locator_val_dice_best.pth",
+    "sha256": "0bb7ca52d7ac30068f752a4fc05a859f4dce42dce6ace40ba1f6b8b332889c2f",
+    "selected_epoch": 99,
+    "selection_source": "108-case subject-clean selector only",
+    "selector_scan_dsc": 0.720419291820791,
+    "test_used_for_selection": false
+  },
+  "test": {
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/sealed_test/test_cases_t1ce.jsonl",
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "cases": 270,
+    "subjects": 119,
+    "consumption": "one fixed evaluation; metrics only"
+  },
+  "protocol": {
+    "model": "plain locator",
+    "input": "T1ce only",
+    "preprocessing": "N4 shrink 2; image-derived nonzero brain crop; resize to 128^3",
+    "threshold": "raw segmentation logit > 0",
+    "tta": false,
+    "postprocessing": false,
+    "sam_decoder": false,
+    "reported_metrics": [
+      "scan-macro Dice",
+      "subject-balanced Dice",
+      "automatic point hit rate",
+      "fixed-seed percentile bootstrap 95% intervals"
+    ]
+  },
+  "forbidden_test_uses": [
+    "checkpoint selection",
+    "threshold tuning",
+    "postprocessing tuning",
+    "TTA selection",
+    "architecture or loss selection"
+  ],
+  "bindings": {
+    "evaluator_sha256": "0ae7c41d80f60af865c1b5edebf0685587c40953bcf555a94efcdb8c770de46b",
+    "training_cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "train_role_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "selector_role_sha256": "3710d63842acaccb1e4fe81c5fade578b6f1a306363d969ea2d799edd6c32b07"
+  }
+}

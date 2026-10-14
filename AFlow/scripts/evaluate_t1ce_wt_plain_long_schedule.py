@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+"""Strictly reload one pre/post-100 plain locator on the frozen fresh tune role."""
+from __future__ import annotations
+
+import argparse
+from datetime import datetime, timezone
+from pathlib import Path
+import sys
+from typing import Any
+
+import torch
+from torch.utils.data import DataLoader
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from sammed3d.t1ce_wt_capg3d import AutomaticPromptLocator  # noqa: E402
+from scripts.train_t1ce_wt_capg3d import (  # noqa: E402
+    BrainCropDataset,
+    read_case_ids,
+    sha256_file,
+    validate,
+    write_json_atomic,
+)
+from scripts.train_t1ce_wt_plain_long_schedule import (  # noqa: E402
+    CHECKPOINT_SCHEMA,
+    assert_inner_only_path,
+)
+
+
+SCHEMA = "aflow.sammed3d.t1ce_wt_plain_long_schedule_reload"
+
+
+def reload_max_abs_difference(
+    embedded: dict[str, Any], reloaded: dict[str, Any]
+) -> float:
+    left = {str(item["case_id"]): float(item["locator_dsc"]) for item in embedded["per_case"]}
+    right = {str(item["case_id"]): float(item["locator_dsc"]) for item in reloaded["per_case"]}
+    if left.keys() != right.keys():
+        raise ValueError("embedded and reloaded case sets differ")
+    return max(abs(left[key] - right[key]) for key in left)
+
+
+def run(args: argparse.Namespace) -> dict[str, Any]:
+    assert_inner_only_path(args.case_ids)
+    if sha256_file(args.case_ids) != args.expected_case_ids_sha256:
+        raise ValueError("fresh-tune manifest SHA-256 mismatch")
+    if sha256_file(args.checkpoint) != args.expected_checkpoint_sha256:
+        raise ValueError("checkpoint SHA-256 mismatch")
+    checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
+    if checkpoint.get("schema") != CHECKPOINT_SCHEMA:
+        raise ValueError("unexpected checkpoint schema")
+    if checkpoint.get("window") != args.expected_window:
+        raise ValueError("checkpoint window mismatch")
+    if any(checkpoint.get(key) is not False for key in (
+        "outer_selector_access", "confirmation_access", "test_access"
+    )):
+        raise ValueError("checkpoint access flags are not sealed")
+
+    device = torch.device(args.device)
+    if device.type != "cuda" or not torch.cuda.is_available():
+        raise RuntimeError("strict reload requires CUDA")
+    torch.cuda.set_device(device)
+    case_ids = read_case_ids(args.case_ids)
+    dataset = BrainCropDataset(
+        args.cache,
+        expected_split="train",
+        limit=args.limit_cases,
+        case_ids=case_ids,
+    )
+    if len(dataset) != args.expected_cases:
+        raise ValueError("unexpected fresh-tune case count")
+    loader = DataLoader(
+        dataset,
+        batch_size=args.batch_size,
+        shuffle=False,
+        num_workers=args.num_workers,
+        pin_memory=True,
+        persistent_workers=args.num_workers > 0,
+    )
+    architecture = checkpoint["architecture"]
+    model = AutomaticPromptLocator(
+        center_aware=False,
+        init_filters=int(architecture["init_filters"]),
+        dropout=float(architecture["dropout"]),
+    ).to(device)
+    model.load_state_dict(checkpoint["model_state_dict"], strict=True)
+    summary = validate(model, loader, device)
+    difference = reload_max_abs_difference(checkpoint["validation"], summary)
+    if difference != 0.0:
+        raise RuntimeError(f"checkpoint reload mismatch: {difference}")
+    report = {
+        "schema": SCHEMA,
+        "schema_version": 1,
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "role": "fresh_tune",
+        "window": checkpoint["window"],
+        "epoch": int(checkpoint["epoch"]),
+        "learning_rate": float(checkpoint["learning_rate"]),
+        "fixed_logit_threshold": 0.0,
+        "checkpoint": {
+            "path": str(args.checkpoint.resolve()),
+            "sha256": args.expected_checkpoint_sha256,
+        },
+        "case_manifest": {
+            "path": str(args.case_ids.resolve()),
+            "sha256": args.expected_case_ids_sha256,
+        },
+        "summary": summary,
+        "reload_max_abs_difference": difference,
+        "outer_selector_access": False,
+        "confirmation_access": False,
+        "test_access": False,
+    }
+    if args.output.exists():
+        raise FileExistsError(f"refusing to overwrite reload report: {args.output}")
+    write_json_atomic(args.output, report)
+    print(
+        f"window={report['window']} epoch={report['epoch']} "
+        f"scan={summary['locator_dsc_mean']:.9f} "
+        f"subject={summary['locator_subject_dsc_mean']:.9f} "
+        f"point={summary['automatic_point_hit_rate']:.9f} reload_diff={difference}",
+        flush=True,
+    )
+    return report
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--cache", type=Path, required=True)
+    parser.add_argument("--case-ids", type=Path, required=True)
+    parser.add_argument("--expected-case-ids-sha256", required=True)
+    parser.add_argument("--checkpoint", type=Path, required=True)
+    parser.add_argument("--expected-checkpoint-sha256", required=True)
+    parser.add_argument("--expected-window", choices=("pre100", "post100"), required=True)
+    parser.add_argument("--expected-cases", type=int, default=108)
+    parser.add_argument("--limit-cases", type=int, default=None)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--batch-size", type=int, default=8)
+    parser.add_argument("--num-workers", type=int, default=4)
+    run(parser.parse_args())
+
+
+if __name__ == "__main__":
+    main()

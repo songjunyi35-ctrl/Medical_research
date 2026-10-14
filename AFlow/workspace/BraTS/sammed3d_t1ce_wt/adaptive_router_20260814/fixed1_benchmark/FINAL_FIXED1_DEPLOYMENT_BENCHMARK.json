@@ -1,0 +1,70 @@
+{
+  "bindings": {
+    "benchmark_runner_sha256": "4ff34ef03141e6fd3346eb99adf2cc0c0bc531790215be316c344f4c5a586573",
+    "candidate": "FIXED1_DEPLOYMENT_CANDIDATE_20260814.json",
+    "candidate_sha256": "e162f1bc337fb83c19163a6723a6d62f136c2518caaeb7def2d04eda6651a6d4",
+    "parity_runner_sha256": "a8af76d6b89df7961c9bdd057c89a112420fc7a0f646d2be4dcc5312ee07a51e",
+    "prereg": "FIXED1_BENCHMARK_PREREG_20260814.md",
+    "prereg_sha256": "7c760475b10043c1934c147edaa32936211d9b561f5b734274074707efd9cd69",
+    "summary_runner_sha256": "4736e19d951ca8b303c95f6a1adc2ebe9c72d80eafbdbe2f04d30a522df7d7ab"
+  },
+  "candidate": {
+    "allocated_after_model_load_bytes": 18818560,
+    "mean_latency_seconds": 0.07878576439300863,
+    "measurements": 96,
+    "member_view_forwards": 1,
+    "peak_allocated_bytes": 696172032,
+    "throughput_cases_per_second": 12.692648319202434,
+    "workflow_id": "a17525967e58097265974f736c6ab7ecb2b3af098e93da0f539c52d2db71818d"
+  },
+  "comparison": {
+    "cross_over_pair_speedups": [
+      13.636187859131766,
+      13.674944349909042
+    ],
+    "latency_reduction_fraction": 0.9267695670855848,
+    "member_view_forward_reduction_fraction": 0.9583333333333334,
+    "model_memory_reduction_fraction": 0.6666666666666667,
+    "peak_allocated_memory_reduction_fraction": 0.26916314831885235,
+    "speedup": 13.655524898626567
+  },
+  "created_at_utc": "2026-08-14T03:26:26.779394+00:00",
+  "design": "two-run cross-over: fixed1/locked swap cuda:0 and cuda:1",
+  "device": "NVIDIA A100-SXM4-80GB",
+  "locked_reference": {
+    "allocated_after_model_load_bytes": 56455680,
+    "mean_latency_seconds": 1.0758609673260557,
+    "measurements": 96,
+    "member_view_forwards": 24,
+    "peak_allocated_bytes": 952568320,
+    "throughput_cases_per_second": 0.9294881312456195,
+    "workflow_id": "aad54fdc70bcc6d52132fd9b5f9355dc0aabb77d850752a06b5a8a898ce4758a"
+  },
+  "parity": {
+    "candidate": {
+      "cases": 8,
+      "identical_cases": 8,
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/fixed1_benchmark/FIXED1_ONLINE_PARITY.json",
+      "sha256": "b1906f4b4d5bf258accd63a0a47ff9e5912f48f81540f4c515d4f4de59285410"
+    },
+    "locked_reference": {
+      "cases": 8,
+      "identical_cases": 8,
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/fixed1_benchmark/LOCKED_ONLINE_PARITY.json",
+      "sha256": "47cdcb87dcb761fac7430b002927a7b175cd61bb87d4d1fe79939b0d6b144fd6"
+    }
+  },
+  "receipts": {
+    "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/fixed1_benchmark/FIXED1_GPU0_RUN1.json": "1571af65d384a08de3073f9c2c67bca4d171d27c83c26fd7d17ac360ba85a43f",
+    "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/fixed1_benchmark/FIXED1_GPU1_RUN2.json": "dc7cbbaf5479eb95e80ea0403015f51ec7f9e943719dcb028f2aa2066ae0fcd2",
+    "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/fixed1_benchmark/FIXED1_ONLINE_PARITY.json": "b1906f4b4d5bf258accd63a0a47ff9e5912f48f81540f4c515d4f4de59285410",
+    "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/fixed1_benchmark/LOCKED_GPU0_RUN2.json": "488207aa2a78e02e6c857912e4793f0a16e853efb0ccb5e6fd6e46622b243831",
+    "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/fixed1_benchmark/LOCKED_GPU1_RUN1.json": "d2982d0a01e9566abaebb40356cb84e8969b11b5f84cdd434e95279e8f0150a5",
+    "workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/fixed1_benchmark/LOCKED_ONLINE_PARITY.json": "47cdcb87dcb761fac7430b002927a7b175cd61bb87d4d1fe79939b0d6b144fd6"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_fixed1_deployment_benchmark.summary",
+  "schema_version": 1,
+  "scope": "refiner-stage latency including host-to-device copy, selected model-view forwards, fusion, device-to-host copy and connected-component postprocess; excludes upstream SAM-Med3D coarse prediction and preprocessing",
+  "test_access": false,
+  "uses_labels": false
+}

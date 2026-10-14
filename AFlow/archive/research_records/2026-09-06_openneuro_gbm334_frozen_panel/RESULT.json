@@ -1,0 +1,76 @@
+{
+  "schema": "aflow.openneuro_gbm334.input_gate_result",
+  "schema_version": 1,
+  "status": "closed_before_external_model_input_crop_gate_failed",
+  "cohort": {
+    "dataset": "OpenNeuro ds007045:1.0.1",
+    "published_participants": 337,
+    "frozen_processing_t1ce_mask_intersection": 334,
+    "input_gate_passed": 332,
+    "input_gate_failed": 2
+  },
+  "failed_cases": [
+    {
+      "subject_id": "sub-BO118",
+      "raw_wt_voxels": 348742,
+      "wt_outside_image_positive_crop": 4,
+      "lost_fraction": 0.000011469797156637286,
+      "image_source_sha256": "30b0c04c00bcbe4de1dcc94628d34980c73451718de4056ce68c4555ee6bff0a",
+      "label_source_sha256": "0487d3573736368efa016f38077d0ffc9284511a94ac09fc3447359e069b0ff3",
+      "shape": [182, 218, 182],
+      "affine_error": 0.0,
+      "raw_values": [0, 1, 2, 3]
+    },
+    {
+      "subject_id": "sub-KA86",
+      "raw_wt_voxels": 97700,
+      "wt_outside_image_positive_crop": 6,
+      "lost_fraction": 0.00006141248720573183,
+      "image_source_sha256": "6df8971669af49f4fd095cecc0c3b5b90c74ed2fe3360d7156d23d7950898ed9",
+      "label_source_sha256": "53e9de063c7a744d20eefdfad699dd4e9a6e5c663f1c1f6a5293e5224d9ea59c",
+      "shape": [182, 218, 182],
+      "affine_error": 0.0,
+      "raw_values": [0, 1, 2, 3]
+    }
+  ],
+  "gates": {
+    "all_source_sha_exact": true,
+    "all_geometry_exact": true,
+    "global_raw_union_exact_0_1_2_3": true,
+    "all_wt_nonempty_before_after_for_completed_outputs": true,
+    "first_probe_byte_exact": true,
+    "all_zero_wt_crop_loss": false,
+    "all_334_completed": false
+  },
+  "cost": {
+    "training": 0,
+    "input_preflight_wall_seconds": 2908.582101323642,
+    "input_preflight_workers": 12,
+    "source_bytes_streamed": 2177416379,
+    "persistent_source_or_cache_bytes": 0,
+    "synthetic_smoke_forwards": 9,
+    "synthetic_smoke_peak_gpu_memory_bytes": 706991104,
+    "external_model_forwards": 0
+  },
+  "access": {
+    "openneuro_source_payload_cases": 334,
+    "checkpoint_loaded_for_synthetic_only": true,
+    "checkpoint_loaded_with_external_payload": false,
+    "external_performance_accessed": false,
+    "internal_test270_accessed": false,
+    "fixed_validation_accessed": false,
+    "outer_accessed": false,
+    "confirmation_accessed": false,
+    "other_external_performance_accessed": false
+  },
+  "failure_boundary": "after_all_334_source_input_preflight_before_MODEL_PREACCESS_before_checkpoint_with_external_payload_before_external_model_before_performance",
+  "decision": "close exact canonical image-positive-crop panel; do not drop cases, use GT padding, change source variant, loosen gates, or report performance",
+  "hashes": {
+    "source_inventory_sha256": "4bba11fb31913b18f44428087d9daf9dcd8f49590577ea11b715ddbcbbbf66eb",
+    "first_case_probe_sha256": "e8bbc5d6eac0acac5921942ee929c11e1a1c5c6326aa15f8ba6e9c6369cc3c9b",
+    "input_preflight_sha256": "c3e338d089527de46b83992ac871537f7702c48aa4f87eb78226531b8c60912c",
+    "smoke_receipt_sha256": "83bde5c3de06117a230b59365ea1bc5a07607e6878ad649e71f722e8e37e4ea5",
+    "full_checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+    "gcsam_checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d"
+  }
+}

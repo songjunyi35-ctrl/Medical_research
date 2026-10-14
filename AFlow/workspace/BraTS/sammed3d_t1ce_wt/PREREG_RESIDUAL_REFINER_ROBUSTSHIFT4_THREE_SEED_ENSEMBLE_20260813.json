@@ -1,0 +1,73 @@
+{
+  "schema": "aflow.prereg.residual_refiner_robustshift4_three_seed_ensemble",
+  "schema_version": 1,
+  "created_date_utc": "2026-08-13",
+  "status": "frozen_before_new_seed_optimizer_steps",
+  "test_access": false,
+  "motivation": {
+    "existing_seed_validation_dsc": 0.695636292108921,
+    "existing_seed_tta_locked_postprocess_dsc": 0.6983527239187495,
+    "distance_to_target": 0.0016472760812505,
+    "strategy": "reduce augmentation/sampling variance with equal-weight logit ensemble of independently trained seeds"
+  },
+  "source": {
+    "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/refiner_val_dice_best.pth",
+    "checkpoint_sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "existing_robust_seed": 20260813,
+    "existing_robust_checkpoint_sha256": "011a7b0f4a9ee193883662f03fc6d8a54cef9fd3b4c08c2871cdddbdfbe73f6a"
+  },
+  "new_training_arms": [
+    {
+      "name": "robustshift4_seed20260814",
+      "gpu": 0,
+      "seed": 20260814
+    },
+    {
+      "name": "robustshift4_seed20260815",
+      "gpu": 1,
+      "seed": 20260815
+    }
+  ],
+  "fixed_training": {
+    "gray_weight": 0.0,
+    "coarse_shift_max": 4,
+    "coarse_shift_probability": 1.0,
+    "epochs_max": 16,
+    "patience": 10,
+    "batch_size": 2,
+    "learning_rate": 0.00005,
+    "weight_decay": 0.00001,
+    "all_other_settings": "identical to the completed seed-20260813 robust control"
+  },
+  "ensemble": {
+    "members": [20260813, 20260814, 20260815],
+    "checkpoint_rule": "validation-best checkpoint for each seed",
+    "aggregation": "equal arithmetic mean of float32 logits",
+    "primary_prediction": "mean logit > 0",
+    "secondary_locked_prediction": "mean logit > -1 followed by removal of components below 500 voxels",
+    "tta": false,
+    "new_threshold_search": false
+  },
+  "primary_target": {
+    "split": "108-case subject-clean validation",
+    "metric": "ensemble scan-macro WT Dice",
+    "threshold": 0.70,
+    "strict_comparison": ">"
+  },
+  "data": {
+    "train_cache_path": "/tmp/aflow_refiner_graymean_20260813/train",
+    "train_index_sha256": "d3cace047fe168e33b465744bf4170e7e323defc6f61e968cd83250e4061f974",
+    "validation_cache_path": "/tmp/aflow_refiner_graymean_20260813/validation",
+    "validation_index_sha256": "cda56539fd59ce9c2579c41de4a8b1467381ab513c66a62397448a1cd470444c"
+  },
+  "code": {
+    "runner_sha256": "ec095e50689fb11099952bdc4edcc8917805b8ec190a4034f317b0d22d62e2f1",
+    "base_runner_sha256": "b2949927640e2d656cfe2c71a9f53aec491d9edb9dfa071a634ce7b1037133d2"
+  },
+  "decision_policy": [
+    "Do not access test.",
+    "Do not discard a seed based on its validation result.",
+    "Use all three preregistered members with equal logit weights.",
+    "Report all individual and ensemble validation results."
+  ]
+}

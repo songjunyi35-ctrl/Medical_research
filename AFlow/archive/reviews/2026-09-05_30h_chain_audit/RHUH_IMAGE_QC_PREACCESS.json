@@ -1,0 +1,1395 @@
+{
+  "access": {
+    "model_inference": false,
+    "new_evaluation_metrics": false,
+    "rhuh_images": false,
+    "rhuh_labels": false
+  },
+  "authorized_current_action": "download only these80 T1ce files from official package, verify official MD5, compute SHA256 and format QC; no segmentation download, no model, no intensity transform selection",
+  "brats_source_paper": "https://arxiv.org/html/2405.18368v1",
+  "cases": 80,
+  "created_utc": "2026-09-05T08:24:52.785869+00:00",
+  "image_bytes": 450981845,
+  "input_format_gates": {
+    "dimensions": 3,
+    "finite": true,
+    "nonempty_positive_support": true,
+    "nonnegative": true,
+    "strict_positive_spacing": true
+  },
+  "institution_provenance": "RHUH Spain is absent from the seven USA/Germany BraTS2024 contributing institutions; no patient ID bridge exists, so namespace disjointness alone is not a patient-identity proof",
+  "label_bytes": 2355783,
+  "official_sums_sha256": "7c6ba3fa767bf169679db30caa854e671796416ca365fac6e57662796177c130",
+  "runner_sha256": "ebee2a208a97a8727ecd7313a0bf1ca64103186b4e172af51510a879863fd2ff",
+  "selected": [
+    {
+      "case_id": "RHUH-0001_1",
+      "image": {
+        "basename": "RHUH-0001_1_t1ce.nii.gz",
+        "bytes": 6164071,
+        "official_md5": "3b08962226372f5d39542ddd188ab23f",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0001/1/RHUH-0001_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0001_1_segmentations.nii.gz",
+        "bytes": 23638,
+        "official_md5": "75b7bb7f08e82693ddab54ad72279222",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0001/1/RHUH-0001_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0001",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0001_2",
+      "image": {
+        "basename": "RHUH-0001_2_t1ce.nii.gz",
+        "bytes": 6330082,
+        "official_md5": "4eb85ce87627b465c65a0173a043266e",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0001/2/RHUH-0001_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0001_2_segmentations.nii.gz",
+        "bytes": 54683,
+        "official_md5": "1270e0f2b7b703c695f229ec8be25797",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0001/2/RHUH-0001_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0001",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0002_1",
+      "image": {
+        "basename": "RHUH-0002_1_t1ce.nii.gz",
+        "bytes": 4737176,
+        "official_md5": "fbd4cba2af5757f3f9617abe2f6ec419",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0002/1/RHUH-0002_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0002_1_segmentations.nii.gz",
+        "bytes": 19360,
+        "official_md5": "fa9fb42178f4bc4f8eb6da5b31c4b8e2",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0002/1/RHUH-0002_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0002",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0002_2",
+      "image": {
+        "basename": "RHUH-0002_2_t1ce.nii.gz",
+        "bytes": 4875421,
+        "official_md5": "e8796966139d056de6731fecdd6d1159",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0002/2/RHUH-0002_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0002_2_segmentations.nii.gz",
+        "bytes": 21207,
+        "official_md5": "aefe4e5d6e8ba835f032747df322fb39",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0002/2/RHUH-0002_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0002",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0003_1",
+      "image": {
+        "basename": "RHUH-0003_1_t1ce.nii.gz",
+        "bytes": 5760347,
+        "official_md5": "1a73c31ef217a05a25d96e53df4d3d03",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0003/1/RHUH-0003_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0003_1_segmentations.nii.gz",
+        "bytes": 17866,
+        "official_md5": "540db17d223d937e3469ebbf417955cd",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0003/1/RHUH-0003_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0003",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0003_2",
+      "image": {
+        "basename": "RHUH-0003_2_t1ce.nii.gz",
+        "bytes": 5634685,
+        "official_md5": "ac0b8cc2b92175619f97681d76062613",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0003/2/RHUH-0003_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0003_2_segmentations.nii.gz",
+        "bytes": 26128,
+        "official_md5": "452ffff7db07886ca0e26fe770f1a8dd",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0003/2/RHUH-0003_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0003",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0004_1",
+      "image": {
+        "basename": "RHUH-0004_1_t1ce.nii.gz",
+        "bytes": 4708258,
+        "official_md5": "8eedac2b0257b80411752d789515574a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0004/1/RHUH-0004_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0004_1_segmentations.nii.gz",
+        "bytes": 26270,
+        "official_md5": "f294519310ed6a4e325275df997893f8",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0004/1/RHUH-0004_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0004",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0004_2",
+      "image": {
+        "basename": "RHUH-0004_2_t1ce.nii.gz",
+        "bytes": 5003012,
+        "official_md5": "82c154e39f53454b2cc750f85b809231",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0004/2/RHUH-0004_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0004_2_segmentations.nii.gz",
+        "bytes": 49600,
+        "official_md5": "264ac46ba67b3d31d67218626e33f2fd",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0004/2/RHUH-0004_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0004",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0005_1",
+      "image": {
+        "basename": "RHUH-0005_1_t1ce.nii.gz",
+        "bytes": 5487383,
+        "official_md5": "3d2a37f4765fcf54b73f24c266f6c58f",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0005/1/RHUH-0005_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0005_1_segmentations.nii.gz",
+        "bytes": 25765,
+        "official_md5": "6112e7c9fda510c47e12195cbe6fa71d",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0005/1/RHUH-0005_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0005",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0005_2",
+      "image": {
+        "basename": "RHUH-0005_2_t1ce.nii.gz",
+        "bytes": 5618145,
+        "official_md5": "81fe9bf0946840eed73f4c54efe4d3b9",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0005/2/RHUH-0005_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0005_2_segmentations.nii.gz",
+        "bytes": 33248,
+        "official_md5": "24a711ca713284d9aa7fd4dcacf01df0",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0005/2/RHUH-0005_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0005",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0006_1",
+      "image": {
+        "basename": "RHUH-0006_1_t1ce.nii.gz",
+        "bytes": 5340454,
+        "official_md5": "9ae363aa79c6816380f27d4b70f06192",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0006/1/RHUH-0006_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0006_1_segmentations.nii.gz",
+        "bytes": 25596,
+        "official_md5": "f6a71b6c1649b18cc4f9dd0e5a2f4ca9",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0006/1/RHUH-0006_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0006",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0006_2",
+      "image": {
+        "basename": "RHUH-0006_2_t1ce.nii.gz",
+        "bytes": 5420967,
+        "official_md5": "efc48b13b51e2760c6de64c7b7e49dcf",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0006/2/RHUH-0006_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0006_2_segmentations.nii.gz",
+        "bytes": 26572,
+        "official_md5": "2ec1bd6197943ae232714f082d18ef8c",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0006/2/RHUH-0006_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0006",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0007_1",
+      "image": {
+        "basename": "RHUH-0007_1_t1ce.nii.gz",
+        "bytes": 5733452,
+        "official_md5": "b0adbb80e762150c673c3c0cba55a5c5",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0007/1/RHUH-0007_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0007_1_segmentations.nii.gz",
+        "bytes": 21936,
+        "official_md5": "46987b68113dcfb256767ead2603a17a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0007/1/RHUH-0007_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0007",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0007_2",
+      "image": {
+        "basename": "RHUH-0007_2_t1ce.nii.gz",
+        "bytes": 5978203,
+        "official_md5": "d644319059e754f8562dfa23bbf6f8a4",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0007/2/RHUH-0007_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0007_2_segmentations.nii.gz",
+        "bytes": 25464,
+        "official_md5": "32dcd7258d522fb51b341e75180307e5",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0007/2/RHUH-0007_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0007",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0008_1",
+      "image": {
+        "basename": "RHUH-0008_1_t1ce.nii.gz",
+        "bytes": 5618407,
+        "official_md5": "4dfb96654a27aac6e81b59abc63a1907",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0008/1/RHUH-0008_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0008_1_segmentations.nii.gz",
+        "bytes": 22934,
+        "official_md5": "7026734f7c9f62abb766d4436682b667",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0008/1/RHUH-0008_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0008",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0008_2",
+      "image": {
+        "basename": "RHUH-0008_2_t1ce.nii.gz",
+        "bytes": 5703727,
+        "official_md5": "01d5c60281a7d889f0093d2d3aabccb8",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0008/2/RHUH-0008_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0008_2_segmentations.nii.gz",
+        "bytes": 36502,
+        "official_md5": "13a7bcae98922077f21646b69bf7ad4f",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0008/2/RHUH-0008_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0008",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0009_1",
+      "image": {
+        "basename": "RHUH-0009_1_t1ce.nii.gz",
+        "bytes": 5647874,
+        "official_md5": "516341ecf029354ac5209d66470f7dfa",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0009/1/RHUH-0009_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0009_1_segmentations.nii.gz",
+        "bytes": 34399,
+        "official_md5": "2ad68be4d42d15c2063aa4714129c0de",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0009/1/RHUH-0009_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0009",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0009_2",
+      "image": {
+        "basename": "RHUH-0009_2_t1ce.nii.gz",
+        "bytes": 6018032,
+        "official_md5": "6f74110759bc9fdf13cae57304c4583d",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0009/2/RHUH-0009_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0009_2_segmentations.nii.gz",
+        "bytes": 20369,
+        "official_md5": "a2852bfde8b72c2741461744b4663602",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0009/2/RHUH-0009_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0009",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0010_1",
+      "image": {
+        "basename": "RHUH-0010_1_t1ce.nii.gz",
+        "bytes": 6097490,
+        "official_md5": "d89f5953fb1a9b4f76af437347dbd850",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0010/1/RHUH-0010_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0010_1_segmentations.nii.gz",
+        "bytes": 22972,
+        "official_md5": "43decbee2acf22de91c557288e0eebea",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0010/1/RHUH-0010_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0010",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0010_2",
+      "image": {
+        "basename": "RHUH-0010_2_t1ce.nii.gz",
+        "bytes": 6523595,
+        "official_md5": "294bf75b3eaafaf9c28f766b1af5938d",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0010/2/RHUH-0010_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0010_2_segmentations.nii.gz",
+        "bytes": 46650,
+        "official_md5": "fb77619bce237444eba204ad23ea888b",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0010/2/RHUH-0010_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0010",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0011_1",
+      "image": {
+        "basename": "RHUH-0011_1_t1ce.nii.gz",
+        "bytes": 5423217,
+        "official_md5": "7504d39fccbb507af6b535329c696b7b",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0011/1/RHUH-0011_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0011_1_segmentations.nii.gz",
+        "bytes": 23579,
+        "official_md5": "b59214e3b0ffb90a09f2cad95609c1c9",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0011/1/RHUH-0011_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0011",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0011_2",
+      "image": {
+        "basename": "RHUH-0011_2_t1ce.nii.gz",
+        "bytes": 5241818,
+        "official_md5": "4b3e5da6036dfaeaec4fc31ed6b85e89",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0011/2/RHUH-0011_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0011_2_segmentations.nii.gz",
+        "bytes": 21787,
+        "official_md5": "efe8ee7c736d5cd93b0bd728babe203b",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0011/2/RHUH-0011_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0011",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0012_1",
+      "image": {
+        "basename": "RHUH-0012_1_t1ce.nii.gz",
+        "bytes": 5653859,
+        "official_md5": "d19d44e28536ab9eeb3092ab98538eab",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0012/1/RHUH-0012_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0012_1_segmentations.nii.gz",
+        "bytes": 28149,
+        "official_md5": "fceba63029642104a07a1930dea62728",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0012/1/RHUH-0012_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0012",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0012_2",
+      "image": {
+        "basename": "RHUH-0012_2_t1ce.nii.gz",
+        "bytes": 5662276,
+        "official_md5": "dfe79ef18d7d3ae6c7e45cf96b028abc",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0012/2/RHUH-0012_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0012_2_segmentations.nii.gz",
+        "bytes": 19324,
+        "official_md5": "759103d7af110ccbbd23b476a634ba2b",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0012/2/RHUH-0012_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0012",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0013_1",
+      "image": {
+        "basename": "RHUH-0013_1_t1ce.nii.gz",
+        "bytes": 5868413,
+        "official_md5": "ce322b6fce5066f344bfe1b9410e2bf9",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0013/1/RHUH-0013_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0013_1_segmentations.nii.gz",
+        "bytes": 29983,
+        "official_md5": "4acd601ce6519b5ad140c7d82fc47c7c",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0013/1/RHUH-0013_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0013",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0013_2",
+      "image": {
+        "basename": "RHUH-0013_2_t1ce.nii.gz",
+        "bytes": 5894660,
+        "official_md5": "25beebffe57d280377ceebb63674583d",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0013/2/RHUH-0013_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0013_2_segmentations.nii.gz",
+        "bytes": 30374,
+        "official_md5": "4f2e59b58d08f2c6c0df4f094b279df2",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0013/2/RHUH-0013_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0013",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0014_1",
+      "image": {
+        "basename": "RHUH-0014_1_t1ce.nii.gz",
+        "bytes": 6272929,
+        "official_md5": "4b7c64153faed9bc35293cc0a8f58420",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0014/1/RHUH-0014_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0014_1_segmentations.nii.gz",
+        "bytes": 33945,
+        "official_md5": "cd00384cba933e4b798b3f43ab7f743e",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0014/1/RHUH-0014_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0014",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0014_2",
+      "image": {
+        "basename": "RHUH-0014_2_t1ce.nii.gz",
+        "bytes": 6312533,
+        "official_md5": "8de21f0a56155184a4d6048a1fbe9d4a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0014/2/RHUH-0014_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0014_2_segmentations.nii.gz",
+        "bytes": 49178,
+        "official_md5": "7402863714a6f67bd2bd107e0a8a7c30",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0014/2/RHUH-0014_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0014",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0015_1",
+      "image": {
+        "basename": "RHUH-0015_1_t1ce.nii.gz",
+        "bytes": 5394585,
+        "official_md5": "f86978472861c9e7205193f26b991459",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0015/1/RHUH-0015_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0015_1_segmentations.nii.gz",
+        "bytes": 22139,
+        "official_md5": "0f186626e482586a50fcc2cf1f3bd81d",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0015/1/RHUH-0015_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0015",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0015_2",
+      "image": {
+        "basename": "RHUH-0015_2_t1ce.nii.gz",
+        "bytes": 5406404,
+        "official_md5": "2101d76d179df3ccf52173544976cef9",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0015/2/RHUH-0015_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0015_2_segmentations.nii.gz",
+        "bytes": 24994,
+        "official_md5": "337df529c0b707864e27ee2765e71011",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0015/2/RHUH-0015_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0015",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0016_1",
+      "image": {
+        "basename": "RHUH-0016_1_t1ce.nii.gz",
+        "bytes": 5628812,
+        "official_md5": "480ff80008779ef6b6c08fbe83928853",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0016/1/RHUH-0016_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0016_1_segmentations.nii.gz",
+        "bytes": 26993,
+        "official_md5": "9c2215c57f3186024721ed67099be479",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0016/1/RHUH-0016_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0016",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0016_2",
+      "image": {
+        "basename": "RHUH-0016_2_t1ce.nii.gz",
+        "bytes": 5336180,
+        "official_md5": "44b50bcb2f59db7e624ffcd2575e4804",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0016/2/RHUH-0016_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0016_2_segmentations.nii.gz",
+        "bytes": 24893,
+        "official_md5": "e7bc8010e7ef569fe9509a8c4a15f69e",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0016/2/RHUH-0016_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0016",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0017_1",
+      "image": {
+        "basename": "RHUH-0017_1_t1ce.nii.gz",
+        "bytes": 5414530,
+        "official_md5": "5c260b2423cb2ea034c9c1ad60399ce0",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0017/1/RHUH-0017_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0017_1_segmentations.nii.gz",
+        "bytes": 18367,
+        "official_md5": "1282883fca61a8accba88c77a8ddc3f1",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0017/1/RHUH-0017_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0017",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0017_2",
+      "image": {
+        "basename": "RHUH-0017_2_t1ce.nii.gz",
+        "bytes": 5599353,
+        "official_md5": "a0be3c9d953901e04158f7bae29425bc",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0017/2/RHUH-0017_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0017_2_segmentations.nii.gz",
+        "bytes": 26531,
+        "official_md5": "5487feca454d5febc988eedb05eb40e3",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0017/2/RHUH-0017_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0017",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0018_1",
+      "image": {
+        "basename": "RHUH-0018_1_t1ce.nii.gz",
+        "bytes": 6108159,
+        "official_md5": "a4018d17bc64a1323a3b644005e4f4f6",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0018/1/RHUH-0018_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0018_1_segmentations.nii.gz",
+        "bytes": 38182,
+        "official_md5": "8388424aab1fb0002b668ad36b32f933",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0018/1/RHUH-0018_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0018",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0018_2",
+      "image": {
+        "basename": "RHUH-0018_2_t1ce.nii.gz",
+        "bytes": 5908217,
+        "official_md5": "f70104fd85721b451eadcf7d4c9333c4",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0018/2/RHUH-0018_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0018_2_segmentations.nii.gz",
+        "bytes": 38800,
+        "official_md5": "0b0d0f329f1915e46bc26c8a8ba960f9",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0018/2/RHUH-0018_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0018",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0019_1",
+      "image": {
+        "basename": "RHUH-0019_1_t1ce.nii.gz",
+        "bytes": 5695552,
+        "official_md5": "d6093c54303b5db50f4dd4f2f68159f7",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0019/1/RHUH-0019_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0019_1_segmentations.nii.gz",
+        "bytes": 29500,
+        "official_md5": "37e856700dd8f774ad79bf6be73f77f0",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0019/1/RHUH-0019_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0019",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0019_2",
+      "image": {
+        "basename": "RHUH-0019_2_t1ce.nii.gz",
+        "bytes": 5738866,
+        "official_md5": "fd18c9c25c49cc8cd1d662df6e02e184",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0019/2/RHUH-0019_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0019_2_segmentations.nii.gz",
+        "bytes": 46556,
+        "official_md5": "f3c3953bd519bb53a32016a51d141051",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0019/2/RHUH-0019_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0019",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0020_1",
+      "image": {
+        "basename": "RHUH-0020_1_t1ce.nii.gz",
+        "bytes": 6077283,
+        "official_md5": "03190caca8cb0f0840a0c49eafc7acc0",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0020/1/RHUH-0020_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0020_1_segmentations.nii.gz",
+        "bytes": 25317,
+        "official_md5": "84029802a5bc1e7e2af2f2a49153d816",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0020/1/RHUH-0020_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0020",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0020_2",
+      "image": {
+        "basename": "RHUH-0020_2_t1ce.nii.gz",
+        "bytes": 6115338,
+        "official_md5": "abc99773644cca54882cc6f2bc9b4d60",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0020/2/RHUH-0020_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0020_2_segmentations.nii.gz",
+        "bytes": 26751,
+        "official_md5": "b74db7ee8f52db98e48456705885d407",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0020/2/RHUH-0020_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0020",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0021_1",
+      "image": {
+        "basename": "RHUH-0021_1_t1ce.nii.gz",
+        "bytes": 5364231,
+        "official_md5": "45c1d737ff0e9cb67ddf8f8d160327a3",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0021/1/RHUH-0021_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0021_1_segmentations.nii.gz",
+        "bytes": 24771,
+        "official_md5": "5342d87662853cd98afa8770bcd22790",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0021/1/RHUH-0021_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0021",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0021_2",
+      "image": {
+        "basename": "RHUH-0021_2_t1ce.nii.gz",
+        "bytes": 5252160,
+        "official_md5": "6980d8e3346772c0d7ee0799cf32a2b8",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0021/2/RHUH-0021_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0021_2_segmentations.nii.gz",
+        "bytes": 35411,
+        "official_md5": "ee654c6690b4d0d430ee0943912a738a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0021/2/RHUH-0021_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0021",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0022_1",
+      "image": {
+        "basename": "RHUH-0022_1_t1ce.nii.gz",
+        "bytes": 4610724,
+        "official_md5": "ddc897ed586d05faae023a28cc58a4d4",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0022/1/RHUH-0022_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0022_1_segmentations.nii.gz",
+        "bytes": 20143,
+        "official_md5": "0a7d81e05bb9cb89299ac6d470c638a8",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0022/1/RHUH-0022_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0022",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0022_2",
+      "image": {
+        "basename": "RHUH-0022_2_t1ce.nii.gz",
+        "bytes": 4591296,
+        "official_md5": "c3fe534bac48cc9ee2a41955eace3050",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0022/2/RHUH-0022_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0022_2_segmentations.nii.gz",
+        "bytes": 22844,
+        "official_md5": "8d414c2f6facfa8f4e78030841716d02",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0022/2/RHUH-0022_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0022",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0023_1",
+      "image": {
+        "basename": "RHUH-0023_1_t1ce.nii.gz",
+        "bytes": 5739799,
+        "official_md5": "dd34a32f349019ca7c94ba1ea77d3b29",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0023/1/RHUH-0023_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0023_1_segmentations.nii.gz",
+        "bytes": 30224,
+        "official_md5": "d9f610a486cdd0a497d02b93e4d849a0",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0023/1/RHUH-0023_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0023",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0023_2",
+      "image": {
+        "basename": "RHUH-0023_2_t1ce.nii.gz",
+        "bytes": 5573815,
+        "official_md5": "42ac972dd9dc5c6e5debfef53fa48263",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0023/2/RHUH-0023_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0023_2_segmentations.nii.gz",
+        "bytes": 45102,
+        "official_md5": "d05a1ba2690a9777bc4cc0ef35e17012",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0023/2/RHUH-0023_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0023",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0024_1",
+      "image": {
+        "basename": "RHUH-0024_1_t1ce.nii.gz",
+        "bytes": 6251638,
+        "official_md5": "3fde35203223c95738f06c81806fd0c7",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0024/1/RHUH-0024_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0024_1_segmentations.nii.gz",
+        "bytes": 18527,
+        "official_md5": "c5c3eb5f919ea3c0bc467923eec27f03",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0024/1/RHUH-0024_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0024",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0024_2",
+      "image": {
+        "basename": "RHUH-0024_2_t1ce.nii.gz",
+        "bytes": 6410030,
+        "official_md5": "9048311a8123162462a2c7cfcf785cb4",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0024/2/RHUH-0024_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0024_2_segmentations.nii.gz",
+        "bytes": 24003,
+        "official_md5": "caff9d0f264627a23be6175158dbdc3e",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0024/2/RHUH-0024_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0024",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0025_1",
+      "image": {
+        "basename": "RHUH-0025_1_t1ce.nii.gz",
+        "bytes": 6062421,
+        "official_md5": "d219705bdb9112726be16ea308d8b7ad",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0025/1/RHUH-0025_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0025_1_segmentations.nii.gz",
+        "bytes": 20030,
+        "official_md5": "f093630630191b436c06532a1cbae464",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0025/1/RHUH-0025_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0025",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0025_2",
+      "image": {
+        "basename": "RHUH-0025_2_t1ce.nii.gz",
+        "bytes": 6262057,
+        "official_md5": "d3bdb07a80a1435ed2361e4e5ad0f042",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0025/2/RHUH-0025_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0025_2_segmentations.nii.gz",
+        "bytes": 31589,
+        "official_md5": "0a5879b8ace41a63cba8410644c6829c",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0025/2/RHUH-0025_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0025",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0026_1",
+      "image": {
+        "basename": "RHUH-0026_1_t1ce.nii.gz",
+        "bytes": 5386099,
+        "official_md5": "bbbae3f2278c51e51697a09bcc3ea329",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0026/1/RHUH-0026_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0026_1_segmentations.nii.gz",
+        "bytes": 21970,
+        "official_md5": "5f73beb55cac0c9c49b0bc451d719447",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0026/1/RHUH-0026_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0026",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0026_2",
+      "image": {
+        "basename": "RHUH-0026_2_t1ce.nii.gz",
+        "bytes": 5364083,
+        "official_md5": "658e657d1caaa86dba500309a9c9c792",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0026/2/RHUH-0026_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0026_2_segmentations.nii.gz",
+        "bytes": 25129,
+        "official_md5": "ce62bf26dc3451ea9455d42526964783",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0026/2/RHUH-0026_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0026",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0027_1",
+      "image": {
+        "basename": "RHUH-0027_1_t1ce.nii.gz",
+        "bytes": 4919264,
+        "official_md5": "7b71fa2d4c836e30858ffa3c6b4102fd",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0027/1/RHUH-0027_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0027_1_segmentations.nii.gz",
+        "bytes": 27036,
+        "official_md5": "e1ec7341f58508a04ada6769c036a6f7",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0027/1/RHUH-0027_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0027",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0027_2",
+      "image": {
+        "basename": "RHUH-0027_2_t1ce.nii.gz",
+        "bytes": 4812672,
+        "official_md5": "bb16a82572f46b726dcf85eddd025630",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0027/2/RHUH-0027_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0027_2_segmentations.nii.gz",
+        "bytes": 37230,
+        "official_md5": "4796715efc9291bfcb53b4344e494e13",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0027/2/RHUH-0027_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0027",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0028_1",
+      "image": {
+        "basename": "RHUH-0028_1_t1ce.nii.gz",
+        "bytes": 5183386,
+        "official_md5": "dbe96fe5f96abd7d6df7251f54f13ddb",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0028/1/RHUH-0028_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0028_1_segmentations.nii.gz",
+        "bytes": 20127,
+        "official_md5": "667a586b56addac101a0e78d7b559ffc",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0028/1/RHUH-0028_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0028",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0028_2",
+      "image": {
+        "basename": "RHUH-0028_2_t1ce.nii.gz",
+        "bytes": 5379340,
+        "official_md5": "fb28a8e30a1ae96d55660115ace8df4a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0028/2/RHUH-0028_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0028_2_segmentations.nii.gz",
+        "bytes": 42535,
+        "official_md5": "f8e05eb334682b4a09a815d99dec72a4",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0028/2/RHUH-0028_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0028",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0029_1",
+      "image": {
+        "basename": "RHUH-0029_1_t1ce.nii.gz",
+        "bytes": 5614539,
+        "official_md5": "0ab1b7eeaec260e9d6246a6a421a1398",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0029/1/RHUH-0029_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0029_1_segmentations.nii.gz",
+        "bytes": 33432,
+        "official_md5": "ea524a40781ac509e02e09427c387ba6",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0029/1/RHUH-0029_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0029",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0029_2",
+      "image": {
+        "basename": "RHUH-0029_2_t1ce.nii.gz",
+        "bytes": 5954488,
+        "official_md5": "28b3ec685b337b96e4ed7c0a6c56917b",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0029/2/RHUH-0029_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0029_2_segmentations.nii.gz",
+        "bytes": 62529,
+        "official_md5": "661c7a34dfbc19459345fe677e1d2ce2",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0029/2/RHUH-0029_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0029",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0030_1",
+      "image": {
+        "basename": "RHUH-0030_1_t1ce.nii.gz",
+        "bytes": 5820802,
+        "official_md5": "e9988fb444aaa0f9fe611d32fa9b0c50",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0030/1/RHUH-0030_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0030_1_segmentations.nii.gz",
+        "bytes": 24166,
+        "official_md5": "2e24bead98c5997f7fa5c4a1122a467c",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0030/1/RHUH-0030_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0030",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0030_2",
+      "image": {
+        "basename": "RHUH-0030_2_t1ce.nii.gz",
+        "bytes": 5963251,
+        "official_md5": "6bab70a18b298f6c59d28ef212884916",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0030/2/RHUH-0030_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0030_2_segmentations.nii.gz",
+        "bytes": 47188,
+        "official_md5": "32211f7765a17e4fe8361d698662d557",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0030/2/RHUH-0030_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0030",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0031_1",
+      "image": {
+        "basename": "RHUH-0031_1_t1ce.nii.gz",
+        "bytes": 4818267,
+        "official_md5": "c83a09441fb618f4e93aa6eb68432c66",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0031/1/RHUH-0031_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0031_1_segmentations.nii.gz",
+        "bytes": 20956,
+        "official_md5": "00d5c00341862ce5b0e3eadd4d037b8a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0031/1/RHUH-0031_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0031",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0031_2",
+      "image": {
+        "basename": "RHUH-0031_2_t1ce.nii.gz",
+        "bytes": 4882150,
+        "official_md5": "4ec80eab1f29d20bd0948a502275b327",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0031/2/RHUH-0031_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0031_2_segmentations.nii.gz",
+        "bytes": 23423,
+        "official_md5": "48c6efd03a44fe8b5158fbd13a1b9829",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0031/2/RHUH-0031_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0031",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0032_1",
+      "image": {
+        "basename": "RHUH-0032_1_t1ce.nii.gz",
+        "bytes": 5866693,
+        "official_md5": "66d59a921d85832f42e90b0592bfc265",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0032/1/RHUH-0032_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0032_1_segmentations.nii.gz",
+        "bytes": 23949,
+        "official_md5": "05163420873481d81c4380a86e64b8d9",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0032/1/RHUH-0032_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0032",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0032_2",
+      "image": {
+        "basename": "RHUH-0032_2_t1ce.nii.gz",
+        "bytes": 5813482,
+        "official_md5": "d54eed3479b5944700032563f0b5014d",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0032/2/RHUH-0032_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0032_2_segmentations.nii.gz",
+        "bytes": 30312,
+        "official_md5": "c1fbe48ae42679b815c393b4bdc133b2",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0032/2/RHUH-0032_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0032",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0033_1",
+      "image": {
+        "basename": "RHUH-0033_1_t1ce.nii.gz",
+        "bytes": 5844065,
+        "official_md5": "96089484a1d126eec46c8837f6b071ce",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0033/1/RHUH-0033_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0033_1_segmentations.nii.gz",
+        "bytes": 22006,
+        "official_md5": "0183d98b9dac28c71013c76347dabd9b",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0033/1/RHUH-0033_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0033",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0033_2",
+      "image": {
+        "basename": "RHUH-0033_2_t1ce.nii.gz",
+        "bytes": 5790465,
+        "official_md5": "e9a7687fa7aaa9b9c01e15e30146556a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0033/2/RHUH-0033_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0033_2_segmentations.nii.gz",
+        "bytes": 50403,
+        "official_md5": "30787a969c37d44c120685ecf8e6e374",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0033/2/RHUH-0033_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0033",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0034_1",
+      "image": {
+        "basename": "RHUH-0034_1_t1ce.nii.gz",
+        "bytes": 6090780,
+        "official_md5": "ca12460dbe4f760c5b0816ce39c4ee60",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0034/1/RHUH-0034_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0034_1_segmentations.nii.gz",
+        "bytes": 24807,
+        "official_md5": "61852d79d2a036003c72cbefc79cdc9c",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0034/1/RHUH-0034_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0034",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0034_2",
+      "image": {
+        "basename": "RHUH-0034_2_t1ce.nii.gz",
+        "bytes": 6139239,
+        "official_md5": "9d312340d842eddc0a45ee3ea272111b",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0034/2/RHUH-0034_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0034_2_segmentations.nii.gz",
+        "bytes": 37580,
+        "official_md5": "ff05b9e8fe67d9040a0de125ed100f8a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0034/2/RHUH-0034_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0034",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0035_1",
+      "image": {
+        "basename": "RHUH-0035_1_t1ce.nii.gz",
+        "bytes": 5449073,
+        "official_md5": "29a03ee14e30bba53ecde0290c94875a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0035/1/RHUH-0035_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0035_1_segmentations.nii.gz",
+        "bytes": 22757,
+        "official_md5": "490906a6bed1a17c8488355032e42787",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0035/1/RHUH-0035_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0035",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0035_2",
+      "image": {
+        "basename": "RHUH-0035_2_t1ce.nii.gz",
+        "bytes": 5326031,
+        "official_md5": "74101657e4977f8de63085e3aadd2656",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0035/2/RHUH-0035_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "segmentation.nii.gz",
+        "bytes": 21750,
+        "official_md5": "8b67d0a81c0753f00ccec8cffcc398c8",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0035/2/segmentation.nii.gz"
+      },
+      "subject_id": "RHUH-0035",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0036_1",
+      "image": {
+        "basename": "RHUH-0036_1_t1ce.nii.gz",
+        "bytes": 5190792,
+        "official_md5": "149420aab526491c041b4995ae5db7fe",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0036/1/RHUH-0036_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0036_1_segmentations.nii.gz",
+        "bytes": 24282,
+        "official_md5": "83c5fded7bd0f68c4e5485b04bade940",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0036/1/RHUH-0036_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0036",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0036_2",
+      "image": {
+        "basename": "RHUH-0036_2_t1ce.nii.gz",
+        "bytes": 5160445,
+        "official_md5": "4446bcc9a14507f4288136053e646b58",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0036/2/RHUH-0036_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0036_2_segmentations.nii.gz",
+        "bytes": 28258,
+        "official_md5": "357acc025dcfe78b3ee4c622a2c762fb",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0036/2/RHUH-0036_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0036",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0037_1",
+      "image": {
+        "basename": "RHUH-0037_1_t1ce.nii.gz",
+        "bytes": 6114526,
+        "official_md5": "f2bf53ebb1da0a6d82d437d50ec888d3",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0037/1/RHUH-0037_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0037_1_segmentations.nii.gz",
+        "bytes": 20379,
+        "official_md5": "29aacbae4054d21b3494f8f4e749e29f",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0037/1/RHUH-0037_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0037",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0037_2",
+      "image": {
+        "basename": "RHUH-0037_2_t1ce.nii.gz",
+        "bytes": 6255553,
+        "official_md5": "030bfc6b82deeed75c82744360c34fe9",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0037/2/RHUH-0037_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0037_2_segmentations.nii.gz",
+        "bytes": 30567,
+        "official_md5": "5b42a1ae85384bf6136659b4e7dc5457",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0037/2/RHUH-0037_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0037",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0038_1",
+      "image": {
+        "basename": "RHUH-0038_1_t1ce.nii.gz",
+        "bytes": 6052739,
+        "official_md5": "0a89093aa987784c1811d18d0eca947a",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0038/1/RHUH-0038_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0038_1_segmentations.nii.gz",
+        "bytes": 30226,
+        "official_md5": "9876064c1522638b2a894b863f5b7f9d",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0038/1/RHUH-0038_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0038",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0038_2",
+      "image": {
+        "basename": "RHUH-0038_2_t1ce.nii.gz",
+        "bytes": 5674285,
+        "official_md5": "de6c54cba90dc3468cbce55aa8e551ad",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0038/2/RHUH-0038_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0038_2_segmentations.nii.gz",
+        "bytes": 21074,
+        "official_md5": "49b413fe3849af5986f0dee353206a80",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0038/2/RHUH-0038_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0038",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0039_1",
+      "image": {
+        "basename": "RHUH-0039_1_t1ce.nii.gz",
+        "bytes": 5168198,
+        "official_md5": "5a26f7a7765c94c0721da02586fb23ed",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0039/1/RHUH-0039_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0039_1_segmentations.nii.gz",
+        "bytes": 30192,
+        "official_md5": "3d137a1f8631fdaff4cdd5fba9290fec",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0039/1/RHUH-0039_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0039",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0039_2",
+      "image": {
+        "basename": "RHUH-0039_2_t1ce.nii.gz",
+        "bytes": 5217222,
+        "official_md5": "b8aa5aa0a5882300e49cd1e584cf4fdb",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0039/2/RHUH-0039_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0039_2_segmentations.nii.gz",
+        "bytes": 56805,
+        "official_md5": "8766f4a143d5b5baf09e5985b2358ed7",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0039/2/RHUH-0039_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0039",
+      "timepoint": 2
+    },
+    {
+      "case_id": "RHUH-0040_1",
+      "image": {
+        "basename": "RHUH-0040_1_t1ce.nii.gz",
+        "bytes": 6322745,
+        "official_md5": "9591ac9e0dbde9f9ba359cf837b49e2b",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0040/1/RHUH-0040_1_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0040_1_segmentations.nii.gz",
+        "bytes": 24795,
+        "official_md5": "4a0a8fa3298cc8e9123b9fdbc3b359f6",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0040/1/RHUH-0040_1_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0040",
+      "timepoint": 1
+    },
+    {
+      "case_id": "RHUH-0040_2",
+      "image": {
+        "basename": "RHUH-0040_2_t1ce.nii.gz",
+        "bytes": 6135235,
+        "official_md5": "74106c4dc70bbf0735288a27eb549ad9",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0040/2/RHUH-0040_2_t1ce.nii.gz"
+      },
+      "label": {
+        "basename": "RHUH-0040_2_segmentations.nii.gz",
+        "bytes": 30775,
+        "official_md5": "c449f45cf7e4b1ff85a7456176d0cf7e",
+        "official_path": "/RHUH-GBM_nii_v1/RHUH-0040/2/RHUH-0040_2_segmentations.nii.gz"
+      },
+      "subject_id": "RHUH-0040",
+      "timepoint": 2
+    }
+  ],
+  "source_inventory_sha256": "7b50b80e1d317241037fbf974db1361e08e3ba9360f54bfcad1d46bd73abef09",
+  "source_paper": "https://arxiv.org/html/2305.00005v2",
+  "status": "frozen_before_any_rhuh_image_or_label_voxel_download",
+  "stop_rule": "any image format failure blocks unchanged historical positive-only N4 pipeline; no case removal and no result-dependent preprocessing",
+  "subjects": 40,
+  "timepoints": [
+    1,
+    2
+  ]
+}

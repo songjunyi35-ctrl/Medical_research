@@ -1,0 +1,46 @@
+{
+  "access": {
+    "confirmation": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "test270": false,
+    "train_only_inner": false
+  },
+  "arm": "adamw_control",
+  "created_at_utc": "2026-09-02T10:33:21.867623+00:00",
+  "data_role": {
+    "cases": 32,
+    "fit": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_lookahead5_inner_seed20261070_v1/fit_cases.jsonl",
+      "sha256": "ee16a66d9a7efb8b3c5a14536d03bba7e5eb0eb984e4f333b314ec61570439b3"
+    },
+    "subjects": 15
+  },
+  "hyperparameters": {
+    "arm": "adamw_control",
+    "base_lr": 0.0002,
+    "batch_size": 8,
+    "cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "device": "cuda:0",
+    "ema_teacher_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/plain_128_full756_ema_fixed_epoch168.pth",
+    "fit_case_ids": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_lookahead5_inner_seed20261070_v1/fit_cases.jsonl",
+    "historical_teacher_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "idea": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-02_full972_lookahead5_stability/IDEA.md",
+    "limit_fit_cases": 32,
+    "min_lr": 1e-05,
+    "native_artifact": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-21_voxel_kd_data972_native_sampling/NATIVE_WT_VOLUMES.json",
+    "num_workers": 0,
+    "output_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/full972_lookahead5_stability_20260902/smoke_v2_adamw_control",
+    "prereg": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-02_full972_lookahead5_stability/PREREG.md",
+    "schedule_total_epochs": 200,
+    "seed": 20261071,
+    "smoke": true,
+    "split_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_lookahead5_inner_seed20261070_v1/split_manifest.json",
+    "stop_epoch": 168,
+    "weight_decay": 1e-05
+  },
+  "runner_sha256": "2ec817c47caae7207d701d74802d30cb4da6e4b5952bdc7c550cf316dd5134f8",
+  "schema": "aflow.sammed3d.t1ce_wt_lookahead5_stage_a",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step"
+}

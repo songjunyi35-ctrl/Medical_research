@@ -1,0 +1,95 @@
+{
+  "interaction": {
+    "corrective_labels": "FN positive; FP negative",
+    "first_click": "uniform GT foreground positive",
+    "later_clicks": "uniform prediction XOR GT",
+    "mask_prompt": "previous low-resolution mask recurrently supplied",
+    "num_clicks": 3,
+    "points": "all prior points accumulated",
+    "prediction_threshold": "raw logit > 0 (sigmoid > 0.5)"
+  },
+  "loss": "mean MONAI DiceCELoss over all three click predictions",
+  "optimization": {
+    "image_encoder": {
+      "alpha": 8.0,
+      "blocks": [],
+      "projections": [],
+      "rank": 0,
+      "update": "frozen"
+    },
+    "mask_decoder_trainable": true,
+    "prompt_encoder_trainable": true,
+    "strategy": "decoder_only"
+  },
+  "preprocessing": {
+    "augmentation": {
+      "applies_to": "train split only",
+      "name": "affine_elastic_noise",
+      "random_affine": {
+        "degrees": 15,
+        "image_interpolation": "linear",
+        "label_interpolation": "nearest",
+        "probability": 0.5,
+        "scales": 0,
+        "translation": 10
+      },
+      "random_elastic_deformation": {
+        "image_interpolation": "linear",
+        "label_interpolation": "nearest",
+        "locked_borders": 2,
+        "max_displacement": 5,
+        "num_control_points": 7,
+        "probability": 0.2
+      },
+      "random_gaussian_noise": {
+        "mean": 0,
+        "probability": 0.15,
+        "std": [
+          0,
+          0.1
+        ]
+      },
+      "validation_augmentation": false
+    },
+    "geometry": {
+      "image_interpolation": "trilinear align_corners=False",
+      "label_interpolation": "nearest-exact",
+      "name": "whole_resize",
+      "target_shape": [
+        128,
+        128,
+        128
+      ],
+      "uses_gt_for_localization": false
+    },
+    "normalization": "source nonzero-voxel population z-score before resize; background remains zero; no batch re-normalization",
+    "orientation": "canonical RAS"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_cumulative3_training",
+  "schema_version": 3,
+  "selection": "validation final-click scan-macro Dice",
+  "source": {
+    "base_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "generic_trainer": "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_brats.py",
+    "generic_trainer_sha256": "0c5026e98b2e0f848c16b436610e9b7eca391995c062ac128ce1bee26d1bfa4f",
+    "train_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+    "train_manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "validation_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+    "validation_manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+    "wrapper": "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_t1ce_wt.py",
+    "wrapper_sha256": "369986ff41166ffbbe8081b5767e1f276ac14a7ddbe03acce3b800d6ba4b0988"
+  },
+  "target": {
+    "excluded_raw_labels": [
+      4
+    ],
+    "foreground_raw_labels": [
+      1,
+      2,
+      3
+    ]
+  },
+  "task": "single-channel T1ce to binary WT",
+  "test_access_during_training": false
+}

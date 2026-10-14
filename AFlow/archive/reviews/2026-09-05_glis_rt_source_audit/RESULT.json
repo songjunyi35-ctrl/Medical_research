@@ -1,0 +1,53 @@
+{
+  "schema": "aflow.glis_rt.source_audit",
+  "created_utc": "2026-09-05T15:31:00Z",
+  "status": "closed_controlled_access_and_target_semantics_mismatch",
+  "official": {
+    "collection": "GLIS-RT",
+    "doi": "10.7937/TCIA.T905-ZQ20",
+    "version": 1,
+    "subjects": 230,
+    "studies": 468,
+    "series": 1915,
+    "images": 78311,
+    "download_size_gb_displayed": 28.26,
+    "format": "DICOM",
+    "access": "NIH Controlled Data Access Policy",
+    "post_surgical_sequences": ["contrast enhanced 3D-T1", "2D multislice T2 FLAIR"],
+    "manual_targets": ["GTV", "CTV"],
+    "annotator": "treating radiation oncologist"
+  },
+  "public_manifest": {
+    "url": "https://www.cancerimagingarchive.net/wp-content/uploads/GC_manifest_GLIS-RT_20260326.csv",
+    "bytes": 646164,
+    "sha256": "f36372539f3790a712675fa01274e09d6df3ce881f31d009d8367617ec2ace41",
+    "rows": 1915,
+    "participants": 230,
+    "file_type_counts": {"DICOM": 1915},
+    "modality_counts": {"REG": 690, "RTSTRUCT": 535, "MR": 460, "CT": 230},
+    "participant_signatures": {
+      "CT1_MR2_REG3_RTSTRUCT2": 155,
+      "CT1_MR2_REG3_RTSTRUCT3": 75
+    },
+    "diagnosis_id_counts": {"GBM": 198, "other_glioma": 32}
+  },
+  "gates": {
+    "public_uncontrolled_access": false,
+    "t1ce_available": true,
+    "manual_voxel_annotation": true,
+    "brats_whole_tumor_semantics": false,
+    "patient_independence_proven": false,
+    "eligible_for_current_external_leaderboard": false
+  },
+  "access": {
+    "official_web_metadata": true,
+    "public_manifest": true,
+    "controlled_data_request": false,
+    "dicom": false,
+    "rtstruct": false,
+    "model_inference": false,
+    "new_metrics": false
+  },
+  "cost": {"gpu_hours": 0, "model_forwards": 0, "large_download_bytes": 0},
+  "next_decision": "do not use for current BraTS-WT leaderboard; separate radiotherapy-target task would require explicit scope change"
+}

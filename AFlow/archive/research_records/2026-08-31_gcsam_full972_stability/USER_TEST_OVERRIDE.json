@@ -1,0 +1,47 @@
+{
+  "schema": "aflow.brats.t1ce_wt_gcsam_inner_user_test_override",
+  "schema_version": 1,
+  "status": "frozen_before_test270",
+  "created_at_utc": "2026-08-31T09:39:03Z",
+  "user_authorization_quote": "可以去test上评测了",
+  "authorization_interpretation": "Evaluate the existing frozen fit864 train-inner-selected GCSAM epoch184 checkpoint once on reused internal test270 despite failed inner CI gates. This does not authorize hyperparameter tuning or a pristine-blind/external claim.",
+  "checkpoint_scope": {
+    "method": "paper-form GCSAM rho0.05 non-adaptive",
+    "epoch": 184,
+    "fit_cases": 864,
+    "train_inner_selection_cases": 108,
+    "not_full972_final": true,
+    "same_epoch_adamw_checkpoint_available": false
+  },
+  "evaluator_sha256": "497536ad645311fa4a4126b8eeab1a8b31e7639f7cd8c550ff2f6151a3eeb98e",
+  "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+  "checkpoint_model_state_sha256": "eea33e1d3a1ab9505ba0b85aa915a9df59260b50a0991b49e1e9c77417690f02",
+  "inner_decision_sha256": "78851d7b15bc4414e404f968dce816241c3d7656fc27c80250059e1a86341577",
+  "implementation_receipt_sha256": "74536ec022d2094732be68841b454ef0a32f57434c0c743fa9e221220cf175fb",
+  "current_best_report_sha256": "9827a75b88dc9239902c7e473a7d75e2d6058f4f515bfd2b4d93003ba7bd34cd",
+  "test_manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+  "test_cache_index_sha256": "41bd6cf44553b8d156de49f2c57bb424cab60cfa26c06881bdfb96ff91de39d3",
+  "frozen_protocol": {
+    "raw_logit_threshold": 0.0,
+    "point": "argmax raw logit",
+    "locator_forwards": 1,
+    "tta": false,
+    "sam": false,
+    "postprocessing": false,
+    "bootstrap_samples": 10000,
+    "paired_comparator": "archived Full972 random-init voxel-KD epoch168 current internal best"
+  },
+  "result_must_not_trigger_tuning": true,
+  "evidence_labels": [
+    "failed-gate exploratory",
+    "reused internal test270",
+    "fit864 train-inner-selected",
+    "not Full972 final",
+    "not pristine blind",
+    "not external confirmation"
+  ],
+  "validation_access": false,
+  "outer_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

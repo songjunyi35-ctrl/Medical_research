@@ -1,0 +1,76 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_iad_kas_validation_preaccess_receipt",
+  "schema_version": 1,
+  "status": "frozen_before_new_fixed_validation108_access",
+  "method": "teacher_free_kas_on_voxel_kd200",
+  "implementation_receipt": {
+    "path": "archive/research_records/2026-08-20_iad_kas_assimilation/IMPLEMENTATION_RECEIPT.json",
+    "sha256": "ebfb63681f159a9e8eeb18f1cd03c284830ef31dd89d51dd304fd1a73946253c",
+    "all_gates_passed": true
+  },
+  "pairing_receipt": {
+    "path": "archive/research_records/2026-08-20_iad_kas_assimilation/PAIRING_RECEIPT.json",
+    "sha256": "cc8e21276f3e5a29ff472aa68e2ddb0e11b8b56e497a4f1db6a084806cd83856",
+    "all_gates_passed": true
+  },
+  "training_reports": {
+    "control": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/control_seed20260860/TRAIN_DONE.json", "sha256": "ce987642413fbf86ccbb45ec263851b8a12cfbec6f21d2325521529b583c6392", "elapsed_seconds": 1098.5249516963959, "peak_gpu_memory_bytes": 21784635904},
+    "kas": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/kas_seed20260860/TRAIN_DONE.json", "sha256": "dbcab505677de22ed77865643e51c4efc26690d45728695bdc496f10fdc8855e", "elapsed_seconds": 1159.9770300388336, "peak_gpu_memory_bytes": 21912053248}
+  },
+  "checkpoints": {
+    "control": {
+      "208": "3c62166b5ca48b686ef9956cae0b78713505aeefc4db60341b2995fb3d3bb845",
+      "216": "9140f1ef188fda4158582eff1b6e41df91bd6355ced79965ea3ed51f2624c3b4",
+      "224": "5c2746dc938064f85757d5547f52bcc301f2e20310d75a09cb9f592968faf60c",
+      "232": "2d13e2bda6557318775d8c083d1bb3c0ad3b1d49d2a4c98f9c4dca6dd553245e"
+    },
+    "kas": {
+      "208": "705ad5facc99658b6886091ee365b6b05fa3663fc0813f7c4931da543a5f335e",
+      "216": "6a2076fc2e5942177e22968784696e65eb059333baf4236842df06bf673738ce",
+      "224": "d1b98fa554d515a5cc581a8a9956483ce313da7aded62b784277c21051b1eb66",
+      "232": "845a6448a5d472c643146ecd11b43e03f440a29eae34ec029344f47d7acda409"
+    }
+  },
+  "fixed_validation": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 50,
+    "threshold": 0.0,
+    "tta": false,
+    "sam": false,
+    "postprocessing": false
+  },
+  "historical_baseline": {
+    "report": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/KD_VALIDATION.json",
+    "sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57",
+    "kd200_scan": 0.7343843078447713,
+    "kd200_subject": 0.7244341433615912,
+    "kd200_point_hits": 101
+  },
+  "selection": "maximum KAS Scan Dice among208/216/224/232; Subject Dice exact tie-break",
+  "bootstrap": {
+    "samples": 10000,
+    "kas_vs_control_seeds": {"208": 20260910, "216": 20260911, "224": 20260912, "232": 20260913},
+    "kas_vs_kd200_seeds": {"208": 20260914, "216": 20260915, "224": 20260916, "232": 20260917}
+  },
+  "promotion_gates": [
+    "selected KAS scan and subject strictly beat same-epoch control",
+    "selected KAS scan and subject strictly beat historical KD200",
+    "selected KAS point hits at least100/108",
+    "paired scan and subject CI lower versus KD200 at least -0.003",
+    "all implementation, pairing, reload, deploy and access gates pass"
+  ],
+  "evaluator": {
+    "path": "scripts/evaluate_t1ce_wt_plain_iad_kas_validation.py",
+    "sha256": "342a429fd51076215f7542400f9dec40e592fbfd99cad682c8244b620b35c29b"
+  },
+  "start_checkpoint_historical_validation_access": true,
+  "start_checkpoint_historical_test_access_after_selection": true,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

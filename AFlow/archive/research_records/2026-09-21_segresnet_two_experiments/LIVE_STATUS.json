@@ -1,0 +1,69 @@
+{
+  "utc": "2026-09-21T07:53:22.350240+00:00",
+  "scope": "authoritative cross-worker view for hardware amendment003",
+  "status": "complete",
+  "semantic": {
+    "worker": 1104883,
+    "training": {
+      "status": "completed",
+      "run": "semantic_regions",
+      "last_complete_epoch": 200,
+      "total_epochs": 200,
+      "best_epoch": 158,
+      "best_scan_dice": 0.739688965043536,
+      "optimizer_updates": 24400,
+      "elapsed_seconds": 6458.197722248733,
+      "updated_utc": "2026-09-21T05:45:58.450381+00:00",
+      "test_pixels_access": false,
+      "reload_check": {
+        "max_dice_error": 0.0,
+        "passed": true,
+        "checkpoint_sha256": "8fe36fdb6ca68e0593b0b3230876b2751ade91e5f4b9dfd9734446205d8e432c"
+      }
+    },
+    "test_and_archive_complete": true,
+    "failed": false
+  },
+  "external_candidate": {
+    "pretrain_worker": 1105022,
+    "pretrain": {
+      "updated_utc": "2026-09-21T06:00:42.747849+00:00",
+      "status": "completed",
+      "run": "pretrain",
+      "worker": 1105022,
+      "last_complete_epoch": 150,
+      "total_epochs": 150,
+      "optimizer_updates": 6300,
+      "elapsed_seconds": 2344.3765328899026,
+      "hardware_mode": "single_gpu_global8",
+      "test_pixels_access": false
+    },
+    "finetune_worker": 1104883,
+    "finetune": {
+      "status": "completed",
+      "run": "finetune_pretrained",
+      "last_complete_epoch": 200,
+      "total_epochs": 200,
+      "best_epoch": 179,
+      "best_scan_dice": 0.7468505849440893,
+      "optimizer_updates": 24400,
+      "elapsed_seconds": 6135.297076523304,
+      "updated_utc": "2026-09-21T07:43:25.642771+00:00",
+      "test_pixels_access": false,
+      "reload_check": {
+        "max_dice_error": 0.0,
+        "passed": true,
+        "checkpoint_sha256": "7006d44a2a2f765562dc0155f914c967a27b22ffba476cea5e966f01d69f7ad0"
+      }
+    },
+    "finetune_queue": {
+      "utc": "2026-09-21T07:44:40.708777+00:00",
+      "status": "complete",
+      "worker": 1104883
+    },
+    "test_and_archive_complete": true,
+    "failed": false
+  },
+  "test_tuning_used": false,
+  "historical_pipeline_failure_is_not_cross_worker_status": true
+}

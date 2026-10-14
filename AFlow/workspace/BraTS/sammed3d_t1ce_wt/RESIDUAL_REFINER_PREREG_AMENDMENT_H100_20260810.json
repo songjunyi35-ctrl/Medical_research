@@ -1,0 +1,40 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_residual_refiner_prereg_amendment",
+  "schema_version": 1,
+  "created_utc": "2026-08-10",
+  "status": "frozen_after_hardware-baseline-recheck_and_before_any_full-training_optimizer_step",
+  "test_access": false,
+  "original_prereg": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/RESIDUAL_REFINER_PREREG_20260810.json",
+    "sha256": "3717bcb2143e1e9f5bf53afd2be98708c4bc9a0c81bee3c3501431663cb0dce6",
+    "disposition": "preserved; its 1e-4 cross-hardware baseline gate failed and the first full run was stopped at epoch 0"
+  },
+  "new_information_seen": {
+    "allowed": "Only frozen coarse-model outputs were observed; no full refiner optimizer step or trained-refiner validation result existed.",
+    "historical_validation_dsc": 0.6380564026652955,
+    "h100_cache_runner_validation_dsc": 0.6359485301438967,
+    "h100_frozen_evaluator_validation_dsc": 0.6359485301438967,
+    "h100_minus_historical": -0.0021078725213988,
+    "independent_recheck_report": "workspace/BraTS/sammed3d_t1ce_wt/H100_RECHECK_GTCROP_3CLICK_20260810.json",
+    "independent_recheck_sha256": "7a864350434ac0f555f91a03717c2e3f5b748f755b4a0966bfacda2a46863713",
+    "interpretation": "The new cache runner exactly matches the unmodified frozen evaluator on the same H100. The historical mismatch is cross-hardware BF16/corrective-click numerical branching, not a cache-runner protocol mismatch."
+  },
+  "amended_gate": {
+    "same_hardware_cross_runner_requirement": "cache runner and unmodified frozen evaluator must have exactly equal aggregate click-3 DSC on the H100",
+    "observed": "pass",
+    "frozen_h100_coarse_baseline": 0.6359485301438967,
+    "historical_report_tolerance_for_context_only": 0.003,
+    "development_success": "unchanged: best 108-case gt-crop validation DSC >= 0.6800",
+    "target_reproduction": "unchanged: best 108-case gt-crop validation DSC >= 0.7000",
+    "automatic_cascade_gate": "unchanged: only after development_success passes",
+    "test_gate": "unchanged: no sealed-test access"
+  },
+  "unchanged": {
+    "mainline": "T1ce single channel + WT={1,2,3}, raw label 4 excluded",
+    "split": "972 train / 108 validation subject-clean",
+    "stage2_checkpoint_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+    "cache_runner_sha256": "846cb0d8137ab1e8fd71adf26e98ca954baa95bb6e581362496dc4ea34c0683a",
+    "train_runner_sha256": "9ad3cc1a7f2494690caf3ed351e852ec236568db4d68db26380decb1c5db96e8",
+    "architecture_loss_optimizer_augmentation_sampling_seed_and_selection": "all unchanged from the original preregistration"
+  }
+}

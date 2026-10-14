@@ -1,0 +1,71 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_voxel_kd_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_gpu_smoke_and_training",
+  "frontier_basis": [
+    "2025-09-15 ensemble-to-single segmentation distillation",
+    "2026 3D brain MRI/CT voxel KL distillation"
+  ],
+  "student": {
+    "architecture": "true-128^3 4,700,897-parameter plain SegResNet",
+    "initial_checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "initial_global_epoch": 168
+  },
+  "teacher": {
+    "formula": "0.75 * historical168 logit + 0.25 * EMA168 logit",
+    "historical_checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "ema168_checkpoint_sha256": "4ea97dacb9a538993e1c16593bc56b03ce6dc3df2f457c1f0426439c6252197e",
+    "eval_no_grad": true,
+    "same_augmented_input_as_student": true
+  },
+  "matched_arms": {
+    "control": "existing DiceCE only",
+    "kd": "DiceCE + 0.3 * T^2 mean_voxel KL(binary_teacher || binary_student)",
+    "temperature": 2.0,
+    "kd_weight": 0.3,
+    "only_changed_factor": "voxel KL distillation term"
+  },
+  "training": {
+    "train_manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "cases": 756,
+    "subjects": 346,
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "seed": 20260846,
+    "batch_size": 8,
+    "continuation_global_epochs": [169, 200],
+    "learning_rate": "continue frozen 200-epoch cosine schedule from epoch169 to epoch200",
+    "weight_decay": 0.00001,
+    "max_shift": 8,
+    "fixed_checkpoints": [176, 184, 192, 200]
+  },
+  "validation": {
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 50,
+    "historical_report_sha256": "3404d598ade63ec6d2b7ccd44f67e284ca7f2c7c7a904546fdfcd1ed8fb95f12",
+    "ensemble_report_sha256": "66681f5d811f25c6fc67eeafa12b7356b5e0962f98c20be66d5e60b53254460a",
+    "selection": "maximum KD scan Dice, subject Dice tie-break among global epochs176/184/192/200",
+    "gates_all_required": [
+      "KD beats matched control scan and subject",
+      "KD beats historical scan and subject",
+      "KD absorbs at least 80% of ensemble validation scan and subject gains",
+      "KD point hit is within one validation case of ensemble",
+      "paired subject CI lower versus historical >= -0.003",
+      "final control and KD checkpoint reload difference == 0"
+    ]
+  },
+  "outputs": {
+    "control": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/control_seed20260846",
+    "kd": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/kd_seed20260846",
+    "validation": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/KD_VALIDATION.json"
+  },
+  "code": {
+    "trainer_sha256": "e10964163c22253af9773d41e72f9dceefc52a27cbcd42c3779073fd2fc38120",
+    "evaluator_sha256": "dbc7dee3d234b0bd72312b6b89651468e2a5a72f9bb9b7e7fc3c8e1281dd623c",
+    "test_sha256": "992cfb22f5dd56e309901e56f957254cfcb81dcf1461861600fda678b125a40b"
+  },
+  "if_gates_fail": "stop without temperature, KD-weight, epoch, or test tuning",
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

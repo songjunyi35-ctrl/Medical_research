@@ -1,0 +1,21 @@
+{
+  "schema": "aflow.brats_africa95.frozen_baselines.preregistration",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T01:24:14Z",
+  "status": "frozen_before_package_payload_nifti_labels_cache_or_model_access",
+  "cohort": {"name": "BraTS-Africa public post-challenge 95_Glioma", "cases": 95, "subjects": 95, "original_roles": {"train": 60, "validation": 15, "test": 20}, "all_labels_now_public": true, "hidden_blind": false, "institution_disjoint_from_brats2024_seven_sites": true, "patient_id_bridge": false},
+  "frozen_sources": {"package_id": 948, "official_inventory_sha256": "16f6eee4fe258e9e75a69a2bda75c7f3f5a00365ab833308bf1e1943fbcee45b", "cohort_sha256": "a2ce66d546b43e3bc03242a51827a155c7601956b1af52eefddb4fe99a72c449", "case_ids_sha256": "36b438be0f54758832618b038edddc9a24eb784bc4cb8098849d3ac9af9e5fbf", "files": 190, "bytes_per_copy": 277630584, "license": "CC BY 4.0"},
+  "target": {"name": "preoperative whole tumor", "rule": "all positive segmentation values", "allowed_raw_values": [0, 1, 2, 3, 4], "excluded_cases": 0},
+  "preprocessing": "canonical_RAS -> N4_shrink2 -> positive-image bbox -> source nonzero population zscore -> image trilinear/label nearest-exact 128^3",
+  "models": [
+    {"identifier": "full972_random_init_voxel_kd_epoch168", "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b", "views": ["identity", "fixed_flip8_equal_raw_logit_mean"]},
+    {"identifier": "gcsam_fit864_inner_selected_epoch184", "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d", "views": ["identity"]}
+  ],
+  "inference": {"threshold": 0.0, "point": "argmax raw logit", "sam": false, "postprocessing": false, "model_ensemble": false, "forwards": 855},
+  "statistics": {"scan_and_subject_equal_because_one_scan_per_subject": true, "bootstrap": "percentile", "samples": 10000, "seed": 2026090601, "comparisons": ["full_flip8_minus_full_identity", "gcsam_identity_minus_full_identity"]},
+  "engineering_gate": "dual-transfer exact 190 files; all95 geometry/finite/integer/domain/nonempty; cache finite and empty preserved; first-case byte-exact reproduction; synthetic CUDA smoke; all frozen hashes",
+  "performance_promotion_gate": null,
+  "result_policy": "evaluate exactly once after all gates; always archive; no tuning, promotion or repeat",
+  "access": {"package_payload": false, "nifti_arrays": false, "label_values": false, "cache": false, "model_inference": false, "internal_test270": false, "fixed_validation108": false, "outer": false, "confirmation": false, "ucsd75": false},
+  "idea_path": "archive/research_records/2026-09-06_brats_africa95_frozen_baselines/IDEA.md"
+}

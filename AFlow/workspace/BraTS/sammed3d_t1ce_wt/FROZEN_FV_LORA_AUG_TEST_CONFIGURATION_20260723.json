@@ -1,0 +1,100 @@
+{
+  "created_at_utc": "2026-07-23T14:07:31.737810+00:00",
+  "evaluator": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_sammed3d_t1ce_wt_checkpoint.py",
+    "sha256": "183886e13a7a6aacbe01f9c27f7cc9860edcb081bb7b84ec24ec98fba034c02e"
+  },
+  "model": {
+    "adapter_config": {
+      "encoder_qv_lora": {
+        "alpha": 8.0,
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "enabled": true,
+        "projections": [
+          "q",
+          "v"
+        ],
+        "rank": 4
+      },
+      "model_type": "vit_b_ori",
+      "schema_version": 1,
+      "target_token": {
+        "embedding_dim": 384,
+        "enabled": false,
+        "vocab": [
+          "tumor_WT",
+          "tumor_TC",
+          "tumor_ET",
+          "label_SNFH",
+          "label_RC",
+          "label_NETC"
+        ]
+      }
+    },
+    "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/sam_model_val_dice_best.pth",
+    "checkpoint_sha256": "c1d1bd79791aa7beeffc541095472dec968630cc70ea7967128c86552bd7f1ec"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt.fv_lora_test_freeze",
+  "schema_version": 1,
+  "selection_used_test": false,
+  "status": "frozen_before_test_manifest_open",
+  "test": {
+    "cases": 270,
+    "expected_manifest_sha256": "7b91690c63a5eb359be105b9cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "expected_split": "test",
+    "manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/test_cases.jsonl",
+    "num_clicks": 3,
+    "output": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/FROZEN_fv_lora_aug_test270_cumulative3_s20260723.json",
+    "seed": 20260723,
+    "spatial_preprocessing": "whole_resize",
+    "threshold": "raw logit > 0"
+  },
+  "training": {
+    "artifact_sha256": {
+      "best": "a7033e6a917e38de45dad874390695ec2127ec8f4532962fceb3d20c68a58ba7",
+      "latest": "e19d6f50fb8b0e7f843e75ca98b383d73b366b1940888786f0e590586f3e54db",
+      "protocol": "df71f27366fd4f0503b00acc84b2858761fc71d51f2ce7e2bd6488acb0b90a93",
+      "train_config": "b509c4ab2baae2dc68967be097f69e649965e96c978fe51e988d6c0474973e93"
+    },
+    "artifacts": {
+      "best": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/best.json",
+      "latest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/sam_model_latest.pth",
+      "protocol": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/t1ce_wt_protocol.json",
+      "train_config": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/train_config.json"
+    },
+    "best": {
+      "selection": {
+        "checkpoint": "sam_model_val_dice_best.pth",
+        "epoch": 33,
+        "metric": "val_dice",
+        "value": 0.532816762311591
+      },
+      "val_dice": {
+        "epoch": 33,
+        "value": 0.532816762311591
+      },
+      "val_loss": {
+        "epoch": 33,
+        "value": 0.4345534786030098
+      },
+      "val_macro_dice": {
+        "epoch": 33,
+        "value": 0.532816762311591
+      }
+    },
+    "output_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725"
+  }
+}

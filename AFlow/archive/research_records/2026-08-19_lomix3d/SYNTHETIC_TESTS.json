@@ -1,0 +1,28 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_lomix3d_synthetic_tests",
+  "schema_version": 1,
+  "status": "passed",
+  "command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_t1ce_wt_plain_lomix3d.py",
+  "passed": 12,
+  "failed": 0,
+  "elapsed_seconds": 28.42,
+  "coverage": [
+    "three real decoder stage native and aligned shapes",
+    "stable 19-map names and order",
+    "independently registered concat and attention modules per subset",
+    "initial alpha and total effective Softplus weight",
+    "finite nonzero gradients for every training-only parameter tensor",
+    "frozen add, multiply, and attention formulas",
+    "wrapper final logit equals original plain locator",
+    "training-wrapper and deploy-only strict roundtrip",
+    "historical plain checkpoint strict loading",
+    "invalid image, label, and attention inputs rejected"
+  ],
+  "warning": "CPU-only isolated test emitted a CUDA device-count initialization warning; no CUDA result was used by the synthetic assertions. The separate real H100 batch8 smoke passed.",
+  "model_sha256": "1e6c1f5f654de0ac377041308d06c6f7302bfb36d0fdad87e00ccbc96c3caa7d",
+  "test_sha256": "d5b69404ee6a1cc6bb6f6bc3c14cefc904cb82a4b82e2cdfe7b837f74388fd67",
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

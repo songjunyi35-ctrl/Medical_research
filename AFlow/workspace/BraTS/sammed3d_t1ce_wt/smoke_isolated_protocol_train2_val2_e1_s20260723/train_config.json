@@ -1,0 +1,97 @@
+{
+  "adapter_config": {
+    "encoder_qv_lora": {
+      "alpha": 8.0,
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "enabled": false,
+      "projections": [
+        "q",
+        "v"
+      ],
+      "rank": 0
+    },
+    "model_type": "vit_b_ori",
+    "schema_version": 1,
+    "target_token": {
+      "embedding_dim": 384,
+      "enabled": false,
+      "vocab": [
+        "tumor_WT",
+        "tumor_TC",
+        "tumor_ET",
+        "label_SNFH",
+        "label_RC",
+        "label_NETC"
+      ]
+    }
+  },
+  "args": {
+    "accumulation_steps": 1,
+    "allow_nonempty_output": false,
+    "amp_dtype": "bf16",
+    "batch_size": 1,
+    "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "click_method": "random",
+    "device": "cuda",
+    "encoder_qv_lora_alpha": 8.0,
+    "encoder_qv_lora_rank": 0,
+    "epochs": 1,
+    "lr": 0.0001,
+    "max_train_cases": 2,
+    "max_val_cases": 2,
+    "no_amp": false,
+    "num_clicks": 3,
+    "num_workers": 0,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/smoke_isolated_protocol_train2_val2_e1_s20260723",
+    "overfit": false,
+    "seed": 20260723,
+    "selection_metric": "val_dice",
+    "strategy": "decoder_only",
+    "subset_mode": "balanced",
+    "target_sampling": "natural",
+    "target_token": false,
+    "targets": "",
+    "train_jsonl": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+    "train_rows_per_target": 0,
+    "train_samples_per_epoch": 0,
+    "val_jsonl": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+    "val_rows_per_target": 0,
+    "val_seed": 20260723,
+    "weight_decay": 0.0001
+  },
+  "effective_amp_dtype": "bf16",
+  "effective_train_seed": 20260723,
+  "effective_val_seed": 20260723,
+  "exact_train_schedule": null,
+  "selection_checkpoint": "sam_model_val_dice_best.pth",
+  "selection_metric": "val_dice",
+  "target_sampling_probability": {
+    "WT": 1.0
+  },
+  "total_parameters": 100509232,
+  "train_loader_seed": 20260724,
+  "train_rows": 2,
+  "train_sampler_seed": 20260723,
+  "train_samples_per_epoch": 2,
+  "train_targets": {
+    "WT": 2
+  },
+  "trainable_parameters": 7584304,
+  "val_rows": 2,
+  "val_targets": {
+    "WT": 2
+  }
+}

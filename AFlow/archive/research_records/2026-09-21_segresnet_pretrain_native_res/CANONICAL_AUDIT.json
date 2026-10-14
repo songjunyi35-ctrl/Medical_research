@@ -1,0 +1,53 @@
+{
+  "utc": "2026-09-21T08:15:12.445983+00:00",
+  "status": "passed",
+  "caches": [
+    {
+      "role": "train",
+      "path": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+      "index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+      "payload_sha256": {
+        "images.f32": "f772520ca0d99fca0edc60aa04a7c73e0d7818eea9fa0174a29038f8334644b9",
+        "labels.u8": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724"
+      },
+      "count": 972,
+      "preprocessing": {
+        "spatial": "braincrop_resize",
+        "spatial_description": "crop to the bounding box of nonzero voxels, then resize that box to 128^3. Does NOT use the label: the box comes from image intensity only, so localization is not oracle.",
+        "image_interpolation": "trilinear",
+        "label_interpolation": "nearest-exact",
+        "normalization": "source nonzero-voxel population z-score before resize; unchanged by the crop because the crop removes only zero voxels",
+        "uses_gt_for_localization": false,
+        "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+        "n4_bias_field_correction": true,
+        "n4_shrink_factor": 2,
+        "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+        "augmentation": "NOT cached; applied per-epoch by the dataset"
+      }
+    },
+    {
+      "role": "validation",
+      "path": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+      "index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+      "payload_sha256": {
+        "images.f32": "19107e84aba65c5c257f6a50273547e1b74e761d72e0487ad6f48a5be16d4bad",
+        "labels.u8": "6ac3a3909f157eaa629c0fca0dbfb30bd78c23206317c62be2376443ce469e0e"
+      },
+      "count": 108,
+      "preprocessing": {
+        "spatial": "braincrop_resize",
+        "spatial_description": "crop to the bounding box of nonzero voxels, then resize that box to 128^3. Does NOT use the label: the box comes from image intensity only, so localization is not oracle.",
+        "image_interpolation": "trilinear",
+        "label_interpolation": "nearest-exact",
+        "normalization": "source nonzero-voxel population z-score before resize; unchanged by the crop because the crop removes only zero voxels",
+        "uses_gt_for_localization": false,
+        "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+        "n4_bias_field_correction": true,
+        "n4_shrink_factor": 2,
+        "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+        "augmentation": "NOT cached; applied per-epoch by the dataset"
+      }
+    }
+  ],
+  "test_pixels_access": false
+}

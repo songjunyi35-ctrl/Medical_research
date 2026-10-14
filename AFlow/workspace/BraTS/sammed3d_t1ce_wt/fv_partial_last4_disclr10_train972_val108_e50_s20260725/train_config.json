@@ -1,0 +1,206 @@
+{
+  "accumulation_steps": 2,
+  "adapter_config": {
+    "encoder_qv_lora": {
+      "alpha": 8.0,
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "enabled": false,
+      "projections": [
+        "q",
+        "v"
+      ],
+      "rank": 0
+    },
+    "model_type": "vit_b_ori",
+    "schema_version": 1,
+    "target_token": {
+      "embedding_dim": 384,
+      "enabled": false,
+      "vocab": [
+        "tumor_WT",
+        "tumor_TC",
+        "tumor_ET",
+        "label_SNFH",
+        "label_RC",
+        "label_NETC"
+      ]
+    }
+  },
+  "amp_dtype": "bf16",
+  "batch_size": 1,
+  "device": "cuda",
+  "interaction": {
+    "clicks": {
+      "first": "uniform GT foreground positive",
+      "history": "all points accumulated",
+      "later": "uniform prediction XOR GT; FN positive, FP negative",
+      "num_clicks": 3
+    },
+    "input": "T1ce single channel",
+    "loss": "mean MONAI DiceCELoss over all three click predictions",
+    "mask_prompt": "previous low-resolution mask recurrently supplied",
+    "prediction_threshold": "raw logit > 0",
+    "target": {
+      "excluded_raw_labels": [
+        4
+      ],
+      "foreground_raw_labels": [
+        1,
+        2,
+        3
+      ],
+      "name": "official WT"
+    }
+  },
+  "max_epochs": 50,
+  "minimum_epochs": 20,
+  "mode": "formal",
+  "num_workers": 2,
+  "partial_unfreeze_policy": {
+    "counts": {
+      "total_parameters": 100509232,
+      "trainable_parameters": 35951920
+    },
+    "heads": {
+      "mask_decoder_trainable": true,
+      "prompt_encoder_trainable": true,
+      "target_embedding_enabled": false
+    },
+    "image_encoder": {
+      "depth": 12,
+      "frozen_blocks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "lora_enabled": false,
+      "non_block_parameters_trainable": false,
+      "trainable_blocks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "update": "base_weight_partial_unfreeze"
+    },
+    "model_type": "vit_b_ori",
+    "optimizer": {
+      "groups": [
+        {
+          "lr": 1e-05,
+          "name": "image_encoder_blocks_8_11",
+          "parameter_fingerprint_sha256": "7a4430f6a2138824f21f72d87b8b60615d2b1a17e36dfe9ddde4675cdf06c4e7",
+          "parameter_numel": 28367616,
+          "parameter_tensors": 60,
+          "weight_decay": 0.1
+        },
+        {
+          "lr": 0.0001,
+          "name": "prompt_encoder_and_mask_decoder",
+          "parameter_fingerprint_sha256": "df886afa019777db6838916722cf1908d792a9137549eeb525c6190cfbc22afa",
+          "parameter_numel": 7584304,
+          "parameter_tensors": 134,
+          "weight_decay": 0.1
+        }
+      ],
+      "type": "AdamW"
+    },
+    "schema": "aflow.sammed3d.t1ce_wt_last_four_partial_unfreeze",
+    "schema_version": 1
+  },
+  "patience": 20,
+  "preprocessing": {
+    "augmentation": {
+      "applies_to": "train split only",
+      "name": "affine_elastic_noise",
+      "random_affine": {
+        "degrees": 15,
+        "image_interpolation": "linear",
+        "label_interpolation": "nearest",
+        "probability": 0.5,
+        "scales": 0,
+        "translation": 10
+      },
+      "random_elastic_deformation": {
+        "image_interpolation": "linear",
+        "label_interpolation": "nearest",
+        "locked_borders": 2,
+        "max_displacement": 5,
+        "num_control_points": 7,
+        "probability": 0.2
+      },
+      "random_gaussian_noise": {
+        "mean": 0,
+        "probability": 0.15,
+        "std": [
+          0,
+          0.1
+        ]
+      },
+      "validation_augmentation": false
+    },
+    "geometry": {
+      "image_interpolation": "trilinear align_corners=False",
+      "label_interpolation": "nearest-exact",
+      "name": "whole_resize",
+      "target_shape": [
+        128,
+        128,
+        128
+      ],
+      "uses_gt_for_localization": false
+    },
+    "normalization": "source nonzero-voxel population z-score before resize; background remains zero; no batch re-normalization",
+    "orientation": "canonical RAS"
+  },
+  "preregistration": {
+    "parent_md_path": "workspace/BraTS/research_audits/FV_LAST4_PARTIAL_UNFREEZE_DISCLR_PREREG_20260724.md",
+    "parent_md_sha256": "111968f92c09f35272a5ddd35741c3ad1a5b2803a09f307b2a6993473e156156",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/training_protocols/fv_last4_partial_unfreeze_disclr_prereg_20260724.json",
+    "sha256": "b55e763c4ab422a8b38d49df7fe6dde9e95af8d5e154d485eaef5fdcc97a5f91"
+  },
+  "resume_supported": false,
+  "schema": "aflow.sammed3d.t1ce_wt_partial_unfreeze_training",
+  "schema_version": 1,
+  "scientific_result_eligible": true,
+  "selection_metric": "val_dice",
+  "source": {
+    "base_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "generic_trainer": "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_brats.py",
+    "generic_trainer_sha256": "0c5026e98b2e0f848c16b436610e9b7eca391995c062ac128ce1bee26d1bfa4f",
+    "policy_helper": "/mlx_devbox/users/songjunyi.666/playground/AFlow/sammed3d/partial_unfreeze.py",
+    "policy_helper_sha256": "dce2accc8d950ad171d4dc2417dead153ff2b74a78f007725dcb6ca5e5e32f07",
+    "runner": "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_t1ce_wt_partial_unfreeze.py",
+    "runner_sha256": "643c1e9124986ac4d057be3779d7eea5ff7b0e99009cea1361feb496f90cc20e",
+    "train_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+    "train_manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "validation_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+    "validation_manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c"
+  },
+  "test_access": false,
+  "tie_rule": "strict new high; retain earliest",
+  "train_image_encoder": true,
+  "train_rows": 972,
+  "train_seed": 20260725,
+  "validation_rows": 108,
+  "validation_seed": 20260723
+}

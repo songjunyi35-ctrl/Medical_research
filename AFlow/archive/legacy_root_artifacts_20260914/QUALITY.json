@@ -1,0 +1,52 @@
+{
+  "migration_status": "passed",
+  "full_regression_status": "one_unrelated_missing_temporary_dependency",
+  "tests": 991,
+  "passed": 990,
+  "failures": [
+    {
+      "name": "test_dependency_manifest_and_wheel_are_exact",
+      "classname": "tests.test_remind_dicomseg_probe",
+      "message": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/aflow-remind-dicomseg-deps/pydicom-3.0.1-py3-none-any.whl'"
+    }
+  ],
+  "validators": {
+    "verify_aflow_brats_doc_layout.py": {
+      "status": "passed",
+      "root_markdown_files": 9,
+      "relative_links_checked": 121,
+      "root_orig_files": 0
+    },
+    "verify_aflow_brats_method_catalog.py": {
+      "status": "passed",
+      "completed_method_cards": 32
+    },
+    "verify_aflow_brats_leaderboard.py": {
+      "status": "passed",
+      "updated_utc": "2026-09-11",
+      "test_rows": 15,
+      "external_rows": 4,
+      "africa_external_rows": 3,
+      "cptac_external_rows": 3,
+      "waw_external_rows": 3,
+      "waw_postop_external_rows": 3,
+      "ucsd_brats2024test_external_rows": 3,
+      "validation_rows": 16
+    },
+    "verify_aflow_root_artifacts.py": {
+      "status": "passed",
+      "root_json_files": [
+        "AFLOW_BRATS_LEADERBOARD.json"
+      ],
+      "legacy_root_artifacts": 0,
+      "historical_handoff_lines": 9
+    }
+  },
+  "exact_bytes_preserved": true,
+  "historical_code_and_leaderboards_unchanged": true,
+  "migration_receipt_sha256": "4de1545cde194674142c5815e5fe592e611b111f138b468d935911a11c6577db",
+  "regression_xml_sha256": "2e828344e14d60d4fb3c4faec520e4ab1f2485784cd4df724f6d1615e5814bad",
+  "final_handoff_sha256": "0f60bd33fd009e88fb2b935b93f16d0b704b26c4230c69aa1ca0e188e349f95f",
+  "quality_note_sha256": "0d192d224e84508af2e2f94297acea53f5fff34bc48cb32d9b10e11ab50d29f1",
+  "new_experiments_or_dependency_installation": false
+}

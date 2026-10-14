@@ -1,0 +1,19 @@
+{
+  "schema": "aflow.waw_gliomai152.evaluation_failure",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T03:58:01Z",
+  "status": "failed_before_checkpoint_model_or_performance_access",
+  "command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python scripts/evaluate_waw_gliomai152_panel.py --device cuda:0",
+  "exit_code": 1,
+  "exception": "KeyError: 'evaluator_sha256'",
+  "cause": "MODEL_PREACCESS.json stores evaluator SHA at code.evaluator_sha256 while evaluator read a top-level field",
+  "old_evaluator_sha256": "db5da8ba5cc1c81acc20ccdde76536080e15c88a96c1ad0436461fed1f96a5fb",
+  "old_model_preaccess_sha256": "b99d913d2255bbab533981467481c057906e5a3022ebd5213a86b1c33544e187",
+  "started_receipt_created": false,
+  "raw_report_created": false,
+  "checkpoint_loaded": false,
+  "model_forwards": 0,
+  "performance_metrics_accessed": false,
+  "allowed_fix": "read code.evaluator_sha256 and freeze MODEL_PREACCESS_V2 with the new evaluator hash",
+  "scientific_contract_changed": false
+}

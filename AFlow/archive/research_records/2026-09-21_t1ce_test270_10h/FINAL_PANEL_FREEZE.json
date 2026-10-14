@@ -1,0 +1,141 @@
+{
+  "utc": "2026-09-21T15:18:36.086789+00:00",
+  "selected": [
+    {
+      "id": "A_6c53d508f4172cbf",
+      "report_sha256": "9c39746f2499f064f477932e9fbfa623fb47bbd1c511eb049e8ae286f21ecea0",
+      "checkpoint_sha256": "6c53d508f4172cbf72467a494ed95d1ea40bd2969735f3cb2ca0db81bc3786cd",
+      "logits_dir": "/tmp/aflow_test270_10h_20260921/logits/A_6c53d508f4172cbf"
+    },
+    {
+      "id": "ref_native173",
+      "report_sha256": "08f8b59198e78f50a338b23be18538a6811c00c014c94c5d217e43776cda21f6",
+      "checkpoint_sha256": "57d6159802c9ac46e374c48d6f6ed42cd656422fa3b802c70cc5883351a33af4",
+      "logits_dir": "/tmp/aflow_test270_10h_20260921/logits/ref_native173"
+    },
+    {
+      "id": "ref_combination166",
+      "report_sha256": "5a25fc6e7c392023f49be93c4ebf47c2d36428404375989c378952816a4f9c36",
+      "checkpoint_sha256": "b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18",
+      "logits_dir": "/tmp/aflow_test270_10h_20260921/logits/ref_combination166"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "panel_01",
+      "components": [
+        "A_6c53d508f4172cbf"
+      ],
+      "threshold": 0.4,
+      "forward_equivalents": 8,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_02",
+      "components": [
+        "A_6c53d508f4172cbf"
+      ],
+      "threshold": 0.5,
+      "forward_equivalents": 8,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_03",
+      "components": [
+        "A_6c53d508f4172cbf"
+      ],
+      "threshold": 0.6,
+      "forward_equivalents": 8,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_04",
+      "components": [
+        "ref_native173"
+      ],
+      "threshold": 0.4,
+      "forward_equivalents": 2.666015625,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_05",
+      "components": [
+        "ref_native173"
+      ],
+      "threshold": 0.5,
+      "forward_equivalents": 2.666015625,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_06",
+      "components": [
+        "ref_native173"
+      ],
+      "threshold": 0.6,
+      "forward_equivalents": 2.666015625,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_07",
+      "components": [
+        "ref_combination166"
+      ],
+      "threshold": 0.4,
+      "forward_equivalents": 2.666015625,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_08",
+      "components": [
+        "ref_combination166"
+      ],
+      "threshold": 0.5,
+      "forward_equivalents": 2.666015625,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_09",
+      "components": [
+        "ref_combination166"
+      ],
+      "threshold": 0.6,
+      "forward_equivalents": 2.666015625,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_10",
+      "components": [
+        "ref_native173",
+        "ref_combination166"
+      ],
+      "threshold": 0.4,
+      "forward_equivalents": 5.33203125,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_11",
+      "components": [
+        "ref_native173",
+        "ref_combination166"
+      ],
+      "threshold": 0.5,
+      "forward_equivalents": 5.33203125,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    },
+    {
+      "id": "panel_12",
+      "components": [
+        "ref_native173",
+        "ref_combination166"
+      ],
+      "threshold": 0.6,
+      "forward_equivalents": 5.33203125,
+      "formula": "arithmetic mean of native-crop float32 logits, then common threshold"
+    }
+  ],
+  "compute_cap": 8,
+  "selection": "one target-best snapshot per training branch, then top3 unique model states; Scan then cost then earliest gate",
+  "test_tuned": true,
+  "new_training_allowed": false,
+  "cost_amendment_sha256": null
+}

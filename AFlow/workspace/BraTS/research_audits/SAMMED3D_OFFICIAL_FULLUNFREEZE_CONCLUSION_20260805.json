@@ -1,0 +1,90 @@
+{
+  "schema": "aflow.sammed3d.arm_conclusion",
+  "schema_version": 1,
+  "run_identity": "sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805",
+  "created_utc": "2026-08-05",
+  "preregistration": {
+    "human": {
+      "path": "workspace/BraTS/research_audits/SAMMED3D_OFFICIAL_FULLUNFREEZE_PREREG_20260805.md",
+      "sha256": "a476f602ad71b28d69f4af03647bf078436095ad8bc9be56cfe59a57bf13048d"
+    },
+    "machine": {
+      "path": "workspace/BraTS/training_protocols/sammed3d_official_fullunfreeze_prereg_20260805.json",
+      "sha256": "417b3596437fef4ba9fe65c54c2fde7d5f46193bf58deee43e8d4f18810c5d31"
+    },
+    "signoff": {
+      "path": "workspace/BraTS/research_audits/SAMMED3D_OFFICIAL_FULLUNFREEZE_SIGNOFF_20260805.json",
+      "sha256": "40e31aa389cfc695fcffe24730c659ec5b60c83f4e53e20798d154cc48a8b3c5"
+    }
+  },
+  "training": {
+    "completed_epochs": 64,
+    "max_epochs": 200,
+    "stop_reason": "frozen early-stop rule: 40 consecutive complete epochs without a strict new validation high",
+    "selected_epoch": 24,
+    "selected_trainer_val_dice": 0.5677144756471669,
+    "final_epoch_train_dice": 0.7073106607489303,
+    "final_epoch_val_dice": 0.5416814402452912,
+    "wall_clock_seconds": 8771,
+    "throughput_train_cases_per_sec": 7.441,
+    "peak_cuda_memory_bytes": 13319896576,
+    "checkpoint_sha256": "75dd0b55f9fb29f558b97f9bd8f306b57832c244e49252f2f3095a82dd464e82",
+    "strict_reload": "bitwise identical; trainable 100,509,232 / 100,509,232; unfreeze=full",
+    "lr_schedule_never_decayed": "MultiStepLR milestones [120,180] were never reached because the run stopped at epoch 64"
+  },
+  "independent_validation_108": {
+    "protocol": "strict reload of the trainer-selected checkpoint only; no per-epoch evaluation, no re-selection",
+    "seed": 20260723,
+    "cases": 108,
+    "subjects": 50,
+    "inputs": "N4 cache (matches training preprocessing)",
+    "scan_macro": {
+      "1": 0.5431913671225216,
+      "2": 0.5573086745577277,
+      "3": 0.5632824412736656
+    },
+    "subject_balanced": {
+      "1": 0.5370667777419535,
+      "2": 0.5464477423332769,
+      "3": 0.5517716211479382
+    },
+    "c3_scan_median": 0.5832797989706072,
+    "c3_iou_mean": 0.4063967349992289,
+    "report_sha256": "b448957640835f7e15cf9de7554d1b4b66f045b3d6482c5ab311e281de6ae422"
+  },
+  "comparisons": {
+    "note": "Descriptive context only. This arm is NOT a controlled contrast: full unfreeze, inverted LR direction, N4, epochs, batch and multi-GPU all changed together.",
+    "each_model_on_its_own_training_preprocessing": {
+      "full_unfreeze_subject_balanced_c3": 0.5517716211479382,
+      "lora_subject_balanced_c3": 0.5214101623252374,
+      "rank0_subject_balanced_c3": 0.478505027,
+      "delta_vs_lora": 0.030361,
+      "delta_vs_rank0": 0.073267,
+      "preferred": true,
+      "why": "each model evaluated under the preprocessing it was trained on, i.e. each at its own best"
+    },
+    "both_on_n4_inputs": {
+      "full_unfreeze_subject_balanced_c3": 0.5517716211479382,
+      "lora_subject_balanced_c3": 0.5073991965450986,
+      "delta": 0.044372,
+      "preferred": false,
+      "why": "Equalizes evaluation inputs but handicaps LoRA, which was trained without N4 and therefore suffers a train/eval mismatch here. This OVERSTATES the difference.",
+      "report_sha256": "02c613efb226216e5cfcce76fb9bfdc19adfa063149a41d21fdce7f3770ae8c6"
+    },
+    "no_paired_bootstrap": "Deliberately not computed. The arms differ in training preprocessing, so a paired confidence interval would imply an inferential rigour the design does not support."
+  },
+  "target_gap": {
+    "referenced_sammed3d_baseline": 0.741,
+    "achieved_subject_balanced_c3": 0.5517716211479382,
+    "shortfall": 0.1892,
+    "caveat": "0.741 was measured by DPD-SAM's authors on their own split under an undisclosed prompt protocol. It is not a like-for-like target and reaching it here would not constitute reproduction."
+  },
+  "lessons_for_next_arm": [
+    "patience (40) must exceed the largest LR milestone (120) or the decay schedule is unreachable; this run stopped at epoch 64 and never decayed",
+    "overfitting appeared early: train-val gap grew from -0.05 (epoch 1) to +0.13 (epoch 35) while val plateaued near 0.55",
+    "best validation arrived at epoch 24 of a 200-epoch budget, so the epoch budget was not the binding constraint",
+    "equalizing evaluation preprocessing across arms is not automatically fairer; it can transfer the mismatch penalty to the other arm"
+  ],
+  "test_access": false,
+  "matched_comparison_valid": false
+}

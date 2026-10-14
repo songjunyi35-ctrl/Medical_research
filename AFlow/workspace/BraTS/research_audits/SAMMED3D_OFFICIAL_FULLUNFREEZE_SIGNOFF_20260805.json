@@ -1,0 +1,35 @@
+{
+  "schema": "aflow.sammed3d.preregistration_signoff",
+  "schema_version": 1,
+  "run_identity": "sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805",
+  "approved_by": "operator",
+  "approved_utc": "2026-08-05",
+  "approval_verbatim": "开跑",
+  "approved_documents": {
+    "human_preregistration": {
+      "path": "workspace/BraTS/research_audits/SAMMED3D_OFFICIAL_FULLUNFREEZE_PREREG_20260805.md",
+      "sha256": "a476f602ad71b28d69f4af03647bf078436095ad8bc9be56cfe59a57bf13048d"
+    },
+    "machine_preregistration": {
+      "path": "workspace/BraTS/training_protocols/sammed3d_official_fullunfreeze_prereg_20260805.json",
+      "sha256": "417b3596437fef4ba9fe65c54c2fde7d5f46193bf58deee43e8d4f18810c5d31"
+    }
+  },
+  "explicitly_authorized": [
+    "full image-encoder unfreeze (lifts the standing prohibition)",
+    "encoder learning rate above head learning rate, per SAM-Med3D train.py",
+    "effective batch 12 via per-GPU 2 x 2 GPUs x 3 accumulation",
+    "200 epochs with MultiStepLR([120,180], gamma 0.1)"
+  ],
+  "still_prohibited": [
+    "270-case test access",
+    "threshold/TTA/morphology/postprocess search",
+    "mid-run change of any preregistered hyperparameter"
+  ],
+  "engineering_gate": {
+    "full_test_suite": "559 passed",
+    "formal_preflight": "passed, output_created=false",
+    "gpu_smoke": "exit 0, 21s clean exit, strict reload bitwise identical, peak 11.36 GiB"
+  },
+  "test_access": false
+}

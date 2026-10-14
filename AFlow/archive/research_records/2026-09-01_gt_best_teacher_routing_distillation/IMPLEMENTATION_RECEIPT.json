@@ -1,0 +1,45 @@
+{
+  "schema": "aflow.brats.t1ce_wt_gt_best_teacher_routing_implementation",
+  "schema_version": 1,
+  "status": "passed_and_frozen_before_formal",
+  "created_at_utc": "2026-09-01T11:00:12Z",
+  "documents": {
+    "idea_sha256": "eafc1c829017e35915c2730ffe58c125e900a05c344417cbf7cede4a3d45c23a",
+    "prereg_sha256": "36287d80e63cc0cc6ad1e965cd4bf6046b8e5ea02e8caf0343217101f85687f7"
+  },
+  "implementation_sha256": {
+    "runner": "3058fc0959fafb920edf1c4220f08b7b4b267230b97fa324e6c76e3ae0d9a827",
+    "tests": "74cd1b88d76313d6b86fbd1d9dbe103d7ee3cf490ec4de8142dc9653e108c427",
+    "smoke_launcher": "387ff443e08788e062d5ff736a89562c22194e8e4ca2d848582161964693ae95",
+    "formal_launcher": "90bb51d7b0d6b04fa1d3b01e62f2ac49a92243befdbea2b36f3ad0caf7079485"
+  },
+  "tests": {
+    "cpu_contracts": "4 passed",
+    "smoke_exit_sha256": "4e78adaa2b3cb6ab016f042b91a451a316291a201b3218e84ac423407f71aa6d",
+    "control_smoke_report_sha256": "6804994982cfea03432923cc53e4d6a4291861d7b645c6e6df4e3e7e2b4dd555",
+    "candidate_smoke_report_sha256": "f8af01e077f651e618077d2018f640c0d6163e94d36fff066adc7a7629a3ae84",
+    "paired_initial_state_exact": true,
+    "paired_sampler_indices_exact": true,
+    "paired_first_augmented_batch_exact": true,
+    "teacher_forwards_each": 6,
+    "control_routing_counts": [16, 0, 0],
+    "candidate_routing_counts": [5, 4, 7],
+    "control_peak_gpu_memory_bytes": 21806879232,
+    "candidate_peak_gpu_memory_bytes": 21873988608,
+    "all_gates_passed": true
+  },
+  "resources": {
+    "disk_available": "approximately 15G",
+    "planned_increment": "less than 150MB",
+    "new_cache": false,
+    "peak_hard_limit_gib": 24,
+    "single_arm_time_limit_hours": 6
+  },
+  "access": {
+    "train_only_inner": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  }
+}

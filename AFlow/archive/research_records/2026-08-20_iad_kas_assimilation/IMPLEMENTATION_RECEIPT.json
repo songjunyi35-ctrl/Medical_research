@@ -1,0 +1,72 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_iad_kas_implementation_receipt",
+  "schema_version": 1,
+  "status": "implementation_and_paired_gpu_smoke_complete_before_formal_training_or_new_validation_access",
+  "method": "teacher_free_kas_on_voxel_kd200",
+  "frozen_evidence": {
+    "idea_sha256": "aabf08e16fc6590bf85c7805e4ee6cb3e242f556fc870953e233dd187e07a077",
+    "preregistration_sha256": "af4946913b31de2148ec11ecdf739823fcd31d2b0fff025ff19c346340b0edb0",
+    "amendment_sha256": "124f319cebb3b37d542603da53adcb1bda8ab90e2b19573798c09c79efe30813",
+    "start_checkpoint_sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+    "train_manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "train_cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "validation_manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "validation_cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "kd_validation_report_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57"
+  },
+  "implementation": {
+    "model_path": "sammed3d/t1ce_wt_iad_kas.py",
+    "model_sha256": "3a0f3885e0806cd2c8e0edcbca4f0b7bfee9a6348f65174fc28db3a9f571ef33",
+    "trainer_path": "scripts/train_t1ce_wt_plain_iad_kas_continuation.py",
+    "trainer_sha256": "289168d96d3494449d9b822513fd759c69aff1b4d1c502fc59b114c1cde62ea8",
+    "validation_evaluator_path": "scripts/evaluate_t1ce_wt_plain_iad_kas_validation.py",
+    "validation_evaluator_sha256": "342a429fd51076215f7542400f9dec40e592fbfd99cad682c8244b620b35c29b",
+    "test_path": "tests/test_t1ce_wt_plain_iad_kas.py",
+    "test_sha256": "d29c480c64043f871a3d1abc6de7f67c010dd8d20dc882bfe834c5b8acd056ed",
+    "projector_initial_sha256": "61b7c474d78ce3ea275e66e88f0ee1d02840417064cdd46fa438b33523e95fe1",
+    "deploy_parameter_count": 4700897,
+    "teacher_forwards": 0
+  },
+  "synthetic": {
+    "report": "archive/research_records/2026-08-20_iad_kas_assimilation/SYNTHETIC_TESTS.json",
+    "report_sha256": "23db85d3839c7e978daee32f05b9fc8e0c26009f4fd9a8a2533146560fca22b1",
+    "passed": 12,
+    "failed": 0
+  },
+  "paired_smoke": {
+    "receipt": "archive/research_records/2026-08-20_iad_kas_assimilation/SMOKE_PAIRING_RECEIPT.json",
+    "receipt_sha256": "c2ae0caf91d153eb973a852e25f4b92cd0d391641cde0b55785770524d40be0f",
+    "control_report_sha256": "76d95d37c818accea79e587560a7b42cb28436e4bfd9badd0284f8bf392b73b4",
+    "kas_report_sha256": "62db8c6d60129251e99f65c6a5b6d44bbcb732245f4283ab502387ce020825b2",
+    "initial_student_state_sha256": "90e344496af0c848365e1b4f8ba83da1d2c7288413587df5ed0313a3e1513778",
+    "first_batch_all_hashes_match": true,
+    "control_peak_gpu_memory_bytes": 21683973120,
+    "kas_peak_gpu_memory_bytes": 24070016000,
+    "control_median_step_seconds": 0.344102144241333,
+    "kas_median_step_seconds": 0.36036229133605957,
+    "kas_weighted_to_supervised_ratio": 12.625568,
+    "all_gates_passed": true
+  },
+  "cost_update": {
+    "path": "archive/research_records/2026-08-20_iad_kas_assimilation/SMOKE_COST_UPDATE.md",
+    "sha256": "c7afbb23931092ccfe70baa54d8f66da85b3176cd8d4fd97d56e977a3d3c6374"
+  },
+  "environment": {
+    "python": "3.11.2",
+    "torch": "2.7.1+cu126",
+    "monai": "1.5.2",
+    "numpy": "2.4.6",
+    "gpus": "2x NVIDIA A100-SXM4-40GB",
+    "gpu_memory_mib_each": 40960,
+    "topology": "NV12"
+  },
+  "start_checkpoint_historical_validation_access": true,
+  "start_checkpoint_historical_test_access_after_selection": true,
+  "synthetic_all_gates_passed": true,
+  "gpu_smoke_all_gates_passed": true,
+  "all_gates_passed": true,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

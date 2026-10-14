@@ -1,0 +1,18 @@
+{
+  "schema": "aflow.cptac33.africa_informed_confirmation.preregistration",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T02:53:45Z",
+  "status": "frozen_before_sums_payload_arrays_labels_cache_or_model",
+  "hypothesis_source": "Africa95 frozen result known; test same frozen checkpoint direction on a new CPTAC cohort",
+  "cohort": {"name": "CPTAC-GBM BraTS2021 public Training33", "cases": 33, "subjects": 33, "public_training_labels": true, "original_validation_excluded_without_seg": 6, "hidden_test_used": false, "institution_disjoint_no_patient_bridge": true},
+  "frozen_source": {"analysis_package_id": 636, "mapping_sha256": "223243c5821c282e90da980ba38d860ab2d2a597d1f4f1800ebe227329a2dc0b", "inventory_sha256": "228785f0434037295a2e65a0d1a031419b074aff918fae0bc8cbbd10e8395418", "cohort_sha256": "2e1391cfd110721788aa2ddaaa4f34827eaab49b9c354d775c80651afc292208", "files": 66, "bytes_per_copy": 78013574},
+  "target": {"name": "preoperative whole tumor", "rule": "all positive", "expected_raw_values": [0,1,2,4]},
+  "preprocessing": "canonical_RAS -> N4_shrink2 -> positive-image bbox -> source nonzero zscore -> 128^3",
+  "models": [{"identifier": "full972_kd168", "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b", "views": ["identity","flip8"]}, {"identifier": "gcsam184", "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d", "views": ["identity"]}],
+  "inference": {"threshold": 0.0, "point": "argmax raw logit", "sam": false, "postprocessing": false, "model_ensemble": false, "forwards": 297},
+  "bootstrap": {"samples": 10000, "seed": 2026090701, "unit": "patient=scan"},
+  "primary_interpretation": {"comparison": "gcsam identity minus full identity", "strong_directional_support": "point delta >0 and paired CI lower >0", "weak_uncertain_support": "point delta >0 and paired CI includes0", "not_replicated": "point delta <=0"},
+  "performance_promotion_gate": null,
+  "result_policy": "one run, always archive, no tuning or repeat",
+  "access": {"sums": false, "payload": false, "arrays": false, "labels": false, "cache": false, "model_inference": false, "internal_test270": false, "ucsd75": false, "africa95_new_access": false}
+}

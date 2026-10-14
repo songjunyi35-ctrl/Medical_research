@@ -1,0 +1,20 @@
+diff --git a/AFLOW_BRATS_HANDOFF.md b/AFLOW_BRATS_HANDOFF.md
+--- a/AFLOW_BRATS_HANDOFF.md
++++ b/AFLOW_BRATS_HANDOFF.md
+@@ -20,7 +20,8 @@ epoch 20 前不早停，此后仅连续 20 个完整 epoch 没有 validation C3 strict new high 才停。
+ 独立 helper/trainer/preflight/foreground launcher/checkpoint strict reload 已完成。最终审计补上了
+ matched arms 在模型与 optimizer 构建后的第二次 RNG reseed，并将
+-`rng_reseed_after_model_setup=true` 写入 machine prereg；修复后定向回归 `24/24 passed`，
++`rng_reseed_after_model_setup=true` 写入 machine prereg；修复后聚焦回归 `24/24 passed`，
++更宽的 PEFT/T1ce-WT/partial-unfreeze CPU/synthetic 合约回归 `41/41 passed`，
+ CPU full preflight 通过且 `output_created=false`。human/machine prereg SHA-256 分别为
+ `111968f92c09f35272a5ddd35741c3ad1a5b2803a09f307b2a6993473e156156` /
+ `b55e763c4ab422a8b38d49df7fe6dde9e95af8d5e154d485eaef5fdcc97a5f91`，trainer SHA-256
+@@ -39,7 +40,7 @@ smoke 通过后才允许前台执行 formal launcher 的 `preflight` 与 `run`。
+ 
+ 完整工程门与基础设施记录：
+ `workspace/BraTS/research_audits/FV_LAST4_PARTIAL_UNFREEZE_ENGINEERING_GATE_20260725.md`
+-（SHA-256 `4b63dfebe9ef2b4d8e048676d12adfc75cba970870db45eab5059a90bc202a6c`）。
++（SHA-256 `afc25e55b81fa3d406a6037f261e54dd44a6596ddb8d65feda065d17c466d39a`）。
+ 270-case test 继续永久冻结；不得访问、重跑或用于选择，也不得 threshold/TTA/morphology/
+ postprocess/full-encoder fine-tuning。

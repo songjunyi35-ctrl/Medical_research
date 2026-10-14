@@ -1,0 +1,113 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_batch_cvar50_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_implementation_smoke_formal_or_new_validation_access",
+  "method": "batch_cvar50_top4_of8_case_loss",
+  "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12428111/",
+  "fairdro_rejection": "full FairDRO requires subgroup-conditioned dMoE and unreported KL-DRO hyperparameters; this experiment is Average-Top-k/CVaR adaptation, not FairDRO",
+  "only_changed_factor": "aggregate the identical per-case Dice+0.1CE losses by top4 mean instead of batch8 mean",
+  "loss": {
+    "per_case_dice": "MONAI DiceLoss sigmoid=true squared_pred=false batch=false reduction=none",
+    "per_case_ce": "BCEWithLogits reduction=none then spatial/channel mean per volume",
+    "ce_weight": 0.1,
+    "per_case_total": "dice_i+0.1*ce_i",
+    "control_aggregation": "mean over all8 draws",
+    "candidate_aggregation": "torch.topk(per_case_total,k=4,largest=true,sorted=true).values.mean",
+    "duplicate_case_draws": "rank separately; never deduplicate",
+    "selected_index_gradient": "discrete topk indices; gradient only through selected loss values"
+  },
+  "start_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/kd_seed20260846/plain_128_kd_global_epoch200.pth",
+    "sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+    "historical_validation_access": true,
+    "historical_test_access_after_selection": true
+  },
+  "matched_control": {
+    "directory": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/control_seed20260860",
+    "training_report_sha256": "ce987642413fbf86ccbb45ec263851b8a12cfbec6f21d2325521529b583c6392",
+    "runner_sha256": "289168d96d3494449d9b822513fd759c69aff1b4d1c502fc59b114c1cde62ea8",
+    "checkpoints": {
+      "208": "3c62166b5ca48b686ef9956cae0b78713505aeefc4db60341b2995fb3d3bb845",
+      "216": "9140f1ef188fda4158582eff1b6e41df91bd6355ced79965ea3ed51f2624c3b4",
+      "224": "5c2746dc938064f85757d5547f52bcc301f2e20310d75a09cb9f592968faf60c",
+      "232": "2d13e2bda6557318775d8c083d1bb3c0ad3b1d49d2a4c98f9c4dca6dd553245e"
+    }
+  },
+  "fixed_training": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "manifest": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "cases": 756,
+    "subjects": 346,
+    "seed": 20260860,
+    "batch_size": 8,
+    "sampler": "weighted replacement,756 draws,drop_last,94 optimizer steps",
+    "max_shift": 8,
+    "optimizer": "fresh AdamW",
+    "learning_rate": 1e-5,
+    "weight_decay": 1e-5,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "gradient_clip": 5.0,
+    "global_epochs": [201, 232],
+    "checkpoint_epochs": [208, 216, 224, 232],
+    "teacher_forwards": 0
+  },
+  "pairing": "candidate must equal archived control initial/first-batch/201-232 case-order and CUDA RNG evidence",
+  "fixed_validation": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "selection": "maximum candidate Scan among208/216/224/232; Subject exact tie; earlier epoch final tie",
+    "threshold": 0.0,
+    "tta": false,
+    "sam": false,
+    "postprocessing": false
+  },
+  "frozen_strata": {
+    "kd200_bottom27_sha256": "dd3828815ad4608ef3cac5d7586de42bf23b141cb23ef79fae1700ba5bf0aedb",
+    "boundary_top27_sha256": "668ae9bfd782009e674c4437fa83be97455ac382371716ec7d8e4fb2ed759775",
+    "overlap_cases": 13,
+    "warning": "same reused validation; mechanism gates, not independent confirmation"
+  },
+  "bootstrap": {
+    "samples": 10000,
+    "vs_control_seeds": {"208": 20260970, "216": 20260971, "224": 20260972, "232": 20260973},
+    "vs_kd200_seeds": {"208": 20260974, "216": 20260975, "224": 20260976, "232": 20260977},
+    "bottom27_seeds": {"208": 20260978, "216": 20260979, "224": 20260980, "232": 20260981},
+    "boundary27_seeds": {"208": 20260982, "216": 20260983, "224": 20260984, "232": 20260985},
+    "algorithm": "paired percentile np.default_rng; linear 2.5/97.5%; scan108; subject50 after per-subject case mean; strata27"
+  },
+  "promotion_gates_all_required": [
+    "selected Scan and Subject strictly beat same-epoch control",
+    "selected Scan and Subject strictly beat KD200",
+    "Point at least101/108",
+    "paired Scan and Subject CI lower versus control and KD200 at least -0.003",
+    "KD200-bottom27 candidate-control mean Dice strictly positive",
+    "boundary-top27 candidate-control mean Dice nonnegative",
+    "all implementation,uniform parity,pairing,reload,deploy,memory,hash,and access gates pass"
+  ],
+  "technical_stop_gates": {
+    "uniform_parity": "mean per-case loss and gradient match current DiceCELoss within1e-7",
+    "topk": "exactly four largest draws selected; loss/gradient finite",
+    "pairing": "all evidence equals archived control",
+    "memory": "formal peak allocated greater than24GiB",
+    "time": "smoke extrapolated runtime greater than45min",
+    "deploy": "all checkpoint reload/deploy differences zero"
+  },
+  "if_fail": "stop without top fraction,curriculum,loss,LR,epoch,threshold,or postprocessing search; no test270",
+  "cost": {
+    "estimated_minutes": [18, 22],
+    "estimated_peak_gib": [20.1, 20.8],
+    "disk_gib_max": 0.1,
+    "new_cache": false,
+    "deploy_parameters": 4700897,
+    "deploy_forwards": 1
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

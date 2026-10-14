@@ -1,0 +1,85 @@
+{
+  "scan_dice": 0.618411606522622,
+  "subject_dice": 0.6069065509701059,
+  "scan_ci95": [
+    0.5618522475372467,
+    0.6671426153564706
+  ],
+  "subject_ci95": [
+    0.5552961832582951,
+    0.6538784935913449
+  ],
+  "point_hit": 0.8518518518518519,
+  "scans": 108,
+  "subjects": 50,
+  "bootstrap": "10000 patient cluster percentile95 seed20260917",
+  "status": "running",
+  "epoch": 10,
+  "completed_epochs": 10,
+  "optimizer_updates": 1220,
+  "per_gpu_batch": 4,
+  "selected_checkpoint": {
+    "epoch": 10,
+    "scan_dice": 0.618411606522622,
+    "subject_dice": 0.6069065509701059,
+    "point_hit": 0.8518518518518519,
+    "report": "validation_e010.json",
+    "report_sha256": "3650399af6b44a1d6a04a498092caf2d60adc8852ce5b6f903e8536807fb810c",
+    "checkpoint_sha256": "a28874e8ca25dcd5627700ef9b2c37d880bccad66e19fa798e724bc7da5be516"
+  },
+  "training": {
+    "loss": 0.5324357482508867,
+    "train_dice": 0.6033821671342654,
+    "grad_norm_before_clip": 1.3408078747521703
+  },
+  "augmentation_fallbacks_this_epoch": 0.0,
+  "elapsed_seconds": 708.6211538240314,
+  "training_seconds_this_epoch": 64.54937923699617,
+  "validation_seconds_this_epoch": 4.972613360732794,
+  "peak_allocated_bytes_per_gpu": 38037449728,
+  "peak_reserved_bytes_per_gpu": 38791020544,
+  "grid": "native 1mm crop; padding excluded",
+  "baseline_same_grid": {
+    "scan_dice": 0.7426798774136437,
+    "subject_dice": 0.7337979122854414,
+    "scan_ci95": [
+      0.693564709549865,
+      0.7835575252488013
+    ],
+    "subject_ci95": [
+      0.688299967351059,
+      0.7743465697815021
+    ],
+    "point_hit": 0.9074074074074074,
+    "scans": 108,
+    "subjects": 50,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917"
+  },
+  "paired_this_epoch_minus_baseline": {
+    "scan_delta": -0.1242682708910218,
+    "subject_delta": -0.12689136131533554,
+    "scan_delta_ci95": [
+      -0.1461467312279603,
+      -0.10565129491161146
+    ],
+    "subject_delta_ci95": [
+      -0.14646831780884947,
+      -0.10857098821976356
+    ],
+    "point_hits_delta": -6,
+    "improved_scans": 3,
+    "worse_scans": 105,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient cluster paired percentile95 seed20260918"
+  },
+  "new_test_pixels_access": false,
+  "new_outer_confirmation_access": false,
+  "prior_test_informed_development": true,
+  "raw_report": "workspace/BraTS/segresnet_t1ce_wt/plain972_native_res_20260918/validation_e010.json",
+  "raw_report_sha256": "3650399af6b44a1d6a04a498092caf2d60adc8852ce5b6f903e8536807fb810c",
+  "checkpoint_sha256": "07889e59a8a6c52df99c66b36edf801218e92088c79c889a25d94fefcb8cea9b",
+  "freeze_sha256": "e897246764db4dc80cef9713082483430354e020ef3b71908ad22aec31fea2ae",
+  "preaccess_sha256": "0ce6fb6eb24f71f3c7d0b9f72ff7d3a14556cd56a8462ea5b86919cde3ae8f28",
+  "validation_preaccess_sha256": "702377262f67d17e8bafc4059d807e39b4f7dc62cabc4890b045535c3ab6c56f",
+  "data_audit_sha256": "bd48e3bb17006deaa7e84c8e96481ce0806079085509a53736626e49e683a4ee"
+}

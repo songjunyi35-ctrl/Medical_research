@@ -1,0 +1,15 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_batch_cvar50_implementation_amendment",
+  "schema_version": 1,
+  "amendment_id": "003_add_missing_gpu_legacy_parity_audit",
+  "timing": "after first paired GPU smoke, before formal training or new method validation access",
+  "problem": "initial smoke passed formula/topk/gradient/memory/runtime gates but did not directly compare uniform per-draw aggregation with legacy DiceCELoss on the same real BF16 logits",
+  "fix": "uniform smoke now computes legacy DiceCELoss on the same logits and requires loss absolute difference and raw-logit gradient max absolute difference each <=1e-7",
+  "scientific_method_changed": false,
+  "training_objective_changed": false,
+  "formal_optimizer_steps_before_fix": 0,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

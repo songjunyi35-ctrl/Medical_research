@@ -1,0 +1,45 @@
+{
+  "schema": "aflow.ucsd75_official_float_source_correction.result",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T00:46:14Z",
+  "status": "completed_once_and_closed",
+  "scope": {"cohort": "reused UCSD75 source correction", "scans": 75, "subjects": 53, "new_independent_cohort": false, "not_pristine_blind": true, "not_test_tuned": true},
+  "single_factor": "direct TCIA package 1019 float32 image bytes replace Pittsburgh Fiber Data Hub uint8 mirror; all other factors fixed",
+  "cache_engineering": {
+    "crop_origin_equal_cases": 75,
+    "crop_extent_equal_cases": 75,
+    "label_array_equal_cases": 75,
+    "image_array_equal_cases": 0,
+    "image_mean_abs_error_case_median": 0.004196940792968229,
+    "image_max_abs_error_overall": 7.07792329788208,
+    "first_case_reproduction_image_exact": true,
+    "first_case_reproduction_label_exact": true,
+    "elapsed_seconds": 868.8091197013855,
+    "index_sha256": "2540d5015008e22b40f3f94cc3f33b0d96cc12ee70a14b12c6d15a48e5a0856f",
+    "images_sha256": "1578f73411ad8a49de9ec67d2cee8d096f4e9fbfcd5104afda3b87af9babfadf",
+    "labels_sha256": "4d5fcb9de1b484ea570cfc0d22ad37a120e7c4c01049145a8c42f63e3c04dd38"
+  },
+  "official_float32": {
+    "gcsam184": {"scan_dice": 0.7558895047505697, "scan_dice_95ci": [0.7171913696726163, 0.7895746358732383], "subject_dice": 0.7553118862820871, "subject_dice_95ci": [0.7079896559599059, 0.7968233179793043], "point_hits": 70, "point_denominator": 75},
+    "full972_kd168": {"scan_dice": 0.746255042552948, "scan_dice_95ci": [0.7061778320670128, 0.782002838075161], "subject_dice": 0.7401648632385446, "subject_dice_95ci": [0.68809843534756, 0.7846697561021121], "point_hits": 70, "point_denominator": 75},
+    "gcsam_minus_full972": {"scan_dice": 0.009634462197621664, "scan_dice_95ci": [-0.0021625930766264513, 0.025053405344486235], "subject_dice": 0.015147023043542538, "subject_dice_95ci": [-0.0005529704568146163, 0.035820314845761404], "point_hits": 0}
+  },
+  "official_float32_minus_mirror_uint8": {
+    "gcsam184": {"scan_dice": 0.00024216651916503907, "scan_dice_95ci": [-0.001167909413576126, 0.0016577115654945371], "subject_dice": 0.00016021578566833113, "subject_dice_95ci": [-0.0008686483796662503, 0.0011700254894277582], "point_hits": -1},
+    "full972_kd168": {"scan_dice": 0.0007009149591128031, "scan_dice_95ci": [-0.0008633568783601124, 0.002658492383857568], "subject_dice": 0.001110304779601547, "subject_dice_95ci": [-0.0007349600546858596, 0.0038058521624349927], "point_hits": 0}
+  },
+  "interpretation": "official float inputs change every cached image but preserve all crop boxes and cached labels; aggregate Dice shifts are small and all source-delta confidence intervals cross zero for these two frozen models, while GCSAM loses one point hit; this does not generalize to other models or create independent external evidence",
+  "cost": {"training": false, "cache_cpu_seconds": 868.8091197013855, "model_forwards": 150, "formal_model_elapsed_seconds_sum": 4.361680269241333, "formal_process_peak_gpu_memory_bytes": 5218738176, "cache_bytes": 786432000, "deployment_forwards_per_model": 1},
+  "access": {"ucsd75_reused_source_correction": true, "internal_test270": false, "fixed_validation108": false, "outer": false, "confirmation": false, "brats_challenge_test_package": false},
+  "decision": {"performance_promotion_gate": null, "tuning": false, "repeat": false, "cohort_closed": true},
+  "evidence": {
+    "raw_report_sha256": "a1155914b16b648f97f11a7d7a20cb27096d7eed9f9662db73f4905860da04d2",
+    "started_receipt_sha256": "553cdd5bb8395638698d14068ca4fda456a45f2c4fca5976661e2dc8e09125c1",
+    "model_preaccess_sha256": "299d112a7b032dd7501b07d86dc2607cdd9b05aeef65bce9e388dd9c352a1bec",
+    "cache_comparison_sha256": "641aba1bf001e22c68b62a1f2d6cfab2b96c17b29cb4e15d969a7b28c2decb73",
+    "verification_receipt_sha256": "d1eb141f726e998d83c8256a6dae542526d0304b008be723700e6cd0a322decb",
+    "old_mirror_report_sha256": "91910760fbab804ee17b3ad8027a035a6676b02307a6f34d8408ba858c42f593",
+    "full972_checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+    "gcsam184_checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d"
+  }
+}

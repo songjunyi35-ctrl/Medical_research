@@ -1,0 +1,4818 @@
+{
+  "status": "complete_270_case_test",
+  "created_utc": "2026-09-17T03:06:30.508947+00:00",
+  "checkpoint_epoch": 50,
+  "checkpoint_sha256": "f90db2686482c59309fc38df6f1bc2ad081b87c4ed57b1fc34558404d9fae019",
+  "selection": {
+    "utc": "2026-09-17T02:53:24.744105+00:00",
+    "user_request": "最好的50 epoch拿去270个test上测试；并行评估",
+    "checkpoint_epoch": 50,
+    "checkpoint_sha256": "f90db2686482c59309fc38df6f1bc2ad081b87c4ed57b1fc34558404d9fae019",
+    "validation_selection": {
+      "epoch": 50,
+      "scan_final5": 0.5432994575250153,
+      "report": "development_e050.json",
+      "report_sha256": "4f1a3c7c7edc247aaf0c621c241727ae76b834879a71d4ac1453a0b1f37e03b5",
+      "checkpoint_sha256": "f90db2686482c59309fc38df6f1bc2ad081b87c4ed57b1fc34558404d9fae019"
+    },
+    "baseline_report": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/test270_epoch21_official15_upstreamliteral5_s2023_20260812/test_report.json",
+    "baseline_report_sha256": "7bd59843459876bd006230b24bc111cdfd726896cb3e6748b54b24c0a9659b63",
+    "selection_used_test": false,
+    "test_pixel_access_this_task": false,
+    "test_scans": 270,
+    "test_subjects": 119,
+    "case_and_subject_overlap": 0
+  },
+  "test_access": true,
+  "reused_internal": true,
+  "test_used_for_selection_or_adaptation": false,
+  "scans": 270,
+  "subjects": 119,
+  "primary_metric": "mean per-case max Dice over clicks1..5",
+  "precision": "FP16 autocast",
+  "threshold_raw_logit": 0,
+  "click_threshold_raw_logit": 0.5,
+  "test_time_augmentation": false,
+  "postprocessing": false,
+  "gt_centered_and_gt_clicks": true,
+  "grid": "1.5mm GT-centered128^3",
+  "baseline_tensor_byte_parity": true,
+  "cache_index_sha256": "3b846f2c1df0ee4c626638b35d80f42f7521980b7ecbd47f23f21274dd1c76a1",
+  "preaccess_sha256": "63278212e9fcd88d72a00f45d8df109c1761e291cabf4f9e8f8cff241cf004dc",
+  "model_preaccess_sha256": "869051a63983f163c72f2b82dfab02284da3b53669b1bf2babadea61da85547a",
+  "freeze_sha256": "485eab5d5515d9a0659a60359979616a0d286a9c2d17b1825d9983912b59e280",
+  "runtime": {
+    "preprocess_seconds": 534.0389066115022,
+    "inference_seconds": 61.964223708957434,
+    "total_seconds": 597.5979211032391,
+    "peak_allocated_bytes": 1025113600,
+    "peak_reserved_bytes": 1472200704,
+    "gpu_count": 1,
+    "physical_gpu": 1,
+    "training_concurrent": true
+  },
+  "summary": {
+    "primary_best_of_5": {
+      "scan_macro": {
+        "n": 270,
+        "mean": 0.5664241748391101,
+        "std_population": 0.15298203857635848,
+        "median": 0.5824471833324356,
+        "q25": 0.48647861070959586,
+        "q75": 0.6754712117389345,
+        "min": 0.03270440251572327,
+        "max": 0.8205335173347568
+      },
+      "subject_balanced": {
+        "n": 119,
+        "mean": 0.5505215173883997,
+        "std_population": 0.14233135681401562,
+        "median": 0.5700720934077379,
+        "q25": 0.4853457201488861,
+        "q75": 0.6603424703062217,
+        "min": 0.0847045315212014,
+        "max": 0.767964765973451,
+        "subjects": 119
+      }
+    },
+    "final_click_5": {
+      "scan_macro": {
+        "n": 270,
+        "mean": 0.5606581016413096,
+        "std_population": 0.15456028896380247,
+        "median": 0.5793159656050861,
+        "q25": 0.47965860741464283,
+        "q75": 0.6679620152411807,
+        "min": 0.03270440251572327,
+        "max": 0.8151144225651943
+      },
+      "subject_balanced": {
+        "n": 119,
+        "mean": 0.5438342725855143,
+        "std_population": 0.14497057792703363,
+        "median": 0.5672689169021687,
+        "q25": 0.4798403069153103,
+        "q75": 0.6503799131350874,
+        "min": 0.0847045315212014,
+        "max": 0.7651474192501617,
+        "subjects": 119
+      }
+    },
+    "per_click": {
+      "1": {
+        "scan_macro": {
+          "n": 270,
+          "mean": 0.5358902875711556,
+          "std_population": 0.16311575608994114,
+          "median": 0.5498470490660696,
+          "q25": 0.4403744645747914,
+          "q75": 0.6544189405164529,
+          "min": 0.02004280988519167,
+          "max": 0.8175861036238394
+        },
+        "subject_balanced": {
+          "n": 119,
+          "mean": 0.5192235642470965,
+          "std_population": 0.15187832895284503,
+          "median": 0.5540554236684042,
+          "q25": 0.43562094038616506,
+          "q75": 0.6276243433113536,
+          "min": 0.05062956066798661,
+          "max": 0.7593021873514028,
+          "subjects": 119
+        }
+      },
+      "2": {
+        "scan_macro": {
+          "n": 270,
+          "mean": 0.5494884526248809,
+          "std_population": 0.16049518527746504,
+          "median": 0.5696188800165778,
+          "q25": 0.4656201319926884,
+          "q75": 0.6656096947725225,
+          "min": 0.0,
+          "max": 0.818982877230558
+        },
+        "subject_balanced": {
+          "n": 119,
+          "mean": 0.533068480341075,
+          "std_population": 0.14868817687646763,
+          "median": 0.5610592026068401,
+          "q25": 0.4638209330744163,
+          "q75": 0.6470942581169727,
+          "min": 0.052925605834635195,
+          "max": 0.760569874430301,
+          "subjects": 119
+        }
+      },
+      "3": {
+        "scan_macro": {
+          "n": 270,
+          "mean": 0.5545580170585062,
+          "std_population": 0.15778132431470404,
+          "median": 0.5681666772015177,
+          "q25": 0.47199890252158316,
+          "q75": 0.6643666184253009,
+          "min": 0.0,
+          "max": 0.8205335173347568
+        },
+        "subject_balanced": {
+          "n": 119,
+          "mean": 0.5383128860756093,
+          "std_population": 0.14571983159930202,
+          "median": 0.5634550927923276,
+          "q25": 0.47276014294099306,
+          "q75": 0.6448242709118994,
+          "min": 0.05888209706056032,
+          "max": 0.7622939406542363,
+          "subjects": 119
+        }
+      },
+      "4": {
+        "scan_macro": {
+          "n": 270,
+          "mean": 0.5576084781715587,
+          "std_population": 0.1573379364189885,
+          "median": 0.5766896974738163,
+          "q25": 0.48142506667895923,
+          "q75": 0.6719488484301508,
+          "min": 0.0,
+          "max": 0.8175147614940622
+        },
+        "subject_balanced": {
+          "n": 119,
+          "mean": 0.5409737849504075,
+          "std_population": 0.14699035742897182,
+          "median": 0.5671806883987247,
+          "q25": 0.4771185405809072,
+          "q75": 0.6502863365777339,
+          "min": 0.06935578430429222,
+          "max": 0.7659645372774408,
+          "subjects": 119
+        }
+      },
+      "5": {
+        "scan_macro": {
+          "n": 270,
+          "mean": 0.5606581016413096,
+          "std_population": 0.15456028896380247,
+          "median": 0.5793159656050861,
+          "q25": 0.47965860741464283,
+          "q75": 0.6679620152411807,
+          "min": 0.03270440251572327,
+          "max": 0.8151144225651943
+        },
+        "subject_balanced": {
+          "n": 119,
+          "mean": 0.5438342725855143,
+          "std_population": 0.14497057792703363,
+          "median": 0.5672689169021687,
+          "q25": 0.4798403069153103,
+          "q75": 0.6503799131350874,
+          "min": 0.0847045315212014,
+          "max": 0.7651474192501617,
+          "subjects": 119
+        }
+      }
+    },
+    "best_click_counts": {
+      "1": 25,
+      "2": 39,
+      "3": 32,
+      "4": 58,
+      "5": 116
+    }
+  },
+  "cases": [
+    {
+      "manifest_index": 0,
+      "case_id": "BraTS-GLI-00006-100",
+      "subject_id": "BraTS-GLI-00006",
+      "target_voxels": 5247,
+      "click_dice": [
+        0.43450479233226835,
+        0.4427396247342638,
+        0.4566331036919272,
+        0.45563025210084035,
+        0.4629553490666886
+      ],
+      "best_of_5_dice": 0.4629553490666886,
+      "best_click": 5,
+      "final_click_5_dice": 0.4629553490666886,
+      "inference_seconds": 0.9759029634296894
+    },
+    {
+      "manifest_index": 1,
+      "case_id": "BraTS-GLI-00006-101",
+      "subject_id": "BraTS-GLI-00006",
+      "target_voxels": 5532,
+      "click_dice": [
+        0.5035016049022468,
+        0.49519900315179943,
+        0.5131688383698364,
+        0.4956272114293344,
+        0.5042905196677422
+      ],
+      "best_of_5_dice": 0.5131688383698364,
+      "best_click": 3,
+      "final_click_5_dice": 0.5042905196677422,
+      "inference_seconds": 0.25265664234757423
+    },
+    {
+      "manifest_index": 2,
+      "case_id": "BraTS-GLI-00096-100",
+      "subject_id": "BraTS-GLI-00096",
+      "target_voxels": 35450,
+      "click_dice": [
+        0.6909517252661859,
+        0.6869466453193207,
+        0.6880385609651013,
+        0.6923331875008286,
+        0.6932836506291248
+      ],
+      "best_of_5_dice": 0.6932836506291248,
+      "best_click": 5,
+      "final_click_5_dice": 0.6932836506291248,
+      "inference_seconds": 0.16986294463276863
+    },
+    {
+      "manifest_index": 3,
+      "case_id": "BraTS-GLI-00096-101",
+      "subject_id": "BraTS-GLI-00096",
+      "target_voxels": 26169,
+      "click_dice": [
+        0.6547785798944079,
+        0.6528732270799824,
+        0.655129151291513,
+        0.6528489899447414,
+        0.6583049886621315
+      ],
+      "best_of_5_dice": 0.6583049886621315,
+      "best_click": 5,
+      "final_click_5_dice": 0.6583049886621315,
+      "inference_seconds": 0.17208463698625565
+    },
+    {
+      "manifest_index": 4,
+      "case_id": "BraTS-GLI-00469-100",
+      "subject_id": "BraTS-GLI-00469",
+      "target_voxels": 42418,
+      "click_dice": [
+        0.7233110824767238,
+        0.7440433067697013,
+        0.7509024530314218,
+        0.754051901575251,
+        0.7529335751057754
+      ],
+      "best_of_5_dice": 0.754051901575251,
+      "best_click": 4,
+      "final_click_5_dice": 0.7529335751057754,
+      "inference_seconds": 0.22852959483861923
+    },
+    {
+      "manifest_index": 5,
+      "case_id": "BraTS-GLI-00469-101",
+      "subject_id": "BraTS-GLI-00469",
+      "target_voxels": 12470,
+      "click_dice": [
+        0.6077446608777283,
+        0.6322431482105871,
+        0.6370734939188869,
+        0.6314875554698052,
+        0.6274380165289256
+      ],
+      "best_of_5_dice": 0.6370734939188869,
+      "best_click": 3,
+      "final_click_5_dice": 0.6274380165289256,
+      "inference_seconds": 0.24857771024107933
+    },
+    {
+      "manifest_index": 6,
+      "case_id": "BraTS-GLI-00472-100",
+      "subject_id": "BraTS-GLI-00472",
+      "target_voxels": 3007,
+      "click_dice": [
+        0.44373207356166694,
+        0.45458944991127603,
+        0.47251941961014216,
+        0.4689384800965018,
+        0.4721054107092795
+      ],
+      "best_of_5_dice": 0.47251941961014216,
+      "best_click": 3,
+      "final_click_5_dice": 0.4721054107092795,
+      "inference_seconds": 0.16237452626228333
+    },
+    {
+      "manifest_index": 7,
+      "case_id": "BraTS-GLI-00472-101",
+      "subject_id": "BraTS-GLI-00472",
+      "target_voxels": 2638,
+      "click_dice": [
+        0.47766990291262135,
+        0.4747455348569234,
+        0.4718253968253968,
+        0.4862546305322675,
+        0.49235533191407005
+      ],
+      "best_of_5_dice": 0.49235533191407005,
+      "best_click": 5,
+      "final_click_5_dice": 0.49235533191407005,
+      "inference_seconds": 0.17125412076711655
+    },
+    {
+      "manifest_index": 8,
+      "case_id": "BraTS-GLI-00491-100",
+      "subject_id": "BraTS-GLI-00491",
+      "target_voxels": 15429,
+      "click_dice": [
+        0.4889897645184522,
+        0.49405335184894844,
+        0.4861539780521262,
+        0.4800917014512187,
+        0.4813810752781453
+      ],
+      "best_of_5_dice": 0.49405335184894844,
+      "best_click": 2,
+      "final_click_5_dice": 0.4813810752781453,
+      "inference_seconds": 0.23708022758364677
+    },
+    {
+      "manifest_index": 9,
+      "case_id": "BraTS-GLI-00491-101",
+      "subject_id": "BraTS-GLI-00491",
+      "target_voxels": 21671,
+      "click_dice": [
+        0.49522236640320866,
+        0.4842676483188677,
+        0.4885558627685159,
+        0.49069305597630347,
+        0.5022970360253295
+      ],
+      "best_of_5_dice": 0.5022970360253295,
+      "best_click": 5,
+      "final_click_5_dice": 0.5022970360253295,
+      "inference_seconds": 0.2306731753051281
+    },
+    {
+      "manifest_index": 10,
+      "case_id": "BraTS-GLI-00506-100",
+      "subject_id": "BraTS-GLI-00506",
+      "target_voxels": 7272,
+      "click_dice": [
+        0.3596558718612296,
+        0.35101462250074605,
+        0.35028761731759006,
+        0.33816999682841736,
+        0.32588230415128766
+      ],
+      "best_of_5_dice": 0.3596558718612296,
+      "best_click": 1,
+      "final_click_5_dice": 0.32588230415128766,
+      "inference_seconds": 0.163761205971241
+    },
+    {
+      "manifest_index": 11,
+      "case_id": "BraTS-GLI-00506-101",
+      "subject_id": "BraTS-GLI-00506",
+      "target_voxels": 12183,
+      "click_dice": [
+        0.509436580627255,
+        0.49439069270493263,
+        0.4867978876620259,
+        0.4936454849498328,
+        0.49990720692854934
+      ],
+      "best_of_5_dice": 0.509436580627255,
+      "best_click": 1,
+      "final_click_5_dice": 0.49990720692854934,
+      "inference_seconds": 0.17106010019779205
+    },
+    {
+      "manifest_index": 12,
+      "case_id": "BraTS-GLI-00528-100",
+      "subject_id": "BraTS-GLI-00528",
+      "target_voxels": 59631,
+      "click_dice": [
+        0.5505610953080554,
+        0.5550707591911067,
+        0.5563232335187596,
+        0.5571775797304265,
+        0.5568755697686196
+      ],
+      "best_of_5_dice": 0.5571775797304265,
+      "best_click": 4,
+      "final_click_5_dice": 0.5568755697686196,
+      "inference_seconds": 0.233588095754385
+    },
+    {
+      "manifest_index": 13,
+      "case_id": "BraTS-GLI-00528-101",
+      "subject_id": "BraTS-GLI-00528",
+      "target_voxels": 72387,
+      "click_dice": [
+        0.5763187158535996,
+        0.5800735539953193,
+        0.5784401870568713,
+        0.5797156701183068,
+        0.5762030578895303
+      ],
+      "best_of_5_dice": 0.5800735539953193,
+      "best_click": 2,
+      "final_click_5_dice": 0.5762030578895303,
+      "inference_seconds": 0.23016919568181038
+    },
+    {
+      "manifest_index": 14,
+      "case_id": "BraTS-GLI-02061-100",
+      "subject_id": "BraTS-GLI-02061",
+      "target_voxels": 6330,
+      "click_dice": [
+        0.40423887846340656,
+        0.41991247264770243,
+        0.4408659485976325,
+        0.49138015959018816,
+        0.5132146204311153
+      ],
+      "best_of_5_dice": 0.5132146204311153,
+      "best_click": 5,
+      "final_click_5_dice": 0.5132146204311153,
+      "inference_seconds": 0.16605012863874435
+    },
+    {
+      "manifest_index": 15,
+      "case_id": "BraTS-GLI-02061-101",
+      "subject_id": "BraTS-GLI-02061",
+      "target_voxels": 9888,
+      "click_dice": [
+        0.4401682171530521,
+        0.45726042770746306,
+        0.4715787028972885,
+        0.46710967505944034,
+        0.4814361485108119
+      ],
+      "best_of_5_dice": 0.4814361485108119,
+      "best_click": 5,
+      "final_click_5_dice": 0.4814361485108119,
+      "inference_seconds": 0.1730675883591175
+    },
+    {
+      "manifest_index": 16,
+      "case_id": "BraTS-GLI-02061-102",
+      "subject_id": "BraTS-GLI-02061",
+      "target_voxels": 17108,
+      "click_dice": [
+        0.5676428860964734,
+        0.5791912616538865,
+        0.6063404582805789,
+        0.6201924323763583,
+        0.600792201323498
+      ],
+      "best_of_5_dice": 0.6201924323763583,
+      "best_click": 4,
+      "final_click_5_dice": 0.600792201323498,
+      "inference_seconds": 0.24447016417980194
+    },
+    {
+      "manifest_index": 17,
+      "case_id": "BraTS-GLI-02061-103",
+      "subject_id": "BraTS-GLI-02061",
+      "target_voxels": 42884,
+      "click_dice": [
+        0.811244352724636,
+        0.813339498832959,
+        0.8139700800392393,
+        0.8111626679568096,
+        0.8129447682486817
+      ],
+      "best_of_5_dice": 0.8139700800392393,
+      "best_click": 3,
+      "final_click_5_dice": 0.8129447682486817,
+      "inference_seconds": 0.22756030037999153
+    },
+    {
+      "manifest_index": 18,
+      "case_id": "BraTS-GLI-02062-100",
+      "subject_id": "BraTS-GLI-02062",
+      "target_voxels": 8195,
+      "click_dice": [
+        0.4175855649434341,
+        0.4338834195056307,
+        0.4553283807770692,
+        0.4732668201586083,
+        0.48388899236356864
+      ],
+      "best_of_5_dice": 0.48388899236356864,
+      "best_click": 5,
+      "final_click_5_dice": 0.48388899236356864,
+      "inference_seconds": 0.16062838956713676
+    },
+    {
+      "manifest_index": 19,
+      "case_id": "BraTS-GLI-02062-101",
+      "subject_id": "BraTS-GLI-02062",
+      "target_voxels": 10258,
+      "click_dice": [
+        0.48717450446949084,
+        0.48428659725193746,
+        0.49282143020962343,
+        0.5050748322724927,
+        0.5113167858645351
+      ],
+      "best_of_5_dice": 0.5113167858645351,
+      "best_click": 5,
+      "final_click_5_dice": 0.5113167858645351,
+      "inference_seconds": 0.16892091557383537
+    },
+    {
+      "manifest_index": 20,
+      "case_id": "BraTS-GLI-02062-102",
+      "subject_id": "BraTS-GLI-02062",
+      "target_voxels": 11790,
+      "click_dice": [
+        0.5424828341547664,
+        0.5313233975317078,
+        0.5393342166280225,
+        0.5353948377204191,
+        0.5277789958342469
+      ],
+      "best_of_5_dice": 0.5424828341547664,
+      "best_click": 1,
+      "final_click_5_dice": 0.5277789958342469,
+      "inference_seconds": 0.24960045143961906
+    },
+    {
+      "manifest_index": 21,
+      "case_id": "BraTS-GLI-02062-103",
+      "subject_id": "BraTS-GLI-02062",
+      "target_voxels": 10195,
+      "click_dice": [
+        0.41412426638211186,
+        0.4186630692654789,
+        0.4128179141933304,
+        0.40087768536000407,
+        0.4060735838037765
+      ],
+      "best_of_5_dice": 0.4186630692654789,
+      "best_click": 2,
+      "final_click_5_dice": 0.4060735838037765,
+      "inference_seconds": 0.2305808961391449
+    },
+    {
+      "manifest_index": 22,
+      "case_id": "BraTS-GLI-02062-104",
+      "subject_id": "BraTS-GLI-02062",
+      "target_voxels": 9001,
+      "click_dice": [
+        0.35273172360075666,
+        0.36766182298546896,
+        0.3770285886549766,
+        0.38880293947012184,
+        0.38672330890247886
+      ],
+      "best_of_5_dice": 0.38880293947012184,
+      "best_click": 4,
+      "final_click_5_dice": 0.38672330890247886,
+      "inference_seconds": 0.16372303292155266
+    },
+    {
+      "manifest_index": 23,
+      "case_id": "BraTS-GLI-02062-105",
+      "subject_id": "BraTS-GLI-02062",
+      "target_voxels": 17846,
+      "click_dice": [
+        0.5307490527542991,
+        0.5420279360481735,
+        0.5678714037063581,
+        0.57793007222587,
+        0.5868530379089493
+      ],
+      "best_of_5_dice": 0.5868530379089493,
+      "best_click": 5,
+      "final_click_5_dice": 0.5868530379089493,
+      "inference_seconds": 0.16996226832270622
+    },
+    {
+      "manifest_index": 24,
+      "case_id": "BraTS-GLI-02066-100",
+      "subject_id": "BraTS-GLI-02066",
+      "target_voxels": 50182,
+      "click_dice": [
+        0.7808839395807645,
+        0.7831405924543595,
+        0.7803102670895266,
+        0.7807217775723078,
+        0.7794623319787434
+      ],
+      "best_of_5_dice": 0.7831405924543595,
+      "best_click": 2,
+      "final_click_5_dice": 0.7794623319787434,
+      "inference_seconds": 0.23626897484064102
+    },
+    {
+      "manifest_index": 25,
+      "case_id": "BraTS-GLI-02066-101",
+      "subject_id": "BraTS-GLI-02066",
+      "target_voxels": 14453,
+      "click_dice": [
+        0.7029271473182115,
+        0.7046574262628916,
+        0.7050766524252324,
+        0.7018360004962163,
+        0.7018618472921342
+      ],
+      "best_of_5_dice": 0.7050766524252324,
+      "best_click": 3,
+      "final_click_5_dice": 0.7018618472921342,
+      "inference_seconds": 0.22957368195056915
+    },
+    {
+      "manifest_index": 26,
+      "case_id": "BraTS-GLI-02066-102",
+      "subject_id": "BraTS-GLI-02066",
+      "target_voxels": 10126,
+      "click_dice": [
+        0.6533400223825879,
+        0.6722560361159257,
+        0.672120830711139,
+        0.6757563533682936,
+        0.6672961170777765
+      ],
+      "best_of_5_dice": 0.6757563533682936,
+      "best_click": 4,
+      "final_click_5_dice": 0.6672961170777765,
+      "inference_seconds": 0.16241135075688362
+    },
+    {
+      "manifest_index": 27,
+      "case_id": "BraTS-GLI-02066-103",
+      "subject_id": "BraTS-GLI-02066",
+      "target_voxels": 44675,
+      "click_dice": [
+        0.7892838644080803,
+        0.7909421754953497,
+        0.7987409702739954,
+        0.8045338701520215,
+        0.8082934736926372
+      ],
+      "best_of_5_dice": 0.8082934736926372,
+      "best_click": 5,
+      "final_click_5_dice": 0.8082934736926372,
+      "inference_seconds": 0.16895848512649536
+    },
+    {
+      "manifest_index": 28,
+      "case_id": "BraTS-GLI-02066-104",
+      "subject_id": "BraTS-GLI-02066",
+      "target_voxels": 48960,
+      "click_dice": [
+        0.7966453658096165,
+        0.8031809533102405,
+        0.8029066064501187,
+        0.8042619673753773,
+        0.8033760427028038
+      ],
+      "best_of_5_dice": 0.8042619673753773,
+      "best_click": 4,
+      "final_click_5_dice": 0.8033760427028038,
+      "inference_seconds": 0.23964304104447365
+    },
+    {
+      "manifest_index": 29,
+      "case_id": "BraTS-GLI-02066-105",
+      "subject_id": "BraTS-GLI-02066",
+      "target_voxels": 58716,
+      "click_dice": [
+        0.8028512725900457,
+        0.8092420629430388,
+        0.8146083169754054,
+        0.8122976019676164,
+        0.8101066310693665
+      ],
+      "best_of_5_dice": 0.8146083169754054,
+      "best_click": 3,
+      "final_click_5_dice": 0.8101066310693665,
+      "inference_seconds": 0.22900913283228874
+    },
+    {
+      "manifest_index": 30,
+      "case_id": "BraTS-GLI-02072-100",
+      "subject_id": "BraTS-GLI-02072",
+      "target_voxels": 10154,
+      "click_dice": [
+        0.6384765904643727,
+        0.6372161895360315,
+        0.646441073512252,
+        0.6523949442656592,
+        0.6391801944165111
+      ],
+      "best_of_5_dice": 0.6523949442656592,
+      "best_click": 4,
+      "final_click_5_dice": 0.6391801944165111,
+      "inference_seconds": 0.16369330137968063
+    },
+    {
+      "manifest_index": 31,
+      "case_id": "BraTS-GLI-02072-101",
+      "subject_id": "BraTS-GLI-02072",
+      "target_voxels": 10982,
+      "click_dice": [
+        0.68682523979526,
+        0.6865786437636201,
+        0.6823819157357727,
+        0.6802026061734274,
+        0.6790112673595947
+      ],
+      "best_of_5_dice": 0.68682523979526,
+      "best_click": 1,
+      "final_click_5_dice": 0.6790112673595947,
+      "inference_seconds": 0.17013593763113022
+    },
+    {
+      "manifest_index": 32,
+      "case_id": "BraTS-GLI-02072-102",
+      "subject_id": "BraTS-GLI-02072",
+      "target_voxels": 27764,
+      "click_dice": [
+        0.6435771517187904,
+        0.6399691421801601,
+        0.6508479386929681,
+        0.64518102441466,
+        0.6447987380637166
+      ],
+      "best_of_5_dice": 0.6508479386929681,
+      "best_click": 3,
+      "final_click_5_dice": 0.6447987380637166,
+      "inference_seconds": 0.24899312481284142
+    },
+    {
+      "manifest_index": 33,
+      "case_id": "BraTS-GLI-02072-103",
+      "subject_id": "BraTS-GLI-02072",
+      "target_voxels": 33565,
+      "click_dice": [
+        0.7832040292372228,
+        0.7955714732383957,
+        0.7994340290060135,
+        0.7978749301905975,
+        0.7944102321174799
+      ],
+      "best_of_5_dice": 0.7994340290060135,
+      "best_click": 3,
+      "final_click_5_dice": 0.7944102321174799,
+      "inference_seconds": 0.23011180385947227
+    },
+    {
+      "manifest_index": 34,
+      "case_id": "BraTS-GLI-02072-104",
+      "subject_id": "BraTS-GLI-02072",
+      "target_voxels": 25046,
+      "click_dice": [
+        0.6596880609889726,
+        0.6519233987615655,
+        0.6633626506584764,
+        0.6668209483696281,
+        0.6505008406545265
+      ],
+      "best_of_5_dice": 0.6668209483696281,
+      "best_click": 4,
+      "final_click_5_dice": 0.6505008406545265,
+      "inference_seconds": 0.1644061617553234
+    },
+    {
+      "manifest_index": 35,
+      "case_id": "BraTS-GLI-02072-105",
+      "subject_id": "BraTS-GLI-02072",
+      "target_voxels": 18292,
+      "click_dice": [
+        0.602020595783387,
+        0.6059240606984295,
+        0.6175138884428888,
+        0.6304394361028715,
+        0.637877030162413
+      ],
+      "best_of_5_dice": 0.637877030162413,
+      "best_click": 5,
+      "final_click_5_dice": 0.637877030162413,
+      "inference_seconds": 0.16682708263397217
+    },
+    {
+      "manifest_index": 36,
+      "case_id": "BraTS-GLI-02074-100",
+      "subject_id": "BraTS-GLI-02074",
+      "target_voxels": 24286,
+      "click_dice": [
+        0.65802823788277,
+        0.6657369439876777,
+        0.6828988033917109,
+        0.677013045434098,
+        0.6872852233676976
+      ],
+      "best_of_5_dice": 0.6872852233676976,
+      "best_click": 5,
+      "final_click_5_dice": 0.6872852233676976,
+      "inference_seconds": 0.23719336837530136
+    },
+    {
+      "manifest_index": 37,
+      "case_id": "BraTS-GLI-02074-101",
+      "subject_id": "BraTS-GLI-02074",
+      "target_voxels": 35519,
+      "click_dice": [
+        0.7264924229298004,
+        0.7352635644461019,
+        0.734988097467034,
+        0.7346432810233416,
+        0.7365288745185433
+      ],
+      "best_of_5_dice": 0.7365288745185433,
+      "best_click": 5,
+      "final_click_5_dice": 0.7365288745185433,
+      "inference_seconds": 0.23008793592453003
+    },
+    {
+      "manifest_index": 38,
+      "case_id": "BraTS-GLI-02079-100",
+      "subject_id": "BraTS-GLI-02079",
+      "target_voxels": 73968,
+      "click_dice": [
+        0.704914405818745,
+        0.7155106167846309,
+        0.720009604930531,
+        0.7223945117940043,
+        0.7186122370989095
+      ],
+      "best_of_5_dice": 0.7223945117940043,
+      "best_click": 4,
+      "final_click_5_dice": 0.7186122370989095,
+      "inference_seconds": 0.16237091645598412
+    },
+    {
+      "manifest_index": 39,
+      "case_id": "BraTS-GLI-02079-101",
+      "subject_id": "BraTS-GLI-02079",
+      "target_voxels": 87417,
+      "click_dice": [
+        0.5851521552061332,
+        0.6026278017003422,
+        0.6051074395507495,
+        0.6070146752712113,
+        0.6071994382511505
+      ],
+      "best_of_5_dice": 0.6071994382511505,
+      "best_click": 5,
+      "final_click_5_dice": 0.6071994382511505,
+      "inference_seconds": 0.1705293282866478
+    },
+    {
+      "manifest_index": 40,
+      "case_id": "BraTS-GLI-02083-100",
+      "subject_id": "BraTS-GLI-02083",
+      "target_voxels": 4075,
+      "click_dice": [
+        0.14721563981042654,
+        0.15370095726034785,
+        0.12842669845053636,
+        0.17369398037655795,
+        0.20619946091644206
+      ],
+      "best_of_5_dice": 0.20619946091644206,
+      "best_click": 5,
+      "final_click_5_dice": 0.20619946091644206,
+      "inference_seconds": 0.23656265810132027
+    },
+    {
+      "manifest_index": 41,
+      "case_id": "BraTS-GLI-02083-101",
+      "subject_id": "BraTS-GLI-02083",
+      "target_voxels": 5306,
+      "click_dice": [
+        0.34312997347480106,
+        0.301999149298171,
+        0.3590653652765454,
+        0.32652201390351804,
+        0.36431654676258995
+      ],
+      "best_of_5_dice": 0.36431654676258995,
+      "best_click": 5,
+      "final_click_5_dice": 0.36431654676258995,
+      "inference_seconds": 0.23104719817638397
+    },
+    {
+      "manifest_index": 42,
+      "case_id": "BraTS-GLI-02083-102",
+      "subject_id": "BraTS-GLI-02083",
+      "target_voxels": 15536,
+      "click_dice": [
+        0.7696496762410758,
+        0.7787738958470666,
+        0.7712221553281156,
+        0.7811050189793336,
+        0.7840692200025449
+      ],
+      "best_of_5_dice": 0.7840692200025449,
+      "best_click": 5,
+      "final_click_5_dice": 0.7840692200025449,
+      "inference_seconds": 0.16065314412117004
+    },
+    {
+      "manifest_index": 43,
+      "case_id": "BraTS-GLI-02083-103",
+      "subject_id": "BraTS-GLI-02083",
+      "target_voxels": 24004,
+      "click_dice": [
+        0.7640415793301107,
+        0.776017959755319,
+        0.7768457059087022,
+        0.7804673624553491,
+        0.7828050744275559
+      ],
+      "best_of_5_dice": 0.7828050744275559,
+      "best_click": 5,
+      "final_click_5_dice": 0.7828050744275559,
+      "inference_seconds": 0.17077606916427612
+    },
+    {
+      "manifest_index": 44,
+      "case_id": "BraTS-GLI-02084-100",
+      "subject_id": "BraTS-GLI-02084",
+      "target_voxels": 6350,
+      "click_dice": [
+        0.524102864965288,
+        0.47019147084421237,
+        0.5632704858593184,
+        0.5919129587528418,
+        0.6160488313235075
+      ],
+      "best_of_5_dice": 0.6160488313235075,
+      "best_click": 5,
+      "final_click_5_dice": 0.6160488313235075,
+      "inference_seconds": 0.24107451736927032
+    },
+    {
+      "manifest_index": 45,
+      "case_id": "BraTS-GLI-02084-101",
+      "subject_id": "BraTS-GLI-02084",
+      "target_voxels": 20682,
+      "click_dice": [
+        0.7540310157132587,
+        0.7802356051842584,
+        0.7711565155979836,
+        0.7571543327643337,
+        0.7748284973214069
+      ],
+      "best_of_5_dice": 0.7802356051842584,
+      "best_click": 2,
+      "final_click_5_dice": 0.7748284973214069,
+      "inference_seconds": 0.22964083030819893
+    },
+    {
+      "manifest_index": 46,
+      "case_id": "BraTS-GLI-02084-102",
+      "subject_id": "BraTS-GLI-02084",
+      "target_voxels": 37878,
+      "click_dice": [
+        0.8075031576684314,
+        0.8145353194062817,
+        0.8205335173347568,
+        0.8175147614940622,
+        0.8104991861096039
+      ],
+      "best_of_5_dice": 0.8205335173347568,
+      "best_click": 3,
+      "final_click_5_dice": 0.8104991861096039,
+      "inference_seconds": 0.16452359035611153
+    },
+    {
+      "manifest_index": 47,
+      "case_id": "BraTS-GLI-02084-103",
+      "subject_id": "BraTS-GLI-02084",
+      "target_voxels": 40504,
+      "click_dice": [
+        0.7824599039738482,
+        0.7986057791914982,
+        0.8003782176493276,
+        0.8032726468637135,
+        0.8001406310819804
+      ],
+      "best_of_5_dice": 0.8032726468637135,
+      "best_click": 4,
+      "final_click_5_dice": 0.8001406310819804,
+      "inference_seconds": 0.1699979566037655
+    },
+    {
+      "manifest_index": 48,
+      "case_id": "BraTS-GLI-02085-100",
+      "subject_id": "BraTS-GLI-02085",
+      "target_voxels": 22340,
+      "click_dice": [
+        0.6498025857397228,
+        0.6660414194388087,
+        0.656852474683428,
+        0.6499276249860817,
+        0.6448792593299608
+      ],
+      "best_of_5_dice": 0.6660414194388087,
+      "best_click": 2,
+      "final_click_5_dice": 0.6448792593299608,
+      "inference_seconds": 0.2389604076743126
+    },
+    {
+      "manifest_index": 49,
+      "case_id": "BraTS-GLI-02085-101",
+      "subject_id": "BraTS-GLI-02085",
+      "target_voxels": 22931,
+      "click_dice": [
+        0.6479710893133712,
+        0.6668690671362357,
+        0.6629977205988049,
+        0.6748704663212435,
+        0.6681839812956487
+      ],
+      "best_of_5_dice": 0.6748704663212435,
+      "best_click": 4,
+      "final_click_5_dice": 0.6681839812956487,
+      "inference_seconds": 0.23105522990226746
+    },
+    {
+      "manifest_index": 50,
+      "case_id": "BraTS-GLI-02085-102",
+      "subject_id": "BraTS-GLI-02085",
+      "target_voxels": 21281,
+      "click_dice": [
+        0.5938731284475965,
+        0.5913931436907367,
+        0.5975247642349811,
+        0.6225126088950023,
+        0.6303294138766717
+      ],
+      "best_of_5_dice": 0.6303294138766717,
+      "best_click": 5,
+      "final_click_5_dice": 0.6303294138766717,
+      "inference_seconds": 0.16412793472409248
+    },
+    {
+      "manifest_index": 51,
+      "case_id": "BraTS-GLI-02085-103",
+      "subject_id": "BraTS-GLI-02085",
+      "target_voxels": 22076,
+      "click_dice": [
+        0.6676694242500208,
+        0.6885970615004551,
+        0.6934650233317291,
+        0.6959727019967984,
+        0.6966296983558452
+      ],
+      "best_of_5_dice": 0.6966296983558452,
+      "best_click": 5,
+      "final_click_5_dice": 0.6966296983558452,
+      "inference_seconds": 0.17067744955420494
+    },
+    {
+      "manifest_index": 52,
+      "case_id": "BraTS-GLI-02085-104",
+      "subject_id": "BraTS-GLI-02085",
+      "target_voxels": 50438,
+      "click_dice": [
+        0.758531959706087,
+        0.7612698351968933,
+        0.7673682839223568,
+        0.7656622218004081,
+        0.7674998831939448
+      ],
+      "best_of_5_dice": 0.7674998831939448,
+      "best_click": 5,
+      "final_click_5_dice": 0.7674998831939448,
+      "inference_seconds": 0.24488193914294243
+    },
+    {
+      "manifest_index": 53,
+      "case_id": "BraTS-GLI-02085-105",
+      "subject_id": "BraTS-GLI-02085",
+      "target_voxels": 25075,
+      "click_dice": [
+        0.6637957670322879,
+        0.6857230439114108,
+        0.6767414662670858,
+        0.6737403417129176,
+        0.6737228442203603
+      ],
+      "best_of_5_dice": 0.6857230439114108,
+      "best_click": 2,
+      "final_click_5_dice": 0.6737228442203603,
+      "inference_seconds": 0.2288244366645813
+    },
+    {
+      "manifest_index": 54,
+      "case_id": "BraTS-GLI-02088-100",
+      "subject_id": "BraTS-GLI-02088",
+      "target_voxels": 36136,
+      "click_dice": [
+        0.6718021659226295,
+        0.6666666666666666,
+        0.6644951140065146,
+        0.6608478475188958,
+        0.656502002670227
+      ],
+      "best_of_5_dice": 0.6718021659226295,
+      "best_click": 1,
+      "final_click_5_dice": 0.656502002670227,
+      "inference_seconds": 0.1648043356835842
+    },
+    {
+      "manifest_index": 55,
+      "case_id": "BraTS-GLI-02088-101",
+      "subject_id": "BraTS-GLI-02088",
+      "target_voxels": 35231,
+      "click_dice": [
+        0.6818941660696476,
+        0.6852933225195998,
+        0.6894173956544666,
+        0.6884256501886044,
+        0.6825846345709163
+      ],
+      "best_of_5_dice": 0.6894173956544666,
+      "best_click": 3,
+      "final_click_5_dice": 0.6825846345709163,
+      "inference_seconds": 0.17652922123670578
+    },
+    {
+      "manifest_index": 56,
+      "case_id": "BraTS-GLI-02088-102",
+      "subject_id": "BraTS-GLI-02088",
+      "target_voxels": 29550,
+      "click_dice": [
+        0.6278506363460172,
+        0.6173984097551777,
+        0.6130629215835839,
+        0.608376304113203,
+        0.6041926050322842
+      ],
+      "best_of_5_dice": 0.6278506363460172,
+      "best_click": 1,
+      "final_click_5_dice": 0.6041926050322842,
+      "inference_seconds": 0.2521498538553715
+    },
+    {
+      "manifest_index": 57,
+      "case_id": "BraTS-GLI-02091-100",
+      "subject_id": "BraTS-GLI-02091",
+      "target_voxels": 29749,
+      "click_dice": [
+        0.6893015086409685,
+        0.6841598079019289,
+        0.6829809113696252,
+        0.682968318094833,
+        0.6815207380717714
+      ],
+      "best_of_5_dice": 0.6893015086409685,
+      "best_click": 1,
+      "final_click_5_dice": 0.6815207380717714,
+      "inference_seconds": 0.22798394411802292
+    },
+    {
+      "manifest_index": 58,
+      "case_id": "BraTS-GLI-02091-101",
+      "subject_id": "BraTS-GLI-02091",
+      "target_voxels": 28990,
+      "click_dice": [
+        0.5434786731655509,
+        0.570301342473579,
+        0.5703272779185553,
+        0.5754493227217625,
+        0.5839722682331244
+      ],
+      "best_of_5_dice": 0.5839722682331244,
+      "best_click": 5,
+      "final_click_5_dice": 0.5839722682331244,
+      "inference_seconds": 0.16561971604824066
+    },
+    {
+      "manifest_index": 59,
+      "case_id": "BraTS-GLI-02091-102",
+      "subject_id": "BraTS-GLI-02091",
+      "target_voxels": 30580,
+      "click_dice": [
+        0.6341631984614691,
+        0.6268084845512506,
+        0.6212424849699398,
+        0.6274802049371215,
+        0.6300630339094827
+      ],
+      "best_of_5_dice": 0.6341631984614691,
+      "best_click": 1,
+      "final_click_5_dice": 0.6300630339094827,
+      "inference_seconds": 0.17142267525196075
+    },
+    {
+      "manifest_index": 60,
+      "case_id": "BraTS-GLI-02091-103",
+      "subject_id": "BraTS-GLI-02091",
+      "target_voxels": 33043,
+      "click_dice": [
+        0.5566829644428088,
+        0.571701817083606,
+        0.5819236821400472,
+        0.5823287292368262,
+        0.5897493357236611
+      ],
+      "best_of_5_dice": 0.5897493357236611,
+      "best_click": 5,
+      "final_click_5_dice": 0.5897493357236611,
+      "inference_seconds": 0.24552292749285698
+    },
+    {
+      "manifest_index": 61,
+      "case_id": "BraTS-GLI-02108-100",
+      "subject_id": "BraTS-GLI-02108",
+      "target_voxels": 55255,
+      "click_dice": [
+        0.6198376586655995,
+        0.632298894144404,
+        0.6262996009049544,
+        0.6223011774426771,
+        0.6220695230396119
+      ],
+      "best_of_5_dice": 0.632298894144404,
+      "best_click": 2,
+      "final_click_5_dice": 0.6220695230396119,
+      "inference_seconds": 0.23051535338163376
+    },
+    {
+      "manifest_index": 62,
+      "case_id": "BraTS-GLI-02108-101",
+      "subject_id": "BraTS-GLI-02108",
+      "target_voxels": 54032,
+      "click_dice": [
+        0.44099320684000937,
+        0.45130324951199907,
+        0.45166073213744146,
+        0.4684266896330893,
+        0.4617277170629908
+      ],
+      "best_of_5_dice": 0.4684266896330893,
+      "best_click": 4,
+      "final_click_5_dice": 0.4617277170629908,
+      "inference_seconds": 0.16763783246278763
+    },
+    {
+      "manifest_index": 63,
+      "case_id": "BraTS-GLI-02111-100",
+      "subject_id": "BraTS-GLI-02111",
+      "target_voxels": 5149,
+      "click_dice": [
+        0.5714037977976242,
+        0.5705346461764976,
+        0.5522241818538115,
+        0.5322730558711143,
+        0.5646894904458599
+      ],
+      "best_of_5_dice": 0.5714037977976242,
+      "best_click": 1,
+      "final_click_5_dice": 0.5646894904458599,
+      "inference_seconds": 0.17790798842906952
+    },
+    {
+      "manifest_index": 64,
+      "case_id": "BraTS-GLI-02111-101",
+      "subject_id": "BraTS-GLI-02111",
+      "target_voxels": 7543,
+      "click_dice": [
+        0.560744593484807,
+        0.5753298381056634,
+        0.5755674154008562,
+        0.581006905506699,
+        0.5819933824809892
+      ],
+      "best_of_5_dice": 0.5819933824809892,
+      "best_click": 5,
+      "final_click_5_dice": 0.5819933824809892,
+      "inference_seconds": 0.2707204259932041
+    },
+    {
+      "manifest_index": 65,
+      "case_id": "BraTS-GLI-02111-102",
+      "subject_id": "BraTS-GLI-02111",
+      "target_voxels": 9236,
+      "click_dice": [
+        0.5089075142411379,
+        0.5279299014238773,
+        0.5380384192265381,
+        0.541677577027145,
+        0.5454133635334089
+      ],
+      "best_of_5_dice": 0.5454133635334089,
+      "best_click": 5,
+      "final_click_5_dice": 0.5454133635334089,
+      "inference_seconds": 0.21983448043465614
+    },
+    {
+      "manifest_index": 66,
+      "case_id": "BraTS-GLI-02111-103",
+      "subject_id": "BraTS-GLI-02111",
+      "target_voxels": 9725,
+      "click_dice": [
+        0.5432249684837834,
+        0.5625238519272358,
+        0.5631819169745708,
+        0.5657089235443943,
+        0.5661333333333334
+      ],
+      "best_of_5_dice": 0.5661333333333334,
+      "best_click": 5,
+      "final_click_5_dice": 0.5661333333333334,
+      "inference_seconds": 0.16906627640128136
+    },
+    {
+      "manifest_index": 67,
+      "case_id": "BraTS-GLI-02111-104",
+      "subject_id": "BraTS-GLI-02111",
+      "target_voxels": 9492,
+      "click_dice": [
+        0.5493031710765502,
+        0.5786067415730337,
+        0.5841328413284133,
+        0.5852992075781036,
+        0.5850033776176536
+      ],
+      "best_of_5_dice": 0.5852992075781036,
+      "best_click": 4,
+      "final_click_5_dice": 0.5850033776176536,
+      "inference_seconds": 0.1765497550368309
+    },
+    {
+      "manifest_index": 68,
+      "case_id": "BraTS-GLI-02111-105",
+      "subject_id": "BraTS-GLI-02111",
+      "target_voxels": 10767,
+      "click_dice": [
+        0.5420112029874633,
+        0.5516227801592162,
+        0.556056338028169,
+        0.5600584997883231,
+        0.5571684231457547
+      ],
+      "best_of_5_dice": 0.5600584997883231,
+      "best_click": 4,
+      "final_click_5_dice": 0.5571684231457547,
+      "inference_seconds": 0.27547888457775116
+    },
+    {
+      "manifest_index": 69,
+      "case_id": "BraTS-GLI-02111-106",
+      "subject_id": "BraTS-GLI-02111",
+      "target_voxels": 37041,
+      "click_dice": [
+        0.6729944288181058,
+        0.6806319938825405,
+        0.6793253536452666,
+        0.6820990703239048,
+        0.6806645181592282
+      ],
+      "best_of_5_dice": 0.6820990703239048,
+      "best_click": 4,
+      "final_click_5_dice": 0.6806645181592282,
+      "inference_seconds": 0.21974417939782143
+    },
+    {
+      "manifest_index": 70,
+      "case_id": "BraTS-GLI-02111-107",
+      "subject_id": "BraTS-GLI-02111",
+      "target_voxels": 12890,
+      "click_dice": [
+        0.42541615712895253,
+        0.44129386760665595,
+        0.4352831209721061,
+        0.44031316018391947,
+        0.44326799960602775
+      ],
+      "best_of_5_dice": 0.44326799960602775,
+      "best_click": 5,
+      "final_click_5_dice": 0.44326799960602775,
+      "inference_seconds": 0.16941659525036812
+    },
+    {
+      "manifest_index": 71,
+      "case_id": "BraTS-GLI-02119-100",
+      "subject_id": "BraTS-GLI-02119",
+      "target_voxels": 42913,
+      "click_dice": [
+        0.7393915907769812,
+        0.7387961786051088,
+        0.7351736863383334,
+        0.7369734331425216,
+        0.7394823171296058
+      ],
+      "best_of_5_dice": 0.7394823171296058,
+      "best_click": 5,
+      "final_click_5_dice": 0.7394823171296058,
+      "inference_seconds": 0.17844891175627708
+    },
+    {
+      "manifest_index": 72,
+      "case_id": "BraTS-GLI-02119-101",
+      "subject_id": "BraTS-GLI-02119",
+      "target_voxels": 53142,
+      "click_dice": [
+        0.7269458244617932,
+        0.7270844995897333,
+        0.7251090539150543,
+        0.7274510251088965,
+        0.7283834801510125
+      ],
+      "best_of_5_dice": 0.7283834801510125,
+      "best_click": 5,
+      "final_click_5_dice": 0.7283834801510125,
+      "inference_seconds": 0.269484955817461
+    },
+    {
+      "manifest_index": 73,
+      "case_id": "BraTS-GLI-02119-102",
+      "subject_id": "BraTS-GLI-02119",
+      "target_voxels": 45542,
+      "click_dice": [
+        0.7243677838545318,
+        0.7360414703110273,
+        0.7337909408997916,
+        0.7349416991086736,
+        0.7340251843789292
+      ],
+      "best_of_5_dice": 0.7360414703110273,
+      "best_click": 2,
+      "final_click_5_dice": 0.7340251843789292,
+      "inference_seconds": 0.23953387141227722
+    },
+    {
+      "manifest_index": 74,
+      "case_id": "BraTS-GLI-02124-100",
+      "subject_id": "BraTS-GLI-02124",
+      "target_voxels": 6547,
+      "click_dice": [
+        0.4909151525254209,
+        0.5402969638767822,
+        0.5547720449626475,
+        0.5425297487880123,
+        0.5450092764378479
+      ],
+      "best_of_5_dice": 0.5547720449626475,
+      "best_click": 3,
+      "final_click_5_dice": 0.5450092764378479,
+      "inference_seconds": 0.1686353087425232
+    },
+    {
+      "manifest_index": 75,
+      "case_id": "BraTS-GLI-02124-101",
+      "subject_id": "BraTS-GLI-02124",
+      "target_voxels": 16338,
+      "click_dice": [
+        0.6419825286011915,
+        0.6754132590917,
+        0.6570714285714285,
+        0.6783536585365854,
+        0.6886084583901774
+      ],
+      "best_of_5_dice": 0.6886084583901774,
+      "best_click": 5,
+      "final_click_5_dice": 0.6886084583901774,
+      "inference_seconds": 0.22019444033503532
+    },
+    {
+      "manifest_index": 76,
+      "case_id": "BraTS-GLI-02132-100",
+      "subject_id": "BraTS-GLI-02132",
+      "target_voxels": 52119,
+      "click_dice": [
+        0.7796414207731504,
+        0.7797557407498726,
+        0.7826809192767382,
+        0.7845626100954933,
+        0.7836018111733912
+      ],
+      "best_of_5_dice": 0.7845626100954933,
+      "best_click": 4,
+      "final_click_5_dice": 0.7836018111733912,
+      "inference_seconds": 0.2801159732043743
+    },
+    {
+      "manifest_index": 77,
+      "case_id": "BraTS-GLI-02132-101",
+      "subject_id": "BraTS-GLI-02132",
+      "target_voxels": 12053,
+      "click_dice": [
+        0.6334300379379603,
+        0.6633483781161682,
+        0.6856415964382254,
+        0.7051395657953035,
+        0.7059800664451827
+      ],
+      "best_of_5_dice": 0.7059800664451827,
+      "best_click": 5,
+      "final_click_5_dice": 0.7059800664451827,
+      "inference_seconds": 0.16367314383387566
+    },
+    {
+      "manifest_index": 78,
+      "case_id": "BraTS-GLI-02132-102",
+      "subject_id": "BraTS-GLI-02132",
+      "target_voxels": 16163,
+      "click_dice": [
+        0.7245228455754772,
+        0.7372923273880532,
+        0.7402601358554937,
+        0.7405315188085762,
+        0.7425583519702649
+      ],
+      "best_of_5_dice": 0.7425583519702649,
+      "best_click": 5,
+      "final_click_5_dice": 0.7425583519702649,
+      "inference_seconds": 0.17503243684768677
+    },
+    {
+      "manifest_index": 79,
+      "case_id": "BraTS-GLI-02132-103",
+      "subject_id": "BraTS-GLI-02132",
+      "target_voxels": 26341,
+      "click_dice": [
+        0.7748728473275631,
+        0.780954095409541,
+        0.7877399241257559,
+        0.7832662208698504,
+        0.7841497262020853
+      ],
+      "best_of_5_dice": 0.7877399241257559,
+      "best_click": 3,
+      "final_click_5_dice": 0.7841497262020853,
+      "inference_seconds": 0.23523247241973877
+    },
+    {
+      "manifest_index": 80,
+      "case_id": "BraTS-GLI-02132-104",
+      "subject_id": "BraTS-GLI-02132",
+      "target_voxels": 40316,
+      "click_dice": [
+        0.8175861036238394,
+        0.818982877230558,
+        0.8150294292102022,
+        0.8163227708179809,
+        0.8094471404598848
+      ],
+      "best_of_5_dice": 0.818982877230558,
+      "best_click": 2,
+      "final_click_5_dice": 0.8094471404598848,
+      "inference_seconds": 0.25295183807611465
+    },
+    {
+      "manifest_index": 81,
+      "case_id": "BraTS-GLI-02138-100",
+      "subject_id": "BraTS-GLI-02138",
+      "target_voxels": 8584,
+      "click_dice": [
+        0.6589192952391153,
+        0.6652279471270569,
+        0.6673924877517692,
+        0.6731739416538715,
+        0.6707349429556911
+      ],
+      "best_of_5_dice": 0.6731739416538715,
+      "best_click": 4,
+      "final_click_5_dice": 0.6707349429556911,
+      "inference_seconds": 0.1673659346997738
+    },
+    {
+      "manifest_index": 82,
+      "case_id": "BraTS-GLI-02138-101",
+      "subject_id": "BraTS-GLI-02138",
+      "target_voxels": 15739,
+      "click_dice": [
+        0.6456987038212991,
+        0.6588098355885349,
+        0.6678912045213705,
+        0.6716830574318412,
+        0.6736708503737131
+      ],
+      "best_of_5_dice": 0.6736708503737131,
+      "best_click": 5,
+      "final_click_5_dice": 0.6736708503737131,
+      "inference_seconds": 0.1710868626832962
+    },
+    {
+      "manifest_index": 83,
+      "case_id": "BraTS-GLI-02146-100",
+      "subject_id": "BraTS-GLI-02146",
+      "target_voxels": 4495,
+      "click_dice": [
+        0.14114249616460608,
+        0.16453585325180656,
+        0.18163975376929253,
+        0.18385307059498757,
+        0.18213281418991997
+      ],
+      "best_of_5_dice": 0.18385307059498757,
+      "best_click": 4,
+      "final_click_5_dice": 0.18213281418991997,
+      "inference_seconds": 0.23951764032244682
+    },
+    {
+      "manifest_index": 84,
+      "case_id": "BraTS-GLI-02146-101",
+      "subject_id": "BraTS-GLI-02146",
+      "target_voxels": 3643,
+      "click_dice": [
+        0.1191668105184418,
+        0.11545141444172971,
+        0.12312927313399918,
+        0.1272760180995475,
+        0.13007189488472026
+      ],
+      "best_of_5_dice": 0.13007189488472026,
+      "best_click": 5,
+      "final_click_5_dice": 0.13007189488472026,
+      "inference_seconds": 0.23118937015533447
+    },
+    {
+      "manifest_index": 85,
+      "case_id": "BraTS-GLI-02146-102",
+      "subject_id": "BraTS-GLI-02146",
+      "target_voxels": 3656,
+      "click_dice": [
+        0.39993847100446084,
+        0.45732838589981445,
+        0.41924174480228293,
+        0.4166012729967739,
+        0.438283466007869
+      ],
+      "best_of_5_dice": 0.45732838589981445,
+      "best_click": 2,
+      "final_click_5_dice": 0.438283466007869,
+      "inference_seconds": 0.1643601953983307
+    },
+    {
+      "manifest_index": 86,
+      "case_id": "BraTS-GLI-02146-103",
+      "subject_id": "BraTS-GLI-02146",
+      "target_voxels": 4027,
+      "click_dice": [
+        0.4432878326622803,
+        0.47527472527472525,
+        0.49196699956578377,
+        0.48774449121069574,
+        0.5019341226116516
+      ],
+      "best_of_5_dice": 0.5019341226116516,
+      "best_click": 5,
+      "final_click_5_dice": 0.5019341226116516,
+      "inference_seconds": 0.17302678525447845
+    },
+    {
+      "manifest_index": 87,
+      "case_id": "BraTS-GLI-02152-100",
+      "subject_id": "BraTS-GLI-02152",
+      "target_voxels": 10725,
+      "click_dice": [
+        0.41055883178882335,
+        0.5106760847628657,
+        0.5286147113280593,
+        0.5530771735591012,
+        0.5658027291876545
+      ],
+      "best_of_5_dice": 0.5658027291876545,
+      "best_click": 5,
+      "final_click_5_dice": 0.5658027291876545,
+      "inference_seconds": 0.24086645990610123
+    },
+    {
+      "manifest_index": 88,
+      "case_id": "BraTS-GLI-02152-101",
+      "subject_id": "BraTS-GLI-02152",
+      "target_voxels": 25620,
+      "click_dice": [
+        0.7295634586212708,
+        0.7472118214764832,
+        0.7459982980102929,
+        0.7525835628748364,
+        0.7541590354090354
+      ],
+      "best_of_5_dice": 0.7541590354090354,
+      "best_click": 5,
+      "final_click_5_dice": 0.7541590354090354,
+      "inference_seconds": 0.2295345440506935
+    },
+    {
+      "manifest_index": 89,
+      "case_id": "BraTS-GLI-02152-102",
+      "subject_id": "BraTS-GLI-02152",
+      "target_voxels": 7172,
+      "click_dice": [
+        0.5328185328185329,
+        0.5240215853722429,
+        0.5200356188780053,
+        0.5216943213439142,
+        0.5248979158933023
+      ],
+      "best_of_5_dice": 0.5328185328185329,
+      "best_click": 1,
+      "final_click_5_dice": 0.5248979158933023,
+      "inference_seconds": 0.16574060171842575
+    },
+    {
+      "manifest_index": 90,
+      "case_id": "BraTS-GLI-02152-103",
+      "subject_id": "BraTS-GLI-02152",
+      "target_voxels": 10854,
+      "click_dice": [
+        0.6131527330594723,
+        0.6245881465602795,
+        0.6545846319596752,
+        0.6499963064194431,
+        0.6575165386662611
+      ],
+      "best_of_5_dice": 0.6575165386662611,
+      "best_click": 5,
+      "final_click_5_dice": 0.6575165386662611,
+      "inference_seconds": 0.17318889126181602
+    },
+    {
+      "manifest_index": 91,
+      "case_id": "BraTS-GLI-02152-104",
+      "subject_id": "BraTS-GLI-02152",
+      "target_voxels": 11819,
+      "click_dice": [
+        0.5651837882956688,
+        0.5662145662145662,
+        0.5684619506966774,
+        0.5645582854155776,
+        0.5719515915793756
+      ],
+      "best_of_5_dice": 0.5719515915793756,
+      "best_click": 5,
+      "final_click_5_dice": 0.5719515915793756,
+      "inference_seconds": 0.24192742630839348
+    },
+    {
+      "manifest_index": 92,
+      "case_id": "BraTS-GLI-02162-100",
+      "subject_id": "BraTS-GLI-02162",
+      "target_voxels": 4355,
+      "click_dice": [
+        0.4980291345329906,
+        0.512916778403504,
+        0.5126851694193768,
+        0.5093434761038531,
+        0.5135781383432964
+      ],
+      "best_of_5_dice": 0.5135781383432964,
+      "best_click": 5,
+      "final_click_5_dice": 0.5135781383432964,
+      "inference_seconds": 0.2261272296309471
+    },
+    {
+      "manifest_index": 93,
+      "case_id": "BraTS-GLI-02162-101",
+      "subject_id": "BraTS-GLI-02162",
+      "target_voxels": 7076,
+      "click_dice": [
+        0.6267281105990783,
+        0.6014232264690779,
+        0.6122363164902936,
+        0.622160407974038,
+        0.6367804381049414
+      ],
+      "best_of_5_dice": 0.6367804381049414,
+      "best_click": 5,
+      "final_click_5_dice": 0.6367804381049414,
+      "inference_seconds": 0.1663343533873558
+    },
+    {
+      "manifest_index": 94,
+      "case_id": "BraTS-GLI-02171-100",
+      "subject_id": "BraTS-GLI-02171",
+      "target_voxels": 16280,
+      "click_dice": [
+        0.6392409647280365,
+        0.6596334569545962,
+        0.6743159139111992,
+        0.6945324476239142,
+        0.6993631007118286
+      ],
+      "best_of_5_dice": 0.6993631007118286,
+      "best_click": 5,
+      "final_click_5_dice": 0.6993631007118286,
+      "inference_seconds": 0.17684895917773247
+    },
+    {
+      "manifest_index": 95,
+      "case_id": "BraTS-GLI-02171-101",
+      "subject_id": "BraTS-GLI-02171",
+      "target_voxels": 18106,
+      "click_dice": [
+        0.598204578635107,
+        0.6175736692015209,
+        0.621344235112496,
+        0.6283889760250952,
+        0.6237836330684511
+      ],
+      "best_of_5_dice": 0.6283889760250952,
+      "best_click": 4,
+      "final_click_5_dice": 0.6237836330684511,
+      "inference_seconds": 0.25182854384183884
+    },
+    {
+      "manifest_index": 96,
+      "case_id": "BraTS-GLI-02172-100",
+      "subject_id": "BraTS-GLI-02172",
+      "target_voxels": 9817,
+      "click_dice": [
+        0.4309035875552027,
+        0.4408109257596522,
+        0.46636812282946444,
+        0.4653525214657153,
+        0.4630126485243388
+      ],
+      "best_of_5_dice": 0.46636812282946444,
+      "best_click": 3,
+      "final_click_5_dice": 0.4630126485243388,
+      "inference_seconds": 0.22855042666196823
+    },
+    {
+      "manifest_index": 97,
+      "case_id": "BraTS-GLI-02172-101",
+      "subject_id": "BraTS-GLI-02172",
+      "target_voxels": 33623,
+      "click_dice": [
+        0.7433912298465613,
+        0.7581839835013217,
+        0.7614541191943162,
+        0.7588940841634478,
+        0.763222482166693
+      ],
+      "best_of_5_dice": 0.763222482166693,
+      "best_click": 5,
+      "final_click_5_dice": 0.763222482166693,
+      "inference_seconds": 0.16461942344903946
+    },
+    {
+      "manifest_index": 98,
+      "case_id": "BraTS-GLI-02176-100",
+      "subject_id": "BraTS-GLI-02176",
+      "target_voxels": 27119,
+      "click_dice": [
+        0.6413808045063912,
+        0.6486445828444204,
+        0.6535889706669931,
+        0.6553714507973551,
+        0.6588093653961917
+      ],
+      "best_of_5_dice": 0.6588093653961917,
+      "best_click": 5,
+      "final_click_5_dice": 0.6588093653961917,
+      "inference_seconds": 0.17318762838840485
+    },
+    {
+      "manifest_index": 99,
+      "case_id": "BraTS-GLI-02176-101",
+      "subject_id": "BraTS-GLI-02176",
+      "target_voxels": 41220,
+      "click_dice": [
+        0.569667969565036,
+        0.6001265124291733,
+        0.6271075776779199,
+        0.6377719843577659,
+        0.6483854747918225
+      ],
+      "best_of_5_dice": 0.6483854747918225,
+      "best_click": 5,
+      "final_click_5_dice": 0.6483854747918225,
+      "inference_seconds": 0.2726286090910435
+    },
+    {
+      "manifest_index": 100,
+      "case_id": "BraTS-GLI-02176-102",
+      "subject_id": "BraTS-GLI-02176",
+      "target_voxels": 52462,
+      "click_dice": [
+        0.7191986955508968,
+        0.7235673417491599,
+        0.7286204226131209,
+        0.7269899273834621,
+        0.7293895474088538
+      ],
+      "best_of_5_dice": 0.7293895474088538,
+      "best_click": 5,
+      "final_click_5_dice": 0.7293895474088538,
+      "inference_seconds": 0.21937239915132523
+    },
+    {
+      "manifest_index": 101,
+      "case_id": "BraTS-GLI-02176-103",
+      "subject_id": "BraTS-GLI-02176",
+      "target_voxels": 80057,
+      "click_dice": [
+        0.7484201253686374,
+        0.7612528721731769,
+        0.7669384843071009,
+        0.768403109397101,
+        0.7651653292627152
+      ],
+      "best_of_5_dice": 0.768403109397101,
+      "best_click": 4,
+      "final_click_5_dice": 0.7651653292627152,
+      "inference_seconds": 0.16428149491548538
+    },
+    {
+      "manifest_index": 102,
+      "case_id": "BraTS-GLI-02223-100",
+      "subject_id": "BraTS-GLI-02223",
+      "target_voxels": 4431,
+      "click_dice": [
+        0.550390927055589,
+        0.5891472868217055,
+        0.5932220743319341,
+        0.587521663778163,
+        0.6085678286434272
+      ],
+      "best_of_5_dice": 0.6085678286434272,
+      "best_click": 5,
+      "final_click_5_dice": 0.6085678286434272,
+      "inference_seconds": 0.18192259967327118
+    },
+    {
+      "manifest_index": 103,
+      "case_id": "BraTS-GLI-02227-100",
+      "subject_id": "BraTS-GLI-02227",
+      "target_voxels": 12662,
+      "click_dice": [
+        0.5865255052935515,
+        0.5928117989594769,
+        0.5972876247880957,
+        0.6069480065283283,
+        0.5963936313063495
+      ],
+      "best_of_5_dice": 0.6069480065283283,
+      "best_click": 4,
+      "final_click_5_dice": 0.5963936313063495,
+      "inference_seconds": 0.26911088824272156
+    },
+    {
+      "manifest_index": 104,
+      "case_id": "BraTS-GLI-02227-101",
+      "subject_id": "BraTS-GLI-02227",
+      "target_voxels": 12214,
+      "click_dice": [
+        0.6271186440677966,
+        0.6426320313246108,
+        0.6503424336241673,
+        0.6393749101193615,
+        0.6495155676794281
+      ],
+      "best_of_5_dice": 0.6503424336241673,
+      "best_click": 3,
+      "final_click_5_dice": 0.6495155676794281,
+      "inference_seconds": 0.21300150454044342
+    },
+    {
+      "manifest_index": 105,
+      "case_id": "BraTS-GLI-02230-100",
+      "subject_id": "BraTS-GLI-02230",
+      "target_voxels": 10107,
+      "click_dice": [
+        0.5007020328429278,
+        0.6596539792387544,
+        0.6425600973729587,
+        0.6238762055249822,
+        0.6363886292406664
+      ],
+      "best_of_5_dice": 0.6596539792387544,
+      "best_click": 2,
+      "final_click_5_dice": 0.6363886292406664,
+      "inference_seconds": 0.1683221496641636
+    },
+    {
+      "manifest_index": 106,
+      "case_id": "BraTS-GLI-02230-101",
+      "subject_id": "BraTS-GLI-02230",
+      "target_voxels": 8083,
+      "click_dice": [
+        0.4,
+        0.3849844764324019,
+        0.4347496206373293,
+        0.4262627542936815,
+        0.4339908952959029
+      ],
+      "best_of_5_dice": 0.4347496206373293,
+      "best_click": 3,
+      "final_click_5_dice": 0.4339908952959029,
+      "inference_seconds": 0.17513280734419823
+    },
+    {
+      "manifest_index": 107,
+      "case_id": "BraTS-GLI-02230-102",
+      "subject_id": "BraTS-GLI-02230",
+      "target_voxels": 8804,
+      "click_dice": [
+        0.41671240395170145,
+        0.4382226110868071,
+        0.4454587474000462,
+        0.4401575252554078,
+        0.43174709562109026
+      ],
+      "best_of_5_dice": 0.4454587474000462,
+      "best_click": 3,
+      "final_click_5_dice": 0.43174709562109026,
+      "inference_seconds": 0.26692136004567146
+    },
+    {
+      "manifest_index": 108,
+      "case_id": "BraTS-GLI-02238-100",
+      "subject_id": "BraTS-GLI-02238",
+      "target_voxels": 5645,
+      "click_dice": [
+        0.6779409338393004,
+        0.6857727737973388,
+        0.6829228510846518,
+        0.6872791519434629,
+        0.6876142975893599
+      ],
+      "best_of_5_dice": 0.6876142975893599,
+      "best_click": 5,
+      "final_click_5_dice": 0.6876142975893599,
+      "inference_seconds": 0.21565230563282967
+    },
+    {
+      "manifest_index": 109,
+      "case_id": "BraTS-GLI-02238-101",
+      "subject_id": "BraTS-GLI-02238",
+      "target_voxels": 2630,
+      "click_dice": [
+        0.34765933446136493,
+        0.37329214684566947,
+        0.38043062810549116,
+        0.39169800807911964,
+        0.4079389312977099
+      ],
+      "best_of_5_dice": 0.4079389312977099,
+      "best_click": 5,
+      "final_click_5_dice": 0.4079389312977099,
+      "inference_seconds": 0.16892362013459206
+    },
+    {
+      "manifest_index": 110,
+      "case_id": "BraTS-GLI-02238-102",
+      "subject_id": "BraTS-GLI-02238",
+      "target_voxels": 4825,
+      "click_dice": [
+        0.38081603435934147,
+        0.44858269883496926,
+        0.46760249140094823,
+        0.4766967252017086,
+        0.47908445146014206
+      ],
+      "best_of_5_dice": 0.47908445146014206,
+      "best_click": 5,
+      "final_click_5_dice": 0.47908445146014206,
+      "inference_seconds": 0.19840876013040543
+    },
+    {
+      "manifest_index": 111,
+      "case_id": "BraTS-GLI-02238-103",
+      "subject_id": "BraTS-GLI-02238",
+      "target_voxels": 4477,
+      "click_dice": [
+        0.4429744161951064,
+        0.4724346717654557,
+        0.4790151091214326,
+        0.48912959381044485,
+        0.4847721378288255
+      ],
+      "best_of_5_dice": 0.48912959381044485,
+      "best_click": 4,
+      "final_click_5_dice": 0.4847721378288255,
+      "inference_seconds": 0.29793042689561844
+    },
+    {
+      "manifest_index": 112,
+      "case_id": "BraTS-GLI-02241-100",
+      "subject_id": "BraTS-GLI-02241",
+      "target_voxels": 6180,
+      "click_dice": [
+        0.4832498434564809,
+        0.481006532784902,
+        0.48418070203053676,
+        0.4864602699862582,
+        0.4842203693602431
+      ],
+      "best_of_5_dice": 0.4864602699862582,
+      "best_click": 4,
+      "final_click_5_dice": 0.4842203693602431,
+      "inference_seconds": 0.17177775502204895
+    },
+    {
+      "manifest_index": 113,
+      "case_id": "BraTS-GLI-02241-101",
+      "subject_id": "BraTS-GLI-02241",
+      "target_voxels": 3325,
+      "click_dice": [
+        0.394637332416638,
+        0.4176661809214214,
+        0.4276467361492046,
+        0.4391278727165586,
+        0.43903051613713423
+      ],
+      "best_of_5_dice": 0.4391278727165586,
+      "best_click": 4,
+      "final_click_5_dice": 0.43903051613713423,
+      "inference_seconds": 0.1653599739074707
+    },
+    {
+      "manifest_index": 114,
+      "case_id": "BraTS-GLI-02241-102",
+      "subject_id": "BraTS-GLI-02241",
+      "target_voxels": 8010,
+      "click_dice": [
+        0.4813052345343304,
+        0.49902912621359224,
+        0.5082161948129084,
+        0.5119532310262032,
+        0.5222998970357123
+      ],
+      "best_of_5_dice": 0.5222998970357123,
+      "best_click": 5,
+      "final_click_5_dice": 0.5222998970357123,
+      "inference_seconds": 0.19007525593042374
+    },
+    {
+      "manifest_index": 115,
+      "case_id": "BraTS-GLI-02244-100",
+      "subject_id": "BraTS-GLI-02244",
+      "target_voxels": 6494,
+      "click_dice": [
+        0.45156897938973817,
+        0.44265221941759525,
+        0.4434910674265224,
+        0.45320889798005626,
+        0.4518092214063637
+      ],
+      "best_of_5_dice": 0.45320889798005626,
+      "best_click": 4,
+      "final_click_5_dice": 0.4518092214063637,
+      "inference_seconds": 0.27165796235203743
+    },
+    {
+      "manifest_index": 116,
+      "case_id": "BraTS-GLI-02244-101",
+      "subject_id": "BraTS-GLI-02244",
+      "target_voxels": 8031,
+      "click_dice": [
+        0.591990861204544,
+        0.5871166803098041,
+        0.5911829624768836,
+        0.5907812410309397,
+        0.5903635215069201
+      ],
+      "best_of_5_dice": 0.591990861204544,
+      "best_click": 1,
+      "final_click_5_dice": 0.5903635215069201,
+      "inference_seconds": 0.19162167236208916
+    },
+    {
+      "manifest_index": 117,
+      "case_id": "BraTS-GLI-02244-102",
+      "subject_id": "BraTS-GLI-02244",
+      "target_voxels": 10265,
+      "click_dice": [
+        0.5991160582746767,
+        0.6280518949841659,
+        0.649768696993061,
+        0.6572729860518076,
+        0.647905499305142
+      ],
+      "best_of_5_dice": 0.6572729860518076,
+      "best_click": 4,
+      "final_click_5_dice": 0.647905499305142,
+      "inference_seconds": 0.16245435550808907
+    },
+    {
+      "manifest_index": 118,
+      "case_id": "BraTS-GLI-02244-103",
+      "subject_id": "BraTS-GLI-02244",
+      "target_voxels": 10663,
+      "click_dice": [
+        0.6001174890902987,
+        0.6157623169107856,
+        0.6160159362549801,
+        0.6152903700073511,
+        0.6114409969055783
+      ],
+      "best_of_5_dice": 0.6160159362549801,
+      "best_click": 3,
+      "final_click_5_dice": 0.6114409969055783,
+      "inference_seconds": 0.19194896146655083
+    },
+    {
+      "manifest_index": 119,
+      "case_id": "BraTS-GLI-02244-104",
+      "subject_id": "BraTS-GLI-02244",
+      "target_voxels": 7951,
+      "click_dice": [
+        0.5014349921481561,
+        0.5063498119583583,
+        0.5168168008101913,
+        0.5230522945570971,
+        0.5318717855473012
+      ],
+      "best_of_5_dice": 0.5318717855473012,
+      "best_click": 5,
+      "final_click_5_dice": 0.5318717855473012,
+      "inference_seconds": 0.2708711586892605
+    },
+    {
+      "manifest_index": 120,
+      "case_id": "BraTS-GLI-02245-100",
+      "subject_id": "BraTS-GLI-02245",
+      "target_voxels": 2951,
+      "click_dice": [
+        0.5079411764705882,
+        0.5105944673337257,
+        0.5090540344777633,
+        0.5144027303754266,
+        0.4954904171364149
+      ],
+      "best_of_5_dice": 0.5144027303754266,
+      "best_click": 4,
+      "final_click_5_dice": 0.4954904171364149,
+      "inference_seconds": 0.1918107084929943
+    },
+    {
+      "manifest_index": 121,
+      "case_id": "BraTS-GLI-02245-101",
+      "subject_id": "BraTS-GLI-02245",
+      "target_voxels": 6967,
+      "click_dice": [
+        0.5534657970574852,
+        0.5727272727272728,
+        0.5977717468933009,
+        0.617718362540694,
+        0.6027935991320857
+      ],
+      "best_of_5_dice": 0.617718362540694,
+      "best_click": 4,
+      "final_click_5_dice": 0.6027935991320857,
+      "inference_seconds": 0.16428108513355255
+    },
+    {
+      "manifest_index": 122,
+      "case_id": "BraTS-GLI-02245-102",
+      "subject_id": "BraTS-GLI-02245",
+      "target_voxels": 26741,
+      "click_dice": [
+        0.692067089755213,
+        0.7112168653264543,
+        0.7367491926803014,
+        0.7519275331788497,
+        0.7480186825031173
+      ],
+      "best_of_5_dice": 0.7519275331788497,
+      "best_click": 4,
+      "final_click_5_dice": 0.7480186825031173,
+      "inference_seconds": 0.19850129261612892
+    },
+    {
+      "manifest_index": 123,
+      "case_id": "BraTS-GLI-02245-103",
+      "subject_id": "BraTS-GLI-02245",
+      "target_voxels": 12808,
+      "click_dice": [
+        0.5527436253169401,
+        0.5695145539463131,
+        0.5950038536519019,
+        0.5862921662856343,
+        0.6179033535780301
+      ],
+      "best_of_5_dice": 0.6179033535780301,
+      "best_click": 5,
+      "final_click_5_dice": 0.6179033535780301,
+      "inference_seconds": 0.29437123239040375
+    },
+    {
+      "manifest_index": 124,
+      "case_id": "BraTS-GLI-02245-104",
+      "subject_id": "BraTS-GLI-02245",
+      "target_voxels": 10800,
+      "click_dice": [
+        0.5271294177472667,
+        0.5526511581766778,
+        0.5571602105547308,
+        0.5581723975506359,
+        0.5504173462534779
+      ],
+      "best_of_5_dice": 0.5581723975506359,
+      "best_click": 4,
+      "final_click_5_dice": 0.5504173462534779,
+      "inference_seconds": 0.17204686999320984
+    },
+    {
+      "manifest_index": 125,
+      "case_id": "BraTS-GLI-02246-100",
+      "subject_id": "BraTS-GLI-02246",
+      "target_voxels": 3033,
+      "click_dice": [
+        0.5572974166482667,
+        0.5608586435259192,
+        0.5531398300408343,
+        0.5714625163359867,
+        0.605252415294598
+      ],
+      "best_of_5_dice": 0.605252415294598,
+      "best_click": 5,
+      "final_click_5_dice": 0.605252415294598,
+      "inference_seconds": 0.1637718416750431
+    },
+    {
+      "manifest_index": 126,
+      "case_id": "BraTS-GLI-02246-101",
+      "subject_id": "BraTS-GLI-02246",
+      "target_voxels": 3773,
+      "click_dice": [
+        0.5225685908152228,
+        0.49198151671649903,
+        0.490403895731882,
+        0.5194946832681996,
+        0.5182939155043461
+      ],
+      "best_of_5_dice": 0.5225685908152228,
+      "best_click": 1,
+      "final_click_5_dice": 0.5182939155043461,
+      "inference_seconds": 0.19620893523097038
+    },
+    {
+      "manifest_index": 127,
+      "case_id": "BraTS-GLI-02251-100",
+      "subject_id": "BraTS-GLI-02251",
+      "target_voxels": 30905,
+      "click_dice": [
+        0.7593021873514028,
+        0.7595191244272727,
+        0.7606904058466801,
+        0.7595749798384245,
+        0.7613005330964016
+      ],
+      "best_of_5_dice": 0.7613005330964016,
+      "best_click": 5,
+      "final_click_5_dice": 0.7613005330964016,
+      "inference_seconds": 0.29742975160479546
+    },
+    {
+      "manifest_index": 128,
+      "case_id": "BraTS-GLI-02254-100",
+      "subject_id": "BraTS-GLI-02254",
+      "target_voxels": 768,
+      "click_dice": [
+        0.02004280988519167,
+        0.0,
+        0.0,
+        0.0,
+        0.03270440251572327
+      ],
+      "best_of_5_dice": 0.03270440251572327,
+      "best_click": 5,
+      "final_click_5_dice": 0.03270440251572327,
+      "inference_seconds": 0.17208579182624817
+    },
+    {
+      "manifest_index": 129,
+      "case_id": "BraTS-GLI-02254-101",
+      "subject_id": "BraTS-GLI-02254",
+      "target_voxels": 4869,
+      "click_dice": [
+        0.3245055313442843,
+        0.2793601248536871,
+        0.3444280598272593,
+        0.33718932539228036,
+        0.35363321799307956
+      ],
+      "best_of_5_dice": 0.35363321799307956,
+      "best_click": 5,
+      "final_click_5_dice": 0.35363321799307956,
+      "inference_seconds": 0.1637907661497593
+    },
+    {
+      "manifest_index": 130,
+      "case_id": "BraTS-GLI-02270-100",
+      "subject_id": "BraTS-GLI-02270",
+      "target_voxels": 23071,
+      "click_dice": [
+        0.5394950040507697,
+        0.5557444324250073,
+        0.5622404254969877,
+        0.5671806883987247,
+        0.5672689169021687
+      ],
+      "best_of_5_dice": 0.5672689169021687,
+      "best_click": 5,
+      "final_click_5_dice": 0.5672689169021687,
+      "inference_seconds": 0.20280268788337708
+    },
+    {
+      "manifest_index": 131,
+      "case_id": "BraTS-GLI-02273-100",
+      "subject_id": "BraTS-GLI-02273",
+      "target_voxels": 71087,
+      "click_dice": [
+        0.7507005481362002,
+        0.7557963303343975,
+        0.7587113237639553,
+        0.7583649811398351,
+        0.7584934235225993
+      ],
+      "best_of_5_dice": 0.7587113237639553,
+      "best_click": 3,
+      "final_click_5_dice": 0.7584934235225993,
+      "inference_seconds": 0.2867667116224766
+    },
+    {
+      "manifest_index": 132,
+      "case_id": "BraTS-GLI-02284-100",
+      "subject_id": "BraTS-GLI-02284",
+      "target_voxels": 20391,
+      "click_dice": [
+        0.6168370191414235,
+        0.6255799041979406,
+        0.6340297800071093,
+        0.6357839305549842,
+        0.6303291098892342
+      ],
+      "best_of_5_dice": 0.6357839305549842,
+      "best_click": 4,
+      "final_click_5_dice": 0.6303291098892342,
+      "inference_seconds": 0.17014193907380104
+    },
+    {
+      "manifest_index": 133,
+      "case_id": "BraTS-GLI-02302-100",
+      "subject_id": "BraTS-GLI-02302",
+      "target_voxels": 19770,
+      "click_dice": [
+        0.6072770564381116,
+        0.6118265539607799,
+        0.6179315118537176,
+        0.6184840580838556,
+        0.6192603672577693
+      ],
+      "best_of_5_dice": 0.6192603672577693,
+      "best_click": 5,
+      "final_click_5_dice": 0.6192603672577693,
+      "inference_seconds": 0.16311241686344147
+    },
+    {
+      "manifest_index": 134,
+      "case_id": "BraTS-GLI-02314-100",
+      "subject_id": "BraTS-GLI-02314",
+      "target_voxels": 5514,
+      "click_dice": [
+        0.45683018387733026,
+        0.4650186251269895,
+        0.4640010203430904,
+        0.4631878067682769,
+        0.4641400184234768
+      ],
+      "best_of_5_dice": 0.4650186251269895,
+      "best_click": 2,
+      "final_click_5_dice": 0.4641400184234768,
+      "inference_seconds": 0.1883212998509407
+    },
+    {
+      "manifest_index": 135,
+      "case_id": "BraTS-GLI-02318-100",
+      "subject_id": "BraTS-GLI-02318",
+      "target_voxels": 47037,
+      "click_dice": [
+        0.7026542084617807,
+        0.7267515193211788,
+        0.7269661730559864,
+        0.7317449140769217,
+        0.7317233850323747
+      ],
+      "best_of_5_dice": 0.7317449140769217,
+      "best_click": 4,
+      "final_click_5_dice": 0.7317233850323747,
+      "inference_seconds": 0.26983078196644783
+    },
+    {
+      "manifest_index": 136,
+      "case_id": "BraTS-GLI-02331-100",
+      "subject_id": "BraTS-GLI-02331",
+      "target_voxels": 3418,
+      "click_dice": [
+        0.09735449735449736,
+        0.18044209514656415,
+        0.2487014970974641,
+        0.22601924948631988,
+        0.25195936139332364
+      ],
+      "best_of_5_dice": 0.25195936139332364,
+      "best_click": 5,
+      "final_click_5_dice": 0.25195936139332364,
+      "inference_seconds": 0.19067277014255524
+    },
+    {
+      "manifest_index": 137,
+      "case_id": "BraTS-GLI-02337-100",
+      "subject_id": "BraTS-GLI-02337",
+      "target_voxels": 15169,
+      "click_dice": [
+        0.433218101822753,
+        0.45330467490596454,
+        0.4937887212073074,
+        0.50593645736271,
+        0.47079646017699117
+      ],
+      "best_of_5_dice": 0.50593645736271,
+      "best_click": 4,
+      "final_click_5_dice": 0.47079646017699117,
+      "inference_seconds": 0.16428572684526443
+    },
+    {
+      "manifest_index": 138,
+      "case_id": "BraTS-GLI-02347-100",
+      "subject_id": "BraTS-GLI-02347",
+      "target_voxels": 23989,
+      "click_dice": [
+        0.6186805306561491,
+        0.6473735408560312,
+        0.6639811316816597,
+        0.6738097156207202,
+        0.6664714837803022
+      ],
+      "best_of_5_dice": 0.6738097156207202,
+      "best_click": 4,
+      "final_click_5_dice": 0.6664714837803022,
+      "inference_seconds": 0.19533560052514076
+    },
+    {
+      "manifest_index": 139,
+      "case_id": "BraTS-GLI-02358-100",
+      "subject_id": "BraTS-GLI-02358",
+      "target_voxels": 28940,
+      "click_dice": [
+        0.7486652024070999,
+        0.7485089794422417,
+        0.7554913294797688,
+        0.7465483234714004,
+        0.7499167831702284
+      ],
+      "best_of_5_dice": 0.7554913294797688,
+      "best_click": 3,
+      "final_click_5_dice": 0.7499167831702284,
+      "inference_seconds": 0.2632075771689415
+    },
+    {
+      "manifest_index": 140,
+      "case_id": "BraTS-GLI-02358-101",
+      "subject_id": "BraTS-GLI-02358",
+      "target_voxels": 11464,
+      "click_dice": [
+        0.49333333333333335,
+        0.5089104443943153,
+        0.5281456051441339,
+        0.5478116462206032,
+        0.5649822284036471
+      ],
+      "best_of_5_dice": 0.5649822284036471,
+      "best_click": 5,
+      "final_click_5_dice": 0.5649822284036471,
+      "inference_seconds": 0.19382816925644875
+    },
+    {
+      "manifest_index": 141,
+      "case_id": "BraTS-GLI-02375-100",
+      "subject_id": "BraTS-GLI-02375",
+      "target_voxels": 28862,
+      "click_dice": [
+        0.7425307285055265,
+        0.7457153860966685,
+        0.7516925023726668,
+        0.7541106830780795,
+        0.7549586776859504
+      ],
+      "best_of_5_dice": 0.7549586776859504,
+      "best_click": 5,
+      "final_click_5_dice": 0.7549586776859504,
+      "inference_seconds": 0.1628195308148861
+    },
+    {
+      "manifest_index": 142,
+      "case_id": "BraTS-GLI-02375-101",
+      "subject_id": "BraTS-GLI-02375",
+      "target_voxels": 19231,
+      "click_dice": [
+        0.6239164790958287,
+        0.6422208411021338,
+        0.6448641179180101,
+        0.646297083983175,
+        0.6486562019656249
+      ],
+      "best_of_5_dice": 0.6486562019656249,
+      "best_click": 5,
+      "final_click_5_dice": 0.6486562019656249,
+      "inference_seconds": 0.1902163326740265
+    },
+    {
+      "manifest_index": 143,
+      "case_id": "BraTS-GLI-02378-100",
+      "subject_id": "BraTS-GLI-02378",
+      "target_voxels": 22197,
+      "click_dice": [
+        0.7219766519324493,
+        0.7219335392126043,
+        0.7191492450638792,
+        0.7252555934212476,
+        0.728864403901666
+      ],
+      "best_of_5_dice": 0.728864403901666,
+      "best_click": 5,
+      "final_click_5_dice": 0.728864403901666,
+      "inference_seconds": 0.26979436725378036
+    },
+    {
+      "manifest_index": 144,
+      "case_id": "BraTS-GLI-02378-101",
+      "subject_id": "BraTS-GLI-02378",
+      "target_voxels": 17172,
+      "click_dice": [
+        0.5096823627751462,
+        0.5441910673323438,
+        0.5179055600549315,
+        0.5393311351860575,
+        0.582900984183882
+      ],
+      "best_of_5_dice": 0.582900984183882,
+      "best_click": 5,
+      "final_click_5_dice": 0.582900984183882,
+      "inference_seconds": 0.19275134801864624
+    },
+    {
+      "manifest_index": 145,
+      "case_id": "BraTS-GLI-02378-102",
+      "subject_id": "BraTS-GLI-02378",
+      "target_voxels": 40635,
+      "click_dice": [
+        0.6710892415498764,
+        0.6831080664074554,
+        0.6848375179069592,
+        0.6829318802500615,
+        0.6801608579088472
+      ],
+      "best_of_5_dice": 0.6848375179069592,
+      "best_click": 3,
+      "final_click_5_dice": 0.6801608579088472,
+      "inference_seconds": 0.13675184175372124
+    },
+    {
+      "manifest_index": 146,
+      "case_id": "BraTS-GLI-02379-100",
+      "subject_id": "BraTS-GLI-02379",
+      "target_voxels": 17831,
+      "click_dice": [
+        0.5760062119839524,
+        0.557871767491527,
+        0.5650844730490748,
+        0.5662693629748672,
+        0.5597543290966476
+      ],
+      "best_of_5_dice": 0.5760062119839524,
+      "best_click": 1,
+      "final_click_5_dice": 0.5597543290966476,
+      "inference_seconds": 0.14446525275707245
+    },
+    {
+      "manifest_index": 147,
+      "case_id": "BraTS-GLI-02379-101",
+      "subject_id": "BraTS-GLI-02379",
+      "target_voxels": 60278,
+      "click_dice": [
+        0.7776735459662288,
+        0.7821915264936319,
+        0.778717843408132,
+        0.7792743959487355,
+        0.777646034700126
+      ],
+      "best_of_5_dice": 0.7821915264936319,
+      "best_click": 2,
+      "final_click_5_dice": 0.777646034700126,
+      "inference_seconds": 0.1710553728044033
+    },
+    {
+      "manifest_index": 148,
+      "case_id": "BraTS-GLI-02384-100",
+      "subject_id": "BraTS-GLI-02384",
+      "target_voxels": 19883,
+      "click_dice": [
+        0.39467175464631477,
+        0.4943677709660858,
+        0.5147646133365605,
+        0.5483269208347907,
+        0.5542202425974172
+      ],
+      "best_of_5_dice": 0.5542202425974172,
+      "best_click": 5,
+      "final_click_5_dice": 0.5542202425974172,
+      "inference_seconds": 0.2888873219490051
+    },
+    {
+      "manifest_index": 149,
+      "case_id": "BraTS-GLI-02385-100",
+      "subject_id": "BraTS-GLI-02385",
+      "target_voxels": 61988,
+      "click_dice": [
+        0.7378896070666593,
+        0.7566637738656087,
+        0.7532353792138127,
+        0.7495215458698605,
+        0.7480166111191248
+      ],
+      "best_of_5_dice": 0.7566637738656087,
+      "best_click": 2,
+      "final_click_5_dice": 0.7480166111191248,
+      "inference_seconds": 0.21536264568567276
+    },
+    {
+      "manifest_index": 150,
+      "case_id": "BraTS-GLI-02389-100",
+      "subject_id": "BraTS-GLI-02389",
+      "target_voxels": 4126,
+      "click_dice": [
+        0.27711458014488316,
+        0.2724607329842932,
+        0.26926626672819565,
+        0.24040790312300828,
+        0.21135469364811693
+      ],
+      "best_of_5_dice": 0.27711458014488316,
+      "best_click": 1,
+      "final_click_5_dice": 0.21135469364811693,
+      "inference_seconds": 0.1677446961402893
+    },
+    {
+      "manifest_index": 151,
+      "case_id": "BraTS-GLI-02390-100",
+      "subject_id": "BraTS-GLI-02390",
+      "target_voxels": 2780,
+      "click_dice": [
+        0.41943605236656595,
+        0.6013023255813954,
+        0.5879903923138511,
+        0.6003933488288933,
+        0.5824601693698866
+      ],
+      "best_of_5_dice": 0.6013023255813954,
+      "best_click": 2,
+      "final_click_5_dice": 0.5824601693698866,
+      "inference_seconds": 0.17691180855035782
+    },
+    {
+      "manifest_index": 152,
+      "case_id": "BraTS-GLI-02390-101",
+      "subject_id": "BraTS-GLI-02390",
+      "target_voxels": 4119,
+      "click_dice": [
+        0.2695289206917114,
+        0.35063994204298476,
+        0.4070866925450383,
+        0.43063223508459486,
+        0.4170660652194343
+      ],
+      "best_of_5_dice": 0.43063223508459486,
+      "best_click": 4,
+      "final_click_5_dice": 0.4170660652194343,
+      "inference_seconds": 0.2656381204724312
+    },
+    {
+      "manifest_index": 153,
+      "case_id": "BraTS-GLI-02390-102",
+      "subject_id": "BraTS-GLI-02390",
+      "target_voxels": 4987,
+      "click_dice": [
+        0.4327182718271827,
+        0.4961562435071681,
+        0.5116138763197586,
+        0.512202852614897,
+        0.5349764407393983
+      ],
+      "best_of_5_dice": 0.5349764407393983,
+      "best_click": 5,
+      "final_click_5_dice": 0.5349764407393983,
+      "inference_seconds": 0.21949993446469307
+    },
+    {
+      "manifest_index": 154,
+      "case_id": "BraTS-GLI-02394-100",
+      "subject_id": "BraTS-GLI-02394",
+      "target_voxels": 16099,
+      "click_dice": [
+        0.5236087965232167,
+        0.5088186028180116,
+        0.5252300149629111,
+        0.4946755350311886,
+        0.530938123752495
+      ],
+      "best_of_5_dice": 0.530938123752495,
+      "best_click": 5,
+      "final_click_5_dice": 0.530938123752495,
+      "inference_seconds": 0.16436316072940826
+    },
+    {
+      "manifest_index": 155,
+      "case_id": "BraTS-GLI-02548-100",
+      "subject_id": "BraTS-GLI-02548",
+      "target_voxels": 9000,
+      "click_dice": [
+        0.42170144462279296,
+        0.4196434402141971,
+        0.4414101290963257,
+        0.4584070796460177,
+        0.4627237706775436
+      ],
+      "best_of_5_dice": 0.4627237706775436,
+      "best_click": 5,
+      "final_click_5_dice": 0.4627237706775436,
+      "inference_seconds": 0.1918976828455925
+    },
+    {
+      "manifest_index": 156,
+      "case_id": "BraTS-GLI-02548-101",
+      "subject_id": "BraTS-GLI-02548",
+      "target_voxels": 18787,
+      "click_dice": [
+        0.7406073082861554,
+        0.768758837203729,
+        0.7658044677579814,
+        0.7566560753807384,
+        0.7668202764976959
+      ],
+      "best_of_5_dice": 0.768758837203729,
+      "best_click": 2,
+      "final_click_5_dice": 0.7668202764976959,
+      "inference_seconds": 0.2762181907892227
+    },
+    {
+      "manifest_index": 157,
+      "case_id": "BraTS-GLI-02548-102",
+      "subject_id": "BraTS-GLI-02548",
+      "target_voxels": 44465,
+      "click_dice": [
+        0.8016641177288429,
+        0.8074746905417416,
+        0.8064866287293181,
+        0.8083023090662592,
+        0.8151144225651943
+      ],
+      "best_of_5_dice": 0.8151144225651943,
+      "best_click": 5,
+      "final_click_5_dice": 0.8151144225651943,
+      "inference_seconds": 0.19735728576779366
+    },
+    {
+      "manifest_index": 158,
+      "case_id": "BraTS-GLI-02549-100",
+      "subject_id": "BraTS-GLI-02549",
+      "target_voxels": 51021,
+      "click_dice": [
+        0.7948762726367812,
+        0.8041338759120162,
+        0.8021980948660813,
+        0.8023575004036816,
+        0.802910614172091
+      ],
+      "best_of_5_dice": 0.8041338759120162,
+      "best_click": 2,
+      "final_click_5_dice": 0.802910614172091,
+      "inference_seconds": 0.16994785889983177
+    },
+    {
+      "manifest_index": 159,
+      "case_id": "BraTS-GLI-02549-101",
+      "subject_id": "BraTS-GLI-02549",
+      "target_voxels": 2754,
+      "click_dice": [
+        0.16818134336153767,
+        0.19281760844381515,
+        0.1991469333725548,
+        0.20132871172732525,
+        0.2113907284768212
+      ],
+      "best_of_5_dice": 0.2113907284768212,
+      "best_click": 5,
+      "final_click_5_dice": 0.2113907284768212,
+      "inference_seconds": 0.203948974609375
+    },
+    {
+      "manifest_index": 160,
+      "case_id": "BraTS-GLI-02549-102",
+      "subject_id": "BraTS-GLI-02549",
+      "target_voxels": 9490,
+      "click_dice": [
+        0.6285542951376742,
+        0.6583059418457649,
+        0.6573780192587014,
+        0.6656017039403621,
+        0.6792265741199802
+      ],
+      "best_of_5_dice": 0.6792265741199802,
+      "best_click": 5,
+      "final_click_5_dice": 0.6792265741199802,
+      "inference_seconds": 0.2827683910727501
+    },
+    {
+      "manifest_index": 161,
+      "case_id": "BraTS-GLI-02552-100",
+      "subject_id": "BraTS-GLI-02552",
+      "target_voxels": 29715,
+      "click_dice": [
+        0.3057158946923835,
+        0.34143948863186874,
+        0.3367479487643258,
+        0.3399775316963569,
+        0.3568889301060311
+      ],
+      "best_of_5_dice": 0.3568889301060311,
+      "best_click": 5,
+      "final_click_5_dice": 0.3568889301060311,
+      "inference_seconds": 0.17581798881292343
+    },
+    {
+      "manifest_index": 162,
+      "case_id": "BraTS-GLI-02561-100",
+      "subject_id": "BraTS-GLI-02561",
+      "target_voxels": 5075,
+      "click_dice": [
+        0.4679973606070604,
+        0.4674246525897852,
+        0.45942383731877234,
+        0.4537553746226329,
+        0.4620008587376557
+      ],
+      "best_of_5_dice": 0.4679973606070604,
+      "best_click": 1,
+      "final_click_5_dice": 0.4620008587376557,
+      "inference_seconds": 0.17335288599133492
+    },
+    {
+      "manifest_index": 163,
+      "case_id": "BraTS-GLI-02561-101",
+      "subject_id": "BraTS-GLI-02561",
+      "target_voxels": 4787,
+      "click_dice": [
+        0.4841710182767624,
+        0.5170313986679353,
+        0.5177655145706264,
+        0.5267481260909744,
+        0.5186887867279633
+      ],
+      "best_of_5_dice": 0.5267481260909744,
+      "best_click": 4,
+      "final_click_5_dice": 0.5186887867279633,
+      "inference_seconds": 0.22019865736365318
+    },
+    {
+      "manifest_index": 164,
+      "case_id": "BraTS-GLI-02631-100",
+      "subject_id": "BraTS-GLI-02631",
+      "target_voxels": 2936,
+      "click_dice": [
+        0.02559025133282559,
+        0.03151741082775566,
+        0.03351179853261947,
+        0.0313975448536355,
+        0.049068807851009255
+      ],
+      "best_of_5_dice": 0.049068807851009255,
+      "best_click": 5,
+      "final_click_5_dice": 0.049068807851009255,
+      "inference_seconds": 0.28234342485666275
+    },
+    {
+      "manifest_index": 165,
+      "case_id": "BraTS-GLI-02631-101",
+      "subject_id": "BraTS-GLI-02631",
+      "target_voxels": 1508,
+      "click_dice": [
+        0.07566887000314762,
+        0.07433380084151472,
+        0.08425239558850117,
+        0.10731402375494895,
+        0.12034025519139355
+      ],
+      "best_of_5_dice": 0.12034025519139355,
+      "best_click": 5,
+      "final_click_5_dice": 0.12034025519139355,
+      "inference_seconds": 0.16574979946017265
+    },
+    {
+      "manifest_index": 166,
+      "case_id": "BraTS-GLI-02638-100",
+      "subject_id": "BraTS-GLI-02638",
+      "target_voxels": 20993,
+      "click_dice": [
+        0.7314181723644873,
+        0.7431220397057342,
+        0.7494972286260853,
+        0.7547773789892327,
+        0.7535345815819641
+      ],
+      "best_of_5_dice": 0.7547773789892327,
+      "best_click": 4,
+      "final_click_5_dice": 0.7535345815819641,
+      "inference_seconds": 0.17615830153226852
+    },
+    {
+      "manifest_index": 167,
+      "case_id": "BraTS-GLI-02638-101",
+      "subject_id": "BraTS-GLI-02638",
+      "target_voxels": 21886,
+      "click_dice": [
+        0.5948745062669113,
+        0.6066025855610285,
+        0.6081957974398197,
+        0.6127423640956662,
+        0.610183001760271
+      ],
+      "best_of_5_dice": 0.6127423640956662,
+      "best_click": 4,
+      "final_click_5_dice": 0.610183001760271,
+      "inference_seconds": 0.24532093480229378
+    },
+    {
+      "manifest_index": 168,
+      "case_id": "BraTS-GLI-02650-100",
+      "subject_id": "BraTS-GLI-02650",
+      "target_voxels": 18046,
+      "click_dice": [
+        0.6173860076575008,
+        0.6179625543442641,
+        0.6198434805677145,
+        0.623132138503905,
+        0.6244261209200338
+      ],
+      "best_of_5_dice": 0.6244261209200338,
+      "best_click": 5,
+      "final_click_5_dice": 0.6244261209200338,
+      "inference_seconds": 0.233690794557333
+    },
+    {
+      "manifest_index": 169,
+      "case_id": "BraTS-GLI-02661-100",
+      "subject_id": "BraTS-GLI-02661",
+      "target_voxels": 635,
+      "click_dice": [
+        0.12156951689725562,
+        0.1262944162436548,
+        0.12384310268840899,
+        0.12219451371571072,
+        0.12744827586206897
+      ],
+      "best_of_5_dice": 0.12744827586206897,
+      "best_click": 5,
+      "final_click_5_dice": 0.12744827586206897,
+      "inference_seconds": 0.16550183668732643
+    },
+    {
+      "manifest_index": 170,
+      "case_id": "BraTS-GLI-02665-100",
+      "subject_id": "BraTS-GLI-02665",
+      "target_voxels": 9448,
+      "click_dice": [
+        0.6447633326194045,
+        0.6533896421426983,
+        0.6540006988120196,
+        0.6558484277005394,
+        0.6409233997901365
+      ],
+      "best_of_5_dice": 0.6558484277005394,
+      "best_click": 4,
+      "final_click_5_dice": 0.6409233997901365,
+      "inference_seconds": 0.17735321819782257
+    },
+    {
+      "manifest_index": 171,
+      "case_id": "BraTS-GLI-02675-100",
+      "subject_id": "BraTS-GLI-02675",
+      "target_voxels": 28971,
+      "click_dice": [
+        0.6550810473815462,
+        0.653625399021905,
+        0.6514096599956289,
+        0.6513998035363457,
+        0.6477595180649762
+      ],
+      "best_of_5_dice": 0.6550810473815462,
+      "best_click": 1,
+      "final_click_5_dice": 0.6477595180649762,
+      "inference_seconds": 0.27478550001978874
+    },
+    {
+      "manifest_index": 172,
+      "case_id": "BraTS-GLI-02698-100",
+      "subject_id": "BraTS-GLI-02698",
+      "target_voxels": 4803,
+      "click_dice": [
+        0.4298987887838062,
+        0.41738979520999653,
+        0.4097713288639912,
+        0.39854930405802785,
+        0.3978083324718288
+      ],
+      "best_of_5_dice": 0.4298987887838062,
+      "best_click": 1,
+      "final_click_5_dice": 0.3978083324718288,
+      "inference_seconds": 0.221955306828022
+    },
+    {
+      "manifest_index": 173,
+      "case_id": "BraTS-GLI-02699-100",
+      "subject_id": "BraTS-GLI-02699",
+      "target_voxels": 43725,
+      "click_dice": [
+        0.6077690024085588,
+        0.6095739025823238,
+        0.617579447455313,
+        0.6289625458462293,
+        0.653000078845699
+      ],
+      "best_of_5_dice": 0.653000078845699,
+      "best_click": 5,
+      "final_click_5_dice": 0.653000078845699,
+      "inference_seconds": 0.17081114277243614
+    },
+    {
+      "manifest_index": 174,
+      "case_id": "BraTS-GLI-02708-100",
+      "subject_id": "BraTS-GLI-02708",
+      "target_voxels": 13095,
+      "click_dice": [
+        0.4166127012908518,
+        0.36806933277644355,
+        0.34996953414944887,
+        0.3615914383391964,
+        0.3538620587800916
+      ],
+      "best_of_5_dice": 0.4166127012908518,
+      "best_click": 1,
+      "final_click_5_dice": 0.3538620587800916,
+      "inference_seconds": 0.18985533341765404
+    },
+    {
+      "manifest_index": 175,
+      "case_id": "BraTS-GLI-02709-100",
+      "subject_id": "BraTS-GLI-02709",
+      "target_voxels": 3473,
+      "click_dice": [
+        0.19131944444444443,
+        0.19867997969199527,
+        0.24673570463755065,
+        0.23503255518500873,
+        0.2286845310596833
+      ],
+      "best_of_5_dice": 0.24673570463755065,
+      "best_click": 3,
+      "final_click_5_dice": 0.2286845310596833,
+      "inference_seconds": 0.2920876704156399
+    },
+    {
+      "manifest_index": 176,
+      "case_id": "BraTS-GLI-02717-100",
+      "subject_id": "BraTS-GLI-02717",
+      "target_voxels": 3421,
+      "click_dice": [
+        0.45531461073586915,
+        0.4898838372182476,
+        0.501235552012754,
+        0.5330560609999133,
+        0.5364920273348519
+      ],
+      "best_of_5_dice": 0.5364920273348519,
+      "best_click": 5,
+      "final_click_5_dice": 0.5364920273348519,
+      "inference_seconds": 0.199918232858181
+    },
+    {
+      "manifest_index": 177,
+      "case_id": "BraTS-GLI-02725-100",
+      "subject_id": "BraTS-GLI-02725",
+      "target_voxels": 6485,
+      "click_dice": [
+        0.4554212193702722,
+        0.49884495175974997,
+        0.5249630723781389,
+        0.5419439771813063,
+        0.5301238938053098
+      ],
+      "best_of_5_dice": 0.5419439771813063,
+      "best_click": 4,
+      "final_click_5_dice": 0.5301238938053098,
+      "inference_seconds": 0.17074594646692276
+    },
+    {
+      "manifest_index": 178,
+      "case_id": "BraTS-GLI-02747-100",
+      "subject_id": "BraTS-GLI-02747",
+      "target_voxels": 5853,
+      "click_dice": [
+        0.4315294324526311,
+        0.42754385226938124,
+        0.4314514403116038,
+        0.4329112830041917,
+        0.44599851796961837
+      ],
+      "best_of_5_dice": 0.44599851796961837,
+      "best_click": 5,
+      "final_click_5_dice": 0.44599851796961837,
+      "inference_seconds": 0.19955986365675926
+    },
+    {
+      "manifest_index": 179,
+      "case_id": "BraTS-GLI-02747-101",
+      "subject_id": "BraTS-GLI-02747",
+      "target_voxels": 6180,
+      "click_dice": [
+        0.4231299734748011,
+        0.4231132862465936,
+        0.43516507989532877,
+        0.4368423835457093,
+        0.43178779613883095
+      ],
+      "best_of_5_dice": 0.4368423835457093,
+      "best_click": 4,
+      "final_click_5_dice": 0.43178779613883095,
+      "inference_seconds": 0.28275129571557045
+    },
+    {
+      "manifest_index": 180,
+      "case_id": "BraTS-GLI-02760-100",
+      "subject_id": "BraTS-GLI-02760",
+      "target_voxels": 5393,
+      "click_dice": [
+        0.6143406099255989,
+        0.6059654631083202,
+        0.5693302366455338,
+        0.5853529333863065,
+        0.5747785636908176
+      ],
+      "best_of_5_dice": 0.6143406099255989,
+      "best_click": 1,
+      "final_click_5_dice": 0.5747785636908176,
+      "inference_seconds": 0.17546875402331352
+    },
+    {
+      "manifest_index": 181,
+      "case_id": "BraTS-GLI-02760-101",
+      "subject_id": "BraTS-GLI-02760",
+      "target_voxels": 11424,
+      "click_dice": [
+        0.7065557134158718,
+        0.6876644876475083,
+        0.6802982275994464,
+        0.6590693257359924,
+        0.6494027804973566
+      ],
+      "best_of_5_dice": 0.7065557134158718,
+      "best_click": 1,
+      "final_click_5_dice": 0.6494027804973566,
+      "inference_seconds": 0.1704842485487461
+    },
+    {
+      "manifest_index": 182,
+      "case_id": "BraTS-GLI-02763-100",
+      "subject_id": "BraTS-GLI-02763",
+      "target_voxels": 7540,
+      "click_dice": [
+        0.6831350594821554,
+        0.6799741509298485,
+        0.6538814180929096,
+        0.6685535528079845,
+        0.6375812641967573
+      ],
+      "best_of_5_dice": 0.6831350594821554,
+      "best_click": 1,
+      "final_click_5_dice": 0.6375812641967573,
+      "inference_seconds": 0.22552083432674408
+    },
+    {
+      "manifest_index": 183,
+      "case_id": "BraTS-GLI-02763-101",
+      "subject_id": "BraTS-GLI-02763",
+      "target_voxels": 9219,
+      "click_dice": [
+        0.6714129873112477,
+        0.6926871578034369,
+        0.685730119146578,
+        0.688982338099243,
+        0.692045391022416
+      ],
+      "best_of_5_dice": 0.6926871578034369,
+      "best_click": 2,
+      "final_click_5_dice": 0.692045391022416,
+      "inference_seconds": 0.2814072407782078
+    },
+    {
+      "manifest_index": 184,
+      "case_id": "BraTS-GLI-02774-100",
+      "subject_id": "BraTS-GLI-02774",
+      "target_voxels": 8742,
+      "click_dice": [
+        0.3918624118512506,
+        0.36926513290149654,
+        0.3883714621575188,
+        0.40178532738224204,
+        0.4113078595837217
+      ],
+      "best_of_5_dice": 0.4113078595837217,
+      "best_click": 5,
+      "final_click_5_dice": 0.4113078595837217,
+      "inference_seconds": 0.17175650969147682
+    },
+    {
+      "manifest_index": 185,
+      "case_id": "BraTS-GLI-02774-101",
+      "subject_id": "BraTS-GLI-02774",
+      "target_voxels": 10185,
+      "click_dice": [
+        0.3434287912933546,
+        0.36422129634512945,
+        0.38127615062761505,
+        0.4009195861862162,
+        0.38361789496433973
+      ],
+      "best_of_5_dice": 0.4009195861862162,
+      "best_click": 4,
+      "final_click_5_dice": 0.38361789496433973,
+      "inference_seconds": 0.18185383453965187
+    },
+    {
+      "manifest_index": 186,
+      "case_id": "BraTS-GLI-02787-100",
+      "subject_id": "BraTS-GLI-02787",
+      "target_voxels": 8927,
+      "click_dice": [
+        0.3344080120729867,
+        0.3386273600057104,
+        0.3364250153447453,
+        0.33951260154134555,
+        0.34904823633758614
+      ],
+      "best_of_5_dice": 0.34904823633758614,
+      "best_click": 5,
+      "final_click_5_dice": 0.34904823633758614,
+      "inference_seconds": 0.2487054318189621
+    },
+    {
+      "manifest_index": 187,
+      "case_id": "BraTS-GLI-02787-101",
+      "subject_id": "BraTS-GLI-02787",
+      "target_voxels": 7764,
+      "click_dice": [
+        0.3670275311194907,
+        0.37929125138427466,
+        0.3798789892039388,
+        0.3671299460773145,
+        0.3707032300188194
+      ],
+      "best_of_5_dice": 0.3798789892039388,
+      "best_click": 3,
+      "final_click_5_dice": 0.3707032300188194,
+      "inference_seconds": 0.24372310936450958
+    },
+    {
+      "manifest_index": 188,
+      "case_id": "BraTS-GLI-02788-100",
+      "subject_id": "BraTS-GLI-02788",
+      "target_voxels": 4517,
+      "click_dice": [
+        0.4944965348552792,
+        0.5263700041203131,
+        0.5183946488294314,
+        0.5119583708596017,
+        0.5040849673202614
+      ],
+      "best_of_5_dice": 0.5263700041203131,
+      "best_click": 2,
+      "final_click_5_dice": 0.5040849673202614,
+      "inference_seconds": 0.1721569560468197
+    },
+    {
+      "manifest_index": 189,
+      "case_id": "BraTS-GLI-02788-101",
+      "subject_id": "BraTS-GLI-02788",
+      "target_voxels": 4267,
+      "click_dice": [
+        0.3418347925390179,
+        0.37851929092805003,
+        0.39261703948172594,
+        0.39895356442119034,
+        0.4050955414012739
+      ],
+      "best_of_5_dice": 0.4050955414012739,
+      "best_click": 5,
+      "final_click_5_dice": 0.4050955414012739,
+      "inference_seconds": 0.1749708540737629
+    },
+    {
+      "manifest_index": 190,
+      "case_id": "BraTS-GLI-02794-100",
+      "subject_id": "BraTS-GLI-02794",
+      "target_voxels": 6942,
+      "click_dice": [
+        0.6663945578231293,
+        0.6701883910386965,
+        0.6766595289079229,
+        0.6759202558345241,
+        0.681207824960807
+      ],
+      "best_of_5_dice": 0.681207824960807,
+      "best_click": 5,
+      "final_click_5_dice": 0.681207824960807,
+      "inference_seconds": 0.2759704366326332
+    },
+    {
+      "manifest_index": 191,
+      "case_id": "BraTS-GLI-02794-101",
+      "subject_id": "BraTS-GLI-02794",
+      "target_voxels": 7082,
+      "click_dice": [
+        0.6659745293466224,
+        0.6725425553387607,
+        0.6793065385364587,
+        0.6794233628547417,
+        0.6819545363642424
+      ],
+      "best_of_5_dice": 0.6819545363642424,
+      "best_click": 5,
+      "final_click_5_dice": 0.6819545363642424,
+      "inference_seconds": 0.21682457998394966
+    },
+    {
+      "manifest_index": 192,
+      "case_id": "BraTS-GLI-02798-100",
+      "subject_id": "BraTS-GLI-02798",
+      "target_voxels": 466,
+      "click_dice": [
+        0.21008403361344538,
+        0.23375204806116875,
+        0.2729320888316704,
+        0.3323022536456032,
+        0.36662606577344703
+      ],
+      "best_of_5_dice": 0.36662606577344703,
+      "best_click": 5,
+      "final_click_5_dice": 0.36662606577344703,
+      "inference_seconds": 0.17158085107803345
+    },
+    {
+      "manifest_index": 193,
+      "case_id": "BraTS-GLI-02798-101",
+      "subject_id": "BraTS-GLI-02798",
+      "target_voxels": 526,
+      "click_dice": [
+        0.2029325513196481,
+        0.25342118601115055,
+        0.2653061224489796,
+        0.3061377245508982,
+        0.36505612493899464
+      ],
+      "best_of_5_dice": 0.36505612493899464,
+      "best_click": 5,
+      "final_click_5_dice": 0.36505612493899464,
+      "inference_seconds": 0.19995266199111938
+    },
+    {
+      "manifest_index": 194,
+      "case_id": "BraTS-GLI-02803-100",
+      "subject_id": "BraTS-GLI-02803",
+      "target_voxels": 4658,
+      "click_dice": [
+        0.3527393804863283,
+        0.3511060692002269,
+        0.3642401938784669,
+        0.34442809856564915,
+        0.35433758072962124
+      ],
+      "best_of_5_dice": 0.3642401938784669,
+      "best_click": 3,
+      "final_click_5_dice": 0.35433758072962124,
+      "inference_seconds": 0.29501374438405037
+    },
+    {
+      "manifest_index": 195,
+      "case_id": "BraTS-GLI-02803-101",
+      "subject_id": "BraTS-GLI-02803",
+      "target_voxels": 3889,
+      "click_dice": [
+        0.33830444713153296,
+        0.3608473338203068,
+        0.36936821952776006,
+        0.3696078431372549,
+        0.3567337151991475
+      ],
+      "best_of_5_dice": 0.3696078431372549,
+      "best_click": 4,
+      "final_click_5_dice": 0.3567337151991475,
+      "inference_seconds": 0.1757473312318325
+    },
+    {
+      "manifest_index": 196,
+      "case_id": "BraTS-GLI-02806-100",
+      "subject_id": "BraTS-GLI-02806",
+      "target_voxels": 10069,
+      "click_dice": [
+        0.5683830004171108,
+        0.5680673896204492,
+        0.5624914002660184,
+        0.5594809580944763,
+        0.5602572347266881
+      ],
+      "best_of_5_dice": 0.5683830004171108,
+      "best_click": 1,
+      "final_click_5_dice": 0.5602572347266881,
+      "inference_seconds": 0.1731538586318493
+    },
+    {
+      "manifest_index": 197,
+      "case_id": "BraTS-GLI-02806-101",
+      "subject_id": "BraTS-GLI-02806",
+      "target_voxels": 10535,
+      "click_dice": [
+        0.5657660388798363,
+        0.5731290557923434,
+        0.5661242603550296,
+        0.5717612590617136,
+        0.5753045617001652
+      ],
+      "best_of_5_dice": 0.5753045617001652,
+      "best_click": 5,
+      "final_click_5_dice": 0.5753045617001652,
+      "inference_seconds": 0.23732095956802368
+    },
+    {
+      "manifest_index": 198,
+      "case_id": "BraTS-GLI-02810-100",
+      "subject_id": "BraTS-GLI-02810",
+      "target_voxels": 32160,
+      "click_dice": [
+        0.5679261803731394,
+        0.5832468921053892,
+        0.5793360802301174,
+        0.5793764529792045,
+        0.57760496671787
+      ],
+      "best_of_5_dice": 0.5832468921053892,
+      "best_click": 2,
+      "final_click_5_dice": 0.57760496671787,
+      "inference_seconds": 0.2566511034965515
+    },
+    {
+      "manifest_index": 199,
+      "case_id": "BraTS-GLI-02810-101",
+      "subject_id": "BraTS-GLI-02810",
+      "target_voxels": 35334,
+      "click_dice": [
+        0.5485736628598427,
+        0.5786542499771752,
+        0.5721915341654713,
+        0.5781020585503251,
+        0.5810269644923022
+      ],
+      "best_of_5_dice": 0.5810269644923022,
+      "best_click": 5,
+      "final_click_5_dice": 0.5810269644923022,
+      "inference_seconds": 0.16759567335247993
+    },
+    {
+      "manifest_index": 200,
+      "case_id": "BraTS-GLI-02834-100",
+      "subject_id": "BraTS-GLI-02834",
+      "target_voxels": 8278,
+      "click_dice": [
+        0.5353715246858612,
+        0.5460434983803795,
+        0.5507810388627642,
+        0.5508835426868214,
+        0.5578169414440023
+      ],
+      "best_of_5_dice": 0.5578169414440023,
+      "best_click": 5,
+      "final_click_5_dice": 0.5578169414440023,
+      "inference_seconds": 0.18065233156085014
+    },
+    {
+      "manifest_index": 201,
+      "case_id": "BraTS-GLI-02834-101",
+      "subject_id": "BraTS-GLI-02834",
+      "target_voxels": 13564,
+      "click_dice": [
+        0.614631383021769,
+        0.6200719712115154,
+        0.6142001031868873,
+        0.6218792555605992,
+        0.6201303740493559
+      ],
+      "best_of_5_dice": 0.6218792555605992,
+      "best_click": 4,
+      "final_click_5_dice": 0.6201303740493559,
+      "inference_seconds": 0.24316296353936195
+    },
+    {
+      "manifest_index": 202,
+      "case_id": "BraTS-GLI-02838-100",
+      "subject_id": "BraTS-GLI-02838",
+      "target_voxels": 7979,
+      "click_dice": [
+        0.505241848022558,
+        0.490705222779581,
+        0.5047660311958405,
+        0.5160077951002228,
+        0.5122712441481061
+      ],
+      "best_of_5_dice": 0.5160077951002228,
+      "best_click": 4,
+      "final_click_5_dice": 0.5122712441481061,
+      "inference_seconds": 0.2325410470366478
+    },
+    {
+      "manifest_index": 203,
+      "case_id": "BraTS-GLI-02838-101",
+      "subject_id": "BraTS-GLI-02838",
+      "target_voxels": 8174,
+      "click_dice": [
+        0.4617993862057826,
+        0.49185920297720576,
+        0.5149812734082397,
+        0.5204131824889326,
+        0.5287076486102658
+      ],
+      "best_of_5_dice": 0.5287076486102658,
+      "best_click": 5,
+      "final_click_5_dice": 0.5287076486102658,
+      "inference_seconds": 0.17124416679143906
+    },
+    {
+      "manifest_index": 204,
+      "case_id": "BraTS-GLI-02842-100",
+      "subject_id": "BraTS-GLI-02842",
+      "target_voxels": 11678,
+      "click_dice": [
+        0.3519214927832098,
+        0.35633321625850123,
+        0.3572993700356067,
+        0.3658272501833677,
+        0.3627923976608187
+      ],
+      "best_of_5_dice": 0.3658272501833677,
+      "best_click": 4,
+      "final_click_5_dice": 0.3627923976608187,
+      "inference_seconds": 0.17783287167549133
+    },
+    {
+      "manifest_index": 205,
+      "case_id": "BraTS-GLI-02842-101",
+      "subject_id": "BraTS-GLI-02842",
+      "target_voxels": 32190,
+      "click_dice": [
+        0.5214698162729658,
+        0.5309003182424802,
+        0.5341582037648364,
+        0.5306916638112488,
+        0.5285632676378178
+      ],
+      "best_of_5_dice": 0.5341582037648364,
+      "best_click": 3,
+      "final_click_5_dice": 0.5285632676378178,
+      "inference_seconds": 0.2684319354593754
+    },
+    {
+      "manifest_index": 206,
+      "case_id": "BraTS-GLI-02854-100",
+      "subject_id": "BraTS-GLI-02854",
+      "target_voxels": 7611,
+      "click_dice": [
+        0.4937492414127928,
+        0.5078669363902001,
+        0.5043086454519854,
+        0.5057830210501966,
+        0.5047375007448901
+      ],
+      "best_of_5_dice": 0.5078669363902001,
+      "best_click": 2,
+      "final_click_5_dice": 0.5047375007448901,
+      "inference_seconds": 0.22170834988355637
+    },
+    {
+      "manifest_index": 207,
+      "case_id": "BraTS-GLI-02854-101",
+      "subject_id": "BraTS-GLI-02854",
+      "target_voxels": 7963,
+      "click_dice": [
+        0.4593524049041182,
+        0.47748332644750047,
+        0.47889720898570454,
+        0.4682368067325112,
+        0.4719500315168185
+      ],
+      "best_of_5_dice": 0.47889720898570454,
+      "best_click": 3,
+      "final_click_5_dice": 0.4719500315168185,
+      "inference_seconds": 0.17242442443966866
+    },
+    {
+      "manifest_index": 208,
+      "case_id": "BraTS-GLI-02857-100",
+      "subject_id": "BraTS-GLI-02857",
+      "target_voxels": 16942,
+      "click_dice": [
+        0.5347275005649254,
+        0.5441443648314859,
+        0.5427749373848606,
+        0.5439798805407104,
+        0.5466772321332962
+      ],
+      "best_of_5_dice": 0.5466772321332962,
+      "best_click": 5,
+      "final_click_5_dice": 0.5466772321332962,
+      "inference_seconds": 0.1956150233745575
+    },
+    {
+      "manifest_index": 209,
+      "case_id": "BraTS-GLI-02857-101",
+      "subject_id": "BraTS-GLI-02857",
+      "target_voxels": 16909,
+      "click_dice": [
+        0.6005302203310535,
+        0.6058076780212817,
+        0.6095153004243913,
+        0.6170801417628902,
+        0.6215130134105883
+      ],
+      "best_of_5_dice": 0.6215130134105883,
+      "best_click": 5,
+      "final_click_5_dice": 0.6215130134105883,
+      "inference_seconds": 0.2738889902830124
+    },
+    {
+      "manifest_index": 210,
+      "case_id": "BraTS-GLI-02858-100",
+      "subject_id": "BraTS-GLI-02858",
+      "target_voxels": 3664,
+      "click_dice": [
+        0.5718626557277423,
+        0.6265771812080537,
+        0.6444036697247706,
+        0.628666297731046,
+        0.6141848456107072
+      ],
+      "best_of_5_dice": 0.6444036697247706,
+      "best_click": 3,
+      "final_click_5_dice": 0.6141848456107072,
+      "inference_seconds": 0.20016860216856003
+    },
+    {
+      "manifest_index": 211,
+      "case_id": "BraTS-GLI-02858-101",
+      "subject_id": "BraTS-GLI-02858",
+      "target_voxels": 3232,
+      "click_dice": [
+        0.5362481916090661,
+        0.5618120912426224,
+        0.6100779844031193,
+        0.6292791539103813,
+        0.6271376506868517
+      ],
+      "best_of_5_dice": 0.6292791539103813,
+      "best_click": 4,
+      "final_click_5_dice": 0.6271376506868517,
+      "inference_seconds": 0.17010034248232841
+    },
+    {
+      "manifest_index": 212,
+      "case_id": "BraTS-GLI-02860-100",
+      "subject_id": "BraTS-GLI-02860",
+      "target_voxels": 5396,
+      "click_dice": [
+        0.5423670961686151,
+        0.5724838411819021,
+        0.5745783628136569,
+        0.5793405879486763,
+        0.570836983355897
+      ],
+      "best_of_5_dice": 0.5793405879486763,
+      "best_click": 4,
+      "final_click_5_dice": 0.570836983355897,
+      "inference_seconds": 0.22397861629724503
+    },
+    {
+      "manifest_index": 213,
+      "case_id": "BraTS-GLI-02860-101",
+      "subject_id": "BraTS-GLI-02860",
+      "target_voxels": 5101,
+      "click_dice": [
+        0.4803277289408552,
+        0.4824867867060826,
+        0.48383188891995155,
+        0.4946793212539546,
+        0.49504950495049505
+      ],
+      "best_of_5_dice": 0.49504950495049505,
+      "best_click": 5,
+      "final_click_5_dice": 0.49504950495049505,
+      "inference_seconds": 0.29611941426992416
+    },
+    {
+      "manifest_index": 214,
+      "case_id": "BraTS-GLI-02863-100",
+      "subject_id": "BraTS-GLI-02863",
+      "target_voxels": 5929,
+      "click_dice": [
+        0.5905595899188381,
+        0.620736172672962,
+        0.6368488864347506,
+        0.6412213740458015,
+        0.6603270529683611
+      ],
+      "best_of_5_dice": 0.6603270529683611,
+      "best_click": 5,
+      "final_click_5_dice": 0.6603270529683611,
+      "inference_seconds": 0.1686839684844017
+    },
+    {
+      "manifest_index": 215,
+      "case_id": "BraTS-GLI-02863-101",
+      "subject_id": "BraTS-GLI-02863",
+      "target_voxels": 8545,
+      "click_dice": [
+        0.600684500942935,
+        0.6284756703078451,
+        0.6132440769180285,
+        0.617551749222935,
+        0.6268162120825899
+      ],
+      "best_of_5_dice": 0.6284756703078451,
+      "best_click": 2,
+      "final_click_5_dice": 0.6268162120825899,
+      "inference_seconds": 0.18345482647418976
+    },
+    {
+      "manifest_index": 216,
+      "case_id": "BraTS-GLI-02865-100",
+      "subject_id": "BraTS-GLI-02865",
+      "target_voxels": 10928,
+      "click_dice": [
+        0.6179151299334436,
+        0.6313753077734787,
+        0.6424295010845987,
+        0.6432918761577137,
+        0.641696303966146
+      ],
+      "best_of_5_dice": 0.6432918761577137,
+      "best_click": 4,
+      "final_click_5_dice": 0.641696303966146,
+      "inference_seconds": 0.23904596269130707
+    },
+    {
+      "manifest_index": 217,
+      "case_id": "BraTS-GLI-02865-101",
+      "subject_id": "BraTS-GLI-02865",
+      "target_voxels": 10568,
+      "click_dice": [
+        0.5953033853517475,
+        0.6248288006261006,
+        0.6234704112337011,
+        0.6201433421350434,
+        0.6091541293577565
+      ],
+      "best_of_5_dice": 0.6248288006261006,
+      "best_click": 2,
+      "final_click_5_dice": 0.6091541293577565,
+      "inference_seconds": 0.237188458442688
+    },
+    {
+      "manifest_index": 218,
+      "case_id": "BraTS-GLI-02871-100",
+      "subject_id": "BraTS-GLI-02871",
+      "target_voxels": 2429,
+      "click_dice": [
+        0.36044226044226046,
+        0.3462671905697446,
+        0.34974980247563864,
+        0.3514487530632838,
+        0.35962844863441007
+      ],
+      "best_of_5_dice": 0.36044226044226046,
+      "best_click": 1,
+      "final_click_5_dice": 0.35962844863441007,
+      "inference_seconds": 0.16855567693710327
+    },
+    {
+      "manifest_index": 219,
+      "case_id": "BraTS-GLI-02871-101",
+      "subject_id": "BraTS-GLI-02871",
+      "target_voxels": 3505,
+      "click_dice": [
+        0.371674966597838,
+        0.3745661874070402,
+        0.3732081694786249,
+        0.37319866978691957,
+        0.3756266872348631
+      ],
+      "best_of_5_dice": 0.3756266872348631,
+      "best_click": 5,
+      "final_click_5_dice": 0.3756266872348631,
+      "inference_seconds": 0.1787378303706646
+    },
+    {
+      "manifest_index": 220,
+      "case_id": "BraTS-GLI-02878-100",
+      "subject_id": "BraTS-GLI-02878",
+      "target_voxels": 11270,
+      "click_dice": [
+        0.5237825059101655,
+        0.530571712299617,
+        0.5250352278064819,
+        0.5256894597657725,
+        0.5300028171659311
+      ],
+      "best_of_5_dice": 0.530571712299617,
+      "best_click": 2,
+      "final_click_5_dice": 0.5300028171659311,
+      "inference_seconds": 0.27119502797722816
+    },
+    {
+      "manifest_index": 221,
+      "case_id": "BraTS-GLI-02878-101",
+      "subject_id": "BraTS-GLI-02878",
+      "target_voxels": 9889,
+      "click_dice": [
+        0.4779126580365688,
+        0.47474383399413006,
+        0.45607476635514016,
+        0.44386854874283194,
+        0.4510971618649069
+      ],
+      "best_of_5_dice": 0.4779126580365688,
+      "best_click": 1,
+      "final_click_5_dice": 0.4510971618649069,
+      "inference_seconds": 0.22376013919711113
+    },
+    {
+      "manifest_index": 222,
+      "case_id": "BraTS-GLI-02885-100",
+      "subject_id": "BraTS-GLI-02885",
+      "target_voxels": 1940,
+      "click_dice": [
+        0.3049291019581364,
+        0.3164591977869986,
+        0.3244665302543116,
+        0.3234440503063528,
+        0.3086042751931022
+      ],
+      "best_of_5_dice": 0.3244665302543116,
+      "best_click": 3,
+      "final_click_5_dice": 0.3086042751931022,
+      "inference_seconds": 0.16907355561852455
+    },
+    {
+      "manifest_index": 223,
+      "case_id": "BraTS-GLI-02885-101",
+      "subject_id": "BraTS-GLI-02885",
+      "target_voxels": 3401,
+      "click_dice": [
+        0.48701642819289875,
+        0.49548663866297254,
+        0.48417408506429277,
+        0.48567807351077313,
+        0.4901267569198931
+      ],
+      "best_of_5_dice": 0.49548663866297254,
+      "best_click": 2,
+      "final_click_5_dice": 0.4901267569198931,
+      "inference_seconds": 0.19566234573721886
+    },
+    {
+      "manifest_index": 224,
+      "case_id": "BraTS-GLI-02887-100",
+      "subject_id": "BraTS-GLI-02887",
+      "target_voxels": 2090,
+      "click_dice": [
+        0.25852568875651527,
+        0.2740112994350282,
+        0.27423003306072735,
+        0.27637088733798604,
+        0.27719155844155846
+      ],
+      "best_of_5_dice": 0.27719155844155846,
+      "best_click": 5,
+      "final_click_5_dice": 0.27719155844155846,
+      "inference_seconds": 0.29479239508509636
+    },
+    {
+      "manifest_index": 225,
+      "case_id": "BraTS-GLI-02887-101",
+      "subject_id": "BraTS-GLI-02887",
+      "target_voxels": 1683,
+      "click_dice": [
+        0.25346662366978395,
+        0.2989906684441059,
+        0.3093103448275862,
+        0.3247767857142857,
+        0.3150684931506849
+      ],
+      "best_of_5_dice": 0.3247767857142857,
+      "best_click": 4,
+      "final_click_5_dice": 0.3150684931506849,
+      "inference_seconds": 0.17313696071505547
+    },
+    {
+      "manifest_index": 226,
+      "case_id": "BraTS-GLI-02891-100",
+      "subject_id": "BraTS-GLI-02891",
+      "target_voxels": 7600,
+      "click_dice": [
+        0.6014448115584925,
+        0.6062721631205674,
+        0.605516356638871,
+        0.6121993414811094,
+        0.6102188147070345
+      ],
+      "best_of_5_dice": 0.6121993414811094,
+      "best_click": 4,
+      "final_click_5_dice": 0.6102188147070345,
+      "inference_seconds": 0.16452732309699059
+    },
+    {
+      "manifest_index": 227,
+      "case_id": "BraTS-GLI-02891-101",
+      "subject_id": "BraTS-GLI-02891",
+      "target_voxels": 7667,
+      "click_dice": [
+        0.6009016745384285,
+        0.6077048902927407,
+        0.6141589920334483,
+        0.6202817881370674,
+        0.6248052726183343
+      ],
+      "best_of_5_dice": 0.6248052726183343,
+      "best_click": 5,
+      "final_click_5_dice": 0.6248052726183343,
+      "inference_seconds": 0.19269485399127007
+    },
+    {
+      "manifest_index": 228,
+      "case_id": "BraTS-GLI-02892-100",
+      "subject_id": "BraTS-GLI-02892",
+      "target_voxels": 39837,
+      "click_dice": [
+        0.6084197442020215,
+        0.6071186788388553,
+        0.6124302505045708,
+        0.6121196780235914,
+        0.609983437969418
+      ],
+      "best_of_5_dice": 0.6124302505045708,
+      "best_click": 3,
+      "final_click_5_dice": 0.609983437969418,
+      "inference_seconds": 0.30228906124830246
+    },
+    {
+      "manifest_index": 229,
+      "case_id": "BraTS-GLI-02892-101",
+      "subject_id": "BraTS-GLI-02892",
+      "target_voxels": 44969,
+      "click_dice": [
+        0.5130793342786775,
+        0.5069370236591806,
+        0.501104017253479,
+        0.5036785136648281,
+        0.5008544632417272
+      ],
+      "best_of_5_dice": 0.5130793342786775,
+      "best_click": 1,
+      "final_click_5_dice": 0.5008544632417272,
+      "inference_seconds": 0.18398288637399673
+    },
+    {
+      "manifest_index": 230,
+      "case_id": "BraTS-GLI-02897-100",
+      "subject_id": "BraTS-GLI-02897",
+      "target_voxels": 4639,
+      "click_dice": [
+        0.15172413793103448,
+        0.17116571843602468,
+        0.20127725170667254,
+        0.17615638140697806,
+        0.19944197581895215
+      ],
+      "best_of_5_dice": 0.20127725170667254,
+      "best_click": 3,
+      "final_click_5_dice": 0.19944197581895215,
+      "inference_seconds": 0.18562864512205124
+    },
+    {
+      "manifest_index": 231,
+      "case_id": "BraTS-GLI-02897-101",
+      "subject_id": "BraTS-GLI-02897",
+      "target_voxels": 4831,
+      "click_dice": [
+        0.13554735547355473,
+        0.15692821368948248,
+        0.15162454873646208,
+        0.12433067781115319,
+        0.13318054494525083
+      ],
+      "best_of_5_dice": 0.15692821368948248,
+      "best_click": 2,
+      "final_click_5_dice": 0.13318054494525083,
+      "inference_seconds": 0.24675876647233963
+    },
+    {
+      "manifest_index": 232,
+      "case_id": "BraTS-GLI-02917-100",
+      "subject_id": "BraTS-GLI-02917",
+      "target_voxels": 17389,
+      "click_dice": [
+        0.5661701972064451,
+        0.5720406806372972,
+        0.5802134940497472,
+        0.587701970318594,
+        0.588477672698389
+      ],
+      "best_of_5_dice": 0.588477672698389,
+      "best_click": 5,
+      "final_click_5_dice": 0.588477672698389,
+      "inference_seconds": 0.23111915960907936
+    },
+    {
+      "manifest_index": 233,
+      "case_id": "BraTS-GLI-02917-101",
+      "subject_id": "BraTS-GLI-02917",
+      "target_voxels": 23961,
+      "click_dice": [
+        0.4896718565845791,
+        0.4918194119817936,
+        0.4996638655462185,
+        0.5029638091953528,
+        0.4997562380889066
+      ],
+      "best_of_5_dice": 0.5029638091953528,
+      "best_click": 4,
+      "final_click_5_dice": 0.4997562380889066,
+      "inference_seconds": 0.17204563692212105
+    },
+    {
+      "manifest_index": 234,
+      "case_id": "BraTS-GLI-02920-100",
+      "subject_id": "BraTS-GLI-02920",
+      "target_voxels": 53963,
+      "click_dice": [
+        0.6719344630052477,
+        0.6763896422186062,
+        0.6719975521444235,
+        0.683280732051053,
+        0.6831271588079364
+      ],
+      "best_of_5_dice": 0.683280732051053,
+      "best_click": 4,
+      "final_click_5_dice": 0.6831271588079364,
+      "inference_seconds": 0.18438203632831573
+    },
+    {
+      "manifest_index": 235,
+      "case_id": "BraTS-GLI-02920-101",
+      "subject_id": "BraTS-GLI-02920",
+      "target_voxels": 63756,
+      "click_dice": [
+        0.6794907890031122,
+        0.6904570383912249,
+        0.6908424908424908,
+        0.6913139467951006,
+        0.6927770267801688
+      ],
+      "best_of_5_dice": 0.6927770267801688,
+      "best_click": 5,
+      "final_click_5_dice": 0.6927770267801688,
+      "inference_seconds": 0.2744561918079853
+    },
+    {
+      "manifest_index": 236,
+      "case_id": "BraTS-GLI-02939-100",
+      "subject_id": "BraTS-GLI-02939",
+      "target_voxels": 3921,
+      "click_dice": [
+        0.3054022411774544,
+        0.30163137799375217,
+        0.24592648730579766,
+        0.2831066571224052,
+        0.3515989072794472
+      ],
+      "best_of_5_dice": 0.3515989072794472,
+      "best_click": 5,
+      "final_click_5_dice": 0.3515989072794472,
+      "inference_seconds": 0.21679946780204773
+    },
+    {
+      "manifest_index": 237,
+      "case_id": "BraTS-GLI-02939-101",
+      "subject_id": "BraTS-GLI-02939",
+      "target_voxels": 4013,
+      "click_dice": [
+        0.4785940803382664,
+        0.46166350582497967,
+        0.4829846231409125,
+        0.512421639192013,
+        0.5262347376526235
+      ],
+      "best_of_5_dice": 0.5262347376526235,
+      "best_click": 5,
+      "final_click_5_dice": 0.5262347376526235,
+      "inference_seconds": 0.1707638055086136
+    },
+    {
+      "manifest_index": 238,
+      "case_id": "BraTS-GLI-02949-100",
+      "subject_id": "BraTS-GLI-02949",
+      "target_voxels": 8477,
+      "click_dice": [
+        0.4853062212539337,
+        0.5058705469141997,
+        0.5198464854634351,
+        0.51762313601446,
+        0.5218833600856073
+      ],
+      "best_of_5_dice": 0.5218833600856073,
+      "best_click": 5,
+      "final_click_5_dice": 0.5218833600856073,
+      "inference_seconds": 0.23329924792051315
+    },
+    {
+      "manifest_index": 239,
+      "case_id": "BraTS-GLI-02949-101",
+      "subject_id": "BraTS-GLI-02949",
+      "target_voxels": 7854,
+      "click_dice": [
+        0.5034097954122753,
+        0.5164387724096019,
+        0.5238558909444986,
+        0.526356689547986,
+        0.532020330368488
+      ],
+      "best_of_5_dice": 0.532020330368488,
+      "best_click": 5,
+      "final_click_5_dice": 0.532020330368488,
+      "inference_seconds": 0.2843223512172699
+    },
+    {
+      "manifest_index": 240,
+      "case_id": "BraTS-GLI-02958-100",
+      "subject_id": "BraTS-GLI-02958",
+      "target_voxels": 16233,
+      "click_dice": [
+        0.6199771036061821,
+        0.6249285461523805,
+        0.6180277712402918,
+        0.6147271531886916,
+        0.6190637455388543
+      ],
+      "best_of_5_dice": 0.6249285461523805,
+      "best_click": 2,
+      "final_click_5_dice": 0.6190637455388543,
+      "inference_seconds": 0.16804683580994606
+    },
+    {
+      "manifest_index": 241,
+      "case_id": "BraTS-GLI-02958-101",
+      "subject_id": "BraTS-GLI-02958",
+      "target_voxels": 24451,
+      "click_dice": [
+        0.5546825228286261,
+        0.5697232060868425,
+        0.5669638915864748,
+        0.5649046793760832,
+        0.5691330500988516
+      ],
+      "best_of_5_dice": 0.5697232060868425,
+      "best_click": 2,
+      "final_click_5_dice": 0.5691330500988516,
+      "inference_seconds": 0.1842174492776394
+    },
+    {
+      "manifest_index": 242,
+      "case_id": "BraTS-GLI-02960-100",
+      "subject_id": "BraTS-GLI-02960",
+      "target_voxels": 14218,
+      "click_dice": [
+        0.5389075868780666,
+        0.5521690423764825,
+        0.5473342311653331,
+        0.5595505617977528,
+        0.5698767651796082
+      ],
+      "best_of_5_dice": 0.5698767651796082,
+      "best_click": 5,
+      "final_click_5_dice": 0.5698767651796082,
+      "inference_seconds": 0.25099044665694237
+    },
+    {
+      "manifest_index": 243,
+      "case_id": "BraTS-GLI-02960-101",
+      "subject_id": "BraTS-GLI-02960",
+      "target_voxels": 22130,
+      "click_dice": [
+        0.5965471321221345,
+        0.6032055296546285,
+        0.6093393320183507,
+        0.6127676088221978,
+        0.6116809536847869
+      ],
+      "best_of_5_dice": 0.6127676088221978,
+      "best_click": 4,
+      "final_click_5_dice": 0.6116809536847869,
+      "inference_seconds": 0.23478498682379723
+    },
+    {
+      "manifest_index": 244,
+      "case_id": "BraTS-GLI-02968-100",
+      "subject_id": "BraTS-GLI-02968",
+      "target_voxels": 2967,
+      "click_dice": [
+        0.50146484375,
+        0.5356705074773229,
+        0.5321076472155609,
+        0.5063893016344725,
+        0.4967444814991266
+      ],
+      "best_of_5_dice": 0.5356705074773229,
+      "best_click": 2,
+      "final_click_5_dice": 0.4967444814991266,
+      "inference_seconds": 0.1724480837583542
+    },
+    {
+      "manifest_index": 245,
+      "case_id": "BraTS-GLI-02968-101",
+      "subject_id": "BraTS-GLI-02968",
+      "target_voxels": 3400,
+      "click_dice": [
+        0.5360063307834344,
+        0.539297763338748,
+        0.5176470588235295,
+        0.4854251623621809,
+        0.458916224473388
+      ],
+      "best_of_5_dice": 0.539297763338748,
+      "best_click": 2,
+      "final_click_5_dice": 0.458916224473388,
+      "inference_seconds": 0.18510685488581657
+    },
+    {
+      "manifest_index": 246,
+      "case_id": "BraTS-GLI-02989-100",
+      "subject_id": "BraTS-GLI-02989",
+      "target_voxels": 5105,
+      "click_dice": [
+        0.4178494623655914,
+        0.4612032212221696,
+        0.48788316482105604,
+        0.49668277500204766,
+        0.49108413562159897
+      ],
+      "best_of_5_dice": 0.49668277500204766,
+      "best_click": 4,
+      "final_click_5_dice": 0.49108413562159897,
+      "inference_seconds": 0.27287355437874794
+    },
+    {
+      "manifest_index": 247,
+      "case_id": "BraTS-GLI-02989-101",
+      "subject_id": "BraTS-GLI-02989",
+      "target_voxels": 7381,
+      "click_dice": [
+        0.4845673505798394,
+        0.5108276475823198,
+        0.5158033362598771,
+        0.5083639814924665,
+        0.4986913501436323
+      ],
+      "best_of_5_dice": 0.5158033362598771,
+      "best_click": 3,
+      "final_click_5_dice": 0.4986913501436323,
+      "inference_seconds": 0.16455607116222382
+    },
+    {
+      "manifest_index": 248,
+      "case_id": "BraTS-GLI-02993-100",
+      "subject_id": "BraTS-GLI-02993",
+      "target_voxels": 2320,
+      "click_dice": [
+        0.40784313725490196,
+        0.42933130699088146,
+        0.4253246753246753,
+        0.37542131190044076,
+        0.42693339838985117
+      ],
+      "best_of_5_dice": 0.42933130699088146,
+      "best_click": 2,
+      "final_click_5_dice": 0.42693339838985117,
+      "inference_seconds": 0.1746465414762497
+    },
+    {
+      "manifest_index": 249,
+      "case_id": "BraTS-GLI-02993-101",
+      "subject_id": "BraTS-GLI-02993",
+      "target_voxels": 1877,
+      "click_dice": [
+        0.36851920925027976,
+        0.38390474235269967,
+        0.37716570413149714,
+        0.38139950816007157,
+        0.37425997425997426
+      ],
+      "best_of_5_dice": 0.38390474235269967,
+      "best_click": 2,
+      "final_click_5_dice": 0.37425997425997426,
+      "inference_seconds": 0.20904085412621498
+    },
+    {
+      "manifest_index": 250,
+      "case_id": "BraTS-GLI-02997-100",
+      "subject_id": "BraTS-GLI-02997",
+      "target_voxels": 26417,
+      "click_dice": [
+        0.6713588270625741,
+        0.6756714602114983,
+        0.6744096726121891,
+        0.6720374454295873,
+        0.673474255388927
+      ],
+      "best_of_5_dice": 0.6756714602114983,
+      "best_click": 2,
+      "final_click_5_dice": 0.673474255388927,
+      "inference_seconds": 0.20785444602370262
+    },
+    {
+      "manifest_index": 251,
+      "case_id": "BraTS-GLI-02997-101",
+      "subject_id": "BraTS-GLI-02997",
+      "target_voxels": 31727,
+      "click_dice": [
+        0.6930904108198634,
+        0.700228074869717,
+        0.7025318089142385,
+        0.7057001964687667,
+        0.7071971390254805
+      ],
+      "best_of_5_dice": 0.7071971390254805,
+      "best_click": 5,
+      "final_click_5_dice": 0.7071971390254805,
+      "inference_seconds": 0.3583495020866394
+    },
+    {
+      "manifest_index": 252,
+      "case_id": "BraTS-GLI-02999-100",
+      "subject_id": "BraTS-GLI-02999",
+      "target_voxels": 7551,
+      "click_dice": [
+        0.4514750482492418,
+        0.5306172237131007,
+        0.5351342109762353,
+        0.53105606534769,
+        0.5482306819354174
+      ],
+      "best_of_5_dice": 0.5482306819354174,
+      "best_click": 5,
+      "final_click_5_dice": 0.5482306819354174,
+      "inference_seconds": 0.35523124784231186
+    },
+    {
+      "manifest_index": 253,
+      "case_id": "BraTS-GLI-02999-101",
+      "subject_id": "BraTS-GLI-02999",
+      "target_voxels": 8367,
+      "click_dice": [
+        0.25892514395393473,
+        0.35400771923525715,
+        0.35329232995658466,
+        0.3923611111111111,
+        0.4512014931176608
+      ],
+      "best_of_5_dice": 0.4512014931176608,
+      "best_click": 5,
+      "final_click_5_dice": 0.4512014931176608,
+      "inference_seconds": 0.3541839122772217
+    },
+    {
+      "manifest_index": 254,
+      "case_id": "BraTS-GLI-03008-100",
+      "subject_id": "BraTS-GLI-03008",
+      "target_voxels": 23003,
+      "click_dice": [
+        0.4080375849152435,
+        0.43997810751641936,
+        0.44546657046657046,
+        0.4667474188152506,
+        0.4685905382419927
+      ],
+      "best_of_5_dice": 0.4685905382419927,
+      "best_click": 5,
+      "final_click_5_dice": 0.4685905382419927,
+      "inference_seconds": 0.35978914052248
+    },
+    {
+      "manifest_index": 255,
+      "case_id": "BraTS-GLI-03008-101",
+      "subject_id": "BraTS-GLI-03008",
+      "target_voxels": 22333,
+      "click_dice": [
+        0.36331189809544323,
+        0.45304710273244886,
+        0.4416044042469524,
+        0.4865336328796088,
+        0.4641287629092507
+      ],
+      "best_of_5_dice": 0.4865336328796088,
+      "best_click": 4,
+      "final_click_5_dice": 0.4641287629092507,
+      "inference_seconds": 0.3588618077337742
+    },
+    {
+      "manifest_index": 256,
+      "case_id": "BraTS-GLI-03009-100",
+      "subject_id": "BraTS-GLI-03009",
+      "target_voxels": 11225,
+      "click_dice": [
+        0.40572611446397855,
+        0.4389612734330334,
+        0.433314606741573,
+        0.43179541260216187,
+        0.4317934190455437
+      ],
+      "best_of_5_dice": 0.4389612734330334,
+      "best_click": 2,
+      "final_click_5_dice": 0.4317934190455437,
+      "inference_seconds": 0.3577626571059227
+    },
+    {
+      "manifest_index": 257,
+      "case_id": "BraTS-GLI-03009-101",
+      "subject_id": "BraTS-GLI-03009",
+      "target_voxels": 10534,
+      "click_dice": [
+        0.433383827454375,
+        0.4694180942942093,
+        0.468147856861974,
+        0.470958622462092,
+        0.47842558755489994
+      ],
+      "best_of_5_dice": 0.47842558755489994,
+      "best_click": 5,
+      "final_click_5_dice": 0.47842558755489994,
+      "inference_seconds": 0.35808834061026573
+    },
+    {
+      "manifest_index": 258,
+      "case_id": "BraTS-GLI-03014-100",
+      "subject_id": "BraTS-GLI-03014",
+      "target_voxels": 23670,
+      "click_dice": [
+        0.594307952188509,
+        0.6230447148048665,
+        0.6223469231943808,
+        0.6228516746411483,
+        0.620969703774397
+      ],
+      "best_of_5_dice": 0.6230447148048665,
+      "best_click": 2,
+      "final_click_5_dice": 0.620969703774397,
+      "inference_seconds": 0.3599745035171509
+    },
+    {
+      "manifest_index": 259,
+      "case_id": "BraTS-GLI-03014-101",
+      "subject_id": "BraTS-GLI-03014",
+      "target_voxels": 22491,
+      "click_dice": [
+        0.5272026647508328,
+        0.5482984569858381,
+        0.5468640485950343,
+        0.5468579614702046,
+        0.5478804902962207
+      ],
+      "best_of_5_dice": 0.5482984569858381,
+      "best_click": 2,
+      "final_click_5_dice": 0.5478804902962207,
+      "inference_seconds": 0.35890501737594604
+    },
+    {
+      "manifest_index": 260,
+      "case_id": "BraTS-GLI-03019-100",
+      "subject_id": "BraTS-GLI-03019",
+      "target_voxels": 11532,
+      "click_dice": [
+        0.20065772302552592,
+        0.19879693412244107,
+        0.22788766352636514,
+        0.23178692662546785,
+        0.20322779118746745
+      ],
+      "best_of_5_dice": 0.23178692662546785,
+      "best_click": 4,
+      "final_click_5_dice": 0.20322779118746745,
+      "inference_seconds": 0.36358943581581116
+    },
+    {
+      "manifest_index": 261,
+      "case_id": "BraTS-GLI-03019-101",
+      "subject_id": "BraTS-GLI-03019",
+      "target_voxels": 22819,
+      "click_dice": [
+        0.14557353208507545,
+        0.1671916474960184,
+        0.16781957054330596,
+        0.14847258005152741,
+        0.16478295299114534
+      ],
+      "best_of_5_dice": 0.16781957054330596,
+      "best_click": 3,
+      "final_click_5_dice": 0.16478295299114534,
+      "inference_seconds": 0.35887236148118973
+    },
+    {
+      "manifest_index": 262,
+      "case_id": "BraTS-GLI-03028-100",
+      "subject_id": "BraTS-GLI-03028",
+      "target_voxels": 13166,
+      "click_dice": [
+        0.4789374410562716,
+        0.4952170916609235,
+        0.4824099206982809,
+        0.4861680972638256,
+        0.48651311737898756
+      ],
+      "best_of_5_dice": 0.4952170916609235,
+      "best_click": 2,
+      "final_click_5_dice": 0.48651311737898756,
+      "inference_seconds": 0.3613584116101265
+    },
+    {
+      "manifest_index": 263,
+      "case_id": "BraTS-GLI-03028-101",
+      "subject_id": "BraTS-GLI-03028",
+      "target_voxels": 32757,
+      "click_dice": [
+        0.7263173773129525,
+        0.7305974422599733,
+        0.72765724522293,
+        0.7310112670041324,
+        0.7369375119678304
+      ],
+      "best_of_5_dice": 0.7369375119678304,
+      "best_click": 5,
+      "final_click_5_dice": 0.7369375119678304,
+      "inference_seconds": 0.35779064521193504
+    },
+    {
+      "manifest_index": 264,
+      "case_id": "BraTS-GLI-03051-100",
+      "subject_id": "BraTS-GLI-03051",
+      "target_voxels": 13055,
+      "click_dice": [
+        0.45927962262972105,
+        0.49041022908897175,
+        0.4922819913130638,
+        0.4948666712602494,
+        0.49684282772820865
+      ],
+      "best_of_5_dice": 0.49684282772820865,
+      "best_click": 5,
+      "final_click_5_dice": 0.49684282772820865,
+      "inference_seconds": 0.35974371805787086
+    },
+    {
+      "manifest_index": 265,
+      "case_id": "BraTS-GLI-03051-101",
+      "subject_id": "BraTS-GLI-03051",
+      "target_voxels": 13768,
+      "click_dice": [
+        0.5255687661990374,
+        0.5419249796480682,
+        0.5642236948581677,
+        0.5723191460734628,
+        0.5902805400219939
+      ],
+      "best_of_5_dice": 0.5902805400219939,
+      "best_click": 5,
+      "final_click_5_dice": 0.5902805400219939,
+      "inference_seconds": 0.2743818387389183
+    },
+    {
+      "manifest_index": 266,
+      "case_id": "BraTS-GLI-03051-102",
+      "subject_id": "BraTS-GLI-03051",
+      "target_voxels": 33446,
+      "click_dice": [
+        0.6920207972270364,
+        0.6943559520016991,
+        0.6968591349961697,
+        0.7003855870230022,
+        0.6993243683038911
+      ],
+      "best_of_5_dice": 0.7003855870230022,
+      "best_click": 4,
+      "final_click_5_dice": 0.6993243683038911,
+      "inference_seconds": 0.13495751470327377
+    },
+    {
+      "manifest_index": 267,
+      "case_id": "BraTS-GLI-03054-100",
+      "subject_id": "BraTS-GLI-03054",
+      "target_voxels": 25167,
+      "click_dice": [
+        0.7617250133618386,
+        0.773416456318081,
+        0.7717046145530707,
+        0.7713440617636738,
+        0.770026353736761
+      ],
+      "best_of_5_dice": 0.773416456318081,
+      "best_click": 2,
+      "final_click_5_dice": 0.770026353736761,
+      "inference_seconds": 0.2101106494665146
+    },
+    {
+      "manifest_index": 268,
+      "case_id": "BraTS-GLI-03054-101",
+      "subject_id": "BraTS-GLI-03054",
+      "target_voxels": 27289,
+      "click_dice": [
+        0.6225134855252786,
+        0.6339474923475394,
+        0.6401151062062418,
+        0.6400707359839345,
+        0.6443132314324312
+      ],
+      "best_of_5_dice": 0.6443132314324312,
+      "best_click": 5,
+      "final_click_5_dice": 0.6443132314324312,
+      "inference_seconds": 0.7951386198401451
+    },
+    {
+      "manifest_index": 269,
+      "case_id": "BraTS-GLI-03054-102",
+      "subject_id": "BraTS-GLI-03054",
+      "target_voxels": 63572,
+      "click_dice": [
+        0.7402077193785586,
+        0.7446147415354605,
+        0.7495444078715018,
+        0.745812780425271,
+        0.748237927590335
+      ],
+      "best_of_5_dice": 0.7495444078715018,
+      "best_click": 3,
+      "final_click_5_dice": 0.748237927590335,
+      "inference_seconds": 0.16964943706989288
+    }
+  ]
+}

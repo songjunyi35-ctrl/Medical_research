@@ -1,0 +1,90 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_official15_va_preregistration",
+  "schema_version": 1,
+  "created_utc": "2026-08-12T06:26:05Z",
+  "status_at_registration": {
+    "official15_cache_built": false,
+    "real_case_official15_preflight_run": false,
+    "gpu_smoke_run": false,
+    "formal_training_started": false,
+    "formal_training_completed": false,
+    "sealed_test_access": false
+  },
+  "research_question": "Does the official SAM-Med3D 1.5 mm preprocessing and train-only RandomFlip recipe materially improve frozen T1ce/WT development validation Dice under the existing three-click interactive task?",
+  "task_contract": {
+    "input": "BraTS 2024 T1ce single channel",
+    "target": "WT={raw labels 1,2,3}; raw label 4 excluded",
+    "split": "frozen subject-clean 972 train / 108 validation, validation seed 20260723",
+    "model_input_shape": [128, 128, 128],
+    "interaction": "3 accumulated corrective clicks with recurrent low-resolution mask",
+    "decision_rule": "raw logit > 0",
+    "test_access": false
+  },
+  "preprocessing": {
+    "fixed_order": [
+      "paired image/WT LabelMap resample to 1.5 mm isotropic (linear image, nearest label)",
+      "TorchIO ToCanonical",
+      "TorchIO CropOrPad(mask_name=label, target_shape=128^3)",
+      "positive-image-voxel sample z-score applied to the whole patch"
+    ],
+    "uses_gt_for_localization": true,
+    "n4_bias_field_correction": false,
+    "train_augmentation": "TorchIO RandomFlip axes=(0,1,2), per-axis probability 0.5",
+    "validation_augmentation": false
+  },
+  "optimization": {
+    "hardware": "exactly 2 x NVIDIA A100-SXM4-80GB",
+    "world_size": 2,
+    "per_gpu_batch_size": 6,
+    "gradient_accumulation_steps": 1,
+    "effective_batch_size": 12,
+    "max_epochs": 200,
+    "early_stopping_disabled": "min_epochs_before_stop=201 and patience=201",
+    "precision": "BF16",
+    "unfreeze": "full model",
+    "optimizer": "AdamW",
+    "encoder_lr": 0.0001,
+    "prompt_and_mask_head_lr": 0.00001,
+    "weight_decay": 0.1,
+    "scheduler": "MultiStepLR milestones=[120,180], gamma=0.1",
+    "train_seed": 20260805,
+    "selection": "strict highest complete-epoch validation Dice"
+  },
+  "analysis_plan": {
+    "primary_endpoint": "selected validation Dice on the frozen 108-case development validation split",
+    "report": [
+      "selected epoch and Dice",
+      "complete 200-epoch history",
+      "strict checkpoint reload hash and bitwise identity",
+      "cache QC including lesion crop retention",
+      "throughput and peak GPU memory"
+    ],
+    "interpretation_gates": {
+      "minimum_research_gate": 0.68,
+      "target_gate": 0.70,
+      "reported_external_reference_not_directly_comparable": "DPD-SAM paper SAM-Med3D BraTS baseline 0.741 +/- 0.015"
+    },
+    "nearest_completed_internal_arm": {
+      "identity": "sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805",
+      "selected_validation_dice": 0.5677144756471669,
+      "warning": "not a matched contrast: prior cache used whole-resize plus N4 and stopped at epoch 64"
+    }
+  },
+  "frozen_inputs": {
+    "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "train_manifest_sha256": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65",
+    "validation_manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cache_builder_sha256": "ee882e0eed4704b398568dd2a36683ac1312cb429c5be85de1636816599114c9",
+    "reused_training_loop_sha256": "31c114fe24e6ad419c3eac29a50775a5ab9d7dedf758ae907c3d7f417829c20c",
+    "official_wrapper_sha256": "4320b54f7b7e4d454a6a7eb44ce74a33554f3d6ecde43a7e8e5527cccb04421a",
+    "a100_launcher_sha256": "53f755d01cc5b11c32d1902331e66cddb0d2336c7a438a50c63d167914d85eba",
+    "focused_test_sha256": "9487cfd0447d30b9389a123fb21ecd5be20b5d477183e3637ad6ed729c8bce28"
+  },
+  "pre_registration_tests": {
+    "command": "python -m pytest -q tests/test_official15_reproduction.py tests/test_t1ce_wt_cached.py tests/test_t1ce_wt_training.py",
+    "passed": 25,
+    "failed": 0,
+    "synthetic_official_torchio_voxelwise_match": true
+  },
+  "run_identity": "sammed3d_official15_va_gtcrop_fullunfreeze_a100x2_train972_val108_e200_trainseed20260805_r20260812"
+}

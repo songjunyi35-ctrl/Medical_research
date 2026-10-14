@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -uo pipefail
+ROOT="/mlx_devbox/users/songjunyi.666/playground/AFlow"; PY="$ROOT/../sammed3d-venv/bin/python"; OUT="$ROOT/workspace/BraTS/sammed3d_t1ce_wt/full972_multiseed_20260825"; TRAIN="$ROOT/scripts/train_t1ce_wt_full972_seed_replicates.py"; CACHE="$ROOT/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train"; MANIFEST="$ROOT/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl"; HISTORY="$ROOT/workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth"; EMA="$ROOT/workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/plain_128_full756_ema_fixed_epoch168.pth"
+cd "$ROOT"
+PYTHONDONTWRITEBYTECODE=1 "$PY" "$TRAIN" --arm full972_seed20260940 --cache "$CACHE" --train-case-ids "$MANIFEST" --historical-teacher-checkpoint "$HISTORY" --ema-teacher-checkpoint "$EMA" --output-dir "$OUT/formal_seed20260940" --device cuda:0 > "$OUT/seed20260940.log" 2>&1 & P0=$!
+PYTHONDONTWRITEBYTECODE=1 "$PY" "$TRAIN" --arm full972_seed20260941 --cache "$CACHE" --train-case-ids "$MANIFEST" --historical-teacher-checkpoint "$HISTORY" --ema-teacher-checkpoint "$EMA" --output-dir "$OUT/formal_seed20260941" --device cuda:1 > "$OUT/seed20260941.log" 2>&1 & P1=$!
+wait "$P0"; S0=$?; wait "$P1"; S1=$?; printf '{"seed40_exit":%d,"seed41_exit":%d}\n' "$S0" "$S1" > "$OUT/SEED_PAIR_EXIT.json"; test "$S0" -eq 0; test "$S1" -eq 0

@@ -1,0 +1,89 @@
+{
+  "schema": "aflow.prereg.residual_refiner_mixshift4p50_graymean_paired_a100",
+  "schema_version": 1,
+  "created_date_utc": "2026-08-13",
+  "status": "frozen_before_optimizer_step",
+  "test_access": false,
+  "motivation": {
+    "original_train_coarse_dsc_mean": 0.8297756239057658,
+    "validation_coarse_dsc_mean": 0.6365875325785683,
+    "shift4_calibration_mean_dsc": 0.6849996749936296,
+    "robust_shift4_probability_1_best_validation_dsc": 0.6956357514416737,
+    "observed_failure_mode": "probability-1 shift4 improved early but then overfit corrupted inputs and sharply degraded clean validation",
+    "choice": "50 percent clean and 50 percent shift4",
+    "reason": "retain clean boundary refinement while exposing the model to held-out-like coarse errors"
+  },
+  "research_question": "Does mixed clean/shift4 robust training exceed 0.70, and does a mild gray-mean term add independent benefit?",
+  "primary_target": {
+    "split": "108-case subject-clean validation",
+    "metric": "scan-macro WT Dice",
+    "threshold": 0.70,
+    "strict_comparison": ">"
+  },
+  "attribution_rule": {
+    "gray_arm_minus_mixed_control_minimum": 0.005
+  },
+  "gray_weight_1_rationale": {
+    "shifted_train_segmentation_loss": "approximately 0.32",
+    "shifted_train_gray_loss": "approximately 0.02",
+    "intended_gray_contribution_on_shifted_samples": "approximately 6 percent of segmentation loss",
+    "prior_weight_10_observation": "gray contribution was comparable to segmentation loss and reduced Dice",
+    "selection_policy": "fixed from training-loss scale; no validation sweep"
+  },
+  "source_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/refiner_val_dice_best.pth",
+    "sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "source_epoch": 58,
+    "optimizer_state_policy": "reset in both arms"
+  },
+  "data": {
+    "train_cache_path": "/tmp/aflow_refiner_graymean_20260813/train",
+    "train_count": 972,
+    "train_index_sha256": "d3cace047fe168e33b465744bf4170e7e323defc6f61e968cd83250e4061f974",
+    "validation_cache_path": "/tmp/aflow_refiner_graymean_20260813/validation",
+    "validation_count": 108,
+    "validation_index_sha256": "cda56539fd59ce9c2579c41de4a8b1467381ab513c66a62397448a1cd470444c",
+    "target": "WT={1,2,3}; raw label 4 excluded"
+  },
+  "paired_arms": [
+    {
+      "name": "mixshift4p50_control",
+      "gpu": 0,
+      "gray_weight": 0.0
+    },
+    {
+      "name": "mixshift4p50_graymean_w1",
+      "gpu": 1,
+      "gray_weight": 1.0
+    }
+  ],
+  "fixed_hyperparameters": {
+    "seed": 20260813,
+    "epochs_max": 30,
+    "patience": 10,
+    "batch_size": 2,
+    "optimizer": "AdamW",
+    "learning_rate": 0.00005,
+    "weight_decay": 0.00001,
+    "original_joint_shift_max": 12,
+    "independent_coarse_shift_max": 4,
+    "independent_coarse_shift_probability": 0.5,
+    "segmentation_loss": "original DiceCE",
+    "gray_temperature": 1.0,
+    "gray_epsilon": 0.000001,
+    "checkpoint_selection": "strict maximum validation scan-macro Dice including continuation epoch 0"
+  },
+  "code": {
+    "runner_path": "scripts/train_t1ce_wt_residual_refiner_graymean_robust.py",
+    "runner_sha256": "ec095e50689fb11099952bdc4edcc8917805b8ec190a4034f317b0d22d62e2f1",
+    "base_runner_sha256": "b2949927640e2d656cfe2c71a9f53aec491d9edb9dfa071a634ce7b1037133d2",
+    "unit_test_sha256": "ce51096da4314b3832ea37f138bba842ee34441466aca5db6c50bf5118ec9ea0",
+    "tests": "6 passed"
+  },
+  "decision_policy": [
+    "Do not access test.",
+    "Run both arms with identical data, seed, corruption, augmentation, optimizer, stopping, and validation selection.",
+    "Do not change probability or gray weight after either arm starts.",
+    "Report both arms and do not attribute control gains to gray loss."
+  ]
+}

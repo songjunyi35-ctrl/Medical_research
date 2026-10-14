@@ -1,0 +1,278 @@
+# BraTS T1ce/WT 精简结果账本
+
+更新时间：2026-08-17 UTC
+
+本文件只记录会影响科研决策的 T1ce 结果。协议约定和结果边界见
+[`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`](AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md)。历史结果账本已归档到
+`archive/handoffs_pre_20260813/`，不能覆盖本文件的结论。
+
+## 当前项目记录：direct plain locator（2026-08-17）
+
+当前最佳自动 checkpoint 是 selector 在 test 打开前选出的 epoch 99 plain locator，
+4,700,897 参数，T1ce-only，N4 + 图像非零 brain crop + `128^3`，固定 raw logit
+`>0`，无 CAPG、SAM、TTA 或后处理。
+
+| 同一 270-case internal test | scan-macro WT Dice | subject-balanced Dice | 推理边界 |
+|---|---:|---:|---|
+| **direct plain locator（当前）** | **`0.725820`** | **`0.709413`** | 全自动；无 GT 定位/点击 |
+| residual refiner | `0.703798` | `0.686637` | GT-centered oracle |
+| 历史 brain-crop SAM C3 | `0.625359` | `0.610042` | 自动裁脑，但点击来自 GT |
+| upstream-literal vanilla best-of-five | `0.594226` | `0.580970` | GT-centered + 交互点击 |
+
+因此 `0.725820` 同时刷新项目的自动方法记录和所有内部 test 数值记录；相对旧
+brain-crop、oracle refiner、vanilla 的 scan 数值差分别为
+`+0.100461/+0.022022/+0.131594`。这些不是单因素因果增益，因为各方法的架构、
+训练和点击协议不同。
+
+最强的直接机制证据是：历史108例上，plain locator直接输出为 `0.716125`，接旧冻结
+SAM dense-only/point+dense 后降至 `0.596964/0.599324`。当前方法保留任务对齐的
+dense locator mask，避开已测得的 decoder/prompt 分布失配。旧受控实验还证明
+brain-crop 相对 whole-resize 提升 `+0.054250`；CE权重从1.0降到0.1则避免了
+locator全背景坍缩。小模型架构、lesion-aware sampling和增强很可能也有贡献，但没有
+逐项消融，不能各自分配Dice增益。
+
+selector / untouched internal confirmation / test scan依次为
+`0.720419/0.716505/0.725820`，支持同源cohort内复现。270 test早已被项目其他arm
+揭示，本次仍只能称“已揭示内部test上的补充测评”，不是外部验证或公开BraTS SOTA。
+完整解释和证据分级见
+[`PLAIN_LOCATOR_TEST270_RESULT_20260817.md`](PLAIN_LOCATOR_TEST270_RESULT_20260817.md)；
+归档目录见
+[`archive/research_records/2026-08-17_plain_locator_test270/`](archive/research_records/2026-08-17_plain_locator_test270/)。
+
+## 已建立的 vanilla SAM-Med3D 基线
+
+任务为 BraTS 2024 post-treatment GLI，单通道 T1ce，二分类 WT `{1,2,3}`，
+subject-clean 的 972/108/270 划分。该实验采用官方 1.5 mm 预处理、严格 upstream
+11-pass 训练语义、完全解冻和五次循环 mask 点击。没有灰度/强度损失、课程学习、
+BraTS 2022 或模拟病灶。
+
+| 指标 | 验证集 scan macro | 测试集 scan macro | 测试集 subject-balanced |
+|---|---:|---:|---:|
+| 点击 1–5 中最佳 | 0.571306 | **0.594226** | 0.580970 |
+| 最终第 5 次点击 | 0.559185 | **0.585754** | 0.572699 |
+
+- 选中 checkpoint：epoch 21。
+- Checkpoint：`workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/sam_model_val_official_best5.pth`
+- Checkpoint SHA-256：`c0c85a0fb90f6301344053f97cabe8a4972bd9febd4c6ae248f3a0908598fe31`。
+- 测试报告：同一 run 目录下的
+  `test270_epoch21_official15_upstreamliteral5_s2023_20260812/test_report.json`。
+- 报告 SHA-256：`7bd59843459876bd006230b24bc111cdfd726896cb3e6748b54b24c0a9659b63`。
+- 解释：这是本地协议下合理且可审计的基础复现，与师兄/MSCL 的 vanilla 参考值
+  0.601 接近，但不是对未公开划分和 prompt RNG 的精确复刻。
+
+## 其他已完成证据
+
+| 分支 | 验证/开发集 | 固定测试集 | 可以声称的结论 |
+|---|---:|---:|---|
+| 旧 whole-head resize | C3 0.5633 | C3 0.571109 | 只作为旧 brain-crop 的匹配对照 |
+| 非零 brain-crop + resize 128^3 | C3 0.6060 | **C3 0.625359** | 旧三点击/N4 协议下的自动预处理提升 |
+| 自动两阶段 cascade | C3 0.635713 | 未运行 | 自动定位的开发集结果 |
+| GT 中心 stage-2 coarse | H100 C3 0.635949 | A100 C3 0.666658 | oracle 定位；硬件影响纠错点击分支 |
+| 全分辨率残差细化器 | **0.668399** | **0.703798** | oracle crop；test 非自动端到端成绩 |
+| prompt-local 64^3 细化器 | 0.669548 -> 0.669738 | 未运行 | +0.000190；正式负结果 |
+| robust-shift 三 seed + TTA + locked postprocess | **0.700419** | 未运行 | GT-centered、validation-selected；最终不含 gray loss |
+
+有效的 brain-crop 匹配比较是 `0.571109 -> 0.625359`，提升
+`+0.054250`；232/270 例改善，配对 95% CI 为 `[+0.0455,+0.0629]`。
+因此可以把 brain-crop 报告为旧协议内有效的预处理进展。但不能声称它相对最新
+官方基线提升约 +0.031，因为两套协议还同时改变了重采样、N4、定位、归一化、
+训练循环和点击数。下一项可辩护的实验应是官方协议下只改变 brain-crop 的验证集
+单因素比较。
+
+残差细化器使用 T1ce 和固定 SAM 第 3 次点击的 raw logit，预测全分辨率 additive
+residual。epoch 58 在 108 例验证集上将 `0.635949` 提高到 `0.668399`，
+93/108 例改善。`0.6800` 只是预注册开发门槛，不是验证集已经取得的结果。
+
+经 2026-08-13 明确授权和 test freeze，epoch 58 首次完成 270 例 test：同次
+A100 coarse `0.666658`，refined **`0.703798`**，scan-macro 配对提升
+**`+0.037140`**，244/270 例改善；subject-balanced 为
+`0.648864 -> 0.686637`（`+0.037773`）。这说明 refiner 的 validation 增益在
+test 上保持，但该分支使用 N4、GT-centered 128^3 和三次 GT-derived 点击，属于
+oracle-localization 结果。最高自动 test 仍是 brain-crop 的 `0.625359`。
+
+robust-shift 的 train-only coarse-logit 随机平移解决了 frozen coarse 的
+train/validation 失配（约 `0.829776` 对 `0.636588`）。三个 seed 的 raw
+validation 为 `0.695636/0.696351/0.699043`；三 seed × 8 reflection TTA raw
+为 `0.698235`；validation 冻结选择 threshold `-1` 和去除小于 500 voxel 连通域
+后为 **`0.7004189626`**。这是验证集开发结果，不是 test，也不是自动定位。
+最终方案不含 gray loss；三组配对 gray 结果分别为约 `-0.00096/-0.00175/+0.00155`，
+不足以支持稳定有效的结论。
+
+## 标准证据及哈希
+
+| 记录 | SHA-256 |
+|---|---|
+| `workspace/BraTS/sammed3d_t1ce_wt/FINAL_TEST_RESULT_BRAINCROP_20260806.json` | `71af38c8e2436f87ae455193471cfab953069a0f0845f01f21016adbda244ce9` |
+| `workspace/BraTS/sammed3d_t1ce_wt/TWO_STAGE_CASCADE_PROBE_FIXED_20260807.json` | `a092155b4626913321d9104462e7a515c0842a02b63304ca3a3a30a8bf100d63` |
+| `workspace/BraTS/sammed3d_t1ce_wt/RESIDUAL_REFINER_RESULT_20260810.json` | `8fe3c06f6bab079ef0e5e37fbe15a25fb00f2adfa741270b580fcf357063cef5` |
+| `workspace/BraTS/sammed3d_t1ce_wt/PROMPT_LOCAL_REFINER_RESULT_20260812.json` | `1f558982f2840632501a620f0de57a91ef3c78b8935cad5b57906a997cb3a4ac` |
+| `workspace/BraTS/sammed3d_t1ce_wt/FINAL_TEST_RESULT_RESIDUAL_REFINER_20260813.json` | `149fc9a89d5877de9efa6e52f1a8a459d7c918eb2aabf06a3872846bd20fdcdd` |
+| `workspace/BraTS/sammed3d_t1ce_wt/FINAL_VALIDATION_RESULT_RESIDUAL_REFINER_ROBUST_ENSEMBLE_20260813_V2.json` | `74d5b3018be637bb1bd05adea0ceb99cdaeb38b5bb2af5f52b4566301df6f186` |
+
+不得使用未修正的 cascade 记录及其 LCC 派生结果，两者都有方向 bug。历史约 0.745
+的 T2-FLAIR / WT1234 / 五点击 artifact 也不能与当前 T1ce/WT123 任务比较。
+
+## 测试集状态
+
+270 例集合已经揭示，并被早期项目分支及本次冻结 residual-refiner readout 使用过。
+它现在只能作为固定报告集，不能作为调参集。任何新的 loss、crop、checkpoint、
+阈值和后处理决策都只能使用 train/validation。若要提出有力的“未触碰测试集”
+结论，需要全新的外部或确认集。
+
+## MCTS 推理 workflow 效率结果（2026-08-14）
+
+该部分以固定的 robust residual refiner 成员为对象，自动选择 checkpoint、reflection
+view、融合、阈值和连通域后处理。开发协议为 108 例 validation 上的 subject-disjoint
+nested 三折，270 例 test 在搜索入口不可达。它仍使用 GT-centered oracle crop，且
+不含灰度 loss。
+
+### 正式三折 MCTS 对 locked reference
+
+| 指标 | MCTS OOF | locked 3 models x 8 views | 差值/收益 |
+|---|---:|---:|---:|
+| scan Dice | `0.699820835` | `0.700421682` | `-0.000600847` |
+| subject Dice | `0.695036906` | `0.695373199` | `-0.000336293` |
+| subject 配对 95% CI | — | — | `[-0.001988787,+0.001365200]` |
+| 平均 forwards | `7.0` | `24.0` | `-70.8%` |
+
+7 次 forward 是三个 outer-fold winner 的平均值；三个实际 winner 分别为 8、12 和 1，
+不能把 7 描述成已经冻结的单一部署 workflow。
+
+### 等预算 controller 对照
+
+| controller | subject Dice | 相对 locked | 95% CI | forwards |
+|---|---:|---:|---:|---:|
+| MCTS | `0.695036906` | `-0.000336293` | `[-0.001988787,+0.001365200]` | `7.000` |
+| random | `0.695745898` | `+0.000372699` | `[-0.001138844,+0.001906848]` | `8.000` |
+| greedy | `0.695016019` | `-0.000357180` | `[-0.002569378,+0.001715238]` | `6.667` |
+
+MCTS 没有取得 Dice 收益，也没有胜过 random/greedy。可报告收益是：它搜索到显著减少
+member-view forwards、精度仅轻微变化的 Pareto workflow，并建立了强类型 workflow、
+subject-clean nested selection、mandatory anchor、精确 atom parity、断点恢复和完整
+证据链。搜索有效性与算法优越性必须分开陈述。
+
+### 冻结 8-forward 候选的在线 benchmark
+
+| refiner-stage 指标 | candidate | locked | 收益 |
+|---|---:|---:|---:|
+| mean latency | `0.387062 s/case` | `1.075670 s/case` | `2.779064x` |
+| throughput | `2.58356 case/s` | `0.92965 case/s` | `2.779064x` |
+| model allocated after load | `18,818,560 B` | `56,455,680 B` | `-66.7%` |
+| peak allocated | `780,058,112 B` | `952,568,320 B` | `-18.11%` |
+
+这是 refiner stage 的在线收益，范围包含 H2D、模型 forward、融合、D2H 和连通域处理，
+不包含上游 SAM coarse inference 或预处理。交叉 GPU 两个方向的加速分别为 `2.7625x`
+和 `2.7959x`。candidate 与 locked 各抽 8 例的 online/cache mask parity 均为 Dice 1、
+最大差异 0。
+
+### MCTS 证据哈希
+
+| 记录 | SHA-256 |
+|---|---|
+| `MCTS_EFFICIENCY_CONTRIBUTION_RESULT_20260813.md` | `d0fe59509ec003a50ad9ba0bce0ee85f798763a8f72dc19c6b5d75bf55db486e` |
+| `MCTS_EFFICIENCY_CONTRIBUTION_PREREG_20260813.md` | `8272f77393e8523206eade1e5affcf6d6f774685ef0602ede99bc0443cd75316` |
+| `workspace/BraTS/sammed3d_t1ce_wt/mcts_workflow_20260813_v2/final_report.json` | `b3cabb91642e8f0b711b1a9acfd2567fa305ba57850d49d3ec5247024ed22009` |
+| `workspace/BraTS/sammed3d_t1ce_wt/mcts_efficiency_contribution_20260813/FINAL_CONTROLLER_COMPARISON.json` | `757e6a82fd8be59b925010a4c692b75ad9acd6c72d0e892e46a4b7cc7cf277ff` |
+| `MCTS_DEPLOYMENT_CANDIDATE_20260813.json` | `89ae9e10992f9989ca99a86d96bb5b153eb91050b45096940ea2a871297a986b` |
+| `workspace/BraTS/sammed3d_t1ce_wt/mcts_efficiency_contribution_20260813/FINAL_DEPLOYMENT_BENCHMARK.json` | `ad8cffddc4382c20af67b84674a18c707909df13cfc2cb048dd3eb5b2d471cf7` |
+
+论文可用结论：在本项目的 oracle validation 上，自动 workflow 优化将平均 refiner
+forward 数减少约 `70.8%`，冻结候选实测获得 `2.779x` refiner-stage 加速，同时 OOF
+subject Dice 相对 locked reference 仅变化 `-0.000336`；但没有证据表明 MCTS 比
+random/greedy 更优，也不能据此宣称统计非劣、test 泛化或端到端加速。
+
+## 推理剪枝继续优化结果（2026-08-14，晚于上节）
+
+上一节的 MCTS 搜索随后扩展为 1→8→24 adaptive router 和固定预算剪枝消融。adaptive
+strict-margin 得到 subject Dice `0.695260`、平均 `2.556` forwards、相对 locked
+`-0.000113`，但没有通过 exact-count matched random routing control：只比随机均值高
+`+0.000256`，`13.74%` 随机路由达到或超过它。因此 adaptive 是正式负结果。
+
+固定预算账本：
+
+| forwards | workflow | scan Dice | subject Dice | subject 差 vs locked | 95% CI |
+|---:|---|---:|---:|---:|---:|
+| 1 | seed15 identity | `0.700106` | `0.695016` | `-0.000358` | `[-0.002498,+0.001879]` |
+| 3 | 3 models identity | `0.699829` | `0.695029` | `-0.000344` | `[-0.001798,+0.001099]` |
+| 4 | seed15 single flips | `0.701150` | `0.696179` | `+0.000806` | `[-0.000702,+0.002307]` |
+| 8 | seed15 all views | **`0.701571`** | **`0.696271`** | `+0.000897` | `[-0.000432,+0.002257]` |
+| 12 | 3 models single flips | `0.700626` | `0.696146` | `+0.000773` | `[-0.000350,+0.001962]` |
+| 24 | locked | `0.700422` | `0.695373` | `0` | — |
+
+固定 1-forward 的双 A100 refiner-stage benchmark：latency `0.078786` vs
+`1.075861 s/case`，speedup `13.6555x`，forwards 减少 `95.83%`，model allocated
+下降 `66.67%`，peak allocated 下降 `26.92%`。fixed1/locked 各 8 例在线输出与 exact
+atom mask 逐体素一致。
+
+| 新证据 | SHA-256 |
+|---|---|
+| `INFERENCE_PRUNING_RESULT_20260814.md` | `0f025480349ff627a956b5e836a22925e9686f25801ea219bc1bc51c45524c9f` |
+| `workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/FINAL_ADAPTIVE_ROUTER_RESULT.json` | `dbba96e593c4bcf7742edb7f1e8afc614b058c6625ec8548e418849aef74eddf` |
+| `workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/FINAL_ADAPTIVE_ROUTER_CONTROL.json` | `662ca760e061d9c207abb9733b1286be16ff533bae7ebd560f8dc0445f4f1f14` |
+| `workspace/BraTS/sammed3d_t1ce_wt/fixed_budget_frontier_20260814/FINAL_FIXED_BUDGET_FRONTIER.json` | `9cc01c56659f1ca38e67ef8511ecba5376abf0e1ae1d7d1bee2567fec5480de0` |
+| `workspace/BraTS/sammed3d_t1ce_wt/adaptive_router_20260814/fixed1_benchmark/FINAL_FIXED1_DEPLOYMENT_BENCHMARK.json` | `672551a39bab4bb260a2dbfbd07301584301597cef255076b83d5679f83455df` |
+
+论文结论边界：固定剪枝证明了当前开发集中的强推理冗余和真实 refiner-stage 工程收益；
+它没有证明显著 Dice 提升、统计非劣、test 泛化、自动定位或端到端加速。
+
+## 架构创新结果（2026-08-14）
+
+| 方法 | scan Dice | subject Dice | 相对相关 base | 结论 |
+|---|---:|---:|---:|---|
+| robust seed15 frozen base | `0.699043` | `0.694567` | — | safe-adapter 起点 |
+| ELPGR-A2 两 seed mean | `0.695917` | `0.692824` | scan `-0.001780` vs matched controls | 显式 error gate 负结果 |
+| SAGE plain safe adapter | `0.701991` | `0.697102` | scan `+0.002948` | 达到预注册 adapter 成功线 |
+| SAGE gated safe adapter | `0.702090` | `0.697140` | scan `+0.003047` | adapter 成功；gate 无额外证据 |
+
+plain/gated 相对 frozen base 的 subject 配对 95% bootstrap CI 分别为
+`[+0.001085,+0.004047]` 和 `[+0.000877,+0.004349]`。gated 相对 plain 的 subject 差仅
+`+0.000038`，CI `[-0.000248,+0.000379]`，因此正收益必须归因于 frozen-base、
+zero-initialized uncertainty adapter，不能归因于 implicit gate。
+
+两臂 epoch-3 best checkpoint 已独立 reload 完整 108 例，指标与内嵌记录严格一致。
+训练因外部会话中断停在 epoch 10，未走完最后一个 patience epoch、未生成
+`TRAIN_DONE.json`；详细偏差和哈希见 `SAFE_ADAPTER_PAIR_RESULT_20260814.md`。结果仍为
+GT-centered N4 oracle development validation；270 test 未访问。
+
+### Safe adapter seed17 复现与 boundary 消融
+
+| arm | scan Dice | subject Dice | 相对 base scan |
+|---|---:|---:|---:|
+| seed17 control/plain | `0.702191` | `0.697218` | `+0.003148` |
+| seed17 boundary | `0.702632` | `0.697579` | `+0.003588` |
+| seed16/17 plain mean | `0.702091` | `0.697160` | `+0.003048` |
+
+boundary − control 的 scan/subject 差为 `+0.000440/+0.000362`，subject 95% CI
+`[-0.000626,+0.001339]`，未通过预注册 `+0.001`。因此当前可复现贡献是 plain
+frozen-base uncertainty safe adapter；boundary 只保留为没有额外收益证据的消融。
+完整证据见 `BOUNDARY_SAFE_ADAPTER_RESULT_20260814.md`。
+
+### Domain-SAGE 3D（DPD启发，正式负结果）
+
+| arm | scan Dice | subject Dice | best epoch | 结论 |
+|---|---:|---:|---:|---|
+| seed18 plain SAGE | **`0.701897044`** | **`0.696969673`** | 3 | 第三次plain复现 |
+| seed18 Domain-SAGE | `0.701764545` | `0.696724255` | 1 | 未超过matched plain |
+
+Domain−plain scan/subject差为`-0.000132499/-0.000245418`，subject 95% CI
+`[-0.000848635,+0.000352320]`。域分类accuracy最终达到`0.953704`，但主Dice没有收益，
+所以不能把latent-domain conditioning写成正贡献。seed16/17/18 plain scan/subject mean
+更新为`0.702026554/0.697096458`。完整证据见`DOMAIN_SAGE_RESULT_20260814.md`；仍是
+GT-centered oracle validation，270 test未访问。
+
+## 全自动brain-crop locator / CAPG-3D（2026-08-14）
+
+| output | plain scan | CAPG scan | CAPG−plain | plain subject | CAPG subject |
+|---|---:|---:|---:|---:|---:|
+| locator | `0.716125` | `0.719090` | `+0.002965` | `0.706215` | `0.710459` |
+| SAM dense-only | `0.596964` | `0.595425` | `-0.001540` | `0.600584` | `0.600045` |
+| SAM point+dense | `0.599324` | `0.597910` | `-0.001414` | `0.601878` | `0.601175` |
+
+CAPG locator subject差CI为`[-0.003736,+0.013624]`；预注册主指标SAM point+dense
+subject差为`-0.000703`，CI `[-0.004178,+0.002713]`，未过`+0.005`。CAPG中心点hit
+`0.638889`，plain segmentation argmax hit `0.935185`，中心头无收益。直接locator是当前
+真正自动的开发候选；旧冻结SAM会使其从`0.716125`降至`0.599324`。
+
+结果只使用972/108 subject-clean development；270 test未访问。DiceCE 1:1的全背景失败
+已单独保留，正式替代使用Dice+0.1CE，故也不能称未经开发反馈的确认性结果。详见
+`CAPG3D_RESULT_20260814.md`。

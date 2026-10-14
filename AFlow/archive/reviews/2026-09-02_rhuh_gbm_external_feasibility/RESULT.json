@@ -1,0 +1,64 @@
+{
+  "schema": "aflow.brats.rhuh_gbm_external_feasibility_audit",
+  "schema_version": 1,
+  "status": "stopped_before_official_file_inventory",
+  "cohort": {
+    "subjects": 40,
+    "all_timepoint_scans": 120,
+    "planned_posttreatment_scans": 80,
+    "planned_posttreatment_subjects": 40,
+    "official_nifti_files": 720,
+    "official_package_gb": 2.9,
+    "labels": [1, 2, 3],
+    "manual_review": "all DeepMedic initial segmentations reviewed and manually corrected by two expert neurosurgeons"
+  },
+  "official_access": {
+    "faspex_package_id": 684,
+    "aspera_client_available": false,
+    "public_authorization_code_obtained": true,
+    "temporary_jwt_obtained": true,
+    "jwt_scope": "external_download_package_id",
+    "api_required_scope": "external_download_package",
+    "api_error_http": 400,
+    "api_error_code": 1150,
+    "legacy_passcode_http": 403,
+    "legacy_passcode_error_code": 2009,
+    "documented_old_authorize_path_http": 404,
+    "official_file_inventory_obtained": false,
+    "transfer_spec_requested": false
+  },
+  "official_csv_metadata": {
+    "clinical": {"rows": 40, "unique_patients": 40, "id_range": ["RHUH-0001", "RHUH-0040"], "sha256": "32d638906d34aaf8f66f5ec41c53c044216aed73bac22c776fb399bf2f741728"},
+    "genomic_data_commons_manifest": {"rows": 600, "unique_patients": 40, "rows_per_patient": 15, "file_type": "DICOM", "sha256": "5a70dc03e33ac651d1afc020e505351142b15228ad0583f9f12b72a19e4acd49"},
+    "patient_id_sets_equal": true,
+    "nifti_or_segmentation_inventory": false
+  },
+  "machine_metadata_audit": {
+    "path": "archive/reviews/2026-09-02_rhuh_gbm_external_feasibility/METADATA_AUDIT.json",
+    "sha256": "9ed80a1d5d454c5286678915f8e70e4695c27f61444b149891a1ad923ebbae7b",
+    "runner": "scripts/audit_rhuh_gbm_metadata.py",
+    "runner_sha256": "1ce195dcbd00701cd6fbd6d4c9983835006826e2e4f9edfaa3faa910269a7baa",
+    "tests": "2 passed"
+  },
+  "third_party_mirror": {
+    "name": "MedOtter/RHUH-GBM",
+    "commit": "0104d76bfbbe089e8a0dd4e444feddfe97524c6b",
+    "used": false,
+    "nifti_paths": 720,
+    "manifest_studies": 120,
+    "planned_posttreatment_t1ce_seg_paths": 160,
+    "planned_paths_missing_from_tree": 0,
+    "nifti_downloaded": false,
+    "api_metadata_sha256": "a25a7ddbfb7b3c1c34ef179d650cef5f70be69355c3a2810d1c5b70e919db6f0",
+    "subjects_manifest_sha256": "cf2e380d197ec28142d8ce8914bec49b661382e564c8791bc875b7484cffa107",
+    "reason": "no official TCIA per-file hashes available for verification"
+  },
+  "access": {
+    "public_web_metadata": true,
+    "nifti_images": false,
+    "segmentation_voxels": false,
+    "model_inference": false,
+    "reused_test270": false
+  },
+  "next": "obtain official Aspera client/package or authoritative file manifest and hashes; then preregister before any label/model access"
+}

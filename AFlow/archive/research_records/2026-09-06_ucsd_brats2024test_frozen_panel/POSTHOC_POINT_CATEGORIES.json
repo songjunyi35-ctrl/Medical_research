@@ -1,0 +1,69 @@
+{
+  "analyzer_sha256": "f19619cd48e041cfcfffc33fc3760ff7543c706e6623e2e40eb5808de8bc5350",
+  "cache_wt_reconstruction_exact": 56,
+  "cases": 56,
+  "cases_with_rc4_present": 44,
+  "created_at_utc": "2026-09-06T14:22:02.529252+00:00",
+  "interpretation": "Descriptive only. GT resection cavity is unavailable at deployment; no avoidance postprocessing, routing, threshold or retest may follow.",
+  "models": {
+    "full_flip8": {
+      "misses": [],
+      "point_categories": {
+        "other_background": 0,
+        "resection_cavity": 0,
+        "wt": 56
+      }
+    },
+    "full_identity": {
+      "misses": [],
+      "point_categories": {
+        "other_background": 0,
+        "resection_cavity": 0,
+        "wt": 56
+      }
+    },
+    "gcsam_identity": {
+      "misses": [
+        {
+          "case_id": "UCSD-PTGBM-0052_01",
+          "category": "resection_cavity",
+          "dice": 0.33234067897558073,
+          "rc_voxels": 4558,
+          "target_wt": 1713
+        },
+        {
+          "case_id": "UCSD-PTGBM-0057_01",
+          "category": "other_background",
+          "dice": 0.44585000645411127,
+          "rc_voxels": 10400,
+          "target_wt": 5095
+        },
+        {
+          "case_id": "UCSD-PTGBM-0070_01",
+          "category": "resection_cavity",
+          "dice": 0.4666230366492147,
+          "rc_voxels": 3024,
+          "target_wt": 10985
+        },
+        {
+          "case_id": "UCSD-PTGBM-0109_01",
+          "category": "other_background",
+          "dice": 0.3970684039087948,
+          "rc_voxels": 15252,
+          "target_wt": 5622
+        }
+      ],
+      "point_categories": {
+        "other_background": 2,
+        "resection_cavity": 2,
+        "wt": 52
+      }
+    }
+  },
+  "new_model_inference": false,
+  "raw_report_sha256": "74466d1cdc56d864d48e5d8604e00d004ecdb636882366546b4738a1b794201c",
+  "rc_voxels_median": 1911.0,
+  "schema": "aflow.ucsd_brats2024test.posthoc_point_categories",
+  "schema_version": 1,
+  "status": "posthoc_label_reconstruction_no_inference_or_selection"
+}

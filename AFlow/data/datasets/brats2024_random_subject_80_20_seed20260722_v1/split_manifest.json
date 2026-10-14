@@ -1,0 +1,41 @@
+{
+  "achieved": {
+    "test": {
+      "case_ratio": 0.2,
+      "cases": 270,
+      "subjects": 119
+    },
+    "train": {
+      "case_ratio": 0.8,
+      "cases": 1080,
+      "subjects": 494
+    }
+  },
+  "checks": {
+    "case_overlap": 0,
+    "subject_overlap": 0,
+    "test_nifti_opened_by_builder": false,
+    "union_cases": 1350
+  },
+  "group_unit": "subject_id_all_longitudinal_timepoints_together",
+  "outputs": {
+    "sealed_test/SEAL.json": "ea8099726c5ed6fa71df9e6d599f6c29a0c27efd862603109d1af43487b628e6",
+    "sealed_test/test_cases.jsonl": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "train_cases.jsonl": "aa2e55915e2a4bc7c2af2e95d6e08f2199397694fe4a92ea66999b534a22f63d"
+  },
+  "requested_ratio": {
+    "test": 0.2,
+    "train": 0.8
+  },
+  "schema": "aflow.brats2024.random_subject_train_test_split",
+  "schema_version": 1,
+  "seed": 20260722,
+  "source": {
+    "case_index_sha256": "f94a16147d145ae1d78f0894e66f1335d5a280f1255b5604a53a88e67dc2a5d8",
+    "cases": 1350,
+    "metadata_dir": "/mnt/bn/liveaim/songjunyi/brats2024_sammed3d_aflow_v4/case_metadata",
+    "subjects": 613
+  },
+  "split_algorithm": "python_random_seeded_subject_shuffle_then_exact_test_case_subset_sum",
+  "status": "frozen_random_subject_clean_80_20_before_training"
+}

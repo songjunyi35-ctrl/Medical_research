@@ -1,0 +1,42 @@
+{
+  "schema": "aflow.brats.t1ce_wt_voxel_kd_972_draw_budget_result",
+  "schema_version": 1,
+  "status": "validation_negative_no_test",
+  "selected_epoch": 200,
+  "candidate": {"scan": 0.7342589380288566, "subject": 0.7249563204674493, "point_hits": 100},
+  "same_epoch_control": {"scan": 0.7334797178153638, "subject": 0.7240026619036992, "point_hits": 100},
+  "archived_kd200": {"scan": 0.7343843078447713, "subject": 0.7244341433615912, "point_hits": 101},
+  "candidate_minus_control": {
+    "scan": 0.0007792202134927114,
+    "scan_95ci": [-0.0008180069702642935, 0.0024743151885491827],
+    "subject": 0.0009536585637501305,
+    "subject_95ci": [-0.0009445111967978, 0.002890412290536219]
+  },
+  "candidate_minus_kd200": {
+    "scan": -0.00012536981591471918,
+    "scan_95ci": [-0.0020252396318095702, 0.0017650676270325946],
+    "subject": 0.0005221771058582126,
+    "subject_95ci": [-0.001710577357028214, 0.0029393984909568526],
+    "point_hits": -1
+  },
+  "candidate_authorized_for_test": false,
+  "failed_gates": ["beats_kd200_scan", "point_hits_at_least_101_of_108"],
+  "selected_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_972_draw_budget_20260824/formal_budget968_candidate/plain_128_budget968_candidate_global_epoch200.pth",
+    "sha256": "543e8cfbd80c63fec011453bd91a26beb20fc5a0486640e7846cf877de3a5fcb",
+    "model_state_sha256": "7b2ef2a64cd78594e6a2e2d4f3be52bd190353d3618cec579c3007ee7853f84b"
+  },
+  "cost": {
+    "control_seconds": 1923.3196766376495,
+    "candidate_seconds": 2477.484495639801,
+    "peak_gpu_memory_bytes": 21788257792,
+    "candidate_total_steps": 3872,
+    "inference_forwards": 1
+  },
+  "evidence": {
+    "raw_validation_sha256": "d880644cb7e537be96be092a755e978e2159c479b1efe9305d647929475090c2",
+    "preaccess_receipt_sha256": "4b3fc5e55f6243b146052ceeabe0fd10dd7eaad18700cf16ab846d296c2603e0",
+    "implementation_receipt_sha256": "efa55f68b53b4ba9dc6c1af62336c5c7bca46931f9942b025176fa39ab149416"
+  },
+  "access": {"validation": true, "outer": false, "confirmation": false, "test270": false}
+}

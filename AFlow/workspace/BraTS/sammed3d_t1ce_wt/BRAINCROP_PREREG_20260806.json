@@ -1,0 +1,101 @@
+{
+  "schema": "aflow.sammed3d.braincrop_preregistration",
+  "schema_version": 1,
+  "created_utc": "2026-08-06",
+  "run_identity": "sammed3d_braincrop_fullunfreeze_ddp2_train972_val108_e200_s20260806",
+  "hypothesis": "Inserting crop-to-nonzero before the 128^3 resize raises validation DSC relative to the whole-head-resize arm, because it roughly doubles the lesion's voxel count on the model grid and stops ~52% of the input (and ~267 of the image encoder's 512 tokens) from covering background.",
+  "prior_evidence": {
+    "source": "workspace/BraTS/sammed3d_t1ce_wt/BOTTLENECK_DIAGNOSIS_20260806.json",
+    "probe": "same whole-head-trained weights, geometry swapped at inference only",
+    "epoch64_delta_native_1mm": 0.0274,
+    "epoch64_ci95": [
+      0.0158,
+      0.0394
+    ],
+    "epoch64_sign_test_p": 0.00068,
+    "epoch24_delta_native_1mm": 0.004,
+    "epoch24_not_significant": true,
+    "caveat": "the probe fed brain-cropped input to whole-head-trained weights, so its delta is a LOWER bound on the trained effect, not an estimate"
+  },
+  "single_factor": {
+    "changed": "spatial preprocessing only: whole_resize -> braincrop_resize",
+    "held_identical_to_the_reference_arm": [
+      "base checkpoint and its SHA-256",
+      "full image-encoder unfreeze, 100,509,232 trainable parameters",
+      "AdamW, encoder LR 1e-4 / head LR 1e-5, weight decay 0.1",
+      "per-GPU batch 2 x 2 GPUs x 3 accumulation steps = effective batch 12",
+      "MultiStepLR milestones [120, 180], gamma 0.1",
+      "200 epoch cap, min 40 epochs before stop, patience 40",
+      "bf16, explicit gradient all-reduce across 2 ranks",
+      "train seed 20260805, validation seed 20260723",
+      "affine + elastic + noise augmentation, train split only",
+      "DiceCELoss(sigmoid=True, squared_pred=True)",
+      "3 accumulated corrective clicks with the recurrent low-res mask, raw logit > 0",
+      "N4 bias field correction, shrink 2, 4x50 iterations, nonzero mask",
+      "nonzero-population z-score",
+      "the frozen 972 train / 108 validation subject-clean split"
+    ],
+    "why_this_is_attributable": "Unlike the reference arm -- which moved unfreeze policy, LR direction, N4, epochs, batch and DDP together and was therefore explicitly marked non-attributable -- this arm changes exactly one factor, so its delta against the reference arm IS a controlled contrast."
+  },
+  "geometry": {
+    "name": "braincrop_resize",
+    "description": "crop to the bounding box of nonzero voxels, then resize that box to 128^3. Does NOT use the label: the box comes from image intensity only, so localization is not oracle.",
+    "uses_gt_for_localization": false,
+    "normalization": "source nonzero-voxel population z-score before resize; unchanged by the crop because the crop removes only zero voxels",
+    "builder": "scripts/build_t1ce_wt_braincrop_cache.py",
+    "builder_sha256": "fcb1428300be5b376a82cb4413590d37204ac0b84ed2904ae891aa43e3b217c3"
+  },
+  "data": {
+    "train": {
+      "cache_dir": "/tmp/aflow_braincrop_cache/t1ce_wt_n4_braincrop_128/train",
+      "count": 972,
+      "manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+      "images_sha256": "f772520ca0d99fca0edc60aa04a7c73e0d7818eea9fa0174a29038f8334644b9",
+      "labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+      "test_access": false
+    },
+    "validation": {
+      "cache_dir": "/tmp/aflow_braincrop_cache/t1ce_wt_n4_braincrop_128/validation",
+      "count": 108,
+      "manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+      "images_sha256": "19107e84aba65c5c257f6a50273547e1b74e761d72e0487ad6f48a5be16d4bad",
+      "labels_sha256": "6ac3a3909f157eaa629c0fca0dbfb30bd78c23206317c62be2376443ce469e0e",
+      "test_access": false
+    }
+  },
+  "selection_rule": {
+    "metric": "val_dice",
+    "rule": "strict argmax over completed epochs; ties keep the earlier epoch",
+    "test_access_during_selection": false
+  },
+  "test_protocol": {
+    "runs_allowed": 1,
+    "precondition": "a frozen configuration record must be on disk BEFORE any test NIfTI is opened",
+    "evaluator": "scripts/evaluate_sammed3d_t1ce_wt_braincrop.py",
+    "reference_arm_test_result_scan_c3": 0.571109,
+    "reference_arm_test_result_subject_c3": 0.553484,
+    "note": "This will be the 6th consumption of the 270-case test by this project. The number is an internal held-out readout, not clean external validation."
+  },
+  "prohibitions_still_in_force": [
+    "no threshold / TTA / morphology / connected-component / postprocessing search",
+    "no mid-run change to LR, unfreeze depth, initialization, augmentation, epoch cap or patience",
+    "no use of any test result to select an epoch, a configuration or a next arm",
+    "no rewriting of a binding hash to make a check pass; fail closed instead"
+  ],
+  "known_defects_carried_over_deliberately": [
+    {
+      "defect": "patience 40 is smaller than the first LR milestone 120, so MultiStepLR can never fire before early stopping",
+      "why_kept": "changing it would break the single-factor contrast with the reference arm, which ran under the same defect and stopped at epoch 64"
+    },
+    {
+      "defect": "the trainer constructs T1ceWtPreprocessConfig(spatial_preprocessing='whole_resize') while the cache is braincrop_resize",
+      "impact": "none on behaviour: that object is consumed only by build_training_augmentation, which is geometry-independent. The geometry recorded in train_config.json is copied from the cache index and is therefore correct.",
+      "why_kept": "the alternative is editing a trainer whose SHA is recorded in the completed arm's train_config.json"
+    }
+  ],
+  "prediction_registered_before_the_run": {
+    "primary": "validation scan-macro DSC at click 3 exceeds the reference arm's 0.5633",
+    "falsifiable": "if validation DSC does not exceed 0.5633, the crop is recorded as not helping when trained with, and no test run is taken",
+    "agent_prior": "The agent previously predicted the inference-only probe would LOWER the score and was refuted by measurement. That miss is recorded so this prediction is read with appropriate scepticism."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "algorithm": "seeded_subject_shuffle_then_exact_tune_case_subset_sum",
+  "checks": {
+    "case_overlap": 0,
+    "subject_overlap": 0,
+    "union_cases": 756
+  },
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-18T06:08:10.170408+00:00",
+  "description": "newly resampled subject-clean development split inside the same historical 756-case train cohort; not external or pristine validation",
+  "outer_selector_access": false,
+  "roles": {
+    "fit": {
+      "cases": 648,
+      "path": "fit_cases.jsonl",
+      "sha256": "1522b761133cb5a751c6a066339b3f79999759b1b3b541d41837024bd6c7b1f2",
+      "subjects": 294
+    },
+    "inner_tune": {
+      "cases": 108,
+      "path": "inner_tune_cases.jsonl",
+      "sha256": "1fe5a9adb8b53d3484411916020ae3ceffa55e6ffe0b9b573000bd906092ad97",
+      "subjects": 52
+    }
+  },
+  "schema": "aflow.brats2024.t1ce_wt_resolution_inner_split",
+  "schema_version": 1,
+  "seed": 20260828,
+  "source": {
+    "cases": 756,
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "role_opened": "train_only",
+    "sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "subjects": 346
+  },
+  "status": "frozen_before_cache_build_and_training",
+  "test_access": false
+}

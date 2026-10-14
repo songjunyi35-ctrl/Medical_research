@@ -1,0 +1,52 @@
+{
+  "schema": "aflow.brats.mu_glioma_post_external_feasibility_followup",
+  "schema_version": 1,
+  "status": "stopped_before_nifti_or_model_access",
+  "official_summary": {
+    "subjects": 203,
+    "timepoints_reported": 596,
+    "files": 2978,
+    "package_gb": 11,
+    "aspera_package_id": 1030,
+    "per_file_github_release_found": false,
+    "label_source": "automated nnU-Net-based models fused with STAPLE after FeTS preprocessing"
+  },
+  "metadata": {
+    "clinical_rows": 335,
+    "clinical_unique_patients": 203,
+    "clinical_nonempty_timepoint_cells": 597,
+    "reported_timepoint_delta": 1,
+    "segmentation_volume_sheets": {
+      "label1": {"rows": 334, "normalized_patient_bases": 146, "bare_ids": 272, "suffixed_ids": 62},
+      "label2": {"rows": 614, "normalized_patient_bases": 202, "bare_ids": 419, "suffixed_ids": 195},
+      "label3": {"rows": 569, "normalized_patient_bases": 195, "bare_ids": 408, "suffixed_ids": 161},
+      "label4": {"rows": 542, "normalized_patient_bases": 189, "bare_ids": 368, "suffixed_ids": 174}
+    },
+    "cross_dataset_patient_bridge_found": false
+  },
+  "source_files": {
+    "clinical": {"path": "archive/reviews/2026-09-02_mu_glioma_post_followup/source_metadata/MU-Glioma-Post_ClinicalData-July2025.xlsx", "bytes": 101568, "sha256": "4341badf954511d67fc52b82b3b488ed7323f7e46d249a354ff9b3a62269c79b"},
+    "segmentation_volumes": {"path": "archive/reviews/2026-09-02_mu_glioma_post_followup/source_metadata/MU-Glioma-Post_Segmentation_Volumes.xlsx", "bytes": 307753, "sha256": "4ba60e04279e91d920974f5641b313fd04fc2d0319f782f37567b48bc7795fa6"}
+  },
+  "machine_audit": {
+    "path": "archive/reviews/2026-09-02_mu_glioma_post_followup/METADATA_AUDIT.json",
+    "sha256": "eef56d84ec970cc13b374f460332d24cafc9b8eb3121c39ddeee63f9ec8f2e9a",
+    "runner": "scripts/audit_mu_glioma_post_metadata.py",
+    "runner_sha256": "2e4eb343b1a980d3fcdb053cf473e33559419e485a5e984334b4251a7423f1ba",
+    "tests": "3 passed"
+  },
+  "stop_reasons": [
+    "no verified per-file asset manifest",
+    "597 nonempty clinical timepoint cells versus 596 reported imaging timepoints",
+    "no cross-dataset patient identifier bridge",
+    "automated-label evidence is weaker than radiologist-approved UCSD labels",
+    "11GB package is unsafe with approximately 12GB workspace free"
+  ],
+  "access": {
+    "metadata": true,
+    "nifti_images": false,
+    "segmentation_voxels": false,
+    "model_inference": false,
+    "reused_test270": false
+  }
+}

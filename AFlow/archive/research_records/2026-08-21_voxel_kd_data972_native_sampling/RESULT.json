@@ -1,0 +1,95 @@
+{
+  "schema": "aflow.brats.t1ce_wt_voxel_kd_data972_native_sampling_result",
+  "schema_version": 1,
+  "status": "validation_complete_not_promoted",
+  "selected_epoch": 200,
+  "selected_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_data972_native_20260821/formal_native972_candidate/plain_128_native972_candidate_global_epoch200.pth",
+    "sha256": "b57693c6af1cded8de4c4e576f462ff203c942ec7cd7a78a3711b70394470c4b",
+    "parameters": 4700897,
+    "inference_forwards": 1
+  },
+  "fixed_validation108": {
+    "candidate": {
+      "scan_dice": 0.734059861757689,
+      "subject_dice": 0.7247028106309119,
+      "point_hits": 101,
+      "point_total": 108
+    },
+    "same_epoch_native756_control": {
+      "scan_dice": 0.7333709423740705,
+      "subject_dice": 0.7240364929324105,
+      "point_hits": 102,
+      "point_total": 108
+    },
+    "archived_kd200": {
+      "scan_dice": 0.7343843078447713,
+      "subject_dice": 0.7244341433615912,
+      "point_hits": 101,
+      "point_total": 108
+    },
+    "candidate_minus_control": {
+      "scan": 0.0006889193836185667,
+      "scan_95ci": [-0.0011928600500579233, 0.0026246106924696097],
+      "subject": 0.0006663176985014041,
+      "subject_95ci": [-0.0017172578654828512, 0.0030660526488153657],
+      "point_hits": -1,
+      "cases_improved": 49,
+      "cases_worse": 59,
+      "subjects_improved": 22,
+      "subjects_worse": 28
+    },
+    "candidate_minus_kd200": {
+      "scan": -0.00032444608708222705,
+      "scan_95ci": [-0.0029213365702027527, 0.0020367909671255833],
+      "subject": 0.00026866726932071373,
+      "subject_95ci": [-0.002422631257878884, 0.0028683341661734224],
+      "point_hits": 0,
+      "cases_improved": 57,
+      "cases_worse": 51,
+      "subjects_improved": 23,
+      "subjects_worse": 27
+    }
+  },
+  "promotion": {
+    "beats_same_epoch_control_scan": true,
+    "beats_same_epoch_control_subject": true,
+    "beats_kd200_scan": false,
+    "beats_kd200_subject": true,
+    "point_hits_at_least_101_of_108": true,
+    "all_ci_safety_gates_passed": true,
+    "all_implementation_and_formal_gates_passed": true,
+    "all_gates_passed": false,
+    "candidate_authorized_for_test": false
+  },
+  "native_sampling": {
+    "artifact_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+    "control_weight_sha256": "757e463d8e60f96ef6429613f6783fb3aa1014b580932959f9ed354d37072124",
+    "candidate_weight_sha256": "81d3fa6a907f791c4d0b97efe95ece5e057d15b85673463cadbeecc2b3f148ec",
+    "control_weight_exact_to_historical": true,
+    "overlap_source_volume_mismatches": 0
+  },
+  "cost": {
+    "control_elapsed_seconds": 1937.215181350708,
+    "candidate_elapsed_seconds": 1938.8647541999817,
+    "parallel_wall_minutes_approx": 32.31,
+    "peak_allocated_bytes_per_arm": 21788257792,
+    "workspace_mebibytes_approx": 217,
+    "new_large_cache_created": false
+  },
+  "evidence": {
+    "raw_validation_path": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_data972_native_20260821/NATIVE_DATA972_VALIDATION.json",
+    "raw_validation_sha256": "963efa941b1e128243525fad0ac30563d362926ec4264b4b7bd9c15e4894ad37",
+    "control_train_done_sha256": "32772dceafa1f542b4a239dff74efc19b86c6e02673d41edef37cb8ca8f7f122",
+    "candidate_train_done_sha256": "3c876f8b0a882e6f20a229d6fdacbbad01ce6984cface77d6ae83dac6236af26",
+    "implementation_receipt_sha256": "1bb1c28358a665bbf01e3b5d404ea03cb6b06ead51f7002b365083af03dbcbc5",
+    "validation_started_sha256": "9c3d19c989bdb498834f5c41b92ca5403e646fa9dd819ae63d1a5dea656397bb"
+  },
+  "access": {
+    "new_fixed_validation_access": true,
+    "outer_selector_access": false,
+    "confirmation_access": false,
+    "test_access": false
+  },
+  "interpretation": "Native crop-volume weighting restored the frozen Point gate and the 972-case candidate beat its cache-matched 756 control in Scan and Subject. It still missed archived KD200 Scan by 0.000324 while exceeding KD200 Subject and tying Point, so only the KD200 Scan promotion gate failed and test270 was not accessed."
+}

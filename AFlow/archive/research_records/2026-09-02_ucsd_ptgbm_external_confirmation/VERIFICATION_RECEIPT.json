@@ -1,0 +1,42 @@
+{
+  "schema": "aflow.ucsd_ptgbm.external_confirmation.verification_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-02T22:38:00+00:00",
+  "evidence_chain_validator": {
+    "path": "scripts/verify_ucsd_ptgbm_external_confirmation.py",
+    "sha256": "99cb317e80b8d85219843a68866cfd09913ae0fc1d7e2975131b0a5a01bab2de",
+    "status": "passed",
+    "external_cases": 75,
+    "external_subjects": 53,
+    "external_leaderboard_rows": 2,
+    "development_overlap_labels_exact": 76,
+    "development_overlap_labels_minor_revision": 5,
+    "reused_test_files_accessed_by_overlap_audit": 0,
+    "dual_namespace_subject_overlap": 0,
+    "raw_assets_rehashed": 150,
+    "raw_asset_bytes_rehashed": 103182525
+  },
+  "focused_tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q tests/test_verify_ucsd_ptgbm_external_confirmation.py tests/test_ucsd_ptgbm_development_overlap_audit.py",
+    "result": "4 passed in 5.31s",
+    "validator_test_sha256": "b66ef270acfc5787f6017211a5d03f7289dca3dfff3cfe16185a869b19700c96",
+    "overlap_audit_test_sha256": "8274c5b1238418bbe705d5221732cef13105ce7d09ddec6b04602a71439e40fe"
+  },
+  "session_regression": {
+    "scope": "doc/catalog/leaderboard plus LAWA6, Lookahead5, Gamma augmentation, UCSD preparation/evaluation/overlap/evidence validation tests",
+    "result": "52 passed in 12.00s",
+    "failed": 0
+  },
+  "full_repository_regression": {
+    "command": "MPLCONFIGDIR=/tmp/aflow_mpl PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q",
+    "result": "562 passed, 27 warnings in 32.10s",
+    "failed": 0,
+    "warnings": "CUDA unavailable inside the non-escalated test sandbox and existing SciPy namespace deprecations; no test failure"
+  },
+  "result_artifacts": {
+    "result_md_sha256": "1cb10ef5abb029f3589c06a44e97ef7aef8f4043c4f000345a3c0adbec2d3e45",
+    "result_json_sha256": "8f6a66eb1d1d93393f348180b8a8ddd69dfc54f2267012ecf7760aa63885af91"
+  },
+  "external_model_inference_repeated": false,
+  "reused_test270_model_or_label_access": false
+}

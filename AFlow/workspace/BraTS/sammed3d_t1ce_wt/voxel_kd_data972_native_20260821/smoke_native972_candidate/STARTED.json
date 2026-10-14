@@ -1,0 +1,57 @@
+{
+  "arm": "native972_candidate",
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-21T06:58:50.187964+00:00",
+  "data_role": {
+    "cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "cases": 972,
+    "retired_selector_confirmation_reclassified_as_train": false,
+    "role": "native972_candidate",
+    "subjects": 444,
+    "train": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl",
+      "sha256": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65"
+    }
+  },
+  "initial_state_sha256": "496c7069c72cd5ac9a19b864d5ba704a65bd99ba3b0ebc087f0f02b66010628e",
+  "mode": "smoke",
+  "optimizer_contract": {
+    "amsgrad": false,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "capturable": false,
+    "class": "AdamW",
+    "eps": 1e-08,
+    "foreach": false,
+    "fused": false,
+    "maximize": false,
+    "parameter_tensors": 83,
+    "weight_decay": 1e-05
+  },
+  "outer_selector_access": false,
+  "runner_sha256": "d3338523f63b6eadfdb71254654148f934c1282036a9024b44b95ac7b831ec30",
+  "sampling_contract": {
+    "consumed_draws_per_epoch": 752,
+    "dropped_draws_per_epoch": 4,
+    "generator_seed": 20260846,
+    "native_volume_artifact_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+    "native_volume_builder_sha256": "80874d4745d7ae5b0ced90471f0fa59d9c6345a597b27ec02a253eb6a19c010a",
+    "native_weight_sha256": "81d3fa6a907f791c4d0b97efe95ece5e057d15b85673463cadbeecc2b3f148ec",
+    "optimizer_steps_per_epoch": 94,
+    "population_count": 972,
+    "replacement": true,
+    "sampler_num_samples": 756,
+    "weight_dtype": "torch.float64_cpu",
+    "weight_formula": "clip(sqrt(median(selected_native_volumes)/native_volume_i),0.5,4.0)",
+    "weight_source": "source-grid WT voxels inside frozen image-only brain crop",
+    "weights_sha256": "81d3fa6a907f791c4d0b97efe95ece5e057d15b85673463cadbeecc2b3f148ec"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_voxel_kd_data972_native_train.started",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step",
+  "test_access": false,
+  "validation_access": false
+}

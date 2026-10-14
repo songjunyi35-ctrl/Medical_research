@@ -1,0 +1,25 @@
+{
+  "requested_utc": "2026-09-17T05:28:57.271723+00:00",
+  "reason": "user explicitly requested early stop after plateau beyond epoch25",
+  "worker": "1098698",
+  "supervisor_pid": 54664,
+  "trainer_pid": 54665,
+  "verified_commands": [
+    "../sammed3d-venv/bin/python -u scripts/watch_sammed3d_mumford_shah_972.py ",
+    "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=2 scripts/train_sammed3d_mumford_shah_972.py train "
+  ],
+  "signals": [
+    [
+      54664,
+      "SIGTERM"
+    ],
+    [
+      "group 54665",
+      "SIGTERM"
+    ]
+  ],
+  "deleted_files": [],
+  "stopped_utc": "2026-09-17T05:29:04.274868+00:00",
+  "remaining_run_processes": [],
+  "status": "stopped"
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "aflow.brats.t1ce_wt_voxel_kd_fulltrajectory_inner_selection",
+  "schema_version": 1,
+  "status": "passed_authorized_final_retraining",
+  "selected_epoch": 168,
+  "selection": "candidate maximum Scan over epochs101-200; Subject exact tie; earlier epoch exact tie",
+  "candidate": {
+    "scan": 0.7323669599783089,
+    "subject": 0.7118161611689799,
+    "point_hits": 103
+  },
+  "same_epoch_control": {
+    "scan": 0.7223414582700504,
+    "subject": 0.7023563094798247,
+    "point_hits": 103
+  },
+  "candidate_minus_control": {
+    "scan": 0.010025501708258633,
+    "scan_95ci": [0.0013666921398705909, 0.01793338104530617],
+    "subject": 0.009459851689155212,
+    "subject_95ci": [-0.001959463923688032, 0.01920621145828659],
+    "point_hits": 0,
+    "cases_improved": 77,
+    "cases_tied": 1,
+    "cases_worse": 30,
+    "bootstrap_seed": 20261400,
+    "bootstrap_samples": 10000
+  },
+  "gates": {
+    "beats_control_scan": true,
+    "beats_control_subject": true,
+    "point_within_one": true,
+    "scan_ci_lower_at_least_minus_0.003": true,
+    "subject_ci_lower_at_least_minus_0.003": true,
+    "initial_state_exact": true,
+    "formal_engineering_gates": true
+  },
+  "final_retraining_authorized": true,
+  "evidence": {
+    "control_report_sha256": "21dfc0b192c793fe826f5b9c4ba38e1621464cf6435156dca1550cd2646f0fc6",
+    "candidate_report_sha256": "b2b172a1a8a6494ed1bc17e259916dff550ae8b40694f694d1a1d699f464802d",
+    "control_post100_checkpoint_sha256": "b101e01c7824a9621dc698628ff41d76df0cb689d47ab519eae3bcdc2f4ec986",
+    "candidate_post100_checkpoint_sha256": "fbd22f4a4a989bae2346e25426a4b77545d6a29e0ddc5a41624bb518a1fcf8ca"
+  },
+  "fixed_validation108_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

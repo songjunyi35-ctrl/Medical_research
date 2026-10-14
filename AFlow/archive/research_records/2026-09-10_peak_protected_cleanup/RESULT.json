@@ -1,0 +1,189 @@
+{
+  "access": {
+    "confirmation": false,
+    "external": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "reused_development180": true,
+    "test": false,
+    "weak_elastic_new_checkpoints": false
+  },
+  "all_gates_passed": false,
+  "average_scan_delta": -0.00010719768472416957,
+  "cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+  "checkpoints": {
+    "2026090711": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+        "sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e"
+      },
+      "train_report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/TRAIN_DONE.json",
+      "train_report_sha256": "6cbbf960f62657080b7cb1153ae30040ab42a2299cd38c49142543effd17a1f1"
+    },
+    "2026090712": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+        "sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43"
+      },
+      "train_report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/TRAIN_DONE.json",
+      "train_report_sha256": "0ccd09881b1c7e5a9f58c46b512d7ed2880cfc09b947022e59eb6066ab10b9a7"
+    }
+  },
+  "comparisons": {
+    "2026090711": {
+      "improved": 46,
+      "point_delta": 0,
+      "scan_cluster_95ci": [
+        -0.0002705513775007457,
+        6.780922801216407e-05
+      ],
+      "scan_delta": -9.348848756429717e-05,
+      "subject_95ci": [
+        -0.0002483689943531265,
+        5.371384060531597e-05
+      ],
+      "subject_delta": -9.122124924421104e-05,
+      "tied": 88,
+      "worse": 46
+    },
+    "2026090712": {
+      "improved": 59,
+      "point_delta": 0,
+      "scan_cluster_95ci": [
+        -0.0003187134382961463,
+        6.214996833725933e-05
+      ],
+      "scan_delta": -0.00012090688188404197,
+      "subject_95ci": [
+        -0.00040086726981864595,
+        3.720381365948643e-05
+      ],
+      "subject_delta": -0.00016986948845387762,
+      "tied": 75,
+      "worse": 46
+    }
+  },
+  "cost": {
+    "cpu_connected_component_postprocessing": true,
+    "inference_forwards_per_case": 1,
+    "new_development_forwards": 360,
+    "new_training": 0,
+    "peak_gpu_allocated_bytes": 5170443264,
+    "seconds": 31.628193579614162
+  },
+  "created_utc": "2026-09-10T04:17:25.778463+00:00",
+  "decision": "close_fixed_cleanup_rule_no_size_fraction_connectivity_search",
+  "deployment_rule": {
+    "absolute_voxels": 8,
+    "always_keep_argmax_component": true,
+    "always_keep_largest_ties": true,
+    "connectivity": 26,
+    "relative_largest_fraction": 0.01,
+    "removed_logit": -1
+  },
+  "dev_preaccess_sha256": "90322f48029eef2f1fc6e45fef63ddb19f41e119e9e9e0433570fb2977316d3a",
+  "gates": {
+    "2026090711": {
+      "point_exact": true,
+      "scan_cluster_ci_safety": true,
+      "scan_positive": false,
+      "subject_ci_safety": true,
+      "subject_gain": false
+    },
+    "2026090712": {
+      "point_exact": true,
+      "scan_cluster_ci_safety": true,
+      "scan_positive": false,
+      "subject_ci_safety": true,
+      "subject_gain": false
+    }
+  },
+  "mechanism": {
+    "2026090711": {
+      "affected_cases": 94,
+      "fraction_of_baseline_false_positive_voxels_removed": 0.003446588065767886,
+      "original_false_positive_voxels": 1276915,
+      "point_locations_preserved": 180,
+      "removed_false_positive_voxels": 4401,
+      "removed_true_positive_voxels": 3805
+    },
+    "2026090712": {
+      "affected_cases": 106,
+      "fraction_of_baseline_false_positive_voxels_removed": 0.0037618788660948588,
+      "original_false_positive_voxels": 1138261,
+      "point_locations_preserved": 180,
+      "removed_false_positive_voxels": 4282,
+      "removed_true_positive_voxels": 5071
+    }
+  },
+  "metrics": {
+    "2026090711": {
+      "base": {
+        "point_hits": 170,
+        "scan_cluster_95ci": [
+          0.7223787530164206,
+          0.7692884263367594
+        ],
+        "scan_dice": 0.7467623159085335,
+        "scans": 180,
+        "subject_95ci": [
+          0.6945247526790926,
+          0.7667780123408628
+        ],
+        "subject_dice": 0.7332128332327316,
+        "subjects": 78
+      },
+      "clean": {
+        "point_hits": 170,
+        "scan_cluster_95ci": [
+          0.7222384442751566,
+          0.7692342141950896
+        ],
+        "scan_dice": 0.7466688274209692,
+        "scans": 180,
+        "subject_95ci": [
+          0.6943917257538764,
+          0.766629497291763
+        ],
+        "subject_dice": 0.7331216119834874,
+        "subjects": 78
+      }
+    },
+    "2026090712": {
+      "base": {
+        "point_hits": 163,
+        "scan_cluster_95ci": [
+          0.7180353230761511,
+          0.7672816048091239
+        ],
+        "scan_dice": 0.7441774176315642,
+        "scans": 180,
+        "subject_95ci": [
+          0.6893409873279664,
+          0.7641230401281996
+        ],
+        "subject_dice": 0.7293181350698185,
+        "subjects": 78
+      },
+      "clean": {
+        "point_hits": 163,
+        "scan_cluster_95ci": [
+          0.7178502835316745,
+          0.7671571045515494
+        ],
+        "scan_dice": 0.7440565107496802,
+        "scans": 180,
+        "subject_95ci": [
+          0.6891689564899847,
+          0.7639412063977513
+        ],
+        "subject_dice": 0.7291482655813646,
+        "subjects": 78
+      }
+    }
+  },
+  "raw_sha256": "2f85c8e96be92c51475ad6cf7ae7612b349b305698769b0d887e52ea1a8ddad4",
+  "schema": "aflow.peak_protected_cleanup.result",
+  "source_raw_sha256": "80e9bd449d7c72a61de0ecdbdfbc5bb3a61814e7770bbcc1c983ac097b4cd2c6",
+  "status": "completed_development_gate_failed"
+}

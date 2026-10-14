@@ -1,0 +1,32 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dcd_synthetic_tests",
+  "schema_version": 1,
+  "status": "passed",
+  "command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_t1ce_wt_plain_dcd.py",
+  "passed": 11,
+  "failed": 0,
+  "elapsed_seconds": 20.07,
+  "coverage": [
+    "canonical frozen db4 taps and 3D filter-bank SHA",
+    "LLL/LLH/LHL/LHH/HLL/HLH/HHL/HHH order and selected bands1-6",
+    "frozen float32 full-band reconstruction max error below 1e-5",
+    "recursive three-level shapes and exact all-band reconstruction",
+    "identical student/teacher features give exact zero DCD",
+    "per-level mean, four-stage sum and finite nonzero gradients",
+    "teacher features require no gradient",
+    "single encode/decode final logit equals plain locator",
+    "detail teacher encoder-only feature path",
+    "historical checkpoint strict load and deploy-only 4,700,897-parameter roundtrip",
+    "zero DCD weight full SegResNet AdamW update exactly matches base voxel-KD and saved schedule values"
+  ],
+  "warning": "CPU-only isolated test emitted a CUDA initialization warning; CUDA evidence comes from the separate real H100 batch8 smoke.",
+  "model_sha256": "0ac6c34795d8c87c31510013b44021a407f40a6861e3d3dedd6a263e82734a77",
+  "trainer_sha256": "daea727725752ae62a6e52aa789b13968043a7fb7b30ed7ebf7e1405c1477ad2",
+  "test_sha256": "3bc215a319d00be06fc8fc9f3240ac5648018051afcda631efc9e8b773eede02",
+  "filter_bank_sha256": "1cc1550c3ca56547e427b3568d2d1e2bc5bd52d2a4a39305b7890dc16918240a",
+  "validation_access": false,
+  "new_method_validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

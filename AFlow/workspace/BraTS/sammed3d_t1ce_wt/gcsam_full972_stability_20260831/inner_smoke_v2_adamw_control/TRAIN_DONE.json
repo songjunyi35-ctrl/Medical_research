@@ -1,0 +1,197 @@
+{
+  "access": {
+    "confirmation": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "test270": false,
+    "train_only_inner": true
+  },
+  "all_gates_passed": true,
+  "arm": "adamw_control",
+  "created_at_utc": "2026-08-31T02:43:56.393094+00:00",
+  "data_roles": {
+    "case_overlap": 0,
+    "fit": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_inner_seed20261001_v1/fit_cases.jsonl",
+      "sha256": "587dcd66828b4ad44cf23db224852511158af2fa11d00f66e269e99887ba8e6d"
+    },
+    "fit_cases": 8,
+    "fit_subjects": 4,
+    "inner_tune": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_inner_seed20261001_v1/inner_tune_cases.jsonl",
+      "sha256": "aa091a3a5259745b6987fafe9d6915db2576e10478a991917d34106f972b2c11"
+    },
+    "inner_tune_cases": 8,
+    "inner_tune_subjects": 3,
+    "subject_overlap": 0
+  },
+  "documents": {
+    "idea_sha256": "0c3516c686e13d6cb86b947f2a4fff50a45a936ee8c1ebc939bd9ac349b4250a",
+    "prereg_sha256": "7fe9d8039ede538ff9c47cba001d2ed44ef4769d3aa0142568692797c37ef603",
+    "split_sha256": "716484f91b503d3890807db6e3fd28353c30cc86a788699cccca9a56bee2a8d8"
+  },
+  "elapsed_seconds": 2.921727180480957,
+  "gates": {
+    "all_losses_finite": true,
+    "all_steps_exact": true,
+    "both_windows_saved": true,
+    "elapsed_within_arm_limit": true,
+    "epoch_count_exact": true,
+    "gcsam_rho_exact": true,
+    "peak_at_most_24gib": true
+  },
+  "history": [
+    {
+      "consumed_draws": 16,
+      "elapsed_seconds": 2.825066089630127,
+      "epoch": 1,
+      "first_batch_loss": 1.789567232131958,
+      "first_batch_sha256": {
+        "image": "4c25c0fbc48b4b88d4288419cd5709ad25e039b5422309fd4f0689da1d1fd759",
+        "label": "dc7466cbd5e875ecd42d2940dbb9b7b257ed1a028ee694a7b79cdce1410a0441"
+      },
+      "inner": {
+        "automatic_point_hit_rate": 0.0,
+        "cases": 8,
+        "locator_dsc_mean": 0.0,
+        "locator_dsc_median": 0.0,
+        "locator_dsc_std_population": 0.0,
+        "locator_subject_dsc_mean": 0.0,
+        "per_case": [
+          {
+            "automatic_point": [
+              66,
+              6,
+              79
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00008-100",
+            "locator_dsc": 0.0,
+            "subject_id": "BraTS-GLI-00008"
+          },
+          {
+            "automatic_point": [
+              8,
+              32,
+              58
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00008-101",
+            "locator_dsc": 0.0,
+            "subject_id": "BraTS-GLI-00008"
+          },
+          {
+            "automatic_point": [
+              61,
+              122,
+              80
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00008-102",
+            "locator_dsc": 0.0,
+            "subject_id": "BraTS-GLI-00008"
+          },
+          {
+            "automatic_point": [
+              65,
+              2,
+              70
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00008-103",
+            "locator_dsc": 0.0,
+            "subject_id": "BraTS-GLI-00008"
+          },
+          {
+            "automatic_point": [
+              41,
+              12,
+              91
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00033-100",
+            "locator_dsc": 0.0,
+            "subject_id": "BraTS-GLI-00033"
+          },
+          {
+            "automatic_point": [
+              67,
+              6,
+              88
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00033-101",
+            "locator_dsc": 0.0,
+            "subject_id": "BraTS-GLI-00033"
+          },
+          {
+            "automatic_point": [
+              68,
+              3,
+              62
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00063-100",
+            "locator_dsc": 0.0,
+            "subject_id": "BraTS-GLI-00063"
+          },
+          {
+            "automatic_point": [
+              68,
+              3,
+              66
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00063-101",
+            "locator_dsc": 0.0,
+            "subject_id": "BraTS-GLI-00063"
+          }
+        ],
+        "subjects": 3
+      },
+      "learning_rate": 0.0002,
+      "mean_perturbation_norm": null,
+      "optimizer_steps": 2,
+      "sampler_index_sha256": "e7cfa16b3d62abc52e2567f67e9be2e8ab80ea7e43e1680e63c5508c8a1bcde9",
+      "strict_new_high": true,
+      "train_dice": 0.016701381013263017,
+      "train_kd_loss": 2.308972716331482,
+      "train_loss": 1.7154451608657837,
+      "train_supervised_loss": 1.0227532982826233,
+      "window": "pre100"
+    }
+  ],
+  "initial_state_sha256": "f48619f27d2bb6b8b045da52bf545c949e6265e129f03048c699af20985b9975",
+  "method": {
+    "adaptive": false,
+    "centralization_dims": "1..N-1 for ndim>1",
+    "dropout_rng_replayed_between_student_passes": false,
+    "optimizer": "AdamW",
+    "rho": null,
+    "teacher_reused_between_student_passes": false
+  },
+  "parameter_count": 4700897,
+  "peak_gpu_memory_bytes": 21788258304,
+  "runner_sha256": "c2c46fc1beae2dd39d22f003c177e51b62701eb7061a66b5561f43466e8c204d",
+  "sampling_weight_sha256": "4c321a0a0522479d07b095e7c8c4979152689305e524ad2d140d85db1402c30d",
+  "schedule": {
+    "base_lr": 0.0002,
+    "constant_epochs": 100,
+    "epochs": 200,
+    "min_lr": 1e-05
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_gcsam_inner",
+  "schema_version": 1,
+  "selections": {
+    "pre100": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_full972_stability_20260831/inner_smoke_v2_adamw_control/pre100_best.pth",
+        "sha256": "9e33e89e0d1c49e003cc7b06472e2b2a227d72357c35f1c01a309bf83961412e"
+      },
+      "epoch": 1,
+      "scan": 0.0,
+      "subject": 0.0
+    }
+  },
+  "status": "complete"
+}

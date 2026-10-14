@@ -1,0 +1,159 @@
+{
+  "access": {
+    "confirmation": false,
+    "development_pixels": false,
+    "external": false,
+    "fit_pixels": 8,
+    "outer": false,
+    "test": false
+  },
+  "created_utc": "2026-09-10T18:21:09.663884+00:00",
+  "devices": [
+    {
+      "name": "NVIDIA A100-SXM4-40GB",
+      "total_memory": 42298834944
+    },
+    {
+      "name": "NVIDIA A100-SXM4-40GB",
+      "total_memory": 42298834944
+    }
+  ],
+  "files": {
+    "sammed3d/image_blur.py": "6c5e225ad57a50b8b00c145a3448a92b085f9c0eb5cdc980fd79842aabf0bd61",
+    "scripts/image_blur_protocol.py": "fe0420e9527dd46c2a30a0b4f74bcce20f41c863db7e0916b7d128629f6f479c",
+    "scripts/smoke_image_blur.py": "b2437a38c5b5bc81ed7013cf290decf9e5e1366eec1a6c526c6f9dbde875d995",
+    "scripts/train_image_blur.py": "b73b18b33a7ef8e7f221e2288cb87e2a8bf0af0eb055073c4400e30405bc1a26"
+  },
+  "fit_cases": [
+    "BraTS-GLI-00005-100",
+    "BraTS-GLI-00005-101",
+    "BraTS-GLI-00009-100",
+    "BraTS-GLI-00009-101",
+    "BraTS-GLI-00020-100",
+    "BraTS-GLI-00020-101",
+    "BraTS-GLI-00027-100",
+    "BraTS-GLI-00027-101"
+  ],
+  "gates": {
+    "base_and_model_rng_equal": true,
+    "blur_exercised": true,
+    "bounded": true,
+    "export_exact": true,
+    "initial_matches_old": true,
+    "memory_under24GiB": true,
+    "under_90_seconds_per_six_steps": true
+  },
+  "results": [
+    {
+      "blur": false,
+      "deformation": {
+        "independent_random_stream_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "kernel_size": 7,
+        "labels_unchanged_by_construction": true,
+        "max_observed_sigma": 0.0,
+        "min_observed_sigma": 1.0,
+        "padding": "reflect",
+        "probability": 0.2,
+        "samples": 0,
+        "selected": 0,
+        "sigma_range": [
+          0.5,
+          1.0
+        ],
+        "steps": 0
+      },
+      "export_max_abs_error": 0.0,
+      "history": [
+        {
+          "base_cuda_rng_sha256": "445cf24364c517d1c65be43a09499fd3c38d2ded8ca25750f6ff7a9ada073189",
+          "loss": 1.0410736799240112,
+          "post_model_cuda_rng_sha256": "ed91072224bba522f6c65c68f8982e128a8ec10c9d9552498eace20f721d7285"
+        },
+        {
+          "base_cuda_rng_sha256": "9e851c8b233520067dd2398e274bd73bb2b8932a3fe9234e196bdf9e80baf5b1",
+          "loss": 1.0227911472320557,
+          "post_model_cuda_rng_sha256": "91bc89d9708b7c513343c856cf9c39e43f50b49d54dee2a7fb451fa686a6d9a9"
+        },
+        {
+          "base_cuda_rng_sha256": "9c7e3cae1173e5b61605fbb3cd96ba574ba46fbef63e2338a22fda59f8146f05",
+          "loss": 1.0106866359710693,
+          "post_model_cuda_rng_sha256": "a6aa561a36f317e4fa92a02291e5c546eb1475c5e04ce3e2931015d67677d26d"
+        },
+        {
+          "base_cuda_rng_sha256": "c99b2d7ef5ca89ac261367e04545ed1548e21da8420bae4d341920c80fdbe001",
+          "loss": 1.0051229000091553,
+          "post_model_cuda_rng_sha256": "7c39c0da0eac3d475f59baa3d7175449502308e0bbbc47a189335bc4d5668394"
+        },
+        {
+          "base_cuda_rng_sha256": "18eba1785d4dd68e74e95948dc38946d1861b25a8ae0f987cb50a6eb4c2d9302",
+          "loss": 1.0033632516860962,
+          "post_model_cuda_rng_sha256": "0566fc4dc2fb6d0a2d5db8df20079b5ed62d48d6ad72ce9fe3fc644197914fa2"
+        },
+        {
+          "base_cuda_rng_sha256": "fce9198d31df7edbd088d06e8c265c984b4cdbcc17175c769e9e016bf4230c49",
+          "loss": 0.9997146129608154,
+          "post_model_cuda_rng_sha256": "56a226172ee00329860e34267afc99c277809f3cf995228c5fd7a8b8e011a2f2"
+        }
+      ],
+      "initial_sha256": "7d1d3a18b6d25a060a8e3ff7f59a7b3233110cc34d0e3f450e87c7ccfb1f0ff8",
+      "peak_bytes": 22187487744,
+      "seconds": 3.0579769760370255
+    },
+    {
+      "blur": true,
+      "deformation": {
+        "independent_random_stream_sha256": "3620dbb8f8befa05fe2e223081d9872e9db9cca21d6e5c65ba5b62dfff2a6c23",
+        "kernel_size": 7,
+        "labels_unchanged_by_construction": true,
+        "max_observed_sigma": 0.985121488571167,
+        "min_observed_sigma": 0.5386031270027161,
+        "padding": "reflect",
+        "probability": 0.2,
+        "samples": 48,
+        "selected": 6,
+        "sigma_range": [
+          0.5,
+          1.0
+        ],
+        "steps": 6
+      },
+      "export_max_abs_error": 0.0,
+      "history": [
+        {
+          "base_cuda_rng_sha256": "445cf24364c517d1c65be43a09499fd3c38d2ded8ca25750f6ff7a9ada073189",
+          "loss": 1.0407423973083496,
+          "post_model_cuda_rng_sha256": "ed91072224bba522f6c65c68f8982e128a8ec10c9d9552498eace20f721d7285"
+        },
+        {
+          "base_cuda_rng_sha256": "9e851c8b233520067dd2398e274bd73bb2b8932a3fe9234e196bdf9e80baf5b1",
+          "loss": 1.0227547883987427,
+          "post_model_cuda_rng_sha256": "91bc89d9708b7c513343c856cf9c39e43f50b49d54dee2a7fb451fa686a6d9a9"
+        },
+        {
+          "base_cuda_rng_sha256": "9c7e3cae1173e5b61605fbb3cd96ba574ba46fbef63e2338a22fda59f8146f05",
+          "loss": 1.010622262954712,
+          "post_model_cuda_rng_sha256": "a6aa561a36f317e4fa92a02291e5c546eb1475c5e04ce3e2931015d67677d26d"
+        },
+        {
+          "base_cuda_rng_sha256": "c99b2d7ef5ca89ac261367e04545ed1548e21da8420bae4d341920c80fdbe001",
+          "loss": 1.004930853843689,
+          "post_model_cuda_rng_sha256": "7c39c0da0eac3d475f59baa3d7175449502308e0bbbc47a189335bc4d5668394"
+        },
+        {
+          "base_cuda_rng_sha256": "18eba1785d4dd68e74e95948dc38946d1861b25a8ae0f987cb50a6eb4c2d9302",
+          "loss": 1.0028209686279297,
+          "post_model_cuda_rng_sha256": "0566fc4dc2fb6d0a2d5db8df20079b5ed62d48d6ad72ce9fe3fc644197914fa2"
+        },
+        {
+          "base_cuda_rng_sha256": "fce9198d31df7edbd088d06e8c265c984b4cdbcc17175c769e9e016bf4230c49",
+          "loss": 0.999035656452179,
+          "post_model_cuda_rng_sha256": "56a226172ee00329860e34267afc99c277809f3cf995228c5fd7a8b8e011a2f2"
+        }
+      ],
+      "initial_sha256": "7d1d3a18b6d25a060a8e3ff7f59a7b3233110cc34d0e3f450e87c7ccfb1f0ff8",
+      "peak_bytes": 22187487744,
+      "seconds": 2.7983277067542076
+    }
+  ],
+  "status": "passed"
+}

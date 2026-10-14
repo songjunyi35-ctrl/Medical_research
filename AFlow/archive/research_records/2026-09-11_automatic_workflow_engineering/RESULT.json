@@ -1,0 +1,97 @@
+{
+  "access": {
+    "confirmation": false,
+    "development": false,
+    "external": false,
+    "fit_images": true,
+    "labels": false,
+    "outer": false,
+    "test": false
+  },
+  "accuracy_claim": null,
+  "accuracy_promotion": false,
+  "all_gates_passed": true,
+  "case_forwards": 1654,
+  "created_utc": "2026-09-11T05:33:58.299627+00:00",
+  "gates": {
+    "2026090711": {
+      "four_1_2x": true,
+      "identity_2x": true
+    },
+    "2026090712": {
+      "four_1_2x": true,
+      "identity_2x": true
+    }
+  },
+  "gpu_phase_seconds": 74.51569587737322,
+  "hardware": "NVIDIA A100-SXM4-40GB",
+  "interpretation": "engineering execution evidence only; no accuracy/clinical superiority established",
+  "models": [
+    {
+      "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "peak_allocated_bytes": 792638464,
+      "seed": 2026090711,
+      "sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "training_report_sha256": "6cbbf960f62657080b7cb1153ae30040ab42a2299cd38c49142543effd17a1f1"
+    },
+    {
+      "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "peak_allocated_bytes": 792638464,
+      "seed": 2026090712,
+      "sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "training_report_sha256": "0ccd09881b1c7e5a9f58c46b512d7ed2880cfc09b947022e59eb6066ab10b9a7"
+    }
+  ],
+  "next_priority": "separately preregister accuracy-constrained workflow search on reused development; no test admission",
+  "preaccess_sha256": "c974122f88f7ecc21b1232cda64decf893b8c06c67a8664f0c795b0ffa782279",
+  "raw_sha256": "39e6f812cab247343832432302b89d6f62fc21ace5d61e5d9888c2b7e7198055",
+  "scope": "image tensor H2D through mask/point D2H; excludes image file loading, preprocessing and model loading",
+  "status": "completed",
+  "summary": {
+    "2026090711": {
+      "full8": {
+        "mean_seconds": 0.35554675447444123,
+        "median_seconds": 0.3555395305156708,
+        "paired_median_speedup_vs_full8": 1.0
+      },
+      "identity": {
+        "mean_seconds": 0.04552554618567228,
+        "median_seconds": 0.04545365646481514,
+        "paired_median_speedup_vs_full8": 7.818272349936354
+      },
+      "opposite2": {
+        "mean_seconds": 0.08973269040385883,
+        "median_seconds": 0.08974263817071915,
+        "paired_median_speedup_vs_full8": 3.9624487996555082
+      },
+      "single_axis4": {
+        "mean_seconds": 0.1783668496645987,
+        "median_seconds": 0.1783650666475296,
+        "paired_median_speedup_vs_full8": 1.9933878163525391
+      }
+    },
+    "2026090712": {
+      "full8": {
+        "mean_seconds": 0.3558833012357354,
+        "median_seconds": 0.355877835303545,
+        "paired_median_speedup_vs_full8": 1.0
+      },
+      "identity": {
+        "mean_seconds": 0.04552720673382282,
+        "median_seconds": 0.0454738587141037,
+        "paired_median_speedup_vs_full8": 7.828789129288081
+      },
+      "opposite2": {
+        "mean_seconds": 0.08975999150425196,
+        "median_seconds": 0.08974998444318771,
+        "paired_median_speedup_vs_full8": 3.965351505442249
+      },
+      "single_axis4": {
+        "mean_seconds": 0.17846839393799505,
+        "median_seconds": 0.1784561537206173,
+        "paired_median_speedup_vs_full8": 1.9942810569165124
+      }
+    }
+  },
+  "torch_version": "2.7.1+cu126"
+}

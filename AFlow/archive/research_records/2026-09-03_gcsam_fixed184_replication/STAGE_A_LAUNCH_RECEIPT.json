@@ -1,0 +1,38 @@
+{
+  "schema": "aflow.brats.gcsam_fixed184_replication.stage_a_launch_receipt",
+  "schema_version": 1,
+  "status": "controls_running_before_any_inner_access",
+  "formal_order": "two controls first; two candidates second; all four before inner preaccess receipt",
+  "controls": {
+    "a": {
+      "started_at_utc": "2026-09-03T05:20:18.714020+00:00",
+      "replicate": "a",
+      "arm": "adamw_control",
+      "device": "cuda:0",
+      "seed": 20261102,
+      "fixed_epoch": 184,
+      "output": "workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_a_adamw_control"
+    },
+    "b": {
+      "started_at_utc": "2026-09-03T05:20:18.776303+00:00",
+      "replicate": "b",
+      "arm": "adamw_control",
+      "device": "cuda:1",
+      "seed": 20261104,
+      "fixed_epoch": 184,
+      "output": "workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_b_adamw_control"
+    }
+  },
+  "training_runner_sha256": "4e79a507513be07b8b4a881f7e1831c7e0d8e421a7221373a3d6387f2a61749c",
+  "implementation_receipt_sha256": "bee89d27dcddb8fc74e883b63a4fc28e5c7a4fdcf7652e31a6289b44cfba7d8a",
+  "pre_inner_amendment_sha256": "82ba631d2338c7e06a0fb222cf76b86d585a7236ee6cc7c6e6676612641d00fe",
+  "access": {
+    "fit": true,
+    "inner_metrics": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

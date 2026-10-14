@@ -1,0 +1,148 @@
+{
+  "args": {
+    "amp_dtype": "bf16",
+    "batch_size": 2,
+    "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "device": "cuda",
+    "encoder_qv_lora_alpha": 8.0,
+    "encoder_qv_lora_rank": 4,
+    "epochs": 20,
+    "lr": 0.0004,
+    "max_train_cases": 256,
+    "max_validation_cases": 64,
+    "no_augmentation": true,
+    "no_preload": false,
+    "num_workers": 2,
+    "seed": 20260722,
+    "split_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_dpdsam_t1ce_binary_seed20260721_v1/split_manifest.json",
+    "subset_seed": 20260721,
+    "train_jsonl": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_dpdsam_t1ce_binary_seed20260721_v1/train_t1ce_binary.jsonl",
+    "validation_interval": 5,
+    "validation_jsonl": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_dpdsam_t1ce_binary_seed20260721_v1/validation_t1ce_binary.jsonl",
+    "weight_decay": 0.1
+  },
+  "augmentation": {
+    "enabled": false,
+    "random_affine": {
+      "degrees": 15,
+      "p": 0.5,
+      "translation_voxels": 10
+    },
+    "random_elastic": {
+      "control_points": 7,
+      "max_displacement": 5,
+      "p": 0.2
+    },
+    "random_noise": {
+      "p": 0.15,
+      "std_range": [
+        0,
+        0.1
+      ]
+    }
+  },
+  "data": {
+    "split_manifest_sha256": "7447e3cb2499a9b54a74f3fc8522f32eb6301031c0bddb9c5c848313ab641117",
+    "subset_algorithm": "sha256(subset_seed:case_id)_ascending",
+    "train_manifest_sha256": "ce922bdbf2f4bd693aac816a357e76e874aaf6f45d4fc16eeeb357b0c15557df",
+    "train_rows": 256,
+    "train_subjects": 196,
+    "validation_manifest_sha256": "e225e244e1fe36944c7f33f64d5316b8665ecd2e7bbac05d2411790bf07059ce",
+    "validation_rows": 64,
+    "validation_subjects": 50
+  },
+  "loss": {
+    "bce_weight": 1.0,
+    "dice_weight": 1.0,
+    "smooth": 1e-05
+  },
+  "metric_threshold": 0.5,
+  "metrics": {
+    "empty_counts": "both_empty_and_one_empty_per_grid",
+    "headline": "model_grid_case_macro_DSC_IoU_HD95",
+    "model_grid": "128cubed_target_with_physical_model_spacing",
+    "secondary": "source_grid_case_macro_DSC_IoU_HD95",
+    "source_grid_restore": "nearest-exact"
+  },
+  "model": {
+    "adapter_config": {
+      "encoder_qv_lora": {
+        "alpha": 8.0,
+        "blocks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "enabled": true,
+        "projections": [
+          "q",
+          "v"
+        ],
+        "rank": 4
+      },
+      "model_type": "vit_b_ori",
+      "schema_version": 1,
+      "target_token": {
+        "embedding_dim": 384,
+        "enabled": true,
+        "vocab": [
+          "residual_tumor_123"
+        ]
+      }
+    },
+    "arm": "B1_static_prompt_lora_r4",
+    "automatic_inference_reads_gt": false,
+    "decoder": "official_single_mask_token_zero",
+    "input": "T1ce_only_single_channel_whole_volume_128cubed",
+    "prompt": "one_learned_case_independent_continuous_token",
+    "reproduction_status": "declared_setting_reconstruction_not_bit_exact",
+    "schema": "aflow.sammed3d.dpdsam_t1ce_binary_b0",
+    "schema_version": 1,
+    "target": {
+      "foreground_raw_labels": [
+        1,
+        2,
+        3
+      ],
+      "name": "residual_tumor_123"
+    },
+    "threshold": 0.5
+  },
+  "optimizer": {
+    "amsgrad": false,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "class": "torch.optim.AdamW",
+    "epsilon": 1e-08,
+    "learning_rate": 0.0004,
+    "weight_decay": 0.1
+  },
+  "preprocessing": {
+    "geometry": "whole_volume_exact_128cubed",
+    "n4_bias_correction": "unavailable_not_applied",
+    "normalization": "source_t1ce_nonzero_population_zscore",
+    "train_preloaded_in_host_memory": true
+  },
+  "resume": {
+    "checkpoint": "OUTPUT_DIR/latest.pth_only",
+    "persistent_workers": false,
+    "rng": "python_numpy_torch_cpu_cuda_all_and_dataloader_generator"
+  },
+  "schema": "aflow.sammed3d.dpdsam_t1ce_binary_b0_training",
+  "schema_version": 3,
+  "selection": "maximum_validation_model_grid_macro_dsc",
+  "source_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+  "total_parameters": 100657072,
+  "trainable_parameters": 7558096
+}

@@ -1,0 +1,83 @@
+{
+  "access": {
+    "confirmation": false,
+    "development": false,
+    "external": false,
+    "fit_images": true,
+    "labels": false,
+    "outer": false,
+    "test": false
+  },
+  "all_gates_passed": true,
+  "case_forwards": 280,
+  "created_utc": "2026-09-11T07:15:48.785961+00:00",
+  "decision": "retain bounded 4-worker bulk deployment option; validate representative workloads before default",
+  "input_exact": 32,
+  "interpretation": "bulk scheduling with four CPU processes, not less per-case work or single-request acceleration",
+  "large_cache_created": false,
+  "model": {
+    "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+    "seed": 2026090711,
+    "sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+    "training_report_sha256": "6cbbf960f62657080b7cb1153ae30040ab42a2299cd38c49142543effd17a1f1"
+  },
+  "new_checkpoint": false,
+  "output_fingerprint_exact": 32,
+  "preaccess_sha256": "94da1823d287cc603d02a167005517eb0492ed655fb4c5b0aa0229e2292cb969",
+  "raw_sha256": "fc93cbb2d80c8e556d6dde6228c2024bd3a655ce0bef115a2a4891d6287c6ff0",
+  "runs": [
+    {
+      "batch_seconds": 130.9521406069398,
+      "cases_per_minute": 3.6654612729145604,
+      "first_completed_seconds": 19.104654848575592,
+      "repeat": 0,
+      "sampled_rss_sum_gib": 2.500579833984375,
+      "single_worker_peak_rss_max_gib": 1.4619483947753906,
+      "with_shutdown_seconds": 131.75387820601463,
+      "worker_prepare_cpu_seconds": 122.53012892699999,
+      "workers": 1
+    },
+    {
+      "batch_seconds": 45.91219110041857,
+      "cases_per_minute": 10.45473954728386,
+      "first_completed_seconds": 19.22715588659048,
+      "repeat": 0,
+      "sampled_rss_sum_gib": 5.2345733642578125,
+      "single_worker_peak_rss_max_gib": 1.5245590209960938,
+      "with_shutdown_seconds": 46.777306988835335,
+      "worker_prepare_cpu_seconds": 122.33445207499999,
+      "workers": 4
+    },
+    {
+      "batch_seconds": 44.530007533729076,
+      "cases_per_minute": 10.779248120190097,
+      "first_completed_seconds": 17.939919844269753,
+      "repeat": 1,
+      "sampled_rss_sum_gib": 5.2679443359375,
+      "single_worker_peak_rss_max_gib": 1.5403480529785156,
+      "with_shutdown_seconds": 45.58127227425575,
+      "worker_prepare_cpu_seconds": 122.697971145,
+      "workers": 4
+    },
+    {
+      "batch_seconds": 131.37483727186918,
+      "cases_per_minute": 3.6536677035548317,
+      "first_completed_seconds": 20.36050795763731,
+      "repeat": 1,
+      "sampled_rss_sum_gib": 2.563751220703125,
+      "single_worker_peak_rss_max_gib": 1.5481719970703125,
+      "with_shutdown_seconds": 132.1023293659091,
+      "worker_prepare_cpu_seconds": 121.52620535000003,
+      "workers": 1
+    }
+  ],
+  "scans": 8,
+  "seconds": 356.22654443234205,
+  "speedups": {
+    "0": 2.8522302566767705,
+    "1": 2.9502540993814077
+  },
+  "status": "completed",
+  "subjects": 4,
+  "training_runs": 0
+}

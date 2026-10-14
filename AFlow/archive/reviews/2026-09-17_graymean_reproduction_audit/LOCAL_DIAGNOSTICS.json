@@ -1,0 +1,708 @@
+{
+  "utc": "2026-09-17T03:27:03.864296+00:00",
+  "scope": "CPU synthetic tensors and existing logs only; no patient image/label access or model forward",
+  "synthetic": {
+    "same_gray_loss_different_masks": {
+      "correct_dice": 1.0,
+      "wrong_dice": 0.0,
+      "correct_gray_loss": 6.089209136916907e-10,
+      "wrong_gray_loss": 6.089209136916907e-10
+    },
+    "intensity_scale_times10_multiplies_loss_by": 99.99996948242188,
+    "constant_offset7_preserves_loss": true,
+    "nonzero_finite_softmask_gradient": true,
+    "first_prompt_only_gray_added": true
+  },
+  "optimizer_updates": {
+    "old_selected_epoch21": 41,
+    "new_selected_epoch50": 7800,
+    "old_epoch200": 399,
+    "new_epoch161": 21342,
+    "old_epoch120": 239,
+    "new_epoch120": 16340,
+    "new_first2_epochs": 1944
+  },
+  "pure_adamw_encoder_decay_multiplier_ignoring_gradient_updates": {
+    "old_selected21": 0.9967252425462269,
+    "new_selected50": 0.5357835836291441,
+    "caveat": "mathematical isolated decay component, not measured total parameter norm or a causal attribution"
+  },
+  "old_baseline_curve": {
+    "epoch21": {
+      "epoch": "21",
+      "train_loss_sum11": "3.8136310780920635",
+      "train_dice_raw05_final11": "0.6092487896012053",
+      "train_cases_per_sec": "21.45714374797034",
+      "optimizer_steps": "2",
+      "optimizer_skipped_steps": "0",
+      "optimizer_applied_steps": "2",
+      "threshold_replacements": "18",
+      "unused_epoch_num_clicks_draw": "1",
+      "val_official_best5_dice": "0.5713061351995669",
+      "val_official_final5_dice": "0.5591851002518674",
+      "val_click1_dice": "0.5199365172508473",
+      "val_click2_dice": "0.5397020652264921",
+      "val_click3_dice": "0.5496418976935364",
+      "val_click4_dice": "0.5576641509224932",
+      "val_click5_dice": "0.5591851002518674",
+      "new_train_loss_best": "True",
+      "new_train_dice_best": "True",
+      "new_val_best5": "True",
+      "encoder_lr": "0.0008",
+      "head_lr": "8e-05",
+      "grad_scale": "32768.0",
+      "cuda_peak_memory_allocated": "68432583168"
+    },
+    "epoch200": {
+      "epoch": "200",
+      "train_loss_sum11": "1.861139384711661",
+      "train_dice_raw05_final11": "0.7979259861357932",
+      "train_cases_per_sec": "22.41057294960376",
+      "optimizer_steps": "2",
+      "optimizer_skipped_steps": "0",
+      "optimizer_applied_steps": "2",
+      "threshold_replacements": "18",
+      "unused_epoch_num_clicks_draw": "8",
+      "val_official_best5_dice": "0.5208776574757604",
+      "val_official_final5_dice": "0.515271615236265",
+      "val_click1_dice": "0.5045271267038066",
+      "val_click2_dice": "0.5123032268421338",
+      "val_click3_dice": "0.5141026646249997",
+      "val_click4_dice": "0.5149480697627266",
+      "val_click5_dice": "0.515271615236265",
+      "new_train_loss_best": "False",
+      "new_train_dice_best": "False",
+      "new_val_best5": "False",
+      "encoder_lr": "8.000000000000001e-06",
+      "head_lr": "8.000000000000002e-07",
+      "grad_scale": "32768.0",
+      "cuda_peak_memory_allocated": "68432583168"
+    }
+  },
+  "new_curve": [
+    {
+      "epoch": 5,
+      "steps": 122,
+      "train": {
+        "loss": 2.2426905347486583,
+        "gray": 0.04702607567954824,
+        "grad_norm": 5.622818466076635
+      },
+      "development": {
+        "scan_final5": 0.5196641480676687,
+        "subject_final5": 0.51485875918766,
+        "scan_best5": 0.5349573214126568,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 5,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T14:29:40.429832+00:00"
+      }
+    },
+    {
+      "epoch": 10,
+      "steps": 122,
+      "train": {
+        "loss": 2.017299655533622,
+        "gray": 0.031153378015529715,
+        "grad_norm": 5.931206126271943
+      },
+      "development": {
+        "scan_final5": 0.5349509928432913,
+        "subject_final5": 0.5343562221812083,
+        "scan_best5": 0.5484473392797611,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 10,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T14:37:07.438459+00:00"
+      }
+    },
+    {
+      "epoch": 15,
+      "steps": 122,
+      "train": {
+        "loss": 1.8829406524391332,
+        "gray": 0.022745614346316077,
+        "grad_norm": 5.59843639679897
+      },
+      "development": {
+        "scan_final5": 0.5346450301168113,
+        "subject_final5": 0.5340509264658639,
+        "scan_best5": 0.5452518360015718,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 15,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T14:44:32.528471+00:00"
+      }
+    },
+    {
+      "epoch": 20,
+      "steps": 122,
+      "train": {
+        "loss": 1.7556676266124709,
+        "gray": 0.019383629753327174,
+        "grad_norm": 4.742828604615765
+      },
+      "development": {
+        "scan_final5": 0.5335405267695423,
+        "subject_final5": 0.5346127947418973,
+        "scan_best5": 0.5416655382204811,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 20,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T14:51:51.267875+00:00"
+      }
+    },
+    {
+      "epoch": 25,
+      "steps": 122,
+      "train": {
+        "loss": 1.6971719863483445,
+        "gray": 0.019518766785998648,
+        "grad_norm": 4.466381496853298
+      },
+      "development": {
+        "scan_final5": 0.5362235648123274,
+        "subject_final5": 0.5373862964259247,
+        "scan_best5": 0.5444304095541577,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 25,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T14:59:15.270778+00:00"
+      }
+    },
+    {
+      "epoch": 30,
+      "steps": 122,
+      "train": {
+        "loss": 1.6368425873571952,
+        "gray": 0.01585069793341643,
+        "grad_norm": 4.642593136540166
+      },
+      "development": {
+        "scan_final5": 0.5393299094244269,
+        "subject_final5": 0.538179096269979,
+        "scan_best5": 0.5468329786115439,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 30,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T15:06:49.464543+00:00"
+      }
+    },
+    {
+      "epoch": 35,
+      "steps": 122,
+      "train": {
+        "loss": 1.5678309893902438,
+        "gray": 0.01144792999278892,
+        "grad_norm": 3.8602563461649075
+      },
+      "development": {
+        "scan_final5": 0.5198938329455383,
+        "subject_final5": 0.5193580083312462,
+        "scan_best5": 0.5317870191397953,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 35,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T15:14:21.724474+00:00"
+      }
+    },
+    {
+      "epoch": 40,
+      "steps": 122,
+      "train": {
+        "loss": 1.5011782572593217,
+        "gray": 0.013122293663138348,
+        "grad_norm": 3.7501831466768993
+      },
+      "development": {
+        "scan_final5": 0.525721143340301,
+        "subject_final5": 0.52314421557294,
+        "scan_best5": 0.5368858591047198,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 40,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T15:21:52.232666+00:00"
+      }
+    },
+    {
+      "epoch": 45,
+      "steps": 122,
+      "train": {
+        "loss": 1.448878550235136,
+        "gray": 0.009871024035737532,
+        "grad_norm": 3.4071162159060253
+      },
+      "development": {
+        "scan_final5": 0.5262901860918975,
+        "subject_final5": 0.5281188052611092,
+        "scan_best5": 0.5354406395917518,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 45,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T15:29:20.301485+00:00"
+      }
+    },
+    {
+      "epoch": 50,
+      "steps": 122,
+      "train": {
+        "loss": 1.3768090485545343,
+        "gray": 0.009599617078762364,
+        "grad_norm": 3.061660199498934
+      },
+      "development": {
+        "scan_final5": 0.5432994575250153,
+        "subject_final5": 0.5409249060022755,
+        "scan_best5": 0.551602211989083,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 50,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T15:36:46.372579+00:00"
+      }
+    },
+    {
+      "epoch": 55,
+      "steps": 122,
+      "train": {
+        "loss": 1.3459281597608401,
+        "gray": 0.008159264086634534,
+        "grad_norm": 3.166468739019009
+      },
+      "development": {
+        "scan_final5": 0.5292965070312381,
+        "subject_final5": 0.5324942952224504,
+        "scan_best5": 0.5365880706249309,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 55,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T15:44:15.768262+00:00"
+      }
+    },
+    {
+      "epoch": 60,
+      "steps": 122,
+      "train": {
+        "loss": 1.3104413213062678,
+        "gray": 0.008597501751453206,
+        "grad_norm": 3.1171401174961293
+      },
+      "development": {
+        "scan_final5": 0.5364844235936879,
+        "subject_final5": 0.5324425845908136,
+        "scan_best5": 0.5418389008100218,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 60,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T15:51:42.146181+00:00"
+      }
+    },
+    {
+      "epoch": 65,
+      "steps": 122,
+      "train": {
+        "loss": 1.2751040350753093,
+        "gray": 0.007808325412671691,
+        "grad_norm": 2.829631388432695
+      },
+      "development": {
+        "scan_final5": 0.5216470703850357,
+        "subject_final5": 0.5228039833864826,
+        "scan_best5": 0.5279881376626766,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 65,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T15:59:10.929679+00:00"
+      }
+    },
+    {
+      "epoch": 70,
+      "steps": 122,
+      "train": {
+        "loss": 1.2291747522942813,
+        "gray": 0.00652220093648988,
+        "grad_norm": 2.550449416470626
+      },
+      "development": {
+        "scan_final5": 0.525551909585685,
+        "subject_final5": 0.5261008724802858,
+        "scan_best5": 0.5303824487063157,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 70,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T16:06:37.202878+00:00"
+      }
+    },
+    {
+      "epoch": 75,
+      "steps": 122,
+      "train": {
+        "loss": 1.2015913577727328,
+        "gray": 0.006593670795188734,
+        "grad_norm": 2.595522222204954
+      },
+      "development": {
+        "scan_final5": 0.5250261762431648,
+        "subject_final5": 0.5218775893413649,
+        "scan_best5": 0.5305977621067952,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 75,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T16:14:04.479562+00:00"
+      }
+    },
+    {
+      "epoch": 80,
+      "steps": 122,
+      "train": {
+        "loss": 1.1790629056255513,
+        "gray": 0.0063471463547230015,
+        "grad_norm": 2.431799740457731
+      },
+      "development": {
+        "scan_final5": 0.5158102331594141,
+        "subject_final5": 0.5174067807148742,
+        "scan_best5": 0.522713300547512,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 80,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T16:21:31.210145+00:00"
+      }
+    },
+    {
+      "epoch": 85,
+      "steps": 122,
+      "train": {
+        "loss": 1.148871051921766,
+        "gray": 0.006082745314453088,
+        "grad_norm": 2.4674397574530706
+      },
+      "development": {
+        "scan_final5": 0.5080985473953168,
+        "subject_final5": 0.5117448251063746,
+        "scan_best5": 0.5140782505916381,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 85,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T16:29:00.161879+00:00"
+      }
+    },
+    {
+      "epoch": 90,
+      "steps": 122,
+      "train": {
+        "loss": 1.1284431022871668,
+        "gray": 0.007045568284145537,
+        "grad_norm": 2.322918681941405
+      },
+      "development": {
+        "scan_final5": 0.5055967933427366,
+        "subject_final5": 0.5091043177953378,
+        "scan_best5": 0.5131538022440254,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 90,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T16:36:33.892388+00:00"
+      }
+    },
+    {
+      "epoch": 95,
+      "steps": 122,
+      "train": {
+        "loss": 1.0933506591820423,
+        "gray": 0.0053980044041829255,
+        "grad_norm": 2.340537400893223
+      },
+      "development": {
+        "scan_final5": 0.5210970326322825,
+        "subject_final5": 0.5208981240354873,
+        "scan_best5": 0.5273984597974699,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 95,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T16:44:07.551352+00:00"
+      }
+    },
+    {
+      "epoch": 100,
+      "steps": 122,
+      "train": {
+        "loss": 1.0704615928018044,
+        "gray": 0.0048454365024243485,
+        "grad_norm": 2.252662841675213
+      },
+      "development": {
+        "scan_final5": 0.5117673608645777,
+        "subject_final5": 0.5100110079691116,
+        "scan_best5": 0.5196543047868575,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 100,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T16:51:35.149304+00:00"
+      }
+    },
+    {
+      "epoch": 105,
+      "steps": 122,
+      "train": {
+        "loss": 1.0945940562236456,
+        "gray": 0.006428971259225708,
+        "grad_norm": 2.30031127792327
+      },
+      "development": {
+        "scan_final5": 0.5123030426256657,
+        "subject_final5": 0.5136715849081434,
+        "scan_best5": 0.5168202929002381,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 105,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T16:59:05.510846+00:00"
+      }
+    },
+    {
+      "epoch": 110,
+      "steps": 122,
+      "train": {
+        "loss": 1.015436693228812,
+        "gray": 0.004621381905895693,
+        "grad_norm": 2.067778109523004
+      },
+      "development": {
+        "scan_final5": 0.5059650766202749,
+        "subject_final5": 0.5100378443611003,
+        "scan_best5": 0.5129873425353795,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 110,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T17:06:38.433448+00:00"
+      }
+    },
+    {
+      "epoch": 115,
+      "steps": 122,
+      "train": {
+        "loss": 0.9858134141184175,
+        "gray": 0.004139595633658193,
+        "grad_norm": 1.9405226673118372
+      },
+      "development": {
+        "scan_final5": 0.49867041070107904,
+        "subject_final5": 0.4996529575397798,
+        "scan_best5": 0.5056470970681807,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 115,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T17:14:10.630371+00:00"
+      }
+    },
+    {
+      "epoch": 120,
+      "steps": 122,
+      "train": {
+        "loss": 0.9933239991772812,
+        "gray": 0.00450560895950292,
+        "grad_norm": 2.122621027039893
+      },
+      "development": {
+        "scan_final5": 0.5010291527837587,
+        "subject_final5": 0.5058243437980567,
+        "scan_best5": 0.5069602103950281,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 120,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T17:21:37.973969+00:00"
+      }
+    },
+    {
+      "epoch": 125,
+      "steps": 122,
+      "train": {
+        "loss": 0.8668784658604689,
+        "gray": 0.0022734743673517273,
+        "grad_norm": 1.3130673474245111
+      },
+      "development": {
+        "scan_final5": 0.4965979125778393,
+        "subject_final5": 0.49861265875038585,
+        "scan_best5": 0.5012295729212275,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 125,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T17:29:13.853494+00:00"
+      }
+    },
+    {
+      "epoch": 130,
+      "steps": 122,
+      "train": {
+        "loss": 0.8277126840112631,
+        "gray": 0.001886531513724706,
+        "grad_norm": 1.2353946686772161
+      },
+      "development": {
+        "scan_final5": 0.4915367507217795,
+        "subject_final5": 0.49456709401126425,
+        "scan_best5": 0.4954513345187427,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 130,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T17:36:45.098612+00:00"
+      }
+    },
+    {
+      "epoch": 135,
+      "steps": 122,
+      "train": {
+        "loss": 0.7974740126986563,
+        "gray": 0.0016383243826028236,
+        "grad_norm": 1.1273259679966994
+      },
+      "development": {
+        "scan_final5": 0.49118144813819814,
+        "subject_final5": 0.49433239888138714,
+        "scan_best5": 0.4943577705212425,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 135,
+        "arm": "graymean",
+        "created_utc": "2026-09-16T17:44:08.875009+00:00"
+      }
+    },
+    {
+      "epoch": 140,
+      "steps": 122,
+      "train": {
+        "loss": 0.7756485644681954,
+        "gray": 0.00154684331311668,
+        "grad_norm": 1.0286537833448555,
+        "amp_retries": 0.00823045267489712,
+        "amp_scale": 44095.20987654321
+      },
+      "development": {
+        "scan_final5": 0.4851864122431783,
+        "subject_final5": 0.48838632300053214,
+        "scan_best5": 0.4879401974617491,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 140,
+        "arm": "graymean",
+        "created_utc": "2026-09-17T02:37:37.798931+00:00"
+      }
+    },
+    {
+      "epoch": 145,
+      "steps": 122,
+      "train": {
+        "loss": 0.7550215599713502,
+        "gray": 0.0014656492197069764,
+        "grad_norm": 0.9918288508265659,
+        "amp_retries": 0.0,
+        "amp_scale": 32768.0
+      },
+      "development": {
+        "scan_final5": 0.4842785348102897,
+        "subject_final5": 0.48763140337428434,
+        "scan_best5": 0.48757289491126937,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 145,
+        "arm": "graymean",
+        "created_utc": "2026-09-17T02:45:12.294523+00:00"
+      }
+    },
+    {
+      "epoch": 150,
+      "steps": 122,
+      "train": {
+        "loss": 0.7389625992794586,
+        "gray": 0.0012487292717623074,
+        "grad_norm": 0.9627203493163677,
+        "amp_retries": 0.0,
+        "amp_scale": 32768.0
+      },
+      "development": {
+        "scan_final5": 0.4824765582010466,
+        "subject_final5": 0.4859087688700082,
+        "scan_best5": 0.4856029918549702,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 150,
+        "arm": "graymean",
+        "created_utc": "2026-09-17T02:52:43.799926+00:00"
+      }
+    },
+    {
+      "epoch": 155,
+      "steps": 122,
+      "train": {
+        "loss": 0.7222923755400465,
+        "gray": 0.001108846075580371,
+        "grad_norm": 0.892192571927388,
+        "amp_retries": 0.0,
+        "amp_scale": 32768.0
+      },
+      "development": {
+        "scan_final5": 0.47785406752657983,
+        "subject_final5": 0.48137704088508015,
+        "scan_best5": 0.48140012641783025,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 155,
+        "arm": "graymean",
+        "created_utc": "2026-09-17T03:00:19.117472+00:00"
+      }
+    },
+    {
+      "epoch": 160,
+      "steps": 122,
+      "train": {
+        "loss": 0.7095321586102615,
+        "gray": 0.00113281669703502,
+        "grad_norm": 0.8959354260206631,
+        "amp_retries": 0.0,
+        "amp_scale": 32768.0
+      },
+      "development": {
+        "scan_final5": 0.4776953690135084,
+        "subject_final5": 0.48174695181886024,
+        "scan_best5": 0.48067582758244387,
+        "scans": 108,
+        "subjects": 50,
+        "epoch": 160,
+        "arm": "graymean",
+        "created_utc": "2026-09-17T03:08:04.379507+00:00"
+      }
+    }
+  ],
+  "hashes": {
+    "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/history.csv": "a900c4324395bafffa68f03954ec951091b50cd39aeaa502c05689a76d7068ab",
+    "workspace/BraTS/sammed3d_t1ce_wt/graymean_single972_20260916/graymean/TRAIN.jsonl": "2798a3606a19daf4e0b626b0067f45dc4273fec85bb5c5909bfe59864954ff4e",
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/local_diagnostics.py": "58b00834687ddb2c07e3c3e82d6d75fe0b1ccf1087b22174ab2f806dc6144d2a",
+    "scripts/sammed3d_graymean_single972.py": "edad3f607d3924038ec0fd317082c9d33f2618d5079e7a07c448845243f3eeb0"
+  }
+}

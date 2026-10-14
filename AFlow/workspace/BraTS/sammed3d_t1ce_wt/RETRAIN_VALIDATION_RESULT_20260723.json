@@ -1,0 +1,141 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_retrain_validation_result",
+  "schema_version": 1,
+  "status": "validation_selected_not_test_evaluated",
+  "created_at_utc": "2026-07-23T05:57:54Z",
+  "protocol": {
+    "task": "T1ce single-channel to binary WT raw labels {1,2,3}",
+    "train_cases": 972,
+    "validation_cases": 108,
+    "train_seed": 20260724,
+    "validation_seed": 20260723,
+    "selection": "independent final-click scan-macro Dice after strict checkpoint reload",
+    "test_access": false,
+    "threshold_tta_postprocess_search": false
+  },
+  "provenance": {
+    "initial_plan": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/RETRAIN_PLAN_20260723.json",
+      "sha256": "f75ad93f23c409a3519c2dffcbd98e058150bccf3b8099e89799f1591f4eb5a2"
+    },
+    "adaptive_decision": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/RETRAIN_ADAPTIVE_DECISION_20260723.json",
+      "sha256": "4eeb43b3594b7ee77be793461bd42772524fb42e8b11131b6a6bb8c0131fc51d"
+    },
+    "reference_validation_report": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/best_e8_val108_cumulative3_s20260723.json",
+      "sha256": "df6cd4efa9df2b757f27551f135d8e9f20dbca6a188c69c55421e9bebc2eb95e"
+    }
+  },
+  "reference": {
+    "id": "v1_epoch8",
+    "checkpoint_sha256": "4a325a6ffca148941c5d66f4802f331d13b8ddb7862da299981e8fd6be84d7c8",
+    "independent_scan_macro_dice_c1_c2_c3": [
+      0.5148822210700196,
+      0.5307658325274646,
+      0.5358880711676558
+    ],
+    "independent_subject_balanced_dice_c3": 0.5353692764043558
+  },
+  "arms": [
+    {
+      "id": "v2a",
+      "start": "untouched SAM-Med3D",
+      "learning_rate": 0.00003,
+      "planned_epochs": 20,
+      "completed_epochs": 12,
+      "selected_epoch": 9,
+      "trainer_validation_c3": 0.5388469623953656,
+      "early_stop_patience": 3,
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/v2a_base_lr3e5_e20_s20260724/sam_model_val_dice_best.pth",
+      "checkpoint_sha256": "eabe17e4fa6b0767c030ec22c671f8fa531a63397cc0a58c2a5f3b72b5a36cf4",
+      "independent_report": "workspace/BraTS/sammed3d_t1ce_wt/v2a_e9_val108_independent_s20260723.json",
+      "independent_report_sha256": "0e78033cec8ef573f571a33c0dc6c2f591ba6331af9c322548c79481fb95cd46",
+      "independent_scan_macro_dice_c1_c2_c3": [
+        0.5026986057729743,
+        0.5254398036236728,
+        0.5315476726034603
+      ],
+      "independent_subject_balanced_dice_c3": 0.5320788948621271
+    },
+    {
+      "id": "v2b",
+      "start": "v1 epoch-8 selected checkpoint",
+      "learning_rate": 0.00001,
+      "planned_epochs": 12,
+      "completed_epochs": 4,
+      "selected_refinement_epoch": 1,
+      "trainer_validation_c3": 0.5409894290884646,
+      "early_stop_patience": 3,
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/v2b_e8refine_lr1e5_e12_s20260724/sam_model_val_dice_best.pth",
+      "checkpoint_sha256": "2b7d5907c78ce2ea7e1b01ff393a5597289af08670f9b4cf2d6e203d2bed5015",
+      "independent_report": "workspace/BraTS/sammed3d_t1ce_wt/v2b_e1_val108_independent_s20260723.json",
+      "independent_report_sha256": "43bde049c36cfbf8bdb10005f0fd780a61be79cbf6df69e83c2f264289e8e151",
+      "independent_scan_macro_dice_c1_c2_c3": [
+        0.5222286179929561,
+        0.5362320013987463,
+        0.5390754588117633
+      ],
+      "independent_subject_balanced_dice_c3": 0.5395139017549534
+    },
+    {
+      "id": "v2c",
+      "start": "v1 epoch-8 selected checkpoint",
+      "learning_rate": 0.000003,
+      "planned_epochs": 8,
+      "completed_epochs": 8,
+      "selected_refinement_epoch": 6,
+      "trainer_validation_c3": 0.5387227094766719,
+      "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/v2c_e8refine_lr3e6_e8_s20260724/sam_model_val_dice_best.pth",
+      "checkpoint_sha256": "b56149d880e38564c21359c9cda05a289181f980b652c85119cc5786c2943016",
+      "independent_report": "workspace/BraTS/sammed3d_t1ce_wt/v2c_e6_val108_independent_s20260723.json",
+      "independent_report_sha256": "c136b7d7c027e5d1a3291ccade54d44b1e2726949144eeb1d62d2bc4dc877daf",
+      "independent_scan_macro_dice_c1_c2_c3": [
+        0.5187488269924616,
+        0.532595151511194,
+        0.534861614223493
+      ],
+      "independent_subject_balanced_dice_c3": 0.5352016926926989
+    }
+  ],
+  "selection": {
+    "winner": "v2b",
+    "reason": "Highest independently recomputed validation final-click scan-macro Dice.",
+    "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/v2b_e8refine_lr1e5_e12_s20260724/sam_model_val_dice_best.pth",
+    "checkpoint_sha256": "2b7d5907c78ce2ea7e1b01ff393a5597289af08670f9b4cf2d6e203d2bed5015",
+    "independent_scan_macro_dice_c3": 0.5390754588117633,
+    "independent_subject_balanced_dice_c3": 0.5395139017549534
+  },
+  "paired_v2b_vs_reference": {
+    "same_cases": true,
+    "scan_macro_dice_delta_c1_c2_c3": [
+      0.007346396922936482,
+      0.005466168871281707,
+      0.003187387644107531
+    ],
+    "case_c3_delta": {
+      "mean": 0.003187387644107537,
+      "median": 0.0015255415292018126,
+      "std_population": 0.03081322426503757,
+      "improved": 56,
+      "worse": 52,
+      "equal": 0
+    },
+    "subject_c3_delta": {
+      "mean": 0.004144625350597552,
+      "median": 0.002336188640098699,
+      "std_population": 0.025867480939131816,
+      "improved": 27,
+      "worse": 23,
+      "equal": 0,
+      "bootstrap_seed": 20260723,
+      "bootstrap_resamples": 10000,
+      "bootstrap_95_percentile_interval": [
+        -0.0032197365539541676,
+        0.011167000991485269
+      ]
+    },
+    "interpretation": "The point estimate is positive, but the subject-bootstrap interval includes zero; this is a small validation improvement, not conclusive superiority."
+  },
+  "next_test_policy": "No new test evaluation was run. Keep v2b as a validation-selected candidate until a later final configuration decision."
+}

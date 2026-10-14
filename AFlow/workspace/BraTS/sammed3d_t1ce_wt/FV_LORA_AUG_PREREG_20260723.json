@@ -1,0 +1,82 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt.fv_lora_aug_prereg",
+  "schema_version": 1,
+  "status": "frozen_before_full_training",
+  "date_utc": "2026-07-23",
+  "purpose": "First image-encoder adaptation arm after the decoder-only crop recipe saturated.",
+  "evidence_boundary": {
+    "development_only": true,
+    "train_cases": 972,
+    "validation_cases": 108,
+    "test_cases_accessed": false,
+    "test_cases_allowed_for_selection": false,
+    "threshold_search": false,
+    "tta": false,
+    "postprocess_search": false,
+    "medtaws": false
+  },
+  "task": {
+    "input": "T1ce single channel",
+    "target_raw_labels": [
+      1,
+      2,
+      3
+    ],
+    "excluded_raw_labels": [
+      4
+    ],
+    "interaction": "3 accumulated clicks with recurrent low-resolution mask",
+    "selection_metric": "108-case clean-validation final-click scan-macro DSC"
+  },
+  "initialization": {
+    "checkpoint": "../SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "uses_crop_v2b_checkpoint": false
+  },
+  "data": {
+    "train_manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+    "train_manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "validation_manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+    "validation_manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c"
+  },
+  "preprocessing": {
+    "spatial_preprocessing": "whole_resize",
+    "model_shape": [
+      128,
+      128,
+      128
+    ],
+    "normalization": "source nonzero-voxel population z-score exactly once",
+    "train_augmentation": "affine_elastic_noise",
+    "validation_augmentation": false
+  },
+  "image_encoder_adaptation": {
+    "method": "Q/V LoRA PEFT; encoder base weights remain frozen",
+    "blocks": 12,
+    "rank": 4,
+    "alpha": 8.0,
+    "trainable_parameters": 7731760,
+    "total_parameters": 100656688,
+    "must_not_be_reported_as": "full image-encoder fine-tuning"
+  },
+  "optimization": {
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.1,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 2,
+    "num_workers": 2,
+    "amp": "bf16",
+    "train_seed": 20260725,
+    "validation_click_seed": 20260723,
+    "checkpoint_selection": "maximum validation val_dice"
+  },
+  "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725",
+  "source": {
+    "trainer": "scripts/train_sammed3d_t1ce_wt.py",
+    "trainer_sha256": "369986ff41166ffbbe8081b5767e1f276ac14a7ddbe03acce3b800d6ba4b0988",
+    "preprocessing_module": "sammed3d/t1ce_wt_training.py",
+    "preprocessing_module_sha256": "4d13e2b3894e2b9a91fac7f76dd74b1c744429eef665f09a5f160a604b0989ae"
+  },
+  "next_decision": "Judge only from the frozen 108-case validation. If LoRA does not materially improve the whole-volume baseline, implement a separately named last-four-block partial-unfreeze arm with discriminative learning rates."
+}

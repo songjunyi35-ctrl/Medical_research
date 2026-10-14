@@ -1,0 +1,57 @@
+e/no_n4 epoch=1 loss=1.064417 fit_dice=0.018842
+{
+  "schema": "aflow.no_n4_clean.train",
+  "status": "complete",
+  "fold": "e",
+  "role": "no_n4",
+  "smoke": true,
+  "seed": 20261313,
+  "fit_sha256": "b4410da33a2be0664d29586eb61559625c5b938ef803fb9c00425e0c52b0d133",
+  "checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/no_n4_clean_20260905/smoke/e_no_n4/fixed.pth",
+    "sha256": "8eb3661a0c571d6af88f5323dc47d07d6678b72a3fbd32e2c6ad4a97343286b3",
+    "state_sha256": "e974fabc0d667f9347c7db4e2688acbc53e7ec8df56970e0ad0242f15af0a61e"
+  },
+  "initial_state_sha256": "6fe16e7a06a2fe317efd91f406192295a9b4c34853260e2078aee0dd1470ca4a",
+  "sampling_weight_sha256": "6f80b3a44bdc8cf8f1172619a7094a9983ed5e08c8eb020b1e657fed89f795de",
+  "gates": {
+    "fixed_epochs": true,
+    "fixed_steps": true,
+    "reload_exact": true,
+    "ema_updates_exact": true,
+    "finite": true,
+    "no_inner": true,
+    "peak": true
+  },
+  "all_gates_passed": true,
+  "teacher_checkpoints": [
+    {
+      "role": "history",
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/no_n4_clean_20260905/smoke/e_history/fixed.pth",
+      "sha256": "ea9fd83c445fecfe3c164a012352d05da0ba29ac0785496c100a4b0f8ab4b93e",
+      "fit_sha256": "b4410da33a2be0664d29586eb61559625c5b938ef803fb9c00425e0c52b0d133"
+    },
+    {
+      "role": "ema",
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/no_n4_clean_20260905/smoke/e_ema/fixed.pth",
+      "sha256": "6255f01f78aa160cdb4c2f81a9456401162425f2da86b8ddad457dcb19e0fb9f",
+      "fit_sha256": "b4410da33a2be0664d29586eb61559625c5b938ef803fb9c00425e0c52b0d133"
+    }
+  ],
+  "cache_index_sha256": "b17fccaa616e90947b6e173d80613c25adc9c4ec86c77f4eec962f7e0b84f6e8",
+  "elapsed_seconds": 2.8468242259696126,
+  "peak_gpu_memory_bytes": 21654040576,
+  "access": {
+    "fit_train": true,
+    "inner_ids_metadata_only": true,
+    "inner_metrics": false,
+    "fixed_validation": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd75": false,
+    "rhuh": false
+  },
+  "runner_sha256": "52544323bc69c26387fb8f99edaed231ce6698a78ac04b4ba391cba4cff7607c",
+  "protocol_sha256": "971c9ffff692ec251a9aa9373e6c2d4b419a1ec0cb1ad66959e6a4977d735835"
+}

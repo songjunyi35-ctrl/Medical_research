@@ -1,0 +1,107 @@
+{
+  "as_of": "2026-10-10T13:56:12.296048+08:00",
+  "scope": "descriptive interim fixed108/50; cutoff81 fixed at start of this status check",
+  "completed_epoch_horizon": 81,
+  "optimizer_updates_per_arm": 9882,
+  "new_best": {
+    "utc": "2026-10-10T05:55:03.976213+00:00",
+    "epoch": 81,
+    "validation_scan": 0.7336833281097589,
+    "validation_subject": 0.722351938762835,
+    "validation_point": 0.9259259259259259,
+    "best_epoch": 81,
+    "best_scan": 0.7336833281097589,
+    "updates": 9882,
+    "train_loss": 0.33934670895215413,
+    "peak_reserved_bytes": 38304481280
+  },
+  "old_best_same_budget": {
+    "utc": "2026-09-29T06:28:40.184673+00:00",
+    "epoch": 81,
+    "validation_scan": 0.7297871051425183,
+    "validation_subject": 0.7169573057017157,
+    "validation_point": 0.8981481481481481,
+    "best_epoch": 81,
+    "best_scan": 0.7297871051425183,
+    "updates": 9882,
+    "train_loss": 0.33614432216917045,
+    "peak_reserved_bytes": 42414899200
+  },
+  "paired_selected_best": {
+    "scan_delta": 0.0038962229672405454,
+    "subject_delta": 0.005394633061119488,
+    "scan_delta_ci95": [
+      -0.0023295993107816213,
+      0.0112547307453574
+    ],
+    "subject_delta_ci95": [
+      -0.0011602156340543713,
+      0.012930077823145035
+    ],
+    "point_hits_delta": 3,
+    "improved_scans": 48,
+    "worse_scans": 60,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient cluster paired percentile95 seed20260918"
+  },
+  "windows": {
+    "1-10": {
+      "new_mean": 0.6597360951036939,
+      "old_mean": 0.661107460820737,
+      "mean_delta": -0.0013713657170430604,
+      "higher_epochs": 5,
+      "count": 10
+    },
+    "41-50": {
+      "new_mean": 0.7139138225069339,
+      "old_mean": 0.7124773139097266,
+      "mean_delta": 0.0014365085972072977,
+      "higher_epochs": 7,
+      "count": 10
+    },
+    "51-60": {
+      "new_mean": 0.712671238954041,
+      "old_mean": 0.7151290629686425,
+      "mean_delta": -0.0024578240146015395,
+      "higher_epochs": 4,
+      "count": 10
+    },
+    "61-70": {
+      "new_mean": 0.7197307122017568,
+      "old_mean": 0.7125076835201105,
+      "mean_delta": 0.007223028681646282,
+      "higher_epochs": 9,
+      "count": 10
+    },
+    "72-81": {
+      "new_mean": 0.7220421197453376,
+      "old_mean": 0.7213344030519862,
+      "mean_delta": 0.0007077166933514789,
+      "higher_epochs": 7,
+      "count": 10
+    },
+    "1-81": {
+      "new_mean": 0.7016534340352466,
+      "old_mean": 0.7011430173453096,
+      "mean_delta": 0.0005104166899370387,
+      "higher_epochs": 47,
+      "count": 81
+    }
+  },
+  "training_continues_to200": true,
+  "recipe_or_budget_changed": false,
+  "new_model_forward": false,
+  "new_test_pixel_or_model_access": false,
+  "checkpoint_selection_note": "compare each arm earliest maximum Scan in1..78; selected on reused validation; intervals do not account for repeated model selection",
+  "historical_hardware_note": "old arm moved A10040GB->80GB after50; new arm A10040GB, same batch/schedule/cache, not bitwise-matched trajectories",
+  "source_reports": {
+    "new": {
+      "path": "workspace/BraTS/segresnet_t1ce_wt/valid_region_20261010/validation_e081.json",
+      "sha256": "e795e6bac89ebd8e37bb578db3c2b846477599ece5a88311a3d927c96bd33e59"
+    },
+    "old": {
+      "path": "workspace/BraTS/segresnet_t1ce_wt/native_multiscale_resume50_20260929/validation_e081.json",
+      "sha256": "65ca04fa7f79210f562fc3e66b095ddbcdcbb6a4d422016c73f72247c3495ea3"
+    }
+  }
+}

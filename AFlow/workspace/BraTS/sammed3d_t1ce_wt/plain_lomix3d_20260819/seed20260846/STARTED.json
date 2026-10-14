@@ -1,0 +1,51 @@
+{
+  "arm": "lomix3d",
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-19T08:24:10.652929+00:00",
+  "data_role": {
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "cases": 756,
+    "subjects": 346,
+    "train": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+      "sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16"
+    }
+  },
+  "hyperparameters": {
+    "base_lr": 0.0002,
+    "batch_size": 8,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "ce_weight": 0.1,
+    "continuation_epochs": 32,
+    "device": "cuda:0",
+    "initial_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "max_shift": 8,
+    "min_lr": 1e-05,
+    "mode": "formal",
+    "num_workers": 4,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_lomix3d_20260819/seed20260846",
+    "preregistration": "archive/research_records/2026-08-19_lomix3d/PREREG.json",
+    "preregistration_amendment_001": "archive/research_records/2026-08-19_lomix3d/AMENDMENT_001_PRE_IMPLEMENTATION.json",
+    "preregistration_amendment_002": "archive/research_records/2026-08-19_lomix3d/AMENDMENT_002_PRE_EXECUTION.json",
+    "seed": 20260846,
+    "start_global_epoch": 168,
+    "train_case_ids": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "weight_decay": 1e-05
+  },
+  "outer_selector_access": false,
+  "preregistration_amendment_001_sha256": "378a43cfc7505d069011be43e0f452c40a2d9c6ade69967bf11a17734dce2552",
+  "preregistration_amendment_002_sha256": "03638e77229f3529a8ad820fd108323c78f5b57f54094d3e333b9e17ff67a7c3",
+  "preregistration_sha256": "82658b571ed427b8391ade2512b62c91169886b751d9ebb7910a3fec3c9638de",
+  "runner_sha256": "205d4e80fac36b01fc7df75d850fda283c4b524f52a5fa4b85b2df7d499f4832",
+  "sampling_contract": {
+    "generator_seed": 20260846,
+    "num_samples": 756,
+    "replacement": true,
+    "weights_sha256": "757e463d8e60f96ef6429613f6783fb3aa1014b580932959f9ed354d37072124"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_plain_lomix3d_continuation",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step",
+  "test_access": false,
+  "validation_access": false
+}

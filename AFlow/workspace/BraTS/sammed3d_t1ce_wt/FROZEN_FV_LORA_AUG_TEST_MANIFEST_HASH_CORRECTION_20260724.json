@@ -1,0 +1,49 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt.test_manifest_hash_correction",
+  "schema_version": 1,
+  "status": "frozen_before_test_case_content_access",
+  "created_at_utc": "2026-07-24T02:23:08Z",
+  "reason": "The watcher preregistered expected manifest SHA-256 contained a one-character transcription error. The evaluator failed closed during the byte-level hash check, before parsing any manifest row or opening any test image or label.",
+  "original_freeze": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/FROZEN_FV_LORA_AUG_TEST_CONFIGURATION_20260723.json",
+    "sha256": "b80d122fbfc8cfb834ca86b143c02b3dcb1ed3b70fb23e399cd7dea990897627"
+  },
+  "correction": {
+    "field": "test.expected_manifest_sha256",
+    "incorrect": "7b91690c63a5eb359be105b9cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "correct": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "only_changed_character": "position 23: 9 -> 3"
+  },
+  "evidence": {
+    "split_manifest": {
+      "path": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/split_manifest.json",
+      "sha256": "215df5594550d939707b25dc3671082ae68cb000b8c1fa9615d9bcb604c0bc25",
+      "recorded_test_manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2"
+    },
+    "seal": {
+      "path": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/SEAL.json",
+      "sha256": "ea8099726c5ed6fa71df9e6d599f6c29a0c27efd862603109d1af43487b628e6",
+      "recorded_test_manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2"
+    },
+    "test_manifest": {
+      "path": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/test_cases.jsonl",
+      "sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+      "cases": 270
+    }
+  },
+  "unchanged_frozen_configuration": {
+    "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/sam_model_val_dice_best.pth",
+    "checkpoint_sha256": "c1d1bd79791aa7beeffc541095472dec968630cc70ea7967128c86552bd7f1ec",
+    "selected_epoch": 33,
+    "selection_metric": "val_dice",
+    "selection_value": 0.532816762311591,
+    "evaluator": "scripts/evaluate_sammed3d_t1ce_wt_checkpoint.py",
+    "evaluator_sha256": "183886e13a7a6aacbe01f9c27f7cc9860edcb081bb7b84ec24ec98fba034c02e",
+    "spatial_preprocessing": "whole_resize",
+    "num_clicks": 3,
+    "seed": 20260723,
+    "threshold": "raw logit > 0",
+    "output": "workspace/BraTS/sammed3d_t1ce_wt/FROZEN_fv_lora_aug_test270_cumulative3_s20260723.json"
+  },
+  "selection_used_test": false
+}

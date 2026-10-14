@@ -1,0 +1,125 @@
+{
+  "blur": {
+    "2026090711_subject_blur": {
+      "independent_random_stream_sha256": "a42511470aa8191a70f15a63b915a3f0a5ec5269cb76aa5497c0d4dd2b429cbb",
+      "kernel_size": 7,
+      "labels_unchanged_by_construction": true,
+      "max_observed_sigma": 0.9999973773956299,
+      "min_observed_sigma": 0.5000045299530029,
+      "padding": "reflect",
+      "probability": 0.2,
+      "samples": 162624,
+      "selected": 32233,
+      "sigma_range": [
+        0.5,
+        1.0
+      ],
+      "steps": 20328
+    },
+    "2026090712_subject_blur": {
+      "independent_random_stream_sha256": "f8ce1cfb5baeff5c54b52e8688f289e2d7a773a6986122124335f5914130e215",
+      "kernel_size": 7,
+      "labels_unchanged_by_construction": true,
+      "max_observed_sigma": 0.9999926090240479,
+      "min_observed_sigma": 0.5000197291374207,
+      "padding": "reflect",
+      "probability": 0.2,
+      "samples": 162624,
+      "selected": 32578,
+      "sigma_range": [
+        0.5,
+        1.0
+      ],
+      "steps": 20328
+    }
+  },
+  "bootstrap": {
+    "samples": 10000,
+    "seed_by_training_seed": {
+      "2026090711": 2026091061,
+      "2026090712": 2026091062
+    },
+    "selection_correction": false,
+    "unit": "patient_cluster"
+  },
+  "both_before_selection": true,
+  "cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+  "checkpoints_reports": {
+    "2026090711_subject_blur": {
+      "blur_report": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/image_blur_20260910/seed2026090711_subject_blur/BLUR_FINAL.json",
+        "sha256": "e5c7cdfa9384cec58f729b965cdd6e7b95995baa26d31fa3375b15363d4669e3"
+      },
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/image_blur_20260910/seed2026090711_subject_blur/fixed_epoch168.pth",
+        "sha256": "bc9fb2cc7cd574032e7091316ceaa06f1e665a014ab4b30296fbe46733593ba6"
+      },
+      "train_report": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/image_blur_20260910/seed2026090711_subject_blur/TRAIN_DONE.json",
+        "sha256": "ba4b7b668203cd2813390df2bc1d91460c36b9c77817775ebb8b44b148db02d3"
+      }
+    },
+    "2026090712_subject_blur": {
+      "blur_report": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/image_blur_20260910/seed2026090712_subject_blur/BLUR_FINAL.json",
+        "sha256": "81eca4c9a31b2d833df35254b8092dd8bda41d052e14bd9c4ed87c6630e5b95f"
+      },
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/image_blur_20260910/seed2026090712_subject_blur/fixed_epoch168.pth",
+        "sha256": "f611c3ba152ae9086bf813266d90167830c7b34cffc3f2a548a96e7dad8915a9"
+      },
+      "train_report": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/image_blur_20260910/seed2026090712_subject_blur/TRAIN_DONE.json",
+        "sha256": "2b656227ad50c99d91802b7da124275209ac156e4d3e0c960b00f7871a69156b"
+      }
+    }
+  },
+  "created_utc": "2026-09-10T20:36:14.356156+00:00",
+  "dev_sha256": "53885b7e300f915d81eecb115b82123e25330b7da422d3ff0b889b0489a2cdac",
+  "files": {
+    "sammed3d/t1ce_wt_capg3d.py": "276ee7c131e413cf7943dc29e5372c1e5bbbb85c780e27f030343c5ef8bf4cd0",
+    "scripts/audit_image_blur_training.py": "904134e9c8f431d4c64d04853fe606b990bfceb0420d36fc1fe43673c0352aff",
+    "scripts/audit_subject_sampler_replay.py": "558da2336f60c8f73c75e6c87c8eb72e164a7ce6dc7a2e5d146b86ff0d5616c9",
+    "scripts/evaluate_image_blur.py": "6b47b0cfb8164d1ff3be49e89fdfa973dcbb47520085da8c3a524ea4ad64321a",
+    "scripts/evaluate_structured_background_aux.py": "967e1bcd69bc86cfd839bcd59c09a6c87240c3f399b17fb3066e142609806b38",
+    "scripts/finalize_image_blur.py": "2b1c89c2c44ff7493092a49effbd923a148df67ddb061ee4243e4494d4c93f8e",
+    "scripts/finalize_structured_background_aux.py": "e2189ad1d6e3f53a19c91731ec113654bc9b0d011f7ac24f93d918e6e20d7339",
+    "scripts/train_t1ce_wt_capg3d.py": "d74ff2f0cf190c8a5458a70d19125d9a30603894d5f1799f192f0e60dd088fdb",
+    "tests/test_image_blur_evaluation.py": "d6f958ccd3d3ddcc1230d99fcbd99f7d8eb4491ea800fdd85c496b0274d2adfe"
+  },
+  "new_model_forwards_at_write": 0,
+  "new_test_access": false,
+  "pairing": {
+    "2026090711_subject_blur": {
+      "export_exact": true,
+      "same121steps": true,
+      "same168": true,
+      "same_first_batch_labels": true,
+      "same_initial": true,
+      "same_original_augmentation_rng": true,
+      "same_sampler": true,
+      "same_weights": true
+    },
+    "2026090712_subject_blur": {
+      "export_exact": true,
+      "same121steps": true,
+      "same168": true,
+      "same_first_batch_labels": true,
+      "same_initial": true,
+      "same_original_augmentation_rng": true,
+      "same_sampler": true,
+      "same_weights": true
+    }
+  },
+  "source_raws": {
+    "native": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-07_structured_background_aux/RAW_DEVELOPMENT.json",
+      "sha256": "80e9bd449d7c72a61de0ecdbdfbc5bb3a61814e7770bbcc1c983ac097b4cd2c6"
+    },
+    "subject": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-07_subject_balanced_sampling/RAW_DEVELOPMENT.json",
+      "sha256": "96785e393fd1033684014fda091f2de1545b42a0fce6fe226f79a8a10630017d"
+    }
+  },
+  "status": "both_fixed_before_unified_development"
+}

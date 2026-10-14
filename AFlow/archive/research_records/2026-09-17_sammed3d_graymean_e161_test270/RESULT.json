@@ -1,0 +1,216 @@
+{
+  "status": "complete_270_case_test",
+  "utc": "2026-09-17T03:19:16.915611+00:00",
+  "epoch": 161,
+  "cohort": {
+    "scans": 270,
+    "subjects": 119,
+    "role": "reused internal test",
+    "external": false,
+    "pristine_blind": false
+  },
+  "prior_test_seen": true,
+  "post_test_diagnostic": true,
+  "candidate_locked_before_this_evaluation": true,
+  "test_informed_checkpoint_request": true,
+  "hyperparameters_test_tuned": false,
+  "training_stopped": true,
+  "completed_training_epochs": 161,
+  "best5": {
+    "candidate": {
+      "scan": 0.5151071934605075,
+      "subject": 0.49631081095131124,
+      "scan_ci95": [
+        0.4864952163983408,
+        0.5429072392833261
+      ],
+      "subject_ci95": [
+        0.4685217699779274,
+        0.5232335725423414
+      ]
+    },
+    "baseline": {
+      "scan": 0.5942261963729785,
+      "subject": 0.5809701177287975,
+      "scan_ci95": [
+        0.5709523255587589,
+        0.6164072056862964
+      ],
+      "subject_ci95": [
+        0.5579788734370908,
+        0.6028539575908859
+      ]
+    },
+    "paired_delta": {
+      "scan": -0.07911900291247097,
+      "subject": -0.0846593067774862,
+      "scan_ci95": [
+        -0.09230627962951696,
+        -0.0668751612899854
+      ],
+      "subject_ci95": [
+        -0.09845144776716207,
+        -0.07112864164238923
+      ]
+    },
+    "scan_improved": 41,
+    "scan_worse": 229,
+    "scan_tied": 0
+  },
+  "final5": {
+    "candidate": {
+      "scan": 0.5130139748846121,
+      "subject": 0.49413949169258375,
+      "scan_ci95": [
+        0.4842045596931426,
+        0.5409779918803013
+      ],
+      "subject_ci95": [
+        0.46614316428523167,
+        0.5212768038497282
+      ]
+    },
+    "baseline": {
+      "scan": 0.5857539437866496,
+      "subject": 0.5726994265010851,
+      "scan_ci95": [
+        0.5625542949670572,
+        0.608143311231684
+      ],
+      "subject_ci95": [
+        0.5495410316043825,
+        0.5947828070625721
+      ]
+    },
+    "paired_delta": {
+      "scan": -0.07273996890203749,
+      "subject": -0.0785599348085011,
+      "scan_ci95": [
+        -0.08635186200345389,
+        -0.06027040201631295
+      ],
+      "subject_ci95": [
+        -0.09281049188315439,
+        -0.0645675734793678
+      ]
+    },
+    "scan_improved": 53,
+    "scan_worse": 217,
+    "scan_tied": 0
+  },
+  "versus_epoch50_best5": {
+    "candidate": {
+      "scan": 0.5151071934605075,
+      "subject": 0.49631081095131124,
+      "scan_ci95": [
+        0.4864952163983408,
+        0.5429072392833261
+      ],
+      "subject_ci95": [
+        0.4685217699779274,
+        0.5232335725423414
+      ]
+    },
+    "baseline": {
+      "scan": 0.5664241748391101,
+      "subject": 0.5505215173883997,
+      "scan_ci95": [
+        0.5400700582876334,
+        0.5916355589458855
+      ],
+      "subject_ci95": [
+        0.5240768420470684,
+        0.5755880708626088
+      ]
+    },
+    "paired_delta": {
+      "scan": -0.05131698137860259,
+      "subject": -0.0542107064370884,
+      "scan_ci95": [
+        -0.0627234925298947,
+        -0.04080606193794094
+      ],
+      "subject_ci95": [
+        -0.06557921283897225,
+        -0.04332220163549062
+      ]
+    },
+    "scan_improved": 59,
+    "scan_worse": 211,
+    "scan_tied": 0
+  },
+  "versus_epoch50_final5": {
+    "candidate": {
+      "scan": 0.5130139748846121,
+      "subject": 0.49413949169258375,
+      "scan_ci95": [
+        0.4842045596931426,
+        0.5409779918803013
+      ],
+      "subject_ci95": [
+        0.46614316428523167,
+        0.5212768038497282
+      ]
+    },
+    "baseline": {
+      "scan": 0.5606581016413095,
+      "subject": 0.5438342725855143,
+      "scan_ci95": [
+        0.5340752198873626,
+        0.586189519714617
+      ],
+      "subject_ci95": [
+        0.516862996353701,
+        0.569619743316992
+      ]
+    },
+    "paired_delta": {
+      "scan": -0.04764412675669729,
+      "subject": -0.04969478089293054,
+      "scan_ci95": [
+        -0.05926157583928308,
+        -0.03685245215705269
+      ],
+      "subject_ci95": [
+        -0.06126098979670002,
+        -0.03852828126931284
+      ]
+    },
+    "scan_improved": 68,
+    "scan_worse": 202,
+    "scan_tied": 0
+  },
+  "bootstrap": {
+    "resamples": 10000,
+    "seed": 20260917,
+    "unit": "patient cluster paired",
+    "interval": "percentile95"
+  },
+  "checkpoint_sha256": "b1300dd765e61502a7ac32c861a30a3816b8a9b492d5eb09a78c6b724d9d9123",
+  "checkpoint_bytes": 402161135,
+  "runtime": {
+    "preprocess_seconds": 2.419151920825243,
+    "inference_seconds": 38.269856449216604,
+    "total_seconds": 42.51475581526756,
+    "peak_allocated_bytes": 1025113600,
+    "peak_reserved_bytes": 1472200704,
+    "gpu_count": 1,
+    "physical_gpu": 1,
+    "training_concurrent": false,
+    "training_stopped": true
+  },
+  "point_hit": null,
+  "point_hit_reason": "GT-assisted interactive task; automatic locator point hit not applicable",
+  "evidence": {
+    "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/RAW_TEST270.json": "d8e8b4c98e7596c1e7d5571083c07e89f944ce3acef98c3c35e167815dd049cd",
+    "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/FREEZE.json": "27131faacb238c63d85693b7974c53a85e4de63a89367ae14cbfc79dfcebb5a4",
+    "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/ANALYSIS_FREEZE.json": "4d0002e13b3a65f1c665455766317d37bd600677c333d30d972afdbff3b83669",
+    "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/PREACCESS.json": "f940ce9fce30b476260c52343489b6a17c13d1cbcbe8cc8e2011ac8a40f5c178",
+    "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/MODEL_PREACCESS.json": "dfbf0f2e996ea0bb88e6ab36d033742dd7486293a37c23db4e9a024b24f9eafc",
+    "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/CACHE_INDEX.json": "f1dbe31f57be4537ae3ba0a6ea0b28cd415f70183b8a5bd71bbef80d7d2ae2ed",
+    "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/checkpoint_epoch161.pth": "b1300dd765e61502a7ac32c861a30a3816b8a9b492d5eb09a78c6b724d9d9123",
+    "archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/SELECTION_RECEIPT.json": "10eb7f9ea6fd0cc3a2331b82f05e1169728ebadbeaf42b58c0fe63517a1131c1",
+    "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/test270_epoch21_official15_upstreamliteral5_s2023_20260812/test_report.json": "7bd59843459876bd006230b24bc111cdfd726896cb3e6748b54b24c0a9659b63",
+    "archive/research_records/2026-09-17_sammed3d_graymean_e050_test270/RAW_TEST270.json": "b707074d877a46172052b19d1066619453b5966344895594f87ad0ee34e5a48f"
+  }
+}

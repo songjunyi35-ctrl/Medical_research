@@ -1,0 +1,110 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_resolution_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_cache_build_smoke_and_training",
+  "frozen_at_utc": "2026-08-18T06:09:00Z",
+  "question": "Does a true raw-NIfTI 160^3 whole-brain image-only brain-crop grid improve the direct plain locator relative to a matched 128^3 control?",
+  "single_factor": {
+    "changed": "cubic preprocessing and model input grid: 128^3 control versus 160^3 candidate",
+    "held_identical": [
+      "same newly resampled subject-clean 648 fit / 108 inner-tune development split",
+      "same training seed 20260829 and resolution-independent weighted-sampler probabilities/order",
+      "same 4,700,897-parameter plain MONAI SegResNet locator",
+      "same batch size 8 and validation batch size 8",
+      "same DiceCE lambda_dice=1.0 and lambda_ce=0.1",
+      "same AdamW base_lr=2e-4 and weight_decay=1e-5",
+      "same literal max_shift=8 voxel augmentation plus flips/intensity/noise",
+      "same fixed epoch168 endpoint on the 100-epoch constant plus 200-epoch-definition late-cosine schedule",
+      "same raw-logit > 0 threshold",
+      "no TTA, postprocessing, SAM, CAPG center head, or grayscale residual"
+    ]
+  },
+  "cohort": {
+    "description": "newly resampled subject-clean development split inside the same historical train cohort; not external or pristine validation",
+    "source_train_cases": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "source_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "source_cases": 756,
+    "source_subjects": 346,
+    "split_seed": 20260828,
+    "fit": {
+      "path": "data/datasets/brats2024_t1ce_resolution_inner_seed20260828_v1/fit_cases.jsonl",
+      "sha256": "1522b761133cb5a751c6a066339b3f79999759b1b3b541d41837024bd6c7b1f2",
+      "cases": 648,
+      "subjects": 294
+    },
+    "inner_tune": {
+      "path": "data/datasets/brats2024_t1ce_resolution_inner_seed20260828_v1/inner_tune_cases.jsonl",
+      "sha256": "1fe5a9adb8b53d3484411916020ae3ceffa55e6ffe0b9b573000bd906092ad97",
+      "cases": 108,
+      "subjects": 52
+    },
+    "split_manifest_sha256": "e5dac1eacf549c0d8153e956394033f6f4a873f2dc228da085f00abceb2d19e7",
+    "case_overlap": 0,
+    "subject_overlap": 0
+  },
+  "preprocessing": {
+    "source": "raw NIfTI only; existing 128^3 cache is not an input to either newly built cache",
+    "ordered_chain": [
+      "canonical RAS",
+      "N4 bias correction with shrink factor 2 and 4x50 iterations using image nonzero mask",
+      "image > 0 nonzero bounding-box crop without label localization",
+      "source nonzero-population z-score",
+      "trilinear image / nearest-exact label resize to the arm's declared grid"
+    ],
+    "raw_root": "/mnt/hdfs/sjy/datasets/brats2024_gli_t1ce_seg_v1",
+    "full_raw_reproduction_checks_per_arm": 4,
+    "sampler_basis": "native-grid WT positive count before resolution-specific resize",
+    "required_pretrain_checks": [
+      "128 and 160 source-positive-volume hashes are identical",
+      "128 and 160 fit sampling-weight hashes are identical",
+      "both cache indices declare false for outer-selector, confirmation, and test access"
+    ]
+  },
+  "training": {
+    "seed": 20260829,
+    "fixed_epoch": 168,
+    "inner_tune_first_access": "only after the final epoch168 optimizer step",
+    "schedule": {
+      "definition_total_epochs": 200,
+      "constant_epochs": 100,
+      "base_lr": 0.0002,
+      "min_lr": 0.00001,
+      "post100": "same cosine-inclusive-endpoint function as the locked long-schedule runner"
+    },
+    "batch_size": 8,
+    "validation_batch_size": 8,
+    "parameter_count": 4700897,
+    "optimizer": "AdamW",
+    "weight_decay": 0.00001,
+    "loss": "DiceCE(lambda_dice=1.0, lambda_ce=0.1)",
+    "max_shift": 8,
+    "logit_threshold": 0.0,
+    "formal_oom_policy": "if 160^3 batch8 fails the pre-registered forward/backward smoke, record engineering infeasibility; do not tune batch size"
+  },
+  "primary_comparison": {
+    "candidate_minus_control": "160^3 minus 128^3 on the paired 108-case inner tune view",
+    "paired_subject_bootstrap_samples": 10000,
+    "paired_subject_bootstrap_seed": 20260830,
+    "gates_all_required": {
+      "scan_dice_gain_at_least": 0.005,
+      "subject_dice_gain_at_least": 0.005,
+      "paired_subject_95ci_lower_at_least": 0.0,
+      "point_hit_gain_at_least": -0.02,
+      "checkpoint_reload_max_abs_difference": 0.0
+    },
+    "failure_rule": "160^3 is negative; stop without tuning scale, epoch, threshold, or postprocessing",
+    "pass_rule": "record an inner-positive development result only; any later fixed-checkpoint evaluation requires a separate decision"
+  },
+  "code_bindings": {
+    "sammed3d/t1ce_wt_variable_resolution.py": "cf0d80cd0ea711fcf4621ce7fa31d476e3b5bf49110a327605e69e3ca8d7e752",
+    "scripts/build_t1ce_wt_braincrop_cache_variable_resolution.py": "56874a71b8cd7d799cab9c7e92fa453c6b734975ba4cc6084e1f24f32d5703e7",
+    "scripts/build_t1ce_wt_resolution_inner_split.py": "967d8b59a1ca3f688df48ac5232910d1f815cdc7cf0ece9bd10a139e5a6cb44b",
+    "scripts/train_t1ce_wt_plain_fixed_resolution.py": "a3ca0b662ace2939efde6f79ab6b9f2c114468fb74298861731d87d8860c9790",
+    "scripts/analyze_t1ce_wt_plain_resolution_pair.py": "99a284c4bc067c0fdb3c3b2f08e71fdc7f291debba94e665e3e3099c8b2dce19"
+  },
+  "forbidden_access": {
+    "outer_selector": false,
+    "confirmation": false,
+    "270_case_test": false
+  }
+}

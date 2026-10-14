@@ -1,0 +1,238 @@
+# BraTS T1ce/WT 当前交接文档
+
+更新时间：2026-08-13 UTC
+
+本文件已由 2026-08-13 单仓库交接替代。运行实验或解释结果前先读
+[`AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md`](AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md)；
+本文件只保留作历史追溯，不再是权威入口。
+[`AFLOW_BRATS_RESULTS.md`](AFLOW_BRATS_RESULTS.md) 是精简结果账本，
+[`AFLOW_BRATS_WEEKLY_REPORT.md`](AFLOW_BRATS_WEEKLY_REPORT.md) 是当前周报。
+旧叙述已保存在 `archive/handoffs_pre_20260813/`，只用于追溯，不能当作当前指令。
+
+2026-08-14 补充：MCTS 推理 workflow 的最新精度—效率结果、等预算 random/greedy
+对照和真实在线 benchmark 已写入
+[`MCTS_EFFICIENCY_CONTRIBUTION_RESULT_20260813.md`](MCTS_EFFICIENCY_CONTRIBUTION_RESULT_20260813.md)，
+并同步到权威 handoff、周报和总结果账本。本历史文件下面的“30 秒了解现状”停留在
+旧阶段，不得用于判断当前最高进展。
+
+更晚的 2026-08-14 fixed inference pruning 结果见
+[`INFERENCE_PRUNING_RESULT_20260814.md`](INFERENCE_PRUNING_RESULT_20260814.md)：adaptive
+router 未胜等成本随机控制，固定 1-forward 获得 `13.66x` refiner-stage 在线加速，
+fixed 1/3/4/8/12/24 Pareto 曲线已经冻结。该文及权威 handoff 第 16 节优先于本历史文件。
+
+## 30 秒了解现状
+
+- 干净的 vanilla SAM-Med3D 基线已完成：官方 1.5 mm 预处理、严格 upstream
+  训练语义、2 张 A100 训练 200 epoch；按验证集选出 epoch 21，并在固定的
+  270 例测试集上评测了一次。
+- vanilla 测试结果为：**五次点击取最佳 0.594226**，**第 5 次点击
+  0.585754**。这与师兄/MSCL 的 vanilla 参考值 0.601 接近，因此在本项目
+  明确的数据划分和点击协议下，可以认为基础复现阶段已经完成。
+- 较早的自动 brain-crop 流程在相同 270 例上达到 **C3 0.625359**，比与它
+  协议匹配的 whole-head resize 对照高 **+0.054250**。这是有效结果，但它
+  使用旧三点击/N4 协议，尚不能与最新官方基线作单因素因果比较。
+- 当前最高的正式开发集结果为**验证集 Dice 0.668399**，来自 GT 中心定位的
+  stage-2 crop 上的全分辨率残差细化器。经 2026-08-13 明确授权和冻结后，
+  该 epoch-58 checkpoint 在 270 例 test 上从同次 coarse `0.666658` 提升到
+  **`0.703798`**（`+0.037140`，244/270 例改善）。这是 oracle GT-centered
+  结果，不是自动端到端成绩；最高自动 test 仍是 brain-crop `0.625359`。
+- 270 例集合已经揭示，而且也被更早的项目分支使用过。之后不能再用它选择
+  方法、checkpoint、loss、阈值或后处理。新工作只在 972/108 上开发；若要
+  声称“从未触碰的测试集”，必须另找全新的外部确认集。
+
+## 当前科研问题
+
+下一阶段应在已经建立的 vanilla 基线上做改进，并且一次只改变一个因素。
+目前有两个彼此独立、都值得做的开发分支：
+
+1. **灰度/强度损失复现。** 固定官方基线，只加入师兄/MSCL 的强度项。实现前
+   必须确定：预测 mask 用 soft 还是 hard、损失权重、使用原始还是归一化后的
+   T1ce、空预测如何处理、在哪个维度 reduction、对哪些训练交互步应用。
+2. **与官方流程匹配的 brain-crop 几何实验。** 固定初始化、upstream 交互
+   循环、loss、优化器、batch、seed、验证点击和指标，只把官方 GT 中心空间
+   处理替换为“图像非零脑区裁剪后 resize 到 128^3”。
+
+第一次实验不要把两项改动混在一起。两条分支都要先预注册，只用 108 例验证集
+选模型，才能把提升归因到具体改动。
+
+## 固定任务与数据
+
+| 项目 | 固定约定 |
+|---|---|
+| 数据集 | BraTS 2024 post-treatment GLI，共 1,350 个 scan / 613 个 subject |
+| 输入 | 单通道 T1ce |
+| 目标 | 二分类 WT = 原始标签 `{1,2,3}`；排除原始标签 `4` |
+| 划分 | 972 train / 108 validation / 270 internal held-out test |
+| 隔离 | 三个 split 之间 case 和 subject 均零重叠 |
+| 模型输入 | `128 x 128 x 128` |
+| 判定规则 | sigmoid > 0.5，等价于 raw logit > 0 |
+
+当前 VA-HDFS manifest 位于
+`data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/`：
+
+| 划分 | Manifest | 行数 | Manifest SHA-256 |
+|---|---|---:|---|
+| train | `train_t1ce_wt.jsonl` | 972 | `6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65` |
+| validation | `validation_t1ce_wt.jsonl` | 108 | `f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb` |
+| test | `sealed_test/test_cases_t1ce.jsonl` | 270 | `a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9` |
+
+已核验的原始数据副本为
+`/mnt/hdfs/sjy/datasets/brats2024_gli_t1ce_seg_v1`。worker 在未命中缓存时，
+需要先把 `hdfs://harunava/home/byte_data_tns/user/songjunyi` 挂载到
+`/mnt/hdfs/sjy`。迁移时逐字节核验了全部 2,700 个 T1ce/seg 文件，零不匹配。
+历史 manifest 必须保留，供已完成实验和现有缓存追溯，不要改写。
+
+## 已建立的 vanilla 基线
+
+### 预处理
+
+1. 使用 TorchIO `LabelMap` 构造二分类 WT `{1,2,3}`。
+2. image/label 成对重采样到 1.5 mm 各向同性：图像使用线性插值，标签使用
+   最近邻插值。
+3. 执行 `ToCanonical`。
+4. 以 GT 为中心执行 `CropOrPad(mask_name="label")`，得到 128^3。
+5. 在 patch 中 T1ce 正值体素上计算样本均值和标准差，再归一化整个 patch。
+6. 不做 N4；只在训练时进行三个轴向的 `RandomFlip`。
+
+这里的 GT 中心裁剪意味着它是有提示/先验定位的基线，不是完全自动、无标签的
+全体积推理流程。
+
+### 训练与评测语义
+
+- 从 SAM-Med3D Turbo checkpoint 初始化，SHA-256：
+  `899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c`。
+- 完全解冻 `100,509,232 / 100,509,232` 个参数。
+- 严格复现 upstream 写死的 11-pass 当前点/循环 mask 训练循环；累加全部 11 个
+  DiceCE loss。
+- 2 张 A100-SXM4-80GB 训练 200 epoch；每卡 batch 12，梯度累积 20，FP16 +
+  GradScaler，AdamW，encoder/head LR `8e-4/8e-5`，weight decay 0.1，
+  milestones 120/180，seed 为 2023 + rank。
+- 验证和测试使用五次当前点/循环 mask 交互：第 1–2 次用 RITM，第 3–5 次用
+  uniform XOR。分别报告 1–5 次中的逐 case 最佳值和最终第 5 次点击值。
+
+### 固定结果
+
+| 指标 | 验证集 scan macro | 测试集 scan macro | 测试集 subject-balanced |
+|---|---:|---:|---:|
+| 点击 1–5 中最佳 | 0.571306 | **0.594226** | 0.580970 |
+| 最终第 5 次点击 | 0.559185 | **0.585754** | 0.572699 |
+
+选中的 checkpoint 为 epoch 21：
+
+`workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/sam_model_val_official_best5.pth`
+
+SHA-256：
+`c0c85a0fb90f6301344053f97cabe8a4972bd9febd4c6ae248f3a0908598fe31`。
+
+完整测试报告位于同一 run 下的
+`test270_epoch21_official15_upstreamliteral5_s2023_20260812/test_report.json`，
+SHA-256：
+`7bd59843459876bd006230b24bc111cdfd726896cb3e6748b54b24c0a9659b63`。
+
+这是本地明确协议下干净、可审计的基础复现，不等于精确复现未公开的数据划分和
+prompt 随机数。该实验没有课程学习、BraTS 2022、模拟病灶或灰度/强度 MSE 项。
+
+## 其他已完成的 T1ce 证据
+
+这些结果并非全部协议匹配。未阅读“边界”列前，禁止直接按数值排序。
+
+| 分支 | 开发集结果 | 测试集结果 | 边界 |
+|---|---:|---:|---|
+| 旧 whole-head resize，完全解冻 | val C3 0.5633 | C3 0.571109 | 旧三点击/N4 协议 |
+| 图像非零 brain-crop | val C3 0.6060 | **C3 0.625359** | 自动裁剪；旧三点击/N4 协议 |
+| 自动两阶段 cascade | C3 0.635713 | 未测试 | stage 1 预测 crop；旧三点击协议 |
+| GT 中心 stage-2 coarse | H100 C3 0.635949 | A100 C3 0.666658 | oracle 定位；同次 test 对照 |
+| 全分辨率残差细化器 | **0.668399** | **0.703798** | oracle crop；test 配对增益 +0.037140 |
+| prompt-local 64^3 细化器 | 0.669548 -> 0.669738 | 未测试 | 仅 +0.000190；正式负结果 |
+
+brain-crop 在它自己的匹配对照内具有很强的可归因性：
+`0.571109 -> 0.625359`，提升 `+0.054250`；270 例中 232 例改善，配对
+95% CI 为 `[+0.0455,+0.0629]`。合理机制是：在固定的 128^3/8^3
+SAM-Med3D 网格前减少零背景 token 浪费。但是，official15 与 brain-crop 之间
+还同时改变了重采样、N4、裁剪定位、归一化、训练循环和点击数，因此两者的数值差
+不能解释成单因素因果提升。
+
+残差细化器输入 T1ce 和固定 SAM 第 3 次点击的 raw logit，预测一个全分辨率
+additive residual。epoch 58 在 108 例验证集上把 `0.635949` 提高到
+`0.668399`，93/108 例改善。WT 小于 8,000 voxels 的 7 个病例仍是最明显
+瓶颈。冻结 test 上 scan-macro 为 `0.666658 -> 0.703798`，subject-balanced 为
+`0.648864 -> 0.686637`；小于 8,000 voxels 的 10 例总体仍没有增益。后续 local
+64^3 细化器只提升 +0.000190，不应原样继续投入。
+
+标准证据文件：
+
+- `workspace/BraTS/sammed3d_t1ce_wt/FINAL_TEST_RESULT_BRAINCROP_20260806.json`
+- `workspace/BraTS/sammed3d_t1ce_wt/TWO_STAGE_CASCADE_PROBE_FIXED_20260807.json`
+- `workspace/BraTS/sammed3d_t1ce_wt/RESIDUAL_REFINER_RESULT_20260810.json`
+- `workspace/BraTS/sammed3d_t1ce_wt/FINAL_TEST_RESULT_RESIDUAL_REFINER_20260813.json`
+- `workspace/BraTS/sammed3d_t1ce_wt/PROMPT_LOCAL_REFINER_RESULT_20260812.json`
+
+## 不能继续指导新实验的结果
+
+- `TWO_STAGE_CASCADE_PROBE_20260807.json` 及其 `..._LCC_...` 结果存在方向
+  bug，均无效；只使用带 `FIXED` 的记录。
+- 第一轮 official15 A100 实验在 epoch 61 停止，因为它虽然对齐了数据变换，
+  但仍使用项目自己的三点击 trainer。其最佳 val 0.556541 只作为中止的协议
+  审计保留，不是 upstream 基线。
+- 历史约 0.745 的 artifact 使用 T2-FLAIR、WT1234 和五次点击，不属于当前任务。
+- LoRA、rank-0、last-four 部分解冻、增加点击、朴素输出分辨率修改、LR schedule
+  猜测、最大连通域中心和 64^3 prompt-local refiner 都没有超过各自相关的完全
+  解冻对照。
+- `0.6800` 是预注册开发门槛，不是已经取得的验证指标。正式 residual-refiner
+  validation 结果是 0.668399；冻结 test 结果是 oracle-localization 0.703798。
+
+## 下一阶段执行约定
+
+1. 只选择一个因素：灰度/强度损失，或与官方匹配的空间几何。
+2. 训练前写开发集预注册，固定 manifest、checkpoint 初始化、代码 hash、唯一
+   改动因素、验证指标、成功门槛和禁止搜索项。
+3. 正式训练前运行单元测试、一个真实病例的预处理一致性检查和短 GPU smoke。
+4. 只在 972/108 上训练与选择；同时报告 scan-macro、subject-balanced 和病灶
+   体积分层指标。
+5. 不得根据 270 例标签决定实现。以后如需测试评测，必须先单独冻结配置并获得
+   明确授权；优先使用全新的外部/确认集。
+
+灰度损失分支不能默默补造论文未说明的细节。如果拿不到师兄实现，就应把选定的
+可微解释明确写成本地新实现，而不是声称“精确复现”。
+
+## 当前代码与历史代码
+
+已完成的 upstream 基线绑定到：
+
+- `scripts/build_t1ce_wt_official15_cache.py`
+- `scripts/train_sammed3d_t1ce_wt_upstream_literal_va.py`
+- `scripts/run_t1ce_wt_upstream_literal_va_a100_20260812.sh`
+- `scripts/evaluate_t1ce_wt_upstream_literal_test.py`
+- `scripts/run_t1ce_wt_upstream_literal_test_a100_20260812.sh`
+
+本次 residual-refiner test 绑定到：
+
+- `scripts/build_t1ce_wt_gtcrop_n4_test_cache.py`
+- `scripts/evaluate_t1ce_wt_residual_refiner_test.py`
+- `tests/test_residual_refiner_sealed_test.py`
+- `workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/TEST270_FREEZE_20260813.json`
+- `workspace/BraTS/sammed3d_t1ce_wt/FINAL_TEST_RESULT_RESIDUAL_REFINER_20260813.json`
+
+旧文件 `train_sammed3d_t1ce_wt_official15_va.py` 和
+`run_t1ce_wt_official15_reproduction_va*_20260812.sh` 实现的是已中止的项目
+三点击复现路径。它们用于追溯，不得再作为师兄/upstream 基线入口。
+
+A100 worker 镜像中 NVIDIA 535.129 库链接为陈旧的零字节文件，而内核驱动是
+535.161.08。upstream launcher 会创建 job-local 的
+`/tmp/aflow_nvidia_535_161_08` 库目录，因此不要直接修系统链接。
+
+## 受保护资产与归档规则
+
+不要删除或随意改写：
+
+- `workspace/BraTS/sammed3d_t1ce_wt/`，包括失败实验和负结果；
+- epoch-21 vanilla checkpoint 以及完整的测试 freeze/report；
+- brain-crop、GT-crop、residual-refiner checkpoint 和结果账本；
+- 现有缓存使用的当前及历史 manifest；
+- `sammed3d/engine.py`、`sammed3d/peft.py` 和绑定 hash 的 T1ce 代码；
+- SAM-Med3D base checkpoint、虚拟环境和已核验 HDFS 数据。
+
+根目录中已过时的叙述文档已无损移动到
+`archive/handoffs_pre_20260813/`。仓库本身已有很多用户修改和历史 artifact，
+禁止运行 `git reset`、`git clean` 或批量删除。物理删除 checkpoint/数据属于另一
+项操作，必须给出精确目标清单并取得明确批准。

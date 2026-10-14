@@ -1,0 +1,168 @@
+{
+  "analyzer_sha256": "c94037317be3998f444cbde02ec44a9806ae1a40d32380c88459415308a3a1dc",
+  "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+  "cohorts": [
+    {
+      "cases": 270,
+      "cohort": "Reused internal test270",
+      "flip8_points": 265,
+      "flip8_scan": 0.7572696616942132,
+      "flip8_scan_ci": [
+        0.739088565033895,
+        0.7741517265513539
+      ],
+      "flip8_subject": 0.7412535853511771,
+      "flip8_subject_ci": [
+        0.7141092440426474,
+        0.7661524792215904
+      ],
+      "identity_points": 262,
+      "identity_scan": 0.7517595372128266,
+      "identity_scan_ci": [
+        0.734139772840534,
+        0.7686443002784141
+      ],
+      "identity_subject": 0.7373271071260759,
+      "identity_subject_ci": [
+        0.7114863845459329,
+        0.7614298329058206
+      ],
+      "improved_worse_tied": [
+        217,
+        53,
+        0
+      ],
+      "point_delta": 3,
+      "scan_delta": 0.0055101244813866085,
+      "scan_delta_ci": [
+        0.0027509939153161317,
+        0.008022352442559269
+      ],
+      "scope": "270 scans/119 subjects; reused post-test development, not blind/external",
+      "subject_delta": 0.003926478225101276,
+      "subject_delta_ci": [
+        -0.00037875292107922,
+        0.007353958139034295
+      ],
+      "subjects": 119
+    },
+    {
+      "cases": 95,
+      "cohort": "BraTS-Africa95",
+      "flip8_points": 88,
+      "flip8_scan": 0.526437659716765,
+      "flip8_scan_ci": [
+        0.4756464986472562,
+        0.5770474473869399
+      ],
+      "flip8_subject": 0.526437659716765,
+      "flip8_subject_ci": [
+        0.4756464986472562,
+        0.5770474473869399
+      ],
+      "identity_points": 87,
+      "identity_scan": 0.5230025504563405,
+      "identity_scan_ci": [
+        0.4755023307048984,
+        0.5677388555856394
+      ],
+      "identity_subject": 0.5230025504563405,
+      "identity_subject_ci": [
+        0.4755023307048984,
+        0.5677388555856394
+      ],
+      "improved_worse_tied": [
+        52,
+        38,
+        5
+      ],
+      "point_delta": 1,
+      "scan_delta": 0.0034351092604245166,
+      "scan_delta_ci": [
+        -0.010536166287496688,
+        0.016814528182253582
+      ],
+      "scope": "public post-challenge; four centers; institution-disjoint/no patient bridge",
+      "subject_delta": 0.0034351092604245166,
+      "subject_delta_ci": [
+        -0.010536166287496688,
+        0.016814528182253582
+      ],
+      "subjects": 95
+    },
+    {
+      "cases": 33,
+      "cohort": "CPTAC33 public Training",
+      "flip8_points": 33,
+      "flip8_scan": 0.8445771173590393,
+      "flip8_scan_ci": [
+        0.8132902972601445,
+        0.8707951095638908
+      ],
+      "flip8_subject": 0.8445771173590393,
+      "flip8_subject_ci": [
+        0.8132902972601445,
+        0.8707951095638908
+      ],
+      "identity_points": 33,
+      "identity_scan": 0.8413314638642593,
+      "identity_scan_ci": [
+        0.8090997785254241,
+        0.8686125719143264
+      ],
+      "identity_subject": 0.8413314638642593,
+      "identity_subject_ci": [
+        0.8090997785254241,
+        0.8686125719143264
+      ],
+      "improved_worse_tied": [
+        23,
+        10,
+        0
+      ],
+      "point_delta": 0,
+      "scan_delta": 0.003245653494780141,
+      "scan_delta_ci": [
+        0.0008277648965522789,
+        0.005854744230503212
+      ],
+      "scope": "public labels external to this project; not hidden blind",
+      "subject_delta": 0.003245653494780141,
+      "subject_delta_ci": [
+        0.0008277648965522789,
+        0.005854744230503212
+      ],
+      "subjects": 33
+    }
+  ],
+  "deployment": {
+    "checkpoint_or_parameter_increase": false,
+    "flip8_locator_forwards_per_case": 8,
+    "identity_locator_forwards_per_case": 1,
+    "latency_compute_multiplier_approx": 8
+  },
+  "direction_summary": {
+    "cohorts": 3,
+    "interpretation": "All three saved cohorts have positive Scan Dice point estimates; paired intervals support improvement on reused internal270 and CPTAC33, while Africa95 remains uncertain. This is not a pooled effect or proof of universal benefit.",
+    "positive_scan_point_estimates": 3,
+    "scan_ci_crosses_zero": [
+      "BraTS-Africa95"
+    ],
+    "scan_ci_entirely_above_zero": [
+      "Reused internal test270",
+      "CPTAC33 public Training"
+    ]
+  },
+  "new_model_inference": false,
+  "schema": "aflow.flip8.cross_cohort_saved_report_synthesis",
+  "schema_version": 1,
+  "selection_or_tuning": false,
+  "source_sha256": {
+    "africa": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+    "cptac": "4b9d8c90e1b5ec45b0e664e560301db20affd6a96387f416a62b561f8d57b4fd",
+    "internal": "29efc557aa12b6f82fd079edd84cc3c8c1e5ad4536880c016b664932234f45ad",
+    "internal_ci_correction": "f94fedaa7bc70357422bd0ea10f9d127527955de62822035d3b382c19eaf0e0f"
+  },
+  "status": "post_access_descriptive_separate_cohorts_no_pooling_or_selection",
+  "ucsd75_not_included_reason": "fixed Flip8 was not run on UCSD75"
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "aflow.ucsd75_official_float_source_correction.preregistration",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T00:15:35Z",
+  "status": "frozen_before_official_float_cache_and_model_inference",
+  "purpose": "repeat the already evaluated UCSD75 with direct TCIA float32 images solely to correct source provenance; not a new cohort and not model selection",
+  "cohort": {"scans": 75, "subjects": 53, "reused": true, "independent_new_cohort": false},
+  "single_factor": "image source bytes: Pittsburgh Fiber Data Hub uint8 mirror to direct TCIA package 1019 float32 NIfTI",
+  "fixed": {
+    "case_order": true,
+    "official_label_arrays": true,
+    "geometry": true,
+    "target": "WT={1,2,3}; exclude raw label4",
+    "preprocessing": "canonical_RAS -> N4_shrink2 -> positive-image bbox -> source nonzero population zscore -> 128^3",
+    "threshold": 0.0,
+    "views": ["identity"],
+    "tta": false,
+    "sam": false,
+    "postprocessing": false,
+    "ensemble": false,
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 2026090201
+  },
+  "models": [
+    {"identifier": "full972_random_init_voxel_kd_epoch168", "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b"},
+    {"identifier": "gcsam_fit864_inner_selected_epoch184", "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d"}
+  ],
+  "frozen_inputs": {
+    "old_inventory_sha256": "6cb1f5a5eb740c06c6e8b01e57c7e6aab6dd8a7472f02d8acdd42540e2d16c38",
+    "direct_source_preaccess_sha256": "608fe55084caf3bedba1bf946ca36eb69d4ff7ba5181621c15c49a54bcb3299c",
+    "direct_download_receipt_sha256": "c0dc16b8e8a435d413a32140244a0f177b1a98c78cd916b83e6f03c360495b6a",
+    "direct_source_comparison_sha256": "1dc05453fce200e11739dafbc1b73d33a5ef1bd491d3174b3ebb42504d101ac7",
+    "old_cache_index_sha256": "14d944f945d5f6396ab5f676dffeb172be94dd7d781098b615835775640698b8",
+    "old_raw_report_sha256": "91910760fbab804ee17b3ad8027a035a6676b02307a6f34d8408ba858c42f593"
+  },
+  "engineering_gate": "all 75 mappings, 150 source hashes, geometry, label domain, old-label exactness, finite cache, empty-state preservation, one-case reproduction, synthetic CUDA smoke, cache/checkpoint hashes must pass before formal model inference",
+  "performance_gate": null,
+  "result_policy": "always archive once; descriptive paired source delta only; no tuning, promotion, or result-dependent repeat",
+  "access": {"train": false, "fixed_validation108": false, "outer": false, "confirmation": false, "internal_test270": false, "ucsd75_reused_source_correction": false},
+  "idea_path": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/IDEA.md"
+}

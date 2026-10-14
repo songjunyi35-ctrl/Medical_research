@@ -1,0 +1,190 @@
+{
+  "architecture_module_sha256": "2527e591db3c836047ac24ab0daacb905f32e3e896ebbdc322101afe9a3f5e3c",
+  "arm_name": "elpgr_a2_seed20260814",
+  "baseline_validation": {
+    "cases": 4,
+    "coarse_dsc_mean": 0.6109614968299866,
+    "delta": 0.035787858068943024,
+    "gate_dsc_mean": 0.0,
+    "gate_target_fraction_mean": 0.06436192989349365,
+    "improved_cases": 4,
+    "per_case": [
+      {
+        "case_id": "BraTS-GLI-00046-100",
+        "coarse_dsc": 0.6191782355308533,
+        "gate_dsc": 0.0,
+        "gate_target_fraction": 0.0406651496887207,
+        "refined_dsc": 0.6727191805839539,
+        "residual_scale_mean": 1.0
+      },
+      {
+        "case_id": "BraTS-GLI-00046-101",
+        "coarse_dsc": 0.7373713850975037,
+        "gate_dsc": 0.0,
+        "gate_target_fraction": 0.08574247360229492,
+        "refined_dsc": 0.7566994428634644,
+        "residual_scale_mean": 1.0
+      },
+      {
+        "case_id": "BraTS-GLI-00498-100",
+        "coarse_dsc": 0.36881768703460693,
+        "gate_dsc": 0.0,
+        "gate_target_fraction": 0.036139488220214844,
+        "refined_dsc": 0.3892448842525482,
+        "residual_scale_mean": 1.0
+      },
+      {
+        "case_id": "BraTS-GLI-00498-101",
+        "coarse_dsc": 0.7184786796569824,
+        "gate_dsc": 0.0,
+        "gate_target_fraction": 0.09490060806274414,
+        "refined_dsc": 0.768333911895752,
+        "residual_scale_mean": 1.0
+      }
+    ],
+    "refined_dsc_mean": 0.6467493548989296,
+    "refined_subject_dsc_mean": 0.6467493548989296,
+    "residual_scale_mean": 1.0,
+    "subjects": 2,
+    "worsened_cases": 0
+  },
+  "best_checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/error_gated_refiner_a2_smoke_20260814/elpgr_a2_seed20260814/refiner_val_dice_best.pth",
+    "sha256": "355029b4d5db7b04b0a120e373caea574b7dfaa46363e7c444e1d7f87215c188"
+  },
+  "coarse_checkpoint_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+  "created_at_utc": "2026-08-14T04:11:43.585945+00:00",
+  "elapsed_seconds": 1.8753397464752197,
+  "history": [
+    {
+      "elapsed_seconds": 1.8327767848968506,
+      "epoch": 1,
+      "source_plus_continuation_epoch": 59,
+      "stale_epochs": 1,
+      "strict_new_high": false,
+      "train_dsc": 0.7007758319377899,
+      "train_gate_loss": 1.6483354568481445,
+      "train_segmentation_loss": 0.33594274520874023,
+      "train_total_loss": 0.5007762908935547,
+      "validation": {
+        "cases": 4,
+        "coarse_dsc_mean": 0.6109614968299866,
+        "delta": 0.03572706878185272,
+        "gate_dsc_mean": 0.0,
+        "gate_target_fraction_mean": 0.06436192989349365,
+        "improved_cases": 4,
+        "per_case": [
+          {
+            "case_id": "BraTS-GLI-00046-100",
+            "coarse_dsc": 0.6191782355308533,
+            "gate_dsc": 0.0,
+            "gate_target_fraction": 0.0406651496887207,
+            "refined_dsc": 0.6720389723777771,
+            "residual_scale_mean": 0.9990358352661133
+          },
+          {
+            "case_id": "BraTS-GLI-00046-101",
+            "coarse_dsc": 0.7373713850975037,
+            "gate_dsc": 0.0,
+            "gate_target_fraction": 0.08574247360229492,
+            "refined_dsc": 0.755466878414154,
+            "residual_scale_mean": 0.999343752861023
+          },
+          {
+            "case_id": "BraTS-GLI-00498-100",
+            "coarse_dsc": 0.36881768703460693,
+            "gate_dsc": 0.0,
+            "gate_target_fraction": 0.036139488220214844,
+            "refined_dsc": 0.38968735933303833,
+            "residual_scale_mean": 0.9988889694213867
+          },
+          {
+            "case_id": "BraTS-GLI-00498-101",
+            "coarse_dsc": 0.7184786796569824,
+            "gate_dsc": 0.0,
+            "gate_target_fraction": 0.09490060806274414,
+            "refined_dsc": 0.7695610523223877,
+            "residual_scale_mean": 0.9993000030517578
+          }
+        ],
+        "refined_dsc_mean": 0.6466885656118393,
+        "refined_subject_dsc_mean": 0.6466885656118393,
+        "residual_scale_mean": 0.9991421401500702,
+        "subjects": 2,
+        "worsened_cases": 0
+      }
+    }
+  ],
+  "hyperparameters": {
+    "arm_name": "elpgr_a2_seed20260814",
+    "baseline_tolerance": 1e-05,
+    "batch_size": 2,
+    "coarse_shift_max": 4,
+    "coarse_shift_probability": 1.0,
+    "device": "cuda:0",
+    "dropout": 0.1,
+    "epochs": 1,
+    "expected_baseline_dsc": null,
+    "expected_init_sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "gate_dilation_radius": 2,
+    "gate_weight": 0.1,
+    "init_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/refiner_val_dice_best.pth",
+    "init_filters": 16,
+    "limit_train_cases": 4,
+    "limit_validation_cases": 4,
+    "lr": 5e-05,
+    "max_shift": 12,
+    "num_workers": 4,
+    "output_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/error_gated_refiner_a2_smoke_20260814/elpgr_a2_seed20260814",
+    "patience": 1,
+    "seed": 20260814,
+    "train_cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/train",
+    "validation_cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/validation",
+    "weight_decay": 1e-05
+  },
+  "hypothesis": "label-free coarse uncertainty/boundary prompts plus an error-supervised correction gate reduce harmful global residual rewriting",
+  "initialization": {
+    "bridge": {
+      "copied_legacy_tensors": 83,
+      "gate_head_zero_initialized": true,
+      "initial_residual_scale": 1.0,
+      "new_input_channels_zero_initialized": true,
+      "source_input_channels": 2,
+      "source_output_channels": 1,
+      "target_input_channels": 4,
+      "target_output_channels": 2
+    },
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/refiner_val_dice_best.pth",
+    "sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "source_epoch": 58
+  },
+  "runner_sha256": "2621bdc24d91181999997329f8c00e44e8706806e6d3d206d1749caed4b40c38",
+  "schema": "aflow.sammed3d.t1ce_wt_error_gated_refiner_training",
+  "schema_version": 1,
+  "selection": {
+    "delta_from_bridged_initialization": 0.0,
+    "epoch": 0,
+    "metric": "validation scan-macro DSC",
+    "source_plus_continuation_epoch": 58,
+    "subject_macro_value": 0.6467493548989296,
+    "value": 0.6467493548989296
+  },
+  "task": {
+    "geometry": "GT-centered N4 128^3 refiner cache; development-only",
+    "input": "T1ce plus frozen SAM click-3 raw logits",
+    "known_limitation": "the 108-case validation has prior development exposure",
+    "split": "972 train / 108 validation, subject-clean",
+    "target": "WT={1,2,3}; raw label 4 excluded"
+  },
+  "test_access": false,
+  "train_cache": {
+    "cases_used": 4,
+    "index_sha256": "34e9322a45b6501d841e2fab1dba43ef68353e767146ca547e5e8bb280aa95bf",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/train"
+  },
+  "validation_cache": {
+    "cases_used": 4,
+    "index_sha256": "72fddef3c7a8755f0712b864efbb7328e2d8ae97313ac7ca7a0306d4b612ce44",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/validation"
+  }
+}

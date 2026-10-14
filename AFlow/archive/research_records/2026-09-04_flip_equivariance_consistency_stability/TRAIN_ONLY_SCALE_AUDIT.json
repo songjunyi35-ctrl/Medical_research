@@ -1,0 +1,29 @@
+{
+  "schema": "aflow.brats.flip_equivariance_consistency.train_only_scale_audit",
+  "schema_version": 1,
+  "date_utc": "2026-09-04",
+  "status": "complete_before_preregistration",
+  "role": "train_only",
+  "cases": 64,
+  "nonidentity_views_per_case": 7,
+  "metric": "one minus sigmoid soft Dice between identity and inverse-reflected logits",
+  "soft_dice_consistency_mean": 0.0802915237311806,
+  "minimum": 0.03758108615875244,
+  "maximum": 0.1919083595275879,
+  "per_view_mean": {
+    "[-1]": 0.07066614925861359,
+    "[-2]": 0.07366465218365192,
+    "[-2,-1]": 0.0849654246121645,
+    "[-3]": 0.07492099329829216,
+    "[-3,-1]": 0.08397075068205595,
+    "[-3,-2]": 0.08290592860430479,
+    "[-3,-2,-1]": 0.09094676747918129
+  },
+  "frozen_candidate_weight": 0.1,
+  "weight_rationale": "mean weighted contribution about 0.008, roughly 3-4 percent of the observed approximately 0.22 late training loss",
+  "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+  "train_cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+  "validation_access": false,
+  "test270_access": false,
+  "external_access": false
+}

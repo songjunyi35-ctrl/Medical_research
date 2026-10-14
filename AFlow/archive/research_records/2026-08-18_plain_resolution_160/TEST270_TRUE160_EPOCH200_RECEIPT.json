@@ -1,0 +1,48 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_true160_epoch200_test270_receipt",
+  "schema_version": 1,
+  "status": "frozen_before_test_nifti_cache_build_and_model_inference",
+  "authorization": "USER_AUTHORIZED_EPOCH200_TRUE160_TEST270_2026-08-18",
+  "evidence_scope": "one fixed checkpoint evaluation on a reused internal test set",
+  "not_pristine_blind_test": true,
+  "checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/full756_160_seed20260829_epoch200/plain_160_full756_fixed_epoch200.pth",
+    "sha256": "a25e8519b3f9a66ee5c389ad94f0e62ac548dfd6339468637c8f2c3536139b67",
+    "epoch": 200,
+    "resolution": 160,
+    "selected_without_test": true
+  },
+  "test": {
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/sealed_test/test_cases_t1ce.jsonl",
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "cases": 270,
+    "subjects": 119,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/test270_true160_epoch200",
+    "cache_source": "raw test NIfTI; existing 128^3 test cache is forbidden as an input",
+    "preprocessing": "canonical RAS -> N4 shrink-2 -> image nonzero crop -> z-score -> trilinear image / nearest-exact label resize to 160^3",
+    "raw_reproduction_cases": 4
+  },
+  "inference": {
+    "threshold": "raw segmentation logit > 0",
+    "tta": false,
+    "postprocessing": false,
+    "sam": false,
+    "batch_size": 8,
+    "primary_metrics": [
+      "scan macro model-grid Dice",
+      "subject-balanced model-grid Dice",
+      "automatic point hit rate"
+    ],
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20260831,
+    "output": "workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/full756_160_seed20260829_epoch200/FINAL_TEST270_TRUE160_EPOCH200.json",
+    "result_will_not_trigger_checkpoint_or_threshold_tuning": true
+  },
+  "code": {
+    "scripts/build_t1ce_wt_braincrop_test_cache_variable_resolution.py": "849eeeaa81370eef51fbdc1fe891485ef3d8ba9e6f3653ead769f25aa149d594",
+    "scripts/evaluate_t1ce_wt_plain_160_epoch200_test270.py": "836e35a62086cbe30567022850182959f802a69b0a0fb7ce2067aa578daf2aeb"
+  },
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access_before_receipt": false
+}

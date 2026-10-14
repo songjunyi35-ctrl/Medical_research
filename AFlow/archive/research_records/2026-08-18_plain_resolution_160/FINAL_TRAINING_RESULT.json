@@ -1,0 +1,96 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_160_full_cohort_final_training_result",
+  "schema_version": 1,
+  "status": "training_complete_evaluation_not_performed",
+  "objective": "benchmark-oriented full-cohort true-160^3 plain locator trained for 200 epochs",
+  "goal_override": {
+    "strict_paired_protocol_stopped": true,
+    "interrupted_128_last_completed_epoch": 63,
+    "interrupted_128_checkpoint_saved": false,
+    "interrupted_128_inner_tune_tensor_iteration": false
+  },
+  "train_cohort": {
+    "path": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "cases": 756,
+    "subjects": 346,
+    "held_out_from_training": 0
+  },
+  "cache": {
+    "path": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_160",
+    "resolution": 160,
+    "index_sha256": "8382ec394b39f6eb2b97239616a1cc477ecbab366c09395f7784093e137dc2cc",
+    "images_sha256": "bbb7289803a8cdcd17be8af98c5206da6c1b5eb83977f73974c5c17892f58621",
+    "labels_sha256": "4f06b8a4df9c32c33b3a85f5b11ac8bce62f9bd62d2ad5f70b0962b7425b9d60",
+    "raw_reproduction_report_sha256": "a8fd8cab0524d53ba4eeb7cc714a33bcd330587aedd4acdd9115d739ac9f6b26",
+    "raw_reproduction_cases": 4,
+    "raw_image_and_label_byte_exact": true,
+    "source_positive_voxels_sha256": "53363d47df9297f71fdfec92bd104841c6ab4fac335ce65d52353dd9f0565f7a"
+  },
+  "training": {
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/full756_160_seed20260829_epoch200",
+    "seed": 20260829,
+    "epochs": 200,
+    "optimizer_steps_per_epoch": 94,
+    "optimizer_steps_total": 18800,
+    "batch_size": 8,
+    "parameter_count": 4700897,
+    "loss": "DiceCE(lambda_dice=1.0, lambda_ce=0.1)",
+    "optimizer": "AdamW(base_lr=2e-4, weight_decay=1e-5)",
+    "schedule": "epoch1-100 constant 2e-4; epoch101-200 frozen cosine to 1e-5",
+    "max_shift": 8,
+    "sampler_weights_sha256": "757e463d8e60f96ef6429613f6783fb3aa1014b580932959f9ed354d37072124",
+    "elapsed_seconds": 8092.492061138153,
+    "peak_gpu_memory_bytes": 42046859776,
+    "peak_gpu_reserved_bytes": 46940553216
+  },
+  "training_trace": {
+    "epoch100": {
+      "learning_rate": 0.0002,
+      "train_loss": 0.3050169895621056,
+      "train_dsc": 0.6997983709195669
+    },
+    "epoch168": {
+      "learning_rate": 0.000054913580577002267,
+      "train_loss": 0.24415838559891315,
+      "train_dsc": 0.7599639890596588
+    },
+    "epoch200": {
+      "learning_rate": 0.00001,
+      "train_loss": 0.2239991191853868,
+      "train_dsc": 0.7802206885386654
+    },
+    "last10_train_loss_mean": 0.22708572827755136,
+    "last10_train_dsc_mean": 0.7769594503289208
+  },
+  "checkpoints": {
+    "epoch168": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/full756_160_seed20260829_epoch200/plain_160_full756_fixed_epoch168.pth",
+      "sha256": "3d2d7f7d622a94ca3f0d53a31341a650fcfb22ed13f35951a7f40790ca52f9f4"
+    },
+    "epoch200": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/full756_160_seed20260829_epoch200/plain_160_full756_fixed_epoch200.pth",
+      "sha256": "a25e8519b3f9a66ee5c389ad94f0e62ac548dfd6339468637c8f2c3536139b67"
+    },
+    "epoch200_reload_max_abs_difference": 0.0
+  },
+  "reports": {
+    "train_done": "workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/full756_160_seed20260829_epoch200/TRAIN_DONE.json",
+    "train_done_sha256": "85dedc30ed7e91aaf92adc878214ce53b5cdc967d2cd331acc3f18addbea27a5"
+  },
+  "verification": {
+    "targeted_tests": "20 passed in 22.42s",
+    "checkpoint_sha256_recomputed": true,
+    "epoch200_reload_exact": true
+  },
+  "benchmark": {
+    "evaluated": false,
+    "reason": "standing user restriction forbids outer selector, confirmation, and 270-case test access",
+    "method_is_better_claim_supported": false,
+    "next_step_requires": "explicit authorization of a named evaluation cohort and a fixed checkpoint policy"
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

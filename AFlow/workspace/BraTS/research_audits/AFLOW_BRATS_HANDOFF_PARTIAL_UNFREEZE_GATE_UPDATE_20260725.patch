@@ -1,0 +1,50 @@
+diff --git a/AFLOW_BRATS_HANDOFF.md b/AFLOW_BRATS_HANDOFF.md
+--- a/AFLOW_BRATS_HANDOFF.md
++++ b/AFLOW_BRATS_HANDOFF.md
+@@ -1,13 +1,42 @@
+ # AFlow BraTS 科研交接
+ 
+ 首次日期：2026-06-22
+-最近更新：2026-07-25 03:37 CST（matched rank-0 与 clean-validation LoRA 对照已完成）
++最近更新：2026-07-25 04:20 CST（last4 partial-unfreeze 工程门通过，GPU smoke 等待控制面恢复）
+ 
+ 本文档用于在新窗口继续 SAM-Med3D x BraTS2024 科研。**本轮起，科研主线发生方向性变更，
+ 接续 agent 必须先读第 0 节。**
+ 
+ ---
+ 
+ ## 0. 给接续 agent 的最高优先级指令（必读，凌驾本文档其余所有内容）
+ 
++### 2026-07-25 04:20 CST 当前最高优先级：工程门通过，先完成 GPU smoke，禁止绕过
++
++matched rank-0 与 LoRA 的 clean-validation 结论不变。唯一允许的后续 arm 已冻结为从 untouched
++base 新初始化、LoRA/target token 关闭、只解冻 image-encoder blocks 8--11，并继续训练
++prompt+mask heads。两组 AdamW 分别为 `28,367,616` 参数、LR `1e-5` 与 `7,584,304` 参数、
++LR `1e-4`，WD 均 `0.1`；总 trainable/model=`35,951,920/100,509,232`。最大 50 epochs，
++epoch 20 前不早停，此后仅连续 20 个完整 epoch 没有 validation C3 strict new high 才停。
++
++独立 helper/trainer/preflight/foreground launcher/checkpoint strict reload 已完成。最终审计补上了
++matched arms 在模型与 optimizer 构建后的第二次 RNG reseed，并将
++`rng_reseed_after_model_setup=true` 写入 machine prereg；修复后定向回归 `24/24 passed`，
++CPU full preflight 通过且 `output_created=false`。human/machine prereg SHA-256 分别为
++`111968f92c09f35272a5ddd35741c3ad1a5b2803a09f307b2a6993473e156156` /
++`b55e763c4ab422a8b38d49df7fe6dde9e95af8d5e154d485eaef5fdcc97a5f91`，trainer SHA-256
++`643c1e9124986ac4d057be3779d7eea5ff7b0e99009cea1361feb496f90cc20e`。
++
++现在**不得直接启动 972/108 正式长训**。必须先在一张 BF16-capable GPU 上运行唯一
++2-train/2-validation/e1 smoke：
++`bash scripts/run_sammed3d_t1ce_wt_partial_unfreeze_smoke.sh`。本轮两次 workspace A10 请求与
++一次 Arnold 请求都因 MLX control-plane HTTPS timeout 在分配前失败；没有 worker ID、
++没有训练输出，smoke/formal 输出目录都仍不存在。控制面恢复后先 `worker list` 排除 orphan，
++再只运行上述 smoke；须有限 loss/gradient/metric、记录显存/吞吐、完成 save + strict reload。
++smoke 通过后才允许前台执行 formal launcher 的 `preflight` 与 `run`。
++
++完整工程门与基础设施记录：
++`workspace/BraTS/research_audits/FV_LAST4_PARTIAL_UNFREEZE_ENGINEERING_GATE_20260725.md`
++（SHA-256 `4b63dfebe9ef2b4d8e048676d12adfc75cba970870db45eab5059a90bc202a6c`）。
++270-case test 继续永久冻结；不得访问、重跑或用于选择，也不得 threshold/TTA/morphology/
++postprocess/full-encoder fine-tuning。
++
+ ### 2026-07-25 03:37 CST 当前最高优先级：matched rank-0 已完成，只在 clean validation 推进 partial-unfreeze
+ 
+ `2026-07-24 10:36 CST` 要求的 matched whole-volume rank-0 decoder/prompt baseline 已按

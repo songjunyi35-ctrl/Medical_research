@@ -1,0 +1,93 @@
+controls_preflight_passed
+{
+  "inner_metrics_access": false,
+  "pairing": {
+    "a": {
+      "all_epoch_sampler_indices_exact": true,
+      "epochs_compared": 184,
+      "first_augmented_batch_exact": true,
+      "first_pass_loss_exact": true,
+      "initial_state_exact": true,
+      "sampling_weight_exact": true
+    },
+    "b": {
+      "all_epoch_sampler_indices_exact": true,
+      "epochs_compared": 184,
+      "first_augmented_batch_exact": true,
+      "first_pass_loss_exact": true,
+      "initial_state_exact": true,
+      "sampling_weight_exact": true
+    }
+  },
+  "status": "frozen_after_four_trainings_before_inner_access",
+  "training_artifacts": [
+    "a_adamw_control",
+    "a_gcsam_candidate",
+    "b_adamw_control",
+    "b_gcsam_candidate"
+  ]
+}
+{
+  "cross_replication": {
+    "gates": {
+      "mean_scan_delta_positive": false,
+      "mean_subject_delta_positive": true
+    },
+    "mean_scan_delta": -0.0005188325023347581,
+    "mean_subject_delta": 0.0006617517416434328
+  },
+  "replications": {
+    "a": {
+      "ci": {
+        "scan": [
+          -0.008946318979616518,
+          0.006706371114382313
+        ],
+        "subject": [
+          -0.009745641639059846,
+          0.017919231210075687
+        ]
+      },
+      "comparison": {
+        "point_hits": 1,
+        "scan_dice": -0.0012140770925691835,
+        "subject_dice": 0.0035536563116396577
+      },
+      "gates": {
+        "all_passed": false,
+        "point_loses_at_most_one": true,
+        "scan_ci_lower_at_least_minus_0p003": false,
+        "scan_strictly_positive": false,
+        "subject_ci_lower_at_least_minus_0p003": false,
+        "subject_strictly_positive": true
+      }
+    },
+    "b": {
+      "ci": {
+        "scan": [
+          -0.005494351202139147,
+          0.006664928993969051
+        ],
+        "subject": [
+          -0.010571160351473189,
+          0.007986596038574894
+        ]
+      },
+      "comparison": {
+        "point_hits": -2,
+        "scan_dice": 0.00017641208789966726,
+        "subject_dice": -0.002230152828352792
+      },
+      "gates": {
+        "all_passed": false,
+        "point_loses_at_most_one": false,
+        "scan_ci_lower_at_least_minus_0p003": false,
+        "scan_strictly_positive": true,
+        "subject_ci_lower_at_least_minus_0p003": false,
+        "subject_strictly_positive": false
+      }
+    }
+  },
+  "stage_b_authorized": false
+}
+stage_a_evaluation_complete

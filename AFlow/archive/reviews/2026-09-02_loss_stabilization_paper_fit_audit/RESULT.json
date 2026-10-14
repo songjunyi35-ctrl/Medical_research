@@ -1,0 +1,18 @@
+{
+  "schema": "aflow.brats.loss_stabilization_2026_paper_fit_audit",
+  "schema_version": 1,
+  "status": "reviewed_not_proposed_not_started",
+  "paper": {"title": "Post-Operative Glioma Segmentation via Loss Stabilization, Normalization and Subspace Attention", "arxiv": "2607.22749", "published": "2026-07-23"},
+  "paper_result": {"gdl_internal_wl_dice": 0.88, "gdl_external_wl_dice": 0.73, "baseline_input_modalities": 4, "saca_class_subspaces": 4},
+  "fit_findings": {
+    "saca_literal_fit": false,
+    "reason": "paper class-conditioned four-subspace mechanism does not map literally to the current binary WT locator",
+    "norm_variant_is_single_factor": false,
+    "norm_variant_changes": ["brain-masked percentile clipping", "voxel-level contrastive learning"],
+    "future_isolatable_factor": "fixed per-case brain-mask 1st-99th percentile clipping before the existing z-score",
+    "existing_gamma_negative_disproves_clipping": false
+  },
+  "resource_stop": {"current_free_gb_approx": 12, "new_train_cache_gb_approx": 7.4, "safe_to_build_now": false, "paired_inner_gpu_hours_approx": 6.8, "paired_inner_dual_gpu_wall_hours_approx": 3.4},
+  "access": {"new_cache": false, "training": false, "model_inference": false, "fixed_validation": false, "test270": false, "ucsd_external75": false},
+  "next": "only after new storage authorization: write a new seven-question IDEA/PREREG and test clipping as one factor on at least two fresh train-only inner seeds; never reuse UCSD75 for selection"
+}

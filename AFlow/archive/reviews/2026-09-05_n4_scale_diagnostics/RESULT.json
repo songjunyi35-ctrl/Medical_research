@@ -1,0 +1,29 @@
+{
+  "status": "completed_train_only_numeric_cause_isolation",
+  "simpleitk_version": "2.5.5",
+  "itk_version": "5.4.6",
+  "train_images": 3,
+  "same_input_repetition_exact_count": 3,
+  "exact_power_of_two_scaling_worst_normalized_max_error": 0.00013065338134765625,
+  "direct_sigma_scaling_worst_normalized_max_error": 0.0001220703125,
+  "sensitive_case": "BraTS-GLI-00008-100",
+  "sensitive_case_float32_roundtrip_max_relative_error": 0.22085159265200419,
+  "sensitive_case_float32_roundtrip_max_log_error": 0.19954864200173006,
+  "sensitive_case_pipeline_max_error": 0.0576786994934082,
+  "sensitive_case_pipeline_mean_error": 0.002245398238301277,
+  "sensitive_case_last_level_iterations_original": 11,
+  "sensitive_case_last_level_iterations_float32_roundtrip": 10,
+  "float64_roundtrip_equals_direct_scaling_count": 3,
+  "old_endpoint_bug_hypothesis": "ruled_out;actual5.4.6 already contains E.back endpoint branch",
+  "interpretation": "float32 affine encoding/decoding loses relative precision near zero; N4 amplifies this input perturbation; no single internal library bug proven",
+  "label_access": false,
+  "model_inference": false,
+  "new_inner_or_old_cohort_metrics": false,
+  "ongoing_no_n4_training_changed": false,
+  "cpu_wall_seconds": [155.95207530912012, 155.94436948467046],
+  "evidence": {
+    "result_markdown_sha256": "260135410d706ad035b8a3ea6197c28ff95859314f264e24b7a60761945b5287",
+    "raw_diagnostic_sha256": "e4b2b51b8d8c606c57d9a8cb2f69516962d3e1c85cf25cf8db519746b73c4ae0",
+    "raw_offset_roundtrip_sha256": "8a754a6f2378f6fdcac3d74302f0b250bef54648a95c11919cb55bebe08527ac"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "utc": "2026-09-21T15:28:34.496048+00:00",
+  "results": {
+    "baseline128": [
+      {
+        "batch": 1,
+        "repeats": 5,
+        "seconds_per_scan": 0.043979104614257816,
+        "peak_allocated_bytes": 688305152,
+        "peak_reserved_bytes": 828375040
+      },
+      {
+        "batch": 2,
+        "repeats": 5,
+        "seconds_per_scan": 0.02919062805175781,
+        "peak_allocated_bytes": 1345926144,
+        "peak_reserved_bytes": 1906311168
+      }
+    ],
+    "overall": [
+      {
+        "batch": 1,
+        "repeats": 5,
+        "seconds_per_scan": 0.2356558837890625,
+        "peak_allocated_bytes": 1807383552,
+        "peak_reserved_bytes": 2287992832,
+        "measured_gpu_time_ratio_vs128": 5.358360199826897
+      },
+      {
+        "batch": 2,
+        "repeats": 5,
+        "seconds_per_scan": 0.1560757568359375,
+        "peak_allocated_bytes": 3534242816,
+        "peak_reserved_bytes": 4439670784,
+        "measured_gpu_time_ratio_vs128": 5.346776251583216
+      }
+    ],
+    "best_single": [
+      {
+        "batch": 1,
+        "repeats": 5,
+        "seconds_per_scan": 0.3513712646484375,
+        "peak_allocated_bytes": 773007360,
+        "peak_reserved_bytes": 899678208,
+        "measured_gpu_time_ratio_vs128": 7.989504737086543
+      },
+      {
+        "batch": 2,
+        "repeats": 5,
+        "seconds_per_scan": 0.23337395019531249,
+        "peak_allocated_bytes": 1487296512,
+        "peak_reserved_bytes": 1977614336,
+        "measured_gpu_time_ratio_vs128": 7.994824564292275
+      }
+    ]
+  },
+  "patient_pixels_access": false,
+  "selected_models_or_thresholds_changed": false,
+  "scope": "warm synthetic GPU model+fusion+threshold time; excludes N4, disk I/O, process startup and model loading",
+  "analytic_forward_equivalents": {
+    "overall": 5.33203125,
+    "best_single": 8
+  },
+  "code_sha256": "5356b0c66f126121cae9345efb7ae23af0119cfe8a2c9637f38d94742ce30478"
+}

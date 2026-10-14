@@ -1,0 +1,89 @@
+{
+  "schema": "aflow.brats.t1ce_wt_voxel_kd_data972_result",
+  "schema_version": 1,
+  "status": "validation_complete_not_promoted",
+  "method": "fixed_compute_voxel_kd_data_pool_756_to_972",
+  "selected_epoch": 184,
+  "selected_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_data972_20260821/formal_data972_candidate/plain_128_data972_candidate_global_epoch184.pth",
+    "sha256": "0f69e049aba20e734474be0e9675b0af374c9a50ee662eb61eb7f4f3a97a34c3",
+    "parameters": 4700897,
+    "inference_forwards": 1
+  },
+  "fixed_validation108": {
+    "candidate": {
+      "scan_dice": 0.7340492637896979,
+      "subject_dice": 0.7246943916380405,
+      "point_hits": 99,
+      "point_total": 108
+    },
+    "same_epoch_cache_matched_data756_control": {
+      "scan_dice": 0.7307520784713604,
+      "subject_dice": 0.7204075904119582,
+      "point_hits": 100,
+      "point_total": 108
+    },
+    "archived_kd200": {
+      "scan_dice": 0.7343843078447713,
+      "subject_dice": 0.7244341433615912,
+      "point_hits": 101,
+      "point_total": 108
+    },
+    "candidate_minus_control": {
+      "scan": 0.0032971853183375466,
+      "scan_95ci": [0.0010270609451388873, 0.005548872091565971],
+      "subject": 0.004286801226082304,
+      "subject_95ci": [0.0015455354774991685, 0.007158381710982041],
+      "point_hits": -1,
+      "cases_improved": 68,
+      "cases_worse": 40,
+      "subjects_improved": 33,
+      "subjects_worse": 17
+    },
+    "candidate_minus_kd200": {
+      "scan": -0.0003350440550733496,
+      "scan_95ci": [-0.0026415521554924823, 0.001956023279301546],
+      "subject": 0.0002602482764493863,
+      "subject_95ci": [-0.002678973408504609, 0.00324273555158149],
+      "point_hits": -2,
+      "cases_improved": 55,
+      "cases_worse": 53,
+      "subjects_improved": 29,
+      "subjects_worse": 21
+    }
+  },
+  "promotion": {
+    "beats_same_epoch_control_scan": true,
+    "beats_same_epoch_control_subject": true,
+    "beats_kd200_scan": false,
+    "beats_kd200_subject": true,
+    "point_hits_at_least_101_of_108": false,
+    "all_ci_safety_gates_passed": true,
+    "all_implementation_and_formal_gates_passed": true,
+    "all_gates_passed": false,
+    "candidate_authorized_for_test": false
+  },
+  "cost": {
+    "control_elapsed_seconds": 1939.4966959953308,
+    "candidate_elapsed_seconds": 1939.9201006889343,
+    "parallel_wall_minutes_approx": 32.34,
+    "peak_allocated_bytes_per_arm": 21788257792,
+    "workspace_mebibytes_approx": 181,
+    "new_cache_created": false
+  },
+  "evidence": {
+    "raw_validation_path": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_data972_20260821/DATA972_VALIDATION.json",
+    "raw_validation_sha256": "8661509aa1dfe4e6c1eaf06ef94980863796ba1ebb12fbbf85091f8070d7b530",
+    "control_train_done_sha256": "de56cb67149882424851a5f289fd0f92b4a24213989fef8fe7f437002b1ea3ec",
+    "candidate_train_done_sha256": "d52a3217a23f7249e32372e4a97e8118648a138fc48b6ca940c92dca65289f6a",
+    "implementation_receipt_sha256": "212e76d211c91254963a627282e294d9d1ccc711d73453d8c39519bd635d0c48",
+    "validation_started_sha256": "8b411ee76517f131e0c2071213c56a80981a2dfe4b91e64ae876ef536aafd0d3"
+  },
+  "access": {
+    "new_fixed_validation_access": true,
+    "outer_selector_access": false,
+    "confirmation_access": false,
+    "test_access": false
+  },
+  "interpretation": "The larger eligible case population produced a clear paired gain over a newly cache-matched 756-case control, supporting data diversity as a real mechanism. It did not improve Scan Dice over the stronger archived source-volume-weighted KD200 and lost two Point hits, so the candidate is not promoted and test270 is not accessed."
+}

@@ -1,0 +1,7 @@
+# 固定小孤岛清理预注册
+
+IDEA.md为完整七问/参数/门/条件性路线。固定模型是structured_background_aux_20260907/seed2026090711_control和seed2026090712_control的fixed_epoch168.pth，SHA分别fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e、5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43。对应历史RAW_DEVELOPMENT SHA80e9bd449d7c72a61de0ecdbdfbc5bb3a61814e7770bbcc1c983ac097b4cd2c6。
+
+fit/dev与原source协议hash相同，bootstrap使用evaluate_structured_background_aux算法10,000患者簇，seed11/12分别2026091061/62，百分位95%。Primary Subject、Scan与Point联合门如IDEA，两个seed共用78患者、探索性复用开发、非独立external。不与正在训练的elastic做选seed或组合。
+
+评测先写DEV_PREACCESS（IDEA/PREREG/code/test/smoke/checkpoint/report/manifest/cache像素和index SHA、batch8/BF16/阈值0/26邻接/1%/8体素/无TTA/输出路径/360forwards）。保存逐例base/clean Dice/计数/点坐标、组件计数/删去TP与FP体素（后两项仅评分诊断，GT不进清理），结果写RAW_DEVELOPMENT，独立复核与RESULT/JSON/当前交接/百科更新。不访问test则榜单不添排名。

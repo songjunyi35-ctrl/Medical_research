@@ -1,0 +1,30 @@
+{
+  "utc": "2026-09-21T05:04:25.043971+00:00",
+  "scope": "read-only healthy versus failing worker differential; no task interruption",
+  "healthy": {
+    "worker": 1104883,
+    "kernel": "5.4.143.bsk.5-oci-amd64",
+    "nvidia_driver": "535.161.08",
+    "torch": "2.7.1+cu126",
+    "cuda_available": true,
+    "cuInit": 0,
+    "uvm_module_present": true,
+    "uvm_devices_present": true
+  },
+  "failing": {
+    "worker": 1105011,
+    "kernel": "5.15.152.bsk.10-sign-amd64",
+    "nvidia_driver": "535.161.08",
+    "torch": "2.7.1+cu126",
+    "cuda_available": false,
+    "cuInit": 999,
+    "uvm_module_present": false,
+    "uvm_devices_present": false
+  },
+  "same_python_environment": "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv",
+  "inference": "strong evidence for node/platform kernel-driver initialization or device-provisioning issue; model/training logic not involved in raw cuInit failure",
+  "unknown": "why UVM did not load; requires host-side module/log/device-runtime inspection; kernel version difference alone is not proof of incompatibility",
+  "new_patient_pixels_access": false,
+  "new_test_outer_confirmation_access": false,
+  "running_jobs_unchanged": true
+}

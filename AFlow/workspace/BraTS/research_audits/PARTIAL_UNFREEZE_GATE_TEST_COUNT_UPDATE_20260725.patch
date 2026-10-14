@@ -1,0 +1,14 @@
+diff --git a/workspace/BraTS/research_audits/FV_LAST4_PARTIAL_UNFREEZE_ENGINEERING_GATE_20260725.md b/workspace/BraTS/research_audits/FV_LAST4_PARTIAL_UNFREEZE_ENGINEERING_GATE_20260725.md
+--- a/workspace/BraTS/research_audits/FV_LAST4_PARTIAL_UNFREEZE_ENGINEERING_GATE_20260725.md
++++ b/workspace/BraTS/research_audits/FV_LAST4_PARTIAL_UNFREEZE_ENGINEERING_GATE_20260725.md
+@@ -88,8 +88,9 @@ Final source/protocol SHA-256 values:
+ - runner tests:
+   `14e1a708b1578166695f7f9c5184e2fa6c6afee2ba923932c97aed4c49ba9788`.
+ 
+-After the RNG correction, the complete locally selected regression set passed
+-`24/24`. A full CPU preflight also passed and reported
++After the RNG correction, the focused regression set passed `24/24`. The
++broader CPU/synthetic PEFT, T1ce-WT wrapper/preprocessing, and
++partial-unfreeze contract suite then passed `41/41`. A full CPU preflight also passed and reported
+ `output_created=false`, the exact two optimizer groups, and
+ `train_image_encoder=true`.

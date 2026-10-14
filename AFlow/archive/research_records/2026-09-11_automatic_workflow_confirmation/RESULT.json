@@ -1,0 +1,599 @@
+{
+  "access": {
+    "confirmation108": false,
+    "external": false,
+    "fixed_validation108": false,
+    "protected_outer": false,
+    "test270_reused": true
+  },
+  "both_models_passed": false,
+  "closed_no_retuning": true,
+  "comparisons": {
+    "2026090711": {
+      "pruned_vs_full8": {
+        "improved": 84,
+        "point_delta": -5,
+        "scan_cluster_95ci": [
+          -0.00512344879786234,
+          -0.0016365451884632523
+        ],
+        "scan_delta": -0.0032697056661601387,
+        "subject_95ci": [
+          -0.0050087296866149185,
+          -0.0004636254754238339
+        ],
+        "subject_delta": -0.002708455809347754,
+        "tied": 0,
+        "worse": 186
+      },
+      "pruned_vs_identity": {
+        "improved": 194,
+        "point_delta": 5,
+        "scan_cluster_95ci": [
+          0.0026037068142317297,
+          0.007228309678206384
+        ],
+        "scan_delta": 0.004807938511173004,
+        "subject_95ci": [
+          0.0024300547786244827,
+          0.008031943571631187
+        ],
+        "subject_delta": 0.0051328847774353425,
+        "tied": 1,
+        "worse": 75
+      }
+    },
+    "2026090712": {
+      "pruned_vs_full8": {
+        "improved": 98,
+        "point_delta": 0,
+        "scan_cluster_95ci": [
+          -0.0035259011504611025,
+          -0.001219660830166605
+        ],
+        "scan_delta": -0.0023000090141538365,
+        "subject_95ci": [
+          -0.004047518584665944,
+          -0.0011435015388002697
+        ],
+        "subject_delta": -0.002557929471938669,
+        "tied": 0,
+        "worse": 172
+      },
+      "pruned_vs_identity": {
+        "improved": 189,
+        "point_delta": 6,
+        "scan_cluster_95ci": [
+          0.0006229851977047922,
+          0.007059286407476014
+        ],
+        "scan_delta": 0.0037496703711373813,
+        "subject_95ci": [
+          0.00021031920967691447,
+          0.00775519249167721
+        ],
+        "subject_delta": 0.003986031643221977,
+        "tied": 0,
+        "worse": 81
+      }
+    }
+  },
+  "cost": {
+    "logit_bytes": 13589544960,
+    "mask_bytes": 424673280,
+    "peak_bytes": 5908640768,
+    "test_case_forwards": 5670,
+    "test_seconds": 131.42414782196283,
+    "training": 0
+  },
+  "created_utc": "2026-09-11T06:45:08.809648+00:00",
+  "current_one_forward_scan_leader": {
+    "checkpoint_model_state_sha256": "eea33e1d3a1ab9505ba0b85aa915a9df59260b50a0991b49e1e9c77417690f02",
+    "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+    "cohort": {
+      "scans": 270,
+      "subjects": 119
+    },
+    "evidence_status": "user_authorized_after_failed_train_inner_ci_gates; fit864_train_inner_selected; not_full972_final; reused_internal_test; not_pristine_blind; not_external; no_test_tuning_allowed",
+    "locator_forwards": 1,
+    "method": "gcsam_inner_fit864_epoch184",
+    "point_hit": 0.9333333333333333,
+    "postprocessing": false,
+    "rank": 2,
+    "report_path": "workspace/BraTS/sammed3d_t1ce_wt/gcsam_full972_stability_20260831/GCSAM_INNER_E184_TEST270.json",
+    "report_sha256": "d0e2f48e1f499d65adddb3dbe30758caad27768bb75f737ea2cfe4a877c335d5",
+    "resolution": 128,
+    "sam": false,
+    "scan_dice": 0.7520031755617648,
+    "status": "highest_1x_reused_internal_test_scan_point_estimate; rank2_overall_by_scan; subject_and_point_not_best; paired_dice_ci_crosses_zero",
+    "subject_dice": 0.7372664203170781,
+    "threshold": 0.0,
+    "training_scope": {
+      "fit_scans": 864,
+      "not_full972_final": true,
+      "train_inner_selection_scans": 108
+    },
+    "tta": false
+  },
+  "current_overall_scan_leader": {
+    "absolute_ci_seed": 20260817,
+    "bootstrap_correction_path": "archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/BOOTSTRAP_CORRECTION.json",
+    "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+    "cohort": {
+      "scans": 270,
+      "subjects": 119
+    },
+    "evidence_status": "two_fresh_inner_replications_all_gates_passed; user_authorized_post_test_development; reused_internal_test; not_pristine_blind; not_external; not_test_tuned; no_test_retuning_or_retest_allowed",
+    "locator_forwards": 8,
+    "method": "full972_random_init_voxel_kd_epoch168_flip8_tta",
+    "paired_vs_identity": {
+      "point_hits": 3,
+      "scan_dice": 0.0055101244813866085,
+      "scan_dice_95ci": [
+        0.0027509939153161317,
+        0.008022352442559269
+      ],
+      "subject_dice": 0.003926478225101276,
+      "subject_dice_95ci": [
+        -0.00037875292107922,
+        0.007353958139034295
+      ]
+    },
+    "point_denominator": 270,
+    "point_hit": 0.9814814814814815,
+    "point_hits": 265,
+    "postprocessing": false,
+    "rank": 1,
+    "report_path": "workspace/BraTS/sammed3d_t1ce_wt/flip8_tta_stability_20260904/FLIP8_TEST270.json",
+    "report_sha256": "29efc557aa12b6f82fd079edd84cc3c8c1e5ad4536880c016b664932234f45ad",
+    "resolution": 128,
+    "sam": false,
+    "scan_dice": 0.7572696616942132,
+    "scan_dice_95ci": [
+      0.739088565033895,
+      0.7741517265513539
+    ],
+    "status": "highest_reused_internal_test_scan_subject_point_estimates; paired_scan_ci_vs_identity_positive; paired_subject_ci_crosses_zero; 8x_inference",
+    "subject_dice": 0.7412535853511771,
+    "subject_dice_95ci": [
+      0.7141092440426474,
+      0.7661524792215904
+    ],
+    "threshold": 0.0,
+    "tta": true,
+    "tta_formula": "all 8 combinations of spatial-axis reflection; inverse-reflect each raw logit; ordered float32 equal mean"
+  },
+  "gates": {
+    "2026090711": {
+      "fixed_forwards_at_most4": true,
+      "point_floor": false,
+      "scan_ci_floor": false,
+      "scan_loss_at_most003": false,
+      "subject_ci_floor": false,
+      "subject_loss_at_most003": true
+    },
+    "2026090712": {
+      "fixed_forwards_at_most4": true,
+      "point_floor": true,
+      "scan_ci_floor": true,
+      "scan_loss_at_most003": true,
+      "subject_ci_floor": true,
+      "subject_loss_at_most003": true
+    }
+  },
+  "interpretation": "fixed internal efficiency confirmation, not external blind or new search-algorithm superiority",
+  "leaderboard_rows": [
+    {
+      "absolute_ci_seed": 2026091161,
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "display_name": "Fit684 native168 seed2026090711 identity",
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "external": false,
+      "locator_forwards": 1,
+      "method": "fit684_native168_workflow_2026090711_identity",
+      "point_denominator": 270,
+      "point_hit": 0.9333333333333333,
+      "point_hits": 252,
+      "postprocessing": false,
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "resolution": 128,
+      "sam": false,
+      "scan_dice": 0.7399875395827823,
+      "scan_dice_95ci": [
+        0.7117391411951461,
+        0.7647153675655494
+      ],
+      "status": "fixed panel control",
+      "subject_dice": 0.7282008023823009,
+      "subject_dice_95ci": [
+        0.7009951026956825,
+        0.7525091545235792
+      ],
+      "test_tuned": false,
+      "threshold": 0.0,
+      "tta": false,
+      "tta_formula": "canonical views [0]; inverse-reflected ordered float32 equal raw-logit mean",
+      "views": [
+        0
+      ]
+    },
+    {
+      "absolute_ci_seed": 2026091161,
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "display_name": "Fit684 native168 seed2026090711 pruned",
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "external": false,
+      "locator_forwards": 2,
+      "method": "fit684_native168_workflow_2026090711_pruned",
+      "point_denominator": 270,
+      "point_hit": 0.9518518518518518,
+      "point_hits": 257,
+      "postprocessing": false,
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "resolution": 128,
+      "sam": false,
+      "scan_dice": 0.7447954780939553,
+      "scan_dice_95ci": [
+        0.7171968952102193,
+        0.7691023091522181
+      ],
+      "status": "fixed pruned candidate; gates={'fixed_forwards_at_most4': True, 'point_floor': False, 'scan_ci_floor': False, 'scan_loss_at_most003': False, 'subject_ci_floor': False, 'subject_loss_at_most003': True}",
+      "subject_dice": 0.7333336871597362,
+      "subject_dice_95ci": [
+        0.7066117231321916,
+        0.7572078092201386
+      ],
+      "test_tuned": false,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "canonical views [0, 5]; inverse-reflected ordered float32 equal raw-logit mean",
+      "views": [
+        0,
+        5
+      ]
+    },
+    {
+      "absolute_ci_seed": 2026091161,
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "display_name": "Fit684 native168 seed2026090711 full8",
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "external": false,
+      "locator_forwards": 8,
+      "method": "fit684_native168_workflow_2026090711_full8",
+      "point_denominator": 270,
+      "point_hit": 0.9703703703703703,
+      "point_hits": 262,
+      "postprocessing": false,
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "resolution": 128,
+      "sam": false,
+      "scan_dice": 0.7480651837601154,
+      "scan_dice_95ci": [
+        0.7208383620450689,
+        0.771950763960778
+      ],
+      "status": "fixed panel control",
+      "subject_dice": 0.736042142969084,
+      "subject_dice_95ci": [
+        0.7096752628623195,
+        0.7597969758064494
+      ],
+      "test_tuned": false,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "canonical views [0, 1, 2, 3, 4, 5, 6, 7]; inverse-reflected ordered float32 equal raw-logit mean",
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "absolute_ci_seed": 2026091162,
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "display_name": "Fit684 native168 seed2026090712 identity",
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "external": false,
+      "locator_forwards": 1,
+      "method": "fit684_native168_workflow_2026090712_identity",
+      "point_denominator": 270,
+      "point_hit": 0.9333333333333333,
+      "point_hits": 252,
+      "postprocessing": false,
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "resolution": 128,
+      "sam": false,
+      "scan_dice": 0.7408682644505191,
+      "scan_dice_95ci": [
+        0.7131194961977351,
+        0.7647121312462264
+      ],
+      "status": "fixed panel control",
+      "subject_dice": 0.7257709347311647,
+      "subject_dice_95ci": [
+        0.6979749898664283,
+        0.7506252894087119
+      ],
+      "test_tuned": false,
+      "threshold": 0.0,
+      "tta": false,
+      "tta_formula": "canonical views [0]; inverse-reflected ordered float32 equal raw-logit mean",
+      "views": [
+        0
+      ]
+    },
+    {
+      "absolute_ci_seed": 2026091162,
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "display_name": "Fit684 native168 seed2026090712 pruned",
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "external": false,
+      "locator_forwards": 3,
+      "method": "fit684_native168_workflow_2026090712_pruned",
+      "point_denominator": 270,
+      "point_hit": 0.9555555555555556,
+      "point_hits": 258,
+      "postprocessing": false,
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "resolution": 128,
+      "sam": false,
+      "scan_dice": 0.7446179348216565,
+      "scan_dice_95ci": [
+        0.7168830973451348,
+        0.7682569831721211
+      ],
+      "status": "fixed pruned candidate; gates={'fixed_forwards_at_most4': True, 'point_floor': True, 'scan_ci_floor': True, 'scan_loss_at_most003': True, 'subject_ci_floor': True, 'subject_loss_at_most003': True}",
+      "subject_dice": 0.7297569663743867,
+      "subject_dice_95ci": [
+        0.7018368193615198,
+        0.7545545868678554
+      ],
+      "test_tuned": false,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "canonical views [0, 5, 6]; inverse-reflected ordered float32 equal raw-logit mean",
+      "views": [
+        0,
+        5,
+        6
+      ]
+    },
+    {
+      "absolute_ci_seed": 2026091162,
+      "checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "checkpoint_sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "comparability_note": "same historical 128 grid/rasterization; GPU float32 Dice; fit684 not full972; T1ce WT1,2,3 excludes4",
+      "display_name": "Fit684 native168 seed2026090712 full8",
+      "evidence_status": "user_authorized_workflow_closure; reused_internal_test; nonblind; not_external; development_derived_medoid; no_test_retuning",
+      "external": false,
+      "locator_forwards": 8,
+      "method": "fit684_native168_workflow_2026090712_full8",
+      "point_denominator": 270,
+      "point_hit": 0.9555555555555556,
+      "point_hits": 258,
+      "postprocessing": false,
+      "report_path": "archive/research_records/2026-09-11_automatic_workflow_confirmation/RAW_TEST270.json",
+      "report_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+      "resolution": 128,
+      "sam": false,
+      "scan_dice": 0.7469179438358103,
+      "scan_dice_95ci": [
+        0.7193880304006286,
+        0.7702771968180678
+      ],
+      "status": "fixed panel control",
+      "subject_dice": 0.7323148958463254,
+      "subject_dice_95ci": [
+        0.7049669697327691,
+        0.75679290475029
+      ],
+      "test_tuned": false,
+      "threshold": 0.0,
+      "tta": true,
+      "tta_formula": "canonical views [0, 1, 2, 3, 4, 5, 6, 7]; inverse-reflected ordered float32 equal raw-logit mean",
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "mask_index_sha256": "afc44daf5f526ff5bf1b24db22c1f11143383bc4a0ae69c2b414389160bd81b3",
+  "metrics": {
+    "seed2026090711_full8": {
+      "point_hits": 262,
+      "scan_cluster_95ci": [
+        0.7208383620450689,
+        0.771950763960778
+      ],
+      "scan_dice": 0.7480651837601154,
+      "scans": 270,
+      "subject_95ci": [
+        0.7096752628623195,
+        0.7597969758064494
+      ],
+      "subject_dice": 0.736042142969084,
+      "subjects": 119
+    },
+    "seed2026090711_identity": {
+      "point_hits": 252,
+      "scan_cluster_95ci": [
+        0.7117391411951461,
+        0.7647153675655494
+      ],
+      "scan_dice": 0.7399875395827823,
+      "scans": 270,
+      "subject_95ci": [
+        0.7009951026956825,
+        0.7525091545235792
+      ],
+      "subject_dice": 0.7282008023823009,
+      "subjects": 119
+    },
+    "seed2026090711_pruned": {
+      "point_hits": 257,
+      "scan_cluster_95ci": [
+        0.7171968952102193,
+        0.7691023091522181
+      ],
+      "scan_dice": 0.7447954780939553,
+      "scans": 270,
+      "subject_95ci": [
+        0.7066117231321916,
+        0.7572078092201386
+      ],
+      "subject_dice": 0.7333336871597362,
+      "subjects": 119
+    },
+    "seed2026090712_full8": {
+      "point_hits": 258,
+      "scan_cluster_95ci": [
+        0.7193880304006286,
+        0.7702771968180678
+      ],
+      "scan_dice": 0.7469179438358103,
+      "scans": 270,
+      "subject_95ci": [
+        0.7049669697327691,
+        0.75679290475029
+      ],
+      "subject_dice": 0.7323148958463254,
+      "subjects": 119
+    },
+    "seed2026090712_identity": {
+      "point_hits": 252,
+      "scan_cluster_95ci": [
+        0.7131194961977351,
+        0.7647121312462264
+      ],
+      "scan_dice": 0.7408682644505191,
+      "scans": 270,
+      "subject_95ci": [
+        0.6979749898664283,
+        0.7506252894087119
+      ],
+      "subject_dice": 0.7257709347311647,
+      "subjects": 119
+    },
+    "seed2026090712_pruned": {
+      "point_hits": 258,
+      "scan_cluster_95ci": [
+        0.7168830973451348,
+        0.7682569831721211
+      ],
+      "scan_dice": 0.7446179348216565,
+      "scans": 270,
+      "subject_95ci": [
+        0.7018368193615198,
+        0.7545545868678554
+      ],
+      "subject_dice": 0.7297569663743867,
+      "subjects": 119
+    }
+  },
+  "models": [
+    {
+      "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "medoid": {
+        "fold_workflows": [
+          64,
+          16,
+          16
+        ],
+        "symmetric_difference_totals": {
+          "16": 2,
+          "64": 4
+        },
+        "tie_break": "view_count_then_workflow_id",
+        "views": [
+          0,
+          5
+        ],
+        "workflow": 16
+      },
+      "seed": 2026090711,
+      "sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "training_report_sha256": "6cbbf960f62657080b7cb1153ae30040ab42a2299cd38c49142543effd17a1f1"
+    },
+    {
+      "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "medoid": {
+        "fold_workflows": [
+          48,
+          96,
+          20
+        ],
+        "symmetric_difference_totals": {
+          "20": 6,
+          "48": 4,
+          "96": 6
+        },
+        "tie_break": "view_count_then_workflow_id",
+        "views": [
+          0,
+          5,
+          6
+        ],
+        "workflow": 48
+      },
+      "seed": 2026090712,
+      "sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "training_report_sha256": "0ccd09881b1c7e5a9f58c46b512d7ed2880cfc09b947022e59eb6066ab10b9a7"
+    }
+  ],
+  "new_panel_has_one_forward_scan_lead": false,
+  "new_panel_has_overall_scan_lead": false,
+  "preaccess_sha256": "9706a611428831a63ef2723f65e389d8132e5817ad9cdd4e501f3953d7f5ef31",
+  "raw_sha256": "804fc54c62e25e9e9aef01d7c8269293d67e338e40fd91a4daf6117c6e338529",
+  "status": "completed_fixed_internal_confirmation",
+  "verification_sha256": "2233da232089b0011a98d36d0d1c4a438abbffc7933114a3752691f0802afa72"
+}

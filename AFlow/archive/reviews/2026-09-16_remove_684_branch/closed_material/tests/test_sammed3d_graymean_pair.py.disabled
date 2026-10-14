@@ -1,0 +1,33 @@
+import pytest
+import torch
+from scripts.sammed3d_graymean_pair import gray_loss, FirstPromptLoss
+
+def test_equal_intensity_regions_zero_loss_even_wrong_geometry():
+ x=torch.ones(1,1,2,2,2)*3;g=torch.zeros_like(x);g[...,0]=1
+ z=torch.randn_like(x,requires_grad=True);loss=gray_loss(z,x,g)
+ assert float(loss)<1e-10
+ loss.backward();assert torch.isfinite(z.grad).all()
+
+def test_gradient_encourages_bright_target_and_discourages_dark_background():
+ x=torch.tensor([0.,0.,2.,2.]).reshape(1,1,1,1,4)
+ g=(x>0).float();z=torch.zeros_like(x,requires_grad=True)
+ loss=gray_loss(z,x,g);assert float(loss)==pytest.approx(1.)
+ loss.backward();assert (z.grad[...,0:2]>0).all();assert (z.grad[...,2:4]<0).all()
+
+def test_empty_target_fails_and_extreme_logits_remain_finite():
+ x=torch.arange(8.).reshape(1,1,2,2,2);g=torch.ones_like(x)
+ z=torch.full_like(x,-1000.,requires_grad=True)
+ loss=gray_loss(z,x,g);loss.backward();assert torch.isfinite(loss) and torch.isfinite(z.grad).all()
+ with pytest.raises(ValueError):gray_loss(z,x,torch.zeros_like(x))
+
+def test_only_first_prompt_differs_and_zero_arm_matches_segmentation():
+ x=torch.arange(8.).reshape(1,1,2,2,2);g=(x>3).float();z=torch.zeros_like(x,requires_grad=True)
+ control=FirstPromptLoss(x,0.);candidate=FirstPromptLoss(x,1.)
+ assert torch.allclose(control(z,g),control.seg(z,g))
+ assert torch.allclose(candidate(z,g)-candidate.seg(z,g),gray_loss(z,x,g))
+ for _ in range(10):assert torch.allclose(control(z,g),candidate(z,g))
+ assert control.calls==candidate.calls==11
+
+def test_gray_statistics_are_per_case_not_pooled_batch():
+ x=torch.tensor([0.,2.,0.,4.]).reshape(2,1,1,1,2);g=(x>0).float();z=torch.zeros_like(x)
+ assert float(gray_loss(z,x,g))==pytest.approx(2.5)

@@ -1,0 +1,13 @@
+{
+  "schema": "aflow.gcsam.external_interpretation",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T03:03:00Z",
+  "status": "checkpoint_external_support_not_optimizer_causal_support",
+  "primary_source": {"url": "https://arxiv.org/abs/2501.11584", "html_sha256": "08a9e5d09c2eabb94785af344f459148e4c7b889cfa2b16d79c0bf2ecfb5a208", "evidence_domain": "2D classification including breast ultrasound and chest radiography"},
+  "africa_observation": {"gcsam_minus_full_identity_dice": 0.06861666888291507, "paired_95ci": [0.04447197577994147, 0.09249767550187686], "gcsam_minus_full_recall": 0.0809339221149024, "four_center_means_positive": true},
+  "training_confounders": {"gcsam": {"fit_scans": 864, "inner_selection_scans": 108, "epoch": 184, "optimizer": "paper-form GCSAM", "seed_differs": true}, "full": {"fit_scans": 972, "inner_selection_scans": 0, "epoch": 168, "optimizer": "AdamW voxel-KD", "seed_differs": true}, "only_optimizer_differs": false},
+  "matched_replication": {"fixed184_two_seed_stage_a_passed": false, "mean_scan_delta": -0.000519, "interpretation": "current optimizer recipe not reproducible"},
+  "verdict": "Africa supports the frozen GCSAM184 checkpoint's domain-specific Dice/recall, not a causal optimizer claim or retraining decision",
+  "new_model_inference": false,
+  "tuning": false
+}

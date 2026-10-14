@@ -1,0 +1,18 @@
+import pytest
+from scripts.finalize_sammed3d_graymean_pair import paired_summary
+
+def test_patient_cluster_bootstrap_identical_models_has_zero_difference():
+ rows=[{'case_id':str(i),'subject_id':('a' if i<3 else 'b'),'final5':(.2 if i<3 else .8),'best5':.9} for i in range(4)]
+ r=paired_summary(rows,rows)
+ assert r['arms']['control']['scan_final5']==pytest.approx(.35)
+ assert r['arms']['control']['subject_final5']==pytest.approx(.5)
+ assert r['difference_graymean_minus_control']['scan_final5_ci95']==[0.,0.]
+ assert not r['promotion_supported']
+
+def test_uniform_gain_preserves_paired_difference_and_gate():
+ a=[{'case_id':str(i),'subject_id':str(i//2),'final5':.2+i*.01,'best5':.5} for i in range(8)]
+ b=[{**r,'final5':r['final5']+.02,'best5':r['best5']+.02} for r in a]
+ r=paired_summary(a,b)
+ assert r['difference_graymean_minus_control']['scan_final5_ci95']==pytest.approx([.02,.02])
+ assert r['promotion_supported']
+ with pytest.raises(AssertionError):paired_summary(a,list(reversed(b)))

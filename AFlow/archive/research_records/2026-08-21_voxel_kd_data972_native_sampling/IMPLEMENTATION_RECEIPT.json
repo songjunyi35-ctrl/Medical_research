@@ -1,0 +1,59 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_voxel_kd_data972_native_implementation_receipt",
+  "schema_version": 1,
+  "created_utc": "2026-08-21T00:00:00Z",
+  "status": "passed",
+  "implementation": {
+    "trainer_path": "scripts/train_t1ce_wt_plain_voxel_kd_data972_native_sampling.py",
+    "trainer_sha256": "68f30bf7f503b424492bec5fcc3dfac19c5134a09e8706638f3214e6d7fc6d08",
+    "validation_evaluator_path": "scripts/evaluate_t1ce_wt_plain_voxel_kd_data972_native_validation.py",
+    "validation_evaluator_sha256": "5d36da06c1b7f53b59446e587537cdc19bb74dffe4f756e46c4729ccda9a808e",
+    "test_path": "tests/test_t1ce_wt_plain_voxel_kd_data972_native_sampling.py",
+    "test_sha256": "86d772f4f7f908c69da11834d6a2ceb0f3e387cba45f11a51ba16e8d8932ecbf"
+  },
+  "native_artifact": {
+    "path": "archive/research_records/2026-08-21_voxel_kd_data972_native_sampling/NATIVE_WT_VOLUMES.json",
+    "sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+    "control_weight_sha256": "757e463d8e60f96ef6429613f6783fb3aa1014b580932959f9ed354d37072124",
+    "candidate_weight_sha256": "81d3fa6a907f791c4d0b97efe95ece5e057d15b85673463cadbeecc2b3f148ec",
+    "overlap_volume_mismatches": 0,
+    "control_weight_max_abs_difference": 0.0,
+    "all_gates_passed": true
+  },
+  "synthetic": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_t1ce_wt_plain_voxel_kd_data972_native_sampling.py",
+    "passed": 11,
+    "failed": 0,
+    "all_gates_passed": true
+  },
+  "gpu_smoke": {
+    "native756_control": {
+      "report_sha256": "879590c4738ce58d5547434084e75c5b3f258596e48ef7e7c377666646e3ca85",
+      "native_weight_sha256": "757e463d8e60f96ef6429613f6783fb3aa1014b580932959f9ed354d37072124",
+      "peak_gpu_memory_bytes": 21788257792,
+      "extrapolated_formal_seconds": 1935.674602985382,
+      "reload_max_abs_difference": 0.0,
+      "all_gates_passed": true
+    },
+    "native972_candidate": {
+      "report_sha256": "6a9e85053ee3456da4882dd4367107b460c8b5aa3a4f99cf5b0282dd99310c9c",
+      "native_weight_sha256": "81d3fa6a907f791c4d0b97efe95ece5e057d15b85673463cadbeecc2b3f148ec",
+      "peak_gpu_memory_bytes": 21788257792,
+      "extrapolated_formal_seconds": 1933.8344745635986,
+      "reload_max_abs_difference": 0.0,
+      "all_gates_passed": true
+    },
+    "all_gates_passed": true
+  },
+  "preoutput_failures": [
+    "full-FOV definition stopped at one source-volume mismatch",
+    "noncanonical crop coordinates stopped at 23 source-volume mismatches",
+    "Python false/False typo stopped after parity but before output"
+  ],
+  "amendment_004_sha256": "b1d03a41295fa860c620d8815479e8d1046bbfd052027a80afe253c8d32eee88",
+  "all_gates_passed": true,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

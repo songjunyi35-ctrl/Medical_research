@@ -1,0 +1,38 @@
+{
+  "utc": "2026-09-21T05:17:56.213502+00:00",
+  "user_authorization": "new healthy worker1105022 single A100 within existing parallel-second-experiment authorization",
+  "status": "frozen_before_single_gpu_patient_model_access",
+  "new_files": {
+    "scripts/pretrain_single_a100_20260921.py": "ef44c929be11df0390d64304c1fcb20213cef5cb3d5ebe7aaef0fea894d44bc4",
+    "scripts/coordinate_pretrain_workers_20260921.py": "82817e85273775864a619cfd8373d8f6a6525769272169b78f9a755f047a75d5",
+    "tests/test_single_pretrain_schedule.py": "f6570200a561611ffca67a9997d1232510fc37c9222a800532d1d3472d1321f6",
+    "archive/research_records/2026-09-21_segresnet_two_experiments/HARDWARE_AMENDMENT_003.md": "c1f30741da959cc67e363f0c8c63a97f3a6adf2a011bef555b74999db3b7001f"
+  },
+  "evidence_sha256": {
+    "archive/research_records/2026-09-21_segresnet_two_experiments/FREEZE.json": "49e40fa181689d1887e4e62d31e3f2645d1686c8dffb09b776c1dbb571c0cabd",
+    "archive/research_records/2026-09-21_segresnet_two_experiments/PRETRAIN_CACHE_RECEIPT.json": "8bb2f0f211c9d708453dee85ebbf618176da5a43989a02b22c3e717b5e4e0e9e",
+    "archive/research_records/2026-09-21_segresnet_two_experiments/EXECUTION_GATE.json": "3e3be462733b9b1967fb52caf3a53c39a1aa78ed8b765a30a4f90ece350682ff",
+    "archive/research_records/2026-09-21_segresnet_two_experiments/DATA_AUDIT.json": "b3c04ea3b2b17d7dda5b8d8974663afe6854929d7ffafad3e026abb12ffd7c17",
+    "workspace/BraTS/segresnet_t1ce_wt/plain972_baseline_20260917/initial.pth": "0c232550b9ce17b16fc5ce0ec751a83e2fc597d3a5ffc7ca94ab9dbab1e67dbd"
+  },
+  "pretrain_worker": 1105022,
+  "pretrain_world_size": 1,
+  "pretrain_batch": 8,
+  "pretrain_epochs": 150,
+  "pretrain_updates": 6300,
+  "finetune_worker": 1104883,
+  "finetune_world_size": 2,
+  "finetune_global_batch": 8,
+  "finetune_epochs": 200,
+  "no_extra_candidate": true,
+  "stochastic_trajectory_change_disclosed": true,
+  "test_tuning_used": false,
+  "cpu_tests": "10 passed, including exact combined-DDP versus single global-batch case order for epochs1/75/150",
+  "healthy_probe": {
+    "cuda_available": true,
+    "cuInit": 0,
+    "uvm_module": true,
+    "uvm_device": true,
+    "gpu_tensor_value": 1.0
+  }
+}

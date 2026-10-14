@@ -1,0 +1,110 @@
+{
+  "attribution_warning": "N4, LR, epochs, batch and DDP all change together; no single-factor attribution and no matched comparison with the rank-0/LoRA/partial-unfreeze arms is permitted.",
+  "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+  "cache_train": {
+    "cache_dir": "/tmp/aflow_braincrop_cache/t1ce_wt_n4_braincrop_128/train",
+    "count": 972,
+    "images_sha256": "f772520ca0d99fca0edc60aa04a7c73e0d7818eea9fa0174a29038f8334644b9",
+    "labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+    "manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+    "manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "preprocessing": {
+      "augmentation": "NOT cached; applied per-epoch by the dataset",
+      "image_interpolation": "trilinear",
+      "label_interpolation": "nearest-exact",
+      "n4_bias_field_correction": true,
+      "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+      "n4_shrink_factor": 2,
+      "normalization": "source nonzero-voxel population z-score before resize; unchanged by the crop because the crop removes only zero voxels",
+      "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+      "spatial": "braincrop_resize",
+      "spatial_description": "crop to the bounding box of nonzero voxels, then resize that box to 128^3. Does NOT use the label: the box comes from image intensity only, so localization is not oracle.",
+      "uses_gt_for_localization": false
+    }
+  },
+  "cache_validation": {
+    "cache_dir": "/tmp/aflow_braincrop_cache/t1ce_wt_n4_braincrop_128/validation",
+    "count": 108,
+    "images_sha256": "19107e84aba65c5c257f6a50273547e1b74e761d72e0487ad6f48a5be16d4bad",
+    "labels_sha256": "6ac3a3909f157eaa629c0fca0dbfb30bd78c23206317c62be2376443ce469e0e",
+    "manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+    "preprocessing": {
+      "augmentation": "NOT cached; applied per-epoch by the dataset",
+      "image_interpolation": "trilinear",
+      "label_interpolation": "nearest-exact",
+      "n4_bias_field_correction": true,
+      "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+      "n4_shrink_factor": 2,
+      "normalization": "source nonzero-voxel population z-score before resize; unchanged by the crop because the crop removes only zero voxels",
+      "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+      "spatial": "braincrop_resize",
+      "spatial_description": "crop to the bounding box of nonzero voxels, then resize that box to 128^3. Does NOT use the label: the box comes from image intensity only, so localization is not oracle.",
+      "uses_gt_for_localization": false
+    }
+  },
+  "effective_batch_size": 12,
+  "gradient_accumulation_steps": 3,
+  "gradient_sync": "explicit all-reduce mean over ranks (not DDP; forward calls submodules directly)",
+  "lr_scheduler": {
+    "gamma": 0.1,
+    "milestones": [
+      120,
+      180
+    ],
+    "source": "SAM-Med3D official train.py defaults",
+    "type": "MultiStepLR"
+  },
+  "matched_comparison_valid": false,
+  "max_epochs": 200,
+  "min_epochs_before_stop": 40,
+  "mode": "formal",
+  "num_workers": 6,
+  "optimizer": {
+    "groups": [
+      {
+        "lr": 0.0001,
+        "name": "image_encoder_full",
+        "parameter_numel": 92924928,
+        "parameter_tensors": 189,
+        "weight_decay": 0.1
+      },
+      {
+        "lr": 1e-05,
+        "name": "prompt_encoder_and_mask_decoder",
+        "parameter_numel": 7584304,
+        "parameter_tensors": 134,
+        "weight_decay": 0.1
+      }
+    ],
+    "type": "AdamW"
+  },
+  "partial_unfreeze_policy": {
+    "authorized_by_operator_utc": "2026-08-05",
+    "counts": {
+      "total_parameters": 100509232,
+      "trainable_parameters": 100509232
+    },
+    "image_encoder": {
+      "frozen_blocks": [],
+      "trainable_blocks": "all"
+    },
+    "update": "full_image_encoder_unfreeze"
+  },
+  "patience_complete_epochs": 40,
+  "per_gpu_batch_size": 2,
+  "per_rank_rng_offset": true,
+  "precision": "bf16",
+  "run_identity": "sammed3d_braincrop_fullunfreeze_ddp2_train972_val108_e200_s20260806",
+  "runner_sha256": "d9fd11d3b4bf11bcdd01df19b9619fef2760dd9534c3e6e9e194c1f2cc4e2d0d",
+  "schema": "aflow.sammed3d.t1ce_wt_dpdsam_aligned_training",
+  "schema_version": 1,
+  "selection_metric": "val_dice",
+  "test_access": false,
+  "total_parameters": 100509232,
+  "train_seed": 20260805,
+  "trainable_parameters": 100509232,
+  "unfreeze_policy": "full",
+  "validation_seed": 20260723,
+  "world_size": 2
+}

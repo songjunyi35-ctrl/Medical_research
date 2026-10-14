@@ -1,0 +1,68 @@
+"""Constants for the pre-registered, user-authorized reused-development experiment."""
+import hashlib
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+RECORD = ROOT / 'archive/research_records/2026-09-07_structured_background_aux'
+ROLES = ROOT / 'archive/research_records/2026-09-07_reused_development_roles'
+WORK = ROOT / 'workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907'
+CACHE = ROOT / 'workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train'
+NATIVE = ROOT / 'archive/research_records/2026-08-21_voxel_kd_data972_native_sampling/NATIVE_WT_VOLUMES.json'
+FIT = ROOT / 'data/datasets/brats2024_reused_development_20260907/fit_cases.jsonl'
+DEV = ROOT / 'data/datasets/brats2024_reused_development_20260907/development_cases.jsonl'
+FIT_SHA = '75504df75fa734723945a9f07d76696fdcca89b8c29563dc0ad02a2560718d61'
+DEV_SHA = '53885b7e300f915d81eecb115b82123e25330b7da422d3ff0b889b0489a2cdac'
+INDEX_SHA = '7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd'
+NATIVE_SHA = '32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31'
+SEEDS = (2026090711, 2026090712)
+ARMS = ('control', 'candidate')
+
+
+def sha(path):
+    h = hashlib.sha256()
+    with Path(path).open('rb') as f:
+        for b in iter(lambda: f.read(8 << 20), b''):
+            h.update(b)
+    return h.hexdigest()
+
+
+def checked(path, expected):
+    if sha(path) != expected:
+        raise ValueError(f'hash mismatch: {path}')
+
+
+def rows(path):
+    return [json.loads(s) for s in Path(path).read_text().splitlines() if s.strip()]
+
+
+def write_new(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('x') as f:
+        json.dump(data, f, indent=2, sort_keys=True)
+        f.write('\n')
+
+
+def check_roles():
+    checked(FIT, FIT_SHA)
+    checked(DEV, DEV_SHA)
+    fit, dev = rows(FIT), rows(DEV)
+    fs, ds = {r['subject_id'] for r in fit}, {r['subject_id'] for r in dev}
+    assert (len(fit), len(fs), len(dev), len(ds)) == (684, 313, 180, 78)
+    assert not fs & ds
+    split = json.loads((ROLES / 'SPLIT.json').read_text())
+    checked(ROLES / 'AUTHORIZATION.md', split['authorization_sha256'])
+    for name, digest in split['protected_manifests'].items():
+        path = ROOT / name
+        checked(path, digest)
+        protected = {r.get('subject_id') or '-'.join(r['case_id'].split('-')[:3]) for r in rows(path)}
+        assert not (fs | ds) & protected
+    return fit, dev
+
+
+def check_freeze():
+    frozen = json.loads((RECORD / 'IMPLEMENTATION_FREEZE.json').read_text())
+    for name, digest in frozen['files'].items():
+        checked(ROOT / name, digest)
+    check_roles()
+    return frozen

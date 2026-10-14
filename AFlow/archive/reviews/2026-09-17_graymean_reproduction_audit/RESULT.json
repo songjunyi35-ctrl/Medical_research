@@ -1,0 +1,79 @@
+{
+  "utc": "2026-09-17T03:34:49.594619+00:00",
+  "status": "audit_completed_training_remains_stopped",
+  "scope": "three agents plus root; paper/code/log review and CPU synthetic checks",
+  "full_author_reproduction": false,
+  "same_training_recipe_except_gray": false,
+  "official_backbone_and_turbo_identity_supported": true,
+  "official_exact_source_commit_known": false,
+  "new_training": false,
+  "new_patient_inference": false,
+  "new_test_outer_confirmation_access": false,
+  "existing_test_reports_reviewed": true,
+  "actual_completed_training_epochs": 161,
+  "requested_target_epochs_historical": 200,
+  "findings": [
+    {
+      "id": "optimizer_updates",
+      "evidence": "confirmed",
+      "baseline_updates_per_epoch": 2,
+      "gray_updates_per_epoch_after2": 122,
+      "baseline_selected21_updates": 41,
+      "gray_selected50_updates": 7800,
+      "causal_attribution": "not isolated"
+    },
+    {
+      "id": "loss_and_sampling_changed",
+      "evidence": "confirmed",
+      "baseline_dice_ce_weights": [
+        1,
+        1
+      ],
+      "gray_dice_ce_weights": [
+        0.5,
+        0.5
+      ],
+      "baseline_replacements_per_epoch": 18,
+      "gray_replacements": 0
+    },
+    {
+      "id": "gray_implementation_unknowns",
+      "evidence": "author not confirmed",
+      "unknown": [
+        "soft/hard ROI",
+        "gray image scale",
+        "gray weight",
+        "interaction reduction",
+        "author training configuration"
+      ]
+    },
+    {
+      "id": "gradient_wiring",
+      "evidence": "synthetic and source checks passed; no obvious sign/detach bug found"
+    },
+    {
+      "id": "overfitting_like_curve",
+      "evidence": "both old and current validation decline while training fit improves; not causal proof"
+    },
+    {
+      "id": "official_threshold170",
+      "evidence": "image intensity heuristic for no-GT click; unused by current train/inference; not paper gray loss"
+    }
+  ],
+  "tests": {
+    "existing_synthetic_split_gradient_batch_checks": "6 passed",
+    "additional_gray_geometry_scale_gradient_checks": "passed",
+    "no_checkpoint_deserialization_during_audit": true
+  },
+  "artifact_sha256": {
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/RESULT.md": "a0ad021e6b143ae6f211579245740862cd92a519b1ff4255b56e8aa96403727e",
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/PAPER_AUDIT.md": "d82b7e5f4d776d0509e4b8ad82359f5fb64178efe3608aee3bbade30f3be494a",
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/TRAINING_AUDIT.md": "19e1c5cdb8d36679338fa4d5c01712feda13a6c37b1c47f78e5022f923a66087",
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/PUBLIC_CODE_RESEARCH.md": "324981ff52d4d7441d1b15050ae1985e6960eed55b4138c65a0e990c35e8fe09",
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/PUBLIC_CODE_SOURCES.json": "3992b46e0b6bb522af918f802319ea5346479659ed702807f723ccaccf3506bc",
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/PUBLIC_CODE_AST_COMPARISON.json": "7518818d35d3ed37a5ca1895bc95a5eb1f72ab8f3d867216aa4608916651357e",
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/LOCAL_DIAGNOSTICS.json": "5bf264c2e28b78dd45e0eb5a173538efceb400183d1ae51958f12833e83a74cf",
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/local_diagnostics.py": "58b00834687ddb2c07e3c3e82d6d75fe0b1ccf1087b22174ab2f806dc6144d2a",
+    "archive/reviews/2026-09-17_graymean_reproduction_audit/TRAINING_RECIPE_CURVES.png": "1f4a30b3fc9b5b71147cb8f52c01290796a324e316f6ad85a06bcea0adf37654"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_lomix3d_implementation_amendment",
+  "schema_version": 1,
+  "amendment": 1,
+  "timing": "after first GPU smoke but before formal training or validation",
+  "problem": "temporary deploy-model construction during save-epoch equivalence audits consumed RNG and could perturb the next epoch dropout stream relative to matched control",
+  "fix": "deploy_max_abs_difference now snapshots and restores CPU and CUDA RNG states and restores the wrapper train/eval mode",
+  "scientific_method_changed": false,
+  "control_alignment_improved": true,
+  "superseded_trainer_sha256": "1ed3bd913627cf624d4feb6d35c005d568f35235cf19787529e1a35374f73131",
+  "current_trainer_sha256": "205d4e80fac36b01fc7df75d850fda283c4b524f52a5fa4b85b2df7d499f4832",
+  "superseded_smoke_sha256": "cd3b7446a1fb14251a6eecff7e215f2212cf48e62b2d2f5d2f660c09c32b33b5",
+  "current_smoke_sha256": "4df452406b251f4901fe7e6f139568fb5ace059fef082b8b11365b5b499e1b18",
+  "current_smoke_all_gates_passed": true,
+  "formal_optimizer_steps_before_fix": 0,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

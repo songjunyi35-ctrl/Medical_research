@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-14T11:56:48.464239+08:00",
+  "research_candidate_only": true,
+  "existing_deployment_replaced": false,
+  "selected_best_new_method": "nnunet_resenc_20261013_mix_a0.75_t0.40",
+  "checkpoint_path": "workspace/BraTS/nnunet_t1ce_wt/resenc_20261013/model/fold_0/checkpoint_best.pth",
+  "checkpoint_sha256": "31f979ac3574b896e3bb85b6c5a410688b82de07a5ac5a26f73b7e1c7b13806e",
+  "plans_path": "workspace/BraTS/nnunet_t1ce_wt/resenc_20261013/model/plans.json",
+  "plans_sha256": "834c613928660f70931f0af31c9580b340c4b4268b3a60252390e10cafdea3d5",
+  "dataset_json_path": "workspace/BraTS/nnunet_t1ce_wt/resenc_20261013/model/dataset.json",
+  "inference_implementation": "scripts/nnunet_resenc_20261013/finalize_v3.py (manual predictor initialization)",
+  "single_input": "T1ce",
+  "preprocessing": "canonical N4 shrink2, image-support native crop, nonzero z-score; frozen nnU-Net preprocessing",
+  "threshold": 0.4,
+  "new_model_weight": 0.75,
+  "old_components": [
+    {
+      "source_id": "ref_native173",
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/deployment/2026-09-20_segresnet_native_res_e173_test270_57d6159802c9ac46.pth",
+      "checkpoint_sha256": "57d6159802c9ac46e374c48d6f6ed42cd656422fa3b802c70cc5883351a33af4",
+      "mode": "native",
+      "stored_epoch": 173,
+      "epoch_scope": "original source run"
+    },
+    {
+      "source_id": "ref_combination166",
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/deployment/2026-09-21_segresnet_pretrain_native_res_b2a37a7ed4ea7392.pth",
+      "checkpoint_sha256": "b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18",
+      "mode": "native",
+      "stored_epoch": 166,
+      "epoch_scope": "original source run"
+    }
+  ],
+  "formula": "0.25*mean(native173,combination166) + 0.75*nnunet foreground-background logits",
+  "mirroring": false,
+  "tile_step_size": 0.5,
+  "test_tuned": true
+}

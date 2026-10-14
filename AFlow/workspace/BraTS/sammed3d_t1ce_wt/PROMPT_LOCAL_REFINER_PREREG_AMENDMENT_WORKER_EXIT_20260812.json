@@ -1,0 +1,45 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_prompt_local_refiner_prereg_amendment",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-12T06:07:00Z",
+  "status": "frozen_after_engineering_smoke_and_before_formal_training",
+  "test_access": false,
+  "original_preregistration": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/PROMPT_LOCAL_REFINER_PREREG_20260812.json",
+    "sha256": "93ee5acc4152e5c20588ecbd63949fe78b84a53d5e7ab99ff1df8a27757dd7a1"
+  },
+  "new_information_seen": {
+    "allowed": "two-epoch engineering smoke only; no formal-training result existed",
+    "epoch_zero_global_validation_dsc": 0.669549,
+    "epoch_one_validation_dsc": 0.669674,
+    "epoch_two_validation_dsc": 0.669578,
+    "train_done_written": true,
+    "checkpoint_written": true,
+    "numerics": "finite, no NaN and no OOM",
+    "distributed": "two A100 ranks completed NCCL P2P training",
+    "failure": "after TRAIN_DONE was written, both ranks retained persistent DataLoader worker processes and torchrun did not exit",
+    "disposition": "the completed but non-exiting torchrun was terminated by exact PID; the parent pipeline exited and formal training never started"
+  },
+  "change": {
+    "scope": "DataLoader process lifecycle only",
+    "before": "persistent_workers=true when num_workers>0",
+    "after": "persistent_workers=false for train and validation DataLoaders",
+    "scientific_effect": "none: dataset, weighted sampling, seed, batch size, model, loss, optimizer, augmentation, validation and selection are unchanged",
+    "new_smoke_required": true
+  },
+  "unchanged": {
+    "single_fixed_geometry": "64^3 first-positive-click-centred cube",
+    "input_channels": "T1ce, frozen global logit, positive and negative click heatmaps",
+    "architecture": "MONAI SegResNet init_filters=16 dropout=0.1",
+    "loss": "DiceCE",
+    "optimizer": "AdamW lr=2e-4 weight_decay=1e-5",
+    "distributed": "2 A100 DDP ranks",
+    "batch_size": "4 per GPU",
+    "epochs_and_patience": "80 and 15",
+    "seed": 20260812,
+    "development_success_threshold": 0.68,
+    "target_reproduction_threshold": 0.70,
+    "automatic_cascade_and_test_gates": "unchanged"
+  },
+  "test_gate": "no sealed-test access"
+}

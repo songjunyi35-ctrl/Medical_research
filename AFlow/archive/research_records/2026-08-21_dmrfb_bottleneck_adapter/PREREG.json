@@ -1,0 +1,119 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dmrfb_adapter_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_implementation_smoke_formal_or_new_method_validation_access",
+  "method": "same_parameter_single_bottleneck_dmrfb_dilation",
+  "primary_source": {
+    "paper": "https://papers.miccai.org/miccai-2025/paper/4895_paper.pdf",
+    "official_repository": "https://github.com/SLDGroup/EfficientMedNeXt",
+    "commit": "803f7efed9b728ac93ae4e0d8a2602501135241f"
+  },
+  "source_boundary": "single source-inspired bottleneck block only; not full EfficientMedNeXt; no BraTS2024/T1ce-only/WT evidence",
+  "arms": {
+    "same_rf_control": {"branch_effective_receptive_fields": [1,3,3], "branch3_dilation": 1, "branch3_padding": 1},
+    "dmrfb_dilation2": {"branch_effective_receptive_fields": [1,3,5], "branch3_dilation": 2, "branch3_padding": 2}
+  },
+  "only_changed_factor": "branch3 dilation/padding metadata 1/1 to2/2",
+  "adapter": {
+    "tap": "SegResNet network.encode deepest encoded output after down_layers[3],shape Bx128x16x16x16",
+    "branches": [
+      "depthwise Conv3d128 k1 dilation1 padding0 bias=false",
+      "depthwise Conv3d128 k3 dilation1 padding1 bias=false",
+      "depthwise Conv3d128 k3 arm-specific dilation/padding bias=false"
+    ],
+    "concat_channels": 384,
+    "normalization": "GroupNorm groups128 channels384 eps1e-5 affine=true",
+    "activation": "GELU approximate=none",
+    "projection": "Conv3d384to128 k1 bias=true weight and bias initialized zero",
+    "residual": "adapter(x)=x+projection(gelu(groupnorm(concat(branches))))",
+    "parameter_count": 57088,
+    "deploy_total_parameters": 4757985,
+    "construction_seed": 20260901
+  },
+  "start_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/kd_seed20260846/plain_128_kd_global_epoch200.pth",
+    "sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+    "historical_validation_access": true,
+    "historical_test_access_after_selection": true
+  },
+  "fixed_training": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "manifest": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "cases": 756,
+    "subjects": 346,
+    "seed": 20260900,
+    "batch_size": 8,
+    "sampler": "weighted replacement756 draws,drop_last,94 steps/752 optimized draws",
+    "max_shift": 8,
+    "optimizer": "one AdamW with two parameter groups",
+    "base_lr": 1e-5,
+    "base_weight_decay": 1e-5,
+    "adapter_lr": 0.001,
+    "adapter_weight_decay": 0.08,
+    "betas": [0.9,0.999],
+    "eps": 1e-8,
+    "gradient_clip": 5.0,
+    "loss": "historical DiceCELoss sigmoid=true squared_pred=false lambda_dice1 lambda_ce0.1",
+    "global_epochs": [201,232],
+    "checkpoint_epochs": [208,216,224,232],
+    "teacher_forwards": 0
+  },
+  "initialization_gates": [
+    "all same-shaped adapter state tensors identical across arms",
+    "projection weight and bias exactly zero",
+    "plain/control/candidate FP32 and CUDA BF16 final logits max abs difference zero",
+    "step1 projection gradient finite nonzero",
+    "after first update step2 every branch,norm,and projection parameter gradient finite nonzero"
+  ],
+  "fixed_validation": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "selection": "maximum candidate Scan; Subject exact tie; earlier epoch final tie",
+    "threshold": 0.0,
+    "tta": false,
+    "sam": false,
+    "postprocessing": false
+  },
+  "bootstrap": {
+    "samples": 10000,
+    "vs_control_seeds": {"208":20261000,"216":20261001,"224":20261002,"232":20261003},
+    "vs_kd200_seeds": {"208":20261004,"216":20261005,"224":20261006,"232":20261007},
+    "boundary27_seeds": {"208":20261008,"216":20261009,"224":20261010,"232":20261011},
+    "bottom27_seeds": {"208":20261012,"216":20261013,"224":20261014,"232":20261015},
+    "algorithm": "paired percentile default_rng,linear quantile; scan108; subject50 after case mean; strata27"
+  },
+  "promotion_gates_all_required": [
+    "selected candidate Scan and Subject strictly beat same-epoch control",
+    "selected candidate Scan and Subject strictly beat KD200",
+    "Point at least101/108",
+    "paired Scan and Subject CI lower versus control and KD200 at least -0.003",
+    "boundary-top27 candidate-control mean strictly positive",
+    "KD200-bottom27 candidate-control mean nonnegative",
+    "all implementation,identity,two-step-gradient,pairing,reload,memory,hash,and access gates pass"
+  ],
+  "technical_stop": {
+    "memory": "batch8 formal peak allocated greater than24GiB",
+    "runtime": "per-arm or parallel wall extrapolated greater than45min",
+    "identity": "any epoch0 plain/control/candidate logit difference nonzero",
+    "gradient": "projection step1 or any adapter parameter step2 lacks finite nonzero gradient",
+    "deploy": "checkpoint reload difference nonzero or inference not single modified model forward"
+  },
+  "if_fail": "stop without dilation,branch,block,layer,adapter optimizer,epoch,threshold,or postprocessing search; no test270",
+  "cost": {
+    "gpus": "2xA100 parallel",
+    "estimated_wall_minutes": [20,25],
+    "estimated_peak_gib": [20.3,20.8],
+    "disk_gib_max": 0.2,
+    "new_cache": false,
+    "deploy_parameters": 4757985,
+    "deploy_forwards": 1
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

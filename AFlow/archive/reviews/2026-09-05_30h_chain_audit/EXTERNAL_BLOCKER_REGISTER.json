@@ -1,0 +1,174 @@
+{
+ "schema": "aflow.external_evidence.blocker_register",
+ "schema_version": 2,
+ "created_at_utc": "2026-09-06T02:30:00Z",
+ "updated_at_utc": "2026-09-07T07:42:00Z",
+ "completed_and_closed": {
+  "brats_africa95": "public post-challenge 95_Glioma evaluated once",
+  "cptac33": "public Training labels evaluated once as Africa-informed confirmation; Validation6 had no seg and stayed excluded",
+  "ucsd75": "mirror and same-cohort official-float correction both closed",
+  "waw_gliomai152": "final Zenodo preop T1c-mask exact intersection152 evaluated once; description156 corrected to final files",
+  "waw_postop_only31": "31 earliest numeric day0-22 scans from patients absent from evaluated WAW preop152; evaluated once and closed",
+  "openneuro_gbm334": "v1.0.1 exact processing-T1ce/final-mask intersection334; 332 input gates passed, two zero-crop-loss failures; zero external model/performance"
+ },
+ "blockers": [
+  {
+   "priority": 1,
+   "name": "EGD manual binary WT",
+   "potential_cases": 374,
+   "blocking_class": "user_institutional_agreement",
+   "blocker": "Health-RI DUA and account; anonymous subjects API 403",
+   "authorized_actor": "user/institution",
+   "first_step_after_resolution": "metadata-only manual quality and overlap freeze",
+   "model_access_now": false
+  },
+  {
+   "priority": 2,
+   "name": "CoRe-BT250 expert-corrected masks",
+   "potential_cases": 250,
+   "blocking_class": "user_institutional_agreement",
+   "blocker": "UW form, investigator contact, pre-approval, and signed DUA required; actual mask manifest and overlap not yet available",
+   "authorized_actor": "user/institution",
+   "first_step_after_resolution": "metadata-only mask count, labels, expert status, recurrent mix, overlap, checksum, and license freeze",
+   "model_access_now": false
+  },
+  {
+   "priority": 3,
+   "name": "UTSW manual multiclass",
+   "potential_cases": 362,
+   "blocking_class": "publisher_semantics",
+   "blocker": "undefined raw labels 3 and 5 in manual NIfTI",
+   "authorized_actor": "UTSW/TCIA publisher",
+   "first_step_after_resolution": "archive official mapping then freeze target anew",
+   "model_access_now": false
+  },
+  {
+   "priority": 4,
+   "name": "BraTS-Africa 2024 new patients",
+   "potential_cases": 20,
+   "blocking_class": "await_public_release",
+   "blocker": "current TCIA Version1 contains only already-evaluated 2023 public95",
+   "authorized_actor": "TCIA/BraTS publisher",
+   "first_step_after_resolution": "metadata-only ID difference; new patients only",
+   "model_access_now": false
+  },
+  {
+   "priority": 5,
+   "name": "UCSF-PDGM apparently unmapped",
+   "potential_cases": 199,
+   "blocking_class": "patient_overlap_crosswalk",
+   "blocker": "same UCSF source institution as BraTS2024 and no PDGM-to-2024 patient bridge",
+   "authorized_actor": "UCSF/TCIA/BraTS publisher",
+   "first_step_after_resolution": "exclude all patient-level overlaps before pixels",
+   "model_access_now": false
+  },
+  {
+   "priority": 6,
+   "name": "BraTS2024 official training-source parity",
+   "potential_cases": 1350,
+   "blocking_class": "user_self_sign",
+   "blocker": "Synapse SelfSign9606685; local Kaggle-to-official parity unknown",
+   "authorized_actor": "user",
+   "first_step_after_resolution": "official zip MD5/member SHA comparison only",
+   "model_access_now": false
+  },
+  {
+   "priority": 7,
+   "name": "ReMIND T1ce manual tumor",
+   "potential_cases": 43,
+   "blocking_class": "publisher_geometry_or_delivery",
+   "blocker": "NRRD dual transfer failed; DICOM SEG has no SOP mapping and strict frame geometry failed",
+   "authorized_actor": "publisher/new independent source window",
+   "first_step_after_resolution": "new source-level native-grid contract",
+   "model_access_now": false
+  },
+  {
+   "priority": 8,
+   "name": "RHUH post-op/recurrence",
+   "potential_cases": 80,
+   "blocking_class": "compatible_input_and_model",
+   "blocker": "canonical equivalence failed; no-N4 model failed; Otsu bridge not exact",
+   "authorized_actor": "future evidence-qualified method or publisher pre-zscore source",
+   "first_step_after_resolution": "new preregistration without checkpoint/input mismatch",
+   "model_access_now": false
+  },
+  {
+   "priority": 9,
+   "name": "MOTUM-HGG29",
+   "potential_cases": 29,
+   "potential_subjects": 29,
+   "blocking_class": "image_support_label_geometry",
+   "blocker": "case0001 has 892/21007 WT voxels outside both positive and nonzero T1ce support bbox; GT expansion/padding/case exclusion forbidden",
+   "authorized_actor": "publisher corrected brain support or future independently evidence-qualified full-FOV model",
+   "first_step_after_resolution": "new input-only exact gate with publisher-defined support",
+   "model_access_now": false
+  },
+  {
+   "priority": 10,
+   "name": "UPENN preoperative corrected",
+   "potential_cases": 232,
+   "blocking_class": "official_manifest_parity_and_patient_overlap",
+   "blocker": "data-nih mirror has only147 seg vs official232; no official member parity and 173 prior-BraTS cases without 2024 crosswalk",
+   "authorized_actor": "TCIA/UPENN publisher",
+   "first_step_after_resolution": "freeze complete official232 and exclude patient overlaps before pixels",
+   "model_access_now": false
+  },
+  {
+   "priority": 11,
+   "name": "OpenNeuro-GBM334",
+   "potential_cases": 334,
+   "potential_subjects": 334,
+   "blocking_class": "image_support_label_geometry",
+   "blocker": "BO118 and KA86 have 4/348742 and 6/97700 WT voxels outside publisher skull-stripped positive-image crop; frozen zero-loss gate failed",
+   "authorized_actor": "publisher corrected brain support or future independently evidence-qualified full-FOV model",
+   "first_step_after_resolution": "new input-only gate without case exclusion, GT crop/padding selection, or source-variant rescue",
+   "model_access_now": false
+  },
+  {
+   "priority": 12,
+   "name": "IMAGO automatic segmentations",
+   "potential_cases": 249,
+   "blocking_class": "automatic_labels_and_user_DUA",
+   "blocker": "PICTURE-generated masks were neuroradiologist accept/reject filtered rather than voxelwise corrected; postoperative masks contain enhancing residue only; EUCAIM/Health-RI registration, negotiator, and DUA also required",
+   "authorized_actor": "publisher for expert-refined labels and user/institution for DUA",
+   "first_step_after_resolution": "freeze manual annotation level, all eligible cases, and patient overlap before pixels",
+   "model_access_now": false
+  },
+  {
+   "priority": 13,
+   "name": "fresh internal inner (reused-development alternative now authorized)",
+   "potential_cases": 3,
+   "potential_subjects": 2,
+   "blocking_class": "immutable_role_capacity",
+   "blocker": "insufficient never-evaluated cases for even one 42-scan fold",
+   "authorized_actor": "new data or explicit user objective/role change",
+   "first_step_after_resolution": "fresh remains unavailable; fixed reused roles already frozen and current paired training running",
+   "model_access_now": false,
+   "reused_development_authorized_20260907": {
+    "scans": 864,
+    "subjects": 391,
+    "fit_scans": 684,
+    "fit_subjects": 313,
+    "development_scans": 180,
+    "development_subjects": 78,
+    "model_access_within_reused_scope": true,
+    "authorization_path": "archive/research_records/2026-09-07_reused_development_roles/AUTHORIZATION.md",
+    "split_path": "archive/research_records/2026-09-07_reused_development_roles/SPLIT.json",
+    "external_or_test_reaccess_authorized": false
+   }
+  },
+  {
+   "priority": 14,
+   "name": "BraTS-PEDs257 treatment-naive pediatric HGG",
+   "potential_cases": 257,
+   "blocking_class": "input_chain_precondition",
+   "blocker": "official release not skull-stripped (defaced only), no template/1mm standardization; frozen canonical image-only brain-crop chain is defined only for skull-stripped inputs; self-added skull-stripping is an ungated new input component with no fresh development capacity",
+   "authorized_actor": "publisher skull-stripped variant, or future independently gated skull-strip bridge under a new data role",
+   "first_step_after_resolution": "freeze all-positive {1,2,3,4} target with explicit divergence note vs pediatric official WT=ET+NET+CC; dual-transfer SHA gate (no .sums); non-1mm grid caveat",
+   "model_access_now": false,
+   "evidence": "archive/reviews/2026-09-06_brats_peds_source_audit/RESULT.md"
+  }
+ ],
+ "no_external_messages_or_agreements_sent": true,
+ "no_action_authorized_by_this_register": true
+}

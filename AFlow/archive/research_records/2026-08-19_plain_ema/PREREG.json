@@ -1,0 +1,83 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_ema_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_validation_cache_build_and_training",
+  "objective": "improve true-128^3 plain locator generalization with zero-inference-overhead late-cosine EMA",
+  "mechanism_hypothesis": "EMA reduces stochastic sampling/augmentation weight noise and large-tail regressions in the late low-learning-rate basin",
+  "train": {
+    "manifest": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "cases": 756,
+    "subjects": 346,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "cache_images_sha256": "a32d52e188395d41a185d51b33e105d4f67638fceec50861f81e4c8a33b90d40",
+    "cache_labels_sha256": "cf2ed4ae8dcbf0214ca18564f1ce4418efbea208b8b3ab67fc52bb050c5464be",
+    "seed": 20260833,
+    "resolution": 128,
+    "epochs": 200,
+    "schedule": "epochs1-100 constant 2e-4; epochs101-200 cosine to 1e-5",
+    "batch_size": 8,
+    "model_parameters": 4700897,
+    "loss": "DiceCE(lambda_dice=1.0, lambda_ce=0.1)",
+    "optimizer": "AdamW(weight_decay=1e-5)",
+    "max_shift": 8,
+    "threshold": 0.0
+  },
+  "ema": {
+    "initialize_from_raw_after_epoch": 100,
+    "first_update_epoch": 101,
+    "decay_per_optimizer_step": 0.999,
+    "floating_parameters_and_buffers": "ema = 0.999 * ema + 0.001 * raw",
+    "integer_buffers": "copy raw",
+    "hyperparameter_search": false,
+    "inference_parameter_or_compute_increase": false
+  },
+  "fixed_checkpoints": [
+    "raw_epoch168",
+    "ema_epoch168",
+    "raw_epoch200",
+    "ema_epoch200"
+  ],
+  "validation": {
+    "description": "historical fixed validation108; development-only, not external confirmation",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 45,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "threshold": "raw logit > 0",
+    "tta": false,
+    "postprocessing": false,
+    "bootstrap_seed": 20260834,
+    "bootstrap_samples": 10000,
+    "primary": "EMA epoch200 minus same-trajectory raw epoch200",
+    "secondary": "EMA epoch168 minus same-trajectory raw epoch168",
+    "primary_gates_all_required": {
+      "scan_gain": "> 0",
+      "subject_gain": "> 0",
+      "point_hit_delta": ">= -0.01",
+      "paired_subject_95ci_lower": ">= -0.003",
+      "raw_and_ema_reload_max_abs_difference": "== 0"
+    }
+  },
+  "decision": {
+    "if_primary_passes": "EMA epoch200 becomes a development candidate eligible for a separately frozen test evaluation",
+    "if_primary_fails": "EMA is negative; do not tune decay, start epoch, threshold, or checkpoint on test",
+    "test270_results_from_resolution_experiment_used_for_ema_hyperparameters": false
+  },
+  "outputs": {
+    "training": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200",
+    "validation": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/EMA_VALIDATION.json"
+  },
+  "code": {
+    "scripts/train_t1ce_wt_plain_ema_full_cohort.py": "30cd78c0a8f905c9026d6d9abd8385ac0c44d7782d8b64328335a604f692f4b2",
+    "scripts/evaluate_t1ce_wt_plain_ema_validation.py": "fb9d895ae21684612395fedd6415eab836d3da307f7ea96e96f22cd8a0e9e060",
+    "scripts/build_t1ce_wt_braincrop_cache.py": "fcb1428300be5b376a82cb4413590d37204ac0b84ed2904ae891aa43e3b217c3",
+    "tests/test_t1ce_wt_plain_ema.py": "5473e29dd20c59530e55bed8f2778f32f0097bdd809d2552dc9912de28d81677",
+    "tests/test_t1ce_wt_plain_ema_analysis.py": "cfae0afbf3a43320e752a460a24b9c19dfea9084e7dc3305f7fd21cf1c93c0d7"
+  },
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access_during_training_and_validation": false
+}

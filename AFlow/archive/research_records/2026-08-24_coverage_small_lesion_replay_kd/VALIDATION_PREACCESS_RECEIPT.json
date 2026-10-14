@@ -1,0 +1,58 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_coverage_small_lesion_replay_kd_validation.preaccess_receipt",
+  "schema_version": 1,
+  "status": "frozen_before_validation",
+  "created_utc": "2026-08-24T00:00:00Z",
+  "implementation_receipt_sha256": "17535ed9fef216ad2fc15357b4b7f027cc558363e380665700cf5ef766ec26ae",
+  "evaluator_sha256": "f3b2ffffb98cf901ef6345113c6295821b315e371f7fad5f59cf69a3aefbd3a6",
+  "evaluator_amendment_sha256": "f080a62388c16ad865a0cbaedd338977214c3d81e4f5df1ca10d37d6ffb804ca",
+  "control_training_report_sha256": "ffc51f7288defccfcb7c09213fc41b70e54e75662c6b13edffac65f6e9da0c8a",
+  "candidate_training_report_sha256": "0887859fe99aa77b4b2740c621cdc30b444576ee9de94803b599a73efe735579",
+  "checkpoint_sha256": {
+    "native_replacement_control": {
+      "176": "d2edf7bb9289ebce34bb0df1ba4ea60a492ada05736177defc13f41aed51a0a1",
+      "184": "fc9f6b3ec92606973f315796d81205eceb65bddc9f0b02a0385e06dea73d6ddb",
+      "192": "6615b30fe27a8cf7caee44dcffb74bf7ca155f1d91d1bbce053b00397633d003",
+      "200": "2f895cea714fcfe56f0aa45a88651d5e4d52cf67cd6cd6c64397431e8ec2b5f9"
+    },
+    "coverage_replay_candidate": {
+      "176": "a03d67807c727483a3620c04c63cba18e3d2536eead97e884dae2c41f5e70c89",
+      "184": "2e1389b8e6a3ff4f707845b2be0bf6e87e45296eb5f0271f8ae9506c4efb16bc",
+      "192": "6c857763f181efaa91bf1ce0887c360f78b43c7c459faa9a15975946c7eabae4",
+      "200": "4a02e9ba0beb704a3b1a6429394df39bff5a706f418c12c10436230f7f658ae4"
+    }
+  },
+  "validation": {
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "scans": 108,
+    "subjects": 50,
+    "metric": "raw-logit threshold0 Scan Dice primary; Subject Dice exact tie-break; Point diagnostic and promotion gate"
+  },
+  "archived_kd200_validation_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57",
+  "selection": {
+    "candidate_epochs": [176, 184, 192, 200],
+    "rule": "maximum candidate Scan Dice; Subject Dice exact tie; earlier epoch exact tie",
+    "threshold": 0.0,
+    "tta": false,
+    "sam": false,
+    "postprocessing": false
+  },
+  "statistics": {
+    "paired_bootstrap_draws": 10000,
+    "candidate_vs_control_seeds": [20261240, 20261241, 20261242, 20261243],
+    "candidate_vs_kd200_seeds": [20261244, 20261245, 20261246, 20261247],
+    "confidence_interval": "95% paired percentile"
+  },
+  "promotion": {
+    "strictly_beat_same_epoch_control_scan_subject": true,
+    "strictly_beat_archived_kd200_scan_subject": true,
+    "minimum_point_hits_of_108": 101,
+    "all_four_ci_lower_bounds_minimum": -0.003,
+    "test_only_if_every_gate_passes": true
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

@@ -1,0 +1,90 @@
+{
+  "utc": "2026-09-17T05:31:26.794621+00:00",
+  "status": "stopped_by_user",
+  "reason": "validation plateau beyond selected epoch25; user requested early stop",
+  "completed_epochs": 45,
+  "planned_epochs": 200,
+  "completed_200_epochs": false,
+  "interrupted_epoch": 46,
+  "cumulative_optimizer_updates": 90,
+  "scans_per_epoch": 972,
+  "train_subjects": 444,
+  "validation_scans": 108,
+  "validation_subjects": 50,
+  "selected_epoch": 25,
+  "selection": "preregistered best5 scan Dice; earlier tie",
+  "selected_validation": {
+    "scans": 108,
+    "subjects": 50,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "scan_best5": 0.5714930290004437,
+    "subject_best5": 0.5668723654941136,
+    "scan_best5_ci95": [
+      0.522634115126449,
+      0.6134516425252474
+    ],
+    "subject_best5_ci95": [
+      0.5241936241685361,
+      0.6063121769763943
+    ],
+    "scan_final5": 0.5611916066398365,
+    "subject_final5": 0.5571528054187418,
+    "scan_final5_ci95": [
+      0.5109484884874749,
+      0.6044796654782637
+    ],
+    "subject_final5_ci95": [
+      0.5133693353657669,
+      0.5977216276048329
+    ]
+  },
+  "latest_validation": {
+    "scan_final5": 0.5459038824764328,
+    "subject_final5": 0.5469745957409209,
+    "scan_best5": 0.5546026729408866,
+    "scans": 108,
+    "subjects": 50,
+    "subject_best5": 0.5548970834471786,
+    "epoch": 45,
+    "created_utc": "2026-09-17T05:27:30.810958+00:00",
+    "method": "mumford_shah_single972"
+  },
+  "best_observed_final5": {
+    "epoch": 35,
+    "scan_final5": 0.5615343155249141,
+    "checkpoint_retained": false,
+    "note": "auxiliary final5 metric only; selection remains best5 epoch25"
+  },
+  "old_validation_best5_reference": 0.5713061351995669,
+  "delta_validation_best5_vs_historical": 0.00018689380087688612,
+  "predeclared_validation_point_gate_passed": true,
+  "interpretation": "tiny point-estimate gate passed; no clear superiority established; no claim of 200epoch completion, causal loss benefit or general impossibility",
+  "stop_was_preregistered": false,
+  "prior_test_informed_method_choice": true,
+  "new_test_pixels_access": false,
+  "new_outer_confirmation_access": false,
+  "training_resumes_only_on_explicit_user_request": true,
+  "cost": {
+    "completed_epoch_training_seconds": 3536.7274764329195,
+    "wall_seconds_to_last_complete_epoch": 4692.966505564749,
+    "allocated_gpu_hours": 2.6072036142026387,
+    "peak_allocated_bytes_per_gpu": 24438993920,
+    "note": "allocation-hours include validation waits; interrupted epoch46 and synthetic smoke are additional compute not included",
+    "new_snapshot_bytes": 402161985,
+    "inference": "one encoder + five interactive decoder calls; no extra MS inference"
+  },
+  "evidence": {
+    "archive/research_records/2026-09-17_sammed3d_mumford_shah_single972/checkpoint_epoch025.pth": "19941314b6e62594ad610b54fcee981f87dd82af9efb1813b92bb0a85654cf90",
+    "workspace/BraTS/sammed3d_t1ce_wt/mumford_shah_single972_20260917/best.pth": "19941314b6e62594ad610b54fcee981f87dd82af9efb1813b92bb0a85654cf90",
+    "workspace/BraTS/sammed3d_t1ce_wt/mumford_shah_single972_20260917/latest.pth": "25fda0b744890539f6bc7d2f2c07e480764b2605a7775fa8288a71ba4dd0ee6a",
+    "workspace/BraTS/sammed3d_t1ce_wt/mumford_shah_single972_20260917/TRAIN.jsonl": "2ec514d7427e3841d1515a754291314991240c8f4e030951c586f01dca1b0190",
+    "workspace/BraTS/sammed3d_t1ce_wt/mumford_shah_single972_20260917/validation_e025.json": "102cb70af221ec1a73a5f5289311d85a6c32e6f0e720b3c7cc36260aef657108",
+    "workspace/BraTS/sammed3d_t1ce_wt/mumford_shah_single972_20260917/validation_e045.json": "0d7734e3af9ca3c2a96b030c0ff6076653e7ae9b0fe39bb71fc87d4968e5c9bb",
+    "archive/research_records/2026-09-17_sammed3d_mumford_shah_single972/RAW_SELECTED_VALIDATION.json": "102cb70af221ec1a73a5f5289311d85a6c32e6f0e720b3c7cc36260aef657108",
+    "archive/research_records/2026-09-17_sammed3d_mumford_shah_single972/USER_STOP_PROCESS_RECEIPT.json": "72f5b75380dd13ce8619c8a41d37cc74f60e9546fde9564dda59487a95ad6e14",
+    "archive/research_records/2026-09-17_sammed3d_mumford_shah_single972/FREEZE.json": "58d2c0da30a041479fb5638f2943673534f0d1c18a0f8ab42ab7c46e21d26e34",
+    "archive/research_records/2026-09-17_sammed3d_mumford_shah_single972/TRAIN_PREACCESS.json": "b0186fc2c88fe759e2a42ecf93120081ef99dc4cb210863bd5a87a82db2b2416",
+    "archive/research_records/2026-09-17_sammed3d_mumford_shah_single972/VALIDATION_PREACCESS.json": "25279eac69a94ed0de14c8b29563d7737659cbeeedbab2cbbb1d06613eee2d55",
+    "archive/research_records/2026-09-17_sammed3d_mumford_shah_single972/DATA_AUDIT.json": "4e178ae2dde64b069471d91df4260f46898209c05ac9a8175515537c0e2e61bd"
+  }
+}

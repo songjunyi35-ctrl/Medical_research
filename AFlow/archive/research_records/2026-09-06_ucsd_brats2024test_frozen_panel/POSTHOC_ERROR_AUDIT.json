@@ -1,0 +1,85 @@
+{
+  "cache_target_voxels_128_mean": 39167.892857142855,
+  "created_at_utc": "2026-09-06T14:16:15.871917+00:00",
+  "descriptive_only": true,
+  "empty_prediction_precision_convention": 1.0,
+  "gcsam_point_miss_cases": [
+    "UCSD-PTGBM-0052_01",
+    "UCSD-PTGBM-0057_01",
+    "UCSD-PTGBM-0070_01",
+    "UCSD-PTGBM-0109_01"
+  ],
+  "model_inference": false,
+  "new_forwards": 0,
+  "no_router_threshold_or_repeat_authorized": true,
+  "per_model": {
+    "full_flip8": {
+      "precision_mean": 0.7511014984141922,
+      "pred_over_target_mean_ratio": 0.9683550940502471,
+      "predicted_voxels_mean": 37928.42857142857,
+      "recall_mean": 0.7455005610146703,
+      "target_voxels_mean": 39167.892857142855
+    },
+    "full_identity": {
+      "precision_mean": 0.7399910261148929,
+      "pred_over_target_mean_ratio": 0.9826137661951618,
+      "predicted_voxels_mean": 38486.91071428572,
+      "recall_mean": 0.7492005343906155,
+      "target_voxels_mean": 39167.892857142855
+    },
+    "gcsam": {
+      "precision_mean": 0.7173614204670044,
+      "pred_over_target_mean_ratio": 1.0023456712449428,
+      "predicted_voxels_mean": 39259.767857142855,
+      "recall_mean": 0.7561056249602481,
+      "target_voxels_mean": 39167.892857142855
+    }
+  },
+  "posthoc_deltas": {
+    "flip8_minus_identity": {
+      "precision_delta_mean": 0.011110472299299358,
+      "precision_delta_posthoc_95ci": [
+        0.004542067212403576,
+        0.01768244594707499
+      ],
+      "predicted_voxels_delta_mean": -558.4821428571429,
+      "predicted_voxels_delta_posthoc_95ci": [
+        -926.4669642857142,
+        -188.94107142857152
+      ],
+      "recall_delta_mean": -0.003699973375945214,
+      "recall_delta_posthoc_95ci": [
+        -0.01248085898665851,
+        0.005754326468901287
+      ]
+    },
+    "gcsam_minus_full": {
+      "precision_delta_mean": -0.02262960564788863,
+      "precision_delta_posthoc_95ci": [
+        -0.04383218885121223,
+        -0.004369687353701118
+      ],
+      "predicted_voxels_delta_mean": 772.8571428571429,
+      "predicted_voxels_delta_posthoc_95ci": [
+        -518.1674107142858,
+        1908.7361607142857
+      ],
+      "recall_delta_mean": 0.006905090569632566,
+      "recall_delta_posthoc_95ci": [
+        -0.010826218881907395,
+        0.027023681405550785
+      ]
+    }
+  },
+  "raw_report_sha256": "74466d1cdc56d864d48e5d8604e00d004ecdb636882366546b4738a1b794201c",
+  "schema": "aflow.ucsd_brats2024test.posthoc_error_audit",
+  "schema_version": 1,
+  "train_target_support": {
+    "cases_above_train_max": 0,
+    "cases_above_train_p90": 7,
+    "cases_above_train_p95": 3,
+    "cohort_raw_wt_median": 40266.5,
+    "cohort_train_percentile_median": 0.4835390946502057,
+    "train972_native_wt_median": 41842.0
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "access": {
+    "new_model_forwards": 0,
+    "new_protected_cohort_access": false,
+    "saved_development_reports_and_fit_metadata": true
+  },
+  "cohort": {
+    "development_scans": 180,
+    "development_subjects": 78,
+    "fit_scans": 684,
+    "fit_subjects": 313,
+    "role": "user_authorized_reused_development"
+  },
+  "costs": {
+    "deployment_forwards_per_model": 1,
+    "formal_development_forwards": 1080,
+    "formal_evaluation_seconds": 35.23588668461889,
+    "peak_per_gpu_bytes": 22187487744,
+    "recovery_bytes": 339214596,
+    "shared_auxiliary_cache_bytes": 1434451968,
+    "training_gpu_hours": 12.092729790453644,
+    "unique_checkpoint_bytes": 112994454,
+    "unique_training_runs": 6
+  },
+  "created_utc": "2026-09-07T13:09:29.605700+00:00",
+  "descriptive_maxima_not_checkpoint_selection": {
+    "point": {
+      "arm": "control",
+      "metrics": {
+        "point_hits": 170,
+        "scan_cluster_95ci": [
+          0.7220378739199991,
+          0.7680150359177152
+        ],
+        "scan_dice": 0.7467623159085335,
+        "scans": 180,
+        "subject_95ci": [
+          0.6939704631530584,
+          0.7659755800832712
+        ],
+        "subject_dice": 0.7332128332327316,
+        "subjects": 78
+      },
+      "seed": 2026090711,
+      "study": "auxiliary"
+    },
+    "scan": {
+      "arm": "subject_balanced",
+      "metrics": {
+        "point_hits": 168,
+        "scan_cluster_95ci": [
+          0.7316952458929581,
+          0.7775637735800728
+        ],
+        "scan_dice": 0.7559059562841979,
+        "scans": 180,
+        "subject_95ci": [
+          0.7031338902706205,
+          0.7760920668767479
+        ],
+        "subject_dice": 0.7427245214879262,
+        "subjects": 78
+      },
+      "seed": 2026090712,
+      "study": "subject_sampling"
+    },
+    "subject": {
+      "arm": "subject_balanced",
+      "metrics": {
+        "point_hits": 168,
+        "scan_cluster_95ci": [
+          0.7316952458929581,
+          0.7775637735800728
+        ],
+        "scan_dice": 0.7559059562841979,
+        "scans": 180,
+        "subject_95ci": [
+          0.7031338902706205,
+          0.7760920668767479
+        ],
+        "subject_dice": 0.7427245214879262,
+        "subjects": 78
+      },
+      "seed": 2026090712,
+      "study": "subject_sampling"
+    }
+  },
+  "development_sha256": "53885b7e300f915d81eecb115b82123e25330b7da422d3ff0b889b0489a2cdac",
+  "fit_sha256": "75504df75fa734723945a9f07d76696fdcca89b8c29563dc0ad02a2560718d61",
+  "goal_duration_claim": "not addressed by this scientific summary; verify active Goal separately",
+  "script_sha256": "95d31ca7fdcbd77db2402f43a718faae28e40f9edb304ecb0d8113876dd85209",
+  "selection": {
+    "failed_seed_dropped": false,
+    "new_checkpoint_selected_for_test": false,
+    "point_gate_relaxed": false
+  },
+  "status": "two_studies_complete_both_joint_gates_failed_segmentation_gain_retained",
+  "studies": {
+    "auxiliary": {
+      "average_scan_delta": -0.003838836319336625,
+      "average_subject_delta": -0.004159114512044038,
+      "comparisons": {
+        "2026090711": {
+          "improved": 92,
+          "point_delta": -4,
+          "scan_cluster_95ci": [
+            -0.010668538591962744,
+            0.003736539000601968
+          ],
+          "scan_delta": -0.0027183984845624565,
+          "subject_95ci": [
+            -0.012727358520559185,
+            0.003427021006036891
+          ],
+          "subject_delta": -0.00398906123063103,
+          "tied": 1,
+          "worse": 87
+        },
+        "2026090712": {
+          "improved": 73,
+          "point_delta": -2,
+          "scan_cluster_95ci": [
+            -0.009987977999539639,
+            0.00014995837383397767
+          ],
+          "scan_delta": -0.004959274154110793,
+          "subject_95ci": [
+            -0.00987965915596551,
+            0.0014073457436917037
+          ],
+          "subject_delta": -0.004329167793457045,
+          "tied": 2,
+          "worse": 105
+        }
+      },
+      "evaluation_seconds": 23.119316620752215,
+      "joint_gate_passed": false,
+      "new_forwards": 720,
+      "raw_sha256": "80e9bd449d7c72a61de0ecdbdfbc5bb3a61814e7770bbcc1c983ac097b4cd2c6",
+      "result_path": "archive/research_records/2026-09-07_structured_background_aux/RESULT.json",
+      "result_sha256": "a59c919f358890cfe1f7552796d8259b0088cff99522494489dadfa1ecf62c1e",
+      "status": "completed_reused_development_gate_failed"
+    },
+    "subject_sampling": {
+      "average_scan_delta": 0.009220522553535448,
+      "average_subject_delta": 0.010413441004112123,
+      "comparisons": {
+        "2026090711": {
+          "improved": 118,
+          "point_delta": -3,
+          "scan_cluster_95ci": [
+            0.0015553652737589326,
+            0.012000775264416582
+          ],
+          "scan_delta": 0.006712506454437217,
+          "subject_95ci": [
+            0.0015311518691765562,
+            0.013552047004858318
+          ],
+          "subject_delta": 0.007420495590116483,
+          "tied": 1,
+          "worse": 61
+        },
+        "2026090712": {
+          "improved": 119,
+          "point_delta": 5,
+          "scan_cluster_95ci": [
+            0.005220724895760862,
+            0.019021115361279747
+          ],
+          "scan_delta": 0.01172853865263368,
+          "subject_95ci": [
+            0.006627159794651781,
+            0.020810514007604877
+          ],
+          "subject_delta": 0.013406386418107763,
+          "tied": 2,
+          "worse": 59
+        }
+      },
+      "evaluation_seconds": 12.116570063866675,
+      "joint_gate_passed": false,
+      "new_forwards": 360,
+      "raw_sha256": "96785e393fd1033684014fda091f2de1545b42a0fce6fe226f79a8a10630017d",
+      "result_path": "archive/research_records/2026-09-07_subject_balanced_sampling/RESULT.json",
+      "result_sha256": "cfd44c8e727cae2250898e8b74084025fa370ab5b228c65cc161cfb00eb165e3",
+      "status": "completed_reused_development_gate_failed"
+    }
+  },
+  "training": [
+    {
+      "arm": "control",
+      "checkpoint_bytes": 18832409,
+      "peak_bytes": 22187487744,
+      "recovery_bytes": 56535734,
+      "seconds": 7222.5615638503805,
+      "seed": 2026090711,
+      "study": "auxiliary"
+    },
+    {
+      "arm": "candidate",
+      "checkpoint_bytes": 18832409,
+      "peak_bytes": 22187487744,
+      "recovery_bytes": 56535734,
+      "seconds": 7294.203853790648,
+      "seed": 2026090711,
+      "study": "auxiliary"
+    },
+    {
+      "arm": "control",
+      "checkpoint_bytes": 18832409,
+      "peak_bytes": 22187487744,
+      "recovery_bytes": 56535798,
+      "seconds": 7219.952037965879,
+      "seed": 2026090712,
+      "study": "auxiliary"
+    },
+    {
+      "arm": "candidate",
+      "checkpoint_bytes": 18832409,
+      "peak_bytes": 22187487744,
+      "recovery_bytes": 56535798,
+      "seconds": 7294.826526683755,
+      "seed": 2026090712,
+      "study": "auxiliary"
+    },
+    {
+      "arm": "subject_balanced",
+      "checkpoint_bytes": 18832409,
+      "peak_bytes": 22187487744,
+      "recovery_bytes": 56535734,
+      "seconds": 7218.295276791789,
+      "seed": 2026090711,
+      "study": "subject_sampling"
+    },
+    {
+      "arm": "subject_balanced",
+      "checkpoint_bytes": 18832409,
+      "peak_bytes": 22187487744,
+      "recovery_bytes": 56535798,
+      "seconds": 7283.987986550666,
+      "seed": 2026090712,
+      "study": "subject_sampling"
+    }
+  ],
+  "unique_models": [
+    {
+      "arm": "control",
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+        "sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e"
+      },
+      "metrics": {
+        "point_hits": 170,
+        "scan_cluster_95ci": [
+          0.7220378739199991,
+          0.7680150359177152
+        ],
+        "scan_dice": 0.7467623159085335,
+        "scans": 180,
+        "subject_95ci": [
+          0.6939704631530584,
+          0.7659755800832712
+        ],
+        "subject_dice": 0.7332128332327316,
+        "subjects": 78
+      },
+      "seed": 2026090711,
+      "study": "auxiliary",
+      "train_report_sha256": "6cbbf960f62657080b7cb1153ae30040ab42a2299cd38c49142543effd17a1f1"
+    },
+    {
+      "arm": "candidate",
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_candidate/fixed_epoch168.pth",
+        "sha256": "b493039d63428368d17b1fcc33d67231c5d91667f5b6acb02274ac054a8750f3"
+      },
+      "metrics": {
+        "point_hits": 166,
+        "scan_cluster_95ci": [
+          0.716525510864678,
+          0.7677814471283433
+        ],
+        "scan_dice": 0.744043917423971,
+        "scans": 180,
+        "subject_95ci": [
+          0.6894782293835321,
+          0.7643246461480416
+        ],
+        "subject_dice": 0.7292237720021005,
+        "subjects": 78
+      },
+      "seed": 2026090711,
+      "study": "auxiliary",
+      "train_report_sha256": "87e5913f710e2125fb114247b8b304a2493bfed6894962649f1517640ae48146"
+    },
+    {
+      "arm": "control",
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+        "sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43"
+      },
+      "metrics": {
+        "point_hits": 163,
+        "scan_cluster_95ci": [
+          0.7180479848961637,
+          0.7666715024562765
+        ],
+        "scan_dice": 0.7441774176315642,
+        "scans": 180,
+        "subject_95ci": [
+          0.688772332021729,
+          0.7632836593286533
+        ],
+        "subject_dice": 0.7293181350698185,
+        "subjects": 78
+      },
+      "seed": 2026090712,
+      "study": "auxiliary",
+      "train_report_sha256": "0ccd09881b1c7e5a9f58c46b512d7ed2880cfc09b947022e59eb6066ab10b9a7"
+    },
+    {
+      "arm": "candidate",
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_candidate/fixed_epoch168.pth",
+        "sha256": "475b0bb269d98c2532374ea554ec1150e1f4326556100fc270e487bc577600e7"
+      },
+      "metrics": {
+        "point_hits": 161,
+        "scan_cluster_95ci": [
+          0.7128884207598064,
+          0.7631437327639915
+        ],
+        "scan_dice": 0.7392181434774534,
+        "scans": 180,
+        "subject_95ci": [
+          0.6856899285371769,
+          0.7599109581195986
+        ],
+        "subject_dice": 0.7249889672763614,
+        "subjects": 78
+      },
+      "seed": 2026090712,
+      "study": "auxiliary",
+      "train_report_sha256": "01b2a77a6265c01b14786b5152fb7a6cd7f409ec12ce2deb6cf8851720ac9f0f"
+    },
+    {
+      "arm": "subject_balanced",
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/subject_balanced_sampling_20260907/seed2026090711_subject_balanced/fixed_epoch168.pth",
+        "sha256": "576cc8ff936695dfc109ec5c30af07fa57a539100368ecded080d3876b045efb"
+      },
+      "metrics": {
+        "point_hits": 167,
+        "scan_cluster_95ci": [
+          0.7285537088308239,
+          0.7756924932099245
+        ],
+        "scan_dice": 0.7534748223629707,
+        "scans": 180,
+        "subject_95ci": [
+          0.7013560939164799,
+          0.7742410822382302
+        ],
+        "subject_dice": 0.740633328822848,
+        "subjects": 78
+      },
+      "seed": 2026090711,
+      "study": "subject_sampling",
+      "train_report_sha256": "d57b29a98909dba4b326519484758dccd09b95416e4871ff2b72e674b2de48a2"
+    },
+    {
+      "arm": "subject_balanced",
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/subject_balanced_sampling_20260907/seed2026090712_subject_balanced/fixed_epoch168.pth",
+        "sha256": "047268c8d60a2120ffbe734481c922b9c29387a3b0a024e8f8bc985a65434a11"
+      },
+      "metrics": {
+        "point_hits": 168,
+        "scan_cluster_95ci": [
+          0.7316952458929581,
+          0.7775637735800728
+        ],
+        "scan_dice": 0.7559059562841979,
+        "scans": 180,
+        "subject_95ci": [
+          0.7031338902706205,
+          0.7760920668767479
+        ],
+        "subject_dice": 0.7427245214879262,
+        "subjects": 78
+      },
+      "seed": 2026090712,
+      "study": "subject_sampling",
+      "train_report_sha256": "adf0c805b1a3e871626faae388de3ff2b38af0bc3bf7c3c0b07a39fcfd9e8a89"
+    }
+  ],
+  "weighting_alignment_reference": {
+    "fit_scans": 684,
+    "fit_subjects": 313,
+    "interpretation": "Patient marginal is equal; within-patient native weights remain nonuniform. Training soft loss also differs from thresholded evaluation Dice.",
+    "policies": {
+      "control": {
+        "probability_relative_to_reference_max": 6.144275363221699,
+        "probability_relative_to_reference_min": 0.1920086051006781,
+        "total_variation_from_patient_and_scan_uniform": 0.2665728377243721
+      },
+      "subject_balanced": {
+        "probability_relative_to_reference_max": 1.6873863559896123,
+        "probability_relative_to_reference_min": 0.4458595224987247,
+        "total_variation_from_patient_and_scan_uniform": 0.032834904650587464
+      }
+    },
+    "reference_only_not_a_new_training_policy": true
+  }
+}

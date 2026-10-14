@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+"""Supervise the two frozen SAM-Med3D arms and archive development results."""
+import datetime,json,os,subprocess,time,hashlib
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];R=ROOT/'archive/research_records/2026-09-16_sammed3d_graymean_pair';W=ROOT/'workspace/BraTS/sammed3d_t1ce_wt/graymean_pair_20260916';PYTHON=str(ROOT.parent/'sammed3d-venv/bin/python')
+def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
+def write(name,data):
+ p=R/name;t=p.with_suffix('.tmp.json');t.write_text(json.dumps(data,indent=2)+'\n');os.replace(t,p)
+def publish_stage(stage, explanation):
+ import re
+ p=ROOT/'AFLOW_BRATS_HANDOFF_CURRENT.md';s=p.read_text()
+ block='<!-- SAMMED3D_GRAYMEAN_STATUS -->\n'+explanation+' [运行记录](archive/research_records/2026-09-16_sammed3d_graymean_pair/RUN_STATUS.json)。\n<!-- END_SAMMED3D_GRAYMEAN_STATUS -->'
+ if '<!-- SAMMED3D_GRAYMEAN_STATUS -->' in s:
+  s=re.sub(r'<!-- SAMMED3D_GRAYMEAN_STATUS -->.*?<!-- END_SAMMED3D_GRAYMEAN_STATUS -->',lambda m:block,s,flags=re.S)
+ else:s+='\n'+block+'\n'
+ p.write_text(s)
+ p=ROOT/'AFLOW_BRATS_METHOD_CATALOG.md';s=p.read_text();s=re.sub(r'## SAM-Med3D首次提示灰度均值配对｜[^\n]*',lambda m:'## SAM-Med3D首次提示灰度均值配对｜'+stage,s);p.write_text(s)
+ write('RUN_STATUS.json',{'updated_utc':now(),'stage':stage,'explanation':explanation})
+
+def main():
+ analysis=json.loads((R/'ANALYSIS_FREEZE.json').read_text())
+ for name,digest in analysis['files'].items():
+  if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise RuntimeError('analysis source changed')
+ if not (R/'CACHE_INDEX.json').exists():
+  cache_pid=json.loads((R/'CACHE_LAUNCH.json').read_text())['pid']
+  publish_stage('缓存构建中，双卡训练已排队','双卡合成参数更新通过；正在构建684/180专用缓存，完成且校验通过后自动启动配对训练。尚无新开发模型评估或测试。')
+  while not (R/'CACHE_INDEX.json').exists():
+   proc=Path(f'/proc/{cache_pid}/cmdline')
+   if not proc.exists() or b'sammed3d_graymean_pair.py' not in proc.read_bytes():
+    publish_stage('缓存构建失败，训练未启动','缓存进程已退出但完整索引未生成；双卡训练未启动，需先审核失败收据。')
+    raise RuntimeError('cache process ended without complete index')
+   time.sleep(15)
+ env={**os.environ,'OMP_NUM_THREADS':'2','MKL_NUM_THREADS':'2','OPENBLAS_NUM_THREADS':'1','PYTHONDONTWRITEBYTECODE':'1'}
+ procs={};logs=[]
+ for gpu,arm in enumerate(['control','graymean']):
+  (W/arm).mkdir(parents=True,exist_ok=True);f=(W/arm/'console.log').open('x');logs.append(f)
+  procs[arm]=subprocess.Popen([PYTHON,'scripts/sammed3d_graymean_pair.py','train','--arm',arm],cwd=ROOT,stdout=f,stderr=subprocess.STDOUT,env={**env,'CUDA_VISIBLE_DEVICES':str(gpu)})
+ write('TRAIN_LAUNCH.json',{'created_utc':now(),'worker':'1097281','pids':{k:p.pid for k,p in procs.items()},'analysis_freeze_sha256':hashlib.sha256((R/'ANALYSIS_FREEZE.json').read_bytes()).hexdigest()})
+ publish_stage('双卡配对训练运行中','两组SAM-Med3D正式训练进程已启动，分别占用一卡；仅684训练/180复用开发，旧确认/测试不访问。性能结论待报告。')
+ while True:
+  states={k:p.poll() for k,p in procs.items()};write('SUPERVISOR_STATUS.json',{'updated_utc':now(),'process_returncodes':states})
+  failed=[k for k,v in states.items() if v not in [None,0]]
+  if failed:
+   for p in procs.values():
+    if p.poll() is None:p.terminate()
+   for p in procs.values():
+    try:p.wait(timeout=30)
+    except subprocess.TimeoutExpired:p.kill();p.wait()
+   write('PIPELINE_FAILURE.json',{'updated_utc':now(),'failed_arms':failed,'returncodes':{k:p.returncode for k,p in procs.items()},'note':'paired run stopped; inspect per-arm logs and preaccess receipts; no automatic hyperparameter retry'})
+   publish_stage('配对训练工程失败，已停止','一组训练进程失败，监督器已停止另一组；请核对失败收据和开发访问标记，不得当作精度负结果。')
+   raise RuntimeError('paired training failure')
+  if all(v==0 for v in states.values()):break
+  time.sleep(15)
+ for f in logs:f.close()
+ subprocess.run([PYTHON,'scripts/finalize_sammed3d_graymean_pair.py'],cwd=ROOT,env=env,check=True)
+ publish_stage('开发完成，结果已归档','SAM-Med3D配对开发已结束并归档，无自动测试准入；参阅实验RESULT.md和流水账。')
+if __name__=='__main__':main()

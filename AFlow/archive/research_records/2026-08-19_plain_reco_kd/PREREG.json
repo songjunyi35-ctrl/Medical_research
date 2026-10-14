@@ -1,0 +1,41 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_reco_kd_preregistration",
+  "status": "frozen_before_training",
+  "source": "ReCo-KD 2026-01-13",
+  "base": {
+    "student_initial_checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "teacher": "0.75 historical168 logit + 0.25 EMA168 logit",
+    "temperature": 2.0,
+    "voxel_kl_weight": 0.3,
+    "base_kd_validation_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57"
+  },
+  "only_change": {
+    "region_kd_weight": 0.1,
+    "loss": "per-case normalized SmoothL1 teacher/student logits over GT foreground, 2-voxel morphological boundary band, and nonboundary background",
+    "boundary_multiplier": 2.0,
+    "normalization": "foreground + 2*boundary + background, divided by 4"
+  },
+  "training": {
+    "seed": 20260846,
+    "batch_size": 8,
+    "cases": 756,
+    "subjects": 346,
+    "continuation_global_epochs": [169, 200],
+    "fixed_checkpoints": [176, 184, 192, 200],
+    "lr": "same frozen cosine continuation as base KD"
+  },
+  "validation": {
+    "cases": 108,
+    "subjects": 50,
+    "selection": "highest scan Dice, subject tie-break",
+    "promotion_vs_base_kd": "scan gain >= 0.001 OR point hit gains at least one case; subject must not fall more than 0.001",
+    "historical_scan_and_subject_must_remain_exceeded": true
+  },
+  "output": "workspace/BraTS/sammed3d_t1ce_wt/plain_reco_kd_20260819/seed20260846",
+  "trainer_sha256": "96daef36c79537d840c48e88373446834f146b500882473a4dd21225717a1555",
+  "test_sha256": "2c85d3619b06d3ec0eadbbce6c5277dd5f077d6323d2cd343417973809c8b241",
+  "if_gate_fails": "stop without region-weight, boundary-width, temperature, epoch, or test tuning",
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

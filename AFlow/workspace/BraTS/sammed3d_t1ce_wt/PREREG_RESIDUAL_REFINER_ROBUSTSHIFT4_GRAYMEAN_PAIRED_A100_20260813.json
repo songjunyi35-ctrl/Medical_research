@@ -1,0 +1,114 @@
+{
+  "schema": "aflow.prereg.residual_refiner_robustshift4_graymean_paired_a100",
+  "schema_version": 1,
+  "created_date_utc": "2026-08-13",
+  "status": "frozen_before_optimizer_step",
+  "test_access": false,
+  "motivation": {
+    "train_coarse_dsc_mean": 0.8297756239057658,
+    "validation_coarse_dsc_mean": 0.6365875325785683,
+    "train_cases_below_0_75": 60,
+    "train_cases": 972,
+    "validation_cases_below_0_75": 78,
+    "validation_cases": 108,
+    "interpretation": "The refiner is trained on in-sample upstream predictions but validated on held-out predictions, producing a large stacker covariate shift."
+  },
+  "corruption_calibration": {
+    "development_only": true,
+    "sample_size": 128,
+    "seed": 20260813,
+    "method": "independent random integer translation of coarse binary prediction with zero-filled borders",
+    "max_shift_4_mean_dsc": 0.6849996749936296,
+    "max_shift_8_mean_dsc": 0.5234351497795027,
+    "choice": "max shift 4 on every training sample",
+    "reason": "4 voxels approaches held-out difficulty; 8 voxels over-corrupts. The corruption itself does not inspect label values during training."
+  },
+  "research_question": "After aligning coarse-input difficulty, does stronger differentiable gray-mean consistency improve validation Dice and can either arm exceed 0.70?",
+  "primary_target": {
+    "split": "108-case subject-clean validation",
+    "metric": "scan-macro WT Dice",
+    "threshold": 0.70,
+    "strict_comparison": ">"
+  },
+  "attribution_rule": {
+    "gray_arm_minus_robust_control_minimum": 0.005,
+    "reason": "Both arms share corruption; only the gray weight differs."
+  },
+  "prior_paired_result": {
+    "control_best_validation_dsc": 0.6733628240655418,
+    "gray_weight_1_best_validation_dsc": 0.6724005015566945,
+    "gray_minus_control": -0.0009623225088473,
+    "conclusion": "Weight 1 was too weak and did not solve the coarse-input difficulty mismatch."
+  },
+  "gray_weight_10_rationale": {
+    "observed_train_segmentation_loss": "approximately 0.17",
+    "observed_train_gray_loss": "approximately 0.0017",
+    "intended_initial_gray_contribution": "approximately 10 percent of segmentation loss",
+    "selection_policy": "fixed from training-loss scale; no validation sweep"
+  },
+  "source_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/refiner_val_dice_best.pth",
+    "sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "source_epoch": 58,
+    "optimizer_state_policy": "reset in both arms"
+  },
+  "data": {
+    "train_cache_path": "/tmp/aflow_refiner_graymean_20260813/train",
+    "train_count": 972,
+    "train_index_sha256": "d3cace047fe168e33b465744bf4170e7e323defc6f61e968cd83250e4061f974",
+    "validation_cache_path": "/tmp/aflow_refiner_graymean_20260813/validation",
+    "validation_count": 108,
+    "validation_index_sha256": "cda56539fd59ce9c2579c41de4a8b1467381ab513c66a62397448a1cd470444c",
+    "training_geometry": "GT-centered N4 128^3",
+    "target": "WT={1,2,3}; raw label 4 excluded"
+  },
+  "paired_arms": [
+    {
+      "name": "robustshift4_control",
+      "gpu": 0,
+      "gray_weight": 0.0
+    },
+    {
+      "name": "robustshift4_graymean_w10",
+      "gpu": 1,
+      "gray_weight": 10.0
+    }
+  ],
+  "fixed_hyperparameters": {
+    "seed": 20260813,
+    "epochs_max": 30,
+    "patience": 10,
+    "batch_size": 2,
+    "num_workers": 4,
+    "optimizer": "AdamW",
+    "learning_rate": 0.00005,
+    "weight_decay": 0.00001,
+    "original_joint_shift_max": 12,
+    "independent_coarse_shift_max": 4,
+    "independent_coarse_shift_probability": 1.0,
+    "segmentation_loss": "original DiceCE",
+    "gray_temperature": 1.0,
+    "gray_epsilon": 0.000001,
+    "baseline_replay_tolerance": 0.00001,
+    "checkpoint_selection": "strict maximum validation scan-macro Dice including continuation epoch 0"
+  },
+  "preflight": {
+    "optimizer_steps": 0,
+    "reloaded_validation_dsc": 0.6695524002941388,
+    "unit_tests": "6 passed",
+    "test_access": false
+  },
+  "code": {
+    "runner_path": "scripts/train_t1ce_wt_residual_refiner_graymean_robust.py",
+    "runner_sha256": "ec095e50689fb11099952bdc4edcc8917805b8ec190a4034f317b0d22d62e2f1",
+    "base_runner_sha256": "b2949927640e2d656cfe2c71a9f53aec491d9edb9dfa071a634ce7b1037133d2",
+    "unit_test_sha256": "ce51096da4314b3832ea37f138bba842ee34441466aca5db6c50bf5118ec9ea0",
+    "launcher_sha256": "2186efc82e2fb552a5112112532c6301d187587b5d6df9d695ecb9a46b319067"
+  },
+  "decision_policy": [
+    "Do not access the 270-case test set.",
+    "Do not change corruption, gray weight, data, seed, optimizer, learning rate, patience, or selection after launch.",
+    "Report both arms whether or not 0.70 is reached.",
+    "Do not attribute robust-control gains to the gray term."
+  ]
+}

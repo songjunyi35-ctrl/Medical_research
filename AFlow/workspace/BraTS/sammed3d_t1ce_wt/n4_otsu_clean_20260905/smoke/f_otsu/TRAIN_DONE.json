@@ -1,0 +1,79 @@
+{
+  "access": {
+    "confirmation": false,
+    "fit_train": true,
+    "fixed_validation": false,
+    "inner_ids_metadata_only": true,
+    "inner_metrics": false,
+    "outer": false,
+    "rhuh": false,
+    "test270": false,
+    "ucsd75": false
+  },
+  "all_gates_passed": true,
+  "cache_index_sha256": "7408d13c57dee66192a1e547fc6aeb4e46eb33b96a333ef3a4db7b6e0e4bd738",
+  "checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/n4_otsu_clean_20260905/smoke/f_otsu/fixed.pth",
+    "sha256": "f3e0238d0f83670deb7dd8447058a7a33c37d820a4d43c1780cf5bf4d4378a3c",
+    "state_sha256": "99a8bd63db35ec8702fcf6fb3c1ce246350bb4c842d8cdc339bd5c6f9ef104c7"
+  },
+  "elapsed_seconds": 2.7855892097577453,
+  "fit_sha256": "1a4e80204884afbb9b99f598464f612a62262850118c920efbf8d4a4d13bca7f",
+  "fold": "f",
+  "gates": {
+    "ema_updates_exact": true,
+    "finite": true,
+    "fixed_epochs": true,
+    "fixed_steps": true,
+    "no_inner": true,
+    "peak": true,
+    "reload_exact": true
+  },
+  "history": [
+    {
+      "augmentation_rng_after_sha256": "4b0f049457b3ac7fa3f5619a9765673436e1435fb4724e5378d5092049428b9f",
+      "augmentation_rng_before_sha256": "516699b28cdc1c68eb456965581077f8c32d6582a1f0eae41b26e657cfcdc8a3",
+      "draws": 16,
+      "elapsed_seconds": 2.653431186452508,
+      "ema_updates": 0,
+      "epoch": 1,
+      "first_batch": {
+        "image": "4c2921483465b1f794fce6c39341b58499b60cf0daf63ba2be194bac49f5e259",
+        "label": "24472d4f2ea1614cbf2b6fde0795de6ccda1699a15571b94f58c66133ddf0fdf",
+        "loss": 1.119337558746338
+      },
+      "inner_metrics": null,
+      "kd": 0.11533290147781372,
+      "loss": 1.092713475227356,
+      "lr": 0.0002,
+      "sampler_sha256": "8c4c55eb937ecd4807d7bf36c6de94b9934e97d04725c39f0d442c0bf299e128",
+      "steps": 2,
+      "supervised": 1.0581136345863342,
+      "train_dice": 0.008381797202218877
+    }
+  ],
+  "initial_state_sha256": "76c96cf8662ca2be4d3d2c54fdd90f2ee054164a3e06016afc173ead50ce58eb",
+  "peak_gpu_memory_bytes": 21654040576,
+  "protocol_sha256": "6c9561119f07f738f6a82c2cd3064ab42114384c2a1adbbd7f8d64ef1cc606fb",
+  "role": "otsu",
+  "runner_sha256": "5ab9c980ca4bb80fde018090931e5732d83e2bbd38743d2fce337a802a7294a9",
+  "sampling_weight_sha256": "6f80b3a44bdc8cf8f1172619a7094a9983ed5e08c8eb020b1e657fed89f795de",
+  "schema": "aflow.n4_otsu_clean.train",
+  "seed": 20261323,
+  "smoke": true,
+  "status": "complete",
+  "teacher_checkpoints": [
+    {
+      "fit_sha256": "1a4e80204884afbb9b99f598464f612a62262850118c920efbf8d4a4d13bca7f",
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/no_n4_clean_20260905/smoke/f_history/fixed.pth",
+      "role": "history",
+      "sha256": "a5369ff4c6ca0ea6cac03a53f7bbab4c7f9c8432b7b1bea196a2d55af27b3b26"
+    },
+    {
+      "fit_sha256": "1a4e80204884afbb9b99f598464f612a62262850118c920efbf8d4a4d13bca7f",
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/no_n4_clean_20260905/smoke/f_ema/fixed.pth",
+      "role": "ema",
+      "sha256": "96cd8bb7f91b31b50d974b81d0f3911b3b9450ef274f6d18cf0d280c8f7f2e45"
+    }
+  ]
+}

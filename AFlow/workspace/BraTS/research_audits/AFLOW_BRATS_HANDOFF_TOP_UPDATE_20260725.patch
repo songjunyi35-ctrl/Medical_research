@@ -1,0 +1,33 @@
+diff --git a/AFLOW_BRATS_HANDOFF.md b/AFLOW_BRATS_HANDOFF.md
+--- a/AFLOW_BRATS_HANDOFF.md
++++ b/AFLOW_BRATS_HANDOFF.md
+@@ -11,2 +11,34 @@
+ ## 0. 给接续 agent 的最高优先级指令（必读，凌驾本文档其余所有内容）
+ 
++### 2026-07-25 03:37 CST 当前最高优先级：matched rank-0 已完成，只在 clean validation 推进 partial-unfreeze
++
++`2026-07-24 10:36 CST` 要求的 matched whole-volume rank-0 decoder/prompt baseline 已按
++972 train / 108 subject-clean validation、untouched base、whole-volume `128^3`、相同
++train-only augmentation、3 次累计 corrective click、recurrent low-resolution mask 和 50 epochs
++完整完成。rank-0 只训练 prompt encoder + mask decoder，image encoder 全冻结；selected
++epoch 32 trainer validation C3=`0.492487`，checkpoint SHA-256
++`7a25d0268799bdfffc626eacecb2a319a51d8127460143e7c6af3e8d4b532cf9`。
++
++两臂随后在同一 CPU/runtime 上用独立 case-seeded PCG64 evaluator 严格 reload。rank-0 / LoRA
++subject-balanced C3=`0.478505/0.521410`，LoRA-rank0=`+0.042905`；50-subject paired bootstrap
++95% CI=`[+0.025863,+0.063080]`，42/50 subjects、81/108 scans 改善。scan-macro C3 delta=
++`+0.042829`。这只支持“单 seed、validation-selected 的 conditional development matched
++contrast”；同一 validation 同时选 epoch，且 worker 重启暴露非 bitwise determinism，禁止宣称
++confirmatory、跨 seed、外部泛化或纯确定性 LoRA 因果效应。
++
++完整结论与哈希边界：
++`workspace/BraTS/research_audits/fv_lora_vs_rank0_matched_val108_conclusion_20260724.md`
++（SHA-256 `057c095b6245c0c06ffb2c9a50140205742215eb51e76af9350d00a5584b0911`）。
++
++下一步只允许在 972/108 clean validation 上预注册并实现独立命名的 image-encoder last-four-block
++partial-unfreeze + discriminative-LR arm；只能解冻 blocks 8--11，严禁 full image-encoder
++fine-tuning。必须先有 fail-closed 参数组/参数量/protocol/checkpoint metadata 与定向测试，再决定
++是否启动。270-case test 继续永久冻结，不得访问、重跑或用于任何选择；仍禁止 threshold、TTA、
++morphology、postprocess 和历史 inference-workflow 搜索。
++
+ ### 2026-07-24 10:36 CST 当前最高优先级：冻结 test 结论，回到 clean validation 做受控改进

@@ -1,0 +1,109 @@
+{
+  "absolute": {
+    "full_flip8": {
+      "ci": [
+        0.5322282465257876,
+        0.662011922032433
+      ],
+      "dice": 0.5989593880340819,
+      "point_hits": 15
+    },
+    "full_identity": {
+      "ci": [
+        0.5222398053426635,
+        0.654847899093111
+      ],
+      "dice": 0.5916474162897252,
+      "point_hits": 15
+    },
+    "gcsam_identity": {
+      "ci": [
+        0.5275003984828207,
+        0.6542934324254197
+      ],
+      "dice": 0.5933047248965418,
+      "point_hits": 14
+    }
+  },
+  "access": {
+    "africa95": false,
+    "confirmation": false,
+    "cptac33": false,
+    "fixed_validation108": false,
+    "internal_test270": false,
+    "outer": false,
+    "ucsd75": false,
+    "waw_postop_only31": true,
+    "waw_preop152": false
+  },
+  "cache_index_sha256": "879479ba8af6ed9c3d1c1324b02e6d3c0c5710b82bf4baab1bc616e42a46f1b5",
+  "cohort": {
+    "cases": 31,
+    "days_postop": [
+      0.0,
+      22.0
+    ],
+    "evidence": "public early postoperative; same WAW source/new patients; institution-disjoint/no BraTS patient bridge; not hidden blind",
+    "preop_patient_overlap": 0,
+    "subjects": 31
+  },
+  "comparisons": {
+    "full_flip8_minus_identity": {
+      "cases_improved": 21,
+      "cases_tied": 0,
+      "cases_worse": 10,
+      "flip8_minus_identity": {
+        "point_hits": 0,
+        "scan_dice": 0.007311971744356782,
+        "subject_dice": 0.007311971744356782
+      },
+      "paired_scan_dice_95ci": [
+        -0.0019253042754067851,
+        0.016626099058617037
+      ],
+      "paired_subject_dice_95ci": [
+        -0.0019253042754067851,
+        0.016626099058617037
+      ]
+    },
+    "gcsam_identity_minus_full_identity": {
+      "cases_improved": 17,
+      "cases_tied": 0,
+      "cases_worse": 14,
+      "gcsam_minus_full": {
+        "point_hits": -1,
+        "scan_dice": 0.0016573086068167539,
+        "subject_dice": 0.0016573086068167539
+      },
+      "paired_scan_dice_95ci": [
+        -0.01249757796488835,
+        0.016205274733148808
+      ],
+      "paired_subject_dice_95ci": [
+        -0.01249757796488835,
+        0.016205274733148808
+      ]
+    }
+  },
+  "cost": {
+    "archive_bytes": 3321955416,
+    "cache_bytes": 325058560,
+    "cache_seconds": 141.90621246770024,
+    "formal_seconds": 5.755164405331016,
+    "forwards": 279,
+    "peak_gpu_memory_bytes": 5457695744,
+    "selected_source_bytes_rehashed": 154959404,
+    "training": 0
+  },
+  "interpretation": {
+    "full_flip8_minus_identity": "positive_but_uncertain",
+    "gcsam_identity_minus_full_identity": "positive_but_uncertain"
+  },
+  "preaccess_sha256": "e8e13d35491672a641f4f7879a3f627a45438368fc04febcf341040c54a3acad",
+  "raw_sha256": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98",
+  "result_must_not_trigger_tuning_or_repeat": true,
+  "schema": "aflow.waw_postop_only31.result",
+  "schema_version": 1,
+  "source_receipt_sha256": "ff255098ef7ea6f91f1f90b37193d8d8d7c611b99ba666919c7e3d95252997e9",
+  "status": "completed_and_cohort_closed"
+}

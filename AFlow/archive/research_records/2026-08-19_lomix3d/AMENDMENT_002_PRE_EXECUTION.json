@@ -1,0 +1,54 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_lomix3d_preregistration_amendment",
+  "schema_version": 1,
+  "amendment": 2,
+  "timing": "after training-entry skeleton creation but before model implementation completion, synthetic tests, GPU smoke, formal training, or validation",
+  "reason": "freeze implementation details that materially affect the LoMix training objective before any execution",
+  "final_head": {
+    "decoder_32": "new Conv3d(64,1,1,bias=true) auxiliary head",
+    "decoder_64": "new Conv3d(32,1,1,bias=true) auxiliary head",
+    "decoder_128": "existing network.conv_final Norm-Act-Conv; no new final auxiliary head",
+    "backbone_forwards_per_batch": 1
+  },
+  "upsampling": "F.interpolate with explicit size equal to final logits spatial shape, mode=trilinear, align_corners=false",
+  "stable_order": {
+    "originals": ["original_32", "original_64", "original_128"],
+    "subsets": [[0, 1], [0, 2], [1, 2], [0, 1, 2]],
+    "operators_per_subset": ["add", "multiply", "concat", "awf"],
+    "alpha": "one zero-initialized scalar per map in exact 19-map order"
+  },
+  "attention": "for each concrete subset of size k, concatenate binary raw logits to [B,k,D,H,W], apply independently registered Conv3d(k,k,kernel_size=1,bias=true), softmax over dim=1, and sum attention_i * logit_i",
+  "initialization": {
+    "construction_seed": 20260846,
+    "sequence": "load historical plain model; create aux heads in 32,64 order; create concat and attention modules in subset order; create alpha in map order",
+    "conv3d": "installed PyTorch default Conv3d initialization",
+    "alpha": 0.0,
+    "rng_reset": "reset Python, NumPy, CPU torch, and CUDA torch RNG to 20260846 after all model construction and before the first batch"
+  },
+  "optimizer": {
+    "groups": 1,
+    "members": "plain deploy model plus 2 aux heads plus 4 concat modules plus 4 attention modules plus 19 alpha",
+    "learning_rate": "same frozen late-cosine LR for all members",
+    "weight_decay": 0.00001,
+    "gradient_clip": "global norm 5.0 over all optimizer parameters"
+  },
+  "loss": {
+    "map_count": 19,
+    "aggregation": "un-normalized sum; do not divide by 19 or by sum of weights",
+    "initial_effective_weight_each": 0.6931471805599453,
+    "initial_effective_weight_sum": 13.169796430639,
+    "gradient_gate": "for every training-only parameter tensor including alpha: grad is not null, all finite, and norm greater than zero on deliberately asymmetric synthetic data and real batch8 smoke"
+  },
+  "matched_control_checkpoints": {
+    "176": "ac50c460fc1d4e936721b4fa69839497878e2c4d0c62c28f91d2de7f1d3f7b8a",
+    "184": "8d5367bbf79bd4c346f51720751eccdfcc3ef6aeb630401a5bba9b6e3f9f36e1",
+    "192": "c3804d93c86c08b6f9b746884ace1a18473b231d9b28bb6bd16c19911f6a70f1",
+    "200": "0d4246a700e7f85b501faea96dc2f5cc348bfebed42a46bbd0fc76c5963f9bdb"
+  },
+  "checkpoint_payload": "deploy-only model state plus full LoMix wrapper state and diagnostics; optimizer state is not saved; four checkpoints plus reports remain under the preregistered 0.25 GiB disk estimate",
+  "scientific_protocol_changed": false,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

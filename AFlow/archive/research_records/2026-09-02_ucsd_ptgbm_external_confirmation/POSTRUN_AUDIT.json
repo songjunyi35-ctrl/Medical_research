@@ -1,0 +1,84 @@
+{
+  "schema": "aflow.ucsd_ptgbm.external_confirmation.postrun_audit",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-02T22:08:00+00:00",
+  "metric_recomputation": {
+    "primary": {
+      "scan_recomputed_equals_report": true,
+      "subject_recomputed_equals_report": true,
+      "point_recomputed_equals_report": true,
+      "cases": 75,
+      "subjects": 53,
+      "all_wt_positive": true
+    },
+    "secondary": {
+      "scan_recomputed_equals_report": true,
+      "subject_recomputed_equals_report": true,
+      "point_recomputed_equals_report": true,
+      "cases": 75,
+      "subjects": 53,
+      "all_wt_positive": true
+    },
+    "case_order_matches_frozen_inventory": true,
+    "existing_case_overlap": 0,
+    "existing_subject_overlap": 0
+  },
+  "overlap_format_qc": {
+    "purpose": "verify official UCSD-to-BraTS ID/modality/label wiring using only already-exposed cases excluded from external75",
+    "attempt_with_reused_test270_case": {
+      "status": "rejected_before_command_execution_by_safety_review",
+      "files_downloaded": 0,
+      "test270_access": false,
+      "next_action": "did not retry or circumvent; used only one historical train and one fixed-validation case"
+    },
+    "audited_cases": [
+      {
+        "case_id": "BraTS-GLI-02256-100",
+        "role": "already-exposed fixed validation108",
+        "ucsd_id": "sub-0007_ses-01",
+        "ucsd_shape": [256, 256, 256],
+        "brats_shape": [182, 218, 182],
+        "index_shift_brats_minus_ucsd": [-37, -19, -37],
+        "aligned_raw_label_exact": true,
+        "aligned_t1_zscore_pearson": 0.9862240007697917,
+        "aligned_t1_zscore_mae": 0.06914865988490095,
+        "ucsd_image_braincrop_extent": [139, 161, 144],
+        "brats_image_braincrop_extent": [139, 161, 144],
+        "final_label_tensor_exact_after_separate_image_crops": true
+      },
+      {
+        "case_id": "BraTS-GLI-02259-100",
+        "role": "already-exposed train972",
+        "ucsd_id": "sub-0010_ses-01",
+        "ucsd_shape": [256, 256, 256],
+        "brats_shape": [182, 218, 182],
+        "index_shift_brats_minus_ucsd": [-37, -19, -37],
+        "aligned_raw_label_exact": true,
+        "aligned_t1_zscore_pearson": 0.999886676101043,
+        "aligned_t1_zscore_mae": 0.010027675489074038,
+        "ucsd_image_braincrop_extent": [132, 191, 193],
+        "brats_image_braincrop_extent": [132, 172, 152],
+        "final_label_tensor_exact_after_separate_image_crops": false
+      }
+    ],
+    "interpretation": "official mapping, post-contrast T1 modality, and BraTS labels are correctly wired; official main release retains a 256^3 field of view whereas the project BraTS copy is 182x218x182, so the same image-only brain-crop algorithm can yield a different crop extent and 128^3 rasterization. This is a genuine external grid/FOV domain caveat, not a reason to rerun after outcome access."
+  },
+  "participants_subject_mapping_audit": {
+    "participant_rows": 243,
+    "unique_ucsd_local_subjects": 178,
+    "unique_brats_subjects": 178,
+    "non_bijective_rows": {
+      "local_sub-0038_maps_to": ["BraTS-GLI-02289", "BraTS-GLI-02291"],
+      "brats_BraTS-GLI-02289_maps_from": ["sub-0036", "sub-0038"],
+      "anomalous_row": {"ucsd_id": "sub-0038_03", "brats_id": "BraTS-GLI-02289-102", "current_role": "development1080", "in_official_main_release_assets": false}
+    },
+    "mapped_exposed_ucsd_local_subjects": 84,
+    "selected_external_ucsd_local_subjects": 53,
+    "selected_external_local_subject_overlap": 0,
+    "selected_external_brats_subject_overlap": 0,
+    "anomalous_local_subject_selected": false,
+    "interpretation": "the official table contains one local/BraTS subject-ID anomaly outside the 184-case main assets. Re-auditing both namespaces confirms the frozen external75 is disjoint under both UCSD-local and BraTS subject identities."
+  },
+  "result_dependent_rerun_or_preprocessing_change": false,
+  "new_reused_test270_access": false
+}

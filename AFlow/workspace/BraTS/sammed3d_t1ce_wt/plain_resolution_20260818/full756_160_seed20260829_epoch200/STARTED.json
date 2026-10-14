@@ -1,0 +1,86 @@
+{
+  "cache": {
+    "cache_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_160",
+    "count": 756,
+    "images_sha256": "bbb7289803a8cdcd17be8af98c5206da6c1b5eb83977f73974c5c17892f58621",
+    "labels_sha256": "4f06b8a4df9c32c33b3a85f5b11ac8bce62f9bd62d2ad5f70b0962b7425b9d60",
+    "manifest": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "model_shape": [
+      160,
+      160,
+      160
+    ],
+    "preprocessing": {
+      "image_interpolation": "trilinear_align_corners_false",
+      "label_interpolation": "nearest-exact",
+      "n4_bias_field_correction": true,
+      "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+      "n4_shrink_factor": 2,
+      "normalization": "source nonzero-voxel population z-score before resize",
+      "order": [
+        "canonical_RAS",
+        "N4_shrink_2",
+        "image_nonzero_bounding_box_crop",
+        "source_nonzero_population_zscore",
+        "resize_to_declared_cubic_grid"
+      ],
+      "output_resolution": 160,
+      "source_is_existing_128_cache": false,
+      "spatial": "braincrop_resize",
+      "uses_gt_for_localization": false
+    },
+    "source_positive_voxels_sha256": "53363d47df9297f71fdfec92bd104841c6ab4fac335ce65d52353dd9f0565f7a"
+  },
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-18T08:01:33.173716+00:00",
+  "data_role": {
+    "cases": 756,
+    "role": "historical_train_cohort_only",
+    "subjects": 346,
+    "train": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+      "sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16"
+    }
+  },
+  "goal": "benchmark-oriented full-train 160^3 epoch200 override",
+  "hyperparameters": {
+    "base_lr": 0.0002,
+    "batch_size": 8,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_160",
+    "ce_weight": 0.1,
+    "constant_epochs": 100,
+    "device": "cuda:0",
+    "dropout": 0.1,
+    "epochs": 200,
+    "expected_parameter_count": 4700897,
+    "expected_source_positive_voxels_sha256": "53363d47df9297f71fdfec92bd104841c6ab4fac335ce65d52353dd9f0565f7a",
+    "expected_train_cases": 756,
+    "expected_train_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "init_filters": 16,
+    "max_shift": 8,
+    "min_lr": 1e-05,
+    "num_workers": 4,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/full756_160_seed20260829_epoch200",
+    "reload_cases": 8,
+    "resolution": 160,
+    "schedule_total_epochs": 200,
+    "seed": 20260829,
+    "train_case_ids": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "weight_decay": 1e-05
+  },
+  "outer_selector_access": false,
+  "runner_sha256": "8a39d50b8e8ab2be49c4397b7d956d9173f25cfb8506d083c3cf78acc4936089",
+  "sampling_contract": {
+    "basis": "native-grid WT positive voxels before resolution resize",
+    "generator_seed": 20260829,
+    "sampler": "WeightedRandomSampler(replacement=True,num_samples=756)",
+    "source_positive_voxels_sha256": "53363d47df9297f71fdfec92bd104841c6ab4fac335ce65d52353dd9f0565f7a",
+    "weights_sha256": "757e463d8e60f96ef6429613f6783fb3aa1014b580932959f9ed354d37072124"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_plain_resolution_full_cohort_training",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step",
+  "test_access": false,
+  "validation_access": false
+}

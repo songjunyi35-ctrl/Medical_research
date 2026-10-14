@@ -1,0 +1,34 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt.invalid_interrupted_training",
+  "schema_version": 1,
+  "status": "invalid_partial_do_not_resume_or_select",
+  "reason": "Remote worker 1009989 was reclaimed by the platform during epoch 3; SSH closed and the worker disappeared from the worker list.",
+  "last_observed_utc": "2026-07-24T04:01:44Z",
+  "completed_epochs": 2,
+  "partial_epoch": 3,
+  "train_done": false,
+  "best_json_present": false,
+  "code_error_observed": false,
+  "completed_history": {
+    "epoch_1": {
+      "train_c3": 0.3588179197,
+      "validation_c3": 0.3927774770
+    },
+    "epoch_2": {
+      "train_c3": 0.3939524590,
+      "validation_c3": 0.4225277600
+    },
+    "sha256": "21c54f7e47c9fe86d42dd68bf6a539507a8aa4e0bf7c3cf550e45f0be2c1c754"
+  },
+  "partial_artifact_hashes": {
+    "sam_model_latest.pth": "97489971468a26253cbf536394dddee28bf7a9cb41af405d5897714a71189b10",
+    "sam_model_val_dice_best.pth": "3d7ced9afa88a9217caa725377a83570fb1813b329c92f7a043061ba9c74f1cb",
+    "launch.log": "613fb230f72513200affa16a9116cfdb62ed617dfc47b60d638186be78ebe38b"
+  },
+  "archive_paths": {
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/INVALID_WORKER_RECLAIMED_E3_PARTIAL_fv_rank0_matched_aug_train972_val108_e50_s20260725",
+    "launch_log": "workspace/BraTS/sammed3d_t1ce_wt/INVALID_WORKER_RECLAIMED_E3_PARTIAL_fv_rank0_matched_aug_train972_val108_e50_s20260725.launch.log",
+    "pid_file": "workspace/BraTS/sammed3d_t1ce_wt/INVALID_WORKER_RECLAIMED_E3_PARTIAL_fv_rank0_matched_aug_train972_val108_e50_s20260725.pid"
+  },
+  "restart_decision": "Archive the partial run and restart the frozen v2 protocol from the untouched base checkpoint; do not resume this partial checkpoint."
+}

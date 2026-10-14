@@ -1,0 +1,542 @@
+{
+ "access": {
+  "cohort_reaccess": false,
+  "new_model_inference": false,
+  "selection_or_tuning": false
+ },
+ "analyzer_sha256": "e92b6cde1c1e01f682164e8a9b31a683fa2f8c77a06682d40b60f33445bb292b",
+ "cohorts": [
+  {
+   "cohort": "Reused internal test270",
+   "comparisons": {
+    "flip8_minus_full": {
+     "point_hits": 3,
+     "scan": 0.0055101244813866085,
+     "scan_ci": [
+      0.0027509939153161317,
+      0.008022352442559269
+     ]
+    },
+    "gcsam_minus_full": {
+     "point_hits": -10,
+     "scan": 0.0002436383489381384,
+     "scan_ci": [
+      -0.005655235725851661,
+      0.005739641802437181
+     ]
+    }
+   },
+   "evidence": "reused internal; not pristine blind/external",
+   "grid": "BraTS2024 project cache128",
+   "rows": [
+    {
+     "locator_forwards": 8,
+     "method": "Full Flip8",
+     "point_denominator": 270,
+     "point_hits": 265,
+     "scan_dice": 0.7572696616942132,
+     "scan_dice_95ci": [
+      0.7384624567724488,
+      0.7743482462968677
+     ],
+     "subject_dice": 0.7412535853511771,
+     "subject_dice_95ci": [
+      0.7139264688624528,
+      0.7659913051225041
+     ],
+     "within_cohort_rank": 1
+    },
+    {
+     "locator_forwards": 1,
+     "method": "GCSAM identity",
+     "point_denominator": 270,
+     "point_hits": 252,
+     "scan_dice": 0.7520031755617648,
+     "scan_dice_95ci": [
+      0.7339302155542774,
+      0.7691406359300189
+     ],
+     "subject_dice": 0.7372664203170781,
+     "subject_dice_95ci": [
+      0.710739220444717,
+      0.761634147492673
+     ],
+     "within_cohort_rank": 2
+    },
+    {
+     "locator_forwards": 1,
+     "method": "Full identity",
+     "point_denominator": 270,
+     "point_hits": 262,
+     "scan_dice": 0.7517595372128266,
+     "scan_dice_95ci": [
+      0.7334812238419222,
+      0.7683877902602155
+     ],
+     "subject_dice": 0.7373271071260759,
+     "subject_dice_95ci": [
+      0.7112795699399138,
+      0.7609321323216628
+     ],
+     "within_cohort_rank": 3
+    }
+   ],
+   "scans": 270,
+   "stage": "BraTS2024 post-treatment",
+   "subjects": 119
+  },
+  {
+   "cohort": "UCSD75 official-float",
+   "comparisons": {
+    "gcsam_minus_full": {
+     "point_hits": 0,
+     "scan": 0.009634462197621664,
+     "scan_ci": [
+      -0.0021625930766264513,
+      0.025053405344486235
+     ]
+    }
+   },
+   "evidence": "same already-accessed cohort source correction; public external; not new blind",
+   "grid": "official 256^3 MNI float32 then project crop128",
+   "rows": [
+    {
+     "locator_forwards": 1,
+     "method": "GCSAM identity",
+     "point_denominator": 75,
+     "point_hits": 70,
+     "scan_dice": 0.7558895047505697,
+     "scan_dice_95ci": [
+      0.7171913696726163,
+      0.7895746358732383
+     ],
+     "subject_dice": 0.7553118862820871,
+     "subject_dice_95ci": [
+      0.7079896559599059,
+      0.7968233179793043
+     ],
+     "within_cohort_rank": 1
+    },
+    {
+     "locator_forwards": 1,
+     "method": "Full identity",
+     "point_denominator": 75,
+     "point_hits": 70,
+     "scan_dice": 0.746255042552948,
+     "scan_dice_95ci": [
+      0.7061778320670128,
+      0.782002838075161
+     ],
+     "subject_dice": 0.7401648632385446,
+     "subject_dice_95ci": [
+      0.68809843534756,
+      0.7846697561021121
+     ],
+     "within_cohort_rank": 2
+    }
+   ],
+   "scans": 75,
+   "stage": "post-treatment longitudinal difference cohort",
+   "subjects": 53
+  },
+  {
+   "cohort": "BraTS-Africa95",
+   "comparisons": {
+    "flip8_minus_full": {
+     "point_hits": 1,
+     "scan": 0.0034351092604245166,
+     "scan_ci": [
+      -0.010536166287496688,
+      0.016814528182253582
+     ]
+    },
+    "gcsam_minus_full": {
+     "point_hits": -3,
+     "scan": 0.06861666888291507,
+     "scan_ci": [
+      0.04447197577994147,
+      0.09249767550187686
+     ]
+    }
+   },
+   "evidence": "one-time public post-challenge; four centers; institution-disjoint/no patient bridge",
+   "grid": "heterogeneous 3-5mm source resampled1mm then project crop128",
+   "rows": [
+    {
+     "locator_forwards": 1,
+     "method": "GCSAM identity",
+     "point_denominator": 95,
+     "point_hits": 84,
+     "scan_dice": 0.5916192193392555,
+     "scan_dice_95ci": [
+      0.5409138043330485,
+      0.6374087789122713
+     ],
+     "subject_dice": 0.5916192193392555,
+     "subject_dice_95ci": [
+      0.5409138043330485,
+      0.6374087789122713
+     ],
+     "within_cohort_rank": 1
+    },
+    {
+     "locator_forwards": 8,
+     "method": "Full Flip8",
+     "point_denominator": 95,
+     "point_hits": 88,
+     "scan_dice": 0.526437659716765,
+     "scan_dice_95ci": [
+      0.4756464986472562,
+      0.5770474473869399
+     ],
+     "subject_dice": 0.526437659716765,
+     "subject_dice_95ci": [
+      0.4756464986472562,
+      0.5770474473869399
+     ],
+     "within_cohort_rank": 2
+    },
+    {
+     "locator_forwards": 1,
+     "method": "Full identity",
+     "point_denominator": 95,
+     "point_hits": 87,
+     "scan_dice": 0.5230025504563405,
+     "scan_dice_95ci": [
+      0.4755023307048984,
+      0.5677388555856394
+     ],
+     "subject_dice": 0.5230025504563405,
+     "subject_dice_95ci": [
+      0.4755023307048984,
+      0.5677388555856394
+     ],
+     "within_cohort_rank": 3
+    }
+   ],
+   "scans": 95,
+   "stage": "preoperative glioma",
+   "subjects": 95
+  },
+  {
+   "cohort": "CPTAC33 public Training",
+   "comparisons": {
+    "flip8_minus_full": {
+     "point_hits": 0,
+     "scan": 0.003245653494780141,
+     "scan_ci": [
+      0.0008277648965522789,
+      0.005854744230503212
+     ]
+    },
+    "gcsam_minus_full": {
+     "point_hits": 0,
+     "scan": 0.0019536163166680534,
+     "scan_ci": [
+      -0.006645827155111695,
+      0.012383792985095133
+     ]
+    }
+   },
+   "evidence": "Africa-informed one-time public external-to-project; not hidden blind",
+   "grid": "BraTS2021 1mm then project crop128",
+   "rows": [
+    {
+     "locator_forwards": 8,
+     "method": "Full Flip8",
+     "point_denominator": 33,
+     "point_hits": 33,
+     "scan_dice": 0.8445771173590393,
+     "scan_dice_95ci": [
+      0.8132902972601445,
+      0.8707951095638908
+     ],
+     "subject_dice": 0.8445771173590393,
+     "subject_dice_95ci": [
+      0.8132902972601445,
+      0.8707951095638908
+     ],
+     "within_cohort_rank": 1
+    },
+    {
+     "locator_forwards": 1,
+     "method": "GCSAM identity",
+     "point_denominator": 33,
+     "point_hits": 33,
+     "scan_dice": 0.8432850801809273,
+     "scan_dice_95ci": [
+      0.812976588721178,
+      0.868437094104688
+     ],
+     "subject_dice": 0.8432850801809273,
+     "subject_dice_95ci": [
+      0.812976588721178,
+      0.868437094104688
+     ],
+     "within_cohort_rank": 2
+    },
+    {
+     "locator_forwards": 1,
+     "method": "Full identity",
+     "point_denominator": 33,
+     "point_hits": 33,
+     "scan_dice": 0.8413314638642593,
+     "scan_dice_95ci": [
+      0.8090997785254241,
+      0.8686125719143264
+     ],
+     "subject_dice": 0.8413314638642593,
+     "subject_dice_95ci": [
+      0.8090997785254241,
+      0.8686125719143264
+     ],
+     "within_cohort_rank": 3
+    }
+   ],
+   "scans": 33,
+   "stage": "preoperative GBM",
+   "subjects": 33
+  },
+  {
+   "cohort": "WAW-GliomAI152",
+   "comparisons": {
+    "flip8_minus_full": {
+     "point_hits": 2,
+     "scan": 0.010116119662532444,
+     "scan_ci": [
+      0.004471798791619723,
+      0.016273870768237067
+     ]
+    },
+    "gcsam_minus_full": {
+     "point_hits": -1,
+     "scan": 0.010223165712319892,
+     "scan_ci": [
+      -0.003005097219784527,
+      0.023481424561937938
+     ]
+    }
+   },
+   "evidence": "one-time public external-to-project; Warsaw; institution-disjoint/no patient bridge",
+   "grid": "publisher coreg/skull-strip/bias-correct1mm then project N4/crop128",
+   "rows": [
+    {
+     "locator_forwards": 1,
+     "method": "GCSAM identity",
+     "point_denominator": 152,
+     "point_hits": 140,
+     "scan_dice": 0.6936011577505181,
+     "scan_dice_95ci": [
+      0.660656320933675,
+      0.7234330158024777
+     ],
+     "subject_dice": 0.6936011577505181,
+     "subject_dice_95ci": [
+      0.660656320933675,
+      0.7234330158024777
+     ],
+     "within_cohort_rank": 1
+    },
+    {
+     "locator_forwards": 8,
+     "method": "Full Flip8",
+     "point_denominator": 152,
+     "point_hits": 143,
+     "scan_dice": 0.6934941117007307,
+     "scan_dice_95ci": [
+      0.6602732185502288,
+      0.7236152755820258
+     ],
+     "subject_dice": 0.6934941117007307,
+     "subject_dice_95ci": [
+      0.6602732185502288,
+      0.7236152755820258
+     ],
+     "within_cohort_rank": 2
+    },
+    {
+     "locator_forwards": 1,
+     "method": "Full identity",
+     "point_denominator": 152,
+     "point_hits": 141,
+     "scan_dice": 0.6833779920381983,
+     "scan_dice_95ci": [
+      0.6498105765436853,
+      0.7136585980622272
+     ],
+     "subject_dice": 0.6833779920381983,
+     "subject_dice_95ci": [
+      0.6498105765436853,
+      0.7136585980622272
+     ],
+     "within_cohort_rank": 3
+    }
+   ],
+   "scans": 152,
+   "stage": "preoperative diffuse glioma grade2-4",
+   "subjects": 152
+  },
+  {
+   "cohort": "WAW early-postop31",
+   "comparisons": {
+    "flip8_minus_full": {
+     "point_hits": 0,
+     "scan": 0.007311971744356782,
+     "scan_ci": [
+      -0.0019253042754067851,
+      0.016626099058617037
+     ]
+    },
+    "gcsam_minus_full": {
+     "point_hits": -1,
+     "scan": 0.0016573086068167539,
+     "scan_ci": [
+      -0.01249757796488835,
+      0.016205274733148808
+     ]
+    }
+   },
+   "evidence": "one-time public; patients absent from WAW preop152; institution-disjoint/no BraTS patient bridge",
+   "grid": "publisher coreg/skull-strip/bias-correct1mm then project N4/crop128; earliest numeric scan per new patient",
+   "rows": [
+    {
+     "locator_forwards": 8,
+     "method": "Full Flip8",
+     "point_denominator": 31,
+     "point_hits": 15,
+     "scan_dice": 0.5989593880340819,
+     "scan_dice_95ci": [
+      0.5322282465257876,
+      0.662011922032433
+     ],
+     "subject_dice": 0.5989593880340819,
+     "subject_dice_95ci": [
+      0.5322282465257876,
+      0.662011922032433
+     ],
+     "within_cohort_rank": 1
+    },
+    {
+     "locator_forwards": 1,
+     "method": "GCSAM identity",
+     "point_denominator": 31,
+     "point_hits": 14,
+     "scan_dice": 0.5933047248965418,
+     "scan_dice_95ci": [
+      0.5275003984828207,
+      0.6542934324254197
+     ],
+     "subject_dice": 0.5933047248965418,
+     "subject_dice_95ci": [
+      0.5275003984828207,
+      0.6542934324254197
+     ],
+     "within_cohort_rank": 2
+    },
+    {
+     "locator_forwards": 1,
+     "method": "Full identity",
+     "point_denominator": 31,
+     "point_hits": 15,
+     "scan_dice": 0.5916474162897252,
+     "scan_dice_95ci": [
+      0.5222398053426635,
+      0.654847899093111
+     ],
+     "subject_dice": 0.5916474162897252,
+     "subject_dice_95ci": [
+      0.5222398053426635,
+      0.654847899093111
+     ],
+     "within_cohort_rank": 3
+    }
+   ],
+   "scans": 31,
+   "stage": "early postoperative day0-22; labels1/2/3 WT exclude RC4",
+   "subjects": 31
+  },
+  {
+   "cohort": "UCSD-BraTS2024test56",
+   "evidence": "public post-challenge BraTS-GLI 2024 test (UCSD share); patient-disjoint by official v3 mapping; NOT institution-disjoint; not hidden blind",
+   "grid": "native 256^3 1mm -> project canonical N4/crop/128^3",
+   "rows": [
+    {
+     "method": "Full Flip8",
+     "scan_dice": 0.7329728508045773,
+     "scan_dice_95ci": [
+      0.693044854948499,
+      0.7715257863559852
+     ],
+     "subject_dice": 0.7336249503541781,
+     "point_hits": 56,
+     "point_denominator": 56,
+     "locator_forwards": 8
+    },
+    {
+     "method": "Full identity",
+     "scan_dice": 0.7300017414958458,
+     "scan_dice_95ci": [
+      0.6906256422179026,
+      0.7667907162918564
+     ],
+     "subject_dice": 0.7307396916940746,
+     "point_hits": 56,
+     "point_denominator": 56,
+     "locator_forwards": 1
+    },
+    {
+     "method": "GCSAM identity",
+     "scan_dice": 0.7176892534464905,
+     "scan_dice_95ci": [
+      0.6719310669469873,
+      0.7612851579417863
+     ],
+     "subject_dice": 0.7155453215989994,
+     "point_hits": 52,
+     "point_denominator": 56,
+     "locator_forwards": 1
+    }
+   ],
+   "comparisons": {
+    "flip8_minus_full": {
+     "scan": 0.002971109308731422,
+     "scan_ci": [
+      -0.00273980804868736,
+      0.008749643998506586
+     ],
+     "point_hits": 0
+    },
+    "gcsam_minus_full": {
+     "scan": -0.012312488049355374,
+     "scan_ci": [
+      -0.025822025912622792,
+      -9.235571350130962e-05
+     ],
+     "point_hits": -4
+    }
+   }
+  }
+ ],
+ "schema": "aflow.seven_cohort.evidence_matrix",
+ "schema_version": 3,
+ "source_sha256": {
+  "africa": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+  "cptac": "4b9d8c90e1b5ec45b0e664e560301db20affd6a96387f416a62b561f8d57b4fd",
+  "internal_flip": "29efc557aa12b6f82fd079edd84cc3c8c1e5ad4536880c016b664932234f45ad",
+  "internal_gcsam": "d0e2f48e1f499d65adddb3dbe30758caad27768bb75f737ea2cfe4a877c335d5",
+  "ucsd": "a1155914b16b648f97f11a7d7a20cb27096d7eed9f9662db73f4905860da04d2",
+  "waw": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91",
+  "waw_postop": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98"
+ },
+ "status": "separate_cohorts_no_pooled_ranking_or_selection",
+ "synthesis": {
+  "total_scans": 712,
+  "gcsam_minus_full": "entirely positive CI only on Africa95; entirely negative CI on UCSD-BraTS2024test56 (-0.012312); five others cross zero; direction cohort-reversible",
+  "flip8_minus_full": "six positive point estimates; CIs entirely positive on internal270/CPTAC33/WAW-pre152; Point deltas never negative; 8x cost",
+  "no_universal_champion": true
+ },
+ "created_at_utc": "2026-09-06T14:19:56.209144+00:00",
+ "source_sha256_added": {
+  "ucsd_brats2024test56_raw": "74466d1cdc56d864d48e5d8604e00d004ecdb636882366546b4738a1b794201c"
+ }
+}

@@ -1,0 +1,98 @@
+{
+  "cache": {
+    "cache_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "count": 756,
+    "images_sha256": "a32d52e188395d41a185d51b33e105d4f67638fceec50861f81e4c8a33b90d40",
+    "labels_sha256": "cf2ed4ae8dcbf0214ca18564f1ce4418efbea208b8b3ab67fc52bb050c5464be",
+    "manifest": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "model_shape": [
+      128,
+      128,
+      128
+    ],
+    "preprocessing": {
+      "image_interpolation": "trilinear_align_corners_false",
+      "label_interpolation": "nearest-exact",
+      "n4_bias_field_correction": true,
+      "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+      "n4_shrink_factor": 2,
+      "normalization": "source nonzero-voxel population z-score before resize",
+      "order": [
+        "canonical_RAS",
+        "N4_shrink_2",
+        "image_nonzero_bounding_box_crop",
+        "source_nonzero_population_zscore",
+        "resize_to_declared_cubic_grid"
+      ],
+      "output_resolution": 128,
+      "source_is_existing_128_cache": false,
+      "spatial": "braincrop_resize",
+      "uses_gt_for_localization": false
+    },
+    "source_positive_voxels_sha256": "53363d47df9297f71fdfec92bd104841c6ab4fac335ce65d52353dd9f0565f7a"
+  },
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-18T07:40:20.197517+00:00",
+  "data_roles": {
+    "case_overlap": 0,
+    "fit": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_resolution_inner_seed20260828_v1/fit_cases.jsonl",
+      "sha256": "1522b761133cb5a751c6a066339b3f79999759b1b3b541d41837024bd6c7b1f2"
+    },
+    "fit_cases": 648,
+    "fit_subjects": 294,
+    "inner_tune": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_resolution_inner_seed20260828_v1/inner_tune_cases.jsonl",
+      "sha256": "1fe5a9adb8b53d3484411916020ae3ceffa55e6ffe0b9b573000bd906092ad97"
+    },
+    "inner_tune_cases": 108,
+    "inner_tune_subjects": 52,
+    "subject_overlap": 0
+  },
+  "fixed_epoch": 168,
+  "hyperparameters": {
+    "base_lr": 0.0002,
+    "batch_size": 8,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "ce_weight": 0.1,
+    "constant_epochs": 100,
+    "device": "cuda:0",
+    "dropout": 0.1,
+    "epochs": 168,
+    "expected_cohort_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "expected_fit_cases": 648,
+    "expected_fit_sha256": "1522b761133cb5a751c6a066339b3f79999759b1b3b541d41837024bd6c7b1f2",
+    "expected_inner_tune_cases": 108,
+    "expected_inner_tune_sha256": "1fe5a9adb8b53d3484411916020ae3ceffa55e6ffe0b9b573000bd906092ad97",
+    "expected_parameter_count": 4700897,
+    "expected_source_positive_voxels_sha256": "53363d47df9297f71fdfec92bd104841c6ab4fac335ce65d52353dd9f0565f7a",
+    "fit_case_ids": "data/datasets/brats2024_t1ce_resolution_inner_seed20260828_v1/fit_cases.jsonl",
+    "init_filters": 16,
+    "inner_tune_case_ids": "data/datasets/brats2024_t1ce_resolution_inner_seed20260828_v1/inner_tune_cases.jsonl",
+    "max_shift": 8,
+    "min_lr": 1e-05,
+    "num_workers": 4,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/formal_128",
+    "resolution": 128,
+    "schedule_total_epochs": 200,
+    "seed": 20260829,
+    "smoke": false,
+    "validation_batch_size": 8,
+    "weight_decay": 1e-05
+  },
+  "outer_selector_access": false,
+  "resolution": 128,
+  "runner_sha256": "a3ca0b662ace2939efde6f79ab6b9f2c114468fb74298861731d87d8860c9790",
+  "sampling_contract": {
+    "basis": "native-grid WT positive voxels before resolution-specific resize",
+    "generator_seed": 20260829,
+    "sampler": "WeightedRandomSampler(replacement=True,num_samples=fit_cases)",
+    "source_positive_voxels_sha256": "53363d47df9297f71fdfec92bd104841c6ab4fac335ce65d52353dd9f0565f7a",
+    "weights_sha256": "2810d7d6c9a2496de368ce5a581d284c65d98434bd92094eb95dedba277a1005"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_plain_fixed_resolution_training",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step",
+  "test_access": false
+}

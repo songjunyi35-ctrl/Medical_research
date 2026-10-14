@@ -1,0 +1,25 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_hard_ml1ace_synthetic_tests",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-20T08:00:00Z",
+  "command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_t1ce_wt_hard_ml1ace.py",
+  "result": "13 passed",
+  "all_gates_passed": true,
+  "coverage": [
+    "official single-channel reference loss and gradient",
+    "hard-bin boundaries including 0,0.05,0.1,0.5,0.95,1",
+    "empty bins and empty foreground target",
+    "voxel permutation invariance",
+    "bfloat16 logits converted to float32 calibration",
+    "finite nonzero ACE-to-logit gradient",
+    "CPU and CUDA RNG invariance",
+    "weight-zero AdamW update parity with matched control",
+    "macro, official-micro and pooled-voxel aggregation distinction"
+  ],
+  "implementation_sha256": "94ef859a90f7a1d6b76995b4b2b195026d03e7e1a5899df54c484d0c38cf70ac",
+  "test_sha256": "84f36c4feb327b12e8a7ec19c8927e953836206a1209b8837274b7da36a7dec0",
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

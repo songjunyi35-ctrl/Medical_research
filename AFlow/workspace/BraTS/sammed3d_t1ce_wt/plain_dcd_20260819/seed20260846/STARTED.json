@@ -1,0 +1,91 @@
+{
+  "amendment_001_sha256": "c66e134fe5f909e8181f36158b85dc4e5d8a4787dbbd0850257e3fa0d874ecaa",
+  "amendment_002_sha256": "85540dabd2d028e511c526f48d8d5793d59c59fefada1d3e2e7a2752b7ef54a4",
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-19T09:19:38.419348+00:00",
+  "data_role": {
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "cases": 756,
+    "subjects": 346,
+    "train": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+      "sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16"
+    }
+  },
+  "detail_teacher_historical_test_access_after_selection": true,
+  "detail_teacher_historical_validation_access": true,
+  "hyperparameters": {
+    "base_lr": 0.0002,
+    "batch_size": 8,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "ce_weight": 0.1,
+    "continuation_epochs": 32,
+    "detail_teacher_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/kd_seed20260846/plain_128_kd_global_epoch200.pth",
+    "device": "cuda:0",
+    "ema_teacher_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/plain_128_full756_ema_fixed_epoch168.pth",
+    "implementation_receipt": "archive/research_records/2026-08-19_dcd_detail_distillation/IMPLEMENTATION_RECEIPT.json",
+    "initial_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "max_shift": 8,
+    "min_lr": 1e-05,
+    "mode": "formal",
+    "num_workers": 4,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_dcd_20260819/seed20260846",
+    "preregistration": "archive/research_records/2026-08-19_dcd_detail_distillation/PREREG.json",
+    "preregistration_amendment_001": "archive/research_records/2026-08-19_dcd_detail_distillation/AMENDMENT_001_PRE_IMPLEMENTATION.json",
+    "preregistration_amendment_002": "archive/research_records/2026-08-19_dcd_detail_distillation/AMENDMENT_002_PRE_IMPLEMENTATION.json",
+    "seed": 20260846,
+    "start_global_epoch": 168,
+    "train_case_ids": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "weight_decay": 1e-05
+  },
+  "implementation_receipt_sha256": "725069c39d2e83231b3ed596a3100c662a28560b22244c70132bd64e8d7ec2e6",
+  "method": {
+    "analysis_synthesis": "same frozen decomposition bank; PyTorch adjoint correction",
+    "detail_teacher_sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+    "encoder_channels": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "encoder_resolutions": [
+      128,
+      64,
+      32,
+      16
+    ],
+    "filter_bank_sha256": "1cc1550c3ca56547e427b3568d2d1e2bc5bd52d2a4a39305b7890dc16918240a",
+    "inference": "plain student final raw logit only",
+    "level_aggregation": "mean",
+    "levels": 3,
+    "projection": null,
+    "selected_bands": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "stage_aggregation": "sum",
+    "student_ema": false,
+    "wavelet": "db4"
+  },
+  "outer_selector_access": false,
+  "preregistration_sha256": "7d0a0420cd55f6abfda45bce37c440ca5ac7fd803bff37904846dcbbc0e7f6cf",
+  "runner_sha256": "daea727725752ae62a6e52aa789b13968043a7fb7b30ed7ebf7e1405c1477ad2",
+  "sampling_contract": {
+    "batch_size": 8,
+    "drop_last": true,
+    "generator_seed": 20260846,
+    "num_samples": 756,
+    "replacement": true,
+    "steps_per_epoch": 94,
+    "weights_sha256": "757e463d8e60f96ef6429613f6783fb3aa1014b580932959f9ed354d37072124"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_plain_dcd_continuation",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step",
+  "test_access": false,
+  "validation_access": false
+}

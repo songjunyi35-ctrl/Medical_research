@@ -1,0 +1,45 @@
+{
+  "schema": "aflow.remind_quantized_geometry_probe.result",
+  "status": "source_intervals_passed_seg_sop_mapping_failed_before_seg_pixels",
+  "source_gap_intervals": {
+    "count": 191,
+    "all_contain_declared_1mm": true,
+    "all_lower_positive": true,
+    "mechanism_supported": true
+  },
+  "source_grid": {"slices": 192, "rows": 256, "columns": 216},
+  "seg_headers": {
+    "tumor": {
+      "frames": 36,
+      "rows": 49,
+      "columns": 32,
+      "pixel_spacing": [0.9765625, 0.9765626],
+      "slice_thickness": 1.0,
+      "derivation_source_sop_sequence": false,
+      "referenced_series_sequence": false
+    },
+    "cerebrum": {
+      "frames": 275,
+      "rows": 415,
+      "columns": 335,
+      "pixel_spacing": [0.4, 0.4],
+      "slice_thickness": 0.3995816,
+      "derivation_source_sop_sequence": false,
+      "referenced_series_sequence": false
+    }
+  },
+  "failed_gate": "SEG rows/columns must equal source for SOP-only no-resampling assembly",
+  "interpretation": "SEG uses independent cropped/resolution physical grids and requires an explicitly preregistered physical-space nearest-neighbor resampling path",
+  "access": {
+    "t1ce_pixel_array": true,
+    "seg_headers": true,
+    "seg_pixel_array": false,
+    "old_nrrd_array": false,
+    "other_candidate_pixels": false,
+    "checkpoint": false,
+    "model_forwards": 0,
+    "metrics": false
+  },
+  "download_receipt_sha256": "270ab28554f76f11142f6956efbfcb8cd54c659dbe5318e29c082c335880c4f9",
+  "implementation_sha256": "457b39883b09e3a8d9ed010bf7d28aa5005349610e88d52aac1eba551099e908"
+}

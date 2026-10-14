@@ -1,0 +1,103 @@
+{
+  "analyzer_sha256": "402ceb63e060b52b2cdecacc62f4d3854fa34289a981e886aa511752659e3a81",
+  "cohorts": [
+    {
+      "cohort": "Reused internal test270",
+      "delta": 0.0002436383489381384,
+      "delta_ci": [
+        -0.005655235725851661,
+        0.005739641802437181
+      ],
+      "full_ci": [
+        0.7334812238419222,
+        0.7683877902602155
+      ],
+      "full_points": 262,
+      "full_scan": 0.7517595372128266,
+      "gcsam_ci": [
+        0.7339302155542774,
+        0.7691406359300189
+      ],
+      "gcsam_points": 252,
+      "gcsam_scan": 0.7520031755617648,
+      "point_denominator": 270,
+      "scope": "270 scans/119 subjects; reused, not blind/external"
+    },
+    {
+      "cohort": "UCSD75 official-float",
+      "delta": 0.009634462197621664,
+      "delta_ci": [
+        -0.0021625930766264513,
+        0.025053405344486235
+      ],
+      "full_ci": [
+        0.7061778320670128,
+        0.782002838075161
+      ],
+      "full_points": 70,
+      "full_scan": 0.746255042552948,
+      "gcsam_ci": [
+        0.7171913696726163,
+        0.7895746358732383
+      ],
+      "gcsam_points": 70,
+      "gcsam_scan": 0.7558895047505697,
+      "point_denominator": 75,
+      "scope": "same-cohort source correction; reused public external"
+    },
+    {
+      "cohort": "BraTS-Africa95",
+      "delta": 0.06861666888291507,
+      "delta_ci": [
+        0.04447197577994147,
+        0.09249767550187686
+      ],
+      "full_ci": [
+        0.4755023307048984,
+        0.5677388555856394
+      ],
+      "full_points": 87,
+      "full_scan": 0.5230025504563405,
+      "gcsam_ci": [
+        0.5409138043330485,
+        0.6374087789122713
+      ],
+      "gcsam_points": 84,
+      "gcsam_scan": 0.5916192193392555,
+      "point_denominator": 95,
+      "scope": "public post-challenge; four centers; institution-disjoint/no patient bridge"
+    },
+    {
+      "cohort": "CPTAC33 public Training",
+      "delta": 0.0019536163166680534,
+      "delta_ci": [
+        -0.006645827155111695,
+        0.012383792985095133
+      ],
+      "full_ci": [
+        0.8090997785254241,
+        0.8686125719143264
+      ],
+      "full_points": 33,
+      "full_scan": 0.8413314638642593,
+      "gcsam_ci": [
+        0.812976588721178,
+        0.868437094104688
+      ],
+      "gcsam_points": 33,
+      "gcsam_scan": 0.8432850801809273,
+      "point_denominator": 33,
+      "scope": "public labels external to this project; Africa-informed confirmation, not hidden"
+    }
+  ],
+  "interpretation": "GCSAM-minus-Full Scan Dice is near zero internally, modest on UCSD75, large on Africa95, and returns near zero with an interval crossing zero on the Africa-informed CPTAC33 confirmation. Point differences are -10/0/-3/0. Cohorts differ and must not be pooled; Africa95 is a domain-specific checkpoint advantage, not evidence for a monotonic or universal law that domain shift favors GCSAM.",
+  "models": {
+    "full972_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+    "gcsam184_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d"
+  },
+  "new_model_inference": false,
+  "schema": "aflow.cross_cohort.frozen_checkpoint_synthesis",
+  "schema_version": 2,
+  "selection_or_tuning": false,
+  "status": "descriptive_separate_cohorts_no_pooled_ranking"
+}

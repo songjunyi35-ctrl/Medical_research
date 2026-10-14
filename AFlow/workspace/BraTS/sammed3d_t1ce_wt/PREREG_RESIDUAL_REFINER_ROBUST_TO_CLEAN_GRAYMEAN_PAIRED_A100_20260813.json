@@ -1,0 +1,70 @@
+{
+  "schema": "aflow.prereg.residual_refiner_robust_to_clean_graymean_paired_a100",
+  "schema_version": 1,
+  "created_date_utc": "2026-08-13",
+  "status": "frozen_before_optimizer_step",
+  "test_access": false,
+  "hypothesis": "A low-LR clean phase can retain shift4 robustness while restoring fine boundaries; gray weight 1 may add mild regularization without dominating DiceCE.",
+  "primary_target": {
+    "split": "108-case subject-clean validation",
+    "metric": "raw scan-macro WT Dice at logit threshold zero",
+    "threshold": 0.70,
+    "strict_comparison": ">"
+  },
+  "source": {
+    "robust_checkpoint_validation_dsc": 0.695636292108921,
+    "robust_checkpoint_sha256": "011a7b0f4a9ee193883662f03fc6d8a54cef9fd3b4c08c2871cdddbdfbe73f6a",
+    "bridge_checkpoint_path": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_graymean_paired_a100_20260813/robustshift4_control/refiner_val_dice_best_bridge_for_clean_phase.pth",
+    "bridge_checkpoint_sha256": "cf47f3fe92735f788a78a37cda2bd9d4d2f4d0e8b594f6036596e455316e4b4c",
+    "model_state_dict_sha256": "3599a3b2d4c6d7cd80d00e4f9971b2612186f3e5945b9f5e10d429aa396bf5ed",
+    "effective_source_epoch": 64,
+    "optimizer_state_policy": "reset in both arms"
+  },
+  "paired_arms": [
+    {
+      "name": "robust_to_clean_control",
+      "gpu": 0,
+      "gray_weight": 0.0
+    },
+    {
+      "name": "robust_to_clean_graymean_w1",
+      "gpu": 1,
+      "gray_weight": 1.0
+    }
+  ],
+  "fixed_hyperparameters": {
+    "seed": 20260813,
+    "epochs_max": 20,
+    "patience": 7,
+    "batch_size": 2,
+    "optimizer": "AdamW reset",
+    "learning_rate": 0.00001,
+    "weight_decay": 0.00001,
+    "training_coarse_corruption": "none",
+    "original_joint_augmentation": "unchanged",
+    "segmentation_loss": "original DiceCE",
+    "gray_temperature": 1.0,
+    "gray_epsilon": 0.000001,
+    "checkpoint_selection": "strict maximum validation scan-macro Dice including continuation epoch 0"
+  },
+  "data": {
+    "train_cache_path": "/tmp/aflow_refiner_graymean_20260813/train",
+    "train_count": 972,
+    "train_index_sha256": "d3cace047fe168e33b465744bf4170e7e323defc6f61e968cd83250e4061f974",
+    "validation_cache_path": "/tmp/aflow_refiner_graymean_20260813/validation",
+    "validation_count": 108,
+    "validation_index_sha256": "cda56539fd59ce9c2579c41de4a8b1467381ab513c66a62397448a1cd470444c"
+  },
+  "code": {
+    "training_runner_sha256": "b2949927640e2d656cfe2c71a9f53aec491d9edb9dfa071a634ce7b1037133d2",
+    "bridge_runner_sha256": "3f040604c2ea489951ea429e272a4cf5461cb16933b8fa033704cf7c25d89a89",
+    "bridge_unit_test_sha256": "4e407b25c712a8a3b175a2f4a407f63646e0031665d44db8a2fcb9e1392cb207",
+    "bridge_test_result": "1 passed"
+  },
+  "decision_policy": [
+    "Do not access test.",
+    "Run and report both arms.",
+    "Do not change source, learning rate, gray weight, patience, or selection after launch.",
+    "Gray benefit requires comparison to the paired clean control."
+  ]
+}

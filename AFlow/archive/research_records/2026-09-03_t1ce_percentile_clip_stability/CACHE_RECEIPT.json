@@ -1,0 +1,49 @@
+{
+  "schema": "aflow.brats.t1ce_percentile_clip.cache_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T16:00:00Z",
+  "status": "passed_after_v2_single_thread_rebuild_verification",
+  "cache": {
+    "path": "/tmp/aflow_t1ce_percentile_clip_20260903/train",
+    "count": 972,
+    "index_sha256": "6e51c3b32f6b3ced4d11adabe75c20d1cf746e2bb6e59a8b3456c46801ad8755",
+    "images_sha256": "3184f210c5f2cf1a2c46fc9247cf3f02d6d81beffa7a1d001c7743f31406f06a",
+    "labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+    "control_labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+    "labels_byte_exact_to_control": true,
+    "build_seconds": 2573.637595176697
+  },
+  "preprocessing": {
+    "percentile_method": "numpy.percentile linear",
+    "low_percentile": 1.0,
+    "high_percentile": 99.0,
+    "all_972_threshold_pairs_finite_and_ordered": true,
+    "low_threshold_minmax": [0.4186195117235184, 2577.7619091796873],
+    "high_threshold_minmax": [332.7279394531244, 9916.444374999974],
+    "per_case_clipped_low_voxels_minmax": [9749, 20430],
+    "per_case_clipped_high_voxels_minmax": [9749, 20430]
+  },
+  "implementation": {
+    "build_worker_sha256": "473f6b076b00ca9bae301dc39590db37b106292ce0ab1aaf7e2bdbaab64fad68",
+    "v2_rebuild_verifier_sha256": "ab1bf64102ead1674898dae493c2b8afae241a64e9195cd18b0060556cdb6717",
+    "amendment_sha256": "0b6ce72205ef18e304dd706ff9fe7610c2151c8f8a300f8d7bb7c89ffd78a8cb"
+  },
+  "verification": {
+    "v1_status": "stopped_before_model_due_to_parent_process_itk_thread_mismatch",
+    "diagnostic_case": "BraTS-GLI-02114-100",
+    "single_thread_diagnostic_image_max_abs": 0.0,
+    "single_thread_diagnostic_image_exact": true,
+    "single_thread_diagnostic_label_exact": true,
+    "v2_independent_exact_rebuilds": 5,
+    "v2_all_passed": true
+  },
+  "access": {
+    "fit": true,
+    "inner_metrics": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

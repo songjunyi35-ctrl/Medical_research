@@ -1,0 +1,72 @@
+{
+  "schema": "aflow.final_validation_result.residual_refiner_robust_ensemble",
+  "schema_version": 1,
+  "created_date_utc": "2026-08-13",
+  "test_access": false,
+  "scope": {
+    "split": "108-case / 50-subject subject-clean validation",
+    "task": "BraTS 2024 T1ce single modality, WT={1,2,3}",
+    "geometry": "oracle GT-centered N4 128^3",
+    "coarse_input": "frozen SAM-Med3D fixed click-3 raw logits",
+    "status": "development result; not an independent test result and not automatic localization"
+  },
+  "main_finding": {
+    "target": "scan-macro Dice strictly above 0.70",
+    "target_met": true,
+    "scan_macro_dsc": 0.700418962602465,
+    "subject_balanced_dsc": 0.6953719490880098,
+    "median_scan_dsc": 0.750303789518963,
+    "protocol": "3-seed equal-logit ensemble x fixed 8-reflection TTA, then locked threshold -1.0 and removal of 26-connected components below 500 voxels",
+    "distance_above_0_70": 0.000418962602465
+  },
+  "ablation_chain": [
+    {"name": "epoch58 refiner A100 replay", "scan_macro_dsc": 0.6695482504071185},
+    {"name": "best single robustshift4 seed raw", "seed": 20260815, "scan_macro_dsc": 0.6990433552267926},
+    {"name": "three-seed equal-logit ensemble raw", "scan_macro_dsc": 0.697902396428446},
+    {"name": "three-seed x eight-reflection TTA raw", "scan_macro_dsc": 0.6982346553656422},
+    {"name": "three-seed x eight-reflection TTA with locked postprocess", "scan_macro_dsc": 0.700418962602465}
+  ],
+  "paired_against_epoch58": {
+    "scan_macro_delta": 0.0308707121953466,
+    "improved_cases": 96,
+    "worsened_cases": 12
+  },
+  "by_gt_target_voxels": [
+    {"range": "[0,8000)", "cases": 7, "epoch58_dsc": 0.2569603933287518, "final_dsc": 0.2804153526773254, "delta": 0.0234549593485735},
+    {"range": "[8000,30000)", "cases": 30, "epoch58_dsc": 0.6224290778239568, "final_dsc": 0.6662393939278934, "delta": 0.0438103161039365},
+    {"range": "[30000,80000)", "cases": 41, "epoch58_dsc": 0.7104100268788454, "final_dsc": 0.7365583533518875, "delta": 0.0261483264730421},
+    {"range": "[80000,infinity)", "cases": 30, "epoch58_dsc": 0.7570934951305389, "final_dsc": 0.7832088729020251, "delta": 0.0261153777714864}
+  ],
+  "robust_training": {
+    "initialization": "epoch58 GT-centered residual refiner",
+    "training_only_corruption": "independently translate each coarse-logit volume by a random integer offset up to 4 voxels per axis with zero-filled borders; image and label are not translated by this extra corruption",
+    "gray_weight": 0.0,
+    "seeds": [20260813, 20260814, 20260815],
+    "individual_raw_validation_dsc": [0.695636292108921, 0.6963512465978662, 0.6990433552267926]
+  },
+  "gray_loss_conclusion": {
+    "implementation": "MSE between GT-region T1ce mean and sigmoid-logit-weighted predicted-region T1ce mean",
+    "clean_continuation_control_dsc": 0.6733628240655418,
+    "clean_continuation_gray_weight_1_dsc": 0.6724005015566945,
+    "clean_gray_minus_control": -0.0009623225088473,
+    "robustshift4_control_dsc": 0.695636292108921,
+    "robustshift4_gray_weight_10_dsc": 0.6938823337701184,
+    "robust_gray_minus_control": -0.0017539583388026,
+    "conclusion": "Gray loss was compatible and reduced gray-mean error, but did not add validation Dice. The >0.70 result must not be attributed to gray loss."
+  },
+  "selection_caveat": {
+    "postprocess": "threshold -1.0 and removal of components below 500 voxels were selected on the same 108-case validation set in a frozen 11x4 grid before training the two additional seeds",
+    "implication": "0.700419 is a validation-selected development score, not an unbiased estimate of generalization",
+    "next_required_evidence": "freeze the inference protocol, then evaluate once on a new external or confirmation set; do not tune on the revealed 270-case test"
+  },
+  "checkpoints": [
+    {"seed": 20260813, "sha256": "011a7b0f4a9ee193883662f03fc6d8a54cef9fd3b4c08c2871cdddbdfbe73f6a"},
+    {"seed": 20260814, "sha256": "c94f32c04cb89f51e1b83ae157bbce1d89371aa21b4267164e1ed645fa4d4cbc"},
+    {"seed": 20260815, "sha256": "c5d2b48db2666f097cb0d86e78c20ea95d163c07f98401714d25d755e99aceb0"}
+  ],
+  "evidence": {
+    "ensemble_report": {"path": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_three_seed_ensemble_20260813/ENSEMBLE_VALIDATION.json", "sha256": "0fefb2f9cdbabfe211233f04083abf243d8559044411e124e02924ba9e92cb03"},
+    "ensemble_tta_report": {"path": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_three_seed_ensemble_20260813/ENSEMBLE_TTA8_VALIDATION.json", "sha256": "773fd8efc22221af4992c370ae73431787408fb693bc7af310ba298adc551388"},
+    "postprocess_calibration_report": {"path": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_graymean_paired_a100_20260813/robustshift4_control/POSTPROCESS_VALIDATION.json", "sha256": "64ad713cfacf4b2d286663ec9f46f62bcab84522d47fdf2247677a72648d8650"}
+  }
+}

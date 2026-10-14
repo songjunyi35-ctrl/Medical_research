@@ -1,0 +1,41 @@
+imageType:
+  Original: {}
+
+featureClass:
+  shape:
+  firstorder:
+  glcm:  # disable SumAverage as it is confounded by volume
+    - 'Autocorrelation'
+    - 'JointAverage'
+    - 'ClusterProminence'
+    - 'ClusterShade'
+    - 'ClusterTendency'
+    - 'Contrast'
+    - 'Correlation'
+    - 'DifferenceAverage'
+    - 'DifferenceEntropy'
+    - 'DifferenceVariance'
+    - 'JointEnergy'
+    - 'JointEntropy'
+    - 'Imc1'
+    - 'Imc2'
+    - 'Idm'
+    - 'Idmn'
+    - 'Id'
+    - 'Idn'
+    - 'InverseVariance'
+    - 'MaximumProbability'
+    - 'SumEntropy'
+    - 'SumSquares'
+  glrlm:
+  glszm:
+  gldm:
+  ngtdm:
+
+setting:
+  # we perform the normalization prior to any calculation so we 
+  # can skip normalization and voxel shifting and etc.
+  normalize: false
+  # corresponds in practice to 50 bins across the whole image
+  binWidth: 0.02
+  force2D: false

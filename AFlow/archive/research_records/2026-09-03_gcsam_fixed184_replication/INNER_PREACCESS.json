@@ -1,0 +1,90 @@
+{
+  "access": {
+    "confirmation": false,
+    "fit": true,
+    "fixed_validation108": false,
+    "inner_metrics": false,
+    "outer": false,
+    "test270": false,
+    "ucsd_external75": false
+  },
+  "bootstrap_samples": 10000,
+  "created_at_utc": "2026-09-03T14:56:19.205427+00:00",
+  "evaluator": "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_t1ce_wt_gcsam_fixed184_replication_inner.py",
+  "evaluator_sha256": "d0aaa02d7feb124ad2a97cf742213288212fdf84096f1f251419e71eeef6d55c",
+  "fixed_epoch": 184,
+  "gates": "per IDEA/PREREG; no post-training change",
+  "inner_manifests": {
+    "a": {
+      "cases": 108,
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_fixed184_replications_20260903/replicate_a_inner_cases.jsonl",
+      "sha256": "73068bcd2989bc84b87e99830e069620c0446a5c49c44e26010dd178bac6a3d3",
+      "subjects": 47
+    },
+    "b": {
+      "cases": 108,
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_gcsam_fixed184_replications_20260903/replicate_b_inner_cases.jsonl",
+      "sha256": "6639a7c381296b17986fbac4ef25be981d378457412d2246bb87ff2a8cc2192c",
+      "subjects": 45
+    }
+  },
+  "pairing": {
+    "a": {
+      "all_epoch_sampler_indices_exact": true,
+      "epochs_compared": 184,
+      "first_augmented_batch_exact": true,
+      "first_pass_loss_exact": true,
+      "initial_state_exact": true,
+      "sampling_weight_exact": true
+    },
+    "b": {
+      "all_epoch_sampler_indices_exact": true,
+      "epochs_compared": 184,
+      "first_augmented_batch_exact": true,
+      "first_pass_loss_exact": true,
+      "initial_state_exact": true,
+      "sampling_weight_exact": true
+    }
+  },
+  "schema": "aflow.brats.gcsam_fixed184_replication.inner_preaccess",
+  "schema_version": 1,
+  "status": "frozen_after_four_trainings_before_inner_access",
+  "training_artifacts": {
+    "a_adamw_control": {
+      "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_a_adamw_control/fixed_epoch184.pth",
+      "checkpoint_sha256": "436637a62447baceffcbaf92f521b6e54048733cd69577ac7f6547cda8285566",
+      "initial_state_sha256": "0329944e9955484c761ea82c5cbfa2aa0838b4ef94158373cd0e0874eed71186",
+      "model_state_sha256": "5946d16401ea9e82744d42b6ac03fa2ae43ccdb92e42817aec3ca550a529a9ab",
+      "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_a_adamw_control/TRAIN_DONE.json",
+      "report_sha256": "27e81991529a6b699492da28fcac8bcac0e7680b98a4a36da9effb0e7ed57f19",
+      "sampling_weight_sha256": "e5ebc36345cf7e27abf4b4d8209712a24fc8d7666071d85f07d327c7a90a39fe"
+    },
+    "a_gcsam_candidate": {
+      "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_a_gcsam_candidate/fixed_epoch184.pth",
+      "checkpoint_sha256": "5d1334d2b5ebe09e9bee9a3d511cbedd38c4da6562f5993adf6670ac724b3bcc",
+      "initial_state_sha256": "0329944e9955484c761ea82c5cbfa2aa0838b4ef94158373cd0e0874eed71186",
+      "model_state_sha256": "bbd0545d1760c922c490412f48881bc14e362acad2b2d54f7d19f0292d8c6dc7",
+      "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_a_gcsam_candidate/TRAIN_DONE.json",
+      "report_sha256": "be862cf4b3c66a9c7fa4a611b09ef3a9e80a8af83d9a89d4285e3a359abbf75d",
+      "sampling_weight_sha256": "e5ebc36345cf7e27abf4b4d8209712a24fc8d7666071d85f07d327c7a90a39fe"
+    },
+    "b_adamw_control": {
+      "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_b_adamw_control/fixed_epoch184.pth",
+      "checkpoint_sha256": "22304d5bec3c03d8e9357bbeda933a17f97ec7ceb6ebca78c5feeb76bded3cad",
+      "initial_state_sha256": "06ddbec49263af84382cc9b42d313f1429a54b282f5bcc42ce0686fde77f31a7",
+      "model_state_sha256": "c12d606515ed52f7c3841644f8957ef5dcfb7c47144a15777d56c02e033c303b",
+      "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_b_adamw_control/TRAIN_DONE.json",
+      "report_sha256": "41dafa0c117a4fdfa309439f666841803fc71be44f956fce659f1978d1fddab4",
+      "sampling_weight_sha256": "cfdffaf73691a4c73123080d11fc66a1e5f7efae24f185936182e79d031b9752"
+    },
+    "b_gcsam_candidate": {
+      "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_b_gcsam_candidate/fixed_epoch184.pth",
+      "checkpoint_sha256": "d4162fa0b37fb952e8e910a75cea4d2a96922f12330d3d9f9675ca9b307660d0",
+      "initial_state_sha256": "06ddbec49263af84382cc9b42d313f1429a54b282f5bcc42ce0686fde77f31a7",
+      "model_state_sha256": "6f8bd42e919aa7a5726fae912c5d3c20186a8483a371d552da7bea67ca74ed26",
+      "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gcsam_fixed184_replication_20260903/formal_b_gcsam_candidate/TRAIN_DONE.json",
+      "report_sha256": "808325fcdd42bf8469bfb22f826e023233fa73d8214cba680b39b1ffaafb9a0e",
+      "sampling_weight_sha256": "cfdffaf73691a4c73123080d11fc66a1e5f7efae24f185936182e79d031b9752"
+    }
+  }
+}

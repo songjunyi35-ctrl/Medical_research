@@ -1,0 +1,12 @@
+{
+  "schema": "aflow.burdenko_gbm_progression.source_feasibility",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T02:42:00Z",
+  "status": "closed_target_semantics_before_payload",
+  "cohort": {"patients": 180, "disease": "primary glioblastoma", "followups_per_patient": "1-8", "first_followup": "approximately 3 weeks after radiotherapy", "second_followup": "2-3 months after radiotherapy"},
+  "annotations": {"planning": ["GTV", "CTV", "PTV"], "followup_gtv": "subset only", "brats_whole_tumor_equivalent": false},
+  "geometry": {"mri": "original acquisition space", "rt_objects": "topometric CT space", "mri_to_ct_registration_files_provided": false, "external_container_link": "https://github.com/kurmukovai/burdenko_glioma_progression"},
+  "decision": "do not rename radiotherapy targets as BraTS WT; separate task required",
+  "source": {"tcia_page_sha256": "ecc577b1704026308013471795e9b49ca4f0271df1f83c809149d942f4b568ce", "advertised_download_gb": 131.23},
+  "access": {"manifest": false, "clinical_csv": false, "patient_metadata": false, "images": false, "rtstruct": false, "label_voxels": false, "model_forwards": 0, "gpu": false}
+}

@@ -1,0 +1,50 @@
+{
+  "utc": "2026-09-21T03:35:08.216700+00:00",
+  "status": "metadata_passed_execution_blocked_gpu",
+  "roles": {
+    "train": {
+      "scans": 972,
+      "subjects": 444,
+      "sha256": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65"
+    },
+    "validation": {
+      "scans": 108,
+      "subjects": 50,
+      "sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb"
+    },
+    "test": {
+      "scans": 270,
+      "subjects": 119,
+      "sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9"
+    }
+  },
+  "pairwise_subject_overlap": 0,
+  "external_inventory_sha256": "4bba11fb31913b18f44428087d9daf9dcd8f49590577ea11b715ddbcbbbf66eb",
+  "external_candidate_pairs": 334,
+  "project_free_bytes": 40490291200,
+  "host_local_cuda_count": 0,
+  "worker": 1104813,
+  "worker_gpus": "4 x A100-SXM4-40GB, idle at check",
+  "worker_torch_version": "2.7.1+cu126",
+  "worker_cuda_available": false,
+  "worker_driver_version": "535.161.08",
+  "worker_cuInit_return_code": 999,
+  "worker_nvidia_uvm_module_present": false,
+  "worker_nvidia_uvm_device_present": false,
+  "worker_nvidia_modprobe_available": false,
+  "worker_user_uid": 1000,
+  "worker_tmp_free_human": "5.8T",
+  "new_patient_pixels_access": false,
+  "new_model_patient_forward": false,
+  "new_test_pixels_access": false,
+  "new_outer_confirmation_access": false,
+  "train_started": false,
+  "test_tuning_authorized_by_user": true,
+  "test_tuning_exercised": false,
+  "candidates": [
+    "external_supervised_pretraining_then_finetuning",
+    "semantic_foreground_decomposition"
+  ],
+  "implementation_status": "protocol_drafts_only_not_executable_freeze",
+  "next": "repair/replace CUDA worker; implement and freeze entries, synthetic tests and data gates before training"
+}

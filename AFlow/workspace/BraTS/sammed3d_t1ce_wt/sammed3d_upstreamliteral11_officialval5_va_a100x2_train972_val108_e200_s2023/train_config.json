@@ -1,0 +1,186 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_upstream_literal_va_training",
+  "schema_version": 1,
+  "run_identity": "sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023",
+  "mode": "formal",
+  "world_size": 2,
+  "per_gpu_batch_size": 12,
+  "accumulation_steps": 20,
+  "nominal_effective_batch_size": 480,
+  "source_first_update_quirk_effective_batch": 504,
+  "optimizer": {
+    "type": "AdamW",
+    "groups": [
+      {
+        "name": "image_encoder_full",
+        "lr": 0.0008,
+        "weight_decay": 0.1,
+        "parameter_tensors": 189,
+        "parameter_numel": 92924928
+      },
+      {
+        "name": "prompt_encoder_and_mask_decoder",
+        "lr": 8e-05,
+        "weight_decay": 0.1,
+        "parameter_tensors": 134,
+        "parameter_numel": 7584304
+      }
+    ]
+  },
+  "scheduler": {
+    "type": "MultiStepLR",
+    "milestones": [
+      120,
+      180
+    ],
+    "gamma": 0.1
+  },
+  "precision": "upstream FP16 autocast + GradScaler",
+  "max_epochs": 200,
+  "train_seed_rank_base": 2023,
+  "upstream_source_has_no_seed": false,
+  "cache_train": {
+    "cache_dir": "/tmp/aflow_t1ce_wt_official15_va_128/train",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl",
+    "manifest_sha256": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65",
+    "images_sha256": "b2b9b2adaedd92eb85977ad45b20de359d9c2de1d9ba4f285fdc663efadd70bf",
+    "labels_sha256": "2d6c25755de8639e107257f0dd339de3535b00a1b405f0ffc4816c1304ed5b21",
+    "count": 972,
+    "preprocessing": {
+      "target": "T1ce single-channel / WT={1,2,3}; RC={4} excluded",
+      "target_spacing_mm": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "order": [
+        "WT123 binary LabelMap",
+        "TorchIO Resample 1.5mm isotropic",
+        "TorchIO ToCanonical",
+        "TorchIO CropOrPad(mask_name=label, target_shape=128^3)",
+        "positive-voxel sample z-score applied to whole patch"
+      ],
+      "spatial": "gt_crop_1p5mm",
+      "image_interpolation": "linear",
+      "label_interpolation": "nearest (TorchIO LabelMap)",
+      "normalization": "post-crop positive-voxel sample z-score",
+      "uses_gt_for_localization": true,
+      "skull_stripping": "not applied; BraTS volumes are already stripped",
+      "n4_bias_field_correction": false,
+      "augmentation": "NOT cached; official RandomFlip applied by train dataset",
+      "source": "uni-medical/SAM-Med3D prepare_data_from_nnUNet.py + infer_utils.py"
+    }
+  },
+  "cache_validation": {
+    "cache_dir": "/tmp/aflow_t1ce_wt_official15_va_128/validation",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "images_sha256": "d29cd598020d5f1a6e121e7937ab1524c81b3bdd29fe7d480e26ecd6400056ae",
+    "labels_sha256": "e43fd0c3975379b6849c601d3207c5def31bc3076a968040cc17d71675cb261e",
+    "count": 108,
+    "preprocessing": {
+      "target": "T1ce single-channel / WT={1,2,3}; RC={4} excluded",
+      "target_spacing_mm": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "order": [
+        "WT123 binary LabelMap",
+        "TorchIO Resample 1.5mm isotropic",
+        "TorchIO ToCanonical",
+        "TorchIO CropOrPad(mask_name=label, target_shape=128^3)",
+        "positive-voxel sample z-score applied to whole patch"
+      ],
+      "spatial": "gt_crop_1p5mm",
+      "image_interpolation": "linear",
+      "label_interpolation": "nearest (TorchIO LabelMap)",
+      "normalization": "post-crop positive-voxel sample z-score",
+      "uses_gt_for_localization": true,
+      "skull_stripping": "not applied; BraTS volumes are already stripped",
+      "n4_bias_field_correction": false,
+      "augmentation": "NOT cached; official RandomFlip applied by train dataset",
+      "source": "uni-medical/SAM-Med3D prepare_data_from_nnUNet.py + infer_utils.py"
+    }
+  },
+  "dataset_and_interaction_protocol": {
+    "orientation": "canonical RAS after 1.5 mm paired resampling",
+    "geometry": {
+      "name": "gt_crop_1p5mm",
+      "target_spacing_mm": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "target_shape": [
+        128,
+        128,
+        128
+      ],
+      "implementation": "TorchIO CropOrPad(mask_name=label)",
+      "image_interpolation": "linear",
+      "label_interpolation": "nearest (TorchIO LabelMap)",
+      "uses_gt_for_localization": true
+    },
+    "normalization": "post-crop positive-voxel sample z-score applied to the whole patch; no N4 and no batch re-normalization",
+    "augmentation": {
+      "name": "random_flip",
+      "applies_to": "train split only",
+      "validation_augmentation": false,
+      "random_flip": {
+        "axes": [
+          0,
+          1,
+          2
+        ],
+        "per_axis_probability": 0.5,
+        "source": "SAM-Med3D official train.py / TorchIO 1.2.0"
+      }
+    },
+    "cache_protocol_schema": "aflow.sammed3d.t1ce_wt_official15_cache",
+    "cache_builder_sha256": "ee882e0eed4704b398568dd2a36683ac1312cb429c5be85de1636816599114c9",
+    "n4_bias_field_correction": false,
+    "training_interaction": {
+      "source_train_sha256": "474d9765e29c0196e9cf1da2242869c2cbd6970632d9f113357d38a8094e1e3f",
+      "interactions": 11,
+      "sparse_points": "current point only; multi_click default false",
+      "recurrent_low_resolution_mask": true,
+      "no_point_iterations": "one random integer in [2,8] and final index 10",
+      "click_error_threshold": "raw logit > 0.5",
+      "loss": "sum of 11 DiceCELoss values",
+      "foreground_replacement_threshold": 1000
+    },
+    "validation_interaction": {
+      "source_inference_sha256": "5a31aff32805f297eb5632b4362d1aa60bde4491d168868bc750a43e332c3960",
+      "clicks": 5,
+      "clicks_1_2": "RITM current point",
+      "clicks_3_5": "uniform XOR current point",
+      "recurrent_low_resolution_mask": true,
+      "prediction_threshold": "sigmoid > 0.5 (raw logit > 0)",
+      "primary_diagnostic": "mean per-case max Dice over clicks 1..5",
+      "case_seed_extension": "SHA256(seed=2023,case_id) for stable monitoring"
+    }
+  },
+  "source_sha256": {
+    "train_py": "474d9765e29c0196e9cf1da2242869c2cbd6970632d9f113357d38a8094e1e3f",
+    "inference_py": "5a31aff32805f297eb5632b4362d1aa60bde4491d168868bc750a43e332c3960",
+    "click_method_py": "0838972fb2f33de579a2652d3225f862d84dc6df113b152ea6018730c9b792d7"
+  },
+  "engineering_corrections": [
+    "explicit mean gradient all-reduce because upstream bypasses DDP forward",
+    "binary target cast to float only at DiceCELoss boundary for current MONAI compatibility",
+    "official train.sh two-GPU launch retained with source per-GPU batch 12 (nominal batch 480)",
+    "validation RNG isolated from training RNG",
+    "atomic checkpoints and strict reload records added"
+  ],
+  "checkpoint_selection": {
+    "upstream_primary": [
+      "lowest train loss",
+      "highest train Dice"
+    ],
+    "added_development_diagnostic": "highest official-style validation best-of-5 Dice"
+  },
+  "runner_sha256": "fda8a458cc692289092038a64469aa4538d37e3750d13cc2737f537f088b7d19",
+  "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+  "test_access": false
+}

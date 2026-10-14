@@ -1,0 +1,68 @@
+{
+  "baseline": {
+    "checkpoint_sha256": "0bb7ca52d7ac30068f752a4fc05a859f4dce42dce6ace40ba1f6b8b332889c2f",
+    "epoch": 99,
+    "point_hit": 0.9,
+    "scan": 0.7258200677236784,
+    "subject": 0.7094125028480991
+  },
+  "candidate": {
+    "checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "epoch": 168,
+    "point_hit": 0.9296296296296296,
+    "scan": 0.7412039492417265,
+    "subject": 0.7231794858721793
+  },
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-18T05:16:57.982445+00:00",
+  "distribution": {
+    "cases_improved": 205,
+    "cases_tied": 1,
+    "cases_worse": 64,
+    "median_case_delta": 0.013412326574325562,
+    "median_subject_delta": 0.012954384088516235,
+    "point_transitions": {
+      "hit_to_hit": 231,
+      "hit_to_miss": 12,
+      "miss_to_hit": 20,
+      "miss_to_miss": 7
+    },
+    "subjects_improved": 87,
+    "subjects_tied": 0,
+    "subjects_worse": 32
+  },
+  "evidence_scope": "paired comparison on a reused internal test set",
+  "input_reports": {
+    "baseline": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_locator_subjectclean_confirm_20260817/FINAL_TEST270.json",
+      "sha256": "43b88933337e0325caaf97b6add8fbaf64a60b2574d75acaaedc9dceaea7e78b"
+    },
+    "candidate": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/FINAL_TEST270_EPOCH168.json",
+      "sha256": "91433c4b6b88b233d827e41b0d038f459c25ef41dec224c84e154e90f370bb8c"
+    }
+  },
+  "new_internal_test_point_estimate_high": true,
+  "not_pristine_blind_test": true,
+  "paired_differences": {
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20260827,
+    "point_hit": 0.02962962962962956,
+    "scan": 0.01538388151804813,
+    "scan_95ci": [
+      0.009186147294854487,
+      0.021574498323930633
+    ],
+    "subject": 0.013766983024080099,
+    "subject_95ci": [
+      0.004122705227675924,
+      0.022934712784610043
+    ]
+  },
+  "paired_scan_ci_lower_positive": true,
+  "paired_subject_ci_lower_positive": true,
+  "result_will_not_trigger_tuning": true,
+  "schema": "aflow.sammed3d.t1ce_wt_plain_epoch168_vs_epoch99_test270",
+  "schema_version": 1,
+  "test_access": true
+}

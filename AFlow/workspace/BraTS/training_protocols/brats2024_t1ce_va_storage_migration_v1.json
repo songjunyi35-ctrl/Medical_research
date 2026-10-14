@@ -1,0 +1,69 @@
+{
+  "schema": "aflow.brats2024.t1ce_va_storage_migration",
+  "schema_version": 1,
+  "created_utc": "2026-08-12T04:00:15Z",
+  "status": "complete",
+  "scope": {
+    "cases": 1350,
+    "files": 2700,
+    "logical_bytes": 98091449088,
+    "t1ce_files": 1350,
+    "segmentation_files": 1350
+  },
+  "source": {
+    "root": "/mnt/bn/liveaim/songjunyi/brats2024",
+    "deleted": false
+  },
+  "destination": {
+    "hdfs_uri": "hdfs://harunava/home/byte_data_tns/user/songjunyi/datasets/brats2024_gli_t1ce_seg_v1",
+    "mount_path": "/mnt/hdfs/sjy/datasets/brats2024_gli_t1ce_seg_v1",
+    "logical_bytes": 98091449088,
+    "replicated_physical_bytes": 294274347264
+  },
+  "verification": {
+    "source_destination_file_count_equal": true,
+    "source_destination_logical_bytes_equal": true,
+    "full_byte_compare": {
+      "algorithm": "cmp every relative file with eight workers",
+      "files": 2700,
+      "elapsed_seconds": 225,
+      "mismatches": 0
+    },
+    "unexpected_destination_files": 0,
+    "development_loader_smoke": {
+      "case_id": "BraTS-GLI-00005-100",
+      "image_shape": [1, 128, 128, 128],
+      "target_shape": [1, 128, 128, 128],
+      "target_voxels": 6663,
+      "image_finite": true
+    },
+    "sealed_test_nifti_opened": false,
+    "targeted_tests": {
+      "passed": 64,
+      "failed": 0
+    },
+    "known_independent_freeze_mismatch": {
+      "test": "tests/test_preflight_sammed3d_t1ce_rank0_matched_v2.py::test_frozen_v2_preflight_is_safe_and_development_only",
+      "expected_preprocessing_sha256": "4d13e2b3894e2b9a91fac7f76dd74b1c744429eef665f09a5f160a604b0989ae",
+      "current_baseline_preprocessing_sha256": "be2d6c795891897f5983eb7bf327b9dfd78551e639619bad5c9b6dc198ec7590",
+      "changed_by_storage_migration": false
+    }
+  },
+  "active_manifests": {
+    "directory": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1",
+    "storage_manifest_sha256": "f82cc9f062b47b16b0bc429e6d5e3ce82c6ab1c2af25c277f2520f38af981e3c",
+    "frozen_source_manifests_modified": false
+  },
+  "active_entrypoints": {
+    "worker_wrapper": "scripts/run_worker_research.sh",
+    "worker_wrapper_sha256": "82c02f2b2a6d81c3001a86b6e98fb8b812af6b7bf840d1144b27ad46f79e720e",
+    "official15_va_runner": "scripts/run_t1ce_wt_official15_reproduction_va_20260812.sh",
+    "official15_va_runner_sha256": "42513a2469cad8befcabce13630752a82280c8b065ffde64aedbfca936e790d6"
+  },
+  "nas_detachment": {
+    "active_t1ce_mainline_ready_without_nas": true,
+    "physical_deletion_authorized": false,
+    "unmigrated_modalities": ["t1n", "t2f", "t2w"],
+    "independent_nas_repository_present": "/mnt/bn/liveaim/songjunyi/tns-experiments"
+  }
+}

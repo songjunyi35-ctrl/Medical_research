@@ -1,0 +1,610 @@
+{
+ "clinical_v3_bridge": {
+  "clinical_rows": 243,
+  "package_studies_all_mapped": true,
+  "prior_main_release_overlap_subjects": [
+   "UCSD-PTGBM-0038"
+  ],
+  "ucsd_0038_detail": {
+   "brats": [
+    "BraTS-GLI-02289",
+    "BraTS-GLI-02291"
+   ],
+   "clinical_rows": 3,
+   "in_main_release": true,
+   "union_overlap": [
+    "BraTS-GLI-02289"
+   ]
+  },
+  "union_overlap_subjects": [
+   "UCSD-PTGBM-0038"
+  ],
+  "whole_table_anomaly": "BraTS-GLI-02289 maps to both UCSD-PTGBM-0036 and UCSD-PTGBM-0038; UCSD-PTGBM-0038 additionally maps to BraTS-GLI-02291; excluding 0038 removes the only cross-ID ambiguity"
+ },
+ "created_utc": "2026-09-06T13:45:37.500099+00:00",
+ "data_files": 1322,
+ "frozen_cohort": {
+  "excluded_studies": [
+   "UCSD-PTGBM-0038_01",
+   "UCSD-PTGBM-0038_02",
+   "UCSD-PTGBM-0038_03"
+  ],
+  "rule": "all package-1221 studies except every study of UCSD-PTGBM-0038 (any-timepoint union overlap via official v3 mapping); per study exactly T1post + BraTS_tumor_seg",
+  "scans": 56,
+  "selected_bytes": 312277333,
+  "selected_files": 112,
+  "subjects": 41
+ },
+ "identity": "public post-challenge release of the BraTS-GLI 2024 hidden test contribution from UCSD (TCIA UCSD-PTGBM V2 2026-01-22, V3 2026-03-13 clinical-ID correction); NOT hidden blind; same institution as prior UCSD75 external confirmation but zero patient overlap with the 1,350-case union and with the previously accessed 136-subject main release; UCSD is a BraTS2024 source site, so this cohort is patient-disjoint-by-official-mapping, NOT institution-disjoint",
+ "image_or_label_pixels_downloaded": false,
+ "inventory_rows": 1382,
+ "model_access": false,
+ "official_per_file_checksums": "NONE - package 1221 contains no .sums file; dual independent transfer with per-file SHA-256 equality will be the transfer gate (Africa95/MOTUM precedent)",
+ "package_id": 1221,
+ "per_study_kinds_complete": "all 59 studies have T1post.nii.gz and BraTS_tumor_seg.nii.gz",
+ "selected_files": [
+  {
+   "basename": "UCSD-PTGBM-0001_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0001_01/UCSD-PTGBM-0001_01_BraTS_tumor_seg.nii.gz",
+   "size": 37509
+  },
+  {
+   "basename": "UCSD-PTGBM-0001_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0001_01/UCSD-PTGBM-0001_01_T1post.nii.gz",
+   "size": 5684431
+  },
+  {
+   "basename": "UCSD-PTGBM-0003_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0003_01/UCSD-PTGBM-0003_01_BraTS_tumor_seg.nii.gz",
+   "size": 47592
+  },
+  {
+   "basename": "UCSD-PTGBM-0003_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0003_01/UCSD-PTGBM-0003_01_T1post.nii.gz",
+   "size": 5472440
+  },
+  {
+   "basename": "UCSD-PTGBM-0004_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0004_01/UCSD-PTGBM-0004_01_BraTS_tumor_seg.nii.gz",
+   "size": 34334
+  },
+  {
+   "basename": "UCSD-PTGBM-0004_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0004_01/UCSD-PTGBM-0004_01_T1post.nii.gz",
+   "size": 5562302
+  },
+  {
+   "basename": "UCSD-PTGBM-0004_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0004_02/UCSD-PTGBM-0004_02_BraTS_tumor_seg.nii.gz",
+   "size": 40686
+  },
+  {
+   "basename": "UCSD-PTGBM-0004_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0004_02/UCSD-PTGBM-0004_02_T1post.nii.gz",
+   "size": 5508163
+  },
+  {
+   "basename": "UCSD-PTGBM-0013_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0013_01/UCSD-PTGBM-0013_01_BraTS_tumor_seg.nii.gz",
+   "size": 47628
+  },
+  {
+   "basename": "UCSD-PTGBM-0013_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0013_01/UCSD-PTGBM-0013_01_T1post.nii.gz",
+   "size": 5971199
+  },
+  {
+   "basename": "UCSD-PTGBM-0014_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0014_01/UCSD-PTGBM-0014_01_BraTS_tumor_seg.nii.gz",
+   "size": 40726
+  },
+  {
+   "basename": "UCSD-PTGBM-0014_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0014_01/UCSD-PTGBM-0014_01_T1post.nii.gz",
+   "size": 5772085
+  },
+  {
+   "basename": "UCSD-PTGBM-0015_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0015_01/UCSD-PTGBM-0015_01_BraTS_tumor_seg.nii.gz",
+   "size": 35395
+  },
+  {
+   "basename": "UCSD-PTGBM-0015_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0015_01/UCSD-PTGBM-0015_01_T1post.nii.gz",
+   "size": 5510964
+  },
+  {
+   "basename": "UCSD-PTGBM-0027_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0027_01/UCSD-PTGBM-0027_01_BraTS_tumor_seg.nii.gz",
+   "size": 70419
+  },
+  {
+   "basename": "UCSD-PTGBM-0027_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0027_01/UCSD-PTGBM-0027_01_T1post.nii.gz",
+   "size": 6460187
+  },
+  {
+   "basename": "UCSD-PTGBM-0028_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0028_01/UCSD-PTGBM-0028_01_BraTS_tumor_seg.nii.gz",
+   "size": 45880
+  },
+  {
+   "basename": "UCSD-PTGBM-0028_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0028_01/UCSD-PTGBM-0028_01_T1post.nii.gz",
+   "size": 5591912
+  },
+  {
+   "basename": "UCSD-PTGBM-0030_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0030_01/UCSD-PTGBM-0030_01_BraTS_tumor_seg.nii.gz",
+   "size": 51550
+  },
+  {
+   "basename": "UCSD-PTGBM-0030_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0030_01/UCSD-PTGBM-0030_01_T1post.nii.gz",
+   "size": 6005133
+  },
+  {
+   "basename": "UCSD-PTGBM-0033_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0033_01/UCSD-PTGBM-0033_01_BraTS_tumor_seg.nii.gz",
+   "size": 57065
+  },
+  {
+   "basename": "UCSD-PTGBM-0033_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0033_01/UCSD-PTGBM-0033_01_T1post.nii.gz",
+   "size": 5103563
+  },
+  {
+   "basename": "UCSD-PTGBM-0033_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0033_02/UCSD-PTGBM-0033_02_BraTS_tumor_seg.nii.gz",
+   "size": 42015
+  },
+  {
+   "basename": "UCSD-PTGBM-0033_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0033_02/UCSD-PTGBM-0033_02_T1post.nii.gz",
+   "size": 5080141
+  },
+  {
+   "basename": "UCSD-PTGBM-0033_03_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0033_03/UCSD-PTGBM-0033_03_BraTS_tumor_seg.nii.gz",
+   "size": 43892
+  },
+  {
+   "basename": "UCSD-PTGBM-0033_03_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0033_03/UCSD-PTGBM-0033_03_T1post.nii.gz",
+   "size": 5066110
+  },
+  {
+   "basename": "UCSD-PTGBM-0040_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0040_01/UCSD-PTGBM-0040_01_BraTS_tumor_seg.nii.gz",
+   "size": 76008
+  },
+  {
+   "basename": "UCSD-PTGBM-0040_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0040_01/UCSD-PTGBM-0040_01_T1post.nii.gz",
+   "size": 4686765
+  },
+  {
+   "basename": "UCSD-PTGBM-0041_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0041_01/UCSD-PTGBM-0041_01_BraTS_tumor_seg.nii.gz",
+   "size": 54252
+  },
+  {
+   "basename": "UCSD-PTGBM-0041_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0041_01/UCSD-PTGBM-0041_01_T1post.nii.gz",
+   "size": 5099039
+  },
+  {
+   "basename": "UCSD-PTGBM-0042_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0042_01/UCSD-PTGBM-0042_01_BraTS_tumor_seg.nii.gz",
+   "size": 38212
+  },
+  {
+   "basename": "UCSD-PTGBM-0042_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0042_01/UCSD-PTGBM-0042_01_T1post.nii.gz",
+   "size": 5356273
+  },
+  {
+   "basename": "UCSD-PTGBM-0042_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0042_02/UCSD-PTGBM-0042_02_BraTS_tumor_seg.nii.gz",
+   "size": 45183
+  },
+  {
+   "basename": "UCSD-PTGBM-0042_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0042_02/UCSD-PTGBM-0042_02_T1post.nii.gz",
+   "size": 5467805
+  },
+  {
+   "basename": "UCSD-PTGBM-0042_03_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0042_03/UCSD-PTGBM-0042_03_BraTS_tumor_seg.nii.gz",
+   "size": 44975
+  },
+  {
+   "basename": "UCSD-PTGBM-0042_03_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0042_03/UCSD-PTGBM-0042_03_T1post.nii.gz",
+   "size": 5404800
+  },
+  {
+   "basename": "UCSD-PTGBM-0043_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0043_01/UCSD-PTGBM-0043_01_BraTS_tumor_seg.nii.gz",
+   "size": 35959
+  },
+  {
+   "basename": "UCSD-PTGBM-0043_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0043_01/UCSD-PTGBM-0043_01_T1post.nii.gz",
+   "size": 5554405
+  },
+  {
+   "basename": "UCSD-PTGBM-0046_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0046_01/UCSD-PTGBM-0046_01_BraTS_tumor_seg.nii.gz",
+   "size": 46870
+  },
+  {
+   "basename": "UCSD-PTGBM-0046_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0046_01/UCSD-PTGBM-0046_01_T1post.nii.gz",
+   "size": 5588482
+  },
+  {
+   "basename": "UCSD-PTGBM-0048_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0048_01/UCSD-PTGBM-0048_01_BraTS_tumor_seg.nii.gz",
+   "size": 64008
+  },
+  {
+   "basename": "UCSD-PTGBM-0048_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0048_01/UCSD-PTGBM-0048_01_T1post.nii.gz",
+   "size": 5117411
+  },
+  {
+   "basename": "UCSD-PTGBM-0048_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0048_02/UCSD-PTGBM-0048_02_BraTS_tumor_seg.nii.gz",
+   "size": 60727
+  },
+  {
+   "basename": "UCSD-PTGBM-0048_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0048_02/UCSD-PTGBM-0048_02_T1post.nii.gz",
+   "size": 5110839
+  },
+  {
+   "basename": "UCSD-PTGBM-0048_03_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0048_03/UCSD-PTGBM-0048_03_BraTS_tumor_seg.nii.gz",
+   "size": 69270
+  },
+  {
+   "basename": "UCSD-PTGBM-0048_03_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0048_03/UCSD-PTGBM-0048_03_T1post.nii.gz",
+   "size": 5141862
+  },
+  {
+   "basename": "UCSD-PTGBM-0052_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0052_01/UCSD-PTGBM-0052_01_BraTS_tumor_seg.nii.gz",
+   "size": 35413
+  },
+  {
+   "basename": "UCSD-PTGBM-0052_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0052_01/UCSD-PTGBM-0052_01_T1post.nii.gz",
+   "size": 5533618
+  },
+  {
+   "basename": "UCSD-PTGBM-0052_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0052_02/UCSD-PTGBM-0052_02_BraTS_tumor_seg.nii.gz",
+   "size": 38232
+  },
+  {
+   "basename": "UCSD-PTGBM-0052_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0052_02/UCSD-PTGBM-0052_02_T1post.nii.gz",
+   "size": 5482569
+  },
+  {
+   "basename": "UCSD-PTGBM-0052_03_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0052_03/UCSD-PTGBM-0052_03_BraTS_tumor_seg.nii.gz",
+   "size": 45262
+  },
+  {
+   "basename": "UCSD-PTGBM-0052_03_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0052_03/UCSD-PTGBM-0052_03_T1post.nii.gz",
+   "size": 5494144
+  },
+  {
+   "basename": "UCSD-PTGBM-0054_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0054_01/UCSD-PTGBM-0054_01_BraTS_tumor_seg.nii.gz",
+   "size": 43264
+  },
+  {
+   "basename": "UCSD-PTGBM-0054_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0054_01/UCSD-PTGBM-0054_01_T1post.nii.gz",
+   "size": 5864294
+  },
+  {
+   "basename": "UCSD-PTGBM-0057_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0057_01/UCSD-PTGBM-0057_01_BraTS_tumor_seg.nii.gz",
+   "size": 38307
+  },
+  {
+   "basename": "UCSD-PTGBM-0057_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0057_01/UCSD-PTGBM-0057_01_T1post.nii.gz",
+   "size": 5752070
+  },
+  {
+   "basename": "UCSD-PTGBM-0061_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0061_01/UCSD-PTGBM-0061_01_BraTS_tumor_seg.nii.gz",
+   "size": 50524
+  },
+  {
+   "basename": "UCSD-PTGBM-0061_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0061_01/UCSD-PTGBM-0061_01_T1post.nii.gz",
+   "size": 5487012
+  },
+  {
+   "basename": "UCSD-PTGBM-0065_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0065_01/UCSD-PTGBM-0065_01_BraTS_tumor_seg.nii.gz",
+   "size": 39251
+  },
+  {
+   "basename": "UCSD-PTGBM-0065_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0065_01/UCSD-PTGBM-0065_01_T1post.nii.gz",
+   "size": 6228189
+  },
+  {
+   "basename": "UCSD-PTGBM-0067_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0067_01/UCSD-PTGBM-0067_01_BraTS_tumor_seg.nii.gz",
+   "size": 47693
+  },
+  {
+   "basename": "UCSD-PTGBM-0067_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0067_01/UCSD-PTGBM-0067_01_T1post.nii.gz",
+   "size": 5671342
+  },
+  {
+   "basename": "UCSD-PTGBM-0068_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0068_01/UCSD-PTGBM-0068_01_BraTS_tumor_seg.nii.gz",
+   "size": 43856
+  },
+  {
+   "basename": "UCSD-PTGBM-0068_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0068_01/UCSD-PTGBM-0068_01_T1post.nii.gz",
+   "size": 5333132
+  },
+  {
+   "basename": "UCSD-PTGBM-0069_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0069_01/UCSD-PTGBM-0069_01_BraTS_tumor_seg.nii.gz",
+   "size": 41684
+  },
+  {
+   "basename": "UCSD-PTGBM-0069_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0069_01/UCSD-PTGBM-0069_01_T1post.nii.gz",
+   "size": 6025547
+  },
+  {
+   "basename": "UCSD-PTGBM-0070_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0070_01/UCSD-PTGBM-0070_01_BraTS_tumor_seg.nii.gz",
+   "size": 37766
+  },
+  {
+   "basename": "UCSD-PTGBM-0070_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0070_01/UCSD-PTGBM-0070_01_T1post.nii.gz",
+   "size": 5608775
+  },
+  {
+   "basename": "UCSD-PTGBM-0095_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0095_01/UCSD-PTGBM-0095_01_BraTS_tumor_seg.nii.gz",
+   "size": 42913
+  },
+  {
+   "basename": "UCSD-PTGBM-0095_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0095_01/UCSD-PTGBM-0095_01_T1post.nii.gz",
+   "size": 5637963
+  },
+  {
+   "basename": "UCSD-PTGBM-0096_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0096_01/UCSD-PTGBM-0096_01_BraTS_tumor_seg.nii.gz",
+   "size": 68871
+  },
+  {
+   "basename": "UCSD-PTGBM-0096_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0096_01/UCSD-PTGBM-0096_01_T1post.nii.gz",
+   "size": 5351143
+  },
+  {
+   "basename": "UCSD-PTGBM-0098_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0098_01/UCSD-PTGBM-0098_01_BraTS_tumor_seg.nii.gz",
+   "size": 53129
+  },
+  {
+   "basename": "UCSD-PTGBM-0098_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0098_01/UCSD-PTGBM-0098_01_T1post.nii.gz",
+   "size": 5384980
+  },
+  {
+   "basename": "UCSD-PTGBM-0102_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0102_01/UCSD-PTGBM-0102_01_BraTS_tumor_seg.nii.gz",
+   "size": 39988
+  },
+  {
+   "basename": "UCSD-PTGBM-0102_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0102_01/UCSD-PTGBM-0102_01_T1post.nii.gz",
+   "size": 5265176
+  },
+  {
+   "basename": "UCSD-PTGBM-0109_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0109_01/UCSD-PTGBM-0109_01_BraTS_tumor_seg.nii.gz",
+   "size": 44051
+  },
+  {
+   "basename": "UCSD-PTGBM-0109_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0109_01/UCSD-PTGBM-0109_01_T1post.nii.gz",
+   "size": 6169535
+  },
+  {
+   "basename": "UCSD-PTGBM-0109_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0109_02/UCSD-PTGBM-0109_02_BraTS_tumor_seg.nii.gz",
+   "size": 47584
+  },
+  {
+   "basename": "UCSD-PTGBM-0109_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0109_02/UCSD-PTGBM-0109_02_T1post.nii.gz",
+   "size": 6049232
+  },
+  {
+   "basename": "UCSD-PTGBM-0111_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0111_01/UCSD-PTGBM-0111_01_BraTS_tumor_seg.nii.gz",
+   "size": 37628
+  },
+  {
+   "basename": "UCSD-PTGBM-0111_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0111_01/UCSD-PTGBM-0111_01_T1post.nii.gz",
+   "size": 6038229
+  },
+  {
+   "basename": "UCSD-PTGBM-0112_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0112_01/UCSD-PTGBM-0112_01_BraTS_tumor_seg.nii.gz",
+   "size": 61914
+  },
+  {
+   "basename": "UCSD-PTGBM-0112_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0112_01/UCSD-PTGBM-0112_01_T1post.nii.gz",
+   "size": 4824223
+  },
+  {
+   "basename": "UCSD-PTGBM-0115_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0115_01/UCSD-PTGBM-0115_01_BraTS_tumor_seg.nii.gz",
+   "size": 43447
+  },
+  {
+   "basename": "UCSD-PTGBM-0115_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0115_01/UCSD-PTGBM-0115_01_T1post.nii.gz",
+   "size": 6374267
+  },
+  {
+   "basename": "UCSD-PTGBM-0116_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0116_01/UCSD-PTGBM-0116_01_BraTS_tumor_seg.nii.gz",
+   "size": 44151
+  },
+  {
+   "basename": "UCSD-PTGBM-0116_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0116_01/UCSD-PTGBM-0116_01_T1post.nii.gz",
+   "size": 5655536
+  },
+  {
+   "basename": "UCSD-PTGBM-0116_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0116_02/UCSD-PTGBM-0116_02_BraTS_tumor_seg.nii.gz",
+   "size": 53711
+  },
+  {
+   "basename": "UCSD-PTGBM-0116_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0116_02/UCSD-PTGBM-0116_02_T1post.nii.gz",
+   "size": 5645508
+  },
+  {
+   "basename": "UCSD-PTGBM-0121_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0121_01/UCSD-PTGBM-0121_01_BraTS_tumor_seg.nii.gz",
+   "size": 42496
+  },
+  {
+   "basename": "UCSD-PTGBM-0121_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0121_01/UCSD-PTGBM-0121_01_T1post.nii.gz",
+   "size": 5826174
+  },
+  {
+   "basename": "UCSD-PTGBM-0121_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0121_02/UCSD-PTGBM-0121_02_BraTS_tumor_seg.nii.gz",
+   "size": 55219
+  },
+  {
+   "basename": "UCSD-PTGBM-0121_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0121_02/UCSD-PTGBM-0121_02_T1post.nii.gz",
+   "size": 5780727
+  },
+  {
+   "basename": "UCSD-PTGBM-0141_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0141_01/UCSD-PTGBM-0141_01_BraTS_tumor_seg.nii.gz",
+   "size": 51937
+  },
+  {
+   "basename": "UCSD-PTGBM-0141_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0141_01/UCSD-PTGBM-0141_01_T1post.nii.gz",
+   "size": 5795358
+  },
+  {
+   "basename": "UCSD-PTGBM-0143_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0143_01/UCSD-PTGBM-0143_01_BraTS_tumor_seg.nii.gz",
+   "size": 44659
+  },
+  {
+   "basename": "UCSD-PTGBM-0143_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0143_01/UCSD-PTGBM-0143_01_T1post.nii.gz",
+   "size": 5350651
+  },
+  {
+   "basename": "UCSD-PTGBM-0144_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0144_01/UCSD-PTGBM-0144_01_BraTS_tumor_seg.nii.gz",
+   "size": 41792
+  },
+  {
+   "basename": "UCSD-PTGBM-0144_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0144_01/UCSD-PTGBM-0144_01_T1post.nii.gz",
+   "size": 5647669
+  },
+  {
+   "basename": "UCSD-PTGBM-0144_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0144_02/UCSD-PTGBM-0144_02_BraTS_tumor_seg.nii.gz",
+   "size": 56922
+  },
+  {
+   "basename": "UCSD-PTGBM-0144_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0144_02/UCSD-PTGBM-0144_02_T1post.nii.gz",
+   "size": 5457611
+  },
+  {
+   "basename": "UCSD-PTGBM-0145_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0145_01/UCSD-PTGBM-0145_01_BraTS_tumor_seg.nii.gz",
+   "size": 38826
+  },
+  {
+   "basename": "UCSD-PTGBM-0145_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0145_01/UCSD-PTGBM-0145_01_T1post.nii.gz",
+   "size": 5288070
+  },
+  {
+   "basename": "UCSD-PTGBM-0145_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0145_02/UCSD-PTGBM-0145_02_BraTS_tumor_seg.nii.gz",
+   "size": 57452
+  },
+  {
+   "basename": "UCSD-PTGBM-0145_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0145_02/UCSD-PTGBM-0145_02_T1post.nii.gz",
+   "size": 5317226
+  },
+  {
+   "basename": "UCSD-PTGBM-0146_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0146_01/UCSD-PTGBM-0146_01_BraTS_tumor_seg.nii.gz",
+   "size": 47753
+  },
+  {
+   "basename": "UCSD-PTGBM-0146_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0146_01/UCSD-PTGBM-0146_01_T1post.nii.gz",
+   "size": 5745481
+  },
+  {
+   "basename": "UCSD-PTGBM-0149_01_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0149_01/UCSD-PTGBM-0149_01_BraTS_tumor_seg.nii.gz",
+   "size": 36982
+  },
+  {
+   "basename": "UCSD-PTGBM-0149_01_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0149_01/UCSD-PTGBM-0149_01_T1post.nii.gz",
+   "size": 4608922
+  },
+  {
+   "basename": "UCSD-PTGBM-0149_02_BraTS_tumor_seg.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0149_02/UCSD-PTGBM-0149_02_BraTS_tumor_seg.nii.gz",
+   "size": 50893
+  },
+  {
+   "basename": "UCSD-PTGBM-0149_02_T1post.nii.gz",
+   "path": "/UCSD-PTGBM-BraTS-2024-test-set/UCSD-PTGBM-0149_02/UCSD-PTGBM-0149_02_T1post.nii.gz",
+   "size": 4612924
+  }
+ ],
+ "study_directories": 59,
+ "subjects": 42,
+ "supersedes": "SOURCE_AUDIT.json (V1 counted only type==\"file\" and therefore reported 0 files; package delivers all 1,322 data files as type \"symbolic_link\", same as RHUH package684)"
+}

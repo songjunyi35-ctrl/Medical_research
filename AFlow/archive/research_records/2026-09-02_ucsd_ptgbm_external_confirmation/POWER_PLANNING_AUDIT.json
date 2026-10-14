@@ -1,0 +1,29 @@
+{
+  "schema": "aflow.ucsd_ptgbm.external_confirmation.future_cohort_power_planning",
+  "schema_version": 1,
+  "status": "posthoc_approximate_design_only",
+  "source_raw_report_sha256": "91910760fbab804ee17b3ad8027a035a6676b02307a6f34d8408ba858c42f593",
+  "paired_subject_delta_gcsam_minus_kd": {
+    "subjects": 53,
+    "mean": 0.016097112037475755,
+    "sample_standard_deviation": 0.07628055034291258,
+    "standard_error": 0.010477939413418836,
+    "standardized_effect": 0.21102511669242802,
+    "normal_approximation_95ci_halfwidth_n53": 0.020536383882493656,
+    "normal_approximation_95ci_halfwidth_n40": 0.023639153081997617
+  },
+  "two_sided_normal_approximation": {
+    "alpha": 0.05,
+    "power": 0.8,
+    "z_alpha_over_2": 1.959963984540054,
+    "z_power": 0.8416212335729143,
+    "required_independent_subjects_for_effect_0p016097": 177,
+    "required_independent_subjects_for_effect_0p01": 457,
+    "required_independent_subjects_for_effect_0p015": 203,
+    "required_independent_subjects_for_effect_0p02": 115
+  },
+  "interpretation": "RHUH's planned 40 post-treatment subjects are valuable for directional robustness but are unlikely by themselves to resolve a paired Dice effect near 0.016. Any future cross-cohort synthesis must be preregistered as a meta-analysis and must not pool scans while ignoring subjects or cohort differences.",
+  "limitations": "rough normal approximation using the observed UCSD subject-delta variance; not a guarantee, not a significance test, and not used for model or threshold selection",
+  "new_model_inference": false,
+  "result_dependent_tuning": false
+}

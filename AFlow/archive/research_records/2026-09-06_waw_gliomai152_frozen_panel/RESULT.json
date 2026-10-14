@@ -1,0 +1,105 @@
+{
+  "absolute": {
+    "full_flip8": {
+      "point_hits": 143,
+      "scan_subject_dice": 0.6934941117007307,
+      "scan_subject_dice_95ci": [
+        0.6602732185502288,
+        0.7236152755820258
+      ]
+    },
+    "full_identity": {
+      "point_hits": 141,
+      "scan_subject_dice": 0.6833779920381983,
+      "scan_subject_dice_95ci": [
+        0.6498105765436853,
+        0.7136585980622272
+      ]
+    },
+    "gcsam_identity": {
+      "point_hits": 140,
+      "scan_subject_dice": 0.6936011577505181,
+      "scan_subject_dice_95ci": [
+        0.660656320933675,
+        0.7234330158024777
+      ]
+    }
+  },
+  "access": {
+    "africa95": false,
+    "confirmation": false,
+    "cptac33": false,
+    "fixed_validation108": false,
+    "internal_test270": false,
+    "outer": false,
+    "ucsd75": false,
+    "waw_gliomai152": true
+  },
+  "cache_index_sha256": "a3831454785715ba48f845115571f99b8adfe61011d29fadaa0b91a4929adc7e",
+  "cohort": {
+    "cases": 152,
+    "evidence": "public external-to-project; institution-disjoint/no-known-overlap; not hidden blind; no patient-ID bridge",
+    "source": "WAW-GliomAI final Zenodo record22205631",
+    "subjects": 152
+  },
+  "comparisons": {
+    "full_flip8_minus_identity": {
+      "cases_improved": 93,
+      "cases_tied": 5,
+      "cases_worse": 54,
+      "flip8_minus_identity": {
+        "point_hits": 2,
+        "scan_dice": 0.010116119662532444,
+        "subject_dice": 0.010116119662532444
+      },
+      "paired_scan_dice_95ci": [
+        0.004471798791619723,
+        0.016273870768237067
+      ],
+      "paired_subject_dice_95ci": [
+        0.004471798791619723,
+        0.016273870768237067
+      ]
+    },
+    "gcsam_identity_minus_full_identity": {
+      "cases_improved": 84,
+      "cases_tied": 5,
+      "cases_worse": 63,
+      "gcsam_minus_full": {
+        "point_hits": -1,
+        "scan_dice": 0.010223165712319892,
+        "subject_dice": 0.010223165712319892
+      },
+      "paired_scan_dice_95ci": [
+        -0.003005097219784527,
+        0.023481424561937938
+      ],
+      "paired_subject_dice_95ci": [
+        -0.003005097219784527,
+        0.023481424561937938
+      ]
+    }
+  },
+  "cost": {
+    "cache_bytes": 1593835520,
+    "cache_seconds": 630.7312178909779,
+    "formal_forwards": 1368,
+    "formal_seconds": 26.49091710243374,
+    "peak_gpu_memory_bytes": 5457695744,
+    "selected_source_bytes_rehashed": 789646100,
+    "source_archive_bytes": 3164137716,
+    "training": 0
+  },
+  "interpretation_gates": {
+    "full_flip8_minus_identity": "supported_on_WAW",
+    "gcsam_identity_minus_full_identity": "positive_but_uncertain"
+  },
+  "preaccess_v2_sha256": "bea3a59e70fab071b29924d087c2671e87ac34adf281b0942471d8ef2e726858",
+  "raw_report_sha256": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91",
+  "result_must_not_trigger_tuning_or_repeat": true,
+  "schema": "aflow.waw_gliomai152.result",
+  "schema_version": 1,
+  "source_receipt_sha256": "834e3d410be61282536a705c3bd49d91ec3734bda88afabe35283705d2597db4",
+  "status": "completed_and_cohort_closed",
+  "training_source_caveat": "local BraTS2024 Kaggle mirror; official Synapse parity unresolved"
+}

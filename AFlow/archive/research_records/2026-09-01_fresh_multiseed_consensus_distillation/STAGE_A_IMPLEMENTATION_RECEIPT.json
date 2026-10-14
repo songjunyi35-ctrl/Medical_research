@@ -1,0 +1,60 @@
+{
+  "schema": "aflow.brats.t1ce_wt_fresh_consensus_stage_a_implementation",
+  "schema_version": 1,
+  "status": "passed_and_frozen_before_formal_teachers",
+  "created_at_utc": "2026-09-01T03:59:13Z",
+  "documents": {
+    "idea_sha256": "97b048fd71c6b2ad7d4266497ce6a074f27cedd98c22e60bb926fad8ce1fc0d4",
+    "prereg_sha256": "120d1f00899d1d0d51910b063a4e9301b26b7e0f584fc1c78938c0a0546bdb73"
+  },
+  "split": {
+    "authoritative_version": "data/datasets/brats2024_t1ce_consensus_distill_inner_seed20261030_v2",
+    "manifest_sha256": "b88fe33fd353035d271afbea0fb8e3c349f78b3206a60fcdacae2654c7cc6dae",
+    "fit_sha256": "f46a2158fb9cbc7a797321cee13bdd97bf372750c4146b4a0dbe89e8f0e7edb8",
+    "inner_sha256": "6f3cd273e3605e4845fec1d5281a0baa71cfda6db0afbdcd0f4bff18c025ea5c",
+    "fit_cases_subjects": [864, 401],
+    "inner_cases_subjects": [108, 43],
+    "case_overlap": 0,
+    "subject_overlap": 0
+  },
+  "implementation_sha256": {
+    "split_builder": "51a0871eaaab241310888b710ee17e349a54d587823fd5a19a3a2144dd8c7a99",
+    "teacher_runner": "8d49d453506164ae161dab2810544ca9601f09ea5c5383aced7c10466ea9c93e",
+    "teacher_inner_evaluator": "657f28e495815b9923806c2dd0050b40462a8f288d2d248b59483ea6acc7d9a9",
+    "consensus_tests": "f8772cfa7934f02ddbce212575d979b2a28101b634b3243e772baffc5133f268",
+    "smoke_launcher": "b68b2225bd995c22d90f0300aa7106ab166e9ba43e1d58becb8e6d9a343a4917",
+    "formal_launcher": "e443ea406adc6592075d90bb7222e3a2ab3b879f3c978f9e91f4dd78ca7c180c"
+  },
+  "implementation_failures_before_model_or_evaluation": [
+    "V1 split builder import path missing; stopped before output directory creation.",
+    "V1 rerun wrote only fit/inner role JSONL then stopped on Python false/False before manifest; partial directory preserved; authoritative split regenerated in v2 with identical frozen method and seed."
+  ],
+  "tests": {
+    "consensus_contracts": "3 passed",
+    "teacher_smoke_exit_sha256": "8d3932192dac5d8870a3a53013e8b3ffb4bb0314c9d71c0ed0c3e9aefa5aa052",
+    "seed31_smoke_report_sha256": "abf2ee221f529324aec28ca031ea8ad3d27079e40047c2f6560fe45c2ab6bb69",
+    "seed32_smoke_report_sha256": "ca69e23cd738512b5509c920daa917230567b96d93e46b1bb3943646391baf65",
+    "seed33_smoke_report_sha256": "c4405f1c0f9a82a8308a1e50f40bf2433d01775630793619ac637179778f0174",
+    "distinct_initial_state_sha256": [
+      "863821f041f21e6529849c335a9b694ef172d80762799f413a0e93119ba4cc78",
+      "eb7e4aad10ace6dd1a031a030d03eee979295c1421c643fd0f720d7c890c0741",
+      "f1b93a05b1b2661964e57ed598c1c29fa698b3dac09233ffa7bea0fa77bb7c47"
+    ],
+    "peak_gpu_memory_bytes_each": 21788258304,
+    "all_gates_passed": true
+  },
+  "resources": {
+    "disk_available_before_formal": "15G",
+    "planned_increment": "less than 300MB",
+    "new_cache": false,
+    "peak_hard_limit_gib": 24,
+    "single_arm_time_limit_hours": 6
+  },
+  "access": {
+    "train_only_inner": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  }
+}

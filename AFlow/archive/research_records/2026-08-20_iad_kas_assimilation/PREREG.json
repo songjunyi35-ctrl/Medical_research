@@ -1,0 +1,133 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_iad_kas_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_implementation_smoke_training_new_validation_access",
+  "method": "teacher_free_kas_on_voxel_kd200",
+  "naming_boundary": "KAS plug-in using voxel-KD as infusion proxy; not full IAD because IAD-specific KIS was not run",
+  "primary_sources": {
+    "paper": "https://openaccess.thecvf.com/content/CVPR2026/papers/Hong_From_Infusion_to_Assimilation_Distillation_for_Medical_Image_Segmentation_CVPR_2026_paper.pdf",
+    "official_repository": "https://github.com/hjklearn/IAD",
+    "official_commit": "ad6a19114329ecdb3ee2f8f5108ccd860cdeb080",
+    "binary_source": "Polyp_Tool/train_isic.py"
+  },
+  "starting_problem": {
+    "voxel_kd_minus_matched_control_scan": 0.0007786476225764,
+    "voxel_kd_minus_matched_control_subject": 0.0007622432992572,
+    "dcd_minus_voxel_kd_scan": -0.0007809637873261063,
+    "dcd_minus_voxel_kd_subject": -0.0006359833833717188
+  },
+  "start_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/kd_seed20260846/plain_128_kd_global_epoch200.pth",
+    "sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+    "selection": "existing fixed validation selected voxel-KD epoch200",
+    "historical_validation_access": true,
+    "historical_test_access_after_selection": true,
+    "test_metrics_used_for_current_design": false
+  },
+  "matched_arms": {
+    "control": "KD200 plus 32 epochs teacher-free DiceCE continuation",
+    "kas": "same continuation plus registered KAS projector and gamma*(MSE+DiceConsistency+Contrastive)",
+    "only_changed_factor": "teacher-free KAS training module/loss"
+  },
+  "kas": {
+    "encoder_tap": "MONAI SegResNet network.encode down_x[3] after deepest down_layer",
+    "encoder_shape": ["B", 128, 16, 16, 16],
+    "projector": "registered Conv3d(128,1,kernel_size=1,bias=true), PyTorch default initialization",
+    "upsampling": "trilinear to final raw-logit spatial size, align_corners=false",
+    "mse": "F.mse_loss(projected_raw, final_raw, reduction=mean), no detach",
+    "dice_consistency": "per-volume soft Dice between sigmoid(projected_raw) and sigmoid(final_raw), epsilon1e-6, batch mean, no detach",
+    "negative": "(1-sigmoid(projected_raw))+(1-sigmoid(final_raw)); no negative Conv in binary adaptation",
+    "contrastive": "per-volume flatten cosine InfoNCE, positive final/projected raw pair, negative final/negative representation pair, temperature1, batch mean, stable logsumexp",
+    "gamma": 0.01,
+    "delta_segmentation": 1.0,
+    "total": "DiceCE + 0.01*(MSE + DiceConsistency + Contrastive)",
+    "teacher_forward": false,
+    "deploy": "discard projector; plain student only"
+  },
+  "source_code_caveats": [
+    "accepted paper binary weights are gamma0.01/delta1 with equal KAS components, while binary source comments downweight MSE/Dice again",
+    "official KIS/KAS blocks are commented and active loss is undefined",
+    "official projector is created inside each batch and is not registered in optimizer",
+    "paper Eq5 shows negative Conv but binary source omits it; project freezes binary no-negative-Conv path",
+    "official contrast uses one batch-global cosine; project freezes per-volume cosine to avoid case coupling",
+    "official binary code repeatedly uses test for selection; project prohibits this"
+  ],
+  "fixed_training": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "train_manifest": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "train_manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "cases": 756,
+    "subjects": 346,
+    "seed": 20260860,
+    "batch_size_per_arm": 8,
+    "sampler": "weighted replacement, 756 samples/epoch, independent Generator same seed",
+    "max_shift": 8,
+    "optimizer": "fresh AdamW",
+    "learning_rate": 0.00001,
+    "weight_decay": 0.00001,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "gradient_clip": 5.0,
+    "precision": "bfloat16 autocast",
+    "project_global_epochs": [201, 232],
+    "checkpoint_epochs": [208, 216, 224, 232],
+    "student_ema": false,
+    "teachers": 0
+  },
+  "paired_execution": {
+    "mode": "two independent single-GPU processes, no DDP",
+    "control_gpu": 0,
+    "kas_gpu": 1,
+    "physical_gpu": "2x NVIDIA A100-SXM4-40GB",
+    "batch_hash_gate": "first batch case IDs and raw image, augmented image and label tensor SHA256 equal across arms",
+    "rng_reset": "after model/aux/optimizer/loader construction reset Python, NumPy, CPU torch and local CUDA RNG to20260860"
+  },
+  "fixed_validation": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 50,
+    "selection": "maximum KAS Scan Dice among epochs208/216/224/232; Subject Dice exact tie-break"
+  },
+  "promotion_gates_all_required": [
+    "selected KAS scan and subject Dice strictly beat matched control at same global epoch",
+    "selected KAS scan and subject Dice strictly beat original voxel-KD200",
+    "selected KAS point hit is no more than one of108 cases below voxel-KD200",
+    "paired scan and subject bootstrap95% CI lower bounds versus voxel-KD200 are both at least -0.003",
+    "paired first-batch case/raw/augmented/label hashes match and all checkpoints reload/deploy exactly",
+    "all implementation, synthetic, paired GPU smoke, hash, role and access gates pass"
+  ],
+  "technical_stop_gates": {
+    "registration": "projector is persistent, present in state_dict and optimizer",
+    "loss": "segmentation, MSE, DiceConsistency, Contrastive and total finite",
+    "gradient": "KAS-only projector, deepest encoder and final-logit gradients finite and nonzero; gamma0 update equals control exactly",
+    "pairing": "first-batch case/raw/augmented/label hashes equal",
+    "memory": "either arm batch8 peak allocated greater than32GiB",
+    "deploy": "all saved checkpoints strict reload and stripped plain logits exact"
+  },
+  "if_gates_fail": "stop without gamma, component weight, projector, detach, contrast aggregation, LR, epoch, checkpoint, threshold or postprocessing search; do not access test270",
+  "cost_budget": {
+    "new_cache": false,
+    "estimated_parallel_wall_minutes": [15, 30],
+    "estimated_control_gpu_gib": [19, 23],
+    "estimated_kas_gpu_gib": [22, 26],
+    "per_gpu_stop_gib": 32,
+    "estimated_disk_gib_max": 0.2,
+    "deploy_parameter_count": 4700897,
+    "deploy_locator_forwards": 1
+  },
+  "planned_outputs": {
+    "control": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/control_seed20260860",
+    "kas": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/kas_seed20260860",
+    "validation": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/KAS_VALIDATION.json",
+    "implementation_receipt": "archive/research_records/2026-08-20_iad_kas_assimilation/IMPLEMENTATION_RECEIPT.json"
+  },
+  "validation_access": false,
+  "new_method_validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

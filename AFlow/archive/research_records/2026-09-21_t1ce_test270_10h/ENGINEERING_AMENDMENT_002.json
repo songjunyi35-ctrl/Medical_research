@@ -1,0 +1,12 @@
+{
+  "utc": "2026-09-21T13:35:01.788560+00:00",
+  "reason": "A DDP synthetic checks passed and output committed, but NCCL teardown did not exit; original repository uses a committed-output cleanup watchdog for this environment",
+  "research_changes": false,
+  "A_training_started": false,
+  "B_training_untouched": true,
+  "files": {
+    "scripts/train_t1ce_10h_v2.py": "57d224cae86df0e37c4ee1289f8cd4a641bad29190b79d5512a30d4dbe8710c5",
+    "scripts/supervise_t1ce_10h_v3.py": "d7c93ba2aa5fbba4e21161b28b10ffac4ec8f92596993f899c8bafcd4fd4d71e"
+  },
+  "rule": "only after final barrier and committed GPU_SMOKE/STOP_RESULT, cleanup watchdog exits success within20s; original frozen runner preserved"
+}

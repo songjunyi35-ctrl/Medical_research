@@ -1,0 +1,64 @@
+{
+  "schema": "aflow.brats.t1ce_wt_lookahead5_implementation_receipt",
+  "schema_version": 1,
+  "status": "passed_before_stage_a_formal",
+  "documents": {
+    "idea_sha256": "b71bd5c2a018ee638d3517fa179f42fbe21fa2d197336f7a451888bbec814f36",
+    "prereg_sha256": "cbbdcfdb8a3424e573dbec531edad84b8344abc8827113128eaa4d34720807d9"
+  },
+  "split": {
+    "manifest_sha256": "adf5d61280402d167d2eaa92f09b355d91385ee51d5b0f7e989cc7b7b21a096b",
+    "fit_sha256": "ee16a66d9a7efb8b3c5a14536d03bba7e5eb0eb984e4f333b314ec61570439b3",
+    "inner_sha256": "1bcffb7bc49f3199551510218419e1a7e074e055f5d2843a8731f4f349f08069",
+    "fit_cases": 864,
+    "fit_subjects": 392,
+    "inner_cases": 108,
+    "inner_subjects": 52,
+    "case_overlap": 0,
+    "subject_overlap": 0
+  },
+  "implementation": {
+    "lookahead_optimizer_sha256": "60da78a9c4e8891d75096cbb0673cc2e95ca4eff0d445c08606541cf5a7d4ff4",
+    "trainer_sha256": "2ec817c47caae7207d701d74802d30cb4da6e4b5952bdc7c550cf316dd5134f8",
+    "launcher_sha256": "369ea18904f9ae8b00f881d146e4129dfbfb60ee8ddead232baa82c0c7d7b25b",
+    "test_sha256": "ef3c351192995d224c46c7bf91c66d1aae86772892609b5edf1b6c0eaaa87402",
+    "synthetic_tests": {"passed": 4, "failed": 0}
+  },
+  "smoke_v1": {
+    "training_and_pairing_gates_passed": true,
+    "failure_boundary": "candidate checkpoint description hardcoded formal 4065 syncs although smoke sidecar correctly recorded 1; evidence metadata only",
+    "model_or_evaluation_access_before_failure": false,
+    "fix": "make total_steps, expected_slow_updates, and trailing_fast_steps dynamic; no method or update change"
+  },
+  "smoke_v2": {
+    "status": "passed",
+    "control_report_sha256": "37be4a56208ec8ad8ae7c56e48af7231d59226949043da0556c973a6acdc8f64",
+    "candidate_report_sha256": "2d6c15c3a6955d37975887b86c36ffa0310474bd6eebd6e037d0371d25e81d48",
+    "control_pairing_sha256": "2c02b07ba2867a857f80dd4c20c4747fb19504bc2cd1e5f82c02d66c170d16a4",
+    "candidate_pairing_sha256": "9c5e1c8a6ceb4727bf57c414031cd1313c26f3ad70c59f36043b7522ddb78819",
+    "initial_state_exact": true,
+    "sampling_weights_exact": true,
+    "six_sampler_epochs_exact": true,
+    "first_augmented_image_and_label_exact": true,
+    "candidate_fast_steps": 6,
+    "candidate_slow_updates": 1,
+    "candidate_trailing_fast_steps": 1,
+    "candidate_final_slow_loaded": true,
+    "control_peak_gpu_memory_bytes": 21796646912,
+    "candidate_peak_gpu_memory_bytes": 21815463936,
+    "all_gates_passed": true
+  },
+  "resources": {
+    "available_disk_before_smoke": "14G",
+    "planned_increment": "<300MB",
+    "gpu_count": 2,
+    "formal_authorized": true
+  },
+  "access": {
+    "train_only_inner": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_hard_ml1ace_result",
+  "schema_version": 1,
+  "status": "fixed_validation_negative_stopped_without_new_test",
+  "method": "foreground_hard_ml1ace_increment_on_kd200",
+  "selected_epoch": 224,
+  "validation": {
+    "cases": 108,
+    "subjects": 50,
+    "summaries": {
+      "control": {
+        "208": [0.7331303855473245, 0.7232976970431351, 0.9351851851851852, 0.22722584009170532, 0.1938333511352539],
+        "216": [0.7329258495182903, 0.7230357796095666, 0.9351851851851852, 0.22951343655586243, 0.19393394887447357],
+        "224": [0.7344133711799428, 0.7246696099709896, 0.9259259259259259, 0.23086518049240112, 0.19753363728523254],
+        "232": [0.7341341837136833, 0.7246180203557014, 0.9166666666666666, 0.2323015332221985, 0.19943301379680634]
+      },
+      "hace": {
+        "208": [0.7189665798235823, 0.7089056273940063, 0.9351851851851852, 0.12364405393600464, 0.06654812395572662],
+        "216": [0.7231036224574955, 0.7124691946733566, 0.9537037037037037, 0.12463925033807755, 0.06590455770492554],
+        "224": [0.7238697643495269, 0.7132777121308304, 0.9537037037037037, 0.1259266883134842, 0.0717695876955986],
+        "232": [0.7228102265270772, 0.7129169597866989, 0.9537037037037037, 0.12088943272829056, 0.06244320794939995]
+      }
+    },
+    "summary_field_order": ["scan_dice", "subject_dice", "point_hit", "macro_ace", "official_micro_ace"],
+    "selected_pooled_voxel_ace": 0.0718163326382637,
+    "selected_minus_control": {
+      "scan": -0.010543606830415901,
+      "scan_95ci": [-0.014594453569777587, -0.0066929604668446155],
+      "subject": -0.011391897840159282,
+      "subject_95ci": [-0.017179631412206662, -0.006042880416980816],
+      "point": 0.02777777777777779,
+      "cases_improved_tied_worse": [30, 0, 78],
+      "subjects_improved_tied_worse": [12, 0, 38]
+    },
+    "selected_minus_kd200": {
+      "scan": -0.01051454349524445,
+      "scan_95ci": [-0.01485969102424052, -0.006402608628074329],
+      "subject": -0.011156431230760757,
+      "subject_95ci": [-0.01732324389882741, -0.005343740002030418],
+      "point": 0.01851851851851849,
+      "cases_improved_tied_worse": [33, 0, 75],
+      "subjects_improved_tied_worse": [13, 0, 37]
+    },
+    "selected_macro_ace_minus_control": {
+      "delta": -0.10493848747056392,
+      "delta_95ci": [-0.11216953815676754, -0.09764810075716081],
+      "cases_improved_tied_worse": [107, 0, 1]
+    }
+  },
+  "promotion": {
+    "all_gates_passed": false,
+    "authorized_for_test": false,
+    "passed": ["all prerequisites", "point hits>=100", "macro ACE magnitude", "macro ACE paired CI", "official micro ACE"],
+    "failed": ["beats control scan", "beats control subject", "beats KD200 scan", "beats KD200 subject", "scan CI lower>=-0.003", "subject CI lower>=-0.003"]
+  },
+  "mechanism": {
+    "train_hace_epoch201": 0.20115319972342632,
+    "train_hace_epoch232": 0.07036852341224538,
+    "calibration_intuition_supported": true,
+    "segmentation_promotion_supported": false,
+    "interpretation": "weight1 hard calibration strongly improved confidence reliability and point hits but materially harmed Dice"
+  },
+  "cost": {
+    "formal_seconds": 1354.3682787418365,
+    "formal_minutes": 22.572804645697275,
+    "peak_gpu_bytes": 21784669696,
+    "peak_gpu_gib": 20.288554668426514,
+    "workspace_megabytes_approx": 76,
+    "deploy_parameter_count": 4700897,
+    "deploy_forwards": 1
+  },
+  "artifacts": {
+    "raw_validation_sha256": "b40b688c5372825894280e45f2392212e5c8f011afc5591b51fbd3d77ebdd477",
+    "validation_started_sha256": "be5abed21d60276d6241cb8e3beb41532872562964d54002c6dce9efc8a23312",
+    "validation_preaccess_receipt_sha256": "f030f69cfe18f48ece6dd722f4335af647e5535c76654459889c7fbc896bf3cc",
+    "pairing_receipt_sha256": "1495b77597052b2552c925d87c8c391c2d1fd89a049deaed1d6b0693c956acf7",
+    "training_report_sha256": "1030efed43146960ca9412250f37785977aa4af2bd9d70ea6007a42ae7d4922f",
+    "implementation_receipt_sha256": "0b6ba7b9de53e00a16116474cbd0f5610d0c863ecc6a799a893e86f9e2bf0b6a",
+    "selected_checkpoint_sha256": "e773e50f6f5941cdfcf37a60e9915c76b0a86acaec29f3afa4dff9e1789b71ab"
+  },
+  "start_checkpoint_historical_validation_access": true,
+  "start_checkpoint_historical_test_access_after_selection": true,
+  "validation_access": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

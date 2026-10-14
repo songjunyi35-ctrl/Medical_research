@@ -1,0 +1,246 @@
+{
+  "bindings": {
+    "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/test_cases.jsonl",
+    "manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "manifest_total_cases": 270,
+    "model_type": "vit_b_ori"
+  },
+  "cases": [
+    {
+      "case_id": "BraTS-GLI-00006-100",
+      "elapsed_seconds": 2.024755292572081,
+      "metrics": {
+        "t1ce_brain_center_point": {
+          "et": {
+            "model_grid": {
+              "dsc": 0.0,
+              "intersection_voxels": 0,
+              "iou": 0.0,
+              "prediction_present": true,
+              "prediction_voxels": 1642,
+              "target_present": false,
+              "target_voxels": 0
+            },
+            "source_grid": {
+              "dsc": 0.0,
+              "intersection_voxels": 0,
+              "iou": 0.0,
+              "prediction_present": true,
+              "prediction_voxels": 5869,
+              "target_present": false,
+              "target_voxels": 0
+            }
+          },
+          "residual": {
+            "model_grid": {
+              "dsc": 0.01135205938000291,
+              "intersection_voxels": 39,
+              "iou": 0.005708430913348946,
+              "prediction_present": true,
+              "prediction_voxels": 1642,
+              "target_present": true,
+              "target_voxels": 5229
+            },
+            "source_grid": {
+              "dsc": 0.01059892328398385,
+              "intersection_voxels": 126,
+              "iou": 0.0053276955602537,
+              "prediction_present": true,
+              "prediction_voxels": 5869,
+              "target_present": true,
+              "target_voxels": 17907
+            }
+          }
+        },
+        "unprompted": {
+          "et": {
+            "model_grid": {
+              "dsc": 0.0,
+              "intersection_voxels": 0,
+              "iou": 0.0,
+              "prediction_present": true,
+              "prediction_voxels": 1672,
+              "target_present": false,
+              "target_voxels": 0
+            },
+            "source_grid": {
+              "dsc": 0.0,
+              "intersection_voxels": 0,
+              "iou": 0.0,
+              "prediction_present": true,
+              "prediction_voxels": 5885,
+              "target_present": false,
+              "target_voxels": 0
+            }
+          },
+          "residual": {
+            "model_grid": {
+              "dsc": 0.01593971888132155,
+              "intersection_voxels": 55,
+              "iou": 0.008033888401986562,
+              "prediction_present": true,
+              "prediction_voxels": 1672,
+              "target_present": true,
+              "target_voxels": 5229
+            },
+            "source_grid": {
+              "dsc": 0.014206455951580363,
+              "intersection_voxels": 169,
+              "iou": 0.007154044786860264,
+              "prediction_present": true,
+              "prediction_voxels": 5885,
+              "target_present": true,
+              "target_voxels": 17907
+            }
+          }
+        }
+      },
+      "normalization": {
+        "convention": "source_t1ce_nonzero_population_zscore",
+        "nonzero_voxels": 1463851
+      },
+      "original_shape": [
+        182,
+        218,
+        182
+      ],
+      "original_spacing_mm": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "created_at_utc": "2026-07-22T08:45:09.757338+00:00",
+  "protocol": {
+    "input_geometry": "whole-volume resize to 128^3; no crop",
+    "metric": "case-macro binary DSC and IoU",
+    "modality": "T1ce only (manifest key t1c)",
+    "normalization": "source T1ce nonzero population z-score",
+    "postprocessing": "none",
+    "prompt_label_access": false,
+    "prompt_modes": {
+      "t1ce_brain_center_point": "one positive point at resized nonzero-T1ce bounding-box center",
+      "unprompted": "points=None, boxes=None, masks=None"
+    },
+    "targets": {
+      "et": "raw BraTS label 3",
+      "residual": "raw BraTS labels {1,2,3}; label 4 excluded"
+    },
+    "threshold": "raw_logit >= 0 (sigmoid >= 0.5), fixed",
+    "training": "none; untouched pretrained checkpoint",
+    "tta": "none"
+  },
+  "runtime": {
+    "cuda_version": "13.0",
+    "device": "cuda:0",
+    "device_name": "NVIDIA B200",
+    "elapsed_seconds": 2.0249824337661266,
+    "torch_version": "2.12.0+cu130"
+  },
+  "schema": "aflow.sammed3d.t1ce_zero_shot_test",
+  "schema_version": 1,
+  "shard": {
+    "max_cases": 1,
+    "num_shards": 1,
+    "selected_cases": 1,
+    "shard_index": 0
+  },
+  "status": "complete",
+  "summary": {
+    "t1ce_brain_center_point": {
+      "et": {
+        "model_grid": {
+          "cases": 1,
+          "dsc_macro_mean": 0.0,
+          "dsc_macro_std_population": 0.0,
+          "dsc_median": 0.0,
+          "dsc_target_present_mean": null,
+          "iou_macro_mean": 0.0,
+          "prediction_present_cases": 1,
+          "target_present_cases": 0
+        },
+        "source_grid": {
+          "cases": 1,
+          "dsc_macro_mean": 0.0,
+          "dsc_macro_std_population": 0.0,
+          "dsc_median": 0.0,
+          "dsc_target_present_mean": null,
+          "iou_macro_mean": 0.0,
+          "prediction_present_cases": 1,
+          "target_present_cases": 0
+        }
+      },
+      "residual": {
+        "model_grid": {
+          "cases": 1,
+          "dsc_macro_mean": 0.01135205938000291,
+          "dsc_macro_std_population": 0.0,
+          "dsc_median": 0.01135205938000291,
+          "dsc_target_present_mean": 0.01135205938000291,
+          "iou_macro_mean": 0.005708430913348946,
+          "prediction_present_cases": 1,
+          "target_present_cases": 1
+        },
+        "source_grid": {
+          "cases": 1,
+          "dsc_macro_mean": 0.01059892328398385,
+          "dsc_macro_std_population": 0.0,
+          "dsc_median": 0.01059892328398385,
+          "dsc_target_present_mean": 0.01059892328398385,
+          "iou_macro_mean": 0.0053276955602537,
+          "prediction_present_cases": 1,
+          "target_present_cases": 1
+        }
+      }
+    },
+    "unprompted": {
+      "et": {
+        "model_grid": {
+          "cases": 1,
+          "dsc_macro_mean": 0.0,
+          "dsc_macro_std_population": 0.0,
+          "dsc_median": 0.0,
+          "dsc_target_present_mean": null,
+          "iou_macro_mean": 0.0,
+          "prediction_present_cases": 1,
+          "target_present_cases": 0
+        },
+        "source_grid": {
+          "cases": 1,
+          "dsc_macro_mean": 0.0,
+          "dsc_macro_std_population": 0.0,
+          "dsc_median": 0.0,
+          "dsc_target_present_mean": null,
+          "iou_macro_mean": 0.0,
+          "prediction_present_cases": 1,
+          "target_present_cases": 0
+        }
+      },
+      "residual": {
+        "model_grid": {
+          "cases": 1,
+          "dsc_macro_mean": 0.01593971888132155,
+          "dsc_macro_std_population": 0.0,
+          "dsc_median": 0.01593971888132155,
+          "dsc_target_present_mean": 0.01593971888132155,
+          "iou_macro_mean": 0.008033888401986562,
+          "prediction_present_cases": 1,
+          "target_present_cases": 1
+        },
+        "source_grid": {
+          "cases": 1,
+          "dsc_macro_mean": 0.014206455951580363,
+          "dsc_macro_std_population": 0.0,
+          "dsc_median": 0.014206455951580363,
+          "dsc_target_present_mean": 0.014206455951580363,
+          "iou_macro_mean": 0.007154044786860264,
+          "prediction_present_cases": 1,
+          "target_present_cases": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "aflow.motum_hgg29.shared_panel.cache_probe_failure",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T04:38:45Z",
+  "status": "closed_before_cache_checkpoint_or_performance",
+  "case_id": "MOTUM-HGG-0001",
+  "bridge_sha256": "3d349094d9e7a7c690f6f5f5e6ee9080cd07616c247915a5f7c5d0afdc32d5a9",
+  "shared_orientation_geometry_passed": true,
+  "failure": "frozen zero-WT-crop-loss gate",
+  "raw_wt_voxels": 21007,
+  "wt_voxels_inside_image_positive_bbox": 20115,
+  "wt_voxels_lost": 892,
+  "wt_fraction_lost": 0.0424620364640358,
+  "image_positive_bbox_after_shared_RAS": [[20,172],[45,224],[1,19]],
+  "shared_shape": [192,256,21],
+  "all29_read_only_diagnostic": {
+    "cases_with_wt_crop_loss": 1,
+    "cases_without_wt_crop_loss": 28,
+    "total_wt_voxels_lost": 892,
+    "maximum_case_fraction_lost": 0.0424620364640358
+  },
+  "interpretation": "MOTUM processed T1ce contains nonpositive values in part of the semantic WT; the frozen image-positive support bbox excludes 892 WT voxels in one case",
+  "first_probe_created": false,
+  "cache_created": false,
+  "checkpoint_loaded": false,
+  "model_forwards": 0,
+  "performance_metrics": false,
+  "stop_rule_honored": true,
+  "forbidden_fixes_in_this_protocol": ["GT-derived bbox expansion","case exclusion","positive-support threshold change","N4 or no-N4 switch","tolerance relaxation"]
+}

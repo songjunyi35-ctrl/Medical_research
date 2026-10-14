@@ -1,0 +1,22 @@
+{
+  "schema": "aflow.brats_africa95.posthoc_train_target_support",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T02:52:00Z",
+  "status": "descriptive_train_defined_thresholds_no_routing_or_tuning",
+  "train_cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+  "africa_raw_sha256": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+  "africa_target_empirical_percentile_in_train972": {"mean": 0.8435889105479749, "min": 0.00720164609053498, "p10": 0.541358024691358, "p25": 0.7602880658436214, "median": 0.9547325102880658, "p75": 0.9917695473251029, "p90": 0.9979423868312757, "max": 1.0},
+  "train_defined_splits": {
+    "p50": {"train_threshold_voxels": 25363.0, "africa_above_cases": 86, "gcsam_minus_full_above": 0.07871230196411375, "below_or_equal_cases": 9, "gcsam_minus_full_below_or_equal": -0.027852713892983508},
+    "p75": {"train_threshold_voxels": 50739.75, "africa_above_cases": 72, "gcsam_minus_full_above": 0.08927261455085753, "below_or_equal_cases": 23, "gcsam_minus_full_below_or_equal": 0.0039545780963125676},
+    "p90": {"train_threshold_voxels": 77193.3, "africa_above_cases": 62, "gcsam_minus_full_above": 0.08750849559390739, "below_or_equal_cases": 33, "gcsam_minus_full_below_or_equal": 0.033122933850141624},
+    "p95": {"train_threshold_voxels": 100410.5999999999, "africa_above_cases": 54, "gcsam_minus_full_above": 0.08954834471418167, "below_or_equal_cases": 41, "gcsam_minus_full_below_or_equal": 0.0410481202271005},
+    "p99": {"train_threshold_voxels": 137638.22999999995, "africa_above_cases": 28, "gcsam_minus_full_above": 0.11593355376616195, "below_or_equal_cases": 67, "gcsam_minus_full_below_or_equal": 0.04884244833469248}
+  },
+  "train_max_voxels": 205241,
+  "africa_above_train_max_cases": 1,
+  "africa_max_voxels": 258331,
+  "interpretation": "Africa95 WT extent is usually near the upper tail of the training target distribution, and GCSAM advantage is larger in train-rare large-target groups. Treatment stage, target semantics, acquisition and input statistics are confounded; train quantiles must not become an Africa-tuned router.",
+  "new_model_inference": false,
+  "selection_or_tuning": false
+}

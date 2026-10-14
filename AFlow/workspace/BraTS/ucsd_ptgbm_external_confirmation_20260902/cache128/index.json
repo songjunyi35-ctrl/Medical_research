@@ -1,0 +1,4827 @@
+{
+  "access": {
+    "eligible_image_voxel_access": true,
+    "eligible_label_voxel_access": true,
+    "model_inference": false
+  },
+  "builder": "scripts/prepare_ucsd_ptgbm_external_confirmation.py",
+  "builder_sha256": "fde6bdbf9babd4e98b2e22d47537d4d70485bbff36a8983e11361d464fcfdf9e",
+  "case_ids": [
+    "BraTS-GLI-02255-100",
+    "BraTS-GLI-02257-100",
+    "BraTS-GLI-02257-101",
+    "BraTS-GLI-02257-102",
+    "BraTS-GLI-02272-100",
+    "BraTS-GLI-02272-101",
+    "BraTS-GLI-02275-100",
+    "BraTS-GLI-02275-101",
+    "BraTS-GLI-02275-102",
+    "BraTS-GLI-02276-100",
+    "BraTS-GLI-02280-100",
+    "BraTS-GLI-02297-100",
+    "BraTS-GLI-02298-100",
+    "BraTS-GLI-02304-100",
+    "BraTS-GLI-02309-100",
+    "BraTS-GLI-02310-100",
+    "BraTS-GLI-02313-100",
+    "BraTS-GLI-02321-100",
+    "BraTS-GLI-02321-101",
+    "BraTS-GLI-02328-100",
+    "BraTS-GLI-02328-101",
+    "BraTS-GLI-02349-100",
+    "BraTS-GLI-02356-100",
+    "BraTS-GLI-02356-101",
+    "BraTS-GLI-02359-100",
+    "BraTS-GLI-02373-100",
+    "BraTS-GLI-02374-100",
+    "BraTS-GLI-02374-101",
+    "BraTS-GLI-02391-100",
+    "BraTS-GLI-02392-100",
+    "BraTS-GLI-02392-101",
+    "BraTS-GLI-02395-100",
+    "BraTS-GLI-02395-101",
+    "BraTS-GLI-02397-100",
+    "BraTS-GLI-02402-100",
+    "BraTS-GLI-02402-101",
+    "BraTS-GLI-02405-100",
+    "BraTS-GLI-02405-101",
+    "BraTS-GLI-02406-100",
+    "BraTS-GLI-02407-100",
+    "BraTS-GLI-02408-100",
+    "BraTS-GLI-02409-100",
+    "BraTS-GLI-02410-100",
+    "BraTS-GLI-02410-101",
+    "BraTS-GLI-02411-100",
+    "BraTS-GLI-02412-100",
+    "BraTS-GLI-02413-100",
+    "BraTS-GLI-02414-100",
+    "BraTS-GLI-02415-100",
+    "BraTS-GLI-02416-100",
+    "BraTS-GLI-02417-100",
+    "BraTS-GLI-02417-101",
+    "BraTS-GLI-02418-100",
+    "BraTS-GLI-02418-101",
+    "BraTS-GLI-02418-102",
+    "BraTS-GLI-02419-100",
+    "BraTS-GLI-02420-101",
+    "BraTS-GLI-02421-100",
+    "BraTS-GLI-02422-100",
+    "BraTS-GLI-02422-101",
+    "BraTS-GLI-02423-100",
+    "BraTS-GLI-02424-100",
+    "BraTS-GLI-02425-100",
+    "BraTS-GLI-02426-100",
+    "BraTS-GLI-02427-100",
+    "BraTS-GLI-02427-101",
+    "BraTS-GLI-02428-100",
+    "BraTS-GLI-02429-100",
+    "BraTS-GLI-02429-101",
+    "BraTS-GLI-02430-100",
+    "BraTS-GLI-02431-100",
+    "BraTS-GLI-02431-101",
+    "BraTS-GLI-02432-100",
+    "BraTS-GLI-02433-100",
+    "BraTS-GLI-02433-101"
+  ],
+  "count": 75,
+  "created_at_utc": "2026-09-02T21:52:36.672269+00:00",
+  "download_receipt": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/ucsd_ptgbm_external_confirmation_20260902/raw/DOWNLOAD_RECEIPT.json",
+  "download_receipt_sha256": "4d635a4b92da11250381b479d1ebc954062197045865a059f88915af5111b331",
+  "elapsed_seconds": 419.231463432312,
+  "external_confirmation": true,
+  "external_schema": "aflow.ucsd_ptgbm.patient_disjoint_external_confirmation.cache",
+  "image_dtype": "float32",
+  "images_sha256": "ebfb40f3e6c45231926c653174dcbd2494ded74f37154b1d381f6413ade80940",
+  "label_dtype": "uint8",
+  "labels_sha256": "4d5fcb9de1b484ea570cfc0d22ad37a120e7c4c01049145a8c42f63e3c04dd38",
+  "manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/OFFICIAL_ASSET_INVENTORY.json",
+  "manifest_sha256": "6cb1f5a5eb740c06c6e8b01e57c7e6aab6dd8a7472f02d8acdd42540e2d16c38",
+  "model_shape": [
+    128,
+    128,
+    128
+  ],
+  "not_pristine_blind": false,
+  "preprocessing": {
+    "image_interpolation": "trilinear_align_corners_false",
+    "label_interpolation": "nearest-exact",
+    "n4_bias_field_correction": true,
+    "n4_shrink_factor": 2,
+    "normalization": "source nonzero-voxel population z-score before resize",
+    "order": [
+      "canonical_RAS",
+      "N4_shrink_2",
+      "image_nonzero_bounding_box_crop",
+      "source_nonzero_population_zscore",
+      "resize_to_128_cubic_grid"
+    ],
+    "output_resolution": 128,
+    "spatial": "braincrop_resize",
+    "uses_gt_for_localization": false
+  },
+  "qc": {
+    "all_finite": true,
+    "all_raw_labels": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "cases": [
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02255-100",
+        "crop_extent": [
+          138,
+          155,
+          143
+        ],
+        "crop_origin": [
+          60,
+          52,
+          48
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 63612,
+        "source_wt_empty": false,
+        "source_wt_voxels": 92360,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02255",
+        "ucsd_case_id": "sub-0006_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02257-100",
+        "crop_extent": [
+          140,
+          176,
+          148
+        ],
+        "crop_origin": [
+          61,
+          44,
+          42
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 20702,
+        "source_wt_empty": false,
+        "source_wt_voxels": 35830,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02257",
+        "ucsd_case_id": "sub-0008_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02257-101",
+        "crop_extent": [
+          141,
+          176,
+          149
+        ],
+        "crop_origin": [
+          59,
+          44,
+          41
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 6428,
+        "source_wt_empty": false,
+        "source_wt_voxels": 11089,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02257",
+        "ucsd_case_id": "sub-0008_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02257-102",
+        "crop_extent": [
+          141,
+          178,
+          148
+        ],
+        "crop_origin": [
+          60,
+          44,
+          42
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 45438,
+        "source_wt_empty": false,
+        "source_wt_voxels": 80572,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02257",
+        "ucsd_case_id": "sub-0008_ses-03"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02272-100",
+        "crop_extent": [
+          135,
+          188,
+          151
+        ],
+        "crop_origin": [
+          61,
+          44,
+          43
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 6143,
+        "source_wt_empty": false,
+        "source_wt_voxels": 11550,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02272",
+        "ucsd_case_id": "sub-0022_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02272-101",
+        "crop_extent": [
+          135,
+          169,
+          154
+        ],
+        "crop_origin": [
+          62,
+          45,
+          41
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 9884,
+        "source_wt_empty": false,
+        "source_wt_voxels": 16592,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02272",
+        "ucsd_case_id": "sub-0022_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02275-100",
+        "crop_extent": [
+          141,
+          172,
+          172
+        ],
+        "crop_origin": [
+          59,
+          41,
+          24
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 16519,
+        "source_wt_empty": false,
+        "source_wt_voxels": 32782,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02275",
+        "ucsd_case_id": "sub-0025_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02275-101",
+        "crop_extent": [
+          141,
+          185,
+          196
+        ],
+        "crop_origin": [
+          59,
+          42,
+          0
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 19138,
+        "source_wt_empty": false,
+        "source_wt_voxels": 46892,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02275",
+        "ucsd_case_id": "sub-0025_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02275-102",
+        "crop_extent": [
+          139,
+          188,
+          194
+        ],
+        "crop_origin": [
+          60,
+          41,
+          2
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 57900,
+        "source_wt_empty": false,
+        "source_wt_voxels": 139660,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02275",
+        "ucsd_case_id": "sub-0025_ses-03"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02276-100",
+        "crop_extent": [
+          139,
+          170,
+          143
+        ],
+        "crop_origin": [
+          59,
+          44,
+          51
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 8189,
+        "source_wt_empty": false,
+        "source_wt_voxels": 13151,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02276",
+        "ucsd_case_id": "sub-0026_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02280-100",
+        "crop_extent": [
+          138,
+          172,
+          190
+        ],
+        "crop_origin": [
+          59,
+          43,
+          2
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 12147,
+        "source_wt_empty": false,
+        "source_wt_voxels": 26407,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02280",
+        "ucsd_case_id": "sub-0029_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02297-100",
+        "crop_extent": [
+          133,
+          171,
+          185
+        ],
+        "crop_origin": [
+          66,
+          45,
+          10
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 23111,
+        "source_wt_empty": false,
+        "source_wt_voxels": 46943,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02297",
+        "ucsd_case_id": "sub-0044_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02298-100",
+        "crop_extent": [
+          129,
+          161,
+          143
+        ],
+        "crop_origin": [
+          64,
+          48,
+          49
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 32102,
+        "source_wt_empty": false,
+        "source_wt_voxels": 44964,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02298",
+        "ucsd_case_id": "sub-0045_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02304-100",
+        "crop_extent": [
+          141,
+          163,
+          153
+        ],
+        "crop_origin": [
+          60,
+          46,
+          40
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 55812,
+        "source_wt_empty": false,
+        "source_wt_voxels": 93791,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02304",
+        "ucsd_case_id": "sub-0051_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02309-100",
+        "crop_extent": [
+          144,
+          186,
+          151
+        ],
+        "crop_origin": [
+          57,
+          33,
+          45
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 24601,
+        "source_wt_empty": false,
+        "source_wt_voxels": 47361,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02309",
+        "ucsd_case_id": "sub-0055_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02310-100",
+        "crop_extent": [
+          146,
+          179,
+          156
+        ],
+        "crop_origin": [
+          52,
+          43,
+          37
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 86143,
+        "source_wt_empty": false,
+        "source_wt_voxels": 167621,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02310",
+        "ucsd_case_id": "sub-0056_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02313-100",
+        "crop_extent": [
+          142,
+          173,
+          143
+        ],
+        "crop_origin": [
+          61,
+          42,
+          49
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 11240,
+        "source_wt_empty": false,
+        "source_wt_voxels": 18632,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02313",
+        "ucsd_case_id": "sub-0058_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02321-100",
+        "crop_extent": [
+          131,
+          163,
+          139
+        ],
+        "crop_origin": [
+          64,
+          45,
+          51
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 7258,
+        "source_wt_empty": false,
+        "source_wt_voxels": 10472,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02321",
+        "ucsd_case_id": "sub-0066_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02321-101",
+        "crop_extent": [
+          131,
+          162,
+          139
+        ],
+        "crop_origin": [
+          63,
+          46,
+          51
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 3152,
+        "source_wt_empty": false,
+        "source_wt_voxels": 4601,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02321",
+        "ucsd_case_id": "sub-0066_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02328-100",
+        "crop_extent": [
+          144,
+          171,
+          142
+        ],
+        "crop_origin": [
+          56,
+          42,
+          50
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 63488,
+        "source_wt_empty": false,
+        "source_wt_voxels": 105229,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02328",
+        "ucsd_case_id": "sub-0073_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02328-101",
+        "crop_extent": [
+          146,
+          170,
+          142
+        ],
+        "crop_origin": [
+          56,
+          43,
+          50
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 18379,
+        "source_wt_empty": false,
+        "source_wt_voxels": 31203,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02328",
+        "ucsd_case_id": "sub-0073_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02349-100",
+        "crop_extent": [
+          145,
+          151,
+          149
+        ],
+        "crop_origin": [
+          56,
+          54,
+          45
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 26984,
+        "source_wt_empty": false,
+        "source_wt_voxels": 41899,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02349",
+        "ucsd_case_id": "sub-0094_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02356-100",
+        "crop_extent": [
+          137,
+          154,
+          144
+        ],
+        "crop_origin": [
+          60,
+          52,
+          49
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 40541,
+        "source_wt_empty": false,
+        "source_wt_voxels": 58774,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02356",
+        "ucsd_case_id": "sub-0101_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02356-101",
+        "crop_extent": [
+          137,
+          157,
+          143
+        ],
+        "crop_origin": [
+          59,
+          52,
+          50
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 65095,
+        "source_wt_empty": false,
+        "source_wt_voxels": 95106,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02356",
+        "ucsd_case_id": "sub-0101_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02359-100",
+        "crop_extent": [
+          136,
+          165,
+          147
+        ],
+        "crop_origin": [
+          60,
+          42,
+          46
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 30629,
+        "source_wt_empty": false,
+        "source_wt_voxels": 47669,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02359",
+        "ucsd_case_id": "sub-0104_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02373-100",
+        "crop_extent": [
+          138,
+          169,
+          151
+        ],
+        "crop_origin": [
+          59,
+          43,
+          42
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 103975,
+        "source_wt_empty": false,
+        "source_wt_voxels": 174135,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02373",
+        "ucsd_case_id": "sub-0118_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02374-100",
+        "crop_extent": [
+          142,
+          174,
+          145
+        ],
+        "crop_origin": [
+          58,
+          44,
+          44
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 110643,
+        "source_wt_empty": false,
+        "source_wt_voxels": 189054,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02374",
+        "ucsd_case_id": "sub-0119_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02374-101",
+        "crop_extent": [
+          142,
+          169,
+          147
+        ],
+        "crop_origin": [
+          59,
+          45,
+          40
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 95815,
+        "source_wt_empty": false,
+        "source_wt_voxels": 161248,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02374",
+        "ucsd_case_id": "sub-0119_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02391-100",
+        "crop_extent": [
+          140,
+          176,
+          152
+        ],
+        "crop_origin": [
+          58,
+          41,
+          43
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 22640,
+        "source_wt_empty": false,
+        "source_wt_voxels": 40629,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02391",
+        "ucsd_case_id": "sub-0136_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02392-100",
+        "crop_extent": [
+          145,
+          166,
+          151
+        ],
+        "crop_origin": [
+          56,
+          47,
+          42
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 59378,
+        "source_wt_empty": false,
+        "source_wt_voxels": 103039,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02392",
+        "ucsd_case_id": "sub-0137_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02392-101",
+        "crop_extent": [
+          144,
+          165,
+          151
+        ],
+        "crop_origin": [
+          56,
+          47,
+          42
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 87487,
+        "source_wt_empty": false,
+        "source_wt_voxels": 149647,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02392",
+        "ucsd_case_id": "sub-0137_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02395-100",
+        "crop_extent": [
+          147,
+          176,
+          146
+        ],
+        "crop_origin": [
+          57,
+          45,
+          46
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 33169,
+        "source_wt_empty": false,
+        "source_wt_voxels": 59869,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02395",
+        "ucsd_case_id": "sub-0140_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02395-101",
+        "crop_extent": [
+          146,
+          172,
+          150
+        ],
+        "crop_origin": [
+          57,
+          46,
+          46
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 26768,
+        "source_wt_empty": false,
+        "source_wt_voxels": 48058,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02395",
+        "ucsd_case_id": "sub-0140_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02397-100",
+        "crop_extent": [
+          129,
+          169,
+          138
+        ],
+        "crop_origin": [
+          65,
+          41,
+          54
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 9942,
+        "source_wt_empty": false,
+        "source_wt_voxels": 15152,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02397",
+        "ucsd_case_id": "sub-0142_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02402-100",
+        "crop_extent": [
+          131,
+          162,
+          142
+        ],
+        "crop_origin": [
+          63,
+          47,
+          48
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 121978,
+        "source_wt_empty": false,
+        "source_wt_voxels": 174538,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02402",
+        "ucsd_case_id": "sub-0147_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02402-101",
+        "crop_extent": [
+          131,
+          161,
+          192
+        ],
+        "crop_origin": [
+          65,
+          47,
+          0
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 110813,
+        "source_wt_empty": false,
+        "source_wt_voxels": 212814,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02402",
+        "ucsd_case_id": "sub-0147_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02405-100",
+        "crop_extent": [
+          130,
+          153,
+          144
+        ],
+        "crop_origin": [
+          65,
+          53,
+          47
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 18446,
+        "source_wt_empty": false,
+        "source_wt_voxels": 25707,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02405",
+        "ucsd_case_id": "sub-0150_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02405-101",
+        "crop_extent": [
+          130,
+          153,
+          143
+        ],
+        "crop_origin": [
+          65,
+          53,
+          48
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 25484,
+        "source_wt_empty": false,
+        "source_wt_voxels": 35362,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02405",
+        "ucsd_case_id": "sub-0150_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02406-100",
+        "crop_extent": [
+          140,
+          171,
+          146
+        ],
+        "crop_origin": [
+          61,
+          43,
+          47
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 34587,
+        "source_wt_empty": false,
+        "source_wt_voxels": 57631,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02406",
+        "ucsd_case_id": "sub-0151_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02407-100",
+        "crop_extent": [
+          133,
+          162,
+          150
+        ],
+        "crop_origin": [
+          62,
+          50,
+          43
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 67658,
+        "source_wt_empty": false,
+        "source_wt_voxels": 104459,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02407",
+        "ucsd_case_id": "sub-0152_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02408-100",
+        "crop_extent": [
+          141,
+          180,
+          151
+        ],
+        "crop_origin": [
+          60,
+          39,
+          45
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 81539,
+        "source_wt_empty": false,
+        "source_wt_voxels": 148809,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02408",
+        "ucsd_case_id": "sub-0153_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02409-100",
+        "crop_extent": [
+          146,
+          159,
+          155
+        ],
+        "crop_origin": [
+          50,
+          47,
+          41
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 113689,
+        "source_wt_empty": false,
+        "source_wt_voxels": 195269,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02409",
+        "ucsd_case_id": "sub-0154_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02410-100",
+        "crop_extent": [
+          132,
+          184,
+          148
+        ],
+        "crop_origin": [
+          61,
+          42,
+          48
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 35512,
+        "source_wt_empty": false,
+        "source_wt_voxels": 61173,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02410",
+        "ucsd_case_id": "sub-0155_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02410-101",
+        "crop_extent": [
+          132,
+          180,
+          149
+        ],
+        "crop_origin": [
+          62,
+          40,
+          47
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 29918,
+        "source_wt_empty": false,
+        "source_wt_voxels": 50480,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02410",
+        "ucsd_case_id": "sub-0155_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02411-100",
+        "crop_extent": [
+          129,
+          176,
+          146
+        ],
+        "crop_origin": [
+          64,
+          41,
+          44
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 40890,
+        "source_wt_empty": false,
+        "source_wt_voxels": 64348,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02411",
+        "ucsd_case_id": "sub-0156_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02412-100",
+        "crop_extent": [
+          136,
+          161,
+          146
+        ],
+        "crop_origin": [
+          60,
+          50,
+          45
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 108993,
+        "source_wt_empty": false,
+        "source_wt_voxels": 165797,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02412",
+        "ucsd_case_id": "sub-0157_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02413-100",
+        "crop_extent": [
+          131,
+          162,
+          140
+        ],
+        "crop_origin": [
+          65,
+          46,
+          51
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 59438,
+        "source_wt_empty": false,
+        "source_wt_voxels": 83143,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02413",
+        "ucsd_case_id": "sub-0158_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02414-100",
+        "crop_extent": [
+          136,
+          172,
+          152
+        ],
+        "crop_origin": [
+          59,
+          44,
+          44
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 79130,
+        "source_wt_empty": false,
+        "source_wt_voxels": 134347,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02414",
+        "ucsd_case_id": "sub-0159_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02415-100",
+        "crop_extent": [
+          141,
+          180,
+          151
+        ],
+        "crop_origin": [
+          59,
+          46,
+          47
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 56926,
+        "source_wt_empty": false,
+        "source_wt_voxels": 104307,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02415",
+        "ucsd_case_id": "sub-0160_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02416-100",
+        "crop_extent": [
+          140,
+          167,
+          146
+        ],
+        "crop_origin": [
+          60,
+          46,
+          46
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 24997,
+        "source_wt_empty": false,
+        "source_wt_voxels": 40603,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02416",
+        "ucsd_case_id": "sub-0161_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02417-100",
+        "crop_extent": [
+          146,
+          163,
+          153
+        ],
+        "crop_origin": [
+          54,
+          48,
+          44
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 22055,
+        "source_wt_empty": false,
+        "source_wt_voxels": 38065,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02417",
+        "ucsd_case_id": "sub-0162_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02417-101",
+        "crop_extent": [
+          147,
+          164,
+          153
+        ],
+        "crop_origin": [
+          54,
+          48,
+          45
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 14515,
+        "source_wt_empty": false,
+        "source_wt_voxels": 25389,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02417",
+        "ucsd_case_id": "sub-0162_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02418-100",
+        "crop_extent": [
+          125,
+          157,
+          138
+        ],
+        "crop_origin": [
+          66,
+          49,
+          50
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 5974,
+        "source_wt_empty": false,
+        "source_wt_voxels": 7677,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02418",
+        "ucsd_case_id": "sub-0163_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02418-101",
+        "crop_extent": [
+          125,
+          157,
+          138
+        ],
+        "crop_origin": [
+          66,
+          49,
+          50
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 2030,
+        "source_wt_empty": false,
+        "source_wt_voxels": 2582,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02418",
+        "ucsd_case_id": "sub-0163_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02418-102",
+        "crop_extent": [
+          125,
+          157,
+          138
+        ],
+        "crop_origin": [
+          66,
+          49,
+          50
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 8236,
+        "source_wt_empty": false,
+        "source_wt_voxels": 9948,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02418",
+        "ucsd_case_id": "sub-0163_ses-03"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02419-100",
+        "crop_extent": [
+          140,
+          172,
+          147
+        ],
+        "crop_origin": [
+          59,
+          43,
+          45
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 12249,
+        "source_wt_empty": false,
+        "source_wt_voxels": 20652,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02419",
+        "ucsd_case_id": "sub-0164_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02420-101",
+        "crop_extent": [
+          138,
+          170,
+          145
+        ],
+        "crop_origin": [
+          60,
+          41,
+          46
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 3763,
+        "source_wt_empty": false,
+        "source_wt_voxels": 5981,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02420",
+        "ucsd_case_id": "sub-0165_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02421-100",
+        "crop_extent": [
+          140,
+          175,
+          153
+        ],
+        "crop_origin": [
+          61,
+          45,
+          46
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 117445,
+        "source_wt_empty": false,
+        "source_wt_voxels": 210146,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02421",
+        "ucsd_case_id": "sub-0166_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02422-100",
+        "crop_extent": [
+          140,
+          154,
+          135
+        ],
+        "crop_origin": [
+          59,
+          49,
+          52
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 25055,
+        "source_wt_empty": false,
+        "source_wt_voxels": 34452,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02422",
+        "ucsd_case_id": "sub-0167_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02422-101",
+        "crop_extent": [
+          140,
+          154,
+          134
+        ],
+        "crop_origin": [
+          60,
+          50,
+          52
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 20005,
+        "source_wt_empty": false,
+        "source_wt_voxels": 27394,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02422",
+        "ucsd_case_id": "sub-0167_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02423-100",
+        "crop_extent": [
+          132,
+          163,
+          145
+        ],
+        "crop_origin": [
+          64,
+          46,
+          46
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 46770,
+        "source_wt_empty": false,
+        "source_wt_voxels": 69740,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02423",
+        "ucsd_case_id": "sub-0168_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02424-100",
+        "crop_extent": [
+          123,
+          155,
+          139
+        ],
+        "crop_origin": [
+          67,
+          50,
+          51
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 89217,
+        "source_wt_empty": false,
+        "source_wt_voxels": 112762,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02424",
+        "ucsd_case_id": "sub-0169_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02425-100",
+        "crop_extent": [
+          128,
+          154,
+          142
+        ],
+        "crop_origin": [
+          67,
+          51,
+          46
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 37776,
+        "source_wt_empty": false,
+        "source_wt_voxels": 50579,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02425",
+        "ucsd_case_id": "sub-0170_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02426-100",
+        "crop_extent": [
+          147,
+          163,
+          150
+        ],
+        "crop_origin": [
+          56,
+          45,
+          44
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 54292,
+        "source_wt_empty": false,
+        "source_wt_voxels": 93130,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02426",
+        "ucsd_case_id": "sub-0171_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02427-100",
+        "crop_extent": [
+          135,
+          168,
+          142
+        ],
+        "crop_origin": [
+          62,
+          45,
+          49
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 25513,
+        "source_wt_empty": false,
+        "source_wt_voxels": 39085,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02427",
+        "ucsd_case_id": "sub-0172_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02427-101",
+        "crop_extent": [
+          135,
+          168,
+          142
+        ],
+        "crop_origin": [
+          62,
+          44,
+          49
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 40325,
+        "source_wt_empty": false,
+        "source_wt_voxels": 62379,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02427",
+        "ucsd_case_id": "sub-0172_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02428-100",
+        "crop_extent": [
+          135,
+          197,
+          192
+        ],
+        "crop_origin": [
+          61,
+          45,
+          0
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 22358,
+        "source_wt_empty": false,
+        "source_wt_voxels": 54239,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02428",
+        "ucsd_case_id": "sub-0173_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02429-100",
+        "crop_extent": [
+          135,
+          164,
+          145
+        ],
+        "crop_origin": [
+          61,
+          44,
+          48
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 51654,
+        "source_wt_empty": false,
+        "source_wt_voxels": 78892,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02429",
+        "ucsd_case_id": "sub-0174_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02429-101",
+        "crop_extent": [
+          135,
+          163,
+          143
+        ],
+        "crop_origin": [
+          61,
+          45,
+          49
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 52912,
+        "source_wt_empty": false,
+        "source_wt_voxels": 79154,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02429",
+        "ucsd_case_id": "sub-0174_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02430-100",
+        "crop_extent": [
+          131,
+          171,
+          151
+        ],
+        "crop_origin": [
+          63,
+          44,
+          44
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 5699,
+        "source_wt_empty": false,
+        "source_wt_voxels": 9247,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02430",
+        "ucsd_case_id": "sub-0175_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02431-100",
+        "crop_extent": [
+          136,
+          154,
+          146
+        ],
+        "crop_origin": [
+          63,
+          53,
+          44
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 20110,
+        "source_wt_empty": false,
+        "source_wt_voxels": 29600,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02431",
+        "ucsd_case_id": "sub-0176_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02431-101",
+        "crop_extent": [
+          136,
+          153,
+          147
+        ],
+        "crop_origin": [
+          63,
+          54,
+          42
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 41004,
+        "source_wt_empty": false,
+        "source_wt_voxels": 59780,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02431",
+        "ucsd_case_id": "sub-0176_ses-02"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02432-100",
+        "crop_extent": [
+          131,
+          157,
+          142
+        ],
+        "crop_origin": [
+          63,
+          49,
+          49
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 77302,
+        "source_wt_empty": false,
+        "source_wt_voxels": 107354,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02432",
+        "ucsd_case_id": "sub-0177_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02433-100",
+        "crop_extent": [
+          144,
+          147,
+          145
+        ],
+        "crop_origin": [
+          59,
+          53,
+          50
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 11424,
+        "source_wt_empty": false,
+        "source_wt_voxels": 17122,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02433",
+        "ucsd_case_id": "sub-0178_ses-01"
+      },
+      {
+        "canonical_affine": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -127.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "case_id": "BraTS-GLI-02433-101",
+        "crop_extent": [
+          142,
+          145,
+          141
+        ],
+        "crop_origin": [
+          58,
+          52,
+          49
+        ],
+        "native_shape": [
+          256,
+          256,
+          256
+        ],
+        "raw_labels": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "resized_wt_empty": false,
+        "resized_wt_voxels": 27645,
+        "source_wt_empty": false,
+        "source_wt_voxels": 38290,
+        "spacing_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "subject_id": "BraTS-GLI-02433",
+        "ucsd_case_id": "sub-0178_ses-02"
+      }
+    ],
+    "image_label_geometry_exact_after_canonicalization": true,
+    "resized_wt_empty_cases": 0,
+    "source_wt_empty_cases": 0
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_preprocess_cache",
+  "schema_version": 1,
+  "split": "external_confirmation",
+  "subject_ids": [
+    "BraTS-GLI-02255",
+    "BraTS-GLI-02257",
+    "BraTS-GLI-02257",
+    "BraTS-GLI-02257",
+    "BraTS-GLI-02272",
+    "BraTS-GLI-02272",
+    "BraTS-GLI-02275",
+    "BraTS-GLI-02275",
+    "BraTS-GLI-02275",
+    "BraTS-GLI-02276",
+    "BraTS-GLI-02280",
+    "BraTS-GLI-02297",
+    "BraTS-GLI-02298",
+    "BraTS-GLI-02304",
+    "BraTS-GLI-02309",
+    "BraTS-GLI-02310",
+    "BraTS-GLI-02313",
+    "BraTS-GLI-02321",
+    "BraTS-GLI-02321",
+    "BraTS-GLI-02328",
+    "BraTS-GLI-02328",
+    "BraTS-GLI-02349",
+    "BraTS-GLI-02356",
+    "BraTS-GLI-02356",
+    "BraTS-GLI-02359",
+    "BraTS-GLI-02373",
+    "BraTS-GLI-02374",
+    "BraTS-GLI-02374",
+    "BraTS-GLI-02391",
+    "BraTS-GLI-02392",
+    "BraTS-GLI-02392",
+    "BraTS-GLI-02395",
+    "BraTS-GLI-02395",
+    "BraTS-GLI-02397",
+    "BraTS-GLI-02402",
+    "BraTS-GLI-02402",
+    "BraTS-GLI-02405",
+    "BraTS-GLI-02405",
+    "BraTS-GLI-02406",
+    "BraTS-GLI-02407",
+    "BraTS-GLI-02408",
+    "BraTS-GLI-02409",
+    "BraTS-GLI-02410",
+    "BraTS-GLI-02410",
+    "BraTS-GLI-02411",
+    "BraTS-GLI-02412",
+    "BraTS-GLI-02413",
+    "BraTS-GLI-02414",
+    "BraTS-GLI-02415",
+    "BraTS-GLI-02416",
+    "BraTS-GLI-02417",
+    "BraTS-GLI-02417",
+    "BraTS-GLI-02418",
+    "BraTS-GLI-02418",
+    "BraTS-GLI-02418",
+    "BraTS-GLI-02419",
+    "BraTS-GLI-02420",
+    "BraTS-GLI-02421",
+    "BraTS-GLI-02422",
+    "BraTS-GLI-02422",
+    "BraTS-GLI-02423",
+    "BraTS-GLI-02424",
+    "BraTS-GLI-02425",
+    "BraTS-GLI-02426",
+    "BraTS-GLI-02427",
+    "BraTS-GLI-02427",
+    "BraTS-GLI-02428",
+    "BraTS-GLI-02429",
+    "BraTS-GLI-02429",
+    "BraTS-GLI-02430",
+    "BraTS-GLI-02431",
+    "BraTS-GLI-02431",
+    "BraTS-GLI-02432",
+    "BraTS-GLI-02433",
+    "BraTS-GLI-02433"
+  ],
+  "subjects": 53,
+  "target": {
+    "excluded_raw_labels": [
+      4
+    ],
+    "foreground_raw_labels": [
+      1,
+      2,
+      3
+    ],
+    "name": "WT"
+  },
+  "test_access": true
+}

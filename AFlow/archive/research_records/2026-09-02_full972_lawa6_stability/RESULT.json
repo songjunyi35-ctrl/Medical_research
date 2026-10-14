@@ -1,0 +1,77 @@
+{
+  "schema": "aflow.brats.t1ce_wt_lawa6_result",
+  "schema_version": 1,
+  "status": "complete_failed_final_promotion",
+  "method": "uniform CPU-float64 weight average of same-run epochs 163-168",
+  "candidate_authorized_for_test": false,
+  "stage_a": {
+    "cohort": {"role": "fresh_train_only_inner", "scans": 108, "subjects": 51},
+    "seed20261061": {
+      "raw": {"scan": 0.7448037208782302, "subject": 0.7314329999529458, "point_hits": 103},
+      "lawa6": {"scan": 0.7471228255717842, "subject": 0.7333883197576392, "point_hits": 106},
+      "delta": {"scan": 0.002319104693554066, "scan_95ci": [0.0003448900387242989, 0.004336329687524724], "subject": 0.001955319804693362, "subject_95ci": [-0.0005200370476623751, 0.004879791141043298], "point_hits": 3}
+    },
+    "seed20261062": {
+      "raw": {"scan": 0.7378623231693551, "subject": 0.7261170120605457, "point_hits": 106},
+      "lawa6": {"scan": 0.7391300256605502, "subject": 0.7288895014162157, "point_hits": 107},
+      "delta": {"scan": 0.0012677024911951136, "scan_95ci": [-0.0015338465709377217, 0.003764063319950192], "subject": 0.0027724893556700806, "subject_95ci": [-0.00023904026552937528, 0.0056889591787278255], "point_hits": 1}
+    },
+    "gates": {"passed": 10, "failed": 0, "full972_final_authorized": true}
+  },
+  "stage_b": {
+    "cohort": {"role": "fixed_validation", "scans": 108, "subjects": 50},
+    "fresh_seed20261063_raw": {"scan": 0.7324556242674589, "subject": 0.7257932002594073, "point_hits": 102},
+    "fresh_seed20261063_lawa6": {"scan": 0.7329194590587307, "subject": 0.7263695879990146, "point_hits": 102},
+    "archived_full972_seed32": {"scan": 0.7400125352044901, "subject": 0.7312662169195357, "point_hits": 103},
+    "lawa_minus_raw": {
+      "scan": 0.0004638347912717749,
+      "scan_95ci": [-0.001386872335785517, 0.002170267551102572],
+      "subject": 0.0005763877396072667,
+      "subject_95ci": [-0.0014937409010848822, 0.0026286529510148936],
+      "point_hits": 0,
+      "scans_improved_worse_tied": [64, 44, 0],
+      "subjects_improved_worse_tied": [29, 21, 0]
+    },
+    "lawa_minus_archived": {
+      "scan": -0.007093076145759335,
+      "scan_95ci": [-0.015439168099934857, 0.0000684464384836174],
+      "subject": -0.004896628920521054,
+      "subject_95ci": [-0.015411445478243488, 0.004015633277595042],
+      "point_hits": -1,
+      "scans_improved_worse_tied": [50, 58, 0],
+      "subjects_improved_worse_tied": [19, 31, 0]
+    },
+    "gates": {"passed": 6, "failed": 5, "candidate_authorized_for_test": false}
+  },
+  "mechanism_supported": true,
+  "full_promotion_supported": false,
+  "interpretation": "LAWA6 consistently improves its own raw trajectory across three fresh seeds, but the gain is much smaller than cross-seed variation and does not exceed the archived Full972 development champion.",
+  "cost": {
+    "stage_a_seed61_seconds": 12207.231572628021,
+    "stage_a_seed62_seconds": 12147.83232498169,
+    "stage_b_seconds": 12218.444561004639,
+    "formal_gpu_hours": 10.15930790534768,
+    "peak_gpu_memory_bytes_per_run": 21796646912,
+    "workspace": "181M",
+    "inference_forwards": 1
+  },
+  "evidence": {
+    "idea_sha256": "b2cfc6b6b01624d0efa564c8f019b15f65b6892bf96fd76c1ec6331d8dc3092d",
+    "prereg_sha256": "cd72ab82bdadf5cd574a40f353cdf10218d4eace38ebe97ada3edc3f9a66cfc9",
+    "stage_a_inner_sha256": "09cde688b29f8b98562acce5788c473475ad89781b0c4acd7c0a08c09fd51d6d",
+    "stage_a_decision_sha256": "2437a641c28c218878e5df45c784b2b3154718416d0dd920a5ca10b10ad59001",
+    "stage_b_train_report_sha256": "7bf7c7e1dcc664067bc5db4cb68d565e12f6fba7cac858a0ad2fcf22983a7bf3",
+    "stage_b_validation_preaccess_sha256": "d4b068b1cedca1ce604807132a519575391bb58d4733f428e5bed1ed7df206ad",
+    "stage_b_validation_sha256": "c1be148cbb57f6e144593f47b0074bb1a85b4fd99acc6beb309719654a14df6d",
+    "selected_checkpoint_sha256": "aac84cf2970159a50c0b5b442cff1ff54cb7557c4a01d97b1d86d4e25ff160f3",
+    "selected_model_state_sha256": "09fa2af2fcbfb8259f39e60ea393e9e97b09821ecd32910f0f1458a40c478847"
+  },
+  "access": {
+    "train_only_inner": true,
+    "fixed_validation108": true,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  },
+  "next_decision": "stop fixed LAWA6; do not tune averaging or access test"
+}

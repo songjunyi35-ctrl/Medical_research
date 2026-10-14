@@ -1,0 +1,82 @@
+{
+  "bootstrap": {
+    "samples": 10000,
+    "seeds": [
+      2026091111,
+      2026091112
+    ],
+    "unit": "patient_cluster"
+  },
+  "cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+  "created_utc": "2026-09-10T10:38:46.547439+00:00",
+  "dev_sha256": "53885b7e300f915d81eecb115b82123e25330b7da422d3ff0b889b0489a2cdac",
+  "expected_forwards": 720,
+  "files": {
+    "archive/research_records/2026-09-10_data_recipe_ensemble/IDEA.md": "05cd9c6d5e15b848a37248da8c2030eee1c027b4de8f1cae64c44605c9c93cd5",
+    "archive/research_records/2026-09-10_data_recipe_ensemble/PREREG.md": "9575578e98c25ebf4b8cacfe8c30bcb20c7657c421e9df7d9b7245168dcd4063",
+    "sammed3d/data_recipe_fusion.py": "cb666a3f0c8aee37fd90162f4f25c6d20298ca46c5ef167ef0ed54d4747fbaeb",
+    "sammed3d/t1ce_wt_capg3d.py": "276ee7c131e413cf7943dc29e5372c1e5bbbb85c780e27f030343c5ef8bf4cd0",
+    "scripts/evaluate_data_recipe_fusion.py": "0a91a840cf3b211de2879f143d1492f74f736e43c9a56b1d6800b7ddb396a7a2",
+    "scripts/evaluate_structured_background_aux.py": "967e1bcd69bc86cfd839bcd59c09a6c87240c3f399b17fb3066e142609806b38",
+    "scripts/train_t1ce_wt_capg3d.py": "d74ff2f0cf190c8a5458a70d19125d9a30603894d5f1799f192f0e60dd088fdb",
+    "tests/test_data_recipe_fusion.py": "69268da16e63ae11737f2d8bcd9a383b813482d0452f1f7f34bdf8952081cc54"
+  },
+  "fit_sha256": "75504df75fa734723945a9f07d76696fdcca89b8c29563dc0ad02a2560718d61",
+  "fixed_test_seed_if_eligible": 2026090711,
+  "fusion": "0.5 raw sampling logits +0.5 raw occupancy logits",
+  "models": {
+    "2026090711_occupancy": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fractional_occupancy_20260910/seed2026090711_fractional_occupancy/fixed_epoch168.pth",
+        "sha256": "ea144d90429c733e998d4f38c980e8cbd542aa09e2ec1febeec8030941449d1e"
+      },
+      "train_report": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fractional_occupancy_20260910/seed2026090711_fractional_occupancy/TRAIN_DONE.json",
+        "sha256": "1626be7b2e75ce70a04218546a45d21d81ac77d90692974bf380082cfb42a0ad"
+      }
+    },
+    "2026090711_sampling": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/subject_balanced_sampling_20260907/seed2026090711_subject_balanced/fixed_epoch168.pth",
+        "sha256": "576cc8ff936695dfc109ec5c30af07fa57a539100368ecded080d3876b045efb"
+      },
+      "train_report": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/subject_balanced_sampling_20260907/seed2026090711_subject_balanced/TRAIN_DONE.json",
+        "sha256": "d57b29a98909dba4b326519484758dccd09b95416e4871ff2b72e674b2de48a2"
+      }
+    },
+    "2026090712_occupancy": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fractional_occupancy_20260910/seed2026090712_fractional_occupancy/fixed_epoch168.pth",
+        "sha256": "1ed5c7a850997076f4222c69e38d5c8cf676abd0d5631731dc4ea9e33ef85dae"
+      },
+      "train_report": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fractional_occupancy_20260910/seed2026090712_fractional_occupancy/TRAIN_DONE.json",
+        "sha256": "cd8dc8b53b5030007314cb067ad0db285ca2d8a77eec77c07957f21081b9c54c"
+      }
+    },
+    "2026090712_sampling": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/subject_balanced_sampling_20260907/seed2026090712_subject_balanced/fixed_epoch168.pth",
+        "sha256": "047268c8d60a2120ffbe734481c922b9c29387a3b0a024e8f8bc985a65434a11"
+      },
+      "train_report": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/subject_balanced_sampling_20260907/seed2026090712_subject_balanced/TRAIN_DONE.json",
+        "sha256": "adf0c805b1a3e871626faae388de3ff2b38af0bc3bf7c3c0b07a39fcfd9e8a89"
+      }
+    }
+  },
+  "new_forwards": 0,
+  "source_raws": {
+    "occupancy": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-10_fractional_occupancy/RAW_DEVELOPMENT.json",
+      "sha256": "b1474c2a6e0356559f6e5e15639fa9d705d5cce08c8c2a3556e142b0a06a1647"
+    },
+    "sampling": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-07_subject_balanced_sampling/RAW_DEVELOPMENT.json",
+      "sha256": "96785e393fd1033684014fda091f2de1545b42a0fce6fe226f79a8a10630017d"
+    }
+  },
+  "test_access": false,
+  "threshold": 0
+}

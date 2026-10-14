@@ -1,0 +1,56 @@
+{
+  "schema": "aflow.brats.t1ce_wt_gcsam_implementation_receipt",
+  "schema_version": 1,
+  "status": "passed_and_frozen_before_formal_inner",
+  "created_at_utc": "2026-08-31T02:44:24Z",
+  "documents": {
+    "idea_sha256": "0c3516c686e13d6cb86b947f2a4fff50a45a936ee8c1ebc939bd9ac349b4250a",
+    "prereg_sha256": "7fe9d8039ede538ff9c47cba001d2ed44ef4769d3aa0142568692797c37ef603"
+  },
+  "split": {
+    "manifest_sha256": "716484f91b503d3890807db6e3fd28353c30cc86a788699cccca9a56bee2a8d8",
+    "fit_sha256": "587dcd66828b4ad44cf23db224852511158af2fa11d00f66e269e99887ba8e6d",
+    "inner_tune_sha256": "aa091a3a5259745b6987fafe9d6915db2576e10478a991917d34106f972b2c11",
+    "fit_cases_subjects": [864, 394],
+    "inner_tune_cases_subjects": [108, 50],
+    "case_overlap": 0,
+    "subject_overlap": 0
+  },
+  "implementation_sha256": {
+    "optimizer": "2b8cae400a702841953e18c95686264eb11be66ca96b7a77396afdab26b3cfe4",
+    "inner_runner": "c2c46fc1beae2dd39d22f003c177e51b62701eb7061a66b5561f43466e8c204d",
+    "inner_finalizer": "89a62d7e107216f3e21909a0274e0ef4948ca66aa2b9389149593dcfe048e461",
+    "cuda_parity_runner": "2a7071873ea25060ecfe1deb2b209cb0c7750edd1d2db4ac715b6a712487309a",
+    "formal_pair_launcher": "d1b48e30aab0795d4b538dc4d0f62aec3d5461e272678525d5291c154a8fe9d9",
+    "smoke_pair_launcher": "0f74ed1f67579cfe22a7c2f70d9f82e839ed8931c0df0e5a5e9185fd314effc8",
+    "optimizer_tests": "70f82a91d0fb752a26ec1e17b31878021007ff81ba83708226688885371c0b55"
+  },
+  "tests": {
+    "cpu_contracts": "7 passed",
+    "cuda_bf16_rho0_parity_sha256": "9ccca1cc666be4cde3b0194201eea1ad97ca27fc9006fc5c0a3e5bef9bcdd968",
+    "cuda_bf16_rho0_all_gates_passed": true,
+    "paired_smoke_exit_sha256": "c9c4bbf9be9812e3ba5e65e3a0d47cca86da8e0bd7ba5ff739cf2dee39be2272",
+    "adamw_smoke_report_sha256": "4659286ac167314219ed7ddd1697beaee890ea4f108ce4ba4b86e857e560d523",
+    "gcsam_smoke_report_sha256": "9d389c4c6d05aed494cf01f6eefbf460b5639314515638e0ae2ffd28f56e9448",
+    "paired_initial_state_exact": true,
+    "paired_sampler_indices_exact": true,
+    "paired_first_augmented_batch_exact": true,
+    "paired_first_pass_loss_exact": true,
+    "gcsam_mean_perturbation_norm": 0.05000000260770321,
+    "adamw_peak_gpu_memory_bytes": 21788258304,
+    "gcsam_peak_gpu_memory_bytes": 21859578368,
+    "all_gates_passed": true
+  },
+  "disk_before_formal": {
+    "available": "15G",
+    "planned_increment": "less than 300MB",
+    "new_cache": false
+  },
+  "access": {
+    "train_only_inner": true,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  }
+}

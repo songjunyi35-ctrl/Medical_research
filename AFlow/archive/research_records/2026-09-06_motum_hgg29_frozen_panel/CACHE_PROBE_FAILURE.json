@@ -1,0 +1,38 @@
+{
+  "schema": "aflow.motum_hgg29.cache_probe_failure",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T04:31:17Z",
+  "status": "closed_before_cache_checkpoint_or_performance",
+  "case_id": "MOTUM-HGG-0001",
+  "exception": "ValueError: geometry",
+  "frozen_gate": "each image and mask independently closest-canonical RAS, then shape exact and affine max error <= 1e-5",
+  "native": {
+    "all_three_shapes": [192, 256, 21],
+    "all_three_axis_codes": ["L", "P", "S"],
+    "image_vs_masks_affine_max_abs": 2.384185791015625e-07,
+    "orientation_arrays_identical": true
+  },
+  "independent_closest_canonical": {
+    "all_three_shapes": [192, 256, 21],
+    "all_three_axis_codes": ["R", "A", "S"],
+    "image_vs_masks_affine_max_abs": 1.4487653970718384e-05,
+    "gate_limit": 1e-05,
+    "passed": false,
+    "reason": "tiny native affine coefficient differences are multiplied by the 191/255-index flip offset during independent canonical affine construction"
+  },
+  "all29_read_only_diagnostic": {
+    "native_affine_max_abs": 2.384185791015625e-07,
+    "independent_canonical_affine_max_abs": 1.4487653970718384e-05,
+    "identical_discrete_orientation_arrays": 29,
+    "canonical_shape_equal": 29,
+    "cases_above_frozen_1e_5_gate": 2
+  },
+  "first_probe_created": false,
+  "cache_created": false,
+  "checkpoint_loaded": false,
+  "model_forwards": 0,
+  "performance_metrics": false,
+  "stop_rule_honored": true,
+  "current_experiment_may_not_relax_tolerance_or_continue": true,
+  "separate_future_input_bridge": "may preregister shared discrete orientation from image after strict native-grid and identical-orientation gates; no GT interpolation"
+}

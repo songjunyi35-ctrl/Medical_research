@@ -1,0 +1,42 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt.fv_rank0_restart_nondeterminism_audit",
+  "schema_version": 1,
+  "date_utc": "2026-07-24",
+  "scope": "development-only matched rank-0 training",
+  "attempts": {
+    "invalid_worker_reclaimed_partial": {
+      "status": "invalid_partial_do_not_resume_or_select",
+      "worker_id": "1009989",
+      "epoch_1_train_c3": 0.3588179197,
+      "epoch_1_validation_c3": 0.3927774770,
+      "epoch_2_train_c3": 0.3939524590,
+      "epoch_2_validation_c3": 0.4225277600,
+      "completed_epochs": 2
+    },
+    "formal_foreground_restart": {
+      "status": "active_authoritative_run",
+      "worker_id": "1012315",
+      "epoch_1_train_c3": 0.3632561970,
+      "epoch_1_validation_c3": 0.3807674300,
+      "completed_epochs_at_audit": 1
+    }
+  },
+  "same_recorded_training_contract": {
+    "train_seed": 20260725,
+    "validation_seed": 20260723,
+    "train_cases": 972,
+    "validation_cases": 108,
+    "rank": 0,
+    "spatial_preprocessing": "whole_resize",
+    "train_augmentation": "affine_elastic_noise",
+    "optimizer": "AdamW lr=1e-4 weight_decay=0.1",
+    "epochs": 50
+  },
+  "observed_epoch_1_delta_formal_minus_invalid": {
+    "train_c3": 0.0044382773,
+    "validation_c3": -0.0120100470
+  },
+  "interpretation": "The recorded seed and configuration do not guarantee bitwise reproducibility across worker/runtime executions. The interrupted attempt is diagnostic only.",
+  "decision": "Use only the uninterrupted 50-epoch foreground restart for checkpoint selection and final matched analysis. Never splice, resume, average, or select using the invalid partial attempt.",
+  "evidence_boundary": "Any final FV-LoRA versus rank-0 result is a single-seed conditional development contrast, not a deterministic replication or across-seed effect."
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_ema168_test270_receipt",
+  "schema_version": 1,
+  "status": "frozen_before_single_ema168_test_inference",
+  "authorization": "USER_AUTHORIZED_SINGLE_EMA168_TEST270_2026-08-19",
+  "checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/plain_128_full756_ema_fixed_epoch168.pth",
+    "sha256": "4ea97dacb9a538993e1c16593bc56b03ce6dc3df2f457c1f0426439c6252197e",
+    "kind": "ema",
+    "epoch": 168,
+    "resolution": 128,
+    "ema_decay": 0.999,
+    "ema_start_after_epoch": 100
+  },
+  "test": {
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/test270",
+    "cases": 270,
+    "subjects": 119,
+    "output": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/EMA168_TEST270.json",
+    "paired_bootstrap_seed": 20260843,
+    "bootstrap_samples": 10000
+  },
+  "protocol": {
+    "threshold": 0.0,
+    "point": "argmax raw EMA logit",
+    "tta": false,
+    "postprocessing": false,
+    "sam": false,
+    "ema200_will_be_tested": false
+  },
+  "evaluator_sha256": "1af005a681c3cf8d2fb9e338fc10c53d17df8fea29d44b591ebc48ae2959ad41",
+  "result_will_not_trigger_ema_decay_start_epoch_checkpoint_or_threshold_tuning": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access_before_receipt": false
+}

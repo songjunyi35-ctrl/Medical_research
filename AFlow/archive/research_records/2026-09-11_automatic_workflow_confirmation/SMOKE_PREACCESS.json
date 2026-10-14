@@ -1,0 +1,87 @@
+{
+  "authorization_scope": "user requested complete workflow-search/pruning research and autonomous continuation; fixed internal report only, no test-driven selection",
+  "bootstrap_samples": 10000,
+  "bootstrap_seeds": [
+    2026091161,
+    2026091162
+  ],
+  "created_utc": "2026-09-11T06:38:13.702042+00:00",
+  "evidence_status": "reused internal nonblind, development-derived final workflow, no new-test tuning",
+  "expected_case_forwards": 168,
+  "files": {
+    "archive/research_records/2026-09-11_automatic_workflow_confirmation/IDEA.md": "52621a986c0eb42bb638c3e51f3191fffca79d9925577018f46c001b0ade1ee4",
+    "sammed3d/automatic_fixed_workflow.py": "81f2fcdf6d09af77dfa81b17cedcdf563f02f7a047ce7050d5a4008cf67760f8",
+    "sammed3d/automatic_workflow_search.py": "3896cb5849dd0a9cbb3e44997d223bdd48ec4fc1a681293548627a4bebc988be",
+    "sammed3d/packed_prediction_masks.py": "efa268fa4418dcbbfdfa32e246f1f300e44fe9b4ce07fc4a87466d43ef9f7359",
+    "sammed3d/t1ce_wt_capg3d.py": "276ee7c131e413cf7943dc29e5372c1e5bbbb85c780e27f030343c5ef8bf4cd0",
+    "sammed3d/workflow_medoid.py": "c5d2111ce46942044c967e4fa2b035f4f2c73c20a48bab86e33e7ee11c4dc483",
+    "scripts/evaluate_automatic_workflow_confirmation.py": "110831e3e6d4b085337e500ff40f82519d169bf37fcf7ef1e8b81b592234a575",
+    "scripts/evaluate_structured_background_aux.py": "967e1bcd69bc86cfd839bcd59c09a6c87240c3f399b17fb3066e142609806b38",
+    "scripts/evaluate_t1ce_wt_plain_locator_test270.py": "0ae7c41d80f60af865c1b5edebf0685587c40953bcf555a94efcdb8c770de46b",
+    "scripts/finalize_automatic_workflow_confirmation.py": "5d49ad4b8d886186857987f4ae20cb25e75367fa80eae84f4e8047d6257000dd",
+    "scripts/train_t1ce_wt_capg3d.py": "d74ff2f0cf190c8a5458a70d19125d9a30603894d5f1799f192f0e60dd088fdb",
+    "scripts/verify_automatic_workflow_confirmation.py": "79e812aa1d4ffe6dcef2986fcb1e0fc1f4c5cda6c759693245659e99522d7d34",
+    "scripts/weak_elastic_test270_helpers.py": "28eb868b8348dbcd49d788299b3e52f68f8b2a67ed9755bfa7ce55be2f1d084d",
+    "tests/test_workflow_medoid.py": "807a2f19b75ea0ad4e40b483029bcbb0ef767b07acfcac37d8765db7b2ce1927"
+  },
+  "final_workflows_sha256": "c52d84594c2c6bf40638c3a2b277b6ce1f1dd4894fa438cf1dae54c457a53b6f",
+  "forwards_at_write": 0,
+  "models": [
+    {
+      "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+      "medoid": {
+        "fold_workflows": [
+          64,
+          16,
+          16
+        ],
+        "symmetric_difference_totals": {
+          "16": 2,
+          "64": 4
+        },
+        "tie_break": "view_count_then_workflow_id",
+        "views": [
+          0,
+          5
+        ],
+        "workflow": 16
+      },
+      "seed": 2026090711,
+      "sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+      "training_report_sha256": "6cbbf960f62657080b7cb1153ae30040ab42a2299cd38c49142543effd17a1f1"
+    },
+    {
+      "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+      "medoid": {
+        "fold_workflows": [
+          48,
+          96,
+          20
+        ],
+        "symmetric_difference_totals": {
+          "20": 6,
+          "48": 4,
+          "96": 6
+        },
+        "tie_break": "view_count_then_workflow_id",
+        "views": [
+          0,
+          5,
+          6
+        ],
+        "workflow": 48
+      },
+      "seed": 2026090712,
+      "sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43",
+      "training_report_sha256": "0ccd09881b1c7e5a9f58c46b512d7ed2880cfc09b947022e59eb6066ab10b9a7"
+    }
+  ],
+  "one_run_only": true,
+  "output": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-11_automatic_workflow_confirmation/SMOKE.json",
+  "performance_access_at_write": false,
+  "point": "global raw-logit argmax",
+  "test": null,
+  "threshold": 0,
+  "tmp_output": "/tmp/aflow-automatic-workflow-confirmation-20260911",
+  "views_fusion": "canonical ordered float32 mean"
+}

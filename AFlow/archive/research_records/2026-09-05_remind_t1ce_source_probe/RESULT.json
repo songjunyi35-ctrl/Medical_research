@@ -1,0 +1,49 @@
+{
+  "schema": "aflow.remind_t1ce_source_probe.result",
+  "status": "failed_double_transfer_gate_before_array_qc",
+  "cohort_candidates": {
+    "cases": 43,
+    "diagnoses": {"Glioblastoma": 19, "Astrocytoma": 15, "Oligodendroglioma": 9},
+    "t1ce_referenced_manual_tumor": 43,
+    "t1ce_referenced_automatic_cerebrum": 34,
+    "pixel_accessed_cases": 1
+  },
+  "probe": "ReMIND-002",
+  "dicom": {
+    "zip_bytes": 8896341,
+    "zip_sha256": "f02b0bb6bbce214ff057f0944ce3ded6305ddcb774e321b89bdc3a488b26d599",
+    "zip_members": 193,
+    "dicom_instances": 192,
+    "extra_member": {"name": "LICENSE", "bytes": 2786},
+    "dicom_uncompressed_bytes": 21660158,
+    "official_series_bytes": 21660158,
+    "implementation_counted_license_as_data": true
+  },
+  "nrrd": {
+    "publisher_md5_usable": false,
+    "transfer_a": {
+      "returncode": 0,
+      "manual_tumor_bytes": 4747,
+      "manual_tumor_sha256": "2fb1bf3df9e00184fd62d25d0644f01764943ac524d97dc54a13992e28a41a72",
+      "cerebrum_bytes": 1947370,
+      "cerebrum_sha256": "63ddccbd3b3056120e6969cbe44bbe3f9819d08d40783af1caabed9facf55e88"
+    },
+    "transfer_b": {"returncode": 1, "error": "Unable to connect via SSH", "files": 0},
+    "double_transfer_exact": false
+  },
+  "gates": {"all_download_gates_passed": false, "array_qc_authorized": false, "model_authorized": false},
+  "access": {
+    "probe_dicom_downloaded_not_decoded": true,
+    "probe_nrrd_downloaded_not_decoded": true,
+    "segmentation_voxels": false,
+    "other_candidate_pixels": false,
+    "checkpoint": false,
+    "model_forwards": 0,
+    "metrics": false
+  },
+  "cost": {"gpu_hours": 0, "model_forwards": 0},
+  "cohort_candidates_sha256": "8118827aa001dead98cc8cc1f6ee5a2fa9b797a6a8797329ba22f4766d669536",
+  "preaccess_sha256": "cffc281338e43b3e25e854b2f229276e7c7a39b2b891537524c67875d276452b",
+  "download_receipt_sha256": "c68342445c57f55c3cafcf06cb330c939a1d0cbdf222ed5cacc6ebab25278e91",
+  "implementation_sha256": "a11f17042d9852a38f16398194298405efa01b1501439c17ab0421031eb3ed6d"
+}

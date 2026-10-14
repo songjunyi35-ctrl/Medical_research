@@ -1,0 +1,120 @@
+{
+  "analyzer_sha256": "aaeb8cb6e915b8967c2658d85593ea522e417ed7b56f9c0e07cf790d4d49aaa5",
+  "annotation": {
+    "method": "semi-automated segmentations carefully validated and corrected by experienced physicians",
+    "regions": [
+      "non-contrast-enhancing FLAIR signal abnormality",
+      "contrast-enhancing tumor"
+    ],
+    "t1ce_label_value_anomaly": "one semantic t1ce_seg_label2 file uses positive value1 rather than2; target is positive-by-file-semantics"
+  },
+  "cohort_sha256": "f49e8f888b0fce8b7f34da1f9eadb49039d10aaed8e0538008f215df1b953379",
+  "created_at_utc": "2026-09-06T04:25:35.156689+00:00",
+  "grid_caveat": "processed clinical volumes have only 21 or 24 slices and heterogeneous in-plane shapes/spacings; any 128^3 evaluation strongly rasterizes through-plane information",
+  "hgg29_arrays": {
+    "affine_max_abs": 2.384185791015625e-07,
+    "axis_counts": {
+      "('L', 'P', 'S')": 29
+    },
+    "cases": 29,
+    "label_value_patterns": {
+      "((0, 1), (0, 1))": 1,
+      "((0, 1), (0, 2))": 28
+    },
+    "native_geometry_exact": true,
+    "selected_bytes": 36355733,
+    "selected_files": 87,
+    "shape_counts": {
+      "192x256x21": 4,
+      "192x256x24": 2,
+      "260x320x21": 15,
+      "260x320x24": 4,
+      "320x320x21": 1,
+      "320x320x24": 1,
+      "464x512x21": 1,
+      "512x512x24": 1
+    },
+    "spacing_counts": {
+      "(0.449219, 0.449219, 5.5)": 1,
+      "(0.449219, 0.449219, 6.500001)": 1,
+      "(0.6875, 0.6875, 6.499943)": 1,
+      "(0.6875, 0.6875, 6.500054)": 1,
+      "(0.75, 0.75, 5.999998)": 2,
+      "(0.75, 0.75, 6.000002)": 1,
+      "(0.75, 0.75, 6.000003)": 1,
+      "(0.75, 0.75, 6.249994)": 1,
+      "(0.75, 0.75, 6.249998)": 1,
+      "(0.75, 0.75, 6.249999)": 1,
+      "(0.75, 0.75, 6.25)": 1,
+      "(0.75, 0.75, 6.250001)": 2,
+      "(0.75, 0.75, 6.250004)": 3,
+      "(0.75, 0.75, 6.250005)": 2,
+      "(0.75, 0.75, 6.250008)": 1,
+      "(0.75, 0.75, 6.499998)": 1,
+      "(0.75, 0.75, 6.499999)": 1,
+      "(0.75, 0.75, 6.500003)": 1,
+      "(0.9375, 0.9375, 6.000003)": 1,
+      "(0.9375, 0.9375, 6.249995)": 1,
+      "(0.9375, 0.9375, 6.250001)": 1,
+      "(0.9375, 0.9375, 6.250002)": 1,
+      "(0.9375, 0.9375, 6.500004)": 1,
+      "(0.9375, 0.9375, 6.750002)": 1
+    },
+    "wt_positive_t1ce_fraction_min_median_max": [
+      0.9575379635359642,
+      0.9999547838668837,
+      1.0
+    ],
+    "wt_union_nonempty": true
+  },
+  "model_or_cache": {
+    "cache": false,
+    "checkpoint_loaded": false,
+    "model_forwards": 0,
+    "performance_metrics": false
+  },
+  "official_snapshot": {
+    "bytes": 984434960,
+    "doi": "10.12751/g-node.tvzqc5",
+    "dual_transfer_byte_exact": true,
+    "dual_transfer_sha256": "2626862599a3fcfe4ac0cefcea3af5b190625275036cc8eb4c9039cbd54e2d7c",
+    "license": "CC BY 4.0",
+    "published": "2024-04-30",
+    "publisher_checksum_available": false,
+    "zip_crc_both_passed": true
+  },
+  "participants": {
+    "hgg29_grade_counts": {
+      "3": 12,
+      "4": 17
+    },
+    "hgg29_pathology_counts": {
+      "Astrocytoma": 3,
+      "Glioblastoma": 17,
+      "Oligodendroglioma": 9
+    },
+    "metastases_excluded_before_model": 38,
+    "origin_counts": {
+      "/": 29,
+      "Breast": 10,
+      "Lung": 20,
+      "Ovary": 4,
+      "Skin": 2,
+      "Stomach": 2
+    },
+    "participants_xlsx_sha256": "623914cd0b56f4d9f9e30f5a82d5d16bfbce1041b046a5a2a4a72cd163626d2c",
+    "total": 67
+  },
+  "schema": "aflow.motum.hgg29.source_audit",
+  "schema_version": 1,
+  "source_disjointness": {
+    "claim": "institution-disjoint/no-known-overlap; not patient-ID-proven disjoint",
+    "collection_sites": [
+      "Second Affiliated Hospital of Anhui Medical University",
+      "Changzheng Hospital",
+      "First Affiliated Hospital of USTC"
+    ],
+    "institution_disjoint_from_brats2024_seven_sites": true,
+    "patient_id_bridge_available": false
+  }
+}

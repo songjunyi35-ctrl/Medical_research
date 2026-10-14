@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_segresnet_two_ideas.py", line 106, in <module>
+    try:{'launch':launch,'pipeline':pipeline}[sys.argv[1]]()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_segresnet_two_ideas.py", line 66, in pipeline
+    stage([PY,'scripts/build_segresnet_two_ideas_classes.py'],'build_classes')
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/run_segresnet_two_ideas.py", line 20, in stage
+    if p.returncode:raise RuntimeError(f'{label} exit={p.returncode}; see {log}')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: build_classes exit=1; see /mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-21_segresnet_two_experiments/build_classes.log

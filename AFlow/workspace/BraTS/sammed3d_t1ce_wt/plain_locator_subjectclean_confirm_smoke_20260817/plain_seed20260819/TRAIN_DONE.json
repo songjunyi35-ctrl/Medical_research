@@ -1,0 +1,148 @@
+{
+  "arm": "plain",
+  "best_checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_locator_subjectclean_confirm_smoke_20260817/plain_seed20260819/locator_val_dice_best.pth",
+    "sha256": "5ab50a23b3b5d891568537a4d2ac65e1e247df81724fa0906c824c70c2d793ec"
+  },
+  "created_at_utc": "2026-08-17T03:30:44.736762+00:00",
+  "data_roles": {
+    "case_overlap": 0,
+    "subject_overlap": 0,
+    "train_case_ids": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+      "sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16"
+    },
+    "validation_case_ids": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/selector_cases.jsonl",
+      "sha256": "3710d63842acaccb1e4fe81c5fade578b6f1a306363d969ea2d799edd6c32b07"
+    }
+  },
+  "effective_train_batch_size": 4,
+  "effective_validation_batch_size": 4,
+  "elapsed_seconds": 3.026216745376587,
+  "history": [
+    {
+      "elapsed_seconds": 2.9598350524902344,
+      "epoch": 1,
+      "stale_epochs": 0,
+      "strict_new_high": true,
+      "train_center_loss": 0.0,
+      "train_dsc": 0.03602482983842492,
+      "train_loss": 1.0374959707260132,
+      "train_segmentation_loss": 1.0374959707260132,
+      "validation": {
+        "automatic_point_hit_rate": 0.0,
+        "cases": 4,
+        "locator_dsc_mean": 0.07050770544447005,
+        "locator_dsc_median": 0.05265621095895767,
+        "locator_dsc_std_population": 0.06458927137130821,
+        "locator_subject_dsc_mean": 0.07050770544447005,
+        "per_case": [
+          {
+            "automatic_point": [
+              101,
+              25,
+              52
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-02071-100",
+            "locator_dsc": 0.16804634034633636,
+            "subject_id": "BraTS-GLI-02071"
+          },
+          {
+            "automatic_point": [
+              105,
+              31,
+              50
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-02071-101",
+            "locator_dsc": 0.08948223292827606,
+            "subject_id": "BraTS-GLI-02071"
+          },
+          {
+            "automatic_point": [
+              17,
+              28,
+              44
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-02131-100",
+            "locator_dsc": 0.008672059513628483,
+            "subject_id": "BraTS-GLI-02131"
+          },
+          {
+            "automatic_point": [
+              14,
+              40,
+              36
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-02131-101",
+            "locator_dsc": 0.015830188989639282,
+            "subject_id": "BraTS-GLI-02131"
+          }
+        ],
+        "subjects": 2
+      }
+    }
+  ],
+  "hyperparameters": {
+    "arm": "plain",
+    "batch_size": 4,
+    "ce_weight": 0.1,
+    "center_sigma": 6.0,
+    "center_weight": 0.1,
+    "device": "cuda:0",
+    "dropout": 0.1,
+    "epochs": 1,
+    "init_filters": 16,
+    "limit_train_cases": 4,
+    "limit_validation_cases": 4,
+    "lr": 0.0002,
+    "max_shift": 8,
+    "min_epochs": 1,
+    "num_workers": 2,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_locator_subjectclean_confirm_smoke_20260817/plain_seed20260819",
+    "patience": 1,
+    "seed": 20260819,
+    "train_cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "train_cache_expected_split": "train",
+    "train_case_ids": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "validation_batch_size": 4,
+    "validation_cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "validation_cache_expected_split": "train",
+    "validation_case_ids": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/selector_cases.jsonl",
+    "weight_decay": 1e-05
+  },
+  "parameter_count": 4700897,
+  "peak_gpu_memory_bytes": 10769853952,
+  "runner_sha256": "d74ff2f0cf190c8a5458a70d19125d9a30603894d5f1799f192f0e60dd088fdb",
+  "schema": "aflow.sammed3d.t1ce_wt_capg3d_training",
+  "schema_version": 1,
+  "selection": {
+    "epoch": 1,
+    "metric": "validation scan-macro locator DSC at fixed logit threshold 0",
+    "value": 0.07050770544447005
+  },
+  "task": {
+    "geometry": "image-nonzero brain crop resized to 128^3; no GT localization",
+    "inference_prompt": "argmax WT segmentation logit",
+    "input": "T1ce only",
+    "split": "4 train / 4 validation, subject-clean",
+    "target": "WT={1,2,3}; raw label 4 excluded"
+  },
+  "test_access": false,
+  "train_cache": {
+    "images_sha256": "f772520ca0d99fca0edc60aa04a7c73e0d7818eea9fa0174a29038f8334644b9",
+    "index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train"
+  },
+  "validation_cache": {
+    "images_sha256": "f772520ca0d99fca0edc60aa04a7c73e0d7818eea9fa0174a29038f8334644b9",
+    "index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train"
+  }
+}

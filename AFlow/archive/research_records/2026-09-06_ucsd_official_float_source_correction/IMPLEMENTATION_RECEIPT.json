@@ -1,0 +1,22 @@
+{
+  "schema": "aflow.ucsd75_official_float_source_correction.implementation_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T00:23:31Z",
+  "status": "passed_before_official_float_cache_and_model_inference",
+  "preregistration_sha256": "2c0b506e877505fdf65d773f275d497f5bbd12e4a039be997633c992683afd28",
+  "idea_sha256": "a57febd363e7259f5ffa5edef3343af6b5013cf8bd95114a811068672421e3fa",
+  "entrypoints": {
+    "cache_builder": {"path": "scripts/build_ucsd_official_float_source_correction_cache.py", "sha256": "ac501fe940eaf0f6fb0fb9e69bab046b6d43e542abe1bb3c61270e9d0fc9df32"},
+    "evaluator": {"path": "scripts/evaluate_ucsd_official_float_source_correction.py", "sha256": "6af7895b05f0bfac684a5bbadc24945608212286db5ea408252568f110a58116"},
+    "synthetic_smoke": {"path": "scripts/smoke_ucsd_official_float_source_correction.py", "sha256": "30472e334477813716ac140134b56c25c39835dc6843bfc3ea8c161c2f28ccdd"}
+  },
+  "historical_preprocessor": {"path": "scripts/prepare_ucsd_ptgbm_external_confirmation.py", "sha256": "fde6bdbf9babd4e98b2e22d47537d4d70485bbff36a8983e11361d464fcfdf9e", "modified": false},
+  "tests": {
+    "focused_new": {"command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q tests/test_ucsd_official_float_source_correction.py", "passed": 6},
+    "new_plus_historical_ucsd": {"command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q tests/test_ucsd_official_float_source_correction.py tests/test_ucsd_ptgbm_external_confirmation.py", "passed": 15}
+  },
+  "metadata_and_source_hash_gate": {"cases": 75, "subjects": 53, "files": 150, "status": "passed_without_model"},
+  "amendments": [{"path": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/IMPLEMENTATION_AMENDMENT_01.md", "sha256": "95a86e2bdaf1983eb8fda8cff93a491fb67cae957a382fa6a4b9d8bd909ffcda", "boundary": "before cache and model"}],
+  "synthetic_cuda_smoke": {"path": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/SMOKE_RECEIPT.json", "sha256": "65978e6a55a88b4b21ab7c66d687dd9d3a6c96004d390f657f079337c0a9f7e9", "status": "passed", "ucsd_access": false, "forwards_per_model": 2, "peak_gpu_memory_bytes_per_model": 679919616},
+  "formal_access": {"official_float_cache_built": false, "ucsd_model_inference": false, "ucsd_metrics": false, "internal_test270": false, "outer": false, "confirmation": false}
+}

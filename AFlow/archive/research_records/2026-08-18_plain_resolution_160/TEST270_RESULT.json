@@ -1,0 +1,69 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_true160_epoch200_test270_summary",
+  "schema_version": 1,
+  "status": "complete",
+  "evidence_scope": "fixed epoch200 evaluation on a reused internal test set",
+  "not_pristine_blind_test": true,
+  "checkpoint": {
+    "epoch": 200,
+    "resolution": 160,
+    "sha256": "a25e8519b3f9a66ee5c389ad94f0e62ac548dfd6339468637c8f2c3536139b67"
+  },
+  "test_cache": {
+    "path": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/test270_true160_epoch200",
+    "index_sha256": "62b9348726b3ad34078a2e18b5dcb6879c100dd41a6329033090d1b524438a1a",
+    "images_sha256": "5c726bc1c31880bf459f20b60d08ac3297e977f4e21e31531bc5a02c6ecdd3c3",
+    "labels_sha256": "0f84e0184f33bf17d72cf088f246d7d90c9e81335c33ac76fc573da4b8d4de47",
+    "created_from_raw_nifti": true,
+    "existing_128_cache_used_as_input": false,
+    "raw_reproduction_cases": 4,
+    "raw_reproduction_all_byte_exact": true
+  },
+  "absolute_result": {
+    "cases": 270,
+    "subjects": 119,
+    "scan_dsc_mean": 0.7370602971218803,
+    "scan_dsc_mean_95ci": [
+      0.7170353002549166,
+      0.7561045563889288
+    ],
+    "subject_dsc_mean": 0.7197286296541299,
+    "subject_dsc_mean_95ci": [
+      0.6915191473443886,
+      0.7469551117841923
+    ],
+    "automatic_point_hit_rate": 0.8740740740740741,
+    "report_sha256": "973e4cc452e4ea7b9de3a190d5ad293724f2cd94e0a82f861f521a2e15477f35"
+  },
+  "historical_true128_epoch168": {
+    "scan_dsc_mean": 0.7412039492417265,
+    "subject_dsc_mean": 0.7231794858721793,
+    "automatic_point_hit_rate": 0.9296296296296296,
+    "report_sha256": "91433c4b6b88b233d827e41b0d038f459c25ef41dec224c84e154e90f370bb8c"
+  },
+  "candidate_minus_historical": {
+    "scan": -0.004143652119846256,
+    "scan_95ci": [
+      -0.010490990806914244,
+      0.0017661090828564564
+    ],
+    "subject": -0.0034508562180492787,
+    "subject_95ci": [
+      -0.012074525654275189,
+      0.0048195617814944134
+    ],
+    "point_hit": -0.05555555555555547,
+    "cases_improved": 150,
+    "cases_tied": 1,
+    "cases_worse": 119,
+    "subjects_improved": 65,
+    "subjects_worse": 54,
+    "pair_report_sha256": "23e047a0d1e9b9351b4cbd1dc4916c1a578752c493e1c42243e14f0d026fbf00"
+  },
+  "conclusion": "true-160^3 epoch200 did not improve the reused internal test point estimate over true-128^3 epoch168",
+  "comparability_note": "Dice was measured on each model's own grid; the cross-resolution delta includes nearest-exact label rasterization differences between 128^3 and 160^3",
+  "result_will_not_trigger_tuning": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": true
+}

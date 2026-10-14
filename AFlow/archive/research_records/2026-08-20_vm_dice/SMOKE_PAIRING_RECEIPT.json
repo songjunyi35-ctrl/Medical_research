@@ -1,0 +1,33 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_vm_dice_smoke_pairing_receipt",
+  "schema_version": 1,
+  "status": "complete_after_smoke_diagnostic_fix",
+  "arms": {
+    "paper_dice_gamma0": {
+      "report": "workspace/BraTS/sammed3d_t1ce_wt/plain_vm_dice_20260820/smoke_v2_paper_dice_gamma0_seed20260870/GPU_SMOKE.json",
+      "report_sha256": "535414b75b83829b67f79d483837a918f13713b2c6d48c15e943ff0af37fbee4",
+      "peak_gpu_memory_bytes": 22120189440,
+      "median_step_seconds": 0.3567209243774414,
+      "estimated_formal_seconds": 1073.0165405273438
+    },
+    "vm_dice_gamma1": {
+      "report": "workspace/BraTS/sammed3d_t1ce_wt/plain_vm_dice_20260820/smoke_v2_vm_dice_gamma1_seed20260870/GPU_SMOKE.json",
+      "report_sha256": "0d7ccf3f91086c658a269621c9f183063c7e41bd0fd76e3a6ffd8452473712ba",
+      "peak_gpu_memory_bytes": 22120189440,
+      "median_step_seconds": 0.35747528076171875,
+      "estimated_formal_seconds": 1075.28564453125
+    }
+  },
+  "pairing_equal": true,
+  "all_gates_passed": true,
+  "superseded_smoke": {
+    "paper_dice_gamma0_completed": true,
+    "vm_dice_gamma1_failed_before_backward_or_optimizer_step": true,
+    "reason": "smoke-only torch.quantile input-size limit",
+    "scientific_objective_changed_by_fix": false
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

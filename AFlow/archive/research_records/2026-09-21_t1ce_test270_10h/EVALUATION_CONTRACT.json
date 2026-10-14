@@ -1,0 +1,12 @@
+{
+  "utc": "2026-09-21T15:28:20.870289+00:00",
+  "threshold_space": "sigmoid_probability",
+  "threshold_rule": "raw logit > log(p/(1-p)); p in {0.4,0.5,0.6}",
+  "point_rule": "argmax of native-crop fused raw logits; independent of binary threshold",
+  "compute_unit": "one4,700,897-parameter SegResNet128^3 forward; native160x208x168 costs2.666015625 equivalents; patch costs8",
+  "actual_forward_counts_recorded_separately": true,
+  "fusion": "native float32 raw logits arithmetic mean; 128 logits trilinear align_corners=False to native crop",
+  "scoring": "WT1/2/3 excluding4; native crop; padding excluded",
+  "new_inference": false,
+  "changed_metrics_or_selection": false
+}

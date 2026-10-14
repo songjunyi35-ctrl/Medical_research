@@ -1,0 +1,75 @@
+{
+  "all_inner_gates_passed": false,
+  "arms": {
+    "intensity_residual": {
+      "automatic_point_hit_rate": 0.5185185185185185,
+      "checkpoint": {
+        "epoch": 98,
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/intensity_residual_inner_20260817/seed20260821/intensity_residual/inner_tune_dice_best.pth",
+        "sha256": "6194718b2d392f6150c2b3489c1a4389a6eda694698c340064b6115130d05966"
+      },
+      "reload_report_sha256": "3f76e886d623f9d599e8dfe94b0ec0b778f22005514bbf036e2dc000f2cf9694",
+      "scan_dsc_mean": 0.7269070988155633,
+      "subject_dsc_mean": 0.7138350139343755
+    },
+    "plain": {
+      "automatic_point_hit_rate": 0.9537037037037037,
+      "checkpoint": {
+        "epoch": 79,
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/intensity_residual_inner_20260817/seed20260821/plain/inner_tune_dice_best.pth",
+        "sha256": "2685e995ef24cda21248267b0139277acb0875fc20652a5cacb96a40474d004a"
+      },
+      "reload_report_sha256": "bf7a7da5c8f649da5d7e31baa3809d2c97bcf2520bdbd2c0540c8b2d418a8a1b",
+      "scan_dsc_mean": 0.7283220580882497,
+      "subject_dsc_mean": 0.7130269911112609
+    },
+    "residual_control": {
+      "automatic_point_hit_rate": 0.8888888888888888,
+      "checkpoint": {
+        "epoch": 93,
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/intensity_residual_inner_20260817/seed20260821/residual_control/inner_tune_dice_best.pth",
+        "sha256": "97c4a77cf59d7d6f5c92ca5638ead557b018da5422109a8f407a8eb19b9cd80a"
+      },
+      "reload_report_sha256": "b708d32c2e5de19ce95a7943a6f827f294d63080fe12ac709e8491d63c36855d",
+      "scan_dsc_mean": 0.7295451048347685,
+      "subject_dsc_mean": 0.7171658830731004
+    }
+  },
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-17T09:25:00.195767+00:00",
+  "fixed_logit_threshold": 0.0,
+  "gates": {
+    "intensity_control_point_hit_drop_at_most_0.02": false,
+    "intensity_minus_control_scan_at_least_0.003": false,
+    "intensity_minus_control_subject_at_least_0.003": false,
+    "intensity_not_worse_plain_scan_beyond_0.001": false,
+    "intensity_not_worse_plain_subject_beyond_0.001": true
+  },
+  "inner_tune_manifest_sha256": "711f441addbc28208ee07e22f9fd14f4345313c123f809b81f1fb02d8826b3f8",
+  "outer_selector_access": false,
+  "outer_selector_authorized": false,
+  "paired_differences": {
+    "intensity_minus_control": {
+      "point_hit": -0.37037037037037035,
+      "scan": -0.002638006019205258,
+      "subject": -0.0033308691387248
+    },
+    "intensity_minus_control_scan_95ci": [
+      -0.008137663469045509,
+      0.0032988386820946886
+    ],
+    "intensity_minus_control_subject_95ci": [
+      -0.011071917131438331,
+      0.005886334591632063
+    ],
+    "intensity_minus_plain": {
+      "point_hit": -0.43518518518518523,
+      "scan": -0.0014149592726863812,
+      "subject": 0.0008080228231146638
+    }
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_intensity_residual_inner_decision",
+  "schema_version": 1,
+  "selected_arm": null,
+  "test_access": false
+}

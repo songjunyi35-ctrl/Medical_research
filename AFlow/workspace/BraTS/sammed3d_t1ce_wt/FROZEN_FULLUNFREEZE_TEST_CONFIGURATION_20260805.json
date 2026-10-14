@@ -1,0 +1,74 @@
+{
+  "schema": "aflow.sammed3d.frozen_test_configuration",
+  "schema_version": 1,
+  "frozen_utc": "2026-08-05",
+  "run_identity": "sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805",
+  "authorization": {
+    "standing_rule": "270-case test permanently frozen (handoff section 0 / Claude handoff rule 2)",
+    "overridden_by": "operator",
+    "overridden_utc": "2026-08-05",
+    "operator_rationale": "The reference numbers this project benchmarks against (DPD-SAM's SAM-Med3D 74.1, BCGFMamba 0.828) are TEST-set numbers, so a validation-only readout cannot be compared with them at all.",
+    "seal_policy_satisfied": "SEAL.json permits test use once the final configuration is frozen; this record IS that freeze, written before any test NIfTI was opened."
+  },
+  "model": {
+    "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805/sam_model_val_dice_best.pth",
+    "checkpoint_sha256": "75dd0b55f9fb29f558b97f9bd8f306b57832c244e49252f2f3095a82dd464e82",
+    "selected_epoch": 24,
+    "selection_metric": "validation final-click scan-macro Dice",
+    "selected_trainer_val_dice": 0.5677144756471669,
+    "independent_validation_subject_balanced_c3": 0.5517716211479382,
+    "trainable_parameters": 100509232,
+    "total_parameters": 100509232,
+    "unfreeze_policy": "full",
+    "selection_used_test": false
+  },
+  "data": {
+    "test_manifest": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/test_cases.jsonl",
+    "expected_manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "expected_cases": 270,
+    "expected_subjects": 119,
+    "nifti_opened_at_freeze_time": false
+  },
+  "preprocessing": {
+    "spatial": "canonical whole-volume resize to 128^3",
+    "image_interpolation": "trilinear",
+    "label_interpolation": "nearest-exact",
+    "normalization": "source nonzero-voxel population z-score exactly once",
+    "n4_bias_field_correction": true,
+    "n4_shrink": 2,
+    "must_match_training": "this arm trained on N4-corrected inputs, so the test cache must also be N4 or the readout would carry a train/eval preprocessing mismatch"
+  },
+  "protocol": {
+    "input": "T1ce single channel",
+    "target": "WT = raw labels {1,2,3}; RC label 4 excluded",
+    "clicks": "3 accumulated corrective clicks; click1 uniform GT foreground, click2/3 uniform XOR error, FN positive, FP negative",
+    "prompt_history": "all points accumulated",
+    "mask_prompt": "previous low-resolution mask recurrently supplied",
+    "threshold": "raw logit > 0",
+    "seed": 20260723,
+    "postprocessing": "none",
+    "tta": "none",
+    "threshold_search": "none",
+    "morphology": "none"
+  },
+  "code_binding": {
+    "evaluator": "scripts/evaluate_sammed3d_t1ce_wt_cached.py",
+    "evaluator_sha256": "b3acbb83605e1709fe800b3d510ff19ee38621b086c6aeeca278cff9a22ec51a",
+    "cache_builder": "scripts/build_t1ce_wt_cache.py",
+    "cache_builder_sha256": "8de618412aa11fbcc6e4d4da3615b5b6150a42da8d2bdb8d61794e55ab086725"
+  },
+  "preregistration": {
+    "human": "workspace/BraTS/research_audits/SAMMED3D_OFFICIAL_FULLUNFREEZE_PREREG_20260805.md",
+    "human_sha256": "a476f602ad71b28d69f4af03647bf078436095ad8bc9be56cfe59a57bf13048d",
+    "machine": "workspace/BraTS/training_protocols/sammed3d_official_fullunfreeze_prereg_20260805.json",
+    "machine_sha256": "417b3596437fef4ba9fe65c54c2fde7d5f46193bf58deee43e8d4f18810c5d31"
+  },
+  "evidence_boundary": [
+    "These 270 cases have already been consumed 4 times by this project: untouched-weight zero-shot baseline, v1 epoch-8, v2b, and FV-LoRA-Aug. This is the 5th consumption.",
+    "They are therefore NOT a pristine external test set. The result may be reported as an internal held-out number only, never as clean external validation.",
+    "Training, epoch selection and this freeze used no test data whatsoever.",
+    "After this evaluation the result must NOT be used to select models, tune hyperparameters, or choose a next arm.",
+    "The comparison targets (DPD-SAM 74.1, BCGFMamba 0.828) come from different splits and, for the SAM-Med3D baseline, an undisclosed prompt protocol. Any gap is not a like-for-like difference."
+  ],
+  "runs_allowed": 1
+}

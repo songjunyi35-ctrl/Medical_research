@@ -1,0 +1,176 @@
+{
+  "architecture_module_sha256": "c671a966315af59b818cda1cdd0dc85427a98a5591d60687ef9009a22129b2e3",
+  "arm_name": "safe_adapter_plain_seed20260816",
+  "baseline_validation": {
+    "adapter_residual_abs_mean": 0.0,
+    "base_dsc_mean": 0.6742344126105309,
+    "base_subject_dsc_mean": 0.6742344126105309,
+    "cases": 4,
+    "coarse_dsc_mean": 0.6109614968299866,
+    "delta_from_base": 0.0,
+    "final_dsc_mean": 0.6742344126105309,
+    "final_subject_dsc_mean": 0.6742344126105309,
+    "improved_vs_base_cases": 0,
+    "per_case": [
+      {
+        "base_dsc": 0.718758761882782,
+        "case_id": "BraTS-GLI-00046-100",
+        "coarse_dsc": 0.6191782355308533,
+        "delta_from_base": 0.0,
+        "final_dsc": 0.718758761882782
+      },
+      {
+        "base_dsc": 0.7623426914215088,
+        "case_id": "BraTS-GLI-00046-101",
+        "coarse_dsc": 0.7373713850975037,
+        "delta_from_base": 0.0,
+        "final_dsc": 0.7623426914215088
+      },
+      {
+        "base_dsc": 0.4423622190952301,
+        "case_id": "BraTS-GLI-00498-100",
+        "coarse_dsc": 0.36881768703460693,
+        "delta_from_base": 0.0,
+        "final_dsc": 0.4423622190952301
+      },
+      {
+        "base_dsc": 0.7734739780426025,
+        "case_id": "BraTS-GLI-00498-101",
+        "coarse_dsc": 0.7184786796569824,
+        "delta_from_base": 0.0,
+        "final_dsc": 0.7734739780426025
+      }
+    ],
+    "residual_scale_mean": 1.0,
+    "subjects": 2,
+    "worsened_vs_base_cases": 0
+  },
+  "best_checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/safe_adapter_smoke_20260814/safe_adapter_plain_seed20260816/safe_adapter_val_dice_best.pth",
+    "sha256": "01ec48a3646f87fb918a9a76f8d30a779e92937ab0613d406c7f72921ce74d12"
+  },
+  "created_at_utc": "2026-08-14T04:35:09.197576+00:00",
+  "elapsed_seconds": 1.9439418315887451,
+  "history": [
+    {
+      "elapsed_seconds": 1.910390853881836,
+      "epoch": 1,
+      "stale_epochs": 1,
+      "strict_new_high": false,
+      "train_dsc": 0.6933048367500305,
+      "train_loss": 0.3283095955848694,
+      "validation": {
+        "adapter_residual_abs_mean": 0.0003571033594198525,
+        "base_dsc_mean": 0.6742344126105309,
+        "base_subject_dsc_mean": 0.6742344126105309,
+        "cases": 4,
+        "coarse_dsc_mean": 0.6109614968299866,
+        "delta_from_base": -4.291534423828125e-06,
+        "final_dsc_mean": 0.674230121076107,
+        "final_subject_dsc_mean": 0.674230121076107,
+        "improved_vs_base_cases": 0,
+        "per_case": [
+          {
+            "base_dsc": 0.718758761882782,
+            "case_id": "BraTS-GLI-00046-100",
+            "coarse_dsc": 0.6191782355308533,
+            "delta_from_base": -1.1205673217773438e-05,
+            "final_dsc": 0.7187475562095642
+          },
+          {
+            "base_dsc": 0.7623426914215088,
+            "case_id": "BraTS-GLI-00046-101",
+            "coarse_dsc": 0.7373713850975037,
+            "delta_from_base": -2.562999725341797e-06,
+            "final_dsc": 0.7623401284217834
+          },
+          {
+            "base_dsc": 0.4423622190952301,
+            "case_id": "BraTS-GLI-00498-100",
+            "coarse_dsc": 0.36881768703460693,
+            "delta_from_base": 0.0,
+            "final_dsc": 0.4423622190952301
+          },
+          {
+            "base_dsc": 0.7734739780426025,
+            "case_id": "BraTS-GLI-00498-101",
+            "coarse_dsc": 0.7184786796569824,
+            "delta_from_base": -3.3974647521972656e-06,
+            "final_dsc": 0.7734705805778503
+          }
+        ],
+        "residual_scale_mean": 1.0,
+        "subjects": 2,
+        "worsened_vs_base_cases": 3
+      }
+    }
+  ],
+  "hyperparameters": {
+    "adapter_dropout": 0.1,
+    "adapter_init_filters": 8,
+    "arm_name": "safe_adapter_plain_seed20260816",
+    "base_dropout": 0.1,
+    "base_init_filters": 16,
+    "baseline_tolerance": 1e-05,
+    "batch_size": 2,
+    "coarse_shift_max": 4,
+    "coarse_shift_probability": 1.0,
+    "device": "cuda:0",
+    "epochs": 1,
+    "expected_baseline_dsc": null,
+    "expected_init_sha256": "c5d2b48db2666f097cb0d86e78c20ea95d163c07f98401714d25d755e99aceb0",
+    "init_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_three_seed_ensemble_20260813/robustshift4_seed20260815/refiner_val_dice_best.pth",
+    "limit_train_cases": 4,
+    "limit_validation_cases": 4,
+    "lr": 0.0001,
+    "max_shift": 12,
+    "mode": "plain",
+    "num_workers": 4,
+    "output_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/safe_adapter_smoke_20260814/safe_adapter_plain_seed20260816",
+    "patience": 1,
+    "seed": 20260816,
+    "train_cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/train",
+    "validation_cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/validation",
+    "weight_decay": 1e-05
+  },
+  "hypothesis": "a frozen strong base plus a zero-initialized uncertainty-conditioned adapter can add corrections without catastrophically rewriting the base",
+  "initialization": {
+    "base_frozen": true,
+    "optimizer_state_restored": false,
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_three_seed_ensemble_20260813/robustshift4_seed20260815/refiner_val_dice_best.pth",
+    "sha256": "c5d2b48db2666f097cb0d86e78c20ea95d163c07f98401714d25d755e99aceb0"
+  },
+  "mode": "plain",
+  "parameter_counts": {
+    "total": 5878379,
+    "trainable": 1177050
+  },
+  "runner_sha256": "d6a2b67c94f4af9589e3564a238ed8f824ba3e35240e70e28133a974e7736e77",
+  "schema": "aflow.sammed3d.t1ce_wt_safe_adapter_training",
+  "schema_version": 1,
+  "selection": {
+    "delta_from_frozen_base": 0.0,
+    "epoch": 0,
+    "metric": "validation scan-macro DSC",
+    "subject_macro_value": 0.6742344126105309,
+    "value": 0.6742344126105309
+  },
+  "task": {
+    "geometry": "GT-centered N4 128^3 refiner cache; development-only",
+    "input": "T1ce plus frozen SAM click-3 raw logits",
+    "known_limitation": "the 108-case validation has prior development exposure",
+    "split": "972 train / 108 validation, subject-clean",
+    "target": "WT={1,2,3}; raw label 4 excluded"
+  },
+  "test_access": false,
+  "train_cache": {
+    "cases_used": 4,
+    "index_sha256": "34e9322a45b6501d841e2fab1dba43ef68353e767146ca547e5e8bb280aa95bf",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/train"
+  },
+  "validation_cache": {
+    "cases_used": 4,
+    "index_sha256": "72fddef3c7a8755f0712b864efbb7328e2d8ae97313ac7ca7a0306d4b612ce44",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_refiner_graymean_20260813/validation"
+  }
+}

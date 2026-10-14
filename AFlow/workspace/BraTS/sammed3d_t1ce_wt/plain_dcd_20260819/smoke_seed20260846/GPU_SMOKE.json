@@ -1,0 +1,137 @@
+{
+  "all_gates_passed": true,
+  "amendment_001_sha256": "c66e134fe5f909e8181f36158b85dc4e5d8a4787dbbd0850257e3fa0d874ecaa",
+  "amendment_002_sha256": "85540dabd2d028e511c526f48d8d5793d59c59fefada1d3e2e7a2752b7ef54a4",
+  "batch_size": 8,
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-19T09:17:33.623469+00:00",
+  "elapsed_seconds": 9.308418989181519,
+  "estimated_formal_seconds": 5901.354309082031,
+  "gates": {
+    "all_losses_finite": true,
+    "all_teacher_gradients_null": true,
+    "four_stage_specific_dcd_gradients_finite_nonzero": true,
+    "mechanical_formal_extrapolation_at_most_2h": true,
+    "peak_allocated_at_most_72_gib": true,
+    "stripped_deploy_max_abs_difference_zero": true
+  },
+  "losses": {
+    "dcd_raw": 3.18353271484375,
+    "dcd_weighted": 0.03183532506227493,
+    "level_losses": [
+      [
+        0.0038795373402535915,
+        0.03019392304122448,
+        0.08224990218877792
+      ],
+      [
+        0.01840970106422901,
+        0.09356877952814102,
+        0.23296073079109192
+      ],
+      [
+        0.13308300077915192,
+        0.48497676849365234,
+        0.9382768273353577
+      ],
+      [
+        1.1951091289520264,
+        3.0694077014923096,
+        3.2684826850891113
+      ]
+    ],
+    "stage_losses": [
+      0.038774456828832626,
+      0.11497973650693893,
+      0.518778920173645,
+      2.5109996795654297
+    ],
+    "student_grad_norm_before_clip": 1.0571585893630981,
+    "supervised": 0.21130450069904327,
+    "total": 0.24775439500808716,
+    "voxel_kd": 0.01538185216486454
+  },
+  "measured_step_seconds": [
+    1.964519739151001,
+    1.9597253799438477,
+    1.9618864059448242
+  ],
+  "measured_steps": 3,
+  "median_step_seconds": 1.9618864059448242,
+  "method": {
+    "analysis_synthesis": "same frozen decomposition bank; PyTorch adjoint correction",
+    "detail_teacher_sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+    "encoder_channels": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "encoder_resolutions": [
+      128,
+      64,
+      32,
+      16
+    ],
+    "filter_bank_sha256": "1cc1550c3ca56547e427b3568d2d1e2bc5bd52d2a4a39305b7890dc16918240a",
+    "inference": "plain student final raw logit only",
+    "level_aggregation": "mean",
+    "levels": 3,
+    "projection": null,
+    "selected_bands": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "stage_aggregation": "sum",
+    "student_ema": false,
+    "wavelet": "db4"
+  },
+  "outer_selector_access": false,
+  "peak_gpu_memory_bytes": 34733490688,
+  "peak_gpu_reserved_bytes": 43700453376,
+  "preregistration_sha256": "7d0a0420cd55f6abfda45bce37c440ca5ac7fd803bff37904846dcbbc0e7f6cf",
+  "runner_sha256": "daea727725752ae62a6e52aa789b13968043a7fb7b30ed7ebf7e1405c1477ad2",
+  "schema": "aflow.sammed3d.t1ce_wt_plain_dcd_gpu_smoke",
+  "schema_version": 1,
+  "smoke_dcd_weight": 0.01,
+  "stage_gradient_audit": {
+    "stage0": {
+      "channels": 16,
+      "finite": true,
+      "nonzero": true,
+      "norm": 6.687045970465988e-05,
+      "resolution": 128
+    },
+    "stage1": {
+      "channels": 32,
+      "finite": true,
+      "nonzero": true,
+      "norm": 0.00019653839990496635,
+      "resolution": 64
+    },
+    "stage2": {
+      "channels": 64,
+      "finite": true,
+      "nonzero": true,
+      "norm": 0.0005306635284796357,
+      "resolution": 32
+    },
+    "stage3": {
+      "channels": 128,
+      "finite": true,
+      "nonzero": true,
+      "norm": 0.0013373482506722212,
+      "resolution": 16
+    }
+  },
+  "status": "complete",
+  "stripped_deploy_max_abs_difference": 0.0,
+  "test_access": false,
+  "validation_access": false,
+  "warmup_steps": 1,
+  "weighted_dcd_to_supervised_ratio": 0.1506608943820716
+}

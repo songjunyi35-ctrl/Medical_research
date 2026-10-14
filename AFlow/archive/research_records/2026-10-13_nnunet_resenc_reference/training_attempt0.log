@@ -1,0 +1,3337 @@
+NCCL version 2.26.2+cuda12.2
+I am local rank 0. 2 GPUs are available. The world size is 2.Setting device to cuda:0
+I am local rank 1. 2 GPUs are available. The world size is 2.Setting device to cuda:1
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+worker 1 oversample 1.0
+worker 1 batch_size 1
+worker 0 oversample 0.0
+worker 0 batch_size 2
+do_dummy_2d_data_aug: False
+2026-10-13 06:27:02.485039: do_dummy_2d_data_aug: False
+using pin_memory on device 0
+using pin_memory on device 1
+using pin_memory on device 0
+using pin_memory on device 1
+
+This is the configuration used by this training:
+Configuration name: 3d_fullres
+ {'data_identifier': 'nnUNetPlans_3d_fullres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 3, 'patch_size': [160, 192, 160], 'median_image_size_in_voxels': [142.0, 175.0, 136.0], 'spacing': [1.0, 1.0, 1.0], 'normalization_schemes': ['ZScoreNormalization'], 'use_mask_for_norm': [False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.ResidualEncoderUNet', 'arch_kwargs': {'n_stages': 6, 'features_per_stage': [32, 64, 128, 256, 320, 320], 'conv_op': 'torch.nn.modules.conv.Conv3d', 'kernel_sizes': [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]], 'strides': [[1, 1, 1], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2]], 'n_blocks_per_stage': [1, 3, 4, 6, 6, 6], 'n_conv_per_stage_decoder': [1, 1, 1, 1, 1], 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm3d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}}, '_kw_requires_import': ['conv_op', 'norm_op', 'dropout_op', 'nonlin']}, 'batch_dice': False} 
+
+These are the global plan.json settings:
+ {'dataset_name': 'Dataset813_AFlowT1ce', 'plans_name': 'nnUNetResEncUNetLPlans', 'original_median_spacing_after_transp': [1.0, 1.0, 1.0], 'original_median_shape_after_transp': [142, 175, 136], 'image_reader_writer': 'NibabelIO', 'transpose_forward': [0, 1, 2], 'transpose_backward': [0, 1, 2], 'experiment_planner_used': 'nnUNetPlannerResEncL', 'label_manager': 'LabelManager', 'foreground_intensity_properties_per_channel': {'0': {'max': 12.817153930664062, 'mean': 0.09149947762489319, 'median': 0.031736547127366066, 'min': -5.9734392166137695, 'percentile_00_5': -1.7951200008392334, 'percentile_99_5': 4.535740962028498, 'std': 0.8652108311653137}}} 
+
+/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py:4631: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py:4631: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+2026-10-13 06:27:03.437071: 
+2026-10-13 06:27:03.438257: Epoch 0
+2026-10-13 06:27:03.439306: Current learning rate: 0.01
+
+Epoch 0
+Current learning rate: 0.01
+
+Epoch 1
+Current learning rate: 0.00998
+2026-10-13 06:29:02.890157: 
+2026-10-13 06:29:02.891113: Epoch 1
+2026-10-13 06:29:02.892018: Current learning rate: 0.00998
+
+Epoch 2
+Current learning rate: 0.00997
+2026-10-13 06:30:42.995662: 
+2026-10-13 06:30:42.996959: Epoch 2
+2026-10-13 06:30:42.997779: Current learning rate: 0.00997
+
+Epoch 3
+Current learning rate: 0.00995
+2026-10-13 06:32:23.159300: 
+2026-10-13 06:32:23.160610: Epoch 3
+2026-10-13 06:32:23.161394: Current learning rate: 0.00995
+
+Epoch 4
+Current learning rate: 0.00993
+2026-10-13 06:34:03.384310: 
+2026-10-13 06:34:03.385578: Epoch 4
+2026-10-13 06:34:03.386358: Current learning rate: 0.00993
+
+Epoch 5
+Current learning rate: 0.00992
+2026-10-13 06:35:46.515920: 
+2026-10-13 06:35:46.516805: Epoch 5
+2026-10-13 06:35:46.517743: Current learning rate: 0.00992
+
+Epoch 6
+Current learning rate: 0.0099
+2026-10-13 06:37:26.673416: 
+2026-10-13 06:37:26.674661: Epoch 6
+2026-10-13 06:37:26.675432: Current learning rate: 0.0099
+
+Epoch 7
+Current learning rate: 0.00989
+2026-10-13 06:39:06.865950: 
+2026-10-13 06:39:06.867296: Epoch 7
+2026-10-13 06:39:06.868132: Current learning rate: 0.00989
+
+Epoch 8
+Current learning rate: 0.00987
+2026-10-13 06:40:47.077347: 
+2026-10-13 06:40:47.079017: Epoch 8
+2026-10-13 06:40:47.079881: Current learning rate: 0.00987
+
+Epoch 9
+Current learning rate: 0.00985
+2026-10-13 06:42:27.303833: 
+2026-10-13 06:42:27.305213: Epoch 9
+2026-10-13 06:42:27.305996: Current learning rate: 0.00985
+
+Epoch 10
+Current learning rate: 0.00984
+2026-10-13 06:44:10.799812: 
+2026-10-13 06:44:10.800605: Epoch 10
+2026-10-13 06:44:10.801364: Current learning rate: 0.00984
+
+Epoch 11
+Current learning rate: 0.00982
+2026-10-13 06:45:51.034606: 
+2026-10-13 06:45:51.036013: Epoch 11
+2026-10-13 06:45:51.036921: Current learning rate: 0.00982
+
+Epoch 12
+Current learning rate: 0.0098
+2026-10-13 06:47:31.304445: 
+2026-10-13 06:47:31.305682: Epoch 12
+2026-10-13 06:47:31.306448: Current learning rate: 0.0098
+
+Epoch 13
+Current learning rate: 0.00979
+2026-10-13 06:49:11.481635: 
+2026-10-13 06:49:11.482814: Epoch 13
+2026-10-13 06:49:11.483580: Current learning rate: 0.00979
+
+Epoch 14
+Current learning rate: 0.00977
+2026-10-13 06:50:51.737011: 
+2026-10-13 06:50:51.738352: Epoch 14
+2026-10-13 06:50:51.739170: Current learning rate: 0.00977
+
+Epoch 15
+Current learning rate: 0.00975
+2026-10-13 06:52:35.121680: 
+2026-10-13 06:52:35.122584: Epoch 15
+2026-10-13 06:52:35.123413: Current learning rate: 0.00975
+
+Epoch 16
+Current learning rate: 0.00974
+2026-10-13 06:54:15.381640: 
+2026-10-13 06:54:15.382929: Epoch 16
+2026-10-13 06:54:15.383647: Current learning rate: 0.00974
+
+Epoch 17
+Current learning rate: 0.00972
+2026-10-13 06:55:55.563630: 
+2026-10-13 06:55:55.564919: Epoch 17
+2026-10-13 06:55:55.565717: Current learning rate: 0.00972
+
+Epoch 18
+Current learning rate: 0.0097
+2026-10-13 06:57:35.824248: 
+2026-10-13 06:57:35.826457: Epoch 18
+2026-10-13 06:57:35.827291: Current learning rate: 0.0097
+
+Epoch 19
+Current learning rate: 0.00969
+2026-10-13 06:59:16.095504: 
+2026-10-13 06:59:16.096843: Epoch 19
+2026-10-13 06:59:16.097606: Current learning rate: 0.00969
+
+Epoch 20
+Current learning rate: 0.00967
+2026-10-13 07:00:59.382662: 
+2026-10-13 07:00:59.383489: Epoch 20
+2026-10-13 07:00:59.384255: Current learning rate: 0.00967
+
+Epoch 21
+Current learning rate: 0.00966
+2026-10-13 07:02:39.656821: 
+2026-10-13 07:02:39.658082: Epoch 21
+2026-10-13 07:02:39.658846: Current learning rate: 0.00966
+
+Epoch 22
+Current learning rate: 0.00964
+2026-10-13 07:04:19.933506: 
+2026-10-13 07:04:19.934809: Epoch 22
+2026-10-13 07:04:19.935597: Current learning rate: 0.00964
+
+Epoch 23
+Current learning rate: 0.00962
+2026-10-13 07:06:00.231056: 
+2026-10-13 07:06:00.232260: Epoch 23
+2026-10-13 07:06:00.232981: Current learning rate: 0.00962
+
+Epoch 24
+Current learning rate: 0.00961
+2026-10-13 07:07:40.521240: 
+2026-10-13 07:07:40.522571: Epoch 24
+2026-10-13 07:07:40.523310: Current learning rate: 0.00961
+
+Epoch 25
+Current learning rate: 0.00959
+2026-10-13 07:09:34.041088: 
+2026-10-13 07:09:34.042211: Epoch 25
+2026-10-13 07:09:34.043433: Current learning rate: 0.00959
+
+Epoch 26
+Current learning rate: 0.00957
+2026-10-13 07:11:14.272593: 
+2026-10-13 07:11:14.273878: Epoch 26
+2026-10-13 07:11:14.274616: Current learning rate: 0.00957
+
+Epoch 27
+Current learning rate: 0.00956
+2026-10-13 07:12:54.521366: 
+2026-10-13 07:12:54.522631: Epoch 27
+2026-10-13 07:12:54.523382: Current learning rate: 0.00956
+
+Epoch 28
+Current learning rate: 0.00954
+2026-10-13 07:14:34.707970: 
+2026-10-13 07:14:34.709336: Epoch 28
+2026-10-13 07:14:34.710110: Current learning rate: 0.00954
+
+Epoch 29
+Current learning rate: 0.00952
+2026-10-13 07:16:15.009126: 
+2026-10-13 07:16:15.010366: Epoch 29
+2026-10-13 07:16:15.011071: Current learning rate: 0.00952
+
+Epoch 30
+Current learning rate: 0.00951
+2026-10-13 07:17:58.222352: 
+2026-10-13 07:17:58.223222: Epoch 30
+2026-10-13 07:17:58.224046: Current learning rate: 0.00951
+
+Epoch 31
+Current learning rate: 0.00949
+2026-10-13 07:19:38.393971: 
+2026-10-13 07:19:38.395263: Epoch 31
+2026-10-13 07:19:38.396044: Current learning rate: 0.00949
+
+Epoch 32
+Current learning rate: 0.00947
+2026-10-13 07:21:18.553079: 
+2026-10-13 07:21:18.554384: Epoch 32
+2026-10-13 07:21:18.555247: Current learning rate: 0.00947
+
+Epoch 33
+Current learning rate: 0.00946
+2026-10-13 07:22:58.702135: 
+2026-10-13 07:22:58.703507: Epoch 33
+2026-10-13 07:22:58.704555: Current learning rate: 0.00946
+
+Epoch 34
+Current learning rate: 0.00944
+2026-10-13 07:24:38.937452: 
+2026-10-13 07:24:38.938828: Epoch 34
+2026-10-13 07:24:38.939582: Current learning rate: 0.00944
+
+Epoch 35
+Current learning rate: 0.00943
+2026-10-13 07:26:22.780422: 
+2026-10-13 07:26:22.781255: Epoch 35
+2026-10-13 07:26:22.782065: Current learning rate: 0.00943
+
+Epoch 36
+Current learning rate: 0.00941
+2026-10-13 07:28:03.024077: 
+2026-10-13 07:28:03.025432: Epoch 36
+2026-10-13 07:28:03.026285: Current learning rate: 0.00941
+
+Epoch 37
+Current learning rate: 0.00939
+2026-10-13 07:29:43.310481: 
+2026-10-13 07:29:43.311869: Epoch 37
+2026-10-13 07:29:43.312684: Current learning rate: 0.00939
+
+Epoch 38
+Current learning rate: 0.00938
+2026-10-13 07:31:23.528438: 
+2026-10-13 07:31:23.529682: Epoch 38
+2026-10-13 07:31:23.530417: Current learning rate: 0.00938
+
+Epoch 39
+Current learning rate: 0.00936
+2026-10-13 07:33:03.732459: 
+2026-10-13 07:33:03.733854: Epoch 39
+2026-10-13 07:33:03.734646: Current learning rate: 0.00936
+
+Epoch 40
+Current learning rate: 0.00934
+2026-10-13 07:34:46.738308: 
+2026-10-13 07:34:46.739174: Epoch 40
+2026-10-13 07:34:46.739994: Current learning rate: 0.00934
+
+Epoch 41
+Current learning rate: 0.00933
+2026-10-13 07:36:26.893626: 
+2026-10-13 07:36:26.894898: Epoch 41
+2026-10-13 07:36:26.895718: Current learning rate: 0.00933
+
+Epoch 42
+Current learning rate: 0.00931
+2026-10-13 07:38:07.003252: 
+2026-10-13 07:38:07.005333: Epoch 42
+2026-10-13 07:38:07.006960: Current learning rate: 0.00931
+
+Epoch 43
+Current learning rate: 0.00929
+2026-10-13 07:39:47.146698: 
+2026-10-13 07:39:47.148133: Epoch 43
+2026-10-13 07:39:47.149085: Current learning rate: 0.00929
+
+Epoch 44
+Current learning rate: 0.00928
+2026-10-13 07:41:27.356852: 
+2026-10-13 07:41:27.358203: Epoch 44
+2026-10-13 07:41:27.359019: Current learning rate: 0.00928
+
+Epoch 45
+Current learning rate: 0.00926
+2026-10-13 07:43:10.413867: 
+2026-10-13 07:43:10.414696: Epoch 45
+2026-10-13 07:43:10.415491: Current learning rate: 0.00926
+
+Epoch 46
+Current learning rate: 0.00924
+2026-10-13 07:44:50.590366: 
+2026-10-13 07:44:50.591756: Epoch 46
+2026-10-13 07:44:50.592528: Current learning rate: 0.00924
+
+Epoch 47
+Current learning rate: 0.00923
+2026-10-13 07:46:30.729788: 
+2026-10-13 07:46:30.731216: Epoch 47
+2026-10-13 07:46:30.732027: Current learning rate: 0.00923
+
+Epoch 48
+Current learning rate: 0.00921
+2026-10-13 07:48:10.895332: 
+2026-10-13 07:48:10.896619: Epoch 48
+2026-10-13 07:48:10.897385: Current learning rate: 0.00921
+
+Epoch 49
+Current learning rate: 0.00919
+2026-10-13 07:49:51.014933: 
+2026-10-13 07:49:51.016226: Epoch 49
+2026-10-13 07:49:51.017004: Current learning rate: 0.00919
+
+Epoch 50
+Current learning rate: 0.00918
+2026-10-13 07:51:44.267640: 
+2026-10-13 07:51:44.268503: Epoch 50
+2026-10-13 07:51:44.269919: Current learning rate: 0.00918
+
+Epoch 51
+Current learning rate: 0.00916
+2026-10-13 07:53:24.386524: 
+2026-10-13 07:53:24.387791: Epoch 51
+2026-10-13 07:53:24.388585: Current learning rate: 0.00916
+
+Epoch 52
+Current learning rate: 0.00914
+2026-10-13 07:55:04.535236: 
+2026-10-13 07:55:04.536531: Epoch 52
+2026-10-13 07:55:04.537267: Current learning rate: 0.00914
+
+Epoch 53
+Current learning rate: 0.00913
+2026-10-13 07:56:44.645809: 
+2026-10-13 07:56:44.647140: Epoch 53
+2026-10-13 07:56:44.647896: Current learning rate: 0.00913
+
+Epoch 54
+Current learning rate: 0.00911
+2026-10-13 07:58:24.787982: 
+2026-10-13 07:58:24.789380: Epoch 54
+2026-10-13 07:58:24.790385: Current learning rate: 0.00911
+
+Epoch 55
+Current learning rate: 0.0091
+2026-10-13 08:00:08.093985: 
+2026-10-13 08:00:08.094811: Epoch 55
+2026-10-13 08:00:08.095598: Current learning rate: 0.0091
+
+Epoch 56
+Current learning rate: 0.00908
+2026-10-13 08:01:48.218755: 
+2026-10-13 08:01:48.220104: Epoch 56
+2026-10-13 08:01:48.220890: Current learning rate: 0.00908
+
+Epoch 57
+Current learning rate: 0.00906
+2026-10-13 08:03:28.253186: 
+2026-10-13 08:03:28.254592: Epoch 57
+2026-10-13 08:03:28.255510: Current learning rate: 0.00906
+
+Epoch 58
+Current learning rate: 0.00905
+2026-10-13 08:05:08.331698: 
+2026-10-13 08:05:08.332942: Epoch 58
+2026-10-13 08:05:08.333705: Current learning rate: 0.00905
+
+Epoch 59
+Current learning rate: 0.00903
+2026-10-13 08:06:48.495109: 
+2026-10-13 08:06:48.496433: Epoch 59
+2026-10-13 08:06:48.497179: Current learning rate: 0.00903
+
+Epoch 60
+Current learning rate: 0.00901
+2026-10-13 08:08:31.522286: 
+2026-10-13 08:08:31.523143: Epoch 60
+2026-10-13 08:08:31.523999: Current learning rate: 0.00901
+
+Epoch 61
+Current learning rate: 0.009
+2026-10-13 08:10:11.675007: 
+2026-10-13 08:10:11.676601: Epoch 61
+2026-10-13 08:10:11.677368: Current learning rate: 0.009
+
+Epoch 62
+Current learning rate: 0.00898
+2026-10-13 08:11:51.783986: 
+2026-10-13 08:11:51.785276: Epoch 62
+2026-10-13 08:11:51.786034: Current learning rate: 0.00898
+
+Epoch 63
+Current learning rate: 0.00896
+2026-10-13 08:13:31.971479: 
+2026-10-13 08:13:31.972713: Epoch 63
+2026-10-13 08:13:31.973447: Current learning rate: 0.00896
+
+Epoch 64
+Current learning rate: 0.00895
+2026-10-13 08:15:12.158365: 
+2026-10-13 08:15:12.159705: Epoch 64
+2026-10-13 08:15:12.160671: Current learning rate: 0.00895
+
+Epoch 65
+Current learning rate: 0.00893
+2026-10-13 08:16:55.649642: 
+2026-10-13 08:16:55.650526: Epoch 65
+2026-10-13 08:16:55.651843: Current learning rate: 0.00893
+
+Epoch 66
+Current learning rate: 0.00891
+2026-10-13 08:18:35.877894: 
+2026-10-13 08:18:35.879249: Epoch 66
+2026-10-13 08:18:35.880006: Current learning rate: 0.00891
+
+Epoch 67
+Current learning rate: 0.0089
+2026-10-13 08:20:16.092090: 
+2026-10-13 08:20:16.093386: Epoch 67
+2026-10-13 08:20:16.094168: Current learning rate: 0.0089
+
+Epoch 68
+Current learning rate: 0.00888
+2026-10-13 08:21:56.283990: 
+2026-10-13 08:21:56.285308: Epoch 68
+2026-10-13 08:21:56.286089: Current learning rate: 0.00888
+
+Epoch 69
+Current learning rate: 0.00886
+2026-10-13 08:23:36.424386: 
+2026-10-13 08:23:36.425931: Epoch 69
+2026-10-13 08:23:36.426684: Current learning rate: 0.00886
+
+Epoch 70
+Current learning rate: 0.00885
+2026-10-13 08:25:19.989393: 
+2026-10-13 08:25:19.990298: Epoch 70
+2026-10-13 08:25:19.991122: Current learning rate: 0.00885
+
+Epoch 71
+Current learning rate: 0.00883
+2026-10-13 08:27:00.204691: 
+2026-10-13 08:27:00.206026: Epoch 71
+2026-10-13 08:27:00.206857: Current learning rate: 0.00883
+
+Epoch 72
+Current learning rate: 0.00881
+2026-10-13 08:28:40.456953: 
+2026-10-13 08:28:40.458367: Epoch 72
+2026-10-13 08:28:40.459209: Current learning rate: 0.00881
+
+Epoch 73
+Current learning rate: 0.0088
+2026-10-13 08:30:20.675000: 
+2026-10-13 08:30:20.676614: Epoch 73
+2026-10-13 08:30:20.677626: Current learning rate: 0.0088
+
+Epoch 74
+Current learning rate: 0.00878
+2026-10-13 08:32:00.939512: 
+2026-10-13 08:32:00.941224: Epoch 74
+2026-10-13 08:32:00.942213: Current learning rate: 0.00878
+
+Epoch 75
+Current learning rate: 0.00876
+2026-10-13 08:33:54.167866: 
+2026-10-13 08:33:54.168892: Epoch 75
+2026-10-13 08:33:54.169702: Current learning rate: 0.00876
+
+Epoch 76
+Current learning rate: 0.00875
+2026-10-13 08:35:34.359371: 
+2026-10-13 08:35:34.360997: Epoch 76
+2026-10-13 08:35:34.361968: Current learning rate: 0.00875
+
+Epoch 77
+Current learning rate: 0.00873
+2026-10-13 08:37:14.616454: 
+2026-10-13 08:37:14.617838: Epoch 77
+2026-10-13 08:37:14.618654: Current learning rate: 0.00873
+
+Epoch 78
+Current learning rate: 0.00871
+2026-10-13 08:38:54.881550: 
+2026-10-13 08:38:54.882984: Epoch 78
+2026-10-13 08:38:54.883874: Current learning rate: 0.00871
+
+Epoch 79
+Current learning rate: 0.0087
+2026-10-13 08:40:35.039252: 
+2026-10-13 08:40:35.040651: Epoch 79
+2026-10-13 08:40:35.041476: Current learning rate: 0.0087
+
+Epoch 80
+Current learning rate: 0.00868
+2026-10-13 08:42:18.739038: 
+2026-10-13 08:42:18.739932: Epoch 80
+2026-10-13 08:42:18.740765: Current learning rate: 0.00868
+
+Epoch 81
+Current learning rate: 0.00866
+2026-10-13 08:43:58.828182: 
+2026-10-13 08:43:58.829482: Epoch 81
+2026-10-13 08:43:58.830340: Current learning rate: 0.00866
+
+Epoch 82
+Current learning rate: 0.00865
+2026-10-13 08:45:39.014864: 
+2026-10-13 08:45:39.016185: Epoch 82
+2026-10-13 08:45:39.016942: Current learning rate: 0.00865
+
+Epoch 83
+Current learning rate: 0.00863
+2026-10-13 08:47:19.146570: 
+2026-10-13 08:47:19.147927: Epoch 83
+2026-10-13 08:47:19.148898: Current learning rate: 0.00863
+
+Epoch 84
+Current learning rate: 0.00861
+2026-10-13 08:48:59.266274: 
+2026-10-13 08:48:59.267690: Epoch 84
+2026-10-13 08:48:59.268641: Current learning rate: 0.00861
+
+Epoch 85
+Current learning rate: 0.0086
+2026-10-13 08:50:42.356642: 
+2026-10-13 08:50:42.357727: Epoch 85
+2026-10-13 08:50:42.359065: Current learning rate: 0.0086
+
+Epoch 86
+Current learning rate: 0.00858
+2026-10-13 08:52:22.389821: 
+2026-10-13 08:52:22.391207: Epoch 86
+2026-10-13 08:52:22.392086: Current learning rate: 0.00858
+
+Epoch 87
+Current learning rate: 0.00856
+2026-10-13 08:54:02.446559: 
+2026-10-13 08:54:02.447845: Epoch 87
+2026-10-13 08:54:02.448651: Current learning rate: 0.00856
+
+Epoch 88
+Current learning rate: 0.00855
+2026-10-13 08:55:42.433336: 
+2026-10-13 08:55:42.434608: Epoch 88
+2026-10-13 08:55:42.435416: Current learning rate: 0.00855
+
+Epoch 89
+Current learning rate: 0.00853
+2026-10-13 08:57:22.578016: 
+2026-10-13 08:57:22.579336: Epoch 89
+2026-10-13 08:57:22.580111: Current learning rate: 0.00853
+
+Epoch 90
+Current learning rate: 0.00851
+2026-10-13 08:59:06.366529: 
+2026-10-13 08:59:06.367425: Epoch 90
+2026-10-13 08:59:06.368268: Current learning rate: 0.00851
+
+Epoch 91
+Current learning rate: 0.0085
+2026-10-13 09:00:46.519616: 
+2026-10-13 09:00:46.521031: Epoch 91
+2026-10-13 09:00:46.521852: Current learning rate: 0.0085
+
+Epoch 92
+Current learning rate: 0.00848
+2026-10-13 09:02:26.554739: 
+2026-10-13 09:02:26.556014: Epoch 92
+2026-10-13 09:02:26.556785: Current learning rate: 0.00848
+
+Epoch 93
+Current learning rate: 0.00846
+2026-10-13 09:04:06.649580: 
+2026-10-13 09:04:06.650966: Epoch 93
+2026-10-13 09:04:06.651908: Current learning rate: 0.00846
+
+Epoch 94
+Current learning rate: 0.00845
+2026-10-13 09:05:46.722738: 
+2026-10-13 09:05:46.724220: Epoch 94
+2026-10-13 09:05:46.725045: Current learning rate: 0.00845
+
+Epoch 95
+Current learning rate: 0.00843
+2026-10-13 09:07:29.692884: 
+2026-10-13 09:07:29.693779: Epoch 95
+2026-10-13 09:07:29.694632: Current learning rate: 0.00843
+
+Epoch 96
+Current learning rate: 0.00841
+2026-10-13 09:09:09.729925: 
+2026-10-13 09:09:09.731219: Epoch 96
+2026-10-13 09:09:09.732066: Current learning rate: 0.00841
+
+Epoch 97
+Current learning rate: 0.0084
+2026-10-13 09:10:49.884787: 
+2026-10-13 09:10:49.886080: Epoch 97
+2026-10-13 09:10:49.886898: Current learning rate: 0.0084
+
+Epoch 98
+Current learning rate: 0.00838
+2026-10-13 09:12:30.038975: 
+2026-10-13 09:12:30.040293: Epoch 98
+2026-10-13 09:12:30.041163: Current learning rate: 0.00838
+
+Epoch 99
+Current learning rate: 0.00836
+2026-10-13 09:14:10.147061: 
+2026-10-13 09:14:10.148365: Epoch 99
+2026-10-13 09:14:10.149164: Current learning rate: 0.00836
+
+Epoch 100
+Current learning rate: 0.00835
+2026-10-13 09:16:03.986923: 
+2026-10-13 09:16:03.987854: Epoch 100
+2026-10-13 09:16:03.988712: Current learning rate: 0.00835
+
+Epoch 101
+Current learning rate: 0.00833
+2026-10-13 09:17:44.124566: 
+2026-10-13 09:17:44.125839: Epoch 101
+2026-10-13 09:17:44.126608: Current learning rate: 0.00833
+
+Epoch 102
+Current learning rate: 0.00831
+2026-10-13 09:19:24.251943: 
+2026-10-13 09:19:24.253183: Epoch 102
+2026-10-13 09:19:24.253997: Current learning rate: 0.00831
+
+Epoch 103
+Current learning rate: 0.0083
+2026-10-13 09:21:04.307879: 
+2026-10-13 09:21:04.309234: Epoch 103
+2026-10-13 09:21:04.310022: Current learning rate: 0.0083
+
+Epoch 104
+Current learning rate: 0.00828
+2026-10-13 09:22:44.388358: 
+2026-10-13 09:22:44.389744: Epoch 104
+2026-10-13 09:22:44.390506: Current learning rate: 0.00828
+
+Epoch 105
+Current learning rate: 0.00826
+2026-10-13 09:24:27.749126: 
+2026-10-13 09:24:27.749956: Epoch 105
+2026-10-13 09:24:27.751218: Current learning rate: 0.00826
+
+Epoch 106
+Current learning rate: 0.00825
+2026-10-13 09:26:07.956968: 
+2026-10-13 09:26:07.958407: Epoch 106
+2026-10-13 09:26:07.959229: Current learning rate: 0.00825
+
+Epoch 107
+Current learning rate: 0.00823
+2026-10-13 09:27:48.097684: 
+2026-10-13 09:27:48.098938: Epoch 107
+2026-10-13 09:27:48.099683: Current learning rate: 0.00823
+
+Epoch 108
+Current learning rate: 0.00821
+2026-10-13 09:29:28.209026: 
+2026-10-13 09:29:28.210322: Epoch 108
+2026-10-13 09:29:28.211140: Current learning rate: 0.00821
+
+Epoch 109
+Current learning rate: 0.0082
+2026-10-13 09:31:08.355947: 
+2026-10-13 09:31:08.357732: Epoch 109
+2026-10-13 09:31:08.358649: Current learning rate: 0.0082
+
+Epoch 110
+Current learning rate: 0.00818
+2026-10-13 09:32:52.054583: 
+2026-10-13 09:32:52.055454: Epoch 110
+2026-10-13 09:32:52.056258: Current learning rate: 0.00818
+
+Epoch 111
+Current learning rate: 0.00816
+2026-10-13 09:34:32.087546: 
+2026-10-13 09:34:32.088875: Epoch 111
+2026-10-13 09:34:32.089818: Current learning rate: 0.00816
+
+Epoch 112
+Current learning rate: 0.00815
+2026-10-13 09:36:12.172183: 
+2026-10-13 09:36:12.173477: Epoch 112
+2026-10-13 09:36:12.174236: Current learning rate: 0.00815
+
+Epoch 113
+Current learning rate: 0.00813
+2026-10-13 09:37:52.308899: 
+2026-10-13 09:37:52.310251: Epoch 113
+2026-10-13 09:37:52.311077: Current learning rate: 0.00813
+
+Epoch 114
+Current learning rate: 0.00811
+2026-10-13 09:39:32.485603: 
+2026-10-13 09:39:32.487091: Epoch 114
+2026-10-13 09:39:32.487899: Current learning rate: 0.00811
+
+Epoch 115
+Current learning rate: 0.0081
+2026-10-13 09:41:15.937855: 
+2026-10-13 09:41:15.938677: Epoch 115
+2026-10-13 09:41:15.939795: Current learning rate: 0.0081
+
+Epoch 116
+Current learning rate: 0.00808
+2026-10-13 09:42:56.030096: 
+2026-10-13 09:42:56.031376: Epoch 116
+2026-10-13 09:42:56.032176: Current learning rate: 0.00808
+
+Epoch 117
+Current learning rate: 0.00806
+2026-10-13 09:44:36.144185: 
+2026-10-13 09:44:36.145908: Epoch 117
+2026-10-13 09:44:36.147028: Current learning rate: 0.00806
+
+Epoch 118
+Current learning rate: 0.00805
+2026-10-13 09:46:16.221541: 
+2026-10-13 09:46:16.222888: Epoch 118
+2026-10-13 09:46:16.223671: Current learning rate: 0.00805
+
+Epoch 119
+Current learning rate: 0.00803
+2026-10-13 09:47:56.292871: 
+2026-10-13 09:47:56.294395: Epoch 119
+2026-10-13 09:47:56.295171: Current learning rate: 0.00803
+
+Epoch 120
+Current learning rate: 0.00801
+2026-10-13 09:49:39.361445: 
+2026-10-13 09:49:39.362438: Epoch 120
+2026-10-13 09:49:39.363307: Current learning rate: 0.00801
+
+Epoch 121
+Current learning rate: 0.008
+2026-10-13 09:51:19.413397: 
+2026-10-13 09:51:19.414647: Epoch 121
+2026-10-13 09:51:19.415396: Current learning rate: 0.008
+
+Epoch 122
+Current learning rate: 0.00798
+2026-10-13 09:52:59.529225: 
+2026-10-13 09:52:59.530728: Epoch 122
+2026-10-13 09:52:59.531541: Current learning rate: 0.00798
+
+Epoch 123
+Current learning rate: 0.00796
+2026-10-13 09:54:39.651392: 
+2026-10-13 09:54:39.652591: Epoch 123
+2026-10-13 09:54:39.653330: Current learning rate: 0.00796
+
+Epoch 124
+Current learning rate: 0.00795
+2026-10-13 09:56:19.682977: 
+2026-10-13 09:56:19.684222: Epoch 124
+2026-10-13 09:56:19.684955: Current learning rate: 0.00795
+
+Epoch 125
+Current learning rate: 0.00793
+2026-10-13 09:58:13.787598: 
+2026-10-13 09:58:13.788539: Epoch 125
+2026-10-13 09:58:13.789969: Current learning rate: 0.00793
+
+Epoch 126
+Current learning rate: 0.00791
+2026-10-13 09:59:53.865786: 
+2026-10-13 09:59:53.867037: Epoch 126
+2026-10-13 09:59:53.868015: Current learning rate: 0.00791
+
+Epoch 127
+Current learning rate: 0.0079
+2026-10-13 10:01:33.955358: 
+2026-10-13 10:01:33.956498: Epoch 127
+2026-10-13 10:01:33.957191: Current learning rate: 0.0079
+
+Epoch 128
+Current learning rate: 0.00788
+2026-10-13 10:03:13.993707: 
+2026-10-13 10:03:13.995137: Epoch 128
+2026-10-13 10:03:13.995980: Current learning rate: 0.00788
+
+Epoch 129
+Current learning rate: 0.00786
+2026-10-13 10:04:54.013960: 
+2026-10-13 10:04:54.015231: Epoch 129
+2026-10-13 10:04:54.016047: Current learning rate: 0.00786
+
+Epoch 130
+Current learning rate: 0.00785
+2026-10-13 10:06:37.019886: 
+2026-10-13 10:06:37.020736: Epoch 130
+2026-10-13 10:06:37.021522: Current learning rate: 0.00785
+
+Epoch 131
+Current learning rate: 0.00783
+2026-10-13 10:08:17.091632: 
+2026-10-13 10:08:17.093008: Epoch 131
+2026-10-13 10:08:17.093793: Current learning rate: 0.00783
+
+Epoch 132
+Current learning rate: 0.00781
+2026-10-13 10:09:57.159001: 
+2026-10-13 10:09:57.160400: Epoch 132
+2026-10-13 10:09:57.161272: Current learning rate: 0.00781
+
+Epoch 133
+Current learning rate: 0.00779
+2026-10-13 10:11:37.265516: 
+2026-10-13 10:11:37.266829: Epoch 133
+2026-10-13 10:11:37.267655: Current learning rate: 0.00779
+
+Epoch 134
+Current learning rate: 0.00778
+2026-10-13 10:13:17.403524: 
+2026-10-13 10:13:17.404856: Epoch 134
+2026-10-13 10:13:17.405660: Current learning rate: 0.00778
+
+Epoch 135
+Current learning rate: 0.00776
+2026-10-13 10:15:00.667403: 
+2026-10-13 10:15:00.668269: Epoch 135
+2026-10-13 10:15:00.670045: Current learning rate: 0.00776
+
+Epoch 136
+Current learning rate: 0.00774
+2026-10-13 10:16:40.710371: 
+2026-10-13 10:16:40.711671: Epoch 136
+2026-10-13 10:16:40.712459: Current learning rate: 0.00774
+
+Epoch 137
+Current learning rate: 0.00773
+2026-10-13 10:18:20.870693: 
+2026-10-13 10:18:20.872163: Epoch 137
+2026-10-13 10:18:20.873014: Current learning rate: 0.00773
+
+Epoch 138
+Current learning rate: 0.00771
+2026-10-13 10:20:00.951513: 
+2026-10-13 10:20:00.952736: Epoch 138
+2026-10-13 10:20:00.953447: Current learning rate: 0.00771
+
+Epoch 139
+Current learning rate: 0.00769
+2026-10-13 10:21:41.040489: 
+2026-10-13 10:21:41.041823: Epoch 139
+2026-10-13 10:21:41.042644: Current learning rate: 0.00769
+
+Epoch 140
+Current learning rate: 0.00768
+2026-10-13 10:23:24.542112: 
+2026-10-13 10:23:24.542974: Epoch 140
+2026-10-13 10:23:24.543755: Current learning rate: 0.00768
+
+Epoch 141
+Current learning rate: 0.00766
+2026-10-13 10:25:04.821142: 
+2026-10-13 10:25:04.822643: Epoch 141
+2026-10-13 10:25:04.823461: Current learning rate: 0.00766
+
+Epoch 142
+Current learning rate: 0.00764
+2026-10-13 10:26:44.996805: 
+2026-10-13 10:26:44.998176: Epoch 142
+2026-10-13 10:26:44.998977: Current learning rate: 0.00764
+
+Epoch 143
+Current learning rate: 0.00763
+2026-10-13 10:28:25.131746: 
+2026-10-13 10:28:25.133023: Epoch 143
+2026-10-13 10:28:25.133802: Current learning rate: 0.00763
+
+Epoch 144
+Current learning rate: 0.00761
+2026-10-13 10:30:05.277162: 
+2026-10-13 10:30:05.278479: Epoch 144
+2026-10-13 10:30:05.279202: Current learning rate: 0.00761
+
+Epoch 145
+Current learning rate: 0.00759
+2026-10-13 10:31:48.906363: 
+2026-10-13 10:31:48.907570: Epoch 145
+2026-10-13 10:31:48.908476: Current learning rate: 0.00759
+
+Epoch 146
+Current learning rate: 0.00758
+2026-10-13 10:33:28.964417: 
+2026-10-13 10:33:28.965785: Epoch 146
+2026-10-13 10:33:28.966698: Current learning rate: 0.00758
+
+Epoch 147
+Current learning rate: 0.00756
+2026-10-13 10:35:09.019115: 
+2026-10-13 10:35:09.020691: Epoch 147
+2026-10-13 10:35:09.021517: Current learning rate: 0.00756
+
+Epoch 148
+Current learning rate: 0.00754
+2026-10-13 10:36:49.154832: 
+2026-10-13 10:36:49.156301: Epoch 148
+2026-10-13 10:36:49.157158: Current learning rate: 0.00754
+
+Epoch 149
+Current learning rate: 0.00752
+2026-10-13 10:38:29.223624: 
+2026-10-13 10:38:29.224988: Epoch 149
+2026-10-13 10:38:29.226119: Current learning rate: 0.00752
+
+Epoch 150
+Current learning rate: 0.00751
+2026-10-13 10:40:19.419498: 
+2026-10-13 10:40:19.420773: Epoch 150
+2026-10-13 10:40:19.421882: Current learning rate: 0.00751
+
+Epoch 151
+Current learning rate: 0.00749
+2026-10-13 10:41:59.495425: 
+2026-10-13 10:41:59.496819: Epoch 151
+2026-10-13 10:41:59.497667: Current learning rate: 0.00749
+
+Epoch 152
+Current learning rate: 0.00747
+2026-10-13 10:43:39.611015: 
+2026-10-13 10:43:39.612431: Epoch 152
+2026-10-13 10:43:39.613258: Current learning rate: 0.00747
+
+Epoch 153
+Current learning rate: 0.00746
+2026-10-13 10:45:19.699834: 
+2026-10-13 10:45:19.701151: Epoch 153
+2026-10-13 10:45:19.701973: Current learning rate: 0.00746
+
+Epoch 154
+Current learning rate: 0.00744
+2026-10-13 10:46:59.799977: 
+2026-10-13 10:46:59.801265: Epoch 154
+2026-10-13 10:46:59.803030: Current learning rate: 0.00744
+
+Epoch 155
+Current learning rate: 0.00742
+2026-10-13 10:48:42.591158: 
+2026-10-13 10:48:42.592061: Epoch 155
+2026-10-13 10:48:42.592909: Current learning rate: 0.00742
+
+Epoch 156
+Current learning rate: 0.00741
+2026-10-13 10:50:22.665051: 
+2026-10-13 10:50:22.666477: Epoch 156
+2026-10-13 10:50:22.667228: Current learning rate: 0.00741
+
+Epoch 157
+Current learning rate: 0.00739
+2026-10-13 10:52:02.761228: 
+2026-10-13 10:52:02.762556: Epoch 157
+2026-10-13 10:52:02.763476: Current learning rate: 0.00739
+
+Epoch 158
+Current learning rate: 0.00737
+2026-10-13 10:53:42.849292: 
+2026-10-13 10:53:42.850795: Epoch 158
+2026-10-13 10:53:42.851696: Current learning rate: 0.00737
+
+Epoch 159
+Current learning rate: 0.00736
+2026-10-13 10:55:22.920969: 
+2026-10-13 10:55:22.922443: Epoch 159
+2026-10-13 10:55:22.923320: Current learning rate: 0.00736
+
+Epoch 160
+Current learning rate: 0.00734
+2026-10-13 10:57:06.459070: 
+2026-10-13 10:57:06.460058: Epoch 160
+2026-10-13 10:57:06.460913: Current learning rate: 0.00734
+
+Epoch 161
+Current learning rate: 0.00732
+2026-10-13 10:58:46.590543: 
+2026-10-13 10:58:46.591920: Epoch 161
+2026-10-13 10:58:46.592869: Current learning rate: 0.00732
+
+Epoch 162
+Current learning rate: 0.00731
+2026-10-13 11:00:26.755212: 
+2026-10-13 11:00:26.756597: Epoch 162
+2026-10-13 11:00:26.757401: Current learning rate: 0.00731
+
+Epoch 163
+Current learning rate: 0.00729
+2026-10-13 11:02:06.936981: 
+2026-10-13 11:02:06.938384: Epoch 163
+2026-10-13 11:02:06.939170: Current learning rate: 0.00729
+
+Epoch 164
+Current learning rate: 0.00727
+2026-10-13 11:03:47.033373: 
+2026-10-13 11:03:47.037558: Epoch 164
+2026-10-13 11:03:47.038369: Current learning rate: 0.00727
+
+Epoch 165
+Current learning rate: 0.00725
+2026-10-13 11:05:30.967519: 
+2026-10-13 11:05:30.968408: Epoch 165
+2026-10-13 11:05:30.969296: Current learning rate: 0.00725
+
+Epoch 166
+Current learning rate: 0.00724
+2026-10-13 11:07:11.061107: 
+2026-10-13 11:07:11.062324: Epoch 166
+2026-10-13 11:07:11.063056: Current learning rate: 0.00724
+
+Epoch 167
+Current learning rate: 0.00722
+2026-10-13 11:08:51.216618: 
+2026-10-13 11:08:51.217842: Epoch 167
+2026-10-13 11:08:51.218576: Current learning rate: 0.00722
+
+Epoch 168
+Current learning rate: 0.0072
+2026-10-13 11:10:31.347783: 
+2026-10-13 11:10:31.349149: Epoch 168
+2026-10-13 11:10:31.349927: Current learning rate: 0.0072
+
+Epoch 169
+Current learning rate: 0.00719
+2026-10-13 11:12:11.480507: 
+2026-10-13 11:12:11.481782: Epoch 169
+2026-10-13 11:12:11.482575: Current learning rate: 0.00719
+
+Epoch 170
+Current learning rate: 0.00717
+2026-10-13 11:13:55.194360: 
+2026-10-13 11:13:55.195238: Epoch 170
+2026-10-13 11:13:55.196049: Current learning rate: 0.00717
+
+Epoch 171
+Current learning rate: 0.00715
+2026-10-13 11:15:35.335528: 
+2026-10-13 11:15:35.336843: Epoch 171
+2026-10-13 11:15:35.337633: Current learning rate: 0.00715
+
+Epoch 172
+Current learning rate: 0.00714
+2026-10-13 11:17:15.486176: 
+2026-10-13 11:17:15.487571: Epoch 172
+2026-10-13 11:17:15.488503: Current learning rate: 0.00714
+
+Epoch 173
+Current learning rate: 0.00712
+2026-10-13 11:18:55.699933: 
+2026-10-13 11:18:55.701301: Epoch 173
+2026-10-13 11:18:55.702129: Current learning rate: 0.00712
+
+Epoch 174
+Current learning rate: 0.0071
+2026-10-13 11:20:35.825335: 
+2026-10-13 11:20:35.826675: Epoch 174
+2026-10-13 11:20:35.827563: Current learning rate: 0.0071
+
+Epoch 175
+Current learning rate: 0.00708
+2026-10-13 11:22:29.203930: 
+2026-10-13 11:22:29.205008: Epoch 175
+2026-10-13 11:22:29.205844: Current learning rate: 0.00708
+
+Epoch 176
+Current learning rate: 0.00707
+2026-10-13 11:24:09.336916: 
+2026-10-13 11:24:09.338320: Epoch 176
+2026-10-13 11:24:09.339207: Current learning rate: 0.00707
+
+Epoch 177
+Current learning rate: 0.00705
+2026-10-13 11:25:49.510231: 
+2026-10-13 11:25:49.511590: Epoch 177
+2026-10-13 11:25:49.512357: Current learning rate: 0.00705
+
+Epoch 178
+Current learning rate: 0.00703
+2026-10-13 11:27:29.693468: 
+2026-10-13 11:27:29.695015: Epoch 178
+2026-10-13 11:27:29.696058: Current learning rate: 0.00703
+
+Epoch 179
+Current learning rate: 0.00702
+2026-10-13 11:29:09.830866: 
+2026-10-13 11:29:09.832067: Epoch 179
+2026-10-13 11:29:09.832784: Current learning rate: 0.00702
+
+Epoch 180
+Current learning rate: 0.007
+2026-10-13 11:30:52.892834: 
+2026-10-13 11:30:52.893702: Epoch 180
+2026-10-13 11:30:52.894749: Current learning rate: 0.007
+
+Epoch 181
+Current learning rate: 0.00698
+2026-10-13 11:32:32.969577: 
+2026-10-13 11:32:32.970891: Epoch 181
+2026-10-13 11:32:32.971834: Current learning rate: 0.00698
+
+Epoch 182
+Current learning rate: 0.00697
+2026-10-13 11:34:13.160406: 
+2026-10-13 11:34:13.161819: Epoch 182
+2026-10-13 11:34:13.162676: Current learning rate: 0.00697
+
+Epoch 183
+Current learning rate: 0.00695
+2026-10-13 11:35:53.297074: 
+2026-10-13 11:35:53.298422: Epoch 183
+2026-10-13 11:35:53.299295: Current learning rate: 0.00695
+
+Epoch 184
+Current learning rate: 0.00693
+2026-10-13 11:37:33.458415: 
+2026-10-13 11:37:33.459782: Epoch 184
+2026-10-13 11:37:33.460684: Current learning rate: 0.00693
+
+Epoch 185
+Current learning rate: 0.00691
+2026-10-13 11:39:17.437348: 
+2026-10-13 11:39:17.438200: Epoch 185
+2026-10-13 11:39:17.439599: Current learning rate: 0.00691
+
+Epoch 186
+Current learning rate: 0.0069
+2026-10-13 11:40:57.524896: 
+2026-10-13 11:40:57.526189: Epoch 186
+2026-10-13 11:40:57.526960: Current learning rate: 0.0069
+
+Epoch 187
+Current learning rate: 0.00688
+2026-10-13 11:42:37.685211: 
+2026-10-13 11:42:37.686572: Epoch 187
+2026-10-13 11:42:37.687446: Current learning rate: 0.00688
+
+Epoch 188
+Current learning rate: 0.00686
+2026-10-13 11:44:17.729158: 
+2026-10-13 11:44:17.730412: Epoch 188
+2026-10-13 11:44:17.731190: Current learning rate: 0.00686
+
+Epoch 189
+Current learning rate: 0.00685
+2026-10-13 11:45:57.931785: 
+2026-10-13 11:45:57.933258: Epoch 189
+2026-10-13 11:45:57.934035: Current learning rate: 0.00685
+
+Epoch 190
+Current learning rate: 0.00683
+2026-10-13 11:47:41.299296: 
+2026-10-13 11:47:41.300295: Epoch 190
+2026-10-13 11:47:41.301156: Current learning rate: 0.00683
+
+Epoch 191
+Current learning rate: 0.00681
+2026-10-13 11:49:21.455245: 
+2026-10-13 11:49:21.456518: Epoch 191
+2026-10-13 11:49:21.457300: Current learning rate: 0.00681
+
+Epoch 192
+Current learning rate: 0.00679
+2026-10-13 11:51:01.620480: 
+2026-10-13 11:51:01.621745: Epoch 192
+2026-10-13 11:51:01.622492: Current learning rate: 0.00679
+
+Epoch 193
+Current learning rate: 0.00678
+2026-10-13 11:52:41.755696: 
+2026-10-13 11:52:41.756928: Epoch 193
+2026-10-13 11:52:41.757717: Current learning rate: 0.00678
+
+Epoch 194
+Current learning rate: 0.00676
+2026-10-13 11:54:21.910881: 
+2026-10-13 11:54:21.912251: Epoch 194
+2026-10-13 11:54:21.913183: Current learning rate: 0.00676
+
+Epoch 195
+Current learning rate: 0.00674
+2026-10-13 11:56:05.364982: 
+2026-10-13 11:56:05.365824: Epoch 195
+2026-10-13 11:56:05.366679: Current learning rate: 0.00674
+
+Epoch 196
+Current learning rate: 0.00673
+2026-10-13 11:57:45.465736: 
+2026-10-13 11:57:45.467210: Epoch 196
+2026-10-13 11:57:45.468047: Current learning rate: 0.00673
+
+Epoch 197
+Current learning rate: 0.00671
+2026-10-13 11:59:25.567122: 
+2026-10-13 11:59:25.568408: Epoch 197
+2026-10-13 11:59:25.569185: Current learning rate: 0.00671
+
+Epoch 198
+Current learning rate: 0.00669
+2026-10-13 12:01:05.694074: 
+2026-10-13 12:01:05.695590: Epoch 198
+2026-10-13 12:01:05.696470: Current learning rate: 0.00669
+
+Epoch 199
+Current learning rate: 0.00667
+2026-10-13 12:02:45.793654: 
+2026-10-13 12:02:45.795058: Epoch 199
+2026-10-13 12:02:45.795970: Current learning rate: 0.00667
+
+Epoch 200
+Current learning rate: 0.00666
+2026-10-13 12:04:39.227648: 
+2026-10-13 12:04:39.228567: Epoch 200
+2026-10-13 12:04:39.229399: Current learning rate: 0.00666
+
+Epoch 201
+Current learning rate: 0.00664
+2026-10-13 12:06:19.253700: 
+2026-10-13 12:06:19.254998: Epoch 201
+2026-10-13 12:06:19.255782: Current learning rate: 0.00664
+
+Epoch 202
+Current learning rate: 0.00662
+2026-10-13 12:07:59.318519: 
+2026-10-13 12:07:59.319939: Epoch 202
+2026-10-13 12:07:59.320811: Current learning rate: 0.00662
+
+Epoch 203
+Current learning rate: 0.00661
+2026-10-13 12:09:39.415140: 
+2026-10-13 12:09:39.416686: Epoch 203
+2026-10-13 12:09:39.417498: Current learning rate: 0.00661
+
+Epoch 204
+Current learning rate: 0.00659
+2026-10-13 12:11:19.484225: 
+2026-10-13 12:11:19.485560: Epoch 204
+2026-10-13 12:11:19.486344: Current learning rate: 0.00659
+
+Epoch 205
+Current learning rate: 0.00657
+2026-10-13 12:13:03.142971: 
+2026-10-13 12:13:03.143790: Epoch 205
+2026-10-13 12:13:03.144765: Current learning rate: 0.00657
+
+Epoch 206
+Current learning rate: 0.00656
+2026-10-13 12:14:43.269953: 
+2026-10-13 12:14:43.271303: Epoch 206
+2026-10-13 12:14:43.272164: Current learning rate: 0.00656
+
+Epoch 207
+Current learning rate: 0.00654
+2026-10-13 12:16:23.271415: 
+2026-10-13 12:16:23.272835: Epoch 207
+2026-10-13 12:16:23.273685: Current learning rate: 0.00654
+
+Epoch 208
+Current learning rate: 0.00652
+2026-10-13 12:18:03.282592: 
+2026-10-13 12:18:03.283965: Epoch 208
+2026-10-13 12:18:03.284891: Current learning rate: 0.00652
+
+Epoch 209
+Current learning rate: 0.0065
+2026-10-13 12:19:43.284017: 
+2026-10-13 12:19:43.285422: Epoch 209
+2026-10-13 12:19:43.286317: Current learning rate: 0.0065
+
+Epoch 210
+Current learning rate: 0.00649
+2026-10-13 12:21:27.005252: 
+2026-10-13 12:21:27.006100: Epoch 210
+2026-10-13 12:21:27.006898: Current learning rate: 0.00649
+
+Epoch 211
+Current learning rate: 0.00647
+2026-10-13 12:23:06.948794: 
+2026-10-13 12:23:06.950090: Epoch 211
+2026-10-13 12:23:06.950910: Current learning rate: 0.00647
+
+Epoch 212
+Current learning rate: 0.00645
+2026-10-13 12:24:47.013396: 
+2026-10-13 12:24:47.014843: Epoch 212
+2026-10-13 12:24:47.015661: Current learning rate: 0.00645
+
+Epoch 213
+Current learning rate: 0.00643
+2026-10-13 12:26:27.065460: 
+2026-10-13 12:26:27.066892: Epoch 213
+2026-10-13 12:26:27.067744: Current learning rate: 0.00643
+
+Epoch 214
+Current learning rate: 0.00642
+2026-10-13 12:28:07.373325: 
+2026-10-13 12:28:07.374660: Epoch 214
+2026-10-13 12:28:07.375423: Current learning rate: 0.00642
+
+Epoch 215
+Current learning rate: 0.0064
+2026-10-13 12:29:50.299783: 
+2026-10-13 12:29:50.300717: Epoch 215
+2026-10-13 12:29:50.301548: Current learning rate: 0.0064
+
+Epoch 216
+Current learning rate: 0.00638
+2026-10-13 12:31:30.494102: 
+2026-10-13 12:31:30.495567: Epoch 216
+2026-10-13 12:31:30.496424: Current learning rate: 0.00638
+
+Epoch 217
+Current learning rate: 0.00637
+2026-10-13 12:33:10.699302: 
+2026-10-13 12:33:10.700636: Epoch 217
+2026-10-13 12:33:10.701461: Current learning rate: 0.00637
+
+Epoch 218
+Current learning rate: 0.00635
+2026-10-13 12:34:50.944046: 
+2026-10-13 12:34:50.945324: Epoch 218
+2026-10-13 12:34:50.946124: Current learning rate: 0.00635
+
+Epoch 219
+Current learning rate: 0.00633
+2026-10-13 12:36:31.172078: 
+2026-10-13 12:36:31.173424: Epoch 219
+2026-10-13 12:36:31.174151: Current learning rate: 0.00633
+
+Epoch 220
+Current learning rate: 0.00631
+2026-10-13 12:38:15.100235: 
+2026-10-13 12:38:15.101081: Epoch 220
+2026-10-13 12:38:15.102338: Current learning rate: 0.00631
+
+Epoch 221
+Current learning rate: 0.0063
+2026-10-13 12:39:55.300786: 
+2026-10-13 12:39:55.302235: Epoch 221
+2026-10-13 12:39:55.303087: Current learning rate: 0.0063
+
+Epoch 222
+Current learning rate: 0.00628
+2026-10-13 12:41:35.575669: 
+2026-10-13 12:41:35.577071: Epoch 222
+2026-10-13 12:41:35.577956: Current learning rate: 0.00628
+
+Epoch 223
+Current learning rate: 0.00626
+2026-10-13 12:43:15.779383: 
+2026-10-13 12:43:15.780773: Epoch 223
+2026-10-13 12:43:15.781645: Current learning rate: 0.00626
+
+Epoch 224
+Current learning rate: 0.00625
+2026-10-13 12:44:56.009996: 
+2026-10-13 12:44:56.011480: Epoch 224
+2026-10-13 12:44:56.012336: Current learning rate: 0.00625
+
+Epoch 225
+Current learning rate: 0.00623
+2026-10-13 12:46:49.231733: 
+2026-10-13 12:46:49.233012: Epoch 225
+2026-10-13 12:46:49.233944: Current learning rate: 0.00623
+
+Epoch 226
+Current learning rate: 0.00621
+2026-10-13 12:48:29.605382: 
+2026-10-13 12:48:29.606794: Epoch 226
+2026-10-13 12:48:29.607560: Current learning rate: 0.00621
+
+Epoch 227
+Current learning rate: 0.00619
+2026-10-13 12:50:09.834614: 
+2026-10-13 12:50:09.835853: Epoch 227
+2026-10-13 12:50:09.836616: Current learning rate: 0.00619
+
+Epoch 228
+Current learning rate: 0.00618
+2026-10-13 12:51:50.131916: 
+2026-10-13 12:51:50.133322: Epoch 228
+2026-10-13 12:51:50.134193: Current learning rate: 0.00618
+
+Epoch 229
+Current learning rate: 0.00616
+2026-10-13 12:53:30.438984: 
+2026-10-13 12:53:30.440307: Epoch 229
+2026-10-13 12:53:30.441271: Current learning rate: 0.00616
+
+Epoch 230
+Current learning rate: 0.00614
+2026-10-13 12:55:13.703898: 
+2026-10-13 12:55:13.705007: Epoch 230
+2026-10-13 12:55:13.706052: Current learning rate: 0.00614
+
+Epoch 231
+Current learning rate: 0.00612
+2026-10-13 12:56:53.914576: 
+2026-10-13 12:56:53.916155: Epoch 231
+2026-10-13 12:56:53.917079: Current learning rate: 0.00612
+
+Epoch 232
+Current learning rate: 0.00611
+2026-10-13 12:58:34.021669: 
+2026-10-13 12:58:34.023327: Epoch 232
+2026-10-13 12:58:34.024937: Current learning rate: 0.00611
+
+Epoch 233
+Current learning rate: 0.00609
+2026-10-13 13:00:14.215126: 
+2026-10-13 13:00:14.216520: Epoch 233
+2026-10-13 13:00:14.217318: Current learning rate: 0.00609
+
+Epoch 234
+Current learning rate: 0.00607
+2026-10-13 13:01:54.310954: 
+2026-10-13 13:01:54.312401: Epoch 234
+2026-10-13 13:01:54.313233: Current learning rate: 0.00607
+
+Epoch 235
+Current learning rate: 0.00606
+2026-10-13 13:03:37.938504: 
+2026-10-13 13:03:37.939883: Epoch 235
+2026-10-13 13:03:37.940831: Current learning rate: 0.00606
+
+Epoch 236
+Current learning rate: 0.00604
+2026-10-13 13:05:18.202204: 
+2026-10-13 13:05:18.203604: Epoch 236
+2026-10-13 13:05:18.204670: Current learning rate: 0.00604
+
+Epoch 237
+Current learning rate: 0.00602
+2026-10-13 13:06:58.452795: 
+2026-10-13 13:06:58.454193: Epoch 237
+2026-10-13 13:06:58.455005: Current learning rate: 0.00602
+
+Epoch 238
+Current learning rate: 0.006
+2026-10-13 13:08:38.713578: 
+2026-10-13 13:08:38.714906: Epoch 238
+2026-10-13 13:08:38.715797: Current learning rate: 0.006
+
+Epoch 239
+Current learning rate: 0.00599
+2026-10-13 13:10:18.889585: 
+2026-10-13 13:10:18.890961: Epoch 239
+2026-10-13 13:10:18.891829: Current learning rate: 0.00599
+
+Epoch 240
+Current learning rate: 0.00597
+2026-10-13 13:12:02.057341: 
+2026-10-13 13:12:02.058331: Epoch 240
+2026-10-13 13:12:02.059190: Current learning rate: 0.00597
+
+Epoch 241
+Current learning rate: 0.00595
+2026-10-13 13:13:42.227669: 
+2026-10-13 13:13:42.228956: Epoch 241
+2026-10-13 13:13:42.229711: Current learning rate: 0.00595
+
+Epoch 242
+Current learning rate: 0.00593
+2026-10-13 13:15:22.477885: 
+2026-10-13 13:15:22.479245: Epoch 242
+2026-10-13 13:15:22.480314: Current learning rate: 0.00593
+
+Epoch 243
+Current learning rate: 0.00592
+2026-10-13 13:17:02.809786: 
+2026-10-13 13:17:02.811132: Epoch 243
+2026-10-13 13:17:02.811909: Current learning rate: 0.00592
+
+Epoch 244
+Current learning rate: 0.0059
+2026-10-13 13:18:43.138645: 
+2026-10-13 13:18:43.140527: Epoch 244
+2026-10-13 13:18:43.141360: Current learning rate: 0.0059
+
+Epoch 245
+Current learning rate: 0.00588
+2026-10-13 13:20:26.751713: 
+2026-10-13 13:20:26.752525: Epoch 245
+2026-10-13 13:20:26.753231: Current learning rate: 0.00588
+
+Epoch 246
+Current learning rate: 0.00586
+2026-10-13 13:22:06.990016: 
+2026-10-13 13:22:06.991378: Epoch 246
+2026-10-13 13:22:06.992259: Current learning rate: 0.00586
+
+Epoch 247
+Current learning rate: 0.00585
+2026-10-13 13:23:47.300065: 
+2026-10-13 13:23:47.301519: Epoch 247
+2026-10-13 13:23:47.302346: Current learning rate: 0.00585
+
+Epoch 248
+Current learning rate: 0.00583
+2026-10-13 13:25:27.732994: 
+2026-10-13 13:25:27.734571: Epoch 248
+2026-10-13 13:25:27.735357: Current learning rate: 0.00583
+
+Epoch 249
+Current learning rate: 0.00581
+2026-10-13 13:27:07.988265: 
+2026-10-13 13:27:07.990100: Epoch 249
+2026-10-13 13:27:07.991024: Current learning rate: 0.00581
+
+Epoch 250
+Current learning rate: 0.0058
+2026-10-13 13:28:59.268528: 
+2026-10-13 13:28:59.269509: Epoch 250
+2026-10-13 13:28:59.270627: Current learning rate: 0.0058
+
+Epoch 251
+Current learning rate: 0.00578
+2026-10-13 13:30:39.438149: 
+2026-10-13 13:30:39.439399: Epoch 251
+2026-10-13 13:30:39.440178: Current learning rate: 0.00578
+
+Epoch 252
+Current learning rate: 0.00576
+2026-10-13 13:32:19.750936: 
+2026-10-13 13:32:19.752203: Epoch 252
+2026-10-13 13:32:19.752971: Current learning rate: 0.00576
+
+Epoch 253
+Current learning rate: 0.00574
+2026-10-13 13:34:00.106643: 
+2026-10-13 13:34:00.108037: Epoch 253
+2026-10-13 13:34:00.108972: Current learning rate: 0.00574
+
+Epoch 254
+Current learning rate: 0.00573
+2026-10-13 13:35:40.470804: 
+2026-10-13 13:35:40.472333: Epoch 254
+2026-10-13 13:35:40.473129: Current learning rate: 0.00573
+
+Epoch 255
+Current learning rate: 0.00571
+2026-10-13 13:37:23.528125: 
+2026-10-13 13:37:23.528951: Epoch 255
+2026-10-13 13:37:23.529756: Current learning rate: 0.00571
+
+Epoch 256
+Current learning rate: 0.00569
+2026-10-13 13:39:03.822220: 
+2026-10-13 13:39:03.823684: Epoch 256
+2026-10-13 13:39:03.824463: Current learning rate: 0.00569
+
+Epoch 257
+Current learning rate: 0.00567
+2026-10-13 13:40:44.138084: 
+2026-10-13 13:40:44.139440: Epoch 257
+2026-10-13 13:40:44.140229: Current learning rate: 0.00567
+
+Epoch 258
+Current learning rate: 0.00566
+2026-10-13 13:42:24.513082: 
+2026-10-13 13:42:24.514413: Epoch 258
+2026-10-13 13:42:24.515397: Current learning rate: 0.00566
+
+Epoch 259
+Current learning rate: 0.00564
+2026-10-13 13:44:04.805990: 
+2026-10-13 13:44:04.807379: Epoch 259
+2026-10-13 13:44:04.808293: Current learning rate: 0.00564
+
+Epoch 260
+Current learning rate: 0.00562
+2026-10-13 13:45:47.849622: 
+2026-10-13 13:45:47.850613: Epoch 260
+2026-10-13 13:45:47.851419: Current learning rate: 0.00562
+
+Epoch 261
+Current learning rate: 0.0056
+2026-10-13 13:47:28.108825: 
+2026-10-13 13:47:28.110192: Epoch 261
+2026-10-13 13:47:28.111013: Current learning rate: 0.0056
+
+Epoch 262
+Current learning rate: 0.00559
+2026-10-13 13:49:08.290513: 
+2026-10-13 13:49:08.291889: Epoch 262
+2026-10-13 13:49:08.292705: Current learning rate: 0.00559
+
+Epoch 263
+Current learning rate: 0.00557
+2026-10-13 13:50:48.518360: 
+2026-10-13 13:50:48.519748: Epoch 263
+2026-10-13 13:50:48.520649: Current learning rate: 0.00557
+
+Epoch 264
+Current learning rate: 0.00555
+2026-10-13 13:52:28.843148: 
+2026-10-13 13:52:28.844393: Epoch 264
+2026-10-13 13:52:28.845169: Current learning rate: 0.00555
+
+Epoch 265
+Current learning rate: 0.00553
+2026-10-13 13:54:12.399037: 
+2026-10-13 13:54:12.400041: Epoch 265
+2026-10-13 13:54:12.400875: Current learning rate: 0.00553
+
+Epoch 266
+Current learning rate: 0.00552
+2026-10-13 13:55:52.647670: 
+2026-10-13 13:55:52.649028: Epoch 266
+2026-10-13 13:55:52.649897: Current learning rate: 0.00552
+
+Epoch 267
+Current learning rate: 0.0055
+2026-10-13 13:57:32.882747: 
+2026-10-13 13:57:32.884110: Epoch 267
+2026-10-13 13:57:32.884852: Current learning rate: 0.0055
+
+Epoch 268
+Current learning rate: 0.00548
+2026-10-13 13:59:13.145429: 
+2026-10-13 13:59:13.146695: Epoch 268
+2026-10-13 13:59:13.147575: Current learning rate: 0.00548
+
+Epoch 269
+Current learning rate: 0.00546
+2026-10-13 14:00:53.510064: 
+2026-10-13 14:00:53.511446: Epoch 269
+2026-10-13 14:00:53.512389: Current learning rate: 0.00546
+
+Epoch 270
+Current learning rate: 0.00545
+2026-10-13 14:02:36.924997: 
+2026-10-13 14:02:36.925857: Epoch 270
+2026-10-13 14:02:36.927048: Current learning rate: 0.00545
+
+Epoch 271
+Current learning rate: 0.00543
+2026-10-13 14:04:17.071334: 
+2026-10-13 14:04:17.072692: Epoch 271
+2026-10-13 14:04:17.073517: Current learning rate: 0.00543
+
+Epoch 272
+Current learning rate: 0.00541
+2026-10-13 14:05:57.285558: 
+2026-10-13 14:05:57.286864: Epoch 272
+2026-10-13 14:05:57.287717: Current learning rate: 0.00541
+
+Epoch 273
+Current learning rate: 0.00539
+2026-10-13 14:07:37.482343: 
+2026-10-13 14:07:37.483779: Epoch 273
+2026-10-13 14:07:37.484803: Current learning rate: 0.00539
+
+Epoch 274
+Current learning rate: 0.00538
+2026-10-13 14:09:17.797160: 
+2026-10-13 14:09:17.798655: Epoch 274
+2026-10-13 14:09:17.799573: Current learning rate: 0.00538
+
+Epoch 275
+Current learning rate: 0.00536
+2026-10-13 14:11:09.232502: 
+2026-10-13 14:11:09.233370: Epoch 275
+2026-10-13 14:11:09.234173: Current learning rate: 0.00536
+
+Epoch 276
+Current learning rate: 0.00534
+2026-10-13 14:12:49.504661: 
+2026-10-13 14:12:49.506057: Epoch 276
+2026-10-13 14:12:49.506943: Current learning rate: 0.00534
+
+Epoch 277
+Current learning rate: 0.00532
+2026-10-13 14:14:29.874243: 
+2026-10-13 14:14:29.875552: Epoch 277
+2026-10-13 14:14:29.876390: Current learning rate: 0.00532
+
+Epoch 278
+Current learning rate: 0.00531
+2026-10-13 14:16:10.248149: 
+2026-10-13 14:16:10.249463: Epoch 278
+2026-10-13 14:16:10.250264: Current learning rate: 0.00531
+
+Epoch 279
+Current learning rate: 0.00529
+2026-10-13 14:17:50.551705: 
+2026-10-13 14:17:50.553004: Epoch 279
+2026-10-13 14:17:50.553801: Current learning rate: 0.00529
+
+Epoch 280
+Current learning rate: 0.00527
+2026-10-13 14:19:34.181798: 
+2026-10-13 14:19:34.183028: Epoch 280
+2026-10-13 14:19:34.184093: Current learning rate: 0.00527
+
+Epoch 281
+Current learning rate: 0.00525
+2026-10-13 14:21:14.502905: 
+2026-10-13 14:21:14.504257: Epoch 281
+2026-10-13 14:21:14.505363: Current learning rate: 0.00525
+
+Epoch 282
+Current learning rate: 0.00524
+2026-10-13 14:22:54.771816: 
+2026-10-13 14:22:54.773308: Epoch 282
+2026-10-13 14:22:54.774185: Current learning rate: 0.00524
+
+Epoch 283
+Current learning rate: 0.00522
+2026-10-13 14:24:35.079411: 
+2026-10-13 14:24:35.080718: Epoch 283
+2026-10-13 14:24:35.081535: Current learning rate: 0.00522
+
+Epoch 284
+Current learning rate: 0.0052
+2026-10-13 14:26:15.345242: 
+2026-10-13 14:26:15.346635: Epoch 284
+2026-10-13 14:26:15.347395: Current learning rate: 0.0052
+
+Epoch 285
+Current learning rate: 0.00518
+2026-10-13 14:27:58.996843: 
+2026-10-13 14:27:58.997868: Epoch 285
+2026-10-13 14:27:58.998725: Current learning rate: 0.00518
+
+Epoch 286
+Current learning rate: 0.00517
+2026-10-13 14:29:39.413169: 
+2026-10-13 14:29:39.414474: Epoch 286
+2026-10-13 14:29:39.415237: Current learning rate: 0.00517
+
+Epoch 287
+Current learning rate: 0.00515
+2026-10-13 14:31:19.795201: 
+2026-10-13 14:31:19.796464: Epoch 287
+2026-10-13 14:31:19.797220: Current learning rate: 0.00515
+
+Epoch 288
+Current learning rate: 0.00513
+2026-10-13 14:33:00.148118: 
+2026-10-13 14:33:00.149377: Epoch 288
+2026-10-13 14:33:00.150175: Current learning rate: 0.00513
+
+Epoch 289
+Current learning rate: 0.00511
+2026-10-13 14:34:40.446651: 
+2026-10-13 14:34:40.447921: Epoch 289
+2026-10-13 14:34:40.448687: Current learning rate: 0.00511
+
+Epoch 290
+Current learning rate: 0.0051
+2026-10-13 14:36:23.970610: 
+2026-10-13 14:36:23.971678: Epoch 290
+2026-10-13 14:36:23.972575: Current learning rate: 0.0051
+
+Epoch 291
+Current learning rate: 0.00508
+2026-10-13 14:38:04.300176: 
+2026-10-13 14:38:04.301556: Epoch 291
+2026-10-13 14:38:04.302366: Current learning rate: 0.00508
+
+Epoch 292
+Current learning rate: 0.00506
+2026-10-13 14:39:44.553303: 
+2026-10-13 14:39:44.554612: Epoch 292
+2026-10-13 14:39:44.555370: Current learning rate: 0.00506
+
+Epoch 293
+Current learning rate: 0.00504
+2026-10-13 14:41:24.813312: 
+2026-10-13 14:41:24.814665: Epoch 293
+2026-10-13 14:41:24.815419: Current learning rate: 0.00504
+
+Epoch 294
+Current learning rate: 0.00502
+2026-10-13 14:43:05.039892: 
+2026-10-13 14:43:05.041214: Epoch 294
+2026-10-13 14:43:05.041984: Current learning rate: 0.00502
+
+Epoch 295
+Current learning rate: 0.00501
+2026-10-13 14:44:48.046009: 
+2026-10-13 14:44:48.047093: Epoch 295
+2026-10-13 14:44:48.048661: Current learning rate: 0.00501
+
+Epoch 296
+Current learning rate: 0.00499
+2026-10-13 14:46:28.308088: 
+2026-10-13 14:46:28.309573: Epoch 296
+2026-10-13 14:46:28.310394: Current learning rate: 0.00499
+
+Epoch 297
+Current learning rate: 0.00497
+2026-10-13 14:48:08.553494: 
+2026-10-13 14:48:08.555274: Epoch 297
+2026-10-13 14:48:08.556044: Current learning rate: 0.00497
+
+Epoch 298
+Current learning rate: 0.00495
+2026-10-13 14:49:48.713392: 
+2026-10-13 14:49:48.714711: Epoch 298
+2026-10-13 14:49:48.715494: Current learning rate: 0.00495
+
+Epoch 299
+Current learning rate: 0.00494
+2026-10-13 14:51:28.939308: 
+2026-10-13 14:51:28.940614: Epoch 299
+2026-10-13 14:51:28.941394: Current learning rate: 0.00494
+
+Epoch 300
+Current learning rate: 0.00492
+2026-10-13 14:53:19.763475: 
+2026-10-13 14:53:19.764303: Epoch 300
+2026-10-13 14:53:19.765108: Current learning rate: 0.00492
+
+Epoch 301
+Current learning rate: 0.0049
+2026-10-13 14:54:59.976708: 
+2026-10-13 14:54:59.978149: Epoch 301
+2026-10-13 14:54:59.978995: Current learning rate: 0.0049
+
+Epoch 302
+Current learning rate: 0.00488
+2026-10-13 14:56:40.242644: 
+2026-10-13 14:56:40.243842: Epoch 302
+2026-10-13 14:56:40.244550: Current learning rate: 0.00488
+
+Epoch 303
+Current learning rate: 0.00487
+2026-10-13 14:58:20.449462: 
+2026-10-13 14:58:20.450742: Epoch 303
+2026-10-13 14:58:20.451521: Current learning rate: 0.00487
+
+Epoch 304
+Current learning rate: 0.00485
+2026-10-13 15:00:00.541262: 
+2026-10-13 15:00:00.542600: Epoch 304
+2026-10-13 15:00:00.543382: Current learning rate: 0.00485
+
+Epoch 305
+Current learning rate: 0.00483
+2026-10-13 15:01:43.658654: 
+2026-10-13 15:01:43.659528: Epoch 305
+2026-10-13 15:01:43.660567: Current learning rate: 0.00483
+
+Epoch 306
+Current learning rate: 0.00481
+2026-10-13 15:03:23.816861: 
+2026-10-13 15:03:23.818266: Epoch 306
+2026-10-13 15:03:23.819347: Current learning rate: 0.00481
+
+Epoch 307
+Current learning rate: 0.00479
+2026-10-13 15:05:03.954008: 
+2026-10-13 15:05:03.955382: Epoch 307
+2026-10-13 15:05:03.956135: Current learning rate: 0.00479
+
+Epoch 308
+Current learning rate: 0.00478
+2026-10-13 15:06:44.148172: 
+2026-10-13 15:06:44.149417: Epoch 308
+2026-10-13 15:06:44.150155: Current learning rate: 0.00478
+
+Epoch 309
+Current learning rate: 0.00476
+2026-10-13 15:08:24.402091: 
+2026-10-13 15:08:24.403822: Epoch 309
+2026-10-13 15:08:24.404684: Current learning rate: 0.00476
+
+Epoch 310
+Current learning rate: 0.00474
+2026-10-13 15:10:08.210260: 
+2026-10-13 15:10:08.211118: Epoch 310
+2026-10-13 15:10:08.212361: Current learning rate: 0.00474
+
+Epoch 311
+Current learning rate: 0.00472
+2026-10-13 15:11:48.486073: 
+2026-10-13 15:11:48.487524: Epoch 311
+2026-10-13 15:11:48.488270: Current learning rate: 0.00472
+
+Epoch 312
+Current learning rate: 0.00471
+2026-10-13 15:13:28.816089: 
+2026-10-13 15:13:28.817577: Epoch 312
+2026-10-13 15:13:28.818464: Current learning rate: 0.00471
+
+Epoch 313
+Current learning rate: 0.00469
+2026-10-13 15:15:09.212881: 
+2026-10-13 15:15:09.214227: Epoch 313
+2026-10-13 15:15:09.215023: Current learning rate: 0.00469
+
+Epoch 314
+Current learning rate: 0.00467
+2026-10-13 15:16:49.577893: 
+2026-10-13 15:16:49.580143: Epoch 314
+2026-10-13 15:16:49.581053: Current learning rate: 0.00467
+
+Epoch 315
+Current learning rate: 0.00465
+2026-10-13 15:18:33.145133: 
+2026-10-13 15:18:33.146084: Epoch 315
+2026-10-13 15:18:33.146976: Current learning rate: 0.00465
+
+Epoch 316
+Current learning rate: 0.00463
+2026-10-13 15:20:13.356491: 
+2026-10-13 15:20:13.357845: Epoch 316
+2026-10-13 15:20:13.358650: Current learning rate: 0.00463
+
+Epoch 317
+Current learning rate: 0.00462
+2026-10-13 15:21:53.592883: 
+2026-10-13 15:21:53.594168: Epoch 317
+2026-10-13 15:21:53.594989: Current learning rate: 0.00462
+
+Epoch 318
+Current learning rate: 0.0046
+2026-10-13 15:23:33.820412: 
+2026-10-13 15:23:33.821652: Epoch 318
+2026-10-13 15:23:33.822409: Current learning rate: 0.0046
+
+Epoch 319
+Current learning rate: 0.00458
+2026-10-13 15:25:14.032564: 
+2026-10-13 15:25:14.034307: Epoch 319
+2026-10-13 15:25:14.035373: Current learning rate: 0.00458
+
+Epoch 320
+Current learning rate: 0.00456
+2026-10-13 15:26:58.269341: 
+2026-10-13 15:26:58.270277: Epoch 320
+2026-10-13 15:26:58.271358: Current learning rate: 0.00456
+
+Epoch 321
+Current learning rate: 0.00454
+2026-10-13 15:28:38.383191: 
+2026-10-13 15:28:38.384795: Epoch 321
+2026-10-13 15:28:38.385720: Current learning rate: 0.00454
+
+Epoch 322
+Current learning rate: 0.00453
+2026-10-13 15:30:18.642252: 
+2026-10-13 15:30:18.643601: Epoch 322
+2026-10-13 15:30:18.644420: Current learning rate: 0.00453
+
+Epoch 323
+Current learning rate: 0.00451
+2026-10-13 15:31:58.897013: 
+2026-10-13 15:31:58.898839: Epoch 323
+2026-10-13 15:31:58.899897: Current learning rate: 0.00451
+
+Epoch 324
+Current learning rate: 0.00449
+2026-10-13 15:33:39.189547: 
+2026-10-13 15:33:39.191008: Epoch 324
+2026-10-13 15:33:39.191821: Current learning rate: 0.00449
+
+Epoch 325
+Current learning rate: 0.00447
+2026-10-13 15:35:33.368763: 
+2026-10-13 15:35:33.369836: Epoch 325
+2026-10-13 15:35:33.371118: Current learning rate: 0.00447
+
+Epoch 326
+Current learning rate: 0.00446
+2026-10-13 15:37:13.527386: 
+2026-10-13 15:37:13.528803: Epoch 326
+2026-10-13 15:37:13.529797: Current learning rate: 0.00446
+
+Epoch 327
+Current learning rate: 0.00444
+2026-10-13 15:38:53.709034: 
+2026-10-13 15:38:53.710397: Epoch 327
+2026-10-13 15:38:53.711339: Current learning rate: 0.00444
+
+Epoch 328
+Current learning rate: 0.00442
+2026-10-13 15:40:33.795971: 
+2026-10-13 15:40:33.797330: Epoch 328
+2026-10-13 15:40:33.798308: Current learning rate: 0.00442
+
+Epoch 329
+Current learning rate: 0.0044
+2026-10-13 15:42:13.925129: 
+2026-10-13 15:42:13.926430: Epoch 329
+2026-10-13 15:42:13.927211: Current learning rate: 0.0044
+
+Epoch 330
+Current learning rate: 0.00438
+2026-10-13 15:43:57.587526: 
+2026-10-13 15:43:57.588834: Epoch 330
+2026-10-13 15:43:57.589718: Current learning rate: 0.00438
+
+Epoch 331
+Current learning rate: 0.00437
+2026-10-13 15:45:37.783545: 
+2026-10-13 15:45:37.784788: Epoch 331
+2026-10-13 15:45:37.785549: Current learning rate: 0.00437
+
+Epoch 332
+Current learning rate: 0.00435
+2026-10-13 15:47:18.043866: 
+2026-10-13 15:47:18.045185: Epoch 332
+2026-10-13 15:47:18.045953: Current learning rate: 0.00435
+
+Epoch 333
+Current learning rate: 0.00433
+2026-10-13 15:48:58.330447: 
+2026-10-13 15:48:58.332132: Epoch 333
+2026-10-13 15:48:58.333174: Current learning rate: 0.00433
+
+Epoch 334
+Current learning rate: 0.00431
+2026-10-13 15:50:38.640785: 
+2026-10-13 15:50:38.642158: Epoch 334
+2026-10-13 15:50:38.643013: Current learning rate: 0.00431
+
+Epoch 335
+Current learning rate: 0.00429
+2026-10-13 15:52:22.549178: 
+2026-10-13 15:52:22.550067: Epoch 335
+2026-10-13 15:52:22.550922: Current learning rate: 0.00429
+
+Epoch 336
+Current learning rate: 0.00428
+2026-10-13 15:54:02.777232: 
+2026-10-13 15:54:02.778606: Epoch 336
+2026-10-13 15:54:02.779395: Current learning rate: 0.00428
+
+Epoch 337
+Current learning rate: 0.00426
+2026-10-13 15:55:43.056702: 
+2026-10-13 15:55:43.058020: Epoch 337
+2026-10-13 15:55:43.058771: Current learning rate: 0.00426
+
+Epoch 338
+Current learning rate: 0.00424
+2026-10-13 15:57:23.328137: 
+2026-10-13 15:57:23.329559: Epoch 338
+2026-10-13 15:57:23.330392: Current learning rate: 0.00424
+
+Epoch 339
+Current learning rate: 0.00422
+2026-10-13 15:59:03.614218: 
+2026-10-13 15:59:03.615486: Epoch 339
+2026-10-13 15:59:03.616340: Current learning rate: 0.00422
+
+Epoch 340
+Current learning rate: 0.0042
+2026-10-13 16:00:47.379559: 
+2026-10-13 16:00:47.380349: Epoch 340
+2026-10-13 16:00:47.381154: Current learning rate: 0.0042
+
+Epoch 341
+Current learning rate: 0.00419
+2026-10-13 16:02:27.683624: 
+2026-10-13 16:02:27.685153: Epoch 341
+2026-10-13 16:02:27.685986: Current learning rate: 0.00419
+
+Epoch 342
+Current learning rate: 0.00417
+2026-10-13 16:04:07.952183: 
+2026-10-13 16:04:07.953466: Epoch 342
+2026-10-13 16:04:07.954257: Current learning rate: 0.00417
+
+Epoch 343
+Current learning rate: 0.00415
+2026-10-13 16:05:48.173253: 
+2026-10-13 16:05:48.174548: Epoch 343
+2026-10-13 16:05:48.175297: Current learning rate: 0.00415
+
+Epoch 344
+Current learning rate: 0.00413
+2026-10-13 16:07:28.454397: 
+2026-10-13 16:07:28.455840: Epoch 344
+2026-10-13 16:07:28.456760: Current learning rate: 0.00413
+
+Epoch 345
+Current learning rate: 0.00411
+2026-10-13 16:09:12.210779: 
+2026-10-13 16:09:12.211656: Epoch 345
+2026-10-13 16:09:12.212507: Current learning rate: 0.00411
+
+Epoch 346
+Current learning rate: 0.0041
+2026-10-13 16:10:52.498910: 
+2026-10-13 16:10:52.500193: Epoch 346
+2026-10-13 16:10:52.500961: Current learning rate: 0.0041
+
+Epoch 347
+Current learning rate: 0.00408
+2026-10-13 16:12:32.662178: 
+2026-10-13 16:12:32.663484: Epoch 347
+2026-10-13 16:12:32.664294: Current learning rate: 0.00408
+
+Epoch 348
+Current learning rate: 0.00406
+2026-10-13 16:14:12.816996: 
+2026-10-13 16:14:12.818432: Epoch 348
+2026-10-13 16:14:12.819268: Current learning rate: 0.00406
+
+Epoch 349
+Current learning rate: 0.00404
+2026-10-13 16:15:52.933468: 
+2026-10-13 16:15:52.934900: Epoch 349
+2026-10-13 16:15:52.935812: Current learning rate: 0.00404
+
+Epoch 350
+Current learning rate: 0.00402
+2026-10-13 16:17:43.615884: 
+2026-10-13 16:17:43.616891: Epoch 350
+2026-10-13 16:17:43.618147: Current learning rate: 0.00402
+
+Epoch 351
+Current learning rate: 0.00401
+2026-10-13 16:19:23.757704: 
+2026-10-13 16:19:23.759618: Epoch 351
+2026-10-13 16:19:23.760494: Current learning rate: 0.00401
+
+Epoch 352
+Current learning rate: 0.00399
+2026-10-13 16:21:04.002860: 
+2026-10-13 16:21:04.004215: Epoch 352
+2026-10-13 16:21:04.005003: Current learning rate: 0.00399
+
+Epoch 353
+Current learning rate: 0.00397
+2026-10-13 16:22:44.461351: 
+2026-10-13 16:22:44.462631: Epoch 353
+2026-10-13 16:22:44.463364: Current learning rate: 0.00397
+
+Epoch 354
+Current learning rate: 0.00395
+2026-10-13 16:24:24.680370: 
+2026-10-13 16:24:24.681736: Epoch 354
+2026-10-13 16:24:24.682510: Current learning rate: 0.00395
+
+Epoch 355
+Current learning rate: 0.00393
+2026-10-13 16:26:08.617512: 
+2026-10-13 16:26:08.618780: Epoch 355
+2026-10-13 16:26:08.619694: Current learning rate: 0.00393
+
+Epoch 356
+Current learning rate: 0.00391
+2026-10-13 16:27:48.855621: 
+2026-10-13 16:27:48.857039: Epoch 356
+2026-10-13 16:27:48.857917: Current learning rate: 0.00391
+
+Epoch 357
+Current learning rate: 0.0039
+2026-10-13 16:29:29.063653: 
+2026-10-13 16:29:29.065093: Epoch 357
+2026-10-13 16:29:29.065923: Current learning rate: 0.0039
+
+Epoch 358
+Current learning rate: 0.00388
+2026-10-13 16:31:09.285520: 
+2026-10-13 16:31:09.286819: Epoch 358
+2026-10-13 16:31:09.287627: Current learning rate: 0.00388
+
+Epoch 359
+Current learning rate: 0.00386
+2026-10-13 16:32:49.585125: 
+2026-10-13 16:32:49.586742: Epoch 359
+2026-10-13 16:32:49.587518: Current learning rate: 0.00386
+
+Epoch 360
+Current learning rate: 0.00384
+2026-10-13 16:34:33.377446: 
+2026-10-13 16:34:33.379295: Epoch 360
+2026-10-13 16:34:33.380266: Current learning rate: 0.00384
+
+Epoch 361
+Current learning rate: 0.00382
+2026-10-13 16:36:13.605171: 
+2026-10-13 16:36:13.606441: Epoch 361
+2026-10-13 16:36:13.607176: Current learning rate: 0.00382
+
+Epoch 362
+Current learning rate: 0.00381
+2026-10-13 16:37:53.914414: 
+2026-10-13 16:37:53.915768: Epoch 362
+2026-10-13 16:37:53.916534: Current learning rate: 0.00381
+
+Epoch 363
+Current learning rate: 0.00379
+2026-10-13 16:39:34.319390: 
+2026-10-13 16:39:34.320902: Epoch 363
+2026-10-13 16:39:34.321818: Current learning rate: 0.00379
+
+Epoch 364
+Current learning rate: 0.00377
+2026-10-13 16:41:14.645979: 
+2026-10-13 16:41:14.647383: Epoch 364
+2026-10-13 16:41:14.648223: Current learning rate: 0.00377
+
+Epoch 365
+Current learning rate: 0.00375
+2026-10-13 16:42:58.061387: 
+2026-10-13 16:42:58.062050: Epoch 365
+2026-10-13 16:42:58.063494: Current learning rate: 0.00375
+
+Epoch 366
+Current learning rate: 0.00373
+2026-10-13 16:44:38.311798: 
+2026-10-13 16:44:38.313177: Epoch 366
+2026-10-13 16:44:38.314102: Current learning rate: 0.00373
+
+Epoch 367
+Current learning rate: 0.00371
+2026-10-13 16:46:18.447355: 
+2026-10-13 16:46:18.448767: Epoch 367
+2026-10-13 16:46:18.449612: Current learning rate: 0.00371
+
+Epoch 368
+Current learning rate: 0.0037
+2026-10-13 16:47:58.635607: 
+2026-10-13 16:47:58.637025: Epoch 368
+2026-10-13 16:47:58.637906: Current learning rate: 0.0037
+
+Epoch 369
+Current learning rate: 0.00368
+2026-10-13 16:49:38.844035: 
+2026-10-13 16:49:38.845850: Epoch 369
+2026-10-13 16:49:38.846837: Current learning rate: 0.00368
+
+Epoch 370
+Current learning rate: 0.00366
+2026-10-13 16:51:22.703029: 
+2026-10-13 16:51:22.703938: Epoch 370
+2026-10-13 16:51:22.704871: Current learning rate: 0.00366
+
+Epoch 371
+Current learning rate: 0.00364
+2026-10-13 16:53:03.058959: 
+2026-10-13 16:53:03.060429: Epoch 371
+2026-10-13 16:53:03.061245: Current learning rate: 0.00364
+
+Epoch 372
+Current learning rate: 0.00362
+2026-10-13 16:54:43.393597: 
+2026-10-13 16:54:43.394930: Epoch 372
+2026-10-13 16:54:43.395739: Current learning rate: 0.00362
+
+Epoch 373
+Current learning rate: 0.0036
+2026-10-13 16:56:23.608827: 
+2026-10-13 16:56:23.610249: Epoch 373
+2026-10-13 16:56:23.611149: Current learning rate: 0.0036
+
+Epoch 374
+Current learning rate: 0.00359
+2026-10-13 16:58:03.872127: 
+2026-10-13 16:58:03.873428: Epoch 374
+2026-10-13 16:58:03.874215: Current learning rate: 0.00359
+
+Epoch 375
+Current learning rate: 0.00357
+2026-10-13 16:59:57.243340: 
+2026-10-13 16:59:57.244299: Epoch 375
+2026-10-13 16:59:57.245198: Current learning rate: 0.00357
+
+Epoch 376
+Current learning rate: 0.00355
+2026-10-13 17:01:37.308126: 
+2026-10-13 17:01:37.309468: Epoch 376
+2026-10-13 17:01:37.310434: Current learning rate: 0.00355
+
+Epoch 377
+Current learning rate: 0.00353
+2026-10-13 17:03:17.458043: 
+2026-10-13 17:03:17.459404: Epoch 377
+2026-10-13 17:03:17.460225: Current learning rate: 0.00353
+
+Epoch 378
+Current learning rate: 0.00351
+2026-10-13 17:04:57.738769: 
+2026-10-13 17:04:57.740051: Epoch 378
+2026-10-13 17:04:57.740875: Current learning rate: 0.00351
+
+Epoch 379
+Current learning rate: 0.00349
+2026-10-13 17:06:37.919217: 
+2026-10-13 17:06:37.920497: Epoch 379
+2026-10-13 17:06:37.921253: Current learning rate: 0.00349
+
+Epoch 380
+Current learning rate: 0.00348
+2026-10-13 17:08:21.344239: 
+2026-10-13 17:08:21.345109: Epoch 380
+2026-10-13 17:08:21.346275: Current learning rate: 0.00348
+
+Epoch 381
+Current learning rate: 0.00346
+2026-10-13 17:10:01.451185: 
+2026-10-13 17:10:01.452487: Epoch 381
+2026-10-13 17:10:01.453244: Current learning rate: 0.00346
+
+Epoch 382
+Current learning rate: 0.00344
+2026-10-13 17:11:41.650770: 
+2026-10-13 17:11:41.652191: Epoch 382
+2026-10-13 17:11:41.652970: Current learning rate: 0.00344
+
+Epoch 383
+Current learning rate: 0.00342
+2026-10-13 17:13:21.748374: 
+2026-10-13 17:13:21.749722: Epoch 383
+2026-10-13 17:13:21.750540: Current learning rate: 0.00342
+
+Epoch 384
+Current learning rate: 0.0034
+2026-10-13 17:15:01.851668: 
+2026-10-13 17:15:01.852958: Epoch 384
+2026-10-13 17:15:01.853723: Current learning rate: 0.0034
+
+Epoch 385
+Current learning rate: 0.00338
+2026-10-13 17:16:45.299997: 
+2026-10-13 17:16:45.301367: Epoch 385
+2026-10-13 17:16:45.302331: Current learning rate: 0.00338
+
+Epoch 386
+Current learning rate: 0.00337
+2026-10-13 17:18:25.477543: 
+2026-10-13 17:18:25.479001: Epoch 386
+2026-10-13 17:18:25.479827: Current learning rate: 0.00337
+
+Epoch 387
+Current learning rate: 0.00335
+2026-10-13 17:20:05.642427: 
+2026-10-13 17:20:05.644009: Epoch 387
+2026-10-13 17:20:05.644927: Current learning rate: 0.00335
+
+Epoch 388
+Current learning rate: 0.00333
+2026-10-13 17:21:45.838312: 
+2026-10-13 17:21:45.839888: Epoch 388
+2026-10-13 17:21:45.840689: Current learning rate: 0.00333
+
+Epoch 389
+Current learning rate: 0.00331
+2026-10-13 17:23:25.873371: 
+2026-10-13 17:23:25.874697: Epoch 389
+2026-10-13 17:23:25.875498: Current learning rate: 0.00331
+
+Epoch 390
+Current learning rate: 0.00329
+2026-10-13 17:25:09.179566: 
+2026-10-13 17:25:09.180436: Epoch 390
+2026-10-13 17:25:09.181244: Current learning rate: 0.00329
+
+Epoch 391
+Current learning rate: 0.00327
+2026-10-13 17:26:49.340922: 
+2026-10-13 17:26:49.342215: Epoch 391
+2026-10-13 17:26:49.342964: Current learning rate: 0.00327
+
+Epoch 392
+Current learning rate: 0.00325
+2026-10-13 17:28:29.496470: 
+2026-10-13 17:28:29.497766: Epoch 392
+2026-10-13 17:28:29.498544: Current learning rate: 0.00325
+
+Epoch 393
+Current learning rate: 0.00324
+2026-10-13 17:30:09.631747: 
+2026-10-13 17:30:09.633034: Epoch 393
+2026-10-13 17:30:09.633788: Current learning rate: 0.00324
+
+Epoch 394
+Current learning rate: 0.00322
+2026-10-13 17:31:49.827976: 
+2026-10-13 17:31:49.829268: Epoch 394
+2026-10-13 17:31:49.830041: Current learning rate: 0.00322
+
+Epoch 395
+Current learning rate: 0.0032
+2026-10-13 17:33:33.732995: 
+2026-10-13 17:33:33.734034: Epoch 395
+2026-10-13 17:33:33.735079: Current learning rate: 0.0032
+
+Epoch 396
+Current learning rate: 0.00318
+2026-10-13 17:35:13.880348: 
+2026-10-13 17:35:13.881622: Epoch 396
+2026-10-13 17:35:13.882406: Current learning rate: 0.00318
+
+Epoch 397
+Current learning rate: 0.00316
+2026-10-13 17:36:54.048043: 
+2026-10-13 17:36:54.049347: Epoch 397
+2026-10-13 17:36:54.050571: Current learning rate: 0.00316
+
+Epoch 398
+Current learning rate: 0.00314
+2026-10-13 17:38:34.171732: 
+2026-10-13 17:38:34.173060: Epoch 398
+2026-10-13 17:38:34.173950: Current learning rate: 0.00314
+
+Epoch 399
+Current learning rate: 0.00312
+2026-10-13 17:40:14.343398: 
+2026-10-13 17:40:14.344733: Epoch 399
+2026-10-13 17:40:14.345501: Current learning rate: 0.00312
+
+Epoch 400
+Current learning rate: 0.00311
+2026-10-13 17:42:07.974504: 
+2026-10-13 17:42:07.975440: Epoch 400
+2026-10-13 17:42:07.976526: Current learning rate: 0.00311
+
+Epoch 401
+Current learning rate: 0.00309
+2026-10-13 17:43:48.098810: 
+2026-10-13 17:43:48.100211: Epoch 401
+2026-10-13 17:43:48.101079: Current learning rate: 0.00309
+
+Epoch 402
+Current learning rate: 0.00307
+2026-10-13 17:45:28.283439: 
+2026-10-13 17:45:28.284668: Epoch 402
+2026-10-13 17:45:28.285453: Current learning rate: 0.00307
+
+Epoch 403
+Current learning rate: 0.00305
+2026-10-13 17:47:08.378104: 
+2026-10-13 17:47:08.379384: Epoch 403
+2026-10-13 17:47:08.380126: Current learning rate: 0.00305
+
+Epoch 404
+Current learning rate: 0.00303
+2026-10-13 17:48:48.525706: 
+2026-10-13 17:48:48.526955: Epoch 404
+2026-10-13 17:48:48.527747: Current learning rate: 0.00303
+
+Epoch 405
+Current learning rate: 0.00301
+2026-10-13 17:50:32.172198: 
+2026-10-13 17:50:32.173193: Epoch 405
+2026-10-13 17:50:32.174018: Current learning rate: 0.00301
+
+Epoch 406
+Current learning rate: 0.00299
+2026-10-13 17:52:12.361759: 
+2026-10-13 17:52:12.363012: Epoch 406
+2026-10-13 17:52:12.363769: Current learning rate: 0.00299
+
+Epoch 407
+Current learning rate: 0.00297
+2026-10-13 17:53:52.529452: 
+2026-10-13 17:53:52.530705: Epoch 407
+2026-10-13 17:53:52.531454: Current learning rate: 0.00297
+
+Epoch 408
+Current learning rate: 0.00296
+2026-10-13 17:55:32.696744: 
+2026-10-13 17:55:32.698217: Epoch 408
+2026-10-13 17:55:32.699037: Current learning rate: 0.00296
+
+Epoch 409
+Current learning rate: 0.00294
+2026-10-13 17:57:12.819678: 
+2026-10-13 17:57:12.820915: Epoch 409
+2026-10-13 17:57:12.821676: Current learning rate: 0.00294
+
+Epoch 410
+Current learning rate: 0.00292
+2026-10-13 17:58:56.316338: 
+2026-10-13 17:58:56.317230: Epoch 410
+2026-10-13 17:58:56.318000: Current learning rate: 0.00292
+
+Epoch 411
+Current learning rate: 0.0029
+2026-10-13 18:00:36.466214: 
+2026-10-13 18:00:36.467481: Epoch 411
+2026-10-13 18:00:36.468334: Current learning rate: 0.0029
+
+Epoch 412
+Current learning rate: 0.00288
+2026-10-13 18:02:16.525123: 
+2026-10-13 18:02:16.526409: Epoch 412
+2026-10-13 18:02:16.527133: Current learning rate: 0.00288
+
+Epoch 413
+Current learning rate: 0.00286
+2026-10-13 18:03:56.636762: 
+2026-10-13 18:03:56.638005: Epoch 413
+2026-10-13 18:03:56.638807: Current learning rate: 0.00286
+
+Epoch 414
+Current learning rate: 0.00284
+2026-10-13 18:05:36.757454: 
+2026-10-13 18:05:36.758948: Epoch 414
+2026-10-13 18:05:36.759847: Current learning rate: 0.00284
+
+Epoch 415
+Current learning rate: 0.00282
+2026-10-13 18:07:19.935370: 
+2026-10-13 18:07:19.936251: Epoch 415
+2026-10-13 18:07:19.937108: Current learning rate: 0.00282
+
+Epoch 416
+Current learning rate: 0.00281
+2026-10-13 18:09:00.017507: 
+2026-10-13 18:09:00.018857: Epoch 416
+2026-10-13 18:09:00.019622: Current learning rate: 0.00281
+
+Epoch 417
+Current learning rate: 0.00279
+2026-10-13 18:10:40.017877: 
+2026-10-13 18:10:40.019173: Epoch 417
+2026-10-13 18:10:40.020056: Current learning rate: 0.00279
+
+Epoch 418
+Current learning rate: 0.00277
+2026-10-13 18:12:20.095674: 
+2026-10-13 18:12:20.097314: Epoch 418
+2026-10-13 18:12:20.098195: Current learning rate: 0.00277
+
+Epoch 419
+Current learning rate: 0.00275
+2026-10-13 18:14:00.264788: 
+2026-10-13 18:14:00.266115: Epoch 419
+2026-10-13 18:14:00.266871: Current learning rate: 0.00275
+
+Epoch 420
+Current learning rate: 0.00273
+2026-10-13 18:15:43.573324: 
+2026-10-13 18:15:43.574250: Epoch 420
+2026-10-13 18:15:43.575546: Current learning rate: 0.00273
+
+Epoch 421
+Current learning rate: 0.00271
+2026-10-13 18:17:23.725499: 
+2026-10-13 18:17:23.726697: Epoch 421
+2026-10-13 18:17:23.727643: Current learning rate: 0.00271
+
+Epoch 422
+Current learning rate: 0.00269
+2026-10-13 18:19:03.832090: 
+2026-10-13 18:19:03.833302: Epoch 422
+2026-10-13 18:19:03.834121: Current learning rate: 0.00269
+
+Epoch 423
+Current learning rate: 0.00267
+2026-10-13 18:20:43.954233: 
+2026-10-13 18:20:43.955512: Epoch 423
+2026-10-13 18:20:43.956261: Current learning rate: 0.00267
+
+Epoch 424
+Current learning rate: 0.00265
+2026-10-13 18:22:24.055355: 
+2026-10-13 18:22:24.056631: Epoch 424
+2026-10-13 18:22:24.057417: Current learning rate: 0.00265
+
+Epoch 425
+Current learning rate: 0.00264
+2026-10-13 18:24:17.429284: 
+2026-10-13 18:24:17.430673: Epoch 425
+2026-10-13 18:24:17.431806: Current learning rate: 0.00264
+
+Epoch 426
+Current learning rate: 0.00262
+2026-10-13 18:25:57.623264: 
+2026-10-13 18:25:57.624585: Epoch 426
+2026-10-13 18:25:57.625429: Current learning rate: 0.00262
+
+Epoch 427
+Current learning rate: 0.0026
+2026-10-13 18:27:37.840150: 
+2026-10-13 18:27:37.841657: Epoch 427
+2026-10-13 18:27:37.842535: Current learning rate: 0.0026
+
+Epoch 428
+Current learning rate: 0.00258
+2026-10-13 18:29:18.086199: 
+2026-10-13 18:29:18.087439: Epoch 428
+2026-10-13 18:29:18.088214: Current learning rate: 0.00258
+
+Epoch 429
+Current learning rate: 0.00256
+2026-10-13 18:30:58.273743: 
+2026-10-13 18:30:58.275169: Epoch 429
+2026-10-13 18:30:58.276042: Current learning rate: 0.00256
+
+Epoch 430
+Current learning rate: 0.00254
+2026-10-13 18:32:41.619770: 
+2026-10-13 18:32:41.620648: Epoch 430
+2026-10-13 18:32:41.621888: Current learning rate: 0.00254
+
+Epoch 431
+Current learning rate: 0.00252
+2026-10-13 18:34:21.760719: 
+2026-10-13 18:34:21.762087: Epoch 431
+2026-10-13 18:34:21.762976: Current learning rate: 0.00252
+
+Epoch 432
+Current learning rate: 0.0025
+2026-10-13 18:36:01.905249: 
+2026-10-13 18:36:01.906538: Epoch 432
+2026-10-13 18:36:01.907385: Current learning rate: 0.0025
+
+Epoch 433
+Current learning rate: 0.00248
+2026-10-13 18:37:42.060925: 
+2026-10-13 18:37:42.062350: Epoch 433
+2026-10-13 18:37:42.063104: Current learning rate: 0.00248
+
+Epoch 434
+Current learning rate: 0.00246
+2026-10-13 18:39:22.300062: 
+2026-10-13 18:39:22.301416: Epoch 434
+2026-10-13 18:39:22.302184: Current learning rate: 0.00246
+
+Epoch 435
+Current learning rate: 0.00245
+2026-10-13 18:41:06.094363: 
+2026-10-13 18:41:06.095178: Epoch 435
+2026-10-13 18:41:06.095998: Current learning rate: 0.00245
+
+Epoch 436
+Current learning rate: 0.00243
+2026-10-13 18:42:46.248667: 
+2026-10-13 18:42:46.250061: Epoch 436
+2026-10-13 18:42:46.250846: Current learning rate: 0.00243
+
+Epoch 437
+Current learning rate: 0.00241
+2026-10-13 18:44:26.361513: 
+2026-10-13 18:44:26.362822: Epoch 437
+2026-10-13 18:44:26.363584: Current learning rate: 0.00241
+
+Epoch 438
+Current learning rate: 0.00239
+2026-10-13 18:46:06.517113: 
+2026-10-13 18:46:06.518406: Epoch 438
+2026-10-13 18:46:06.519176: Current learning rate: 0.00239
+
+Epoch 439
+Current learning rate: 0.00237
+2026-10-13 18:47:46.630219: 
+2026-10-13 18:47:46.631658: Epoch 439
+2026-10-13 18:47:46.632603: Current learning rate: 0.00237
+
+Epoch 440
+Current learning rate: 0.00235
+2026-10-13 18:49:30.234385: 
+2026-10-13 18:49:30.235244: Epoch 440
+2026-10-13 18:49:30.236035: Current learning rate: 0.00235
+
+Epoch 441
+Current learning rate: 0.00233
+2026-10-13 18:51:10.294939: 
+2026-10-13 18:51:10.296206: Epoch 441
+2026-10-13 18:51:10.296949: Current learning rate: 0.00233
+
+Epoch 442
+Current learning rate: 0.00231
+2026-10-13 18:52:50.367252: 
+2026-10-13 18:52:50.368917: Epoch 442
+2026-10-13 18:52:50.369675: Current learning rate: 0.00231
+
+Epoch 443
+Current learning rate: 0.00229
+2026-10-13 18:54:30.432356: 
+2026-10-13 18:54:30.433842: Epoch 443
+2026-10-13 18:54:30.434704: Current learning rate: 0.00229
+
+Epoch 444
+Current learning rate: 0.00227
+2026-10-13 18:56:10.529414: 
+2026-10-13 18:56:10.530836: Epoch 444
+2026-10-13 18:56:10.531639: Current learning rate: 0.00227
+
+Epoch 445
+Current learning rate: 0.00225
+2026-10-13 18:57:54.488701: 
+2026-10-13 18:57:54.489599: Epoch 445
+2026-10-13 18:57:54.490471: Current learning rate: 0.00225
+
+Epoch 446
+Current learning rate: 0.00223
+2026-10-13 18:59:34.650603: 
+2026-10-13 18:59:34.651917: Epoch 446
+2026-10-13 18:59:34.652696: Current learning rate: 0.00223
+
+Epoch 447
+Current learning rate: 0.00221
+2026-10-13 19:01:14.808730: 
+2026-10-13 19:01:14.810036: Epoch 447
+2026-10-13 19:01:14.810785: Current learning rate: 0.00221
+
+Epoch 448
+Current learning rate: 0.00219
+2026-10-13 19:02:54.885962: 
+2026-10-13 19:02:54.887272: Epoch 448
+2026-10-13 19:02:54.888044: Current learning rate: 0.00219
+
+Epoch 449
+Current learning rate: 0.00218
+2026-10-13 19:04:34.997184: 
+2026-10-13 19:04:34.998549: Epoch 449
+2026-10-13 19:04:34.999298: Current learning rate: 0.00218
+
+Epoch 450
+Current learning rate: 0.00216
+2026-10-13 19:06:28.814830: 
+2026-10-13 19:06:28.816153: Epoch 450
+2026-10-13 19:06:28.816936: Current learning rate: 0.00216
+
+Epoch 451
+Current learning rate: 0.00214
+2026-10-13 19:08:08.843689: 
+2026-10-13 19:08:08.845204: Epoch 451
+2026-10-13 19:08:08.846044: Current learning rate: 0.00214
+
+Epoch 452
+Current learning rate: 0.00212
+2026-10-13 19:09:48.997026: 
+2026-10-13 19:09:48.998539: Epoch 452
+2026-10-13 19:09:48.999299: Current learning rate: 0.00212
+
+Epoch 453
+Current learning rate: 0.0021
+2026-10-13 19:11:29.196696: 
+2026-10-13 19:11:29.198097: Epoch 453
+2026-10-13 19:11:29.198912: Current learning rate: 0.0021
+
+Epoch 454
+Current learning rate: 0.00208
+2026-10-13 19:13:09.301858: 
+2026-10-13 19:13:09.303272: Epoch 454
+2026-10-13 19:13:09.304036: Current learning rate: 0.00208
+
+Epoch 455
+Current learning rate: 0.00206
+2026-10-13 19:14:52.541351: 
+2026-10-13 19:14:52.542142: Epoch 455
+2026-10-13 19:14:52.542892: Current learning rate: 0.00206
+
+Epoch 456
+Current learning rate: 0.00204
+2026-10-13 19:16:32.697548: 
+2026-10-13 19:16:32.699026: Epoch 456
+2026-10-13 19:16:32.699838: Current learning rate: 0.00204
+
+Epoch 457
+Current learning rate: 0.00202
+2026-10-13 19:18:12.938725: 
+2026-10-13 19:18:12.940064: Epoch 457
+2026-10-13 19:18:12.940839: Current learning rate: 0.00202
+
+Epoch 458
+Current learning rate: 0.002
+2026-10-13 19:19:53.175092: 
+2026-10-13 19:19:53.176429: Epoch 458
+2026-10-13 19:19:53.177223: Current learning rate: 0.002
+
+Epoch 459
+Current learning rate: 0.00198
+2026-10-13 19:21:33.441249: 
+2026-10-13 19:21:33.442558: Epoch 459
+2026-10-13 19:21:33.443317: Current learning rate: 0.00198
+
+Epoch 460
+Current learning rate: 0.00196
+2026-10-13 19:23:16.871175: 
+2026-10-13 19:23:16.872014: Epoch 460
+2026-10-13 19:23:16.872852: Current learning rate: 0.00196
+
+Epoch 461
+Current learning rate: 0.00194
+2026-10-13 19:24:57.221581: 
+2026-10-13 19:24:57.222916: Epoch 461
+2026-10-13 19:24:57.223883: Current learning rate: 0.00194
+
+Epoch 462
+Current learning rate: 0.00192
+2026-10-13 19:26:37.485808: 
+2026-10-13 19:26:37.487132: Epoch 462
+2026-10-13 19:26:37.487910: Current learning rate: 0.00192
+
+Epoch 463
+Current learning rate: 0.0019
+2026-10-13 19:28:17.757802: 
+2026-10-13 19:28:17.759238: Epoch 463
+2026-10-13 19:28:17.760072: Current learning rate: 0.0019
+
+Epoch 464
+Current learning rate: 0.00188
+2026-10-13 19:29:58.072052: 
+2026-10-13 19:29:58.073579: Epoch 464
+2026-10-13 19:29:58.074430: Current learning rate: 0.00188
+
+Epoch 465
+Current learning rate: 0.00186
+2026-10-13 19:31:41.556680: 
+2026-10-13 19:31:41.557481: Epoch 465
+2026-10-13 19:31:41.558233: Current learning rate: 0.00186
+
+Epoch 466
+Current learning rate: 0.00184
+2026-10-13 19:33:22.003878: 
+2026-10-13 19:33:22.005793: Epoch 466
+2026-10-13 19:33:22.006786: Current learning rate: 0.00184
+
+Epoch 467
+Current learning rate: 0.00182
+2026-10-13 19:35:02.481374: 
+2026-10-13 19:35:02.482645: Epoch 467
+2026-10-13 19:35:02.483434: Current learning rate: 0.00182
+
+Epoch 468
+Current learning rate: 0.0018
+2026-10-13 19:36:42.863573: 
+2026-10-13 19:36:42.864920: Epoch 468
+2026-10-13 19:36:42.865837: Current learning rate: 0.0018
+
+Epoch 469
+Current learning rate: 0.00178
+2026-10-13 19:38:23.214528: 
+2026-10-13 19:38:23.215845: Epoch 469
+2026-10-13 19:38:23.216606: Current learning rate: 0.00178
+
+Epoch 470
+Current learning rate: 0.00176
+2026-10-13 19:40:06.690004: 
+2026-10-13 19:40:06.690926: Epoch 470
+2026-10-13 19:40:06.691726: Current learning rate: 0.00176
+
+Epoch 471
+Current learning rate: 0.00174
+2026-10-13 19:41:47.055248: 
+2026-10-13 19:41:47.056568: Epoch 471
+2026-10-13 19:41:47.057410: Current learning rate: 0.00174
+
+Epoch 472
+Current learning rate: 0.00172
+2026-10-13 19:43:27.546055: 
+2026-10-13 19:43:27.547678: Epoch 472
+2026-10-13 19:43:27.548522: Current learning rate: 0.00172
+
+Epoch 473
+Current learning rate: 0.0017
+2026-10-13 19:45:08.013872: 
+2026-10-13 19:45:08.015121: Epoch 473
+2026-10-13 19:45:08.015891: Current learning rate: 0.0017
+
+Epoch 474
+Current learning rate: 0.00168
+2026-10-13 19:46:48.559027: 
+2026-10-13 19:46:48.560448: Epoch 474
+2026-10-13 19:46:48.561276: Current learning rate: 0.00168
+
+Epoch 475
+Current learning rate: 0.00166
+2026-10-13 19:48:42.451494: 
+2026-10-13 19:48:42.452523: Epoch 475
+2026-10-13 19:48:42.453385: Current learning rate: 0.00166
+
+Epoch 476
+Current learning rate: 0.00164
+2026-10-13 19:50:22.868176: 
+2026-10-13 19:50:22.869461: Epoch 476
+2026-10-13 19:50:22.870215: Current learning rate: 0.00164
+
+Epoch 477
+Current learning rate: 0.00162
+2026-10-13 19:52:03.280008: 
+2026-10-13 19:52:03.281368: Epoch 477
+2026-10-13 19:52:03.282145: Current learning rate: 0.00162
+
+Epoch 478
+Current learning rate: 0.0016
+2026-10-13 19:53:43.715046: 
+2026-10-13 19:53:43.716326: Epoch 478
+2026-10-13 19:53:43.717072: Current learning rate: 0.0016
+
+Epoch 479
+Current learning rate: 0.00158
+2026-10-13 19:55:24.186275: 
+2026-10-13 19:55:24.187606: Epoch 479
+2026-10-13 19:55:24.188642: Current learning rate: 0.00158
+
+Epoch 480
+Current learning rate: 0.00156
+2026-10-13 19:57:07.700414: 
+2026-10-13 19:57:07.701216: Epoch 480
+2026-10-13 19:57:07.702184: Current learning rate: 0.00156
+
+Epoch 481
+Current learning rate: 0.00154
+2026-10-13 19:58:48.118496: 
+2026-10-13 19:58:48.119745: Epoch 481
+2026-10-13 19:58:48.120511: Current learning rate: 0.00154
+
+Epoch 482
+Current learning rate: 0.00152
+2026-10-13 20:00:28.521786: 
+2026-10-13 20:00:28.523079: Epoch 482
+2026-10-13 20:00:28.523855: Current learning rate: 0.00152
+
+Epoch 483
+Current learning rate: 0.0015
+2026-10-13 20:02:08.876673: 
+2026-10-13 20:02:08.878041: Epoch 483
+2026-10-13 20:02:08.878852: Current learning rate: 0.0015
+
+Epoch 484
+Current learning rate: 0.00148
+2026-10-13 20:03:49.260368: 
+2026-10-13 20:03:49.261799: Epoch 484
+2026-10-13 20:03:49.262672: Current learning rate: 0.00148
+
+Epoch 485
+Current learning rate: 0.00146
+2026-10-13 20:05:33.114599: 
+2026-10-13 20:05:33.115715: Epoch 485
+2026-10-13 20:05:33.116526: Current learning rate: 0.00146
+
+Epoch 486
+Current learning rate: 0.00144
+2026-10-13 20:07:13.458127: 
+2026-10-13 20:07:13.459618: Epoch 486
+2026-10-13 20:07:13.460411: Current learning rate: 0.00144
+
+Epoch 487
+Current learning rate: 0.00142
+2026-10-13 20:08:53.718819: 
+2026-10-13 20:08:53.720118: Epoch 487
+2026-10-13 20:08:53.720941: Current learning rate: 0.00142
+
+Epoch 488
+Current learning rate: 0.0014
+2026-10-13 20:10:33.985011: 
+2026-10-13 20:10:33.986269: Epoch 488
+2026-10-13 20:10:33.987076: Current learning rate: 0.0014
+
+Epoch 489
+Current learning rate: 0.00138
+2026-10-13 20:12:14.265012: 
+2026-10-13 20:12:14.266366: Epoch 489
+2026-10-13 20:12:14.267140: Current learning rate: 0.00138
+
+Epoch 490
+Current learning rate: 0.00136
+2026-10-13 20:13:57.991102: 
+2026-10-13 20:13:57.991891: Epoch 490
+2026-10-13 20:13:57.993181: Current learning rate: 0.00136
+
+Epoch 491
+Current learning rate: 0.00134
+2026-10-13 20:15:38.327508: 
+2026-10-13 20:15:38.329008: Epoch 491
+2026-10-13 20:15:38.329920: Current learning rate: 0.00134
+
+Epoch 492
+Current learning rate: 0.00132
+2026-10-13 20:17:18.695305: 
+2026-10-13 20:17:18.696627: Epoch 492
+2026-10-13 20:17:18.697391: Current learning rate: 0.00132
+
+Epoch 493
+Current learning rate: 0.0013
+2026-10-13 20:18:58.948929: 
+2026-10-13 20:18:58.950164: Epoch 493
+2026-10-13 20:18:58.951078: Current learning rate: 0.0013
+
+Epoch 494
+Current learning rate: 0.00128
+2026-10-13 20:20:39.288166: 
+2026-10-13 20:20:39.289547: Epoch 494
+2026-10-13 20:20:39.290450: Current learning rate: 0.00128
+
+Epoch 495
+Current learning rate: 0.00126
+2026-10-13 20:22:22.800040: 
+2026-10-13 20:22:22.800869: Epoch 495
+2026-10-13 20:22:22.801670: Current learning rate: 0.00126
+
+Epoch 496
+Current learning rate: 0.00124
+2026-10-13 20:24:03.184155: 
+2026-10-13 20:24:03.185574: Epoch 496
+2026-10-13 20:24:03.186334: Current learning rate: 0.00124
+
+Epoch 497
+Current learning rate: 0.00122
+2026-10-13 20:25:43.514616: 
+2026-10-13 20:25:43.515977: Epoch 497
+2026-10-13 20:25:43.516777: Current learning rate: 0.00122
+
+Epoch 498
+Current learning rate: 0.0012
+2026-10-13 20:27:23.854817: 
+2026-10-13 20:27:23.856288: Epoch 498
+2026-10-13 20:27:23.857097: Current learning rate: 0.0012
+
+Epoch 499
+Current learning rate: 0.00118
+2026-10-13 20:29:04.194016: 
+2026-10-13 20:29:04.195392: Epoch 499
+2026-10-13 20:29:04.196180: Current learning rate: 0.00118
+
+Epoch 500
+Current learning rate: 0.00116
+2026-10-13 20:30:55.533798: 
+2026-10-13 20:30:55.534642: Epoch 500
+2026-10-13 20:30:55.535457: Current learning rate: 0.00116
+
+Epoch 501
+Current learning rate: 0.00113
+2026-10-13 20:32:35.880511: 
+2026-10-13 20:32:35.881800: Epoch 501
+2026-10-13 20:32:35.882617: Current learning rate: 0.00113
+
+Epoch 502
+Current learning rate: 0.00111
+2026-10-13 20:34:16.260260: 
+2026-10-13 20:34:16.261637: Epoch 502
+2026-10-13 20:34:16.262388: Current learning rate: 0.00111
+
+Epoch 503
+Current learning rate: 0.00109
+2026-10-13 20:35:56.630722: 
+2026-10-13 20:35:56.632048: Epoch 503
+2026-10-13 20:35:56.632836: Current learning rate: 0.00109
+
+Epoch 504
+Current learning rate: 0.00107
+2026-10-13 20:37:36.901822: 
+2026-10-13 20:37:36.903236: Epoch 504
+2026-10-13 20:37:36.904135: Current learning rate: 0.00107
+
+Epoch 505
+Current learning rate: 0.00105
+2026-10-13 20:39:20.314934: 
+2026-10-13 20:39:20.315898: Epoch 505
+2026-10-13 20:39:20.317290: Current learning rate: 0.00105
+
+Epoch 506
+Current learning rate: 0.00103
+2026-10-13 20:41:00.779758: 
+2026-10-13 20:41:00.781035: Epoch 506
+2026-10-13 20:41:00.781811: Current learning rate: 0.00103
+
+Epoch 507
+Current learning rate: 0.00101
+2026-10-13 20:42:41.293222: 
+2026-10-13 20:42:41.294556: Epoch 507
+2026-10-13 20:42:41.295315: Current learning rate: 0.00101
+
+Epoch 508
+Current learning rate: 0.00099
+2026-10-13 20:44:21.729052: 
+2026-10-13 20:44:21.730586: Epoch 508
+2026-10-13 20:44:21.731426: Current learning rate: 0.00099
+
+Epoch 509
+Current learning rate: 0.00097
+2026-10-13 20:46:02.098571: 
+2026-10-13 20:46:02.099874: Epoch 509
+2026-10-13 20:46:02.100641: Current learning rate: 0.00097
+
+Epoch 510
+Current learning rate: 0.00095
+2026-10-13 20:47:46.097110: 
+2026-10-13 20:47:46.098042: Epoch 510
+2026-10-13 20:47:46.099036: Current learning rate: 0.00095
+
+Epoch 511
+Current learning rate: 0.00092
+2026-10-13 20:49:26.485616: 
+2026-10-13 20:49:26.486985: Epoch 511
+2026-10-13 20:49:26.487737: Current learning rate: 0.00092
+
+Epoch 512
+Current learning rate: 0.0009
+2026-10-13 20:51:06.878766: 
+2026-10-13 20:51:06.880117: Epoch 512
+2026-10-13 20:51:06.880881: Current learning rate: 0.0009
+
+Epoch 513
+Current learning rate: 0.00088
+2026-10-13 20:52:47.262967: 
+2026-10-13 20:52:47.264394: Epoch 513
+2026-10-13 20:52:47.265219: Current learning rate: 0.00088
+
+Epoch 514
+Current learning rate: 0.00086
+2026-10-13 20:54:27.542912: 
+2026-10-13 20:54:27.544234: Epoch 514
+2026-10-13 20:54:27.544979: Current learning rate: 0.00086
+
+Epoch 515
+Current learning rate: 0.00084
+2026-10-13 20:56:11.020049: 
+2026-10-13 20:56:11.020970: Epoch 515
+2026-10-13 20:56:11.021833: Current learning rate: 0.00084
+
+Epoch 516
+Current learning rate: 0.00082
+2026-10-13 20:57:51.355626: 
+2026-10-13 20:57:51.356809: Epoch 516
+2026-10-13 20:57:51.357984: Current learning rate: 0.00082
+
+Epoch 517
+Current learning rate: 0.00079
+2026-10-13 20:59:31.727833: 
+2026-10-13 20:59:31.729207: Epoch 517
+2026-10-13 20:59:31.729987: Current learning rate: 0.00079
+
+Epoch 518
+Current learning rate: 0.00077
+2026-10-13 21:01:12.071675: 
+2026-10-13 21:01:12.073014: Epoch 518
+2026-10-13 21:01:12.073797: Current learning rate: 0.00077
+
+Epoch 519
+Current learning rate: 0.00075
+2026-10-13 21:02:52.432299: 
+2026-10-13 21:02:52.433614: Epoch 519
+2026-10-13 21:02:52.434420: Current learning rate: 0.00075
+
+Epoch 520
+Current learning rate: 0.00073
+2026-10-13 21:04:36.221036: 
+2026-10-13 21:04:36.221889: Epoch 520
+2026-10-13 21:04:36.223382: Current learning rate: 0.00073
+
+Epoch 521
+Current learning rate: 0.00071
+2026-10-13 21:06:16.561802: 
+2026-10-13 21:06:16.563401: Epoch 521
+2026-10-13 21:06:16.564207: Current learning rate: 0.00071
+
+Epoch 522
+Current learning rate: 0.00069
+2026-10-13 21:07:56.975566: 
+2026-10-13 21:07:56.976842: Epoch 522
+2026-10-13 21:07:56.977614: Current learning rate: 0.00069
+
+Epoch 523
+Current learning rate: 0.00066
+2026-10-13 21:09:37.305732: 
+2026-10-13 21:09:37.307252: Epoch 523
+2026-10-13 21:09:37.308120: Current learning rate: 0.00066
+
+Epoch 524
+Current learning rate: 0.00064
+2026-10-13 21:11:17.629162: 
+2026-10-13 21:11:17.630475: Epoch 524
+2026-10-13 21:11:17.631314: Current learning rate: 0.00064
+
+Epoch 525
+Current learning rate: 0.00062
+2026-10-13 21:13:12.291475: 
+2026-10-13 21:13:12.292394: Epoch 525
+2026-10-13 21:13:12.293147: Current learning rate: 0.00062
+
+Epoch 526
+Current learning rate: 0.0006
+2026-10-13 21:14:52.683120: 
+2026-10-13 21:14:52.684464: Epoch 526
+2026-10-13 21:14:52.685205: Current learning rate: 0.0006
+
+Epoch 527
+Current learning rate: 0.00057
+2026-10-13 21:16:33.009737: 
+2026-10-13 21:16:33.011114: Epoch 527
+2026-10-13 21:16:33.011866: Current learning rate: 0.00057
+
+Epoch 528
+Current learning rate: 0.00055
+2026-10-13 21:18:13.400617: 
+2026-10-13 21:18:13.401993: Epoch 528
+2026-10-13 21:18:13.402915: Current learning rate: 0.00055
+
+Epoch 529
+Current learning rate: 0.00053
+2026-10-13 21:19:53.742996: 
+2026-10-13 21:19:53.744343: Epoch 529
+2026-10-13 21:19:53.745159: Current learning rate: 0.00053
+
+Epoch 530
+Current learning rate: 0.00051
+2026-10-13 21:21:37.221867: 
+2026-10-13 21:21:37.222800: Epoch 530
+2026-10-13 21:21:37.224051: Current learning rate: 0.00051
+
+Epoch 531
+Current learning rate: 0.00048
+2026-10-13 21:23:17.676693: 
+2026-10-13 21:23:17.677978: Epoch 531
+2026-10-13 21:23:17.678711: Current learning rate: 0.00048
+
+Epoch 532
+Current learning rate: 0.00046
+2026-10-13 21:24:58.064450: 
+2026-10-13 21:24:58.065831: Epoch 532
+2026-10-13 21:24:58.066626: Current learning rate: 0.00046
+
+Epoch 533
+Current learning rate: 0.00044
+2026-10-13 21:26:38.414290: 
+2026-10-13 21:26:38.415509: Epoch 533
+2026-10-13 21:26:38.416263: Current learning rate: 0.00044
+
+Epoch 534
+Current learning rate: 0.00041
+2026-10-13 21:28:18.960415: 
+2026-10-13 21:28:18.961773: Epoch 534
+2026-10-13 21:28:18.962679: Current learning rate: 0.00041
+
+Epoch 535
+Current learning rate: 0.00039
+2026-10-13 21:30:02.234459: 
+2026-10-13 21:30:02.235351: Epoch 535
+2026-10-13 21:30:02.236141: Current learning rate: 0.00039
+
+Epoch 536
+Current learning rate: 0.00037
+2026-10-13 21:31:42.638580: 
+2026-10-13 21:31:42.639837: Epoch 536
+2026-10-13 21:31:42.640643: Current learning rate: 0.00037
+
+Epoch 537
+Current learning rate: 0.00034
+2026-10-13 21:33:23.009038: 
+2026-10-13 21:33:23.010450: Epoch 537
+2026-10-13 21:33:23.011358: Current learning rate: 0.00034
+
+Epoch 538
+Current learning rate: 0.00032
+2026-10-13 21:35:03.419129: 
+2026-10-13 21:35:03.420402: Epoch 538
+2026-10-13 21:35:03.421154: Current learning rate: 0.00032
+
+Epoch 539
+Current learning rate: 0.0003
+2026-10-13 21:36:43.920705: 
+2026-10-13 21:36:43.921990: Epoch 539
+2026-10-13 21:36:43.922774: Current learning rate: 0.0003
+
+Epoch 540
+Current learning rate: 0.00027
+2026-10-13 21:38:27.281940: 
+2026-10-13 21:38:27.282871: Epoch 540
+2026-10-13 21:38:27.283993: Current learning rate: 0.00027
+
+Epoch 541
+Current learning rate: 0.00025
+2026-10-13 21:40:07.744297: 
+2026-10-13 21:40:07.745739: Epoch 541
+2026-10-13 21:40:07.746589: Current learning rate: 0.00025
+
+Epoch 542
+Current learning rate: 0.00022
+2026-10-13 21:41:48.156958: 
+2026-10-13 21:41:48.158195: Epoch 542
+2026-10-13 21:41:48.158972: Current learning rate: 0.00022
+
+Epoch 543
+Current learning rate: 0.0002
+2026-10-13 21:43:28.503896: 
+2026-10-13 21:43:28.505165: Epoch 543
+2026-10-13 21:43:28.505933: Current learning rate: 0.0002
+
+Epoch 544
+Current learning rate: 0.00017
+2026-10-13 21:45:08.719833: 
+2026-10-13 21:45:08.721140: Epoch 544
+2026-10-13 21:45:08.721969: Current learning rate: 0.00017
+
+Epoch 545
+Current learning rate: 0.00015
+2026-10-13 21:46:52.156762: 
+2026-10-13 21:46:52.157546: Epoch 545
+2026-10-13 21:46:52.158880: Current learning rate: 0.00015
+
+Epoch 546
+Current learning rate: 0.00012
+2026-10-13 21:48:32.542942: 
+2026-10-13 21:48:32.544305: Epoch 546
+2026-10-13 21:48:32.545059: Current learning rate: 0.00012
+
+Epoch 547
+Current learning rate: 9e-05
+2026-10-13 21:50:12.892062: 
+2026-10-13 21:50:12.893401: Epoch 547
+2026-10-13 21:50:12.894155: Current learning rate: 9e-05
+
+Epoch 548
+Current learning rate: 6e-05
+2026-10-13 21:51:53.319979: 
+2026-10-13 21:51:53.321393: Epoch 548
+2026-10-13 21:51:53.322161: Current learning rate: 6e-05
+
+Epoch 549
+Current learning rate: 3e-05
+2026-10-13 21:53:33.689928: 
+2026-10-13 21:53:33.691783: Epoch 549
+2026-10-13 21:53:33.692995: Current learning rate: 3e-05

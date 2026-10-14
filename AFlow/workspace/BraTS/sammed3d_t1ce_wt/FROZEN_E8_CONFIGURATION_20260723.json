@@ -1,0 +1,124 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_final_configuration_freeze",
+  "schema_version": 1,
+  "status": "frozen_before_test",
+  "frozen_at_utc": "2026-07-23T04:01:52Z",
+  "task": {
+    "input": "T1ce single channel",
+    "target": "binary WT",
+    "foreground_raw_labels": [
+      1,
+      2,
+      3
+    ],
+    "excluded_raw_labels": [
+      4
+    ]
+  },
+  "data": {
+    "outer_split": {
+      "manifest": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/split_manifest.json",
+      "manifest_sha256": "215df5594550d939707b25dc3671082ae68cb000b8c1fa9615d9bcb604c0bc25",
+      "seed": 20260722,
+      "train_cases": 1080,
+      "train_subjects": 494,
+      "test_cases": 270,
+      "test_subjects": 119,
+      "subject_overlap": 0
+    },
+    "inner_split": {
+      "manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/split_manifest.json",
+      "manifest_sha256": "4c4c072bdfb008cad2cf2945f17eb23f96df3f9ef4645bdde23b1cea1f74be8f",
+      "seed": 20260723,
+      "train_manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+      "train_manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+      "train_cases": 972,
+      "train_subjects": 444,
+      "validation_manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+      "validation_manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+      "validation_cases": 108,
+      "validation_subjects": 50,
+      "subject_overlap": 0
+    },
+    "sealed_test": {
+      "manifest": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/test_cases.jsonl",
+      "manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+      "seal": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/SEAL.json",
+      "seal_sha256": "ea8099726c5ed6fa71df9e6d599f6c29a0c27efd862603109d1af43487b628e6",
+      "accessed_during_training_or_selection": false
+    }
+  },
+  "preprocessing": {
+    "orientation": "TorchIO ToCanonical",
+    "geometry": "GT-centered CropOrPad 128^3 after WT mapping",
+    "normalization": "positive-voxel z-score with sample standard deviation"
+  },
+  "interaction": {
+    "num_clicks": 3,
+    "first_click": "uniform GT foreground positive",
+    "later_clicks": "uniform prediction XOR GT",
+    "corrective_labels": "FN positive; FP negative",
+    "points": "all prior points accumulated",
+    "mask_prompt": "previous low-resolution mask recurrently supplied",
+    "prediction_threshold": "raw logit > 0"
+  },
+  "training": {
+    "strategy": "prompt encoder and mask decoder trainable; image encoder frozen",
+    "loss": "mean MONAI DiceCELoss over all three click predictions",
+    "epochs": 10,
+    "batch_size": 1,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "amp_dtype": "bf16",
+    "seed": 20260723,
+    "trainable_parameters": 7584304,
+    "total_parameters": 100509232
+  },
+  "selection": {
+    "metric": "validation final-click scan-macro Dice",
+    "best_epoch": 8,
+    "trainer_validation_dice": 0.5368570731095841,
+    "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/decoder_cumulative3_logit0_train972_val108_e10_s20260723_v3_isolated/sam_model_val_dice_best.pth",
+    "checkpoint_sha256": "4a325a6ffca148941c5d66f4802f331d13b8ddb7862da299981e8fd6be84d7c8"
+  },
+  "independent_validation": {
+    "base_report": "workspace/BraTS/sammed3d_t1ce_wt/base_val108_cumulative3_s20260723.json",
+    "base_report_sha256": "2e5477f0a277e71209a80eb25751e3aea2e9ef3effdec44db0e653c1cc1390db",
+    "base_scan_macro_dice_c1_c2_c3": [
+      0.22487328173808047,
+      0.27318623630898325,
+      0.30731176609196625
+    ],
+    "base_subject_balanced_dice_c3": 0.30261130038902,
+    "selected_report": "workspace/BraTS/sammed3d_t1ce_wt/best_e8_val108_cumulative3_s20260723.json",
+    "selected_report_sha256": "df6cd4efa9df2b757f27551f135d8e9f20dbca6a188c69c55421e9bebc2eb95e",
+    "selected_scan_macro_dice_c1_c2_c3": [
+      0.5148822210700196,
+      0.5307658325274646,
+      0.5358880711676558
+    ],
+    "selected_subject_balanced_dice_c3": 0.5353692764043558,
+    "c3_absolute_gain_over_base": 0.22857630507568955
+  },
+  "provenance": {
+    "base_checkpoint": "../SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "historical_trainer": "scripts/train_sammed3d_brats.py",
+    "historical_trainer_sha256": "0c5026e98b2e0f848c16b436610e9b7eca391995c062ac128ce1bee26d1bfa4f",
+    "protocol_module": "sammed3d/t1ce_wt_prompt.py",
+    "protocol_module_sha256": "d0e28094a31c90d1dc2fdb7e18828e37138983bf79ce6071dcb4d883b85f09a4",
+    "training_wrapper": "scripts/train_sammed3d_t1ce_wt.py",
+    "training_wrapper_sha256": "aa34738d773c9b402b91503e988b9700c437afc51bdcfe5f7ffae913e03c18ef",
+    "evaluator": "scripts/evaluate_sammed3d_t1ce_wt_checkpoint.py",
+    "evaluator_sha256": "f1d64b090252da0dfb49fdfdcb3f5307572c635080eb7508d3bf8a0e2ad22ebc",
+    "run_protocol": "workspace/BraTS/sammed3d_t1ce_wt/decoder_cumulative3_logit0_train972_val108_e10_s20260723_v3_isolated/t1ce_wt_protocol.json",
+    "run_protocol_sha256": "c17b1388a92106c95becb8afe6371b0eea2a059291e8477f3c18893e4c5e8657"
+  },
+  "test_authorization": {
+    "evaluations_allowed": 1,
+    "seed": 20260723,
+    "checkpoint_locked": true,
+    "threshold_tta_postprocess_search": false,
+    "medtaws_search": false
+  }
+}

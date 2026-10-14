@@ -1,0 +1,61 @@
+{
+  "schema": "aflow.remind.source_audit.result",
+  "status": "metadata_candidate_ready_both_nrrd_and_dicomseg_probes_failed_before_array_qc",
+  "official_collection": {
+    "subjects": 114,
+    "institution": "Brigham and Women's Hospital",
+    "license": "CC BY 4.0",
+    "series": 1346,
+    "modalities": {"MR": 670, "SEG": 356, "US": 320},
+    "preop_t1_postcontrast_patients": 105,
+    "preop_t1_postcontrast_bytes": 3803222860,
+    "preop_t1_postcontrast_instances": 20416
+  },
+  "candidate_cohort": {
+    "cases": 43,
+    "diagnoses": {"Glioblastoma": 19, "Astrocytoma": 15, "Oligodendroglioma": 9},
+    "enhancement": {"Yes": 35, "No": 8},
+    "t1ce_referenced_manual_tumor": 43,
+    "t1ce_referenced_automatic_cerebrum": 34,
+    "cohort_sha256": "8118827aa001dead98cc8cc1f6ee5a2fa9b797a6a8797329ba22f4766d669536"
+  },
+  "publisher_inventory": {
+    "nrrd_paths": 356,
+    "browse_nrrd_paths": 315,
+    "sums_only_paths": 41,
+    "published_md5_all_empty_file_value": true,
+    "official_sums_sha256": "6daa7391546fca3d4a9bc985241c8f499726f9b3116617efcc89d53f2ece5116"
+  },
+  "probe": {
+    "case_id": "ReMIND-002",
+    "status": "failed_second_independent_nrrd_transfer",
+    "dicom_instances": 192,
+    "dicom_bytes_match_official": true,
+    "nrrd_first_transfer_size_match": true,
+    "nrrd_second_transfer": "SSH connection failure before files",
+    "array_qc": false
+  },
+  "access": {
+    "probe_pixels_downloaded_not_decoded": true,
+    "segmentation_voxels": false,
+    "other_candidate_pixels": false,
+    "model_forwards": 0,
+    "metrics": false
+  },
+  "dicomseg_probe": {
+    "downloads_reproduced": true,
+    "projected_gap_max_median_error_mm": 0.000860437118127777,
+    "frozen_tolerance_mm": 0.00001,
+    "pixel_array_access": false,
+    "status": "failed_source_slice_gap_exactness"
+  },
+  "physical_grid_probe": {
+    "source_intervals_passed": true,
+    "tumor_max_layer_residual": 5.794626545707615e-06,
+    "cerebrum_max_layer_residual": 2.417266910681448e-05,
+    "seg_pixel_array_access": false,
+    "nearest_mapping_executed": false,
+    "status": "failed_seg_internal_spacing_interval"
+  },
+  "next_decision": "do not tune ReMIND geometry tolerance/case/decoder in this round; preserve43 metadata candidates without model evaluation"
+}

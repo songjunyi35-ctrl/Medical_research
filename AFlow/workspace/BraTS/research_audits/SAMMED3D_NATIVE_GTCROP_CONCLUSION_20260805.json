@@ -1,0 +1,126 @@
+{
+  "schema": "aflow.sammed3d.arm_conclusion",
+  "schema_version": 1,
+  "run_identity": "sammed3d_native_gtcrop_fullunfreeze_ddp2_train972_val108_e100_s20260805",
+  "created_utc": "2026-08-05",
+  "preregistration": {
+    "path": "workspace/BraTS/research_audits/SAMMED3D_NATIVE_GTCROP_PREREG_20260805.md",
+    "sha256": "c13ae3925108977eaca7b1b2654d4bc6650bec90adfc7eb5aa2d25711bbc0ebc"
+  },
+  "design": {
+    "type": "single-factor contrast against the whole-resize full-unfreeze arm",
+    "the_one_factor_changed": "spatial geometry: whole-volume resize to 128^3  ->  SAM-Med3D's native label-centred CropOrPad(128^3) at native resolution",
+    "held_identical": [
+      "N4 bias field correction, shrink 2",
+      "full image-encoder unfreeze, 100,509,232 trainable",
+      "AdamW encoder 1e-4 / heads 1e-5, weight decay 0.1",
+      "effective batch 12 (per-GPU 2 x 2 GPUs x 3 accumulation), BF16",
+      "3 accumulated corrective clicks with recurrent low-resolution mask",
+      "frozen 972/108 split, train seed 20260805, validation seed 20260723"
+    ],
+    "schedule_differences_disclosed": "max_epochs 200->100, milestones [120,180]->[60,90] (same 60%/90% fractions), patience 40->101 i.e. no early stop. The baseline arm's patience was smaller than its first milestone, so its LR never decayed; this arm was configured so the decay is reachable."
+  },
+  "training": {
+    "completed_epochs": 100,
+    "max_epochs": 100,
+    "selected_epoch": 48,
+    "selected_trainer_val_dice": 0.6386761956641244,
+    "final_epoch_train_dice": 0.790554605194448,
+    "final_epoch_val_dice": 0.6291553382222816,
+    "new_high_epochs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "11",
+      "12",
+      "14",
+      "48"
+    ],
+    "peak_cuda_memory_bytes": 13319896576,
+    "checkpoint_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+    "strict_reload": {
+      "adapters_enabled": false,
+      "bitwise_identical": true,
+      "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/sammed3d_native_gtcrop_fullunfreeze_ddp2_train972_val108_e100_s20260805/sam_model_val_dice_best.pth",
+      "checkpoint_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+      "epoch": 48,
+      "strict_state_load": true,
+      "total_parameters": 100509232,
+      "trainable_parameters": 100509232,
+      "unfreeze_policy": "full"
+    }
+  },
+  "lr_decay_finding": {
+    "claim": "the MultiStepLR decay produced no validation improvement",
+    "epochs_55_59_mean_val": 0.629736,
+    "epochs_60_65_mean_val": 0.628948,
+    "implication": "The baseline arm stopped at epoch 64 and never reached its milestone at 120. That was a real design flaw, but this arm shows it cost nothing scientifically: making the decay reachable did not recover any headroom."
+  },
+  "independent_validation_108": {
+    "3": {
+      "report": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_native_gtcrop_fullunfreeze_ddp2_train972_val108_e100_s20260805/INDEPENDENT_VALIDATION_108_GTCROP_3CLICK_20260805.json",
+      "report_sha256": "15aaf1720477dd0d5bf98081d013c0df6247c87b4da4ee7824c0323e1d7ffcf4",
+      "num_clicks": 3,
+      "final_click_scan_macro": 0.6380564026652955,
+      "final_click_subject_balanced": 0.6336516827227248,
+      "final_click_scan_median": 0.6700241261507863,
+      "final_click_iou_mean": 0.48756861902993326,
+      "per_click_scan_macro": {
+        "1": 0.6273802271820883,
+        "2": 0.6352140360565133,
+        "3": 0.6380564026652955
+      }
+    },
+    "5": {
+      "report": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_native_gtcrop_fullunfreeze_ddp2_train972_val108_e100_s20260805/INDEPENDENT_VALIDATION_108_GTCROP_5CLICK_20260805.json",
+      "report_sha256": "f1668771fcb6b32ef986122e6f97f8c4cdccc85edfbe525459f06410c37beacd",
+      "num_clicks": 5,
+      "final_click_scan_macro": 0.6431155074201892,
+      "final_click_subject_balanced": 0.6388563072259315,
+      "final_click_scan_median": 0.6754191367561642,
+      "final_click_iou_mean": 0.49252965380852975,
+      "per_click_scan_macro": {
+        "1": 0.6273802271820883,
+        "2": 0.6352140360565133,
+        "3": 0.6380564026652955,
+        "4": 0.6400630359867854,
+        "5": 0.6431155074201892
+      }
+    }
+  },
+  "single_factor_comparison": {
+    "note": "both readouts are the 108-case clean validation, seed 20260723, each model evaluated on the preprocessing it was trained with",
+    "whole_resize_arm": {
+      "selected_epoch": 24,
+      "trainer_val_dice": 0.5677144756471669,
+      "scan_macro_c3": 0.5632824412736656,
+      "subject_balanced_c3": 0.5517716211479382
+    },
+    "gt_crop_arm": {
+      "selected_epoch": 48,
+      "trainer_val_dice": 0.6386761956641244,
+      "scan_macro_c3": 0.6380564026652955,
+      "subject_balanced_c3": 0.6336516827227248
+    },
+    "delta_scan_macro_c3": 0.074774,
+    "delta_subject_balanced_c3": 0.08188,
+    "attribution": "Attributable to the spatial protocol, since every other training and evaluation factor was held identical. Corroborated by the measured 3.44x increase in target voxel fraction (108/108 cases)."
+  },
+  "click_budget_finding": {
+    "three_click_scan_macro": 0.6380564026652955,
+    "five_click_scan_macro": 0.6431155074201892,
+    "delta": 0.005059,
+    "note": "5 clicks is SAM-Med3D's official --num_clicks default; 3 is this project's frozen protocol. Evaluation-side only, no retraining."
+  },
+  "critical_caveat": {
+    "oracle_localization": "The label-centred crop uses the ground-truth mask to place the field of view at inference. Any Dice from this arm is an INTERACTIVE ORACLE UPPER BOUND and must never be listed alongside automatic methods such as nnU-Net 0.728 or U-Mamba 0.815, which localize the lesion themselves.",
+    "reference_instability": "DPD-SAM reports SAM-Med3D 74.1 without disclosing its prompt protocol; BCGFMamba transcribes the same row as 0.731, which does not match DPD-SAM's own table. The reference value is of unknown protocol and is not internally consistent across the two papers.",
+    "correct_claim": "If this arm lands near 0.72-0.74, the defensible statement is that it reproduces SAM-Med3D's reported operating point under SAM-Med3D's own native oracle-interactive protocol -- never that it matches the automatic baselines."
+  },
+  "test_access": false,
+  "test_status": "The sealed 270-case test was NOT read by this arm. It has already been consumed 5 times; a further evaluation needs an explicit operator decision and a fresh frozen configuration."
+}

@@ -1,0 +1,3 @@
+# Batch skull-stripping using SynthStrip
+
+This makes use `skullstrip.py` (adapted from https://github.com/freesurfer/freesurfer/blob/dev/mri_synthstrip/synthstrip) for the core functions and `skullstrip_batch.py` for the batch processing. See the command-line options by running `uv run skullstrip_batch.py`. Access `https://surfer.nmr.mgh.harvard.edu/docs/synthstrip/requirements/synthstrip.1.pt` to download the model weights.

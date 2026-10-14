@@ -1,0 +1,67 @@
+{
+  "utc": "2026-09-24T07:20:41.272575+00:00",
+  "status": "stopped50",
+  "last_complete_epoch": 50,
+  "completed_updates": 6100,
+  "best_epoch": 49,
+  "best_validation": {
+    "cases": 108,
+    "subjects": 50,
+    "locator_dsc_mean": 0.718758501664356,
+    "locator_dsc_median": 0.7698094844818115,
+    "locator_dsc_std_population": 0.16956116405912322,
+    "locator_subject_dsc_mean": 0.708113726079464,
+    "automatic_point_hit_rate": 0.9351851851851852,
+    "epoch": 49,
+    "created_utc": "2026-09-24T07:18:30.358062+00:00",
+    "role": "reused fixed validation108/50",
+    "grid": "native 1mm image-only brain crop (canvas padding excluded)",
+    "threshold_raw_logit": 0,
+    "test_access": false
+  },
+  "reference_old_combo166": {
+    "cases": 108,
+    "subjects": 50,
+    "locator_dsc_mean": 0.751178640458319,
+    "locator_dsc_median": 0.7969484031200409,
+    "locator_dsc_std_population": 0.15576897370136478,
+    "locator_subject_dsc_mean": 0.7394744179646174,
+    "automatic_point_hit_rate": 0.8240740740740741,
+    "epoch": 166,
+    "created_utc": "2026-09-21T12:01:21.383224+00:00",
+    "role": "reused fixed validation108/50",
+    "grid": "native 1mm image-only brain crop (canvas padding excluded)",
+    "threshold_raw_logit": 0,
+    "test_access": false
+  },
+  "paired_old_to_candidate": {
+    "scan_delta": -0.03242013879396297,
+    "subject_delta": -0.031360691885153454,
+    "scan_delta_ci95": [
+      -0.04078991406500272,
+      -0.024388176195276043
+    ],
+    "subject_delta_ci95": [
+      -0.04006147914149222,
+      -0.02343783505793129
+    ],
+    "point_hits_delta": 12,
+    "improved_scans": 14,
+    "worse_scans": 94,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient cluster paired percentile95 seed20260918"
+  },
+  "promotion_gate_passed": false,
+  "target_scan": 0.761178640458319,
+  "point_floor": 89,
+  "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/native_multiscale_20260924/best.pth",
+  "checkpoint_sha256": "af6fa7773adb6f32632b0d3c99179d3ffe40cf6c982f58aade48ffae3fb0cd18",
+  "selected_validation_report_sha256": "e7793c56449c7f573e658102526d0008fa4ba2fa3dfbfb36c8c33736584d0550",
+  "source_pretrain_sha256": "3726eac66918b7afd32ae93500a554534d27528bc86a0fe9dd2a626ce5ac6b76",
+  "source_cache_data_audit_sha256": "65374d48b94e945322a1141c3ab2af6830fab60998822c1ff02d5330e8d652f5",
+  "reload_check_sha256": "7e87b2cd856f3d0ca256b3d99743f4e6a2a0bafc23b6e53f1b8744be83797d4f",
+  "test_tuned_development": true,
+  "new_test_model_forward": false,
+  "new_outer_confirmation_access": false,
+  "cost_note": "2 GPUs; exact wall and peak resources from supervisor/train logs; auxiliary heads discarded for deployment"
+}

@@ -1,0 +1,90 @@
+{
+  "analyzer_sha256": "b4b81c28190d297a92bc834fa59158897fc7b084870791651d543687069ef9e9",
+  "cohort_sha256": "965b2fe0f331d782dbb6bb136d6089c1181419a9a75dbd8f198cbeff33284180",
+  "created_at_utc": "2026-09-06T05:26:37.598526+00:00",
+  "evidence_scope": "new patients relative to revealed WAW preop152; public postoperative earliest numeric day0-22; institution-disjoint/no external patient bridge; not hidden blind",
+  "frozen": {
+    "all_geometry_exact": true,
+    "cases": 31,
+    "days_postop_counts": {
+      "0.0": 7,
+      "1.0": 17,
+      "10.49583333332703": 1,
+      "11.0": 1,
+      "16.0": 1,
+      "2.0": 2,
+      "22.0": 1,
+      "3.0": 1
+    },
+    "days_postop_max": 22.0,
+    "days_postop_min": 0.0,
+    "grade_counts": {
+      "2": 1,
+      "3": 1,
+      "4": 29
+    },
+    "preop_patient_overlap": 0,
+    "raw_label_case_presence": {
+      "0": 31,
+      "1": 12,
+      "2": 31,
+      "3": 25,
+      "4": 30
+    },
+    "subjects": 31,
+    "wt_voxels_min_median_max": [
+      13253,
+      67864.0,
+      204337
+    ]
+  },
+  "model_or_large_image_access": {
+    "cache": false,
+    "checkpoint": false,
+    "model_forwards": 0,
+    "performance": false,
+    "postop_coreg_archive": false
+  },
+  "patient_difference": {
+    "blank_days_only_subjects": [
+      "244",
+      "305",
+      "330",
+      "711"
+    ],
+    "blank_days_scans": 6,
+    "evaluated_preop_patients": 152,
+    "later_numeric_scans_excluded_by_earliest_per_subject": 17,
+    "postop_only_numeric_days_scans": 48,
+    "postop_only_numeric_days_subjects": 31,
+    "postop_only_patients": 35,
+    "postop_only_scans": 54,
+    "postop_patients_overlapping_preop": 57
+  },
+  "release_description_vs_final": {
+    "described_postop_exams": 161,
+    "final_postop_exams": 160,
+    "final_postop_patients": 92,
+    "strict_t1c_mask_pairs": 160
+  },
+  "schema": "aflow.waw.postop_only31.source_audit",
+  "schema_version": 1,
+  "source_files": {
+    "1_0_clinical_molecular_data.csv": {
+      "bytes": 23110,
+      "official_md5": "7dd4f66797b768853898e77de76cda44",
+      "sha256": "a33af75225099052830e7f5480df07c5027b889f12fdd4123e9a50fdbf2907a2"
+    },
+    "2_2_postop_scans_coreg_meta.csv": {
+      "bytes": 213788,
+      "official_md5": "55ed0b77b9dbe9a604843f0924897138",
+      "sha256": "ce84d457743ccbe7f72c4b5341eba31f196ddd0f573dd9403c9ac68e97f88dfd"
+    },
+    "3_2_postop_masks.zip": {
+      "bytes": 2582024,
+      "official_md5": "e1d3548ee99cdcf11e5f444be20dea73",
+      "sha256": "e40644097df0555ae9de757525daee210e8c94ff226a9fc25c9988781385d572"
+    }
+  },
+  "zenodo_record": 22205631
+}

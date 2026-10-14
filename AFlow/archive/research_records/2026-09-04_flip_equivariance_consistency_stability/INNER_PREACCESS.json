@@ -1,0 +1,123 @@
+{
+  "access": {
+    "confirmation": false,
+    "fit": true,
+    "fixed_validation108": false,
+    "inner_metrics": false,
+    "outer": false,
+    "test270": false,
+    "ucsd_external75": false
+  },
+  "bootstrap_samples": 10000,
+  "created_at_utc": "2026-09-05T00:37:33.202571+00:00",
+  "documents": {
+    "amendment_sha256": "80604f241a6a220bee667019721cd76c5785f88a56f8ae17cc6fe99f9ea84ad4",
+    "idea_sha256": "a71b75ff8c7b775fc0606141c5b1c6258aeaf4670ec990c819dedb13f85e1175",
+    "prereg_sha256": "7ae74cd1891a4a67efa064ca2dffd4560064657661fd4d824902aff02bac5809"
+  },
+  "evaluator": "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_t1ce_wt_flip_equivariance_consistency_inner.py",
+  "evaluator_sha256": "1c3071fa6f72a1edb621eae0b3b7e879e451f65edbd5bdeed7c58130bb01fbe9",
+  "fixed_epoch": 168,
+  "gates": "per IDEA/PREREG/AMENDMENT_01; no post-training change",
+  "inner_manifests": {
+    "c": {
+      "cases": 108,
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_flip_equivariance_consistency_20260904/replicate_c_inner_cases.jsonl",
+      "sha256": "f0266156d9e308d95ce1325e820abafb2e94e291e0955aa4071246c64132f124",
+      "subjects": 49
+    },
+    "d": {
+      "cases": 108,
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_flip_equivariance_consistency_20260904/replicate_d_inner_cases.jsonl",
+      "sha256": "3d68394df9f98c392593324083afbcec47218ba29ee52d90f3d15fca6119127f",
+      "subjects": 49
+    }
+  },
+  "pairing_gates": {
+    "c": {
+      "all_augmentation_rng_after_exact": true,
+      "all_augmentation_rng_before_exact": true,
+      "all_passed": true,
+      "all_reflection_schedules_exact": true,
+      "all_sampler_indices_exact": true,
+      "all_training_gates_passed": true,
+      "all_two_forwards": true,
+      "first_augmented_batch_exact": true,
+      "first_axes_exact": true,
+      "first_consistency_loss_exact": true,
+      "first_existing_loss_exact": true,
+      "initial_state_exact": true,
+      "sampling_weights_exact": true
+    },
+    "d": {
+      "all_augmentation_rng_after_exact": true,
+      "all_augmentation_rng_before_exact": true,
+      "all_passed": true,
+      "all_reflection_schedules_exact": true,
+      "all_sampler_indices_exact": true,
+      "all_training_gates_passed": true,
+      "all_two_forwards": true,
+      "first_augmented_batch_exact": true,
+      "first_axes_exact": true,
+      "first_consistency_loss_exact": true,
+      "first_existing_loss_exact": true,
+      "initial_state_exact": true,
+      "sampling_weights_exact": true
+    }
+  },
+  "schema": "aflow.brats.flip_equivariance_consistency.inner_preaccess",
+  "schema_version": 1,
+  "split_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_flip_equivariance_consistency_20260904/split_manifest.json",
+  "split_manifest_sha256": "c18f81618de6d08a7769447746476a1c1da62f624d62e00ea6947ac8dcd2747e",
+  "status": "frozen_after_four_trainings_before_inner_access",
+  "train_cache": {
+    "index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train"
+  },
+  "training_artifacts": {
+    "c": {
+      "candidate_w01": {
+        "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip_equivariance_consistency_20260904/formal_c_candidate_w01/fixed_epoch168.pth",
+        "checkpoint_sha256": "93e97fd6b2d3c61d3165f8bb600d31d4486bbd280c425ede1b9d8cb0b9af9da9",
+        "consistency_weight": 0.1,
+        "initial_state_sha256": "872bc5517feb112fe35408b7cbf0767e0c0eeda80e3fb2221ca5efbf4bae43c6",
+        "model_state_sha256": "e7cf3ad2c9769d8199d440e1a504c38b77b39f7bb3b7d802e9716beb2b278ab1",
+        "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip_equivariance_consistency_20260904/formal_c_candidate_w01/TRAIN_DONE.json",
+        "report_sha256": "af445750277dd6a408b9e3ad7cb8aebeb82c47a8277128dd7dce391bed40d3a1",
+        "sampling_weight_sha256": "059fdbdfed233fab50a6e508ee4b4dd88786c442cf2ed2e24d04fe69ccc13f15"
+      },
+      "control_w0": {
+        "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip_equivariance_consistency_20260904/formal_c_control_w0/fixed_epoch168.pth",
+        "checkpoint_sha256": "87e76ab640f4c5ea2a4877c9914a02af47be57d029069348efeefa0aba792091",
+        "consistency_weight": 0.0,
+        "initial_state_sha256": "872bc5517feb112fe35408b7cbf0767e0c0eeda80e3fb2221ca5efbf4bae43c6",
+        "model_state_sha256": "49f46b808580606132d4a53bf6c0541696b96444491966793884f09952c80b4e",
+        "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip_equivariance_consistency_20260904/formal_c_control_w0/TRAIN_DONE.json",
+        "report_sha256": "fb62a4e111e593a2d370a09f9721c38f4d12f1c1dd681464e94db76ddd08f7a5",
+        "sampling_weight_sha256": "059fdbdfed233fab50a6e508ee4b4dd88786c442cf2ed2e24d04fe69ccc13f15"
+      }
+    },
+    "d": {
+      "candidate_w01": {
+        "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip_equivariance_consistency_20260904/formal_d_candidate_w01/fixed_epoch168.pth",
+        "checkpoint_sha256": "4f164f4fda887a1795c696ebb29b2031cf0a0d466294f89401ab4bb9425d9b8e",
+        "consistency_weight": 0.1,
+        "initial_state_sha256": "cb16fcd554186fddd7d8be16321ad55880a88d094ad813ded6964a76e49a6779",
+        "model_state_sha256": "c9f2ed68647ce79be77f3fb766332b7f63fa098f4296aa97ab503424dfa04eb6",
+        "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip_equivariance_consistency_20260904/formal_d_candidate_w01/TRAIN_DONE.json",
+        "report_sha256": "7b389a85a1aa589203e56fe3713ccb3ac50d563da3810bc96cc704b01da47818",
+        "sampling_weight_sha256": "bd68fd59f70533b97809ff3636d70a469842dd28e15ebe396c81febdd40772cb"
+      },
+      "control_w0": {
+        "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip_equivariance_consistency_20260904/formal_d_control_w0/fixed_epoch168.pth",
+        "checkpoint_sha256": "4e10e8a48f245952ab6a9dde41b9e6d9f5c3f46e9e3522a67258c99f25c7d731",
+        "consistency_weight": 0.0,
+        "initial_state_sha256": "cb16fcd554186fddd7d8be16321ad55880a88d094ad813ded6964a76e49a6779",
+        "model_state_sha256": "bf2d7ec20724893b030d56cd42fb30fa7587deb6692bda70ac7c965fc5feadce",
+        "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip_equivariance_consistency_20260904/formal_d_control_w0/TRAIN_DONE.json",
+        "report_sha256": "41532b6b66f3b7d33f5fa0bed621b9a323deadc29490d7f7a29b06781cfba15e",
+        "sampling_weight_sha256": "bd68fd59f70533b97809ff3636d70a469842dd28e15ebe396c81febdd40772cb"
+      }
+    }
+  }
+}

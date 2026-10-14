@@ -1,0 +1,21 @@
+{
+  "schema": "aflow.egd.source_feasibility",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T01:05:00Z",
+  "status": "scientifically_eligible_manual_binary_wt_but_external_dua_account_blocked",
+  "source": {
+    "institution": "Erasmus MC, Rotterdam, Netherlands",
+    "official_project": "https://xnat.bmia.nl/data/archive/projects/egd",
+    "paper_doi": "10.1016/j.dib.2021.107191",
+    "downloader_doi": "10.5281/zenodo.4761088",
+    "paper_fulltext_xml_sha256": "fb6c9845a653468c69e6b8b2e2f6badc3401cc838547febb93f1be98b796bdef",
+    "anonymous_project_json_sha256": "4062e422f30b6d78fad9438e305d0a6e4bcb9e097020eb9348dada025d083c52"
+  },
+  "cohort": {"patients": 774, "preoperative": true, "manual_binary_wt_patients": 374, "automatic_mask_patients": 400, "modalities_per_patient": ["T1", "T1GD", "T2", "FLAIR"]},
+  "manual_target": {"filename": "MASK.nii.gz", "tumor_value": 1, "background_value": 0, "drawing_basis": "T2 or T2-FLAIR", "observer_codes": ["OBS1", "OBS2", "OBS3", "OBS4"]},
+  "automatic_target_policy": "exclude AUTO from any manual-label external ranking",
+  "access_gate": {"project_metadata_anonymous": true, "subjects_endpoint_http_status": 403, "contact": "servicedesk@health-ri.nl", "data_usage_agreement_required": true, "institutional_user_action_required": true},
+  "access": {"subject_ids": 0, "patient_metadata": 0, "images": 0, "labels": 0, "model_forwards": 0, "gpu": false, "internal_test270": false, "fixed_validation108": false, "outer": false, "confirmation": false, "ucsd75": false},
+  "patient_disjointness": {"established": false, "reason": "subject list and source-overlap audit unavailable before DUA-backed account"},
+  "next_decision": "user/institution may contact Health-RI and sign DUA; after account creation run metadata-only manual/quality/overlap audit before any NIfTI access"
+}

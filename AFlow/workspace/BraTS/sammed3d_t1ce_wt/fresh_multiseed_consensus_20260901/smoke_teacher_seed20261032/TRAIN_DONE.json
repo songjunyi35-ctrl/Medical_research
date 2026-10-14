@@ -1,0 +1,67 @@
+{
+  "access": {
+    "confirmation": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "test270": false,
+    "train_only_inner": false
+  },
+  "all_gates_passed": true,
+  "arm": "teacher_seed20261032",
+  "checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fresh_multiseed_consensus_20260901/smoke_teacher_seed20261032/plain_teacher_seed20261032_epoch1.pth",
+    "sha256": "778c52ce872425a74b46ecb18742c25e667366147c15af0e1a5d1bc62eff1da4"
+  },
+  "created_at_utc": "2026-09-01T03:56:49.465375+00:00",
+  "data_role": {
+    "cases": 8,
+    "fit": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_consensus_distill_inner_seed20261030_v2/fit_cases.jsonl",
+      "sha256": "f46a2158fb9cbc7a797321cee13bdd97bf372750c4146b4a0dbe89e8f0e7edb8"
+    },
+    "subjects": 3
+  },
+  "documents": {
+    "idea_sha256": "97b048fd71c6b2ad7d4266497ce6a074f27cedd98c22e60bb926fad8ce1fc0d4",
+    "prereg_sha256": "120d1f00899d1d0d51910b063a4e9301b26b7e0f584fc1c78938c0a0546bdb73",
+    "split_sha256": "b88fe33fd353035d271afbea0fb8e3c349f78b3206a60fcdacae2654c7cc6dae"
+  },
+  "elapsed_seconds": 3.782238483428955,
+  "gates": {
+    "all_losses_finite": true,
+    "all_steps_exact": true,
+    "checkpoint_reload_exact": true,
+    "elapsed_within_6h": true,
+    "epoch_count_exact": true,
+    "peak_at_most_24gib": true
+  },
+  "history": [
+    {
+      "consumed_draws": 16,
+      "elapsed_seconds": 3.573443651199341,
+      "epoch": 1,
+      "learning_rate": 0.0002,
+      "optimizer_steps": 2,
+      "train_dice": 0.0049415267021686304,
+      "train_kd_loss": 2.6272401809692383,
+      "train_loss": 1.8421967029571533,
+      "train_supervised_loss": 1.0540246367454529
+    }
+  ],
+  "initial_state_sha256": "eb7e4aad10ace6dd1a031a030d03eee979295c1421c643fd0f720d7c890c0741",
+  "model_state_sha256": "d3b95f2b1d1b26a3e9bacad2ec7e162f28e110118701f105c088b4f3415a016e",
+  "peak_gpu_memory_bytes": 21788258304,
+  "runner_sha256": "8d49d453506164ae161dab2810544ca9601f09ea5c5383aced7c10466ea9c93e",
+  "sampling_contract": {
+    "consumed_draws": 16,
+    "native_weight_sha256": "6f80b3a44bdc8cf8f1172619a7094a9983ed5e08c8eb020b1e657fed89f795de",
+    "optimizer_steps": 2,
+    "population_count": 8,
+    "replacement": true,
+    "requested_draws": 16
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_consensus_seed_teacher",
+  "schema_version": 1,
+  "seed": 20261032,
+  "status": "complete"
+}

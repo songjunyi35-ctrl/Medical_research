@@ -1,0 +1,84 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_residual_refiner_result",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-10T05:05:46Z",
+  "test_access": false,
+  "mainline": {
+    "modality": "T1ce only",
+    "target": "WT={1,2,3}; raw label 4 excluded",
+    "split": "972 train / 108 validation, subject-clean",
+    "input_shape": "128^3",
+    "prompt_protocol": "3 accumulated corrective clicks; click 1 GT foreground; clicks 2/3 XOR error; recurrent low-resolution mask",
+    "decision_rule": "raw logit > 0",
+    "sealed_test": "not accessed"
+  },
+  "experiment": {
+    "name": "full-resolution T1ce + frozen click-3 SAM-logit residual refiner",
+    "output_directory": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2",
+    "preregistration": "workspace/BraTS/sammed3d_t1ce_wt/RESIDUAL_REFINER_PREREG_20260810.json",
+    "h100_amendment": "workspace/BraTS/sammed3d_t1ce_wt/RESIDUAL_REFINER_PREREG_AMENDMENT_H100_20260810.json",
+    "epochs_completed": 60,
+    "elapsed_seconds": 2718.577868938446
+  },
+  "same_h100_baseline_reproduction": {
+    "unmodified_frozen_evaluator_validation_dsc": 0.6359485301438967,
+    "refiner_cache_runner_validation_dsc": 0.6359485301438967,
+    "exact_match": true,
+    "epoch_zero_refiner_validation_dsc": 0.6359485293721298
+  },
+  "selected_result": {
+    "epoch": 58,
+    "validation_scan_macro_dsc": 0.6683989912099032,
+    "absolute_gain_over_same_h100_coarse": 0.032450461837773524,
+    "improved_cases": 93,
+    "worsened_cases": 15,
+    "validation_cases": 108,
+    "validation_subject_macro_coarse_dsc": 0.6308632972579272,
+    "validation_subject_macro_refined_dsc": 0.6647121933546094,
+    "checkpoint_sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "train_done_sha256": "da16735a54f98817e72a0527ce72f04ee925c5bfaba93cf1d90f333da7f36ccb",
+    "log_sha256": "81e36573de04835a5e97de4c05bb14d7fb23b8d7749019abd5ec47115765c933"
+  },
+  "volume_stratified_validation": [
+    {
+      "bin": "<8000",
+      "cases": 7,
+      "coarse_dsc": 0.24080155324190855,
+      "refined_dsc": 0.25668958441487383,
+      "gain": 0.015888031172965254,
+      "improved_cases": 4
+    },
+    {
+      "bin": "8000-19999",
+      "cases": 18,
+      "coarse_dsc": 0.5841805504428016,
+      "refined_dsc": 0.6181330432494482,
+      "gain": 0.033952492806646556,
+      "improved_cases": 15
+    },
+    {
+      "bin": "20000-39999",
+      "cases": 23,
+      "coarse_dsc": 0.5910794242568638,
+      "refined_dsc": 0.6292219382265339,
+      "gain": 0.03814251396967017,
+      "improved_cases": 22
+    },
+    {
+      "bin": ">=40000",
+      "cases": 60,
+      "coarse_dsc": 0.7147792272269726,
+      "refined_dsc": 0.7465294100344181,
+      "gain": 0.03175018280744553,
+      "improved_cases": 52
+    }
+  ],
+  "outcome": {
+    "preregistered_development_success_threshold": 0.68,
+    "reproduction_target": 0.70,
+    "development_success": false,
+    "reproduced_0_70": false,
+    "automatic_cascade_gate_open": false,
+    "interpretation": "The full-resolution refiner provides a real and broad validation gain, but the fixed subject-clean mainline remains bottlenecked by very small lesions. The 101 validation scans with lesion volume >=8000 voxels average approximately 0.697 after refinement, whereas the seven <8000-voxel scans average 0.257. The result does not justify validation-cascade or sealed-test access under the preregistered gate."
+  }
+}

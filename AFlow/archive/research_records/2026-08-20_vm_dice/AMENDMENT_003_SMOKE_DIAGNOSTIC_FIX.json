@@ -1,0 +1,17 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_vm_dice_implementation_amendment",
+  "schema_version": 1,
+  "amendment_id": "003_smoke_diagnostic_quantile_limit_fix",
+  "timing": "after paired GPU smoke start, before gamma1 backward/optimizer step, before formal training or new method validation access",
+  "failure": "gamma1 smoke called torch.quantile on a batch8 two-class128-cubed modulation tensor with33,554,432 elements and hit PyTorch's quantile input-size limit",
+  "scientific_method_changed": false,
+  "training_objective_changed": false,
+  "fix": "replace smoke-only q10/q90 with exact full-tensor amin/amax and require max>min; the VM Dice forward/loss/backward is unchanged",
+  "gamma0_old_smoke_completed": true,
+  "gamma1_optimizer_steps_before_failure": 0,
+  "formal_optimizer_steps_before_fix": 0,
+  "new_method_validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

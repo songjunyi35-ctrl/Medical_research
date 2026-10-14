@@ -1,0 +1,82 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_lomix3d_result",
+  "schema_version": 1,
+  "status": "fixed_validation_negative_stopped_without_test",
+  "method": "three_decoder_stage_lomix3d_raw_logit_adaptation",
+  "selection": "maximum Scan Dice over epochs176/184/192/200; Subject Dice exact tie-break",
+  "selected_epoch": 200,
+  "data_bindings": {
+    "train_manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "train_cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "validation_manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "validation_cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322"
+  },
+  "validation": {
+    "cases": 108,
+    "subjects": 50,
+    "summaries": {
+      "176": {"scan_dice": 0.7313698835808922, "subject_dice": 0.7200655357610611, "point_hit": 0.9259259259259259},
+      "184": {"scan_dice": 0.7270704943824697, "subject_dice": 0.7156893680351121, "point_hit": 0.9351851851851852},
+      "192": {"scan_dice": 0.7298815642242078, "subject_dice": 0.718783701012532, "point_hit": 0.9444444444444444},
+      "200": {"scan_dice": 0.7324794675051062, "subject_dice": 0.7216071030355635, "point_hit": 0.9351851851851852}
+    },
+    "selected_minus_matched_control": {
+      "scan": -0.0011261927170885934,
+      "scan_95ci": [-0.002963549774829988, 0.0006242916246669157],
+      "subject": -0.0020647970267704562,
+      "subject_95ci": [-0.004123936911424003, -0.00009206366929270173],
+      "point_hit": 0.0,
+      "cases_improved_tied_worse": [48, 0, 60],
+      "subjects_improved_tied_worse": [23, 0, 27]
+    },
+    "selected_minus_voxel_kd_epoch200": {
+      "scan": -0.0019048403396650596,
+      "scan_95ci": [-0.004241535745354162, 0.0002467345273881045],
+      "subject": -0.0028270403260276444,
+      "subject_95ci": [-0.005072642299036186, -0.0006507046341541281],
+      "point_hit": 0.0,
+      "cases_improved_tied_worse": [43, 0, 65],
+      "subjects_improved_tied_worse": [20, 0, 30]
+    }
+  },
+  "promotion": {
+    "all_gates_passed": false,
+    "authorized_for_test": false,
+    "failed_gates": [
+      "beats matched control scan",
+      "beats matched control subject",
+      "beats voxel-KD epoch200 scan",
+      "beats voxel-KD epoch200 subject",
+      "paired scan CI lower >= -0.003 versus voxel-KD",
+      "paired subject CI lower >= -0.003 versus voxel-KD"
+    ]
+  },
+  "cost": {
+    "formal_training_seconds": 1045.636245727539,
+    "relative_to_matched_control": 1.581900523036973,
+    "peak_gpu_memory_bytes": 25605481984,
+    "peak_gpu_reserved_bytes": 31482445824,
+    "checkpoint_bytes_each": 37691475,
+    "deploy_parameter_count": 4700897,
+    "deploy_locator_forwards": 1
+  },
+  "mechanism": {
+    "mean_softplus_by_epoch": {"176": 0.6760594970301578, "184": 0.6645795483338205, "192": 0.6581190887250399, "200": 0.6540696119007311},
+    "collapse_threshold": 0.173286795,
+    "collapsed": false,
+    "intuition_supported": false,
+    "interpretation": "all weights declined and remained close together; registered multi-scale gradients did not improve final-head Dice"
+  },
+  "artifacts": {
+    "raw_validation_report_sha256": "ff12f2c74a9c27be5cc9d6fbfe096d22c115fab443b003b70bab1196cb633e65",
+    "validation_started_sha256": "dde21958f7ec6d35ad2e772d45d833052c8997ec06a58525317b6275d8e7edad",
+    "validation_preaccess_receipt_sha256": "a8e51c831d1922d159baaa2be0323177cbad5001d2529695ed9fdfdec9554fd7",
+    "training_report_sha256": "6c9ebaab275637ea8669d150340552e9f8cc9dfb946b734f368f8b476d303440",
+    "implementation_receipt_sha256": "05b540aeae35cce48e1835d28626167cf57f7447fd1d28dfb79bb3d1c3fa6f9a",
+    "selected_checkpoint_sha256": "f9bfcca36a904341f4eeebf1c71f218b997ab3e753be4815daa2789b2c7245fd"
+  },
+  "validation_access": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

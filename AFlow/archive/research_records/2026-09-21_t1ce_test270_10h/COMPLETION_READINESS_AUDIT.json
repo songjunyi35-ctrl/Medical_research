@@ -1,0 +1,142 @@
+{
+  "utc": "2026-09-21T16:01:19.462029+00:00",
+  "classification_of_previous_goal_turn": "progress",
+  "requirements": {
+    "fixed_cohorts_and_patient_isolation": {
+      "status": "proven",
+      "hashes": {
+        "train": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65",
+        "validation": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+        "test": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9"
+      }
+    },
+    "frozen_code_and_declared_engineering_changes": {
+      "status": "proven",
+      "files_checked": [
+        "archive/research_records/2026-09-21_t1ce_test270_10h/IDEA.md",
+        "archive/research_records/2026-09-21_t1ce_test270_10h/PROTOCOL.json",
+        "sammed3d/t1ce_binary.py",
+        "sammed3d/t1ce_wt_capg3d.py",
+        "sammed3d/t1ce_wt_training.py",
+        "scripts/build_segresnet_native_res_test_cache.py",
+        "scripts/build_t1ce_wt_cache.py",
+        "scripts/complete_t1ce_10h.py",
+        "scripts/deploy_t1ce_10h.py",
+        "scripts/evaluate_t1ce_10h.py",
+        "scripts/export_t1ce_10h_v2.py",
+        "scripts/finalize_t1ce_10h.py",
+        "scripts/monitor_t1ce_10h_final.py",
+        "scripts/prepare_t1ce_10h.py",
+        "scripts/resume_t1ce_10h_completion.py",
+        "scripts/segresnet_native_res_test_common.py",
+        "scripts/segresnet_pretrained_native_common.py",
+        "scripts/supervise_t1ce_10h.py",
+        "scripts/supervise_t1ce_10h_v3.py",
+        "scripts/supplement_t1ce_10h_report.py",
+        "scripts/t1ce_10h_common.py",
+        "scripts/train_t1ce_10h.py",
+        "scripts/train_t1ce_10h_v2.py",
+        "scripts/train_t1ce_wt_capg3d.py",
+        "scripts/verify_t1ce_10h.py",
+        "tests/test_t1ce_10h.py"
+      ],
+      "receipts": [
+        "FREEZE.json",
+        "EXECUTION_FREEZE.json",
+        "COMPLETION_CODE_FREEZE.json",
+        "ENGINEERING_AMENDMENT_001.json",
+        "ENGINEERING_AMENDMENT_002.json",
+        "ENGINEERING_AMENDMENT_003.json",
+        "FINAL_REPORT_SUPPLEMENT_FREEZE.json"
+      ]
+    },
+    "actual_training_and_selection": {
+      "status": "proven",
+      "training": {
+        "A": {
+          "epochs": 200,
+          "actual_optimizer_state_steps": [
+            24400
+          ],
+          "parameter_states": 83,
+          "coverage_rows": 200,
+          "full_scan_views": 194400,
+          "selected_additional_epoch": 90,
+          "latest_sha256": "c1173018e8f5db4c941f37a4e19500352ce8a0cb5607129a5fb789db1ee1211a"
+        },
+        "B": {
+          "epochs": 25,
+          "actual_optimizer_state_steps": [
+            3050
+          ],
+          "parameter_states": 83,
+          "coverage_rows": 25,
+          "full_scan_views": 24300,
+          "selected_additional_epoch": 0,
+          "latest_sha256": "a34a269b5e348a59f8920287896ef121cdcf4e11c99c12554c08de90a81150ea"
+        }
+      },
+      "C": "not_started_by_frozen_diagnostic_gate"
+    },
+    "test_budget_and_disclosure": {
+      "status": "proven",
+      "candidate_unique_model_accesses": {
+        "A": 3,
+        "B": 1,
+        "C": 0
+      },
+      "total_full_cohort_model_accesses": 9,
+      "fixed_reload_case_indices": [
+        0,
+        1,
+        268,
+        269
+      ],
+      "new_outer_confirmation": false
+    },
+    "independent_metric_recalculation": {
+      "status": "proven",
+      "reports": 21,
+      "point_flags_verified_from_native_labels": 5670,
+      "counts_and_scan_subject_means": "exact within1e-12",
+      "patient_cluster_scan_subject_intervals": "independently reconstructed within1e-12"
+    },
+    "fixed_output_panel_and_honest_promotion": {
+      "status": "proven",
+      "configurations": 12,
+      "cap": 8,
+      "selected": {
+        "utc": "2026-09-21T15:19:28.344893+00:00",
+        "overall": "panel_10",
+        "best_single_model": "panel_02",
+        "selection": "maximum Scan Dice, lower compute then earlier panel ID",
+        "threshold": 0.4,
+        "target_passed": false,
+        "test_tuned": true
+      },
+      "target_achieved": false
+    },
+    "deployment_and_numeric_limits": {
+      "status": "proven",
+      "exported_model_hashes_verified": true,
+      "frozen4case_reload_passed": true,
+      "batch1_batch2_bitwise_identity_claimed": false,
+      "image_only_interface": "scripts/deploy_t1ce_10h.py:infer_views/nifti accepts image and frozen manifest, no label or case-routing input"
+    },
+    "storage_limits": {
+      "status": "proven_at_audit",
+      "persistent_bytes": 295621620,
+      "historical_material_deleted": false,
+      "temporary_data_on_worker_scratch": true
+    },
+    "ten_hour_monitoring": {
+      "status": "pending",
+      "elapsed_seconds": 10587.461964130402,
+      "deadline_utc": "2026-09-21T23:04:52+00:00",
+      "do_not_mark_goal_complete_before_final_process_audit": true
+    }
+  },
+  "optimization_work_proven": true,
+  "full_goal_complete": false,
+  "remaining_requirement": "finish monitored window and verify terminal processes at deadline"
+}

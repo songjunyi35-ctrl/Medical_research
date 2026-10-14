@@ -1,0 +1,78 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dcd_detail_distillation_result",
+  "schema_version": 1,
+  "status": "fixed_validation_negative_stopped_without_new_test",
+  "method": "dcd_increment_on_frozen_voxel_kd_continuation",
+  "selected_epoch": 200,
+  "data_bindings": {
+    "train_manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "train_cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "validation_manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "validation_cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322"
+  },
+  "validation": {
+    "cases": 108,
+    "subjects": 50,
+    "selection": "maximum Scan Dice; Subject exact tie-break",
+    "summaries": {
+      "176": {"mu": 0.00014529091286973994, "scan_dice": 0.731501078647044, "subject_dice": 0.721018330809616, "point_hit": 0.9259259259259259},
+      "184": {"mu": 0.0032269755647873224, "scan_dice": 0.731575936699907, "subject_dice": 0.7210237926883357, "point_hit": 0.9259259259259259},
+      "192": {"mu": 0.007840323733655778, "scan_dice": 0.7321057750808971, "subject_dice": 0.7221147607905525, "point_hit": 0.9259259259259259},
+      "200": {"mu": 0.01, "scan_dice": 0.7336033440574452, "subject_dice": 0.7237981599782195, "point_hit": 0.9351851851851852}
+    },
+    "selected_minus_same_epoch_base_voxel_kd": {
+      "scan": -0.0007809637873261063,
+      "scan_95ci": [-0.0019132287000064496, 0.000043499911272967206],
+      "subject": -0.0006359833833717188,
+      "subject_95ci": [-0.001594082726963929, 0.00011854043514245779],
+      "point_hit": 0.0,
+      "cases_improved_tied_worse": [49, 0, 59],
+      "subjects_improved_tied_worse": [20, 0, 30]
+    },
+    "selected_minus_voxel_kd_epoch200": {
+      "scan": -0.0007809637873261063,
+      "scan_95ci": [-0.001888338700626735, 0.000057704698432374654],
+      "subject": -0.0006359833833717188,
+      "subject_95ci": [-0.0015813918433019126, 0.00012314768135547626],
+      "point_hit": 0.0
+    }
+  },
+  "promotion": {
+    "all_gates_passed": false,
+    "authorized_for_test": false,
+    "passed": ["paired scan CI safety", "paired subject CI safety", "point within one case", "implementation/smoke/reload/deploy"],
+    "failed": ["beats same-epoch base KD scan", "beats same-epoch base KD subject", "beats KD200 scan", "beats KD200 subject"]
+  },
+  "mechanism": {
+    "raw_dcd_epoch169": 3.918064,
+    "raw_dcd_epoch200": 0.548859529989831,
+    "relative_reduction": 0.8599156292521432,
+    "epoch200_stage_raw_losses": [0.02648589418745263, 0.047212773398991596, 0.1163671030563877, 0.35879375912407613],
+    "intuition_supported": false,
+    "interpretation": "detail matching was learned but did not improve final validation Dice over base voxel-KD"
+  },
+  "cost": {
+    "formal_training_seconds": 5954.207632303238,
+    "relative_to_base_voxel_kd": 5.042324872924721,
+    "peak_gpu_memory_bytes": 32845999616,
+    "peak_gpu_reserved_bytes": 43580915712,
+    "checkpoint_bytes_each": 18835600,
+    "workspace_megabytes_approx": 72,
+    "deploy_parameter_count": 4700897,
+    "deploy_locator_forwards": 1
+  },
+  "artifacts": {
+    "raw_validation_report_sha256": "0bb0da55ec9f753378feada2f4b6cda6c81eb128ed8efe5f948cff2e404d6357",
+    "validation_started_sha256": "445b57cc3c5e9dab80e17a45ead0ae98f6978eb376b697042b7ad02fc3f7258a",
+    "validation_preaccess_receipt_sha256": "2688b87434d8353ef1c329b5f5095161ec7e263a37aaa23354aa654e1525a967",
+    "training_report_sha256": "d1869fc9de40da6a8e4e1848579f2ff4d5abcf049b960913a6544277891361ac",
+    "implementation_receipt_sha256": "725069c39d2e83231b3ed596a3100c662a28560b22244c70132bd64e8d7ec2e6",
+    "selected_checkpoint_sha256": "9354a0f6ef9e6747729ca5be61e3faa357b76f558898940e52e8f7b274f543dd"
+  },
+  "detail_teacher_historical_validation_access": true,
+  "detail_teacher_historical_test_access_after_selection": true,
+  "validation_access": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

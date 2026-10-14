@@ -1,0 +1,13 @@
+{
+  "schema": "aflow.brats_africa95.posthoc_center_cluster_sensitivity",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T02:27:00Z",
+  "status": "descriptive_only_four_observed_centers",
+  "source_center_description_sha256": "023e775b7f746e03e231e11153e86c920f34f4a040bee0607ba05cae6c3fbd7c",
+  "bootstrap": {"unit": "four observed center means sampled with replacement", "samples": 10000, "seed": 2026090613, "warning": "not a population-valid confidence interval with only four centers; sensitivity only"},
+  "gcsam_minus_full_identity": {"patient_weighted_mean": 0.06861666888291511, "center_equal_mean": 0.06586246348500385, "center_bootstrap_2p5_97p5": [0.05951116003663165, 0.07221376693337606], "leave_one_center_out": {"omit_CRV": 0.07074113767175162, "omit_LASUTH": 0.06934597262604968, "omit_MEDHUB": 0.06791847522295096, "omit_NKDC": 0.0653949016642542}, "all_leave_one_center_out_positive": true},
+  "full_flip8_minus_identity": {"patient_weighted_mean": 0.0034351092604245426, "center_equal_mean": 0.009307204685316192, "center_bootstrap_2p5_97p5": [-0.007363349097398872, 0.02479619746046474], "leave_one_center_out": {"omit_CRV": 0.010765748968351724, "omit_LASUTH": 0.0019394291258980967, "omit_MEDHUB": 0.0018052867590841659, "omit_NKDC": -0.0013420402228769574}, "all_leave_one_center_out_positive": false},
+  "interpretation": "GCSAM Dice direction remains positive after omitting any one observed center and in the four-center resampling sensitivity. Flip8 remains center-unstable. Four centers cannot establish generalization to unseen African centers.",
+  "new_model_inference": false,
+  "tuning_or_promotion": false
+}

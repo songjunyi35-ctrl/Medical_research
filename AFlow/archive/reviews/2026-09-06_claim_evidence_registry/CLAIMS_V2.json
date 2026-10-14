@@ -1,0 +1,165 @@
+{
+ "schema": "aflow.brats.claim_evidence_registry",
+ "schema_version": 2,
+ "created_at_utc": "2026-09-06T14:19:27.871579+00:00",
+ "claims": [
+  {
+   "id": "C1_flip8_direction",
+   "status": "supported_direction_with_cost_and_cohort_limits",
+   "allowed": "Fixed eight-reflection TTA improved Scan Dice point estimates on all six reported cohorts (internal270, Africa95, CPTAC33, WAW preop152, WAW early-postop31, UCSD-BraTS2024test56); paired Scan intervals were entirely above zero on internal270, CPTAC33 and WAW preop152, and crossed zero on Africa95, WAW-post31 and UCSD-BraTS2024test56; Point deltas were never negative; saved-count posthoc decomposition shows a positive precision delta in 5/5 external cohorts with counts.",
+   "forbidden": "Flip8 is universally significant, free, or a one-forward single-model improvement. Do not call the six-cohort direction a pooled or universally significant effect; deployment stays 8x.",
+   "numbers": {
+    "scan_deltas": [
+     0.0055101244813866085,
+     0.0034351092604245166,
+     0.003245653494780141,
+     0.010116119662532444,
+     0.007311971744356782
+    ],
+    "point_deltas": [
+     3,
+     1,
+     0,
+     2,
+     0
+    ],
+    "forwards": 8
+   },
+   "evidence": "archive/reviews/2026-09-06_flip8_overlap_synthesis/RESULT.md"
+  },
+  {
+   "id": "C2_gcsam_optimizer_recipe",
+   "status": "not_supported_as_reproducible_recipe",
+   "allowed": "The archived GCSAM184 checkpoint had a large paired Dice advantage on Africa95; across five external cohorts its predicted volume and recall point estimates were always higher than Full, while precision was mixed and Point never higher. The fixed184 recipe failed internal replication.",
+   "forbidden": "GCSAM optimization causally or reproducibly improves cross-domain segmentation, or wider coverage means universally better accuracy/Point.",
+   "numbers": {
+    "gcsam_minus_full_scan": {
+     "internal270": 0.0002436383489381384,
+     "ucsd75": 0.009634462197621664,
+     "africa95": 0.06861666888291507,
+     "cptac33": 0.0019536163166680534,
+     "waw152": 0.010223165712319892,
+     "waw_postop31": 0.0016573086068167539
+    }
+   },
+   "evidence": "archive/reviews/2026-09-06_gcsam_coverage_synthesis/RESULT.md"
+  },
+  {
+   "id": "C3_africa_checkpoint",
+   "status": "supported_within_africa95_only_and_reversed_on_ucsd_brats2024test56",
+   "allowed": "GCSAM184's paired Scan advantage over Full972 KD168 is entirely positive only on Africa95 (+0.068617). On UCSD-BraTS2024test56 (patient-disjoint, post-treatment, near-training-domain) the same comparison is entirely negative (-0.012312, CI [-0.025822,-0.000092], Point -4); the other five revealed cohorts cross zero. The direction is cohort-reversible.",
+   "forbidden": "Never write that GCSAM is 'generally higher externally'. Never use any revealed cohort to select rho, epoch, checkpoint, threshold, views or routers.",
+   "evidence": "archive/research_records/2026-09-06_brats_africa95_frozen_baselines/RESULT.md"
+  },
+  {
+   "id": "C4_ucsd_source_correction",
+   "status": "material_source_difference_but_uncertain_metric_effect",
+   "allowed": "Official UCSD float32 and mirror uint8 images differed in all 75 cases, but same-model paired Dice source intervals crossed zero and point changes were 0 or -1.",
+   "forbidden": "The mirror is official TCIA data, or float32 correction is a new independent external confirmation.",
+   "evidence": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/RESULT.md"
+  },
+  {
+   "id": "C5_waw152",
+   "status": "completed_public_external_not_blind",
+   "allowed": "On WAW152, GCSAM identity and Full Flip8 had nearly tied Dice point estimates (0.693601 vs 0.693494); GCSAM versus Full identity was positive but uncertain, while Flip8 versus identity had a positive paired interval and two more point hits.",
+   "forbidden": "WAW proves GCSAM superiority, hidden-test performance, or a universal Flip8 effect.",
+   "evidence": "archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/RESULT.md"
+  },
+  {
+   "id": "C6_n4_family",
+   "status": "two_candidate_stage_a_failure",
+   "allowed": "No-N4 helped fold E but failed fold F gates; Otsu-N4 was small positive on E and negative on F. These implementations did not provide stable promotion evidence.",
+   "forbidden": "N4 is always necessary, no-N4 can never work, or Otsu masking is generally impossible.",
+   "evidence": "archive/reviews/2026-09-05_30h_chain_audit/N4_FAMILY_STAGE_A_COMPARISON.json"
+  },
+  {
+   "id": "C7_best_model",
+   "status": "scope_required_no_universal_champion",
+   "allowed": "Name the cohort, metric, and forward budget: internal overall Full Flip8; internal 1x Scan GCSAM; internal 1x Subject/Point Full identity; external winners differ by cohort and metric.",
+   "forbidden": "AFlow/GCSAM/Full/Flip8 is simply the best model without a cohort and overall-versus-single scope.",
+   "evidence": "AFLOW_BRATS_LEADERBOARD.md"
+  },
+  {
+   "id": "C8_external_evidence_identity",
+   "status": "public_nonblind_with_provenance_caveats",
+   "allowed": "Africa95, CPTAC33, WAW preop152, and patient-disjoint-from-preop WAW postop31 are public external-to-project cohorts with stated separation limits; UCSD official-float is a same-cohort source correction.",
+   "forbidden": "Any current external result is pristine blind, server hidden, or patient-ID-proven disjoint.",
+   "evidence": "archive/reviews/2026-09-06_five_cohort_evidence_matrix/RESULT.md"
+  },
+  {
+   "id": "C9_motum",
+   "status": "no_performance_source_input_failure",
+   "allowed": "MOTUM-HGG29 source and shared orientation passed, but one case had 892 WT voxels outside the image support crop, so performance was never accessed.",
+   "forbidden": "MOTUM has a model score, or case0001 can be dropped/padded using GT after the failure.",
+   "evidence": "archive/research_records/2026-09-06_motum_hgg29_shared_orientation_panel/RESULT.md"
+  },
+  {
+   "id": "C10_t1ce_only_observability",
+   "status": "supported_posthoc_failure_mode_not_a_selection_rule",
+   "allowed": "In WAW152, all five cases with zero Dice for all three outputs were grade2 and four were pure FLAIR-label2. Pure label2 scans were 17.11% of WAW versus 3.09% of train972, supporting an observability and coverage limitation without proving causality.",
+   "forbidden": "Use ground-truth label composition or grade to exclude cases, route models, tune thresholds, or claim that every nonenhancing tumor is impossible.",
+   "numbers": {
+    "common_zero_dice_cases": 5,
+    "common_zero_with_only_label2": 4,
+    "waw_only_label2_fraction": 0.17105263157894737,
+    "train_only_label2_fraction": 0.030864197530864196,
+    "label3_present_cases": 123,
+    "label3_absent_cases": 29
+   },
+   "evidence": "archive/reviews/2026-09-06_t1ce_observability_audit/RESULT.md"
+  },
+  {
+   "id": "C11_early_postop_point_failure",
+   "status": "supported_posthoc_mechanism_not_a_postprocessing_rule",
+   "allowed": "On WAW early-postop31, 13 of16 Full point misses and14 of17 GCSAM misses landed in GT resection cavity. Train972 already contains label4 in83.74% of scans, but binary WT collapses RC with ordinary background; this supports a representation gap without proving an RC head.",
+   "forbidden": "Claim the diagnostic Point caused the direct mask Dice, use GT resection cavity at deployment, add RC avoidance from this revealed cohort, or generalize day0-22 behavior to all post-treatment scans.",
+   "numbers": {
+    "train_label4_prevalence": 0.8374485596707819,
+    "waw_postop_label4_prevalence": 0.967741935483871,
+    "full_point_categories_wt_rc_background": [
+     15,
+     13,
+     3
+    ],
+    "gcsam_point_categories_wt_rc_background": [
+     14,
+     14,
+     3
+    ]
+   },
+   "evidence": "archive/reviews/2026-09-06_rc_supervision_gap/RESULT.md"
+  },
+  {
+   "id": "C12_openneuro_gbm334_input_gate",
+   "status": "no_performance_source_input_failure",
+   "allowed": "OpenNeuro ds007045 v1.0.1 provides a frozen 334-case processing-T1ce/final-mask intersection with expert-reviewed/refined BraTS labels; 332 passed the canonical input gate, but BO118 and KA86 had 4 and 6 WT voxels outside the positive-image crop, so the panel closed before external model or performance access.",
+   "forbidden": "Report a 332-case score, exclude the two failures, use GT-selected padding/cropping, imply the checkpoint failed on this cohort, or claim all future full-FOV approaches are impossible.",
+   "numbers": {
+    "published_participants": 337,
+    "frozen_pairs": 334,
+    "input_passed": 332,
+    "input_failed": 2,
+    "external_model_forwards": 0,
+    "lost_wt_voxels": {
+     "sub-BO118": 4,
+     "sub-KA86": 6
+    }
+   },
+   "evidence": "archive/research_records/2026-09-06_openneuro_gbm334_frozen_panel/RESULT.md"
+  },
+  {
+   "id": "C13_ucsd_brats2024test56_identity",
+   "status": "completed_public_post_challenge_patient_disjoint_not_institution_disjoint",
+   "allowed": "UCSD-BraTS2024test56 (56 scans/41 subjects) is the public 2026-01-22 release of the UCSD share of the BraTS-GLI 2024 hidden test set; patients are disjoint from the 1,350-case training union and the previously accessed UCSD main release via the official v3 clinical mapping. Full972 KD168 reached Point 56/56 (identity and Flip8), the highest Point of any external cohort; Scan/Subject about 0.730-0.734.",
+   "forbidden": "Do not call it hidden blind, institution-disjoint or cross-institution generalization evidence (UCSD is a BraTS2024 source site and the same institution as UCSD75). Do not mix its rows with UCSD75, internal test270 or other external sections. Do not re-run or tune on it.",
+   "evidence": "archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/RESULT.md"
+  }
+ ],
+ "global_rules": {
+  "confidence_intervals": "Do not turn a point-estimate lead into significance when the paired interval crosses zero.",
+  "cohorts": "Do not pool or rank absolute Dice across cohorts with different stages, labels, acquisition, preprocessing, or evidence roles.",
+  "access": "Do not use revealed internal/external results to select checkpoint, threshold, view, fusion, preprocessing, postprocessing, or cases.",
+  "training_source": "All inherited checkpoints retain unresolved local Kaggle mirror to official Synapse corrected-v2 parity."
+ },
+ "supersedes": "CLAIMS.json (V1 preserved); V2 adds the seventh revealed cohort UCSD-BraTS2024test56"
+}

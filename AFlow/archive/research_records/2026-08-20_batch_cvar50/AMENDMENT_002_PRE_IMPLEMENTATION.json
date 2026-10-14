@@ -1,0 +1,59 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_batch_cvar50_amendment",
+  "schema_version": 1,
+  "amendment_id": "002_parity_sampler_loss_and_cost_contract",
+  "timing": "before synthetic tests, GPU smoke, formal training, or new method validation access",
+  "legacy_parity": {
+    "loss_absolute_difference_max": 1e-7,
+    "raw_logit_gradient_max_absolute_difference": 1e-7,
+    "model_parameter_max_absolute_difference_after_one_step": 1e-7,
+    "optimizer_exp_avg_max_absolute_difference": 1e-7,
+    "optimizer_exp_avg_sq_max_absolute_difference": 1e-7,
+    "optimizer_step_tensor_exact": true,
+    "comparison_scope": "all model parameter tensors and every AdamW state tensor after identical clip5 update"
+  },
+  "sampler_accounting": {
+    "weighted_sampler_num_samples": 756,
+    "batch_size": 8,
+    "drop_last": true,
+    "optimizer_consumed_draws_per_epoch": 752,
+    "dropped_draws_per_epoch": 4,
+    "epoch_case_order_sha256_scope": "the752 draws present in optimizer batches, in exact consumed order",
+    "sampler_generator_note": "WeightedRandomSampler is configured for756 draws; DataLoader BatchSampler consumes but drops the final incomplete4-draw batch"
+  },
+  "loss_parameters": {
+    "dice": {
+      "include_background": true,
+      "to_onehot_y": false,
+      "sigmoid": true,
+      "softmax": false,
+      "squared_pred": false,
+      "jaccard": false,
+      "smooth_nr": 1e-5,
+      "smooth_dr": 1e-5,
+      "batch": false,
+      "weight": null,
+      "reduction": "none",
+      "per_draw_scalar": "reshape DiceLoss output to [B,-1] and arithmetic mean over the singleton/nonbatch remainder"
+    },
+    "bce": {
+      "reduction": "none",
+      "weight": null,
+      "pos_weight": null,
+      "per_draw_scalar": "reshape to [B,-1] and arithmetic mean over channel/spatial elements"
+    },
+    "total": "dice_per_draw+0.1*bce_per_draw"
+  },
+  "cost_and_runtime": {
+    "formal_arms": 2,
+    "checkpoints": 8,
+    "estimated_disk_megabytes": 150,
+    "runtime_stop_minutes_per_arm": 45,
+    "parallel_wall_stop_minutes": 45,
+    "estimated_parallel_wall_minutes": [18, 22]
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_epoch168_test270_freeze",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-18T05:15:11Z",
+  "status": "frozen_before_epoch168_test270_access",
+  "authorization": "USER_AUTHORIZED_PLAIN_FIXED_EPOCH168_TEST270_2026-08-18",
+  "user_instruction": "evaluate the already-fixed best epoch168 checkpoint on test270",
+  "evaluator_sha256": "c815781ea3c403e4d41ec9dd353acc8a1b3f9e21dc836470c8abca1c68d8d545",
+  "paired_analyzer_sha256": "976a8c937aace6a5440efd07fd101d950345ed1871c3b3d143c5363d1af3cc99",
+  "safeguard_tests_sha256": "e1b6cc12e09043dc4e3472502932982ae8cd05ba2bb1d33193454f2cc2475cba",
+  "checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "epoch": 168
+  },
+  "selection_receipt": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/OUTER_DECISION.json",
+    "sha256": "f8f876e6e04b31300c578c9bd2f235cd1b74948f0139f9810a5c4d67b4711ca7",
+    "all_outer_gates_passed": true
+  },
+  "test": {
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "cases": 270,
+    "subjects": 119,
+    "cache_index_sha256": "41bd6cf44553b8d156de49f2c57bb424cab60cfa26c06881bdfb96ff91de39d3",
+    "cache_images_sha256": "cf834d2b4e6cdaa414689c8723d532178980f6ad459324d13a903321f1064888",
+    "cache_labels_sha256": "ecb28a45607d54cf453ece3208ef8261ea30f496e747f919242ac1172445f222",
+    "allowed_epoch168_evaluations": 1
+  },
+  "protocol": {
+    "fixed_logit_threshold": 0.0,
+    "tta": false,
+    "postprocessing": false,
+    "sam": false,
+    "test_used_for_checkpoint_selection": false,
+    "test_result_will_not_trigger_tuning": true
+  },
+  "baseline_test_report_sha256": "43b88933337e0325caaf97b6add8fbaf64a60b2574d75acaaedc9dceaea7e78b",
+  "output": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/FINAL_TEST270_EPOCH168.json",
+  "confirmation_access": false,
+  "test_access": false
+}

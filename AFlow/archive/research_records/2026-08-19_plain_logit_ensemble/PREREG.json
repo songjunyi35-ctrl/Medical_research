@@ -1,0 +1,62 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_logit_ensemble_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_ensemble_validation_inference",
+  "objective": "exploit complementary point-hit/error behavior between historical-best and EMA168 true-128^3 locators",
+  "models": {
+    "historical": {
+      "checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+      "epoch": 168,
+      "resolution": 128
+    },
+    "ema168": {
+      "checkpoint_sha256": "4ea97dacb9a538993e1c16593bc56b03ce6dc3df2f457c1f0426439c6252197e",
+      "epoch": 168,
+      "resolution": 128,
+      "ema_decay": 0.999,
+      "ema_start_after_epoch": 100
+    }
+  },
+  "method": {
+    "formula": "blended_logit = (1-w) * historical_logit + w * ema168_logit",
+    "all_weights": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "candidate_weights": [0.25, 0.5, 0.75],
+    "selection": "highest validation scan Dice; subject Dice tie-break",
+    "threshold": 0.0,
+    "point": "argmax blended logit",
+    "tta": false,
+    "postprocessing": false,
+    "training_required": false,
+    "inference_models": 2
+  },
+  "validation": {
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 50,
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "candidate_gate": {
+      "scan_gain_vs_historical": "> 0",
+      "subject_gain_vs_historical": "> 0",
+      "point_hit_delta": ">= -0.01",
+      "paired_subject_95ci_lower": ">= -0.003"
+    },
+    "bootstrap_seed_by_weight": {
+      "0.25": 20260839,
+      "0.5": 20260840,
+      "0.75": 20260841
+    },
+    "bootstrap_samples": 10000
+  },
+  "decision": {
+    "if_selected_gate_passes": "freeze selected weight for one separately recorded reused-test evaluation",
+    "if_gate_fails": "ensemble direction is negative; do not tune further weights on test"
+  },
+  "output": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/LOGIT_ENSEMBLE_VALIDATION.json",
+  "code": {
+    "evaluator_sha256": "97432516de7221a3ad4741a4cc13f75249b36b5e979c39a3e5c02eb9005bba10",
+    "test_sha256": "4a59e828e9fac5890a315e8296381c1f36f9fe998d1a89af0faa12c72eeace32"
+  },
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

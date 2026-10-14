@@ -1,0 +1,106 @@
+{
+  "attribution_warning": "N4, LR, epochs, batch and DDP all change together; no single-factor attribution and no matched comparison with the rank-0/LoRA/partial-unfreeze arms is permitted.",
+  "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+  "cache_train": {
+    "cache_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_128/train",
+    "count": 972,
+    "images_sha256": "551c3d9965a7dc1507d6d9800842c4760be518e34ba8cba6a4e9acd3fccdd3ae",
+    "labels_sha256": "7d186ad0baa433d9fb4915ee6bb0f7daa1be716ecb3258f6531768755c6b91fc",
+    "manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+    "manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "preprocessing": {
+      "augmentation": "NOT cached; applied per-epoch by the dataset",
+      "image_interpolation": "trilinear",
+      "label_interpolation": "nearest-exact",
+      "n4_bias_field_correction": true,
+      "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+      "n4_shrink_factor": 2,
+      "normalization": "source nonzero-voxel population z-score before resize",
+      "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+      "spatial": "whole_resize"
+    }
+  },
+  "cache_validation": {
+    "cache_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_128/validation",
+    "count": 108,
+    "images_sha256": "f5897553b6c5c22c7265232150bd86ed4284d864a21f85501dba12881ce701bf",
+    "labels_sha256": "17cec1d7a71cd210064f699148db252b0dc5fa73b487771ba78ad737e91ccc81",
+    "manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+    "preprocessing": {
+      "augmentation": "NOT cached; applied per-epoch by the dataset",
+      "image_interpolation": "trilinear",
+      "label_interpolation": "nearest-exact",
+      "n4_bias_field_correction": true,
+      "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+      "n4_shrink_factor": 2,
+      "normalization": "source nonzero-voxel population z-score before resize",
+      "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+      "spatial": "whole_resize"
+    }
+  },
+  "effective_batch_size": 12,
+  "gradient_accumulation_steps": 3,
+  "gradient_sync": "explicit all-reduce mean over ranks (not DDP; forward calls submodules directly)",
+  "lr_scheduler": {
+    "gamma": 0.1,
+    "milestones": [
+      120,
+      180
+    ],
+    "source": "SAM-Med3D official train.py defaults",
+    "type": "MultiStepLR"
+  },
+  "matched_comparison_valid": false,
+  "max_epochs": 1,
+  "min_epochs_before_stop": 40,
+  "mode": "smoke",
+  "num_workers": 6,
+  "optimizer": {
+    "groups": [
+      {
+        "lr": 0.0001,
+        "name": "image_encoder_full",
+        "parameter_numel": 92924928,
+        "parameter_tensors": 189,
+        "weight_decay": 0.1
+      },
+      {
+        "lr": 1e-05,
+        "name": "prompt_encoder_and_mask_decoder",
+        "parameter_numel": 7584304,
+        "parameter_tensors": 134,
+        "weight_decay": 0.1
+      }
+    ],
+    "type": "AdamW"
+  },
+  "partial_unfreeze_policy": {
+    "authorized_by_operator_utc": "2026-08-05",
+    "counts": {
+      "total_parameters": 100509232,
+      "trainable_parameters": 100509232
+    },
+    "image_encoder": {
+      "frozen_blocks": [],
+      "trainable_blocks": "all"
+    },
+    "update": "full_image_encoder_unfreeze"
+  },
+  "patience_complete_epochs": 40,
+  "per_gpu_batch_size": 2,
+  "per_rank_rng_offset": true,
+  "precision": "bf16",
+  "run_identity": "sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805",
+  "runner_sha256": "601c3bec56b17a751d1529b912b1de77ae586963c320fca9de321ddcf57ebd68",
+  "schema": "aflow.sammed3d.t1ce_wt_dpdsam_aligned_training",
+  "schema_version": 1,
+  "selection_metric": "val_dice",
+  "test_access": false,
+  "total_parameters": 100509232,
+  "train_seed": 20260805,
+  "trainable_parameters": 100509232,
+  "unfreeze_policy": "full",
+  "validation_seed": 20260723,
+  "world_size": 2
+}

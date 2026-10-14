@@ -1,0 +1,171 @@
+{
+  "attribution_warning": "This independent arm may differ in cached geometry, augmentation, optimization, epochs, batch, or world size. Attribute results only to the complete recorded protocol unless an explicit matched control holds every other field fixed.",
+  "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+  "cache_train": {
+    "cache_dir": "/tmp/aflow_t1ce_wt_official15_va_128/train",
+    "count": 972,
+    "images_sha256": "b2b9b2adaedd92eb85977ad45b20de359d9c2de1d9ba4f285fdc663efadd70bf",
+    "labels_sha256": "2d6c25755de8639e107257f0dd339de3535b00a1b405f0ffc4816c1304ed5b21",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl",
+    "manifest_sha256": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65",
+    "preprocessing": {
+      "augmentation": "NOT cached; official RandomFlip applied by train dataset",
+      "image_interpolation": "linear",
+      "label_interpolation": "nearest (TorchIO LabelMap)",
+      "n4_bias_field_correction": false,
+      "normalization": "post-crop positive-voxel sample z-score",
+      "order": [
+        "WT123 binary LabelMap",
+        "TorchIO Resample 1.5mm isotropic",
+        "TorchIO ToCanonical",
+        "TorchIO CropOrPad(mask_name=label, target_shape=128^3)",
+        "positive-voxel sample z-score applied to whole patch"
+      ],
+      "skull_stripping": "not applied; BraTS volumes are already stripped",
+      "source": "uni-medical/SAM-Med3D prepare_data_from_nnUNet.py + infer_utils.py",
+      "spatial": "gt_crop_1p5mm",
+      "target": "T1ce single-channel / WT={1,2,3}; RC={4} excluded",
+      "target_spacing_mm": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "uses_gt_for_localization": true
+    }
+  },
+  "cache_validation": {
+    "cache_dir": "/tmp/aflow_t1ce_wt_official15_va_128/validation",
+    "count": 108,
+    "images_sha256": "d29cd598020d5f1a6e121e7937ab1524c81b3bdd29fe7d480e26ecd6400056ae",
+    "labels_sha256": "e43fd0c3975379b6849c601d3207c5def31bc3076a968040cc17d71675cb261e",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "preprocessing": {
+      "augmentation": "NOT cached; official RandomFlip applied by train dataset",
+      "image_interpolation": "linear",
+      "label_interpolation": "nearest (TorchIO LabelMap)",
+      "n4_bias_field_correction": false,
+      "normalization": "post-crop positive-voxel sample z-score",
+      "order": [
+        "WT123 binary LabelMap",
+        "TorchIO Resample 1.5mm isotropic",
+        "TorchIO ToCanonical",
+        "TorchIO CropOrPad(mask_name=label, target_shape=128^3)",
+        "positive-voxel sample z-score applied to whole patch"
+      ],
+      "skull_stripping": "not applied; BraTS volumes are already stripped",
+      "source": "uni-medical/SAM-Med3D prepare_data_from_nnUNet.py + infer_utils.py",
+      "spatial": "gt_crop_1p5mm",
+      "target": "T1ce single-channel / WT={1,2,3}; RC={4} excluded",
+      "target_spacing_mm": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "uses_gt_for_localization": true
+    }
+  },
+  "dataset_runtime_preprocessing": {
+    "augmentation": {
+      "applies_to": "train split only",
+      "name": "random_flip",
+      "random_flip": {
+        "axes": [
+          0,
+          1,
+          2
+        ],
+        "per_axis_probability": 0.5,
+        "source": "SAM-Med3D official train.py / TorchIO 1.2.0"
+      },
+      "validation_augmentation": false
+    },
+    "cache_builder_sha256": "ee882e0eed4704b398568dd2a36683ac1312cb429c5be85de1636816599114c9",
+    "cache_protocol_schema": "aflow.sammed3d.t1ce_wt_official15_cache",
+    "geometry": {
+      "image_interpolation": "linear",
+      "implementation": "TorchIO CropOrPad(mask_name=label)",
+      "label_interpolation": "nearest (TorchIO LabelMap)",
+      "name": "gt_crop_1p5mm",
+      "target_shape": [
+        128,
+        128,
+        128
+      ],
+      "target_spacing_mm": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "uses_gt_for_localization": true
+    },
+    "n4_bias_field_correction": false,
+    "normalization": "post-crop positive-voxel sample z-score applied to the whole patch; no N4 and no batch re-normalization",
+    "orientation": "canonical RAS after 1.5 mm paired resampling",
+    "reused_training_loop_sha256": "31c114fe24e6ad419c3eac29a50775a5ab9d7dedf758ae907c3d7f417829c20c"
+  },
+  "effective_batch_size": 12,
+  "gradient_accumulation_steps": 3,
+  "gradient_sync": "explicit all-reduce mean over ranks (not DDP; forward calls submodules directly)",
+  "lr_scheduler": {
+    "gamma": 0.1,
+    "milestones": [
+      120,
+      180
+    ],
+    "source": "SAM-Med3D official train.py defaults",
+    "type": "MultiStepLR"
+  },
+  "matched_comparison_valid": false,
+  "max_epochs": 1,
+  "min_epochs_before_stop": 40,
+  "mode": "smoke",
+  "num_workers": 6,
+  "optimizer": {
+    "groups": [
+      {
+        "lr": 0.0001,
+        "name": "image_encoder_full",
+        "parameter_numel": 92924928,
+        "parameter_tensors": 189,
+        "weight_decay": 0.1
+      },
+      {
+        "lr": 1e-05,
+        "name": "prompt_encoder_and_mask_decoder",
+        "parameter_numel": 7584304,
+        "parameter_tensors": 134,
+        "weight_decay": 0.1
+      }
+    ],
+    "type": "AdamW"
+  },
+  "partial_unfreeze_policy": {
+    "authorized_by_operator_utc": "2026-08-05",
+    "counts": {
+      "total_parameters": 100509232,
+      "trainable_parameters": 100509232
+    },
+    "image_encoder": {
+      "frozen_blocks": [],
+      "trainable_blocks": "all"
+    },
+    "update": "full_image_encoder_unfreeze"
+  },
+  "patience_complete_epochs": 40,
+  "per_gpu_batch_size": 2,
+  "per_rank_rng_offset": true,
+  "precision": "bf16",
+  "run_identity": "sammed3d_official15_va_gtcrop_fullunfreeze_a100x2_train972_val108_e200_trainseed20260805_r20260812-smoke",
+  "runner_sha256": "4320b54f7b7e4d454a6a7eb44ce74a33554f3d6ecde43a7e8e5527cccb04421a",
+  "schema": "aflow.sammed3d.t1ce_wt_official15_va_training",
+  "schema_version": 1,
+  "selection_metric": "val_dice",
+  "test_access": false,
+  "total_parameters": 100509232,
+  "train_seed": 20260805,
+  "trainable_parameters": 100509232,
+  "unfreeze_policy": "full",
+  "validation_seed": 20260723,
+  "world_size": 2
+}

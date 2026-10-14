@@ -1,0 +1,21 @@
+{
+  "schema": "aflow.utsw_label_variant_bridge.result",
+  "created_utc": "2026-09-05T19:14:56.392647+00:00",
+  "status": "failed_preregistered_unique_pair_gate",
+  "cohort": {"subjects": ["BT0001", "BT0002", "BT0003"], "cases": 3, "files_per_copy": 15, "bytes_per_copy": 28880493},
+  "transfer": {"files_exact": 15, "expected_files": 15, "receipt_sha256": "f37fa324c413ba7a9c91db0f80b764501c29d1b926501c9f89237d2f96111c90"},
+  "validity_passed": true,
+  "winning_pairs": [
+    "brain_t1ce.nii.gz__rtumorseg_manual_correction.nii.gz",
+    "brain_t1ce_ants.nii.gz__rtumorseg_manual_correction.nii.gz"
+  ],
+  "winning_pair_count": 2,
+  "required_winning_pair_count": 1,
+  "full_grid_manual_label": "rtumorseg_manual_correction.nii.gz",
+  "cropped_label_observation": {"BT0001": [74, 93, 63], "BT0002": [24, 28, 36], "BT0003": [240, 240, 155]},
+  "raw_qc_sha256": "0f31398be358b4c38d3c961adcf08b63eae4617002ea5b2814aa773b484ee80f",
+  "preaccess_sha256": "28476a6c93a01d814b1fdf77eca3824ad6a997113407dbf00579b88eca171418",
+  "implementation_sha256": "0a567f1df6d4e09f29ff49e76265998185b39b71aa64e55dfe516e398159d413",
+  "access": {"image_voxels_accessed": true, "label_voxels_accessed": true, "model_inference": false, "old_cohort_accessed": false, "full_package_downloaded": false},
+  "interpretation": "The full-grid manual label variant was narrowed to the r-prefixed file, but both T1ce skull-strip variants share exact geometry. The preregistered unique image-label pair gate therefore failed; model-score tie-breaking is forbidden."
+}

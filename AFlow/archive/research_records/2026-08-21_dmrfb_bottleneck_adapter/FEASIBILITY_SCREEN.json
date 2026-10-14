@@ -1,0 +1,33 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_architecture_feasibility_screen",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-21T03:30:00Z",
+  "rejected_nmsw": {
+    "paper": "https://papers.miccai.org/miccai-2025/paper/0413_paper.pdf",
+    "official_code": "https://github.com/Youngseok0001/open_nmsw",
+    "reasons": [
+      "full method simultaneously adds global model,local model,Gumbel top-k,aggregation and multi-head loss",
+      "current128-cubed input gives about one128-cubed candidate patch and degenerates",
+      "paper explicitly did not evaluate tumor/single-organ tasks because selection degenerates to one patch",
+      "deployment is one global plus K local forwards,not current one-forward target",
+      "official paper/readme/YAML/default top-k,temperature,iterations and LR conflict"
+    ]
+  },
+  "rejected_fixed_native_patch": {
+    "rule": "KD200 argmax center; fixed canonical native 1-mm 96-cubed patch",
+    "validation_cases": 108,
+    "mean_gt_coverage": 0.9008054727872883,
+    "median_gt_coverage": 0.9704083562278638,
+    "minimum_gt_coverage": 0.15877428374013786,
+    "p05_gt_coverage": 0.5795769127136627,
+    "cases_coverage_at_least_0.90": 74,
+    "cases_full_coverage": 22,
+    "native_center_hits": 102,
+    "decision": "single fixed patch misses too much of large/multifocal WT; resizing or multiple patches would add unfrozen ROI/fusion factors"
+  },
+  "accepted_next_factor": "same-parameter single-bottleneck DMRFB control versus dilation candidate",
+  "validation_access": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

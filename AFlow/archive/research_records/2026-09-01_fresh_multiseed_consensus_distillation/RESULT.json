@@ -1,0 +1,72 @@
+{
+  "schema": "aflow.brats.t1ce_wt_fresh_multiseed_consensus_result",
+  "schema_version": 1,
+  "status": "stopped_at_stage_a_strong_seed_ci_gates",
+  "cohort": {
+    "role": "fresh_train_only_inner",
+    "scans": 108,
+    "subjects": 43
+  },
+  "metrics": {
+    "teacher_seed20261031": {"scan": 0.7464117138750024, "subject": 0.7350667922583265, "point_hits": 106},
+    "teacher_seed20261032": {"scan": 0.7361086188229146, "subject": 0.722151275925495, "point_hits": 104},
+    "teacher_seed20261033": {"scan": 0.7327920147390278, "subject": 0.7188935744339974, "point_hits": 103},
+    "consensus": {"scan": 0.7469421949375559, "subject": 0.7351295592578939, "point_hits": 106}
+  },
+  "consensus_minus_teacher": {
+    "teacher_seed20261031": {
+      "scan": 0.000530481062553547,
+      "scan_95ci": [-0.009103202854317647, 0.007084167348565878],
+      "subject": 0.00006276699956733034,
+      "subject_95ci": [-0.01610462124239765, 0.009852094076334566],
+      "point_hits": 0,
+      "scans_improved_worse": [82, 26],
+      "subjects_improved_worse": [34, 9]
+    },
+    "teacher_seed20261032": {
+      "scan": 0.010833576114641296,
+      "scan_95ci": [0.004547324093679587, 0.01853064622350589],
+      "subject": 0.012978283332398822,
+      "subject_95ci": [0.004962368951378138, 0.022912493086361202],
+      "point_hits": 2
+    },
+    "teacher_seed20261033": {
+      "scan": 0.014150180198528149,
+      "scan_95ci": [0.009873256773722392, 0.019694892968982455],
+      "subject": 0.01623598482389651,
+      "subject_95ci": [0.01084162249133932, 0.02297188316728684],
+      "point_hits": 3
+    }
+  },
+  "gates": {
+    "all_point_estimates": true,
+    "point_at_least_best_individual": true,
+    "ci_safe_vs_seed31": false,
+    "ci_safe_vs_seed32": true,
+    "ci_safe_vs_seed33": true,
+    "engineering": true,
+    "student_stage_authorized": false
+  },
+  "cost": {
+    "teacher_seconds": [12225.405882120132, 12162.445485830307, 12234.308267831802],
+    "stage_a_wall_hours": 6.79,
+    "peak_gib_each": 20.29189682006836,
+    "new_cache": false
+  },
+  "access": {
+    "train_only_inner": true,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  },
+  "evidence": {
+    "raw_inner_sha256": "33fe034e829cf7498cd35083c12f3181a47d5db7eabd753f482612edcf15ef5d",
+    "preaccess_sha256": "c44534afe12a3898fe187340f579e509dd9997245aefaeb98577bfa28dfcccc4",
+    "teacher_checkpoint_sha256": [
+      "ef2bfeaf4ce3ca87990d1af1b298206fad503858a7dd0f88845a31530e6f8868",
+      "40eea2354e5f1059c31d12f635233bb295cc821df1d91ab396388ab892c6e6b9",
+      "af634de143cb19ddd404c4a71e35f25af271b1101a69daa2c8cd6dd8fdeb70eb"
+    ]
+  }
+}

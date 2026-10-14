@@ -1,0 +1,43 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_voxel_kd_972_draw_budget_validation.preaccess_receipt",
+  "schema_version": 1,
+  "status": "frozen_before_validation",
+  "implementation_receipt_sha256": "efa55f68b53b4ba9dc6c1af62336c5c7bca46931f9942b025176fa39ab149416",
+  "evaluator_sha256": "6ec8b6d852c2ca1f8144795760dbd4a5bae125e30e499e1e81948d6e33b4ed71",
+  "control_training_report_sha256": "b45cba3cf5ac8c4d9eb394cf34f6718abfb34cae3bd2fdc94924643f2d58d103",
+  "candidate_training_report_sha256": "1e66ca4fa428684b004bddb422c2642fcc3f5a09e1a0d7488db44377ef7c8c2a",
+  "checkpoint_sha256": {
+    "budget752_control": {
+      "176": "9d79031bb2e5ff69f1e3a0269ae667b778820c13143a3c945c2f94b5248847f3",
+      "184": "bc1681b68a7fa123e60d26537679615943291e3f6c993d987cb7b9e9721d365e",
+      "192": "14912cb5e2d6aa0b1d868817048a73f478638d65e48a2c4cd4eb42f305314239",
+      "200": "8b46a4ff981e6d2f0a41c2127256060dccd1619270e1d79a1c14c470b05c2388"
+    },
+    "budget968_candidate": {
+      "176": "49d8ad90fa2d3344f2273f31bb478b6539df19692a74064e6cf357bba2dfa455",
+      "184": "b5db6e00a9fe32a13d6c66ad24d73721771a052be9ec0a9f19b6ada370ac1e8b",
+      "192": "98a2a8bbbfcb79064a08a767c45c8f926122f73d765d3080a276f7c6908d3e1d",
+      "200": "543e8cfbd80c63fec011453bd91a26beb20fc5a0486640e7846cf877de3a5fcb"
+    }
+  },
+  "validation": {
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "scans": 108,
+    "subjects": 50
+  },
+  "archived_kd200_validation_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57",
+  "selection": "candidate maximum Scan; Subject exact tie; earlier epoch exact tie",
+  "epochs": [176, 184, 192, 200],
+  "threshold": 0.0,
+  "bootstrap": {
+    "draws": 10000,
+    "candidate_vs_control_seeds": [20261300, 20261301, 20261302, 20261303],
+    "candidate_vs_kd200_seeds": [20261304, 20261305, 20261306, 20261307]
+  },
+  "promotion": "strictly beat same-epoch control and KD200 Scan/Subject; Point>=101/108; four CI lower bounds>=-0.003; all engineering gates",
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

@@ -1,0 +1,47 @@
+{
+  "access": {
+    "confirmation": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "test270": false,
+    "train_only_inner": false
+  },
+  "arm": "anchor_repeat3_control",
+  "created_at_utc": "2026-09-01T10:59:28.393482+00:00",
+  "data_role": {
+    "cases": 8,
+    "subjects": 3,
+    "train": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl",
+      "sha256": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65"
+    }
+  },
+  "hyperparameters": {
+    "arm": "anchor_repeat3_control",
+    "base_lr": 0.0002,
+    "batch_size": 8,
+    "cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "device": "cuda:0",
+    "idea": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-01_gt_best_teacher_routing_distillation/IDEA.md",
+    "limit_train_cases": 8,
+    "min_lr": 1e-05,
+    "native_artifact": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-21_voxel_kd_data972_native_sampling/NATIVE_WT_VOLUMES.json",
+    "num_workers": 4,
+    "output_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/gt_best_teacher_routing_20260901/smoke_anchor_repeat3_control",
+    "prereg": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-01_gt_best_teacher_routing_distillation/PREREG.md",
+    "schedule_total_epochs": 200,
+    "seed": 20261040,
+    "smoke": true,
+    "smoke_steps": 2,
+    "stop_epoch": 168,
+    "teacher_seed32": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/final_formal_full972_candidate/plain_fulltrajectory_full972_candidate_epoch168.pth",
+    "teacher_seed40": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/full972_multiseed_20260825/formal_seed20260940/plain_full972_seed20260940_epoch168.pth",
+    "teacher_seed41": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/full972_multiseed_20260825/formal_seed20260941/plain_full972_seed20260941_epoch168.pth",
+    "train_manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl",
+    "weight_decay": 1e-05
+  },
+  "runner_sha256": "3058fc0959fafb920edf1c4220f08b7b4b267230b97fa324e6c76e3ae0d9a827",
+  "schema": "aflow.sammed3d.t1ce_wt_gt_best_teacher_routing",
+  "schema_version": 1,
+  "status": "started_before_optimizer_step"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_iad_kas_synthetic_tests",
+  "schema_version": 1,
+  "status": "passed",
+  "command": "PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python -m pytest -q -p no:cacheprovider tests/test_t1ce_wt_plain_iad_kas.py",
+  "passed": 12,
+  "failed": 0,
+  "elapsed_seconds": 405.89,
+  "coverage": [
+    "per-volume raw MSE, sigmoid Dice consistency and stable contrastive formulas",
+    "binary negative representation and temperature1",
+    "float32 KAS loss graph with no detach",
+    "deepest128@16^3 projector and 128^3 output shape",
+    "projector persistent state/optimizer membership and dedicated initialization SHA",
+    "projector initialization does not alter caller RNG",
+    "KAS-only gradients reach projector, deepest encoder and final logit",
+    "gamma0 full SegResNet AdamW update exactly matches control",
+    "plain final logit and stripped deploy equality",
+    "full KAS wrapper and deploy checkpoint strict roundtrip",
+    "4,700,897 deploy parameter count",
+    "invalid inputs rejected"
+  ],
+  "warning": "CPU test emitted isolated CUDA initialization warning; real CUDA evidence is in paired A100 smoke reports.",
+  "model_sha256": "3a0f3885e0806cd2c8e0edcbca4f0b7bfee9a6348f65174fc28db3a9f571ef33",
+  "test_sha256": "d29c480c64043f871a3d1abc6de7f67c010dd8d20dc882bfe834c5b8acd056ed",
+  "projector_initial_sha256": "61b7c474d78ce3ea275e66e88f0ee1d02840417064cdd46fa438b33523e95fe1",
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

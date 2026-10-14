@@ -1,0 +1,83 @@
+{
+  "created_at_utc": "2026-08-12T06:15:55.722248+00:00",
+  "experiment": {
+    "name": "fixed 64^3 first-positive-click-centred local residual over frozen global refiner",
+    "preregistration": "workspace/BraTS/sammed3d_t1ce_wt/PROMPT_LOCAL_REFINER_PREREG_20260812.json",
+    "preregistration_sha256": "93ee5acc4152e5c20588ecbd63949fe78b84a53d5e7ab99ff1df8a27757dd7a1",
+    "run_directory": "workspace/BraTS/sammed3d_t1ce_wt/prompt_local64_ddp2_a100_train972_val108_e80_s20260812",
+    "runner_sha256": "ea487b5dc6fbea7ecd238f3d7521d3784726d447e5f1e63bf859a1ec190cf038",
+    "train_done_sha256": "dbcddeab0cc804611346f382fceedde32a2d2efebf2eac55ad0b08859d11e02d",
+    "world_size": 2
+  },
+  "gates": {
+    "automatic_cascade_gate_open": false,
+    "development_success": false,
+    "development_success_threshold": 0.68,
+    "sealed_test_access_authorized": false,
+    "target_reproduced": false,
+    "target_reproduction_threshold": 0.7
+  },
+  "mainline": {
+    "decision_rule": "raw logit > 0",
+    "modality": "T1ce only",
+    "prompt_protocol": "3 accumulated corrective clicks with recurrent low-resolution mask",
+    "sealed_test": "not accessed",
+    "split": "972 train / 108 validation, subject-clean",
+    "target": "WT={1,2,3}; raw label 4 excluded"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_prompt_local_refiner_result",
+  "schema_version": 1,
+  "selected_result": {
+    "absolute_gain": 0.00018953517285148723,
+    "checkpoint_sha256": "49ea5bd0275062e79e1e47626d31cd0829c6b27b21ffd0a2c7f14810e99296ab",
+    "epoch": 1,
+    "global_subject_macro_dsc": 0.6669699875326595,
+    "global_validation_scan_macro_dsc": 0.6695486148867482,
+    "improved_cases": 71,
+    "paired_bootstrap_95_ci": [
+      8.896249772641685e-05,
+      0.00029375063946069074
+    ],
+    "prompt_local_subject_macro_dsc": 0.6671064685177207,
+    "prompt_local_validation_scan_macro_dsc": 0.6697381500595996,
+    "unchanged_cases": 0,
+    "validation_cases": 108,
+    "validation_subjects": 50,
+    "worsened_cases": 37
+  },
+  "test_access": false,
+  "volume_stratified_validation": [
+    {
+      "bin": "<8000",
+      "cases": 7,
+      "gain": 0.0005409524287364077,
+      "global_dsc": 0.2569688038382216,
+      "improved_cases": 6,
+      "prompt_local_dsc": 0.257509756266958
+    },
+    {
+      "bin": "8000-19999",
+      "cases": 18,
+      "gain": 0.0002733161854064698,
+      "global_dsc": 0.6207207148823355,
+      "improved_cases": 12,
+      "prompt_local_dsc": 0.6209940310677421
+    },
+    {
+      "bin": "20000-39999",
+      "cases": 23,
+      "gain": -1.3228187527609776e-05,
+      "global_dsc": 0.6312914311235418,
+      "improved_cases": 12,
+      "prompt_local_dsc": 0.6312782029360141
+    },
+    {
+      "bin": ">=40000",
+      "cases": 60,
+      "gain": 0.00020112814404373892,
+      "global_dsc": 0.7469965499529627,
+      "improved_cases": 41,
+      "prompt_local_dsc": 0.7471976780970064
+    }
+  ]
+}

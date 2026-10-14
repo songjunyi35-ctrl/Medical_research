@@ -1,0 +1,176 @@
+{
+  "all_gates_passed": true,
+  "arm": "native_replacement_control",
+  "checkpoint": {
+    "arm": "native_replacement_control",
+    "global_epoch": 169,
+    "model_state_sha256": "0d7a1dc222669ab0954a4c8d3ecf581516b7f152b96af122f4b97c9473180649",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/coverage_small_lesion_replay_kd_20260824/smoke_v3_native_replacement_control/smoke_checkpoint.pth",
+    "sha256": "105df3a93d7221855e046a4905e8135bac11f258c5856ea6c08d1635cd9d5f3d"
+  },
+  "confirmation_access": false,
+  "extrapolated_formal_seconds": 1914.857140302658,
+  "gates": {
+    "all_losses_gradients_finite": true,
+    "all_student_grad_norms_positive": true,
+    "formal_extrapolation_at_most_45min": true,
+    "four_steps_completed": true,
+    "peak_allocated_at_most_24gib": true,
+    "strict_reload_exact": true,
+    "teacher_gradients_absent": true
+  },
+  "median_measured_step_seconds": 0.6365881450474262,
+  "method_documents": {
+    "amendment_001_sha256": "57e71af8215dd148505e98aeaba5ffed1e7086fe968f1185cd84f89c3ac5eecb",
+    "amendment_002_sha256": "9d59b490b533244fba01dba1554a13d80ffdd67cc672659743a116a879154b38",
+    "amendment_003_sha256": "bce7f00eed898a7d2825b03536f3cf99335b4390315359cd189ec368a57462a8",
+    "amendment_004_sha256": "b1d03a41295fa860c620d8815479e8d1046bbfd052027a80afe253c8d32eee88",
+    "idea_sha256": "9a3bd06d40446db804648d7bf0db23d379266fae80e71fdb188493610565d6d6",
+    "native_artifact_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+    "native_builder_sha256": "80874d4745d7ae5b0ced90471f0fa59d9c6345a597b27ec02a253eb6a19c010a",
+    "prereg_sha256": "61643d8793455446c10128da00a2f796409a5bc3437b87654b6d645e40cd7d08"
+  },
+  "outer_selector_access": false,
+  "peak_gpu_memory_bytes": 21788257792,
+  "peak_gpu_reserved_bytes": 23613931520,
+  "reload_max_abs_difference": 0.0,
+  "runner_sha256": "c0ab8871ff524944e196cb07c4bc234bdf62ad62032780ad112e74c80d55fc3c",
+  "sampler_gates": {
+    "control_has_no_candidate_sampler_audit": true
+  },
+  "sampling_contract": {
+    "consumed_draws_per_epoch": 752,
+    "dropped_draws_per_epoch": 4,
+    "generator_seed": 20260884,
+    "native_volume_artifact_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+    "native_volume_builder_sha256": "80874d4745d7ae5b0ced90471f0fa59d9c6345a597b27ec02a253eb6a19c010a",
+    "native_weight_sha256": "81d3fa6a907f791c4d0b97efe95ece5e057d15b85673463cadbeecc2b3f148ec",
+    "optimizer_steps_per_epoch": 94,
+    "population_count": 972,
+    "replacement": true,
+    "sampler_num_samples": 756,
+    "strategy": "native_volume_weighted_replacement",
+    "weight_dtype": "torch.float64_cpu",
+    "weight_formula": "clip(sqrt(median(selected_native_volumes)/native_volume_i),0.5,4.0)",
+    "weight_source": "source-grid WT voxels inside frozen image-only brain crop"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_coverage_small_lesion_replay_kd_train.smoke",
+  "schema_version": 1,
+  "status": "passed",
+  "steps": [
+    {
+      "case_ids": [
+        "BraTS-GLI-02726-100",
+        "BraTS-GLI-02336-100",
+        "BraTS-GLI-02801-101",
+        "BraTS-GLI-00008-100",
+        "BraTS-GLI-02100-101",
+        "BraTS-GLI-02932-100",
+        "BraTS-GLI-02957-100",
+        "BraTS-GLI-02902-100"
+      ],
+      "dice": [
+        0.7551620006561279,
+        0.5745205879211426,
+        0.866146445274353,
+        0.5781779289245605,
+        0.8234590888023376,
+        0.5527831315994263,
+        0.7719044089317322,
+        0.7246643900871277
+      ],
+      "grad_norm_before_clip": 0.7121391296386719,
+      "kd": 0.002262583002448082,
+      "seconds": 1.8704268150031567,
+      "step": 1,
+      "supervised": 0.2983193099498749,
+      "total": 0.298998087644577
+    },
+    {
+      "case_ids": [
+        "BraTS-GLI-02802-101",
+        "BraTS-GLI-02828-101",
+        "BraTS-GLI-02076-101",
+        "BraTS-GLI-02773-100",
+        "BraTS-GLI-02289-102",
+        "BraTS-GLI-02105-101",
+        "BraTS-GLI-03029-100",
+        "BraTS-GLI-00008-101"
+      ],
+      "dice": [
+        0.24217772483825684,
+        0.7729864120483398,
+        0.8261674046516418,
+        0.8889759182929993,
+        0.8871493339538574,
+        0.8297847509384155,
+        0.8361961841583252,
+        0.6285609006881714
+      ],
+      "grad_norm_before_clip": 0.7417254447937012,
+      "kd": 0.0047934288159012794,
+      "seconds": 0.6373532265424728,
+      "step": 2,
+      "supervised": 0.2669537365436554,
+      "total": 0.26839175820350647
+    },
+    {
+      "case_ids": [
+        "BraTS-GLI-02938-101",
+        "BraTS-GLI-02877-101",
+        "BraTS-GLI-02236-102",
+        "BraTS-GLI-02100-101",
+        "BraTS-GLI-02520-102",
+        "BraTS-GLI-02623-102",
+        "BraTS-GLI-02743-101",
+        "BraTS-GLI-00511-100"
+      ],
+      "dice": [
+        0.7306962013244629,
+        0.6245059370994568,
+        0.8276438117027283,
+        0.8019203543663025,
+        0.8124198317527771,
+        0.8089613318443298,
+        0.7836715579032898,
+        0.7182778120040894
+      ],
+      "grad_norm_before_clip": 0.9733313322067261,
+      "kd": 0.007139354478567839,
+      "seconds": 0.6365881450474262,
+      "step": 3,
+      "supervised": 0.24116620421409607,
+      "total": 0.24330800771713257
+    },
+    {
+      "case_ids": [
+        "BraTS-GLI-03011-100",
+        "BraTS-GLI-03052-101",
+        "BraTS-GLI-02167-101",
+        "BraTS-GLI-02879-100",
+        "BraTS-GLI-02869-100",
+        "BraTS-GLI-02781-101",
+        "BraTS-GLI-02248-100",
+        "BraTS-GLI-02369-100"
+      ],
+      "dice": [
+        0.8405383825302124,
+        0.8485701680183411,
+        0.7405280470848083,
+        0.7263745665550232,
+        0.8183103203773499,
+        0.7797791361808777,
+        0.7645202875137329,
+        0.6139808297157288
+      ],
+      "grad_norm_before_clip": 1.2662594318389893,
+      "kd": 0.006493337452411652,
+      "seconds": 0.6359074115753174,
+      "step": 4,
+      "supervised": 0.23752085864543915,
+      "total": 0.23946885764598846
+    }
+  ],
+  "test_access": false,
+  "validation_access": false
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "aflow.brats_africa95.posthoc_train_prior_regression",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T03:26:00Z",
+  "status": "descriptive_saved_counts_no_model_or_calibration",
+  "train_cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+  "africa_raw_sha256": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+  "empirical_percentile_in_train_target_distribution": {
+    "africa_target": {"mean": 0.8435889105479749, "median": 0.9547325102880658, "above_train_p90_cases": 62},
+    "full972_identity_prediction": {"mean": 0.6442603422135585, "median": 0.7613168724279835, "above_train_p90_cases": 19},
+    "full972_flip8_prediction": {"mean": 0.6286982889322069, "median": 0.7438271604938271, "above_train_p90_cases": 20},
+    "gcsam184_identity_prediction": {"mean": 0.7005523066926577, "median": 0.8569958847736625, "above_train_p90_cases": 38}
+  },
+  "voxel_means_medians": {"africa_target": [103709.52631578948,103618.0], "full972_identity_prediction": [50535.53684210526,52111.0], "full972_flip8_prediction": [49648.8,50146.0], "gcsam184_identity_prediction": [62255.14736842105,67292.0]},
+  "interpretation": "predictions remain closer to the train target-size range than Africa targets; GCSAM expands farther than Full but still undercovers. This is compatible with regression toward a learned size prior, not causal proof. Africa preoperative all-positive WT and train post-treatment RC-excluded WT differ semantically.",
+  "new_model_inference": false,
+  "threshold_sampling_or_router_change": false
+}

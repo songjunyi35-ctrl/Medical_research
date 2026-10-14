@@ -1,0 +1,153 @@
+{
+  "attribution_warning": "N4, LR, epochs, batch and DDP all change together; no single-factor attribution and no matched comparison with the rank-0/LoRA/partial-unfreeze arms is permitted.",
+  "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+  "cache_train": {
+    "cache_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_gtcrop_n4_128/train",
+    "count": 972,
+    "images_sha256": "5b95f37029cd7dce13b5a36433d2eb8e52949ea1a539f0fa9534b8722271535b",
+    "labels_sha256": "e330e32279c1307ee71d3f1134cef24d82d0e28a9fb34c40b2721c39cc95198c",
+    "manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+    "manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "preprocessing": {
+      "augmentation": "NOT cached; applied per-epoch by the dataset",
+      "image_interpolation": "none (native resolution crop)",
+      "label_interpolation": "none (native resolution crop)",
+      "n4_bias_field_correction": true,
+      "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+      "n4_shrink_factor": 2,
+      "normalization": "post-crop positive-voxel sample z-score",
+      "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+      "spatial": "gt_crop",
+      "uses_gt_for_localization": true
+    }
+  },
+  "cache_validation": {
+    "cache_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_gtcrop_n4_128/validation",
+    "count": 108,
+    "images_sha256": "ea35e33827335bebac8a1d919956ce332fe8a473aa76c5ff855edbf86d82ff68",
+    "labels_sha256": "29412786312e1166f177583866eaa63d7b10460cf9e31ad5fe009cbb6e89a967",
+    "manifest": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+    "preprocessing": {
+      "augmentation": "NOT cached; applied per-epoch by the dataset",
+      "image_interpolation": "none (native resolution crop)",
+      "label_interpolation": "none (native resolution crop)",
+      "n4_bias_field_correction": true,
+      "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+      "n4_shrink_factor": 2,
+      "normalization": "post-crop positive-voxel sample z-score",
+      "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+      "spatial": "gt_crop",
+      "uses_gt_for_localization": true
+    }
+  },
+  "effective_batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "gradient_sync": "explicit all-reduce mean over ranks (not DDP; forward calls submodules directly)",
+  "lr_scheduler": {
+    "gamma": 0.1,
+    "milestones": [
+      60,
+      90
+    ],
+    "source": "SAM-Med3D official train.py defaults",
+    "type": "MultiStepLR"
+  },
+  "matched_comparison_valid": false,
+  "max_epochs": 200,
+  "min_epochs_before_stop": 40,
+  "mode": "formal",
+  "num_workers": 6,
+  "optimizer": {
+    "groups": [
+      {
+        "lr": 0.0001,
+        "name": "image_encoder_blocks_8_11",
+        "parameter_numel": 28367616,
+        "parameter_tensors": 60,
+        "weight_decay": 0.1
+      },
+      {
+        "lr": 1e-05,
+        "name": "prompt_encoder_and_mask_decoder",
+        "parameter_numel": 7584304,
+        "parameter_tensors": 134,
+        "weight_decay": 0.1
+      }
+    ],
+    "type": "AdamW"
+  },
+  "partial_unfreeze_policy": {
+    "counts": {
+      "total_parameters": 100509232,
+      "trainable_parameters": 35951920
+    },
+    "heads": {
+      "mask_decoder_trainable": true,
+      "prompt_encoder_trainable": true,
+      "target_embedding_enabled": false
+    },
+    "image_encoder": {
+      "depth": 12,
+      "frozen_blocks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "lora_enabled": false,
+      "non_block_parameters_trainable": false,
+      "trainable_blocks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "update": "base_weight_partial_unfreeze"
+    },
+    "model_type": "vit_b_ori",
+    "optimizer": {
+      "groups": [
+        {
+          "lr": 1e-05,
+          "name": "image_encoder_blocks_8_11",
+          "parameter_fingerprint_sha256": "7a4430f6a2138824f21f72d87b8b60615d2b1a17e36dfe9ddde4675cdf06c4e7",
+          "parameter_numel": 28367616,
+          "parameter_tensors": 60,
+          "weight_decay": 0.1
+        },
+        {
+          "lr": 0.0001,
+          "name": "prompt_encoder_and_mask_decoder",
+          "parameter_fingerprint_sha256": "df886afa019777db6838916722cf1908d792a9137549eeb525c6190cfbc22afa",
+          "parameter_numel": 7584304,
+          "parameter_tensors": 134,
+          "weight_decay": 0.1
+        }
+      ],
+      "type": "AdamW"
+    },
+    "schema": "aflow.sammed3d.t1ce_wt_last_four_partial_unfreeze",
+    "schema_version": 1
+  },
+  "patience_complete_epochs": 60,
+  "per_gpu_batch_size": 12,
+  "per_rank_rng_offset": true,
+  "precision": "bf16",
+  "run_identity": "sammed3d_stage2_gtcrop_last4_h100_train972_val108_e200_s20260807",
+  "runner_sha256": "d9fd11d3b4bf11bcdd01df19b9619fef2760dd9534c3e6e9e194c1f2cc4e2d0d",
+  "schema": "aflow.sammed3d.t1ce_wt_dpdsam_aligned_training",
+  "schema_version": 1,
+  "selection_metric": "val_dice",
+  "test_access": false,
+  "total_parameters": 100509232,
+  "train_seed": 20260805,
+  "trainable_parameters": 35951920,
+  "unfreeze_policy": "last4",
+  "validation_seed": 20260723,
+  "world_size": 1
+}

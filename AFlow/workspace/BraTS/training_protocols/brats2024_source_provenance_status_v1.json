@@ -1,0 +1,65 @@
+{
+  "schema": "brats2024-gli-source-provenance-status",
+  "schema_version": 1,
+  "checked_utc_date": "2026-07-21",
+  "authorizes_formal_training": false,
+  "authorizes_test_access": false,
+  "status": "blocked_on_official_archive_to_local_file_parity",
+  "official": {
+    "entity_id": "syn60086071",
+    "entity_url": "https://www.synapse.org/Synapse:syn60086071",
+    "entity_version": 2,
+    "entity_modified_utc": "2024-06-17T21:24:56.161Z",
+    "data_file_handle_id": "143397620",
+    "filename": "BraTS2024-BraTS-GLI-TrainingData.zip",
+    "md5": "1d910b17d6cd32e38aa6296b8dfb7c77",
+    "entity_api_response_sha256": "b79d94efdee8519f6aee508dd5745a0ba22bf8ed26e4cba775401f9f45c3f1a1",
+    "archive_available_locally": false
+  },
+  "local_kaggle_source": [
+    {
+      "ref": "tantanbel/brats2024-gli-part1",
+      "version": 2,
+      "updated_utc": "2026-05-28T12:51:10.29Z",
+      "version_notes": "Upload 450 patients for Part 1",
+      "total_bytes": 104835715568,
+      "api_response_sha256": "79f934b61e000ec82579e466e3d53518e3fe5f2097401188aee6482c70f11942"
+    },
+    {
+      "ref": "tantanbel/brats2024-gli-part2",
+      "version": 2,
+      "updated_utc": "2026-05-28T13:07:33.077Z",
+      "version_notes": "Upload 450 patients for Part 2",
+      "total_bytes": 80544181168,
+      "api_response_sha256": "eb5f7a426c69923f055c610f07c148688b9299af62fa70dfa78c53dacd316e30"
+    },
+    {
+      "ref": "tantanbel/brats2024-gli-part3",
+      "version": 2,
+      "updated_utc": "2026-05-28T13:31:55.123Z",
+      "version_notes": "Upload 450 patients for Part 3",
+      "total_bytes": 64701233088,
+      "api_response_sha256": "56919c2e7956d03d07735a326b64e83f1e0e8c5537ad77e25b1135ac1f2234ef"
+    }
+  ],
+  "local_completion_markers": {
+    "count": 3,
+    "path_pattern": "part*/.complete/datasets/tantanbel/brats2024-gli-part*/2/bundle.complete",
+    "size_bytes_each": 0,
+    "sha256_each": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proves": "Kaggle downloader completed dataset version 2 for each part",
+    "does_not_prove": "byte identity with Synapse corrected-v2 archive"
+  },
+  "known_local_inventory": {
+    "scans": 1350,
+    "subjects": 613,
+    "files": 6750,
+    "modalities_and_label_per_scan": ["t1n", "t1c", "t2w", "t2f", "seg"]
+  },
+  "required_to_clear": [
+    "obtain the official syn60086071 version-2 archive",
+    "verify archive MD5 1d910b17d6cd32e38aa6296b8dfb7c77",
+    "run fail-closed archive-to-local per-file SHA-256 comparison",
+    "freeze the resulting collection root"
+  ]
+}

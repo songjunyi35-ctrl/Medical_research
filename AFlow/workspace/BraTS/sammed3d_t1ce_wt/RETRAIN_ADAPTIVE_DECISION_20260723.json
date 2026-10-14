@@ -1,0 +1,37 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_retrain_adaptive_decision",
+  "schema_version": 1,
+  "created_at_utc": "2026-07-23T05:11:17Z",
+  "parent_plan": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/RETRAIN_PLAN_20260723.json",
+    "sha256": "f75ad93f23c409a3519c2dffcbd98e058150bccf3b8099e89799f1591f4eb5a2"
+  },
+  "v2b_early_stop": {
+    "status": "stopped_after_four_complete_epochs",
+    "reason": "No validation improvement for three consecutive completed epochs after epoch 1.",
+    "validation_c3_by_epoch": [
+      0.5409894290884646,
+      0.5381022342081889,
+      0.5361528004060447,
+      0.535060868957468
+    ],
+    "selected_epoch": 1,
+    "selected_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/v2b_e8refine_lr1e5_e12_s20260724/sam_model_val_dice_best.pth",
+    "selected_checkpoint_sha256": "2b7d5907c78ce2ea7e1b01ff393a5597289af08670f9b4cf2d6e203d2bed5015",
+    "history_sha256": "cf08b9eac12aba8f7e3b9d060384b2c7edee8774829173a77d2f3c83967584b2",
+    "partial_epoch_five_used": false
+  },
+  "v2c": {
+    "status": "frozen_before_training",
+    "hypothesis": "A three-fold lower refinement rate may retain the initial v2b gain while reducing immediate validation regression.",
+    "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/decoder_cumulative3_logit0_train972_val108_e10_s20260723_v3_isolated/sam_model_val_dice_best.pth",
+    "checkpoint_sha256": "4a325a6ffca148941c5d66f4802f331d13b8ddb7862da299981e8fd6be84d7c8",
+    "learning_rate": 0.000003,
+    "epochs": 8,
+    "train_seed": 20260724,
+    "validation_seed": 20260723,
+    "selection": "validation final-click scan-macro Dice",
+    "output": "workspace/BraTS/sammed3d_t1ce_wt/v2c_e8refine_lr3e6_e8_s20260724",
+    "test_access": false
+  }
+}

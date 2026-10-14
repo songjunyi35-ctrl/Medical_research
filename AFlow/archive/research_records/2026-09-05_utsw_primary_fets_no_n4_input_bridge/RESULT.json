@@ -1,0 +1,35 @@
+{
+  "schema": "aflow.utsw_primary_fets_no_n4_input_bridge.result",
+  "status": "passed_input_only_fixed_three",
+  "cohort": {"subjects": ["BT0001", "BT0002", "BT0003"], "cases": 3},
+  "policy": {
+    "image": "brain_t1ce.nii.gz",
+    "image_lineage": "official primary FeTS; ANTs alternative forbidden",
+    "label": "rtumorseg_manual_correction.nii.gz",
+    "target": "all positive UTSW labels form WT",
+    "n4": false,
+    "output_shape": [128, 128, 128]
+  },
+  "gates": {
+    "source_finite_nonnegative_zero_background_positive_brain": "3/3",
+    "canonical_image_label_geometry": "3/3",
+    "dual_copy_output_image_exact": "3/3",
+    "dual_copy_output_label_exact": "3/3",
+    "dual_copy_geometry_exact": "3/3",
+    "output_finite_nonempty": "3/3"
+  },
+  "input_qc_sha256": "7573bed6d03f194a429d7eacb4ffb3b711feeda15e91a47539aaf025020deb59",
+  "implementation_sha256": "79048dce7ec0a9654945eed7617aa3cca595e1cbbaaca46972a5c4023ef52da2",
+  "amendment_implementation_sha256": "6642bdf1c2c53c22ec910d6f162216d1c823e6ad51e3e66c6ba7d15d0b46c16c",
+  "implementation_failure_preserved": "EXECUTION_01_FAILURE.json",
+  "access": {
+    "image_voxels_accessed": true,
+    "label_voxels_accessed": true,
+    "subjects_accessed": 3,
+    "remaining_utsw_subjects_accessed": false,
+    "model_inference": false,
+    "gpu_access": false,
+    "old_cohort_accessed": false
+  },
+  "authorization": "A pass permits only a future separately preregistered full-362 input cache step; it does not authorize download or model evaluation."
+}

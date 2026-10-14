@@ -1,0 +1,23 @@
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/build_segresnet_two_ideas_classes.py", line 20, in case
+    slot,row,geo,oldslot=task; path=Path(row['seg_path']); digest=sha(path)
+                                         ~~~^^^^^^^^^^^^
+KeyError: 'seg_path'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/build_segresnet_two_ideas_classes.py", line 63, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/build_segresnet_two_ideas_classes.py", line 49, in main
+    for row in pool.imap(case,tasks,chunksize=1):
+  File "/usr/lib/python3.11/multiprocessing/pool.py", line 873, in next
+    raise value
+KeyError: 'seg_path'

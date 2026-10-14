@@ -1,0 +1,5 @@
+{
+  "utc": "2026-09-16T17:50:31.583155+00:00",
+  "error": "RuntimeError('nonfinite/zero gradient')",
+  "traceback": "Traceback (most recent call last):\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py\", line 118, in <module>\n    else:train(a.batch)\n         ^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py\", line 90, in train\n    value=step(ddp,opt,scaler,batch['image'].to(device,non_blocking=True),batch['label'].to(device,non_blocking=True));n=len(batch['case_id'])*2;samples+=n;totals.append((n,value))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/train_sammed3d_single972_ddp.py\", line 39, in step\n    if not bool(valid):raise RuntimeError('nonfinite/zero gradient')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: nonfinite/zero gradient\n"
+}

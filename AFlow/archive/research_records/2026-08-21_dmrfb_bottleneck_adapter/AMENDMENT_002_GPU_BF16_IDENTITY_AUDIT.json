@@ -1,0 +1,15 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dmrfb_adapter_implementation_amendment",
+  "schema_version": 1,
+  "amendment_id": "002_add_cuda_bfloat16_plain_identity_to_smoke",
+  "timing": "after synthetic tests, before GPU smoke, formal training, or new DMRFB validation access",
+  "problem": "synthetic tests covered initial identity, but formal preregistration also requires direct CUDA BF16 plain-versus-adapter logit identity before optimizer update",
+  "fix": "on the first real train smoke batch construct an eval plain locator from the identical base state, compare plain and adapter final logits under CUDA BF16 autocast, require exact max_abs0, then restore CPU/CUDA RNG and train mode",
+  "scientific_method_changed": false,
+  "training_objective_changed": false,
+  "formal_optimizer_steps_before_fix": 0,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

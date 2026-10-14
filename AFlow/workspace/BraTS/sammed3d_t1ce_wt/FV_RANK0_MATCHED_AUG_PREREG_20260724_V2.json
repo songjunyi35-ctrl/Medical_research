@@ -1,0 +1,132 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt.fv_rank0_matched_aug_prereg",
+  "schema_version": 1,
+  "status": "frozen_before_full_training",
+  "date_utc": "2026-07-24",
+  "supersedes": "FV_RANK0_MATCHED_AUG_PREREG_20260724.json (incomplete draft; fail-closed before training)",
+  "purpose": "Matched whole-volume rank-0 decoder/prompt control for the completed FV-LoRA-Aug arm.",
+  "evidence_boundary": {
+    "development_only": true,
+    "train_cases": 972,
+    "validation_cases": 108,
+    "external_holdout_access": false,
+    "external_holdout_allowed_for_selection": false,
+    "threshold_search": false,
+    "tta": false,
+    "morphology": false,
+    "postprocess_search": false,
+    "medtaws": false
+  },
+  "task": {
+    "input": "T1ce single channel",
+    "target_raw_labels": [
+      1,
+      2,
+      3
+    ],
+    "excluded_raw_labels": [
+      4
+    ],
+    "interaction": "3 accumulated clicks with recurrent low-resolution mask",
+    "selection_metric": "108-case clean-validation final-click scan-macro DSC"
+  },
+  "initialization": {
+    "base_checkpoint": {
+      "path": "../SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+      "sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c"
+    },
+    "uses_prior_finetuned_checkpoint": false
+  },
+  "data": {
+    "train_manifest": {
+      "path": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/train_t1ce_wt.jsonl",
+      "sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e"
+    },
+    "validation_manifest": {
+      "path": "data/datasets/brats2024_sammed3d_t1ce_wt_inner90_10_seed20260723_v1/validation_t1ce_wt.jsonl",
+      "sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c"
+    },
+    "train_subjects": 444,
+    "validation_subjects": 50,
+    "case_overlap": 0,
+    "subject_overlap": 0
+  },
+  "preprocessing": {
+    "spatial_preprocessing": "whole_resize",
+    "model_shape": [
+      128,
+      128,
+      128
+    ],
+    "normalization": "source nonzero-voxel population z-score exactly once",
+    "train_augmentation": "affine_elastic_noise",
+    "validation_augmentation": false
+  },
+  "rank0_arm": {
+    "strategy": "decoder_only",
+    "encoder_qv_lora_rank": 0,
+    "encoder_qv_lora_alpha": 8.0,
+    "image_encoder_update": "frozen",
+    "prompt_encoder_trainable": true,
+    "mask_decoder_trainable": true,
+    "full_image_encoder_finetuning": false,
+    "target_token": false,
+    "expected_trainable_parameters": 7584304,
+    "expected_total_parameters": 100509232
+  },
+  "optimization": {
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.1,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 2,
+    "num_workers": 2,
+    "amp": "bf16",
+    "train_seed": 20260725,
+    "validation_click_seed": 20260723,
+    "checkpoint_selection": "maximum validation val_dice"
+  },
+  "matched_lora_reference": {
+    "train_config": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/train_config.json",
+      "sha256": "b509c4ab2baae2dc68967be097f69e649965e96c978fe51e988d6c0474973e93"
+    },
+    "training_protocol": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/t1ce_wt_protocol.json",
+      "sha256": "df71f27366fd4f0503b00acc84b2858761fc71d51f2ce7e2bd6488acb0b90a93"
+    },
+    "allowed_training_difference": "encoder_qv_lora_rank: 4 -> 0 only; output namespace differs"
+  },
+  "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/fv_rank0_matched_aug_train972_val108_e50_s20260725",
+  "source": {
+    "trainer": {
+      "path": "scripts/train_sammed3d_t1ce_wt.py",
+      "sha256": "369986ff41166ffbbe8081b5767e1f276ac14a7ddbe03acce3b800d6ba4b0988"
+    },
+    "generic_trainer": {
+      "path": "scripts/train_sammed3d_brats.py",
+      "sha256": "0c5026e98b2e0f848c16b436610e9b7eca391995c062ac128ce1bee26d1bfa4f"
+    },
+    "preprocessing_module": {
+      "path": "sammed3d/t1ce_wt_training.py",
+      "sha256": "4d13e2b3894e2b9a91fac7f76dd74b1c744429eef665f09a5f160a604b0989ae"
+    },
+    "peft_module": {
+      "path": "sammed3d/peft.py",
+      "sha256": "4844b1a086c74737f786399c4c67a2b3c56ae34f35b152e423f63591f226bc63"
+    },
+    "engine_module": {
+      "path": "sammed3d/engine.py",
+      "sha256": "f101db584f4f4ef1add180b03af99f775ee035dd63d1cbee04528986f3a9852a"
+    },
+    "preflight": {
+      "path": "scripts/preflight_sammed3d_t1ce_rank0_matched_v2.py",
+      "sha256": "1f40081ebe829fad8df35ee50757d1c623f4426e524585c3749acede1fcc5853"
+    },
+    "launcher": {
+      "path": "scripts/launch_sammed3d_t1ce_rank0_matched_a10_v2.sh",
+      "sha256": "6d9cc84679bed8474d8f427543bf731602a06ca6b9084608429bffc5f4b45bf8"
+    }
+  },
+  "launch_authority": "Root research agent may start this development-only arm only after the v2 preflight returns safe_to_launch=true."
+}

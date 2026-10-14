@@ -1,0 +1,6205 @@
+{
+  "candidate_weights": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "checkpoints": {
+    "ema168": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/plain_128_full756_ema_fixed_epoch168.pth",
+      "sha256": "4ea97dacb9a538993e1c16593bc56b03ce6dc3df2f457c1f0426439c6252197e"
+    },
+    "historical": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+      "sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1"
+    }
+  },
+  "comparisons_to_historical": {
+    "0.25": {
+      "all_gates_passed": true,
+      "ema": {
+        "point_hit": 0.9444444444444444,
+        "scan": 0.7341710969253823,
+        "subject": 0.7244897158585843
+      },
+      "ema_minus_raw": {
+        "bootstrap_samples": 10000,
+        "bootstrap_seed": 20260839,
+        "cases_improved": 82,
+        "cases_tied": 0,
+        "cases_worse": 26,
+        "point_hit": 0.01851851851851849,
+        "scan": 0.002569877990969905,
+        "scan_95ci": [
+          0.0016320915271838506,
+          0.00347308130175979
+        ],
+        "subject": 0.0023691503774552116,
+        "subject_95ci": [
+          0.0011645165671195301,
+          0.0035268404558300975
+        ],
+        "subjects_improved": 39,
+        "subjects_tied": 0,
+        "subjects_worse": 11
+      },
+      "gates": {
+        "paired_subject_ci_lower_at_least_minus_0.003": true,
+        "point_hit_drop_at_most_0.01": true,
+        "scan_gain_positive": true,
+        "subject_gain_positive": true
+      },
+      "raw": {
+        "point_hit": 0.9259259259259259,
+        "scan": 0.7316012189344123,
+        "subject": 0.7221205654811291
+      }
+    },
+    "0.5": {
+      "all_gates_passed": false,
+      "ema": {
+        "point_hit": 0.9537037037037037,
+        "scan": 0.7320483033027914,
+        "subject": 0.7226230208149979
+      },
+      "ema_minus_raw": {
+        "bootstrap_samples": 10000,
+        "bootstrap_seed": 20260840,
+        "cases_improved": 68,
+        "cases_tied": 0,
+        "cases_worse": 40,
+        "point_hit": 0.02777777777777779,
+        "scan": 0.00044708436837902774,
+        "scan_95ci": [
+          -0.003289655475290837,
+          0.0038267419121607586
+        ],
+        "subject": 0.0005024553338686655,
+        "subject_95ci": [
+          -0.0042022505604795,
+          0.005002805168075223
+        ],
+        "subjects_improved": 31,
+        "subjects_tied": 0,
+        "subjects_worse": 19
+      },
+      "gates": {
+        "paired_subject_ci_lower_at_least_minus_0.003": false,
+        "point_hit_drop_at_most_0.01": true,
+        "scan_gain_positive": true,
+        "subject_gain_positive": true
+      },
+      "raw": {
+        "point_hit": 0.9259259259259259,
+        "scan": 0.7316012189344123,
+        "subject": 0.7221205654811291
+      }
+    },
+    "0.75": {
+      "all_gates_passed": false,
+      "ema": {
+        "point_hit": 0.9444444444444444,
+        "scan": 0.7237252660647586,
+        "subject": 0.7148138745625814
+      },
+      "ema_minus_raw": {
+        "bootstrap_samples": 10000,
+        "bootstrap_seed": 20260841,
+        "cases_improved": 51,
+        "cases_tied": 0,
+        "cases_worse": 57,
+        "point_hit": 0.01851851851851849,
+        "scan": -0.007875952869653702,
+        "scan_95ci": [
+          -0.01672821914156278,
+          -0.0006956052586988184
+        ],
+        "subject": -0.007306690918547766,
+        "subject_95ci": [
+          -0.01673823251592971,
+          0.0004650549438028117
+        ],
+        "subjects_improved": 24,
+        "subjects_tied": 0,
+        "subjects_worse": 26
+      },
+      "gates": {
+        "paired_subject_ci_lower_at_least_minus_0.003": false,
+        "point_hit_drop_at_most_0.01": true,
+        "scan_gain_positive": false,
+        "subject_gain_positive": false
+      },
+      "raw": {
+        "point_hit": 0.9259259259259259,
+        "scan": 0.7316012189344123,
+        "subject": 0.7221205654811291
+      }
+    }
+  },
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-19T04:18:56.518884+00:00",
+  "data": {
+    "cache": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "cases": 108,
+    "manifest": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "subjects": 50
+  },
+  "ensemble_candidate_authorized_for_test": true,
+  "evidence_scope": "historical fixed validation108/50 subjects",
+  "method": "linear model-grid logit blend: (1-w)*historical + w*EMA168",
+  "outer_selector_access": false,
+  "postprocessing": false,
+  "schema": "aflow.sammed3d.t1ce_wt_plain_logit_ensemble_validation",
+  "schema_version": 1,
+  "selected_comparison": {
+    "all_gates_passed": true,
+    "ema": {
+      "point_hit": 0.9444444444444444,
+      "scan": 0.7341710969253823,
+      "subject": 0.7244897158585843
+    },
+    "ema_minus_raw": {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20260839,
+      "cases_improved": 82,
+      "cases_tied": 0,
+      "cases_worse": 26,
+      "point_hit": 0.01851851851851849,
+      "scan": 0.002569877990969905,
+      "scan_95ci": [
+        0.0016320915271838506,
+        0.00347308130175979
+      ],
+      "subject": 0.0023691503774552116,
+      "subject_95ci": [
+        0.0011645165671195301,
+        0.0035268404558300975
+      ],
+      "subjects_improved": 39,
+      "subjects_tied": 0,
+      "subjects_worse": 11
+    },
+    "gates": {
+      "paired_subject_ci_lower_at_least_minus_0.003": true,
+      "point_hit_drop_at_most_0.01": true,
+      "scan_gain_positive": true,
+      "subject_gain_positive": true
+    },
+    "raw": {
+      "point_hit": 0.9259259259259259,
+      "scan": 0.7316012189344123,
+      "subject": 0.7221205654811291
+    }
+  },
+  "selected_weight": 0.25,
+  "selection": "maximum validation scan Dice, subject Dice tie-break",
+  "summaries": {
+    "0.0": {
+      "automatic_point_hit_rate": 0.9259259259259259,
+      "cases": 108,
+      "locator_dsc_mean": 0.7316012189344123,
+      "locator_dsc_median": 0.7672741413116455,
+      "locator_dsc_std_population": 0.15069832355365362,
+      "locator_subject_dsc_mean": 0.7221205654811291,
+      "per_case": [
+        {
+          "automatic_point": [
+            91,
+            52,
+            101
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-100",
+          "locator_dsc": 0.7426970601081848,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            88,
+            56,
+            110
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-101",
+          "locator_dsc": 0.7607846856117249,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            22,
+            77,
+            52
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-100",
+          "locator_dsc": 0.5978257060050964,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            17,
+            58,
+            47
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-101",
+          "locator_dsc": 0.7875649929046631,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            30,
+            30,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-100",
+          "locator_dsc": 0.7464230060577393,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            25,
+            33,
+            56
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-101",
+          "locator_dsc": 0.7562804222106934,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            40,
+            103,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-100",
+          "locator_dsc": 0.7284308671951294,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            39,
+            104,
+            71
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-101",
+          "locator_dsc": 0.6925930380821228,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            54,
+            107,
+            87
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-100",
+          "locator_dsc": 0.83446204662323,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            53,
+            92,
+            105
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-101",
+          "locator_dsc": 0.8053390979766846,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            94,
+            79,
+            104
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-100",
+          "locator_dsc": 0.9092597365379333,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            93,
+            79,
+            104
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-101",
+          "locator_dsc": 0.8330689668655396,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            41,
+            39,
+            53
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-100",
+          "locator_dsc": 0.8405588865280151,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            18,
+            52,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-101",
+          "locator_dsc": 0.7911686897277832,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            25,
+            37,
+            64
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-100",
+          "locator_dsc": 0.8084515333175659,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            28,
+            28,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-101",
+          "locator_dsc": 0.7416455745697021,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            73,
+            97,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-100",
+          "locator_dsc": 0.9175096154212952,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            70,
+            110,
+            79
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-101",
+          "locator_dsc": 0.9147297739982605,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            54,
+            87,
+            46
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-100",
+          "locator_dsc": 0.7655770182609558,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            57,
+            88,
+            53
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-101",
+          "locator_dsc": 0.7615048289299011,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            33,
+            82,
+            56
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-102",
+          "locator_dsc": 0.5284462571144104,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            32,
+            74,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-103",
+          "locator_dsc": 0.29783010482788086,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            69,
+            75,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-104",
+          "locator_dsc": 0.5253021717071533,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            36,
+            84,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-105",
+          "locator_dsc": 0.59457927942276,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            47,
+            109,
+            58
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-106",
+          "locator_dsc": 0.6646737456321716,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            78,
+            25,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-100",
+          "locator_dsc": 0.8842508792877197,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            78,
+            24,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-101",
+          "locator_dsc": 0.8622762560844421,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            81,
+            25,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-102",
+          "locator_dsc": 0.8390598893165588,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            101,
+            44,
+            80
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-103",
+          "locator_dsc": 0.8397510647773743,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            90,
+            59,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-100",
+          "locator_dsc": 0.7548653483390808,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            88,
+            58,
+            102
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-101",
+          "locator_dsc": 0.8422300219535828,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            97,
+            34,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-102",
+          "locator_dsc": 0.8349820375442505,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            90,
+            56,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-103",
+          "locator_dsc": 0.7929399609565735,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            55,
+            70,
+            115
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-100",
+          "locator_dsc": 0.7890738248825073,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            50,
+            58,
+            112
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-101",
+          "locator_dsc": 0.8878932595252991,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            56,
+            69,
+            111
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-102",
+          "locator_dsc": 0.8730051517486572,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            69,
+            87,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-100",
+          "locator_dsc": 0.8474380970001221,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            48,
+            103,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-101",
+          "locator_dsc": 0.8433644771575928,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            79,
+            105,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-102",
+          "locator_dsc": 0.824711799621582,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            71,
+            107,
+            70
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-103",
+          "locator_dsc": 0.8442038893699646,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            77,
+            105,
+            77
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-104",
+          "locator_dsc": 0.841286838054657,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            70,
+            107,
+            77
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-105",
+          "locator_dsc": 0.8633864521980286,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            59,
+            99,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-106",
+          "locator_dsc": 0.8113040328025818,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            55,
+            17,
+            86
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02208-100",
+          "locator_dsc": 0.42623648047447205,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            57,
+            16,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02208-101",
+          "locator_dsc": 0.43870678544044495,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            54,
+            16,
+            92
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02208-102",
+          "locator_dsc": 0.3175022006034851,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            91,
+            68,
+            113
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-100",
+          "locator_dsc": 0.7403802871704102,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            91,
+            58,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-101",
+          "locator_dsc": 0.68217933177948,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            90,
+            68,
+            113
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-102",
+          "locator_dsc": 0.8024018406867981,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            90,
+            68,
+            112
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-103",
+          "locator_dsc": 0.7959433197975159,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            81,
+            80,
+            85
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02249-100",
+          "locator_dsc": 0.1919441670179367,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            85,
+            79,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02249-101",
+          "locator_dsc": 0.483955055475235,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            104,
+            25,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-100",
+          "locator_dsc": 0.6879621148109436,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            99,
+            47,
+            66
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-101",
+          "locator_dsc": 0.7367133498191833,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            60,
+            98,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-100",
+          "locator_dsc": 0.7396301627159119,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            53,
+            99,
+            70
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-101",
+          "locator_dsc": 0.8485062122344971,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            112,
+            55,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02327-100",
+          "locator_dsc": 0.44977620244026184,
+          "subject_id": "BraTS-GLI-02327"
+        },
+        {
+          "automatic_point": [
+            27,
+            49,
+            52
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02381-100",
+          "locator_dsc": 0.8895430564880371,
+          "subject_id": "BraTS-GLI-02381"
+        },
+        {
+          "automatic_point": [
+            102,
+            67,
+            60
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02386-100",
+          "locator_dsc": 0.8509625196456909,
+          "subject_id": "BraTS-GLI-02386"
+        },
+        {
+          "automatic_point": [
+            87,
+            62,
+            103
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02387-100",
+          "locator_dsc": 0.6946487426757812,
+          "subject_id": "BraTS-GLI-02387"
+        },
+        {
+          "automatic_point": [
+            49,
+            108,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02647-100",
+          "locator_dsc": 0.6999683380126953,
+          "subject_id": "BraTS-GLI-02647"
+        },
+        {
+          "automatic_point": [
+            106,
+            51,
+            89
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02656-100",
+          "locator_dsc": 0.6181938052177429,
+          "subject_id": "BraTS-GLI-02656"
+        },
+        {
+          "automatic_point": [
+            106,
+            45,
+            98
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02657-100",
+          "locator_dsc": 0.12357528507709503,
+          "subject_id": "BraTS-GLI-02657"
+        },
+        {
+          "automatic_point": [
+            32,
+            42,
+            78
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02694-100",
+          "locator_dsc": 0.637137770652771,
+          "subject_id": "BraTS-GLI-02694"
+        },
+        {
+          "automatic_point": [
+            44,
+            113,
+            57
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02720-100",
+          "locator_dsc": 0.6191579103469849,
+          "subject_id": "BraTS-GLI-02720"
+        },
+        {
+          "automatic_point": [
+            78,
+            73,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02724-100",
+          "locator_dsc": 0.8485084772109985,
+          "subject_id": "BraTS-GLI-02724"
+        },
+        {
+          "automatic_point": [
+            26,
+            38,
+            31
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-100",
+          "locator_dsc": 0.7028744220733643,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            25,
+            35,
+            31
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-101",
+          "locator_dsc": 0.7375493049621582,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            49,
+            79,
+            109
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-100",
+          "locator_dsc": 0.7906624674797058,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            48,
+            79,
+            109
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-101",
+          "locator_dsc": 0.7514312267303467,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            86,
+            95,
+            87
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-100",
+          "locator_dsc": 0.6264560222625732,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            41,
+            25,
+            80
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-101",
+          "locator_dsc": 0.657550036907196,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            34,
+            38,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-100",
+          "locator_dsc": 0.8759951591491699,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            45,
+            36,
+            105
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-101",
+          "locator_dsc": 0.8484925627708435,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            102,
+            72,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02800-100",
+          "locator_dsc": 0.8225367665290833,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            98,
+            73,
+            91
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02800-101",
+          "locator_dsc": 0.7702004909515381,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            78,
+            45,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-100",
+          "locator_dsc": 0.8132146596908569,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            82,
+            44,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-101",
+          "locator_dsc": 0.7689712643623352,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            41,
+            54,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-100",
+          "locator_dsc": 0.8669410347938538,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            32,
+            50,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-101",
+          "locator_dsc": 0.8800033926963806,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            33,
+            62,
+            102
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-100",
+          "locator_dsc": 0.8866272568702698,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            32,
+            63,
+            102
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-101",
+          "locator_dsc": 0.8299930095672607,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            57,
+            106,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-100",
+          "locator_dsc": 0.7300099730491638,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            59,
+            106,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-101",
+          "locator_dsc": 0.7229151725769043,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            39,
+            86,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-100",
+          "locator_dsc": 0.7902748584747314,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            52,
+            98,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-101",
+          "locator_dsc": 0.816213071346283,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            26,
+            88,
+            76
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02905-100",
+          "locator_dsc": 0.544711709022522,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            25,
+            88,
+            77
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02905-101",
+          "locator_dsc": 0.5650871992111206,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            37,
+            83,
+            35
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-100",
+          "locator_dsc": 0.6472651958465576,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            21,
+            62,
+            47
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-101",
+          "locator_dsc": 0.6396228075027466,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            90,
+            74,
+            55
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-100",
+          "locator_dsc": 0.7005508542060852,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            90,
+            71,
+            58
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-101",
+          "locator_dsc": 0.7117291688919067,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            48,
+            34,
+            99
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-100",
+          "locator_dsc": 0.7072265148162842,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            51,
+            35,
+            110
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-101",
+          "locator_dsc": 0.794217586517334,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            105,
+            81,
+            86
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-100",
+          "locator_dsc": 0.7916046977043152,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            106,
+            78,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-101",
+          "locator_dsc": 0.8234279155731201,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            50,
+            69,
+            101
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-100",
+          "locator_dsc": 0.7253073453903198,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            29,
+            74,
+            67
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-101",
+          "locator_dsc": 0.8334437608718872,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            109,
+            77,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-100",
+          "locator_dsc": 0.7937217950820923,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            111,
+            76,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-101",
+          "locator_dsc": 0.8308756351470947,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            65,
+            57,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-100",
+          "locator_dsc": 0.5679585933685303,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            64,
+            60,
+            70
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-101",
+          "locator_dsc": 0.342729389667511,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            98,
+            76,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-100",
+          "locator_dsc": 0.6874361038208008,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            93,
+            76,
+            50
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-101",
+          "locator_dsc": 0.7182393670082092,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            113,
+            58,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-100",
+          "locator_dsc": 0.8775748610496521,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            87,
+            51,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-101",
+          "locator_dsc": 0.8396143913269043,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            15,
+            56,
+            40
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-03059-100",
+          "locator_dsc": 0.7372233867645264,
+          "subject_id": "BraTS-GLI-03059"
+        },
+        {
+          "automatic_point": [
+            28,
+            36,
+            63
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03059-101",
+          "locator_dsc": 0.6981874108314514,
+          "subject_id": "BraTS-GLI-03059"
+        }
+      ],
+      "subjects": 50
+    },
+    "0.25": {
+      "automatic_point_hit_rate": 0.9444444444444444,
+      "cases": 108,
+      "locator_dsc_mean": 0.7341710969253823,
+      "locator_dsc_median": 0.7787298858165741,
+      "locator_dsc_std_population": 0.15101777142299805,
+      "locator_subject_dsc_mean": 0.7244897158585843,
+      "per_case": [
+        {
+          "automatic_point": [
+            86,
+            54,
+            112
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-100",
+          "locator_dsc": 0.7484036684036255,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            87,
+            56,
+            111
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-101",
+          "locator_dsc": 0.7650651335716248,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            20,
+            64,
+            41
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-100",
+          "locator_dsc": 0.6053388714790344,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            19,
+            68,
+            57
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-101",
+          "locator_dsc": 0.7909145355224609,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            24,
+            43,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-100",
+          "locator_dsc": 0.7510004639625549,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            22,
+            34,
+            52
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-101",
+          "locator_dsc": 0.761978030204773,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            52,
+            114,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-100",
+          "locator_dsc": 0.729903519153595,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            49,
+            103,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-101",
+          "locator_dsc": 0.6968104839324951,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            54,
+            108,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-100",
+          "locator_dsc": 0.8365071415901184,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            53,
+            92,
+            105
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-101",
+          "locator_dsc": 0.8058829307556152,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            94,
+            79,
+            104
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-100",
+          "locator_dsc": 0.9098699688911438,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            93,
+            79,
+            104
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-101",
+          "locator_dsc": 0.8352212309837341,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            41,
+            39,
+            53
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-100",
+          "locator_dsc": 0.8429103493690491,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            33,
+            43,
+            47
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-101",
+          "locator_dsc": 0.7948516607284546,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            25,
+            37,
+            64
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-100",
+          "locator_dsc": 0.8141783475875854,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            28,
+            28,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-101",
+          "locator_dsc": 0.7479646801948547,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            72,
+            97,
+            76
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-100",
+          "locator_dsc": 0.9172620177268982,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            72,
+            94,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-101",
+          "locator_dsc": 0.9145846366882324,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            54,
+            87,
+            46
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-100",
+          "locator_dsc": 0.7815039157867432,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            57,
+            89,
+            53
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-101",
+          "locator_dsc": 0.7703216075897217,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            27,
+            83,
+            41
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-102",
+          "locator_dsc": 0.5344731211662292,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            32,
+            74,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-103",
+          "locator_dsc": 0.30002111196517944,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            68,
+            75,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-104",
+          "locator_dsc": 0.5314993262290955,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            36,
+            84,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-105",
+          "locator_dsc": 0.5990902185440063,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            52,
+            91,
+            39
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-106",
+          "locator_dsc": 0.6673077344894409,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            79,
+            26,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-100",
+          "locator_dsc": 0.8858418464660645,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            78,
+            24,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-101",
+          "locator_dsc": 0.8641303181648254,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            81,
+            25,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-102",
+          "locator_dsc": 0.841999351978302,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            104,
+            41,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-103",
+          "locator_dsc": 0.8435268402099609,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            90,
+            59,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-100",
+          "locator_dsc": 0.7519581317901611,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            88,
+            58,
+            101
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-101",
+          "locator_dsc": 0.8396749496459961,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            97,
+            34,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-102",
+          "locator_dsc": 0.8328238725662231,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            90,
+            56,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-103",
+          "locator_dsc": 0.7884961366653442,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            54,
+            70,
+            115
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-100",
+          "locator_dsc": 0.7931739091873169,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            50,
+            58,
+            112
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-101",
+          "locator_dsc": 0.8923017978668213,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            56,
+            69,
+            111
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-102",
+          "locator_dsc": 0.875754714012146,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            84,
+            100,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-100",
+          "locator_dsc": 0.8481085300445557,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            46,
+            104,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-101",
+          "locator_dsc": 0.8455234169960022,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            79,
+            105,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-102",
+          "locator_dsc": 0.8248006701469421,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            77,
+            105,
+            68
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-103",
+          "locator_dsc": 0.8429498076438904,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            77,
+            105,
+            77
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-104",
+          "locator_dsc": 0.8403167724609375,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            70,
+            107,
+            77
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-105",
+          "locator_dsc": 0.8620179295539856,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            77,
+            106,
+            79
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-106",
+          "locator_dsc": 0.8111551403999329,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            56,
+            17,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02208-100",
+          "locator_dsc": 0.40739092230796814,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            58,
+            16,
+            83
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02208-101",
+          "locator_dsc": 0.4256022572517395,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            54,
+            16,
+            91
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02208-102",
+          "locator_dsc": 0.315071702003479,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            92,
+            67,
+            113
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-100",
+          "locator_dsc": 0.7510684728622437,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            91,
+            58,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-101",
+          "locator_dsc": 0.6974297761917114,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            92,
+            56,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-102",
+          "locator_dsc": 0.8177277445793152,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            99,
+            60,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-103",
+          "locator_dsc": 0.8074752688407898,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            67,
+            78,
+            92
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02249-100",
+          "locator_dsc": 0.19913558661937714,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            104,
+            83,
+            86
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02249-101",
+          "locator_dsc": 0.48777681589126587,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            104,
+            25,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-100",
+          "locator_dsc": 0.6832550764083862,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            99,
+            47,
+            66
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-101",
+          "locator_dsc": 0.7383403182029724,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            53,
+            105,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-100",
+          "locator_dsc": 0.7397528290748596,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            42,
+            113,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-101",
+          "locator_dsc": 0.8496518731117249,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            112,
+            55,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02327-100",
+          "locator_dsc": 0.4529334008693695,
+          "subject_id": "BraTS-GLI-02327"
+        },
+        {
+          "automatic_point": [
+            17,
+            58,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02381-100",
+          "locator_dsc": 0.891563892364502,
+          "subject_id": "BraTS-GLI-02381"
+        },
+        {
+          "automatic_point": [
+            102,
+            67,
+            60
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02386-100",
+          "locator_dsc": 0.8499562740325928,
+          "subject_id": "BraTS-GLI-02386"
+        },
+        {
+          "automatic_point": [
+            87,
+            62,
+            103
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02387-100",
+          "locator_dsc": 0.69100421667099,
+          "subject_id": "BraTS-GLI-02387"
+        },
+        {
+          "automatic_point": [
+            50,
+            101,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02647-100",
+          "locator_dsc": 0.7039302587509155,
+          "subject_id": "BraTS-GLI-02647"
+        },
+        {
+          "automatic_point": [
+            106,
+            51,
+            89
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02656-100",
+          "locator_dsc": 0.6144360899925232,
+          "subject_id": "BraTS-GLI-02656"
+        },
+        {
+          "automatic_point": [
+            79,
+            48,
+            85
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02657-100",
+          "locator_dsc": 0.12990467250347137,
+          "subject_id": "BraTS-GLI-02657"
+        },
+        {
+          "automatic_point": [
+            32,
+            42,
+            78
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02694-100",
+          "locator_dsc": 0.6466299295425415,
+          "subject_id": "BraTS-GLI-02694"
+        },
+        {
+          "automatic_point": [
+            45,
+            114,
+            55
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02720-100",
+          "locator_dsc": 0.6104251146316528,
+          "subject_id": "BraTS-GLI-02720"
+        },
+        {
+          "automatic_point": [
+            78,
+            73,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02724-100",
+          "locator_dsc": 0.8502811789512634,
+          "subject_id": "BraTS-GLI-02724"
+        },
+        {
+          "automatic_point": [
+            26,
+            38,
+            31
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-100",
+          "locator_dsc": 0.7022039294242859,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            25,
+            35,
+            31
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-101",
+          "locator_dsc": 0.7426817417144775,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            49,
+            79,
+            109
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-100",
+          "locator_dsc": 0.7964037656784058,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            48,
+            79,
+            109
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-101",
+          "locator_dsc": 0.7535821795463562,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            17,
+            78,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-100",
+          "locator_dsc": 0.6225544810295105,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            41,
+            30,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-101",
+          "locator_dsc": 0.6628503799438477,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            34,
+            38,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-100",
+          "locator_dsc": 0.8737374544143677,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            46,
+            38,
+            86
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-101",
+          "locator_dsc": 0.8468990325927734,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            103,
+            73,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02800-100",
+          "locator_dsc": 0.824809730052948,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            103,
+            70,
+            78
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02800-101",
+          "locator_dsc": 0.7781102061271667,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            78,
+            45,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-100",
+          "locator_dsc": 0.8192319869995117,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            81,
+            45,
+            90
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-101",
+          "locator_dsc": 0.7793495655059814,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            41,
+            54,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-100",
+          "locator_dsc": 0.8659141659736633,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            33,
+            50,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-101",
+          "locator_dsc": 0.8785103559494019,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            33,
+            90,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-100",
+          "locator_dsc": 0.8929086923599243,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            32,
+            63,
+            102
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-101",
+          "locator_dsc": 0.8305985927581787,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            57,
+            106,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-100",
+          "locator_dsc": 0.7311494946479797,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            63,
+            100,
+            101
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-101",
+          "locator_dsc": 0.7269481420516968,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            39,
+            86,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-100",
+          "locator_dsc": 0.7961536645889282,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            52,
+            100,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-101",
+          "locator_dsc": 0.821645975112915,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            16,
+            84,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02905-100",
+          "locator_dsc": 0.547406792640686,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            27,
+            98,
+            71
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02905-101",
+          "locator_dsc": 0.5689694285392761,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            37,
+            83,
+            35
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-100",
+          "locator_dsc": 0.6499245762825012,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            21,
+            62,
+            47
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-101",
+          "locator_dsc": 0.6409225463867188,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            90,
+            74,
+            55
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-100",
+          "locator_dsc": 0.7063891291618347,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            88,
+            72,
+            54
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-101",
+          "locator_dsc": 0.7236837148666382,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            48,
+            34,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-100",
+          "locator_dsc": 0.7109454870223999,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            51,
+            35,
+            110
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-101",
+          "locator_dsc": 0.796588659286499,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            105,
+            81,
+            86
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-100",
+          "locator_dsc": 0.79444420337677,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            106,
+            77,
+            90
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-101",
+          "locator_dsc": 0.824539303779602,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            50,
+            69,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-100",
+          "locator_dsc": 0.7255280017852783,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            26,
+            85,
+            61
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-101",
+          "locator_dsc": 0.834757924079895,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            110,
+            77,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-100",
+          "locator_dsc": 0.7935935258865356,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            110,
+            77,
+            75
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-101",
+          "locator_dsc": 0.8358171582221985,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            65,
+            57,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-100",
+          "locator_dsc": 0.5678056478500366,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            64,
+            60,
+            70
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-101",
+          "locator_dsc": 0.3434884250164032,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            92,
+            75,
+            50
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-100",
+          "locator_dsc": 0.6965625882148743,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            93,
+            76,
+            50
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-101",
+          "locator_dsc": 0.7237264513969421,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            113,
+            58,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-100",
+          "locator_dsc": 0.8785119652748108,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            113,
+            58,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-101",
+          "locator_dsc": 0.8420470356941223,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            14,
+            57,
+            41
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-03059-100",
+          "locator_dsc": 0.7404928803443909,
+          "subject_id": "BraTS-GLI-03059"
+        },
+        {
+          "automatic_point": [
+            28,
+            36,
+            63
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03059-101",
+          "locator_dsc": 0.6999269723892212,
+          "subject_id": "BraTS-GLI-03059"
+        }
+      ],
+      "subjects": 50
+    },
+    "0.5": {
+      "automatic_point_hit_rate": 0.9537037037037037,
+      "cases": 108,
+      "locator_dsc_mean": 0.7320483033027914,
+      "locator_dsc_median": 0.7825494706630707,
+      "locator_dsc_std_population": 0.15365678998775245,
+      "locator_subject_dsc_mean": 0.7226230208149979,
+      "per_case": [
+        {
+          "automatic_point": [
+            86,
+            54,
+            112
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-100",
+          "locator_dsc": 0.7522628307342529,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            84,
+            54,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-101",
+          "locator_dsc": 0.7726143598556519,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            19,
+            64,
+            40
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-100",
+          "locator_dsc": 0.6181718111038208,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            19,
+            68,
+            57
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-101",
+          "locator_dsc": 0.7972958087921143,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            24,
+            43,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-100",
+          "locator_dsc": 0.7503064870834351,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            22,
+            34,
+            52
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-101",
+          "locator_dsc": 0.7671793699264526,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            52,
+            113,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-100",
+          "locator_dsc": 0.7300962805747986,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            49,
+            103,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-101",
+          "locator_dsc": 0.7045997977256775,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            54,
+            108,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-100",
+          "locator_dsc": 0.8375075459480286,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            52,
+            92,
+            105
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-101",
+          "locator_dsc": 0.8059420585632324,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            94,
+            79,
+            105
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-100",
+          "locator_dsc": 0.9085754752159119,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            93,
+            79,
+            104
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-101",
+          "locator_dsc": 0.8362967371940613,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            41,
+            39,
+            53
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-100",
+          "locator_dsc": 0.8415881395339966,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            33,
+            43,
+            47
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-101",
+          "locator_dsc": 0.7983230352401733,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            40,
+            26,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-100",
+          "locator_dsc": 0.7856611609458923,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            46,
+            45,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-101",
+          "locator_dsc": 0.7463828921318054,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            72,
+            97,
+            76
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-100",
+          "locator_dsc": 0.9142190217971802,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            72,
+            94,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-101",
+          "locator_dsc": 0.9116792678833008,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            51,
+            87,
+            45
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-100",
+          "locator_dsc": 0.7835275530815125,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            57,
+            89,
+            53
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-101",
+          "locator_dsc": 0.7667332887649536,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            42,
+            85,
+            40
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-102",
+          "locator_dsc": 0.5284706950187683,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            41,
+            84,
+            43
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-103",
+          "locator_dsc": 0.30220434069633484,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            66,
+            77,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-104",
+          "locator_dsc": 0.5491557717323303,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            35,
+            85,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-105",
+          "locator_dsc": 0.6059717535972595,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            52,
+            91,
+            39
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-106",
+          "locator_dsc": 0.6708402633666992,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            79,
+            26,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-100",
+          "locator_dsc": 0.8865305781364441,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            78,
+            24,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-101",
+          "locator_dsc": 0.8665362000465393,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            74,
+            29,
+            102
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-102",
+          "locator_dsc": 0.8431933522224426,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            104,
+            41,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-103",
+          "locator_dsc": 0.8469918370246887,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            86,
+            62,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-100",
+          "locator_dsc": 0.7431240677833557,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            75,
+            45,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-101",
+          "locator_dsc": 0.8341416120529175,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            87,
+            58,
+            101
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-102",
+          "locator_dsc": 0.828199028968811,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            82,
+            55,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-103",
+          "locator_dsc": 0.7815713882446289,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            53,
+            71,
+            115
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-100",
+          "locator_dsc": 0.7971630096435547,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            50,
+            88,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-101",
+          "locator_dsc": 0.8976261615753174,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            56,
+            69,
+            111
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-102",
+          "locator_dsc": 0.8771864771842957,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            84,
+            100,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-100",
+          "locator_dsc": 0.8479788303375244,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            46,
+            104,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-101",
+          "locator_dsc": 0.8476167321205139,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            79,
+            105,
+            75
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-102",
+          "locator_dsc": 0.8104130625724792,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            71,
+            109,
+            70
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-103",
+          "locator_dsc": 0.8346284031867981,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            70,
+            109,
+            78
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-104",
+          "locator_dsc": 0.8271792531013489,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            81,
+            106,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-105",
+          "locator_dsc": 0.8531658053398132,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            53,
+            103,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-106",
+          "locator_dsc": 0.8059942722320557,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            57,
+            17,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02208-100",
+          "locator_dsc": 0.3174603283405304,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            58,
+            17,
+            82
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02208-101",
+          "locator_dsc": 0.382764995098114,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            54,
+            16,
+            91
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02208-102",
+          "locator_dsc": 0.28987041115760803,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            90,
+            56,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-100",
+          "locator_dsc": 0.7627840638160706,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            90,
+            58,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-101",
+          "locator_dsc": 0.7169811129570007,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            91,
+            56,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-102",
+          "locator_dsc": 0.822436511516571,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            91,
+            56,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-103",
+          "locator_dsc": 0.8197457194328308,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            67,
+            78,
+            91
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02249-100",
+          "locator_dsc": 0.18638251721858978,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            104,
+            83,
+            86
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02249-101",
+          "locator_dsc": 0.47028085589408875,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            111,
+            28,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-100",
+          "locator_dsc": 0.6596181988716125,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            99,
+            47,
+            66
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-101",
+          "locator_dsc": 0.7371788024902344,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            52,
+            105,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-100",
+          "locator_dsc": 0.7357550263404846,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            41,
+            113,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-101",
+          "locator_dsc": 0.8517358303070068,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            112,
+            55,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02327-100",
+          "locator_dsc": 0.4574039578437805,
+          "subject_id": "BraTS-GLI-02327"
+        },
+        {
+          "automatic_point": [
+            17,
+            58,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02381-100",
+          "locator_dsc": 0.8934654593467712,
+          "subject_id": "BraTS-GLI-02381"
+        },
+        {
+          "automatic_point": [
+            105,
+            69,
+            58
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02386-100",
+          "locator_dsc": 0.8364877700805664,
+          "subject_id": "BraTS-GLI-02386"
+        },
+        {
+          "automatic_point": [
+            86,
+            62,
+            102
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02387-100",
+          "locator_dsc": 0.6833773255348206,
+          "subject_id": "BraTS-GLI-02387"
+        },
+        {
+          "automatic_point": [
+            50,
+            101,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02647-100",
+          "locator_dsc": 0.706894040107727,
+          "subject_id": "BraTS-GLI-02647"
+        },
+        {
+          "automatic_point": [
+            106,
+            52,
+            89
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02656-100",
+          "locator_dsc": 0.6038643717765808,
+          "subject_id": "BraTS-GLI-02656"
+        },
+        {
+          "automatic_point": [
+            81,
+            46,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02657-100",
+          "locator_dsc": 0.17246505618095398,
+          "subject_id": "BraTS-GLI-02657"
+        },
+        {
+          "automatic_point": [
+            34,
+            40,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02694-100",
+          "locator_dsc": 0.6521639227867126,
+          "subject_id": "BraTS-GLI-02694"
+        },
+        {
+          "automatic_point": [
+            44,
+            114,
+            54
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02720-100",
+          "locator_dsc": 0.5739930868148804,
+          "subject_id": "BraTS-GLI-02720"
+        },
+        {
+          "automatic_point": [
+            79,
+            65,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02724-100",
+          "locator_dsc": 0.8515023589134216,
+          "subject_id": "BraTS-GLI-02724"
+        },
+        {
+          "automatic_point": [
+            25,
+            41,
+            32
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-100",
+          "locator_dsc": 0.6752002239227295,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            25,
+            35,
+            31
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-101",
+          "locator_dsc": 0.7413968443870544,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            49,
+            84,
+            109
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-100",
+          "locator_dsc": 0.7991024255752563,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            48,
+            79,
+            109
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-101",
+          "locator_dsc": 0.7524628639221191,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            17,
+            78,
+            99
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-100",
+          "locator_dsc": 0.5650405287742615,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            41,
+            30,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-101",
+          "locator_dsc": 0.6542900204658508,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            34,
+            38,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-100",
+          "locator_dsc": 0.8701590895652771,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            45,
+            39,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-101",
+          "locator_dsc": 0.8438863754272461,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            92,
+            98,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02800-100",
+          "locator_dsc": 0.8290168046951294,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            101,
+            77,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02800-101",
+          "locator_dsc": 0.7949872016906738,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            78,
+            45,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-100",
+          "locator_dsc": 0.8199699521064758,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            80,
+            45,
+            90
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-101",
+          "locator_dsc": 0.7907178401947021,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            42,
+            46,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-100",
+          "locator_dsc": 0.8610808849334717,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            47,
+            62,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-101",
+          "locator_dsc": 0.8615590333938599,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            34,
+            74,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-100",
+          "locator_dsc": 0.8951277136802673,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            31,
+            71,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-101",
+          "locator_dsc": 0.8299447298049927,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            90,
+            72,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-100",
+          "locator_dsc": 0.7255112528800964,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            94,
+            67,
+            90
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-101",
+          "locator_dsc": 0.7251392006874084,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            48,
+            74,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-100",
+          "locator_dsc": 0.8009684085845947,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            41,
+            75,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-101",
+          "locator_dsc": 0.827560305595398,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            16,
+            85,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02905-100",
+          "locator_dsc": 0.5515564680099487,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            16,
+            86,
+            73
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02905-101",
+          "locator_dsc": 0.5722895860671997,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            28,
+            85,
+            45
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-100",
+          "locator_dsc": 0.6330116987228394,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            27,
+            66,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-101",
+          "locator_dsc": 0.6447303295135498,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            90,
+            74,
+            55
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-100",
+          "locator_dsc": 0.7099752426147461,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            87,
+            73,
+            59
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-101",
+          "locator_dsc": 0.7509298324584961,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            48,
+            34,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-100",
+          "locator_dsc": 0.716500461101532,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            49,
+            34,
+            101
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-101",
+          "locator_dsc": 0.794061541557312,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            105,
+            81,
+            87
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-100",
+          "locator_dsc": 0.7972766160964966,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            104,
+            87,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-101",
+          "locator_dsc": 0.8238053321838379,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            50,
+            69,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-100",
+          "locator_dsc": 0.7236904501914978,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            27,
+            78,
+            61
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-101",
+          "locator_dsc": 0.8320536613464355,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            109,
+            78,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-100",
+          "locator_dsc": 0.7888337969779968,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            110,
+            77,
+            75
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-101",
+          "locator_dsc": 0.8415795564651489,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            65,
+            57,
+            64
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-100",
+          "locator_dsc": 0.5649667382240295,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            64,
+            60,
+            70
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-101",
+          "locator_dsc": 0.35937806963920593,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            92,
+            75,
+            50
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-100",
+          "locator_dsc": 0.704651415348053,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            91,
+            75,
+            52
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-101",
+          "locator_dsc": 0.7166701555252075,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            114,
+            57,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-100",
+          "locator_dsc": 0.8798311352729797,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            113,
+            58,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-101",
+          "locator_dsc": 0.8445453643798828,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            14,
+            57,
+            41
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-03059-100",
+          "locator_dsc": 0.7453610897064209,
+          "subject_id": "BraTS-GLI-03059"
+        },
+        {
+          "automatic_point": [
+            31,
+            38,
+            73
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03059-101",
+          "locator_dsc": 0.702938973903656,
+          "subject_id": "BraTS-GLI-03059"
+        }
+      ],
+      "subjects": 50
+    },
+    "0.75": {
+      "automatic_point_hit_rate": 0.9444444444444444,
+      "cases": 108,
+      "locator_dsc_mean": 0.7237252660647586,
+      "locator_dsc_median": 0.771676778793335,
+      "locator_dsc_std_population": 0.1649057189855859,
+      "locator_subject_dsc_mean": 0.7148138745625814,
+      "per_case": [
+        {
+          "automatic_point": [
+            84,
+            51,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-100",
+          "locator_dsc": 0.7479810118675232,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            84,
+            54,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-101",
+          "locator_dsc": 0.7731574177742004,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            18,
+            64,
+            40
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-100",
+          "locator_dsc": 0.5938073992729187,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            18,
+            79,
+            62
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-101",
+          "locator_dsc": 0.7966799736022949,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            31,
+            38,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-100",
+          "locator_dsc": 0.7453277707099915,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            21,
+            34,
+            51
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-101",
+          "locator_dsc": 0.766898512840271,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            50,
+            109,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-100",
+          "locator_dsc": 0.7267674207687378,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            51,
+            107,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-101",
+          "locator_dsc": 0.7116477489471436,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            54,
+            108,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-100",
+          "locator_dsc": 0.8370325565338135,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            52,
+            114,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-101",
+          "locator_dsc": 0.8050031661987305,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            94,
+            79,
+            105
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-100",
+          "locator_dsc": 0.9047285318374634,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            93,
+            79,
+            104
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-101",
+          "locator_dsc": 0.8373280167579651,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            27,
+            45,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-100",
+          "locator_dsc": 0.834069013595581,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            33,
+            44,
+            46
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-101",
+          "locator_dsc": 0.7992067933082581,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            40,
+            27,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-100",
+          "locator_dsc": 0.7671366333961487,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            45,
+            45,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-101",
+          "locator_dsc": 0.7423600554466248,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            72,
+            97,
+            76
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-100",
+          "locator_dsc": 0.910720705986023,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            72,
+            94,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-101",
+          "locator_dsc": 0.9083070158958435,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            52,
+            88,
+            46
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-100",
+          "locator_dsc": 0.7701961398124695,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            57,
+            89,
+            53
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-101",
+          "locator_dsc": 0.7599448561668396,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            43,
+            85,
+            40
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-102",
+          "locator_dsc": 0.5148783922195435,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            41,
+            84,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-103",
+          "locator_dsc": 0.2992587983608246,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            66,
+            77,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-104",
+          "locator_dsc": 0.6092983484268188,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            51,
+            90,
+            38
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-105",
+          "locator_dsc": 0.6424516439437866,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            52,
+            92,
+            39
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-106",
+          "locator_dsc": 0.6734876036643982,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            79,
+            26,
+            93
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-100",
+          "locator_dsc": 0.8809925317764282,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            78,
+            24,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-101",
+          "locator_dsc": 0.8617109656333923,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            73,
+            29,
+            102
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-102",
+          "locator_dsc": 0.8350776433944702,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            82,
+            62,
+            104
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-103",
+          "locator_dsc": 0.8439968824386597,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            83,
+            56,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-100",
+          "locator_dsc": 0.7314384579658508,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            75,
+            45,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-101",
+          "locator_dsc": 0.8193765878677368,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            86,
+            45,
+            80
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-102",
+          "locator_dsc": 0.8179735541343689,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            82,
+            54,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-103",
+          "locator_dsc": 0.7735974788665771,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            53,
+            71,
+            115
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-100",
+          "locator_dsc": 0.7980731725692749,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            50,
+            88,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-101",
+          "locator_dsc": 0.898539125919342,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            56,
+            69,
+            111
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-102",
+          "locator_dsc": 0.8771435022354126,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            83,
+            100,
+            60
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-100",
+          "locator_dsc": 0.8448670506477356,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            46,
+            103,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-101",
+          "locator_dsc": 0.8436398506164551,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            79,
+            105,
+            75
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-102",
+          "locator_dsc": 0.7886216640472412,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            78,
+            107,
+            73
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-103",
+          "locator_dsc": 0.8228800296783447,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            78,
+            107,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-104",
+          "locator_dsc": 0.8136895298957825,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            81,
+            106,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-105",
+          "locator_dsc": 0.8408927917480469,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            53,
+            100,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-106",
+          "locator_dsc": 0.795495331287384,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            57,
+            17,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02208-100",
+          "locator_dsc": 0.08597920835018158,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            58,
+            17,
+            82
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02208-101",
+          "locator_dsc": 0.2801843285560608,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            53,
+            15,
+            91
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02208-102",
+          "locator_dsc": 0.28277355432510376,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            90,
+            56,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-100",
+          "locator_dsc": 0.7636750936508179,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            90,
+            58,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-101",
+          "locator_dsc": 0.688342809677124,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            91,
+            56,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-102",
+          "locator_dsc": 0.8179012537002563,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            91,
+            56,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-103",
+          "locator_dsc": 0.815459668636322,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            66,
+            82,
+            88
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02249-100",
+          "locator_dsc": 0.1495693027973175,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            113,
+            86,
+            76
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02249-101",
+          "locator_dsc": 0.42054861783981323,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            108,
+            26,
+            68
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-100",
+          "locator_dsc": 0.6354316473007202,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            100,
+            47,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-101",
+          "locator_dsc": 0.7349656820297241,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            53,
+            105,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-100",
+          "locator_dsc": 0.7315401434898376,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            41,
+            113,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-101",
+          "locator_dsc": 0.8560281991958618,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            112,
+            55,
+            93
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02327-100",
+          "locator_dsc": 0.44449272751808167,
+          "subject_id": "BraTS-GLI-02327"
+        },
+        {
+          "automatic_point": [
+            17,
+            58,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02381-100",
+          "locator_dsc": 0.8937288522720337,
+          "subject_id": "BraTS-GLI-02381"
+        },
+        {
+          "automatic_point": [
+            106,
+            69,
+            58
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02386-100",
+          "locator_dsc": 0.8148016929626465,
+          "subject_id": "BraTS-GLI-02386"
+        },
+        {
+          "automatic_point": [
+            82,
+            74,
+            116
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02387-100",
+          "locator_dsc": 0.6778026223182678,
+          "subject_id": "BraTS-GLI-02387"
+        },
+        {
+          "automatic_point": [
+            37,
+            89,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02647-100",
+          "locator_dsc": 0.7125241756439209,
+          "subject_id": "BraTS-GLI-02647"
+        },
+        {
+          "automatic_point": [
+            106,
+            52,
+            89
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02656-100",
+          "locator_dsc": 0.5978145003318787,
+          "subject_id": "BraTS-GLI-02656"
+        },
+        {
+          "automatic_point": [
+            81,
+            46,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02657-100",
+          "locator_dsc": 0.1799810528755188,
+          "subject_id": "BraTS-GLI-02657"
+        },
+        {
+          "automatic_point": [
+            36,
+            44,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02694-100",
+          "locator_dsc": 0.637357234954834,
+          "subject_id": "BraTS-GLI-02694"
+        },
+        {
+          "automatic_point": [
+            44,
+            114,
+            54
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02720-100",
+          "locator_dsc": 0.5655348300933838,
+          "subject_id": "BraTS-GLI-02720"
+        },
+        {
+          "automatic_point": [
+            81,
+            64,
+            93
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02724-100",
+          "locator_dsc": 0.8508820533752441,
+          "subject_id": "BraTS-GLI-02724"
+        },
+        {
+          "automatic_point": [
+            25,
+            41,
+            32
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-100",
+          "locator_dsc": 0.6727457046508789,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            24,
+            39,
+            32
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-101",
+          "locator_dsc": 0.7397210597991943,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            48,
+            85,
+            107
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-100",
+          "locator_dsc": 0.8013531565666199,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            49,
+            79,
+            110
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-101",
+          "locator_dsc": 0.7537197470664978,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            17,
+            78,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-100",
+          "locator_dsc": 0.5121020078659058,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            41,
+            31,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-101",
+          "locator_dsc": 0.6448015570640564,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            34,
+            46,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-100",
+          "locator_dsc": 0.8646818995475769,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            34,
+            44,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-101",
+          "locator_dsc": 0.8361770510673523,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            92,
+            98,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02800-100",
+          "locator_dsc": 0.8282114267349243,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            101,
+            77,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02800-101",
+          "locator_dsc": 0.8141583800315857,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            78,
+            45,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-100",
+          "locator_dsc": 0.8171924352645874,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            77,
+            45,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-101",
+          "locator_dsc": 0.793539822101593,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            47,
+            41,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-100",
+          "locator_dsc": 0.8550524711608887,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            47,
+            62,
+            87
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-101",
+          "locator_dsc": 0.8511807918548584,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            34,
+            74,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-100",
+          "locator_dsc": 0.8917957544326782,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            33,
+            72,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-101",
+          "locator_dsc": 0.8277373313903809,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            90,
+            72,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-100",
+          "locator_dsc": 0.7046985030174255,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            89,
+            72,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-101",
+          "locator_dsc": 0.7154795527458191,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            48,
+            74,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-100",
+          "locator_dsc": 0.8005289435386658,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            43,
+            78,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-101",
+          "locator_dsc": 0.8298285007476807,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            16,
+            86,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02905-100",
+          "locator_dsc": 0.5504000186920166,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            16,
+            86,
+            73
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02905-101",
+          "locator_dsc": 0.569044828414917,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            29,
+            85,
+            45
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-100",
+          "locator_dsc": 0.626757800579071,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            27,
+            66,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-101",
+          "locator_dsc": 0.6454970836639404,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            89,
+            75,
+            55
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-100",
+          "locator_dsc": 0.6889689564704895,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            84,
+            72,
+            54
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-101",
+          "locator_dsc": 0.7669540643692017,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            48,
+            34,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-100",
+          "locator_dsc": 0.7118357419967651,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            49,
+            34,
+            101
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-101",
+          "locator_dsc": 0.7881966233253479,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            105,
+            81,
+            87
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-100",
+          "locator_dsc": 0.798097550868988,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            104,
+            87,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-101",
+          "locator_dsc": 0.8230308890342712,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            50,
+            76,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-100",
+          "locator_dsc": 0.72444087266922,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            27,
+            78,
+            61
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-101",
+          "locator_dsc": 0.8284056186676025,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            84,
+            80,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-100",
+          "locator_dsc": 0.7808874249458313,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            83,
+            70,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-101",
+          "locator_dsc": 0.8402142524719238,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            63,
+            60,
+            71
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-100",
+          "locator_dsc": 0.5343344807624817,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            64,
+            60,
+            69
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-101",
+          "locator_dsc": 0.36350488662719727,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            92,
+            75,
+            51
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-100",
+          "locator_dsc": 0.6934928297996521,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            91,
+            74,
+            53
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-101",
+          "locator_dsc": 0.7046187520027161,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            113,
+            58,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-100",
+          "locator_dsc": 0.8767860531806946,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            113,
+            58,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-101",
+          "locator_dsc": 0.8455662131309509,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            14,
+            57,
+            41
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-03059-100",
+          "locator_dsc": 0.7380884885787964,
+          "subject_id": "BraTS-GLI-03059"
+        },
+        {
+          "automatic_point": [
+            31,
+            38,
+            73
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03059-101",
+          "locator_dsc": 0.7054982781410217,
+          "subject_id": "BraTS-GLI-03059"
+        }
+      ],
+      "subjects": 50
+    },
+    "1.0": {
+      "automatic_point_hit_rate": 0.9444444444444444,
+      "cases": 108,
+      "locator_dsc_mean": 0.7188249026528664,
+      "locator_dsc_median": 0.7662400007247925,
+      "locator_dsc_std_population": 0.16762641498538694,
+      "locator_subject_dsc_mean": 0.7102178477566866,
+      "per_case": [
+        {
+          "automatic_point": [
+            84,
+            51,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-100",
+          "locator_dsc": 0.7410223484039307,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            84,
+            54,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00046-101",
+          "locator_dsc": 0.7712013721466064,
+          "subject_id": "BraTS-GLI-00046"
+        },
+        {
+          "automatic_point": [
+            18,
+            64,
+            40
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-100",
+          "locator_dsc": 0.5879358053207397,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            18,
+            79,
+            62
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00498-101",
+          "locator_dsc": 0.7942483425140381,
+          "subject_id": "BraTS-GLI-00498"
+        },
+        {
+          "automatic_point": [
+            34,
+            36,
+            80
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-100",
+          "locator_dsc": 0.7432273030281067,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            41,
+            35,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00505-101",
+          "locator_dsc": 0.7653326988220215,
+          "subject_id": "BraTS-GLI-00505"
+        },
+        {
+          "automatic_point": [
+            46,
+            88,
+            87
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-100",
+          "locator_dsc": 0.7212738394737244,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            49,
+            109,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00507-101",
+          "locator_dsc": 0.7084876894950867,
+          "subject_id": "BraTS-GLI-00507"
+        },
+        {
+          "automatic_point": [
+            54,
+            108,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-100",
+          "locator_dsc": 0.8361064791679382,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            52,
+            114,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00547-101",
+          "locator_dsc": 0.8035740852355957,
+          "subject_id": "BraTS-GLI-00547"
+        },
+        {
+          "automatic_point": [
+            94,
+            79,
+            105
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-100",
+          "locator_dsc": 0.9014414548873901,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            101,
+            79,
+            99
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-00557-101",
+          "locator_dsc": 0.836188554763794,
+          "subject_id": "BraTS-GLI-00557"
+        },
+        {
+          "automatic_point": [
+            26,
+            45,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-100",
+          "locator_dsc": 0.8295319080352783,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            33,
+            44,
+            46
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02060-101",
+          "locator_dsc": 0.7953246235847473,
+          "subject_id": "BraTS-GLI-02060"
+        },
+        {
+          "automatic_point": [
+            40,
+            27,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-100",
+          "locator_dsc": 0.7571331858634949,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            45,
+            45,
+            91
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02068-101",
+          "locator_dsc": 0.7408798933029175,
+          "subject_id": "BraTS-GLI-02068"
+        },
+        {
+          "automatic_point": [
+            72,
+            97,
+            76
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-100",
+          "locator_dsc": 0.9073253273963928,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            72,
+            94,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02102-101",
+          "locator_dsc": 0.9055148959159851,
+          "subject_id": "BraTS-GLI-02102"
+        },
+        {
+          "automatic_point": [
+            52,
+            88,
+            46
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-100",
+          "locator_dsc": 0.764568030834198,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            56,
+            90,
+            51
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-101",
+          "locator_dsc": 0.7560729384422302,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            35,
+            90,
+            40
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-102",
+          "locator_dsc": 0.5080337524414062,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            40,
+            84,
+            44
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-103",
+          "locator_dsc": 0.2985101640224457,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            66,
+            77,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-104",
+          "locator_dsc": 0.6147829294204712,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            51,
+            90,
+            38
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-105",
+          "locator_dsc": 0.6467105150222778,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            52,
+            92,
+            39
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02103-106",
+          "locator_dsc": 0.6745872497558594,
+          "subject_id": "BraTS-GLI-02103"
+        },
+        {
+          "automatic_point": [
+            79,
+            26,
+            93
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-100",
+          "locator_dsc": 0.8772799372673035,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            75,
+            20,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-101",
+          "locator_dsc": 0.8556468486785889,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            97,
+            45,
+            86
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-102",
+          "locator_dsc": 0.829738974571228,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            82,
+            62,
+            103
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02112-103",
+          "locator_dsc": 0.8405641913414001,
+          "subject_id": "BraTS-GLI-02112"
+        },
+        {
+          "automatic_point": [
+            48,
+            44,
+            87
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-100",
+          "locator_dsc": 0.7237628698348999,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            74,
+            45,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-101",
+          "locator_dsc": 0.8114254474639893,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            86,
+            45,
+            80
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-102",
+          "locator_dsc": 0.8114743828773499,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            82,
+            54,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02128-103",
+          "locator_dsc": 0.7671473026275635,
+          "subject_id": "BraTS-GLI-02128"
+        },
+        {
+          "automatic_point": [
+            52,
+            73,
+            115
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-100",
+          "locator_dsc": 0.797890841960907,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            50,
+            88,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-101",
+          "locator_dsc": 0.8967084884643555,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            41,
+            59,
+            99
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02178-102",
+          "locator_dsc": 0.8758344650268555,
+          "subject_id": "BraTS-GLI-02178"
+        },
+        {
+          "automatic_point": [
+            83,
+            100,
+            60
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-100",
+          "locator_dsc": 0.8413495421409607,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            85,
+            99,
+            78
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-101",
+          "locator_dsc": 0.8408464193344116,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            79,
+            105,
+            75
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-102",
+          "locator_dsc": 0.7806519269943237,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            78,
+            107,
+            73
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-103",
+          "locator_dsc": 0.8174701929092407,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            78,
+            107,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-104",
+          "locator_dsc": 0.8068282008171082,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            81,
+            106,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-105",
+          "locator_dsc": 0.8337389826774597,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            53,
+            100,
+            100
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02196-106",
+          "locator_dsc": 0.7881777882575989,
+          "subject_id": "BraTS-GLI-02196"
+        },
+        {
+          "automatic_point": [
+            74,
+            101,
+            71
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02208-100",
+          "locator_dsc": 0.032148901373147964,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            58,
+            18,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02208-101",
+          "locator_dsc": 0.25071224570274353,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            48,
+            12,
+            88
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02208-102",
+          "locator_dsc": 0.2772331237792969,
+          "subject_id": "BraTS-GLI-02208"
+        },
+        {
+          "automatic_point": [
+            92,
+            65,
+            86
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-100",
+          "locator_dsc": 0.7598869800567627,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            89,
+            59,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-101",
+          "locator_dsc": 0.671299159526825,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            91,
+            60,
+            94
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-102",
+          "locator_dsc": 0.8156633973121643,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            90,
+            56,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02219-103",
+          "locator_dsc": 0.8109123706817627,
+          "subject_id": "BraTS-GLI-02219"
+        },
+        {
+          "automatic_point": [
+            65,
+            83,
+            88
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02249-100",
+          "locator_dsc": 0.1384439319372177,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            113,
+            86,
+            76
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02249-101",
+          "locator_dsc": 0.40507519245147705,
+          "subject_id": "BraTS-GLI-02249"
+        },
+        {
+          "automatic_point": [
+            100,
+            20,
+            78
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-100",
+          "locator_dsc": 0.6244880557060242,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            98,
+            49,
+            65
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02256-101",
+          "locator_dsc": 0.732455313205719,
+          "subject_id": "BraTS-GLI-02256"
+        },
+        {
+          "automatic_point": [
+            53,
+            105,
+            98
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-100",
+          "locator_dsc": 0.7278062105178833,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            40,
+            113,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02258-101",
+          "locator_dsc": 0.85638028383255,
+          "subject_id": "BraTS-GLI-02258"
+        },
+        {
+          "automatic_point": [
+            112,
+            54,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02327-100",
+          "locator_dsc": 0.43506982922554016,
+          "subject_id": "BraTS-GLI-02327"
+        },
+        {
+          "automatic_point": [
+            10,
+            75,
+            55
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02381-100",
+          "locator_dsc": 0.8924785852432251,
+          "subject_id": "BraTS-GLI-02381"
+        },
+        {
+          "automatic_point": [
+            106,
+            69,
+            58
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02386-100",
+          "locator_dsc": 0.8039591312408447,
+          "subject_id": "BraTS-GLI-02386"
+        },
+        {
+          "automatic_point": [
+            83,
+            75,
+            116
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02387-100",
+          "locator_dsc": 0.6738940477371216,
+          "subject_id": "BraTS-GLI-02387"
+        },
+        {
+          "automatic_point": [
+            37,
+            89,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02647-100",
+          "locator_dsc": 0.7146386504173279,
+          "subject_id": "BraTS-GLI-02647"
+        },
+        {
+          "automatic_point": [
+            106,
+            52,
+            88
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-02656-100",
+          "locator_dsc": 0.5900850296020508,
+          "subject_id": "BraTS-GLI-02656"
+        },
+        {
+          "automatic_point": [
+            81,
+            46,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02657-100",
+          "locator_dsc": 0.18624000251293182,
+          "subject_id": "BraTS-GLI-02657"
+        },
+        {
+          "automatic_point": [
+            36,
+            44,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02694-100",
+          "locator_dsc": 0.634087324142456,
+          "subject_id": "BraTS-GLI-02694"
+        },
+        {
+          "automatic_point": [
+            44,
+            114,
+            54
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02720-100",
+          "locator_dsc": 0.5631023049354553,
+          "subject_id": "BraTS-GLI-02720"
+        },
+        {
+          "automatic_point": [
+            81,
+            64,
+            93
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02724-100",
+          "locator_dsc": 0.8491425514221191,
+          "subject_id": "BraTS-GLI-02724"
+        },
+        {
+          "automatic_point": [
+            25,
+            41,
+            32
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-100",
+          "locator_dsc": 0.6658909320831299,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            24,
+            39,
+            31
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02750-101",
+          "locator_dsc": 0.7350677847862244,
+          "subject_id": "BraTS-GLI-02750"
+        },
+        {
+          "automatic_point": [
+            48,
+            85,
+            106
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-100",
+          "locator_dsc": 0.798957884311676,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            52,
+            81,
+            116
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02782-101",
+          "locator_dsc": 0.7496976852416992,
+          "subject_id": "BraTS-GLI-02782"
+        },
+        {
+          "automatic_point": [
+            17,
+            78,
+            96
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-100",
+          "locator_dsc": 0.5076743960380554,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            41,
+            31,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02792-101",
+          "locator_dsc": 0.637643039226532,
+          "subject_id": "BraTS-GLI-02792"
+        },
+        {
+          "automatic_point": [
+            34,
+            45,
+            84
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-100",
+          "locator_dsc": 0.8598201274871826,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            34,
+            44,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02796-101",
+          "locator_dsc": 0.8304086327552795,
+          "subject_id": "BraTS-GLI-02796"
+        },
+        {
+          "automatic_point": [
+            91,
+            83,
+            85
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02800-100",
+          "locator_dsc": 0.8237847685813904,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            101,
+            77,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02800-101",
+          "locator_dsc": 0.8137564659118652,
+          "subject_id": "BraTS-GLI-02800"
+        },
+        {
+          "automatic_point": [
+            79,
+            46,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-100",
+          "locator_dsc": 0.8146395683288574,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            77,
+            45,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02829-101",
+          "locator_dsc": 0.7939171195030212,
+          "subject_id": "BraTS-GLI-02829"
+        },
+        {
+          "automatic_point": [
+            47,
+            41,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-100",
+          "locator_dsc": 0.8489348888397217,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            40,
+            44,
+            86
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02845-101",
+          "locator_dsc": 0.8438547253608704,
+          "subject_id": "BraTS-GLI-02845"
+        },
+        {
+          "automatic_point": [
+            34,
+            74,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-100",
+          "locator_dsc": 0.8873811364173889,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            33,
+            72,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02859-101",
+          "locator_dsc": 0.8237725496292114,
+          "subject_id": "BraTS-GLI-02859"
+        },
+        {
+          "automatic_point": [
+            90,
+            71,
+            92
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-100",
+          "locator_dsc": 0.6915923357009888,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            90,
+            71,
+            93
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02875-101",
+          "locator_dsc": 0.7084280252456665,
+          "subject_id": "BraTS-GLI-02875"
+        },
+        {
+          "automatic_point": [
+            47,
+            75,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-100",
+          "locator_dsc": 0.7993143796920776,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            44,
+            79,
+            97
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02883-101",
+          "locator_dsc": 0.8295911550521851,
+          "subject_id": "BraTS-GLI-02883"
+        },
+        {
+          "automatic_point": [
+            16,
+            86,
+            72
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02905-100",
+          "locator_dsc": 0.5470921397209167,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            16,
+            86,
+            73
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02905-101",
+          "locator_dsc": 0.5646657347679138,
+          "subject_id": "BraTS-GLI-02905"
+        },
+        {
+          "automatic_point": [
+            29,
+            85,
+            45
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-100",
+          "locator_dsc": 0.6227074265480042,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            52,
+            83,
+            56
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02910-101",
+          "locator_dsc": 0.6374925374984741,
+          "subject_id": "BraTS-GLI-02910"
+        },
+        {
+          "automatic_point": [
+            89,
+            75,
+            55
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-100",
+          "locator_dsc": 0.6750063896179199,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            84,
+            72,
+            54
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02912-101",
+          "locator_dsc": 0.7641986608505249,
+          "subject_id": "BraTS-GLI-02912"
+        },
+        {
+          "automatic_point": [
+            47,
+            34,
+            103
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-100",
+          "locator_dsc": 0.7073755264282227,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            49,
+            34,
+            101
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02919-101",
+          "locator_dsc": 0.783195972442627,
+          "subject_id": "BraTS-GLI-02919"
+        },
+        {
+          "automatic_point": [
+            104,
+            81,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-100",
+          "locator_dsc": 0.7981216311454773,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            104,
+            87,
+            89
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02927-101",
+          "locator_dsc": 0.8215033411979675,
+          "subject_id": "BraTS-GLI-02927"
+        },
+        {
+          "automatic_point": [
+            50,
+            76,
+            95
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-100",
+          "locator_dsc": 0.720761775970459,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            27,
+            78,
+            61
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02976-101",
+          "locator_dsc": 0.825149416923523,
+          "subject_id": "BraTS-GLI-02976"
+        },
+        {
+          "automatic_point": [
+            84,
+            80,
+            83
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-100",
+          "locator_dsc": 0.7756062746047974,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            83,
+            66,
+            88
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02980-101",
+          "locator_dsc": 0.8379150629043579,
+          "subject_id": "BraTS-GLI-02980"
+        },
+        {
+          "automatic_point": [
+            63,
+            60,
+            70
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-100",
+          "locator_dsc": 0.5259894728660583,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            64,
+            60,
+            69
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-02991-101",
+          "locator_dsc": 0.37207967042922974,
+          "subject_id": "BraTS-GLI-02991"
+        },
+        {
+          "automatic_point": [
+            92,
+            74,
+            51
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-100",
+          "locator_dsc": 0.683148980140686,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            111,
+            76,
+            43
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03007-101",
+          "locator_dsc": 0.6956250667572021,
+          "subject_id": "BraTS-GLI-03007"
+        },
+        {
+          "automatic_point": [
+            113,
+            58,
+            81
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-100",
+          "locator_dsc": 0.8746599555015564,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            115,
+            58,
+            82
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03020-101",
+          "locator_dsc": 0.8448676466941833,
+          "subject_id": "BraTS-GLI-03020"
+        },
+        {
+          "automatic_point": [
+            14,
+            57,
+            41
+          ],
+          "automatic_point_hits_gt": false,
+          "case_id": "BraTS-GLI-03059-100",
+          "locator_dsc": 0.7330535054206848,
+          "subject_id": "BraTS-GLI-03059"
+        },
+        {
+          "automatic_point": [
+            31,
+            39,
+            74
+          ],
+          "automatic_point_hits_gt": true,
+          "case_id": "BraTS-GLI-03059-101",
+          "locator_dsc": 0.7079908847808838,
+          "subject_id": "BraTS-GLI-03059"
+        }
+      ],
+      "subjects": 50
+    }
+  },
+  "test_access": false,
+  "threshold": 0.0,
+  "tta": false,
+  "weights": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ]
+}

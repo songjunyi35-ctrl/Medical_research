@@ -1,0 +1,53 @@
+{
+  "schema": "aflow.brats.gcsam_fixed184_replication.implementation_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T05:25:00+00:00",
+  "status": "frozen_before_formal_training",
+  "documents": {
+    "idea_sha256": "54896ebda0f4c117d4d8b13d887ffb77e4fdb4dc77342fcfb3cb6acc2a1ce640",
+    "prereg_sha256": "3afbeb97293e1813df2faef39e2bb136d66534638092f02681a7929b667be04f"
+  },
+  "implementation": {
+    "split_builder": {"path": "scripts/build_t1ce_wt_gcsam_fixed184_replication_splits.py", "sha256": "ebdd6f17e7d80f876c104653da53f73751d836390215ff8c8fff52ec135c4ce1"},
+    "training_runner": {"path": "scripts/train_t1ce_wt_gcsam_fixed184_replication.py", "sha256": "4e79a507513be07b8b4a881f7e1831c7e0d8e421a7221373a3d6387f2a61749c"},
+    "tests": {"path": "tests/test_gcsam_fixed184_replication.py", "sha256": "4b01e2072c41ca8612e711cc802171daad785947d94712c36e9e8004b9bb6b64", "result": "15 passed with existing GCSAM optimizer tests"}
+  },
+  "split": {
+    "manifest": "data/datasets/brats2024_t1ce_gcsam_fixed184_replications_20260903/split_manifest.json",
+    "manifest_sha256": "1a525d8a45254d7dc39f687bc003de56d3a2fffc8c1db404fbd221132a7e2499",
+    "replicate_a": {"fit_sha256": "dab72a5e3d70ef6586eee1229cc8b1d5caf227f7921937e4d25244552b7a18a5", "inner_sha256": "73068bcd2989bc84b87e99830e069620c0446a5c49c44e26010dd178bac6a3d3", "fit_cases": 864, "fit_subjects": 397, "inner_cases": 108, "inner_subjects": 47, "split_seed": 20261101, "train_seed": 20261102},
+    "replicate_b": {"fit_sha256": "55ab40309d67e230c5d07acfa07d59a24ff17a9838c22345b4f1ddad9536ecce", "inner_sha256": "6639a7c381296b17986fbac4ef25be981d378457412d2246bb87ff2a8cc2192c", "fit_cases": 864, "fit_subjects": 399, "inner_cases": 108, "inner_subjects": 45, "split_seed": 20261103, "train_seed": 20261104},
+    "cross_inner_overlap": {"cases": 9, "subjects": 4}
+  },
+  "gpu_smoke": {
+    "replicate": "a",
+    "control_report_sha256": "2a3878a0337062c7f0a23afcc581f98d3a35dc7ccda24bd81c67cbf15fa351e1",
+    "candidate_report_sha256": "4dc5178e14c123b6b0eb3ffd574de830f2a354b4f51f0ad1c5419897b4872d88",
+    "initial_state_exact": true,
+    "sampling_weight_exact": true,
+    "sampler_exact": true,
+    "first_augmented_batch_exact": true,
+    "first_pass_loss_exact": true,
+    "candidate_mean_perturbation_norm": 0.05000000074505806,
+    "control_peak_bytes": 21788258304,
+    "candidate_peak_bytes": 21859578368,
+    "all_arm_gates_passed": true,
+    "inner_metrics_accessed": false
+  },
+  "formal_order": [
+    "replicate_a_adamw_control and replicate_b_adamw_control in parallel",
+    "replicate_a_gcsam_candidate and replicate_b_gcsam_candidate in parallel",
+    "freeze all four reports/checkpoints in INNER_PREACCESS.json",
+    "open each train-only inner exactly once"
+  ],
+  "access": {
+    "fit_smoke": true,
+    "formal_fit": false,
+    "inner_metrics": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

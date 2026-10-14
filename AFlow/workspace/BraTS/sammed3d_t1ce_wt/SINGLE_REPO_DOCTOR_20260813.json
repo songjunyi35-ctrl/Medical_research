@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "detail": "python=/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python; torch=2.7.1+cu126; cuda=12.6; devices=['NVIDIA A100-SXM4-80GB', 'NVIDIA A100-SXM4-80GB']",
+      "name": "torch and two A100",
+      "ok": true
+    },
+    {
+      "detail": "/mlx_devbox/users/songjunyi.666/playground/AFlow/third_party/SAM-Med3D",
+      "name": "vendored source SHA256SUMS",
+      "ok": true
+    },
+    {
+      "detail": "module=/mlx_devbox/users/songjunyi.666/playground/AFlow/third_party/SAM-Med3D/segment_anything/__init__.py; engine_root=/mlx_devbox/users/songjunyi.666/playground/AFlow/third_party/SAM-Med3D",
+      "name": "vendored segment_anything import",
+      "ok": true
+    },
+    {
+      "detail": "3/3 SHA correct",
+      "name": "upstream-literal source binding",
+      "ok": true
+    },
+    {
+      "detail": "artifacts/checkpoints/sam_med3d_turbo.pth; sha256=899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+      "name": "base SAM-Med3D checkpoint",
+      "ok": true
+    },
+    {
+      "detail": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/sam_model_val_official_best5.pth; sha256=c0c85a0fb90f6301344053f97cabe8a4972bd9febd4c6ae248f3a0908598fe31",
+      "name": "upstream-literal baseline checkpoint",
+      "ok": true
+    },
+    {
+      "detail": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_upstreamliteral11_officialval5_va_a100x2_train972_val108_e200_s2023/test270_epoch21_official15_upstreamliteral5_s2023_20260812/test_report.json; sha256=7bd59843459876bd006230b24bc111cdfd726896cb3e6748b54b24c0a9659b63",
+      "name": "baseline test report",
+      "ok": true
+    },
+    {
+      "detail": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_native_gtcrop_fullunfreeze_ddp2_train972_val108_e100_s20260805/sam_model_val_dice_best.pth; sha256=42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+      "name": "coarse checkpoint for residual refiner",
+      "ok": true
+    },
+    {
+      "detail": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/refiner_val_dice_best.pth; sha256=4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+      "name": "legacy residual-refiner checkpoint",
+      "ok": true
+    },
+    {
+      "detail": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_graymean_paired_a100_20260813/robustshift4_control/refiner_val_dice_best.pth; sha256=011a7b0f4a9ee193883662f03fc6d8a54cef9fd3b4c08c2871cdddbdfbe73f6a",
+      "name": "robust refiner seed 20260813",
+      "ok": true
+    },
+    {
+      "detail": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_three_seed_ensemble_20260813/robustshift4_seed20260814/refiner_val_dice_best.pth; sha256=c94f32c04cb89f51e1b83ae157bbce1d89371aa21b4267164e1ed645fa4d4cbc",
+      "name": "robust refiner seed 20260814",
+      "ok": true
+    },
+    {
+      "detail": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_robustshift4_three_seed_ensemble_20260813/robustshift4_seed20260815/refiner_val_dice_best.pth; sha256=c5d2b48db2666f097cb0d86e78c20ea95d163c07f98401714d25d755e99aceb0",
+      "name": "robust refiner seed 20260815",
+      "ok": true
+    },
+    {
+      "detail": "workspace/BraTS/sammed3d_t1ce_wt/FINAL_VALIDATION_RESULT_RESIDUAL_REFINER_ROBUST_ENSEMBLE_20260813_V2.json; sha256=74d5b3018be637bb1bd05adea0ceb99cdaeb38b5bb2af5f52b4566301df6f186",
+      "name": "final robust validation result",
+      "ok": true
+    },
+    {
+      "detail": "workspace/BraTS/sammed3d_t1ce_wt/FINAL_TEST_RESULT_RESIDUAL_REFINER_20260813.json; sha256=149fc9a89d5877de9efa6e52f1a8a459d7c918eb2aabf06a3872846bd20fdcdd",
+      "name": "oracle residual-refiner test result",
+      "ok": true
+    },
+    {
+      "detail": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl; rows=972; sha256=6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65",
+      "name": "official train manifest",
+      "ok": true
+    },
+    {
+      "detail": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl; rows=108; sha256=f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+      "name": "official validation manifest",
+      "ok": true
+    },
+    {
+      "detail": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/sealed_test/test_cases_t1ce.jsonl; rows=270; sha256=a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+      "name": "sealed test manifest",
+      "ok": true
+    },
+    {
+      "detail": "all sampled paths exist",
+      "name": "manifest sample data paths",
+      "ok": true
+    },
+    {
+      "detail": "count=972; index_sha256=99324e6ae3d71f38c058de8cb2c0afc7bee079fbaf6af521257e55d1259f9ebd",
+      "name": "GT-crop N4 source cache train",
+      "ok": true
+    },
+    {
+      "detail": "count=108; index_sha256=179a5ce1a89bf41b07ae633200950ead3d485e01e49ff8d9494437be531461da",
+      "name": "GT-crop N4 source cache validation",
+      "ok": true
+    },
+    {
+      "detail": "[{\"coarse_dsc\": 0.8297756239057658, \"count\": 972, \"index_sha256\": \"34e9322a45b6501d841e2fab1dba43ef68353e767146ca547e5e8bb280aa95bf\", \"logits_bytes\": 4076863488, \"portable_source_path\": true, \"source\": \"/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_gtcrop_n4_128/train\", \"split\": \"train\"}, {\"coarse_dsc\": 0.6365875325785683, \"count\": 108, \"index_sha256\": \"72fddef3c7a8755f0712b864efbb7328e2d8ae97313ac7ca7a0306d4b612ce44\", \"logits_bytes\": 452984832, \"portable_source_path\": true, \"source\": \"/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_gtcrop_n4_128/validation\", \"split\": \"validation\"}]",
+      "name": "persistent frozen-logit refiner cache",
+      "ok": true
+    }
+  ],
+  "ok": true,
+  "repo_root": "/mlx_devbox/users/songjunyi.666/playground/AFlow",
+  "schema": "aflow.brats.single_repo_doctor"
+}

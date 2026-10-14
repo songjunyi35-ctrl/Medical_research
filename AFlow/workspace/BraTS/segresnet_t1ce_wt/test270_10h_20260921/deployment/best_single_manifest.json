@@ -1,0 +1,27 @@
+{
+  "id": "panel_02",
+  "components": [
+    {
+      "source_id": "A_6c53d508f4172cbf",
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/test270_10h_20260921/deployment/A_6c53d508f4172cbf.pth",
+      "checkpoint_sha256": "6c53d508f4172cbf72467a494ed95d1ea40bd2969735f3cb2ca0db81bc3786cd",
+      "mode": "patch",
+      "stored_epoch": 90,
+      "epoch_scope": "additional after combination166"
+    }
+  ],
+  "threshold": 0.5,
+  "forward_equivalents": 8,
+  "formula": "arithmetic mean of native-crop float32 logits, then common threshold",
+  "component_ids": [
+    "A_6c53d508f4172cbf"
+  ],
+  "only_external_input": "T1ce",
+  "threshold_space": "sigmoid_probability",
+  "threshold_raw_logit": 0.0,
+  "no_labels_or_case_lookup": true,
+  "test_tuned": true,
+  "source_report": "archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_02.json",
+  "source_report_sha256": "d7e25b968a117e21b1c94079c6a8fd410edee9c1535c485d77550f354eb83be7",
+  "role": "best_single"
+}

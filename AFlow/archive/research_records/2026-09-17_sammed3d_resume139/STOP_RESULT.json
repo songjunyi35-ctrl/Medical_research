@@ -1,0 +1,120 @@
+{
+  "utc": "2026-09-17T03:12:32.261845+00:00",
+  "status": "stopped_by_user",
+  "last_complete_epoch": 161,
+  "planned_epochs": 200,
+  "completed_200_epochs": false,
+  "interrupted_epoch": 162,
+  "best_epoch": 50,
+  "reason": "user requested early termination after validation decline and epoch50 test below baseline",
+  "decision_after_test_revelation": true,
+  "preregistered_early_stop": false,
+  "no_new_training_or_test_tuning": true,
+  "frozen_epoch50_selection_unchanged": true,
+  "training_resumes_only_on_explicit_user_request": true,
+  "test_access": true,
+  "test_checkpoint_epoch": 50,
+  "outer_confirmation_new_access": false,
+  "epoch140_checkpoint_available": false,
+  "epoch140_validation_report_available": true,
+  "pending_user_choice": "resolved and completed: user-directed epoch161 test270; training remains stopped",
+  "train": 972,
+  "train_subjects": 444,
+  "validation": 108,
+  "validation_subjects": 50,
+  "test": 270,
+  "test_subjects": 119,
+  "last_validation": {
+    "epoch": 160,
+    "scan_final5": 0.4776953690135084,
+    "subject_final5": 0.48174695181886024,
+    "scan_final5_ci95": [
+      0.42597914763266703,
+      0.5272022390260351
+    ],
+    "subject_final5_ci95": [
+      0.43489508206431277,
+      0.5263250530644794
+    ],
+    "scan_best5": 0.48067582758244387,
+    "scans": 108,
+    "subjects": 50
+  },
+  "test50_summary": {
+    "candidate": {
+      "scan": 0.5664241748391101,
+      "subject": 0.5505215173883997,
+      "scan_ci95": [
+        0.5400700582876334,
+        0.5916355589458855
+      ],
+      "subject_ci95": [
+        0.5240768420470684,
+        0.5755880708626088
+      ]
+    },
+    "baseline": {
+      "scan": 0.5942261963729785,
+      "subject": 0.5809701177287975,
+      "scan_ci95": [
+        0.5709523255587589,
+        0.6164072056862964
+      ],
+      "subject_ci95": [
+        0.5579788734370908,
+        0.6028539575908859
+      ]
+    },
+    "paired_delta": {
+      "scan": -0.02780202153386838,
+      "subject": -0.030448600340397803,
+      "scan_ci95": [
+        -0.036503589699895284,
+        -0.019795621570642127
+      ],
+      "subject_ci95": [
+        -0.04022007343713854,
+        -0.021231543259233834
+      ]
+    },
+    "scan_improved": 92,
+    "scan_worse": 178,
+    "scan_tied": 0
+  },
+  "cost": {
+    "completed_epoch_training_seconds": 13819.940116610378,
+    "elapsed_seconds_to_last_complete_epoch": 15304.368257187307,
+    "completed_epoch_active_gpu_hours": 8.224278413869648,
+    "peak_allocated_bytes_per_gpu": 24486702080,
+    "extra_cost_note": "failed partial140, stopped partial162 and synthetic checks excluded from completed-epoch totals; test cost archived separately"
+  },
+  "checkpoints": {
+    "workspace/BraTS/sammed3d_t1ce_wt/graymean_single972_20260916/graymean/latest.pth": {
+      "sha256": "fcf03f3268ef76bb57f6a2f06c62b10e2d03b49399505372c8ea214d7a021da3",
+      "bytes": 1205207649
+    },
+    "workspace/BraTS/sammed3d_t1ce_wt/graymean_single972_20260916/graymean/best.pth": {
+      "sha256": "f90db2686482c59309fc38df6f1bc2ad081b87c4ed57b1fc34558404d9fae019",
+      "bytes": 402161921
+    },
+    "archive/research_records/2026-09-17_sammed3d_resume139/resume_epoch139.pth": {
+      "sha256": "debba3db1d71a33d083faf7e444e25793e113c81627e1b421a8a0d8a74f00719",
+      "bytes": 1205207457
+    }
+  },
+  "evidence": {
+    "archive/research_records/2026-09-17_sammed3d_resume139/USER_STOP_PROCESS_RECEIPT.json": "34f2b7d36abb79378236d7d1cb57c947038429fc87b08fa9fa833aa7aa69b184",
+    "workspace/BraTS/sammed3d_t1ce_wt/graymean_single972_20260916/graymean/TRAIN.jsonl": "2798a3606a19daf4e0b626b0067f45dc4273fec85bb5c5909bfe59864954ff4e",
+    "workspace/BraTS/sammed3d_t1ce_wt/graymean_single972_20260916/graymean/development_e160.json": "4238894d589d4351c60f6505d6aa079991c46479daa24e5fc973b0dcfe421c76",
+    "workspace/BraTS/sammed3d_t1ce_wt/graymean_single972_20260916/graymean/BEST.json": "20899c6f6250b877ce37185cb23c94ddfec3e3014ca4823af1c7a4a02338b5cf",
+    "archive/research_records/2026-09-17_sammed3d_graymean_e050_test270/RESULT.json": "d235324a753c5cb1c3552b86608dc87fd564b3ad12777550ba55bfcb1f64e4e9",
+    "archive/research_records/2026-09-16_sammed3d_graymean_single972/CACHE_INDEX.json": "d9550c6fb60efa0cf5b4e722817bfb4c1f81fee291a97933346e86ae6b009b91",
+    "archive/research_records/2026-09-17_sammed3d_resume139/PREACCESS.json": "81ab7bbb1d3e410a9f6b1acc2be0a7448d12aa72e73780a8d217df51bc279e37",
+    "archive/research_records/2026-09-17_sammed3d_resume139/FREEZE.json": "9be9ec8503585322e836ec00c9685f8391feeb25ff384b2c415b7fb971688dc1"
+  },
+  "test_checkpoint_epochs": [
+    50,
+    161
+  ],
+  "epoch161_result_sha256": "c82031366916460c2d751faf9a88a0cfffa430a01594f37593e8d3a7a928b1b3"
+}

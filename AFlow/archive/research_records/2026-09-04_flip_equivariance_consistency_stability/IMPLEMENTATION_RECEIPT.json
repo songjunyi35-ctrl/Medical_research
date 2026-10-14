@@ -1,0 +1,83 @@
+{
+  "schema": "aflow.brats.flip_equivariance_consistency.implementation_receipt",
+  "schema_version": 1,
+  "date_utc": "2026-09-04",
+  "status": "passed_before_formal_training_and_inner_access",
+  "documents": {
+    "idea_sha256": "a71b75ff8c7b775fc0606141c5b1c6258aeaf4670ec990c819dedb13f85e1175",
+    "prereg_sha256": "7ae74cd1891a4a67efa064ca2dffd4560064657661fd4d824902aff02bac5809",
+    "amendment_01_sha256": "80604f241a6a220bee667019721cd76c5785f88a56f8ae17cc6fe99f9ea84ad4",
+    "train_only_scale_audit_v2_sha256": "d3c8a5d67ddba4bec001b19feabbf93fb7e4a4ed47120fdd8386b2893c4c4b22"
+  },
+  "split": {
+    "manifest_sha256": "c18f81618de6d08a7769447746476a1c1da62f624d62e00ea6947ac8dcd2747e",
+    "c_fit_sha256": "6b5d1fb48d64be51a16174d60c4fc351c23cfec74beb47432aff0e50e0809073",
+    "c_inner_sha256": "f0266156d9e308d95ce1325e820abafb2e94e291e0955aa4071246c64132f124",
+    "d_fit_sha256": "8321f67983a1191a85b1319a00f65282def960a49fcd0f8f13bca665c29a82ad",
+    "d_inner_sha256": "3d68394df9f98c392593324083afbcec47218ba29ee52d90f3d15fca6119127f",
+    "c_d_inner_case_overlap": 0,
+    "c_d_inner_subject_overlap": 0,
+    "old_a_b_inner_union_subjects_excluded": 93,
+    "old_inner_subject_overlap": 0
+  },
+  "entry_points": {
+    "split_builder": {"path": "scripts/build_t1ce_wt_flip_equivariance_consistency_splits.py", "sha256": "a18e97f8bd09778c8839e7cd153469aa1e15af4a4dbc7002b03310acd0f883f4"},
+    "trainer": {"path": "scripts/train_t1ce_wt_flip_equivariance_consistency.py", "sha256": "80c8e3a7bea9a2530f9bccbf4e72157417d6c99edd37fec89eb4d6eb6aaadf17"},
+    "evaluator": {"path": "scripts/evaluate_t1ce_wt_flip_equivariance_consistency_inner.py", "sha256": "1c3071fa6f72a1edb621eae0b3b7e879e451f65edbd5bdeed7c58130bb01fbe9"},
+    "preaccess_freezer": {"path": "scripts/freeze_t1ce_wt_flip_equivariance_consistency_inner_preaccess.py", "sha256": "415bc6468a5d24f559596cdf251181bdbe2e60702933750908627d5db9a0c23f"},
+    "runner": {"path": "scripts/run_t1ce_wt_flip_equivariance_consistency_stage_a.sh", "sha256": "f2e45f9c794ebb8dd0c2a072cd5d6a793e4248411faf3ff702a3f86ea5dc945b"},
+    "tests": {"path": "tests/test_flip_equivariance_consistency_stability.py", "sha256": "8eb8463533bd4903d04869efa75254e010c5cd0c367ff7b344786e5309d2a284"}
+  },
+  "checks": {
+    "py_compile": "passed",
+    "shell_syntax": "passed",
+    "pytest": "29 passed in 7.43s",
+    "amended_exact_equality_loss": 0.0,
+    "different_prediction_loss_positive_and_gradients_finite": true,
+    "seven_reflection_cycle_exact": true,
+    "control_candidate_weights": [0.0, 0.1],
+    "trainer_exposes_weight_or_view_tuning_cli": false
+  },
+  "gpu_smoke": {
+    "replicate": "c",
+    "fit_cases": 8,
+    "optimizer_steps": 2,
+    "initial_sampling_batch_axes_existing_consistency_sampler_rng_schedule_exact": true,
+    "first_axes": [-1],
+    "first_existing_loss": 1.7970737218856812,
+    "first_consistency_loss": 0.008214734494686127,
+    "control_total_loss": 1.7970737218856812,
+    "candidate_total_loss": 1.7978951930999756,
+    "candidate_model_state_diverged_after_update": true,
+    "control_peak_gpu_memory_bytes": 42005838848,
+    "candidate_peak_gpu_memory_bytes": 42005838848,
+    "control_report_sha256": "34540369459535a597144876f5694abc413db0dfb17cc7dfc80a89eed083fb4b",
+    "candidate_report_sha256": "0a360565839dc7996718519345816f9e747460b9179e312f84a1fd901fe47b4b",
+    "control_checkpoint_sha256": "56a2152c6f911eb2a71ad5f365ed04122a345f38b1a941fe662d349e597bf682",
+    "candidate_checkpoint_sha256": "4344775cb341652f117f6e04922d0e92281777ff7e8ef92d68e9f61b2be7b8be",
+    "all_gates_passed": true
+  },
+  "implementation_failure_boundary": {
+    "original_formula_problem": "non-squared soft-Dice denominator was nonzero at identical probabilities and mixed sharpening with consistency",
+    "detected_before_training": true,
+    "resolved_by_frozen_amendment_01": true,
+    "first_v2_scale_command_failed_only_during_final_vector_to_scalar_print": true,
+    "checkpoint_created_before_resolution": false,
+    "c_or_d_inner_access_before_resolution": false
+  },
+  "resources_before_formal": {
+    "repository_free": "12G",
+    "tmp_free": "480G",
+    "gpus": "2x A100 80GB idle",
+    "formal_peak_gate_gib": 60
+  },
+  "access": {
+    "fit": true,
+    "c_or_d_inner": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

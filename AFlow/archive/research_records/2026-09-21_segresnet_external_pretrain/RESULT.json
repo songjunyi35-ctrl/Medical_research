@@ -1,0 +1,116 @@
+{
+  "scan_dice": 0.7616487362318569,
+  "subject_dice": 0.745858609626273,
+  "scan_ci95": [
+    0.7364006474440639,
+    0.7836427056479309
+  ],
+  "subject_ci95": [
+    0.7198505897239811,
+    0.7693483156150503
+  ],
+  "point_hit": 0.9111111111111111,
+  "scans": 270,
+  "subjects": 119,
+  "bootstrap": "10000 patient cluster percentile95 seed20260917",
+  "status": "complete_test270",
+  "utc": "2026-09-21T07:44:21.240461+00:00",
+  "epoch": 179,
+  "checkpoint_sha256": "7006d44a2a2f765562dc0155f914c967a27b22ffba476cea5e966f01d69f7ad0",
+  "point_hits": 246,
+  "point_denominator": 270,
+  "validation": {
+    "scan_dice": 0.7468505849440893,
+    "subject_dice": 0.7350505459521499,
+    "scan_ci95": [
+      0.7039741183154172,
+      0.7830816092235701
+    ],
+    "subject_ci95": [
+      0.6924648596236392,
+      0.7730786456941139
+    ],
+    "point_hit": 0.8888888888888888,
+    "scans": 108,
+    "subjects": 50,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "comparison_vs_e193": {
+      "scan_delta": 0.006818315359177413,
+      "subject_delta": 0.003512161899180639,
+      "scan_delta_ci95": [
+        -0.0003595252728054872,
+        0.015004849376780635
+      ],
+      "subject_delta_ci95": [
+        -0.0030724941712050205,
+        0.0106673908183972
+      ],
+      "scan_delta_ci97_5": [
+        -0.0011687851310751146,
+        0.016302765709913077
+      ],
+      "subject_delta_ci97_5": [
+        -0.0038674664080497762,
+        0.011874537374824296
+      ],
+      "point_hits_delta": -1,
+      "improved_scans": 57,
+      "worse_scans": 51,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+    },
+    "promotion_gate_passed": false,
+    "selected_epoch": 179,
+    "role": "validation108 reused",
+    "test_access": false
+  },
+  "comparison_vs_e193": {
+    "scan_delta": 0.002469955212264149,
+    "subject_delta": 0.0008739861521442065,
+    "scan_delta_ci95": [
+      -0.004343443667259604,
+      0.009627406715609944
+    ],
+    "subject_delta_ci95": [
+      -0.006509803585089868,
+      0.008558017796359391
+    ],
+    "scan_delta_ci97_5": [
+      -0.00536620287854775,
+      0.010705409554069793
+    ],
+    "subject_delta_ci97_5": [
+      -0.007619302834316315,
+      0.009588668233152813
+    ],
+    "point_hits_delta": 4,
+    "improved_scans": 140,
+    "worse_scans": 130,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+  },
+  "runtime": {
+    "inference_seconds": 8.670004643499851,
+    "peak_allocated_bytes": 1313313280,
+    "gpu": "NVIDIA A100-SXM4-40GB"
+  },
+  "training_seconds": 6135.297076523304,
+  "pretraining_seconds": 2344.3765328899026,
+  "checkpoint_bytes": 18838723,
+  "test_access": true,
+  "not_pristine_blind": true,
+  "not_external": true,
+  "prior_test_informed_development": true,
+  "current_test_used_for_selection_or_retuning": false,
+  "new_outer_confirmation_access": false,
+  "evidence": {
+    "archive/research_records/2026-09-21_segresnet_external_pretrain/RAW_TEST270.json": "ffa9cec8a98d223dc095d2521a31348173711aa56a57a045a2a1b0a4e9e5d4d7",
+    "archive/research_records/2026-09-21_segresnet_external_pretrain/RAW_VALIDATION.json": "e8be4d53ae80167333cba10086c6390888f35e863bfd23df09b27088b354034f",
+    "archive/research_records/2026-09-21_segresnet_external_pretrain/checkpoint_selected.pth": "7006d44a2a2f765562dc0155f914c967a27b22ffba476cea5e966f01d69f7ad0",
+    "archive/research_records/2026-09-21_segresnet_external_pretrain/SELECTION_RECEIPT.json": "2f7cfee831f5964b9bdea7d506703939ee047cacc75ddff6a173d11ea5817b5e",
+    "archive/research_records/2026-09-21_segresnet_external_pretrain/PREACCESS.json": "4f1c1f98e82846dcdf98fcaa08ac3110a4b9dbc71a7b09bbab4f2b1b7952d345",
+    "archive/research_records/2026-09-21_segresnet_external_pretrain/MODEL_PREACCESS.json": "a445313ef7ca9e54006e1656f3aae9047c79369cf7db6bb385a65711d76c8bb0",
+    "archive/research_records/2026-09-21_segresnet_external_pretrain/CACHE_RECEIPT.json": "b636f3d615794ea7e490d00c700e989bc735fa361e893486b6c47ef0f8a5ba15",
+    "archive/research_records/2026-09-21_segresnet_external_pretrain/TEST_FREEZE.json": "401b6508c5e51720690cd1be2129f22ba5f0df1e2e1485c96a269f5984787859"
+  }
+}

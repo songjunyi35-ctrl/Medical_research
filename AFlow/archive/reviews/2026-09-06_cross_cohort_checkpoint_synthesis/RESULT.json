@@ -1,0 +1,81 @@
+{
+  "analyzer_sha256": "03bba4f30a41bab49a6dcb9539d5b7f3528819dc820372893e458f2c53052eeb",
+  "cohorts": [
+    {
+      "cohort": "Reused internal test270",
+      "delta": 0.0002436383489381384,
+      "delta_ci": [
+        -0.005655235725851661,
+        0.005739641802437181
+      ],
+      "full_ci": [
+        0.7334812238419222,
+        0.7683877902602155
+      ],
+      "full_points": 262,
+      "full_scan": 0.7517595372128266,
+      "gcsam_ci": [
+        0.7339302155542774,
+        0.7691406359300189
+      ],
+      "gcsam_points": 252,
+      "gcsam_scan": 0.7520031755617648,
+      "point_denominator": 270,
+      "scope": "270 scans/119 subjects; reused, not blind/external"
+    },
+    {
+      "cohort": "UCSD75 official-float",
+      "delta": 0.009634462197621664,
+      "delta_ci": [
+        -0.0021625930766264513,
+        0.025053405344486235
+      ],
+      "full_ci": [
+        0.7061778320670128,
+        0.782002838075161
+      ],
+      "full_points": 70,
+      "full_scan": 0.746255042552948,
+      "gcsam_ci": [
+        0.7171913696726163,
+        0.7895746358732383
+      ],
+      "gcsam_points": 70,
+      "gcsam_scan": 0.7558895047505697,
+      "point_denominator": 75,
+      "scope": "same-cohort source correction; reused public external"
+    },
+    {
+      "cohort": "BraTS-Africa95",
+      "delta": 0.06861666888291507,
+      "delta_ci": [
+        0.04447197577994147,
+        0.09249767550187686
+      ],
+      "full_ci": [
+        0.4755023307048984,
+        0.5677388555856394
+      ],
+      "full_points": 87,
+      "full_scan": 0.5230025504563405,
+      "gcsam_ci": [
+        0.5409138043330485,
+        0.6374087789122713
+      ],
+      "gcsam_points": 84,
+      "gcsam_scan": 0.5916192193392555,
+      "point_denominator": 95,
+      "scope": "public post-challenge; four centers; institution-disjoint/no patient bridge"
+    }
+  ],
+  "interpretation": "GCSAM-minus-Full Scan Dice grows from near zero internally to modest UCSD and large Africa95, while point differences are -10/0/-3. Cohorts differ and must not be pooled; this is a pattern, not proof that domain shift causally favors GCSAM.",
+  "models": {
+    "full972_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+    "gcsam184_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d"
+  },
+  "new_model_inference": false,
+  "schema": "aflow.cross_cohort.frozen_checkpoint_synthesis",
+  "schema_version": 1,
+  "selection_or_tuning": false,
+  "status": "descriptive_separate_cohorts_no_pooled_ranking"
+}

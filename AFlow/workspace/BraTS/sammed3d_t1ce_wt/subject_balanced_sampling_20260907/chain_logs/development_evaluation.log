@@ -1,0 +1,88 @@
+{
+  "schema": "aflow.subject_balanced_sampling.reused_development",
+  "created_utc": "2026-09-07T12:49:30.948499+00:00",
+  "comparisons": {
+    "2026090711": {
+      "scan_delta": 0.006712506454437217,
+      "subject_delta": 0.007420495590116483,
+      "point_delta": -3,
+      "improved": 118,
+      "worse": 61,
+      "tied": 1,
+      "subject_95ci": [
+        0.0015311518691765562,
+        0.013552047004858318
+      ],
+      "scan_cluster_95ci": [
+        0.0015553652737589326,
+        0.012000775264416582
+      ]
+    },
+    "2026090712": {
+      "scan_delta": 0.01172853865263368,
+      "subject_delta": 0.013406386418107763,
+      "point_delta": 5,
+      "improved": 119,
+      "worse": 59,
+      "tied": 2,
+      "subject_95ci": [
+        0.006627159794651781,
+        0.020810514007604877
+      ],
+      "scan_cluster_95ci": [
+        0.005220724895760862,
+        0.019021115361279747
+      ]
+    }
+  },
+  "gates": {
+    "2026090711": {
+      "subject_gain": true,
+      "scan_positive": true,
+      "point_safety": false,
+      "subject_ci_safety": true,
+      "scan_cluster_ci_safety": true
+    },
+    "2026090712": {
+      "subject_gain": true,
+      "scan_positive": true,
+      "point_safety": true,
+      "subject_ci_safety": true,
+      "scan_cluster_ci_safety": true
+    }
+  },
+  "average_scan_delta": 0.009220522553535448,
+  "all_gates_passed": false,
+  "pairing": {
+    "2026090711": {
+      "same_initial": true,
+      "same_168_epochs": true,
+      "same_121_steps": true,
+      "same_augmentation_rng": true,
+      "sampling_weights_differ": true,
+      "sampler_changed": true
+    },
+    "2026090712": {
+      "same_initial": true,
+      "same_168_epochs": true,
+      "same_121_steps": true,
+      "same_augmentation_rng": true,
+      "sampling_weights_differ": true,
+      "sampler_changed": true
+    }
+  },
+  "new_forwards": 360,
+  "seconds": 12.116570063866675,
+  "dev_preaccess_sha256": "04dc9026f1aa0e0fa891a79c8b77044758e2a69c8febb93cc5cd8f3f0ea2ee77",
+  "source_raw_sha256": "80e9bd449d7c72a61de0ecdbdfbc5bb3a61814e7770bbcc1c983ac097b4cd2c6",
+  "access": {
+    "reused_development180": true,
+    "new_control_inference": false,
+    "test270": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "external": false
+  },
+  "decision": "close_patient_equal_sampling_no_weight_mixture_epoch_seed_search"
+}

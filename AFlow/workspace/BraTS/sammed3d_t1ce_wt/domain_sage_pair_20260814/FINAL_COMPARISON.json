@@ -1,0 +1,97 @@
+{
+  "cases": 108,
+  "comparison": "Domain-SAGE minus matched plain SAGE",
+  "created_at_utc": "2026-08-14T07:12:48.058086+00:00",
+  "evidence": {
+    "domain_reload": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/domain_sage_pair_20260814/DOMAIN_RELOAD_VALIDATION.json",
+      "sha256": "b78dec092fa1c58c7c9b5c11a422c5a73b7f89e1496897884dcd69b668f4d499"
+    },
+    "domain_train_done": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/domain_sage_pair_20260814/domain_sage_domain_seed20260818/TRAIN_DONE.json",
+      "sha256": "cb61ad6981745689a02c3585fe10c540a4097932d49df9155c2230727ce8ccf1"
+    },
+    "plain_reload": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/domain_sage_pair_20260814/PLAIN_RELOAD_VALIDATION.json",
+      "sha256": "922a30edfdbbe8ce136edb7329b1ba22824f0ba33ec4cfb0157742f222818980"
+    },
+    "plain_train_done": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/domain_sage_pair_20260814/domain_sage_plain_seed20260818/TRAIN_DONE.json",
+      "sha256": "8bfd6f7fe22664735d3aa3a5c7a3a0206ab6b305abcf68b5eda7cd1b2a9ec76c"
+    }
+  },
+  "preregistered_gate": {
+    "decision": "negative ablation; do not tune",
+    "passed": false,
+    "required_scan_gain": 0.001,
+    "requires_nonnegative_subject_gain": true
+  },
+  "pseudo_domain_subgroups_descriptive_only": [
+    {
+      "cases": 36,
+      "domain_sage_scan_dsc": 0.7033495720889833,
+      "paired_difference": 0.0003283967574437459,
+      "plain_scan_dsc": 0.7030211753315396,
+      "pseudo_domain": 0
+    },
+    {
+      "cases": 9,
+      "domain_sage_scan_dsc": 0.6683199240101708,
+      "paired_difference": 0.000628352165222168,
+      "plain_scan_dsc": 0.6676915718449487,
+      "pseudo_domain": 1
+    },
+    {
+      "cases": 19,
+      "domain_sage_scan_dsc": 0.6963081701021445,
+      "paired_difference": 0.0007904064106313806,
+      "plain_scan_dsc": 0.6955177636915132,
+      "pseudo_domain": 2
+    },
+    {
+      "cases": 44,
+      "domain_sage_scan_dsc": 0.7096648105335507,
+      "paired_difference": -0.001063752496107058,
+      "plain_scan_dsc": 0.7107285630296577,
+      "pseudo_domain": 3
+    }
+  ],
+  "runner_sha256": "4c7963f517f0cd3e68465f4965ac791b7a78ef37e7c1a770617d44a32a9027e7",
+  "scan": {
+    "domain_sage_dsc": 0.7017645445065918,
+    "improved_cases": 57,
+    "paired_difference": -0.00013249940066425888,
+    "plain_dsc": 0.701897043907256,
+    "tied_cases": 0,
+    "worsened_cases": 51
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_domain_sage_pair_analysis",
+  "subject": {
+    "bootstrap_resamples": 100000,
+    "bootstrap_seed": 20260818,
+    "bootstrap_unit": "subject after within-subject scan mean",
+    "ci95": [
+      -0.0008486347251704761,
+      0.00035231999201433995
+    ],
+    "domain_sage_dsc": 0.696724254861474,
+    "paired_difference": -0.0002454179312501635,
+    "plain_dsc": 0.6969696727927243
+  },
+  "subjects": 50,
+  "test_access": false,
+  "training": {
+    "domain": {
+      "best_epoch": 1,
+      "best_validation_domain_accuracy": 0.8611111111111112,
+      "completed_epochs": 9,
+      "elapsed_seconds": 740.5063908100128,
+      "final_validation_domain_accuracy": 0.9537037037037037
+    },
+    "plain": {
+      "best_epoch": 3,
+      "completed_epochs": 11,
+      "elapsed_seconds": 886.610630273819
+    }
+  }
+}

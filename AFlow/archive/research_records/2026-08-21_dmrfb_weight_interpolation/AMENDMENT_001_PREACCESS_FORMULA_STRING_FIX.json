@@ -1,0 +1,13 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dmrfb_weight_interpolation_implementation_amendment",
+  "schema_version": 1,
+  "amendment_id": "001_preaccess_formula_metadata_string_alignment",
+  "timing": "after checkpoint generation and failed preflight, before validation started receipt or any new interpolation validation data access",
+  "failure": "evaluator expected formula metadata suffix 'then cast to endpoint dtype' while generated checkpoints store the semantically equivalent suffix 'then cast'",
+  "fix": "align evaluator exact metadata string with generated checkpoint; interpolation tensors,checkpoint bytes,alpha grid,state geometry,reload,selection,promotion,and metrics unchanged",
+  "validation_started_before_fix": false,
+  "new_interpolation_validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

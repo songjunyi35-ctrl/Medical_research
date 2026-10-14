@@ -1,0 +1,72 @@
+rep=c arm=candidate_w01 epoch=1 total=1.726808 existing=1.726213 cons=0.005954 train=0.012648
+{
+  "access": {
+    "confirmation": false,
+    "fit": true,
+    "fixed_validation108": false,
+    "inner_metrics": false,
+    "outer": false,
+    "test270": false,
+    "ucsd_external75": false
+  },
+  "all_gates_passed": true,
+  "arm": "candidate_w01",
+  "checkpoint": {
+    "model_state_sha256": "c2895dd42274f5644ee00cf6ecdf3c216581bc362b9da842544dee121978964d",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip_equivariance_consistency_20260904/smoke_c_candidate_w01/smoke_epoch1.pth",
+    "sha256": "4344775cb341652f117f6e04922d0e92281777ff7e8ef92d68e9f61b2be7b8be"
+  },
+  "consistency_weight": 0.1,
+  "created_at_utc": "2026-09-04T14:02:35.092395+00:00",
+  "data_roles": {
+    "fit": {
+      "cases": 8,
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_flip_equivariance_consistency_20260904/replicate_c_fit_cases.jsonl",
+      "sha256": "6b5d1fb48d64be51a16174d60c4fc351c23cfec74beb47432aff0e50e0809073",
+      "subjects": 3
+    },
+    "inner_dataset_constructed": false,
+    "inner_metrics_accessed": false,
+    "input_cache": {
+      "images_sha256": "f772520ca0d99fca0edc60aa04a7c73e0d7818eea9fa0174a29038f8334644b9",
+      "index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+      "labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train"
+    }
+  },
+  "elapsed_seconds": 2.9315054416656494,
+  "first_batch_sha256": {
+    "image": "8be87db2242419ce4b552a79b05576422d1202917d592c040adc9d1d4eefb970",
+    "label": "d0f21215f9950acc77b355f997bfdafe0b97fce51a58e4b425006fb6c48f2872"
+  },
+  "first_step": {
+    "axes": [
+      -1
+    ],
+    "consistency_loss": 0.008214734494686127,
+    "existing_loss": 1.7970737218856812,
+    "total_loss": 1.7978951930999756
+  },
+  "fixed_stop_epoch": 1,
+  "gates": {
+    "all_consumed_draws_exact": true,
+    "all_steps_exact": true,
+    "all_values_finite": true,
+    "cache_contract": true,
+    "checkpoint_reload_exact": true,
+    "elapsed_within_arm_limit": true,
+    "epoch_count_exact": true,
+    "no_inner_metrics": true,
+    "peak_at_most_60gib": true,
+    "two_student_forwards_each_step": true
+  },
+  "initial_state_sha256": "872bc5517feb112fe35408b7cbf0767e0c0eeda80e3fb2221ca5efbf4bae43c6",
+  "parameter_count": 4700897,
+  "peak_gpu_memory_bytes": 42005838848,
+  "replicate": "c",
+  "runner_sha256": "80c8e3a7bea9a2530f9bccbf4e72157417d6c99edd37fec89eb4d6eb6aaadf17",
+  "sampling_weight_sha256": "6f80b3a44bdc8cf8f1172619a7094a9983ed5e08c8eb020b1e657fed89f795de",
+  "schema": "aflow.sammed3d.t1ce_wt_flip_equivariance_consistency_train",
+  "schema_version": 1,
+  "status": "complete"
+}

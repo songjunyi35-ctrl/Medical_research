@@ -1,0 +1,61 @@
+{
+  "utc": "2026-09-24T05:27:10.921625+00:00",
+  "status": "complete",
+  "raster": "existing preprocessed 128^3 label cache; not native 1mm tumor volume",
+  "volume_quantiles_voxels": {
+    "train": {
+      "p05": 4472.700000000001,
+      "p10": 6962.5,
+      "p25": 12310.75,
+      "median": 25363.0,
+      "p75": 50739.75,
+      "p90": 77193.3,
+      "p95": 100410.5999999999,
+      "min": 197.0,
+      "max": 205241.0
+    },
+    "validation": {
+      "p05": 4080.9500000000003,
+      "p10": 7507.000000000001,
+      "p25": 14278.25,
+      "median": 28503.5,
+      "p75": 54344.75,
+      "p90": 87783.09999999999,
+      "p95": 108983.59999999999,
+      "min": 1490.0,
+      "max": 153797.0
+    },
+    "test": {
+      "p05": 5736.900000000001,
+      "p10": 7295.400000000001,
+      "p25": 13529.75,
+      "median": 23975.5,
+      "p75": 52676.75,
+      "p90": 92827.0,
+      "p95": 114198.09999999999,
+      "min": 1081.0,
+      "max": 185478.0
+    }
+  },
+  "training_p10_voxels": 6962.5,
+  "share_at_or_below_train_p10": {
+    "train": {
+      "scans_at_or_below_train_p10": 98,
+      "fraction": 0.10082304526748971
+    },
+    "validation": {
+      "scans_at_or_below_train_p10": 10,
+      "fraction": 0.09259259259259259
+    },
+    "test": {
+      "scans_at_or_below_train_p10": 23,
+      "fraction": 0.08518518518518518
+    }
+  },
+  "test_volume_vs_historical_fixed173_scan_dice_spearman": 0.6836646135978087,
+  "test_label_derived_metadata_access": true,
+  "new_label_pixel_access": false,
+  "new_model_forward": false,
+  "new_training": false,
+  "interpretation_limit": "Association between volume and Dice does not show that resampling cases or changing loss would improve performance."
+}

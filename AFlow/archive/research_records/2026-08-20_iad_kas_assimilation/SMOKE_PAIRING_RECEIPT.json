@@ -1,0 +1,45 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_iad_kas_smoke_pairing_receipt",
+  "schema_version": 1,
+  "status": "paired_smoke_complete",
+  "arms": {
+    "control": {
+      "report": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/smoke_control_seed20260860/GPU_SMOKE.json",
+      "report_sha256": "76d95d37c818accea79e587560a7b42cb28436e4bfd9badd0284f8bf392b73b4",
+      "all_gates_passed": true,
+      "initial_student_state_sha256": "90e344496af0c848365e1b4f8ba83da1d2c7288413587df5ed0313a3e1513778",
+      "peak_gpu_memory_bytes": 21683973120,
+      "median_step_seconds": 0.344102144241333
+    },
+    "kas": {
+      "report": "workspace/BraTS/sammed3d_t1ce_wt/plain_iad_kas_20260820/smoke_kas_seed20260860/GPU_SMOKE.json",
+      "report_sha256": "62db8c6d60129251e99f65c6a5b6d44bbcb732245f4283ab502387ce020825b2",
+      "all_gates_passed": true,
+      "initial_student_state_sha256": "90e344496af0c848365e1b4f8ba83da1d2c7288413587df5ed0313a3e1513778",
+      "peak_gpu_memory_bytes": 24070016000,
+      "median_step_seconds": 0.36036229133605957
+    }
+  },
+  "paired_first_batch": {
+    "case_ids_sha256": "eee75643ca58a739b5b0f2bc9637959ac110071c9e3d2cb36e49d65b8b4f0019",
+    "raw_image_sha256": "e4c84b5cd440d1877d946e71d7f09e2ecf0fe638cc4b4a3e058d36d712bd0092",
+    "raw_label_sha256": "1815cd73c2dad38c6ee53021c57c2e5b900e4d95ad66dc0ccbcba567c83d2428",
+    "augmented_image_sha256": "b2c3361d3a48c33b72cd8c57ece44eccf40c0090fd21b452f7c1da0af043d495",
+    "augmented_label_sha256": "916cffc5cc8db7c86b0ecbf50d55a4bb5627d10a375af1d3b7b4bbbe6741b8f9",
+    "all_equal": true
+  },
+  "kas_scale_audit": {
+    "supervised": 0.18653039634227753,
+    "mse": 234.28623962402344,
+    "dice_consistency": 0.9427287578582764,
+    "contrastive": 0.2762264609336853,
+    "kas_weighted": 2.3550519943237305,
+    "weighted_kas_to_supervised_ratio": 12.625568,
+    "interpretation": "accepted-paper gamma produces an initially dominant KAS term; frozen protocol is retained without post-smoke retuning"
+  },
+  "all_gates_passed": true,
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

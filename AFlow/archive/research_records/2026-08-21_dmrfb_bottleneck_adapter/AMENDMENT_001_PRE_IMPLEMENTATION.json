@@ -1,0 +1,86 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dmrfb_adapter_amendment",
+  "schema_version": 1,
+  "amendment_id": "001_optimizer_initialization_evidence_and_strata_contract",
+  "timing": "before synthetic tests, GPU smoke, formal training, or new DMRFB validation access",
+  "source_caveats": [
+    "BTCV 85.58-to86.06 is not a dilation-only ablation: full DMRFB also changes multi-branch structure and removes channel expansion",
+    "MSD BrainTumour plus0.40 is a full EfficientMedNeXt versus MedNeXt comparison,not a single-block result",
+    "the project [1,3,3] same-parameter control has no source-paper counterpart",
+    "official block uses ordinary random projection initialization; project zero projection is a KD200 identity-preserving adaptation",
+    "paper states AdamW weight_decay0.08, while frozen official training script passes only lr and therefore uses PyTorch AdamW default weight_decay0.01; project deliberately follows paper0.08 for adapter"
+  ],
+  "optimizer_contract": {
+    "fresh_optimizer": true,
+    "restore_kd_optimizer_state": false,
+    "scheduler": null,
+    "learning_rates_constant_for_all32_epochs": true,
+    "base_group": {
+      "members": "all and only original KD200 trainable parameters",
+      "parameter_count": 4700897,
+      "lr": 1e-5,
+      "weight_decay": 1e-5
+    },
+    "adapter_group": {
+      "members": "all and only57,088 adapter parameters including every conv weight/projection bias and GroupNorm affine parameter",
+      "parameter_count": 57088,
+      "lr": 0.001,
+      "weight_decay": 0.08,
+      "decay_exclusions": []
+    },
+    "coverage_gate": "parameter names and object IDs show complete union,zero overlap,and no optimizer omissions",
+    "adamw": {"betas":[0.9,0.999],"eps":1e-8,"amsgrad":false,"foreach":false,"fused":false},
+    "gradient_clip": "after backward and before optimizer step,global p=2 norm over both groups,max5,error_if_nonfinite=true"
+  },
+  "initialization_and_gradient_gates": {
+    "adapter_construction": "CPU torch.random.fork_rng with dedicated seed20260901; same module construction order in both arms",
+    "adapter_tensor_identity": "complete adapter state_dict key,shape,dtype,and value equality across arms; record raw tensor SHA",
+    "base_tensor_identity": "complete original network state equality across plain,control,candidate before training",
+    "projection_zero": "projection weight and bias each torch.count_nonzero==0",
+    "identity_input": "fixed asymmetric input; all models eval mode",
+    "identity_precision": ["FP32","CUDA BF16 autocast"],
+    "identity_gate": "plain-control,plain-candidate,and control-candidate final-logit max_abs each exactly0",
+    "step1_gradient": "projection weight and bias gradients are not None/all finite; projection module aggregate gradient norm>0; inner branch/GN zero gradient is expected",
+    "step2_gradient": "after first optimizer update, every branch kernel gradient is not None/all finite/norm>0; GN and projection tensors are not None/all finite and each module aggregate gradient norm>0",
+    "optimizer_state": "after each audited step, all parameter and AdamW state tensors finite"
+  },
+  "precision": {
+    "model_forward": "CUDA bfloat16 autocast",
+    "loss": "historical DiceCELoss computed inside the same autocast context",
+    "metric_diagnostics": "detached logits cast float32"
+  },
+  "frozen_strata": {
+    "source_file": "archive/research_records/2026-08-20_vm_dice/AMENDMENT_001_PRE_IMPLEMENTATION.json",
+    "source_file_sha256": "af01410acdff1d565e5def1150432b027053bf08104f006be1fdccdcc7e7dea6",
+    "kd200_bottom27_field": "frozen_strata.kd200_bottom27.case_ids",
+    "kd200_bottom27_sha256": "dd3828815ad4608ef3cac5d7586de42bf23b141cb23ef79fae1700ba5bf0aedb",
+    "boundary_top27_field": "frozen_strata.boundary_proxy_top27.case_ids",
+    "boundary_top27_sha256": "668ae9bfd782009e674c4437fa83be97455ac382371716ec7d8e4fb2ed759775",
+    "overlap_cases": 13,
+    "evidence_warning": "both strata are mechanism gates from the same reused validation,not independent confirmation"
+  },
+  "bootstrap_contract": {
+    "confidence_level": 0.95,
+    "quantiles": [0.025,0.975],
+    "samples": 10000,
+    "rng": "numpy.random.default_rng with preregistered per-epoch seeds",
+    "method": "paired percentile; linear quantile; scan108; subject50 after within-subject case mean; strata27"
+  },
+  "runtime_contract": {
+    "smoke_warmup_steps": 1,
+    "smoke_measured_steps": 3,
+    "per_arm_estimate": "median synchronized measured step seconds times94 times32",
+    "per_arm_stop_seconds": 2700,
+    "parallel_wall_stop_seconds": 2700,
+    "formal_report_must_enforce_peak_allocated_at_most_24gib": true
+  },
+  "access_clarification": {
+    "feasibility_screen_validation_access": true,
+    "meaning": "old NMSW/native-patch feasibility analysis used reused fixed validation",
+    "new_dmrfb_validation_access_before_training": false
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

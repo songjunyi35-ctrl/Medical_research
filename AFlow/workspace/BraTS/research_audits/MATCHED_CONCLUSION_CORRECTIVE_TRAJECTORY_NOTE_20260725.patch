@@ -1,0 +1,17 @@
+diff --git a/workspace/BraTS/research_audits/fv_lora_vs_rank0_matched_val108_conclusion_20260724.md b/workspace/BraTS/research_audits/fv_lora_vs_rank0_matched_val108_conclusion_20260724.md
+--- a/workspace/BraTS/research_audits/fv_lora_vs_rank0_matched_val108_conclusion_20260724.md
++++ b/workspace/BraTS/research_audits/fv_lora_vs_rank0_matched_val108_conclusion_20260724.md
+@@ -74,6 +74,12 @@
+ | C2 | +0.039561 | 80 / 28 | +0.041034 | 43 / 7 | [+0.027284, +0.054894] |
+ | C3 | **+0.042829** | **81 / 27** | **+0.042905** | **42 / 8** | **[+0.025863, +0.063080]** |
+ 
++The C1 prompts are identical across arms for all 108 cases. C2 and C3 are
++model-adaptive: each arm samples from its own current XOR error. Their click
++coordinates are identical in `0/108` cases at both C2 and C3, while click labels
++match in `70/108` and `67/108` cases. The later-click deltas therefore estimate
++the total closed-loop effect of each selected model plus the corrective
++trajectory it induces, not a fixed-prompt direct network-output contrast.
++
+ Within this conditional development comparison, the matched LoRA arm has a
+ positive C3 point estimate and a subject-cluster bootstrap interval above zero.
+ The advantage is already present at the first click and remains after three

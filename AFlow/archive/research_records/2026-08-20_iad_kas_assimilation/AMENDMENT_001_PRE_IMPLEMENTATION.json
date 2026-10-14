@@ -1,0 +1,91 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_iad_kas_preregistration_amendment",
+  "schema_version": 1,
+  "amendment": 1,
+  "timing": "before model implementation completion, synthetic tests, GPU smoke, formal training, or new validation access",
+  "reason": "freeze projector initialization, KAS numeric precision, paired-process audit, optimizer/checkpoint contract, bootstrap and source-code boundaries",
+  "parent_hashes": {
+    "idea_sha256": "aabf08e16fc6590bf85c7805e4ee6cb3e242f556fc870953e233dd187e07a077",
+    "preregistration_sha256": "af4946913b31de2148ec11ecdf739823fcd31d2b0fff025ff19c346340b0edb0"
+  },
+  "projector_initialization": {
+    "device": "construct on CPU before moving model to target CUDA device",
+    "dedicated_seed": 20260861,
+    "rng_isolation": "use a CPU RNG fork/dedicated manual seed for projector reset, then reset all training RNG to20260860 after every module/optimizer/loader is constructed",
+    "algorithm": "torch.nn.Conv3d(128,1,1,bias=true) default reset_parameters: kaiming_uniform weight with a=sqrt(5), bias uniform +/-1/sqrt(128)",
+    "weight_then_bias_float32_contiguous_bytes_sha256": "61b7c474d78ce3ea275e66e88f0ee1d02840417064cdd46fa438b33523e95fe1",
+    "reference_environment": "torch2.7.1+cu126 CPU"
+  },
+  "numeric_precision": {
+    "student_and_projector_forward": "bfloat16 autocast",
+    "kas_losses": "cast projected x and final z to float32 before MSE, sigmoid, Dice, negative, cosine and logsumexp",
+    "cosine": "per-volume flatten dim1, eps=1e-8",
+    "contrastive": "temperature1; mean softplus((cos_neg-cos_pos)/1) which is algebraically identical to stable two-logit InfoNCE",
+    "detach": "none anywhere in the KAS graph"
+  },
+  "optimizer_exact_contract": {
+    "checkpoint_loading": "load KD200 student model state only; do not load any old optimizer state",
+    "control_group": "single ordered parameter group containing student parameters",
+    "kas_group": "single ordered parameter group: student parameters first, projector weight then bias",
+    "optimizer": "AdamW lr1e-5 weight_decay1e-5 betas[0.9,0.999] eps1e-8 amsgrad=false maximize=false foreach=false fused=false capturable=false",
+    "zero_grad": "set_to_none=true",
+    "gradient_clip": "global norm5 over the complete arm optimizer parameter sequence including KAS projector",
+    "supervised_loss": "MONAI DiceCELoss(sigmoid=true,squared_pred=false,lambda_dice=1.0,lambda_ce=0.1)"
+  },
+  "loader_and_pairing": {
+    "num_workers": 4,
+    "pin_memory": true,
+    "persistent_workers": true,
+    "drop_last": true,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "tensor_hash": "SHA256 over CPU contiguous C-order bytes; dtype and shape stored beside hash",
+    "initial_student_state": "SHA256 over sorted deploy state keys followed by each contiguous tensor dtype,shape,raw bytes; require arms equal",
+    "first_batch": [
+      "ordered case IDs and newline-joined SHA256",
+      "raw image SHA256",
+      "raw label SHA256",
+      "augmented image SHA256",
+      "augmented label SHA256"
+    ],
+    "every_epoch": [
+      "SHA256 of ordered case IDs over all 94 batches",
+      "local CUDA RNG-state SHA256 immediately before first augmentation",
+      "local CUDA RNG-state SHA256 after final optimizer step"
+    ],
+    "pair_gate": "all above initial/first-batch/per-epoch values must exactly match control and KAS"
+  },
+  "checkpoint_contract": {
+    "one_file_per_arm_epoch": true,
+    "control": "deploy model_state_dict plus metadata",
+    "kas": "deploy-only model_state_dict plus full kas_training_state_dict containing student and projector, plus metadata",
+    "projector_gate": "projector keys present in kas_training_state_dict, optimizer parameter list and gradient audit",
+    "reload": "all four control and four KAS checkpoints strict reload; KAS full wrapper and stripped plain student produce identical final logits",
+    "deployment": "only model_state_dict is exported/deployed; projector is discarded"
+  },
+  "paired_bootstrap": {
+    "baseline_source": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/KD_VALIDATION.json",
+    "baseline_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57",
+    "samples": 10000,
+    "interval": "percentile [0.025,0.975]",
+    "rng": "numpy.random.default_rng",
+    "scan_unit": "108 paired case deltas resampled with replacement",
+    "subject_unit": "mean case Dice within each of50 subjects, then50 paired subject deltas resampled with replacement",
+    "kas_vs_same_epoch_control_seeds": {"208": 20260910, "216": 20260911, "224": 20260912, "232": 20260913},
+    "kas_vs_kd200_seeds": {"208": 20260914, "216": 20260915, "224": 20260916, "232": 20260917},
+    "point_gate": "integer hits >=100 of108, equal to KD200 101 hits minus one"
+  },
+  "source_boundaries": [
+    "paper Eq5 generally includes negative Conv; official binary Polyp comments omit it and project freezes the binary no-negative-Conv path",
+    "official code freezes the complete EfficientNet image_encoder while later conv_embed/decoder remain trainable; project trains full SegResNet in both arms",
+    "paper binary supervised loss is BCEWithLogits, official Polyp uses weighted BCE plus weighted IoU, project retains historical DiceCE for single-factor control",
+    "paper does not specify KIS/KAS stage lengths; project 32-epoch stage2 continuation is preregistered adaptation",
+    "official batch-global cosine is replaced before execution by per-volume cosine with eps/logsumexp stability"
+  ],
+  "scientific_protocol_changed_after_data_access": false,
+  "validation_access": false,
+  "new_method_validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

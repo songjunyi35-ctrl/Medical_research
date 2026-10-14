@@ -1,0 +1,49 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_hard_ml1ace_implementation_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-20T08:00:00Z",
+  "status": "frozen_before_formal_training_and_new_validation_access",
+  "synthetic_all_gates_passed": true,
+  "gpu_smoke_all_gates_passed": true,
+  "all_gates_passed": true,
+  "implementation": {
+    "loss_helper": "sammed3d/t1ce_wt_hard_ml1ace.py",
+    "loss_helper_sha256": "94ef859a90f7a1d6b76995b4b2b195026d03e7e1a5899df54c484d0c38cf70ac",
+    "test": "tests/test_t1ce_wt_hard_ml1ace.py",
+    "test_sha256": "84f36c4feb327b12e8a7ec19c8927e953836206a1209b8837274b7da36a7dec0",
+    "trainer": "scripts/train_t1ce_wt_hard_ml1ace_continuation.py",
+    "trainer_path": "scripts/train_t1ce_wt_hard_ml1ace_continuation.py",
+    "trainer_sha256": "27c83b8497ad7a80b24d1dc8e8ca4f4cbacc9f2649fcd241700c95032a719e51",
+    "validation_evaluator": "scripts/evaluate_t1ce_wt_hard_ml1ace_validation.py",
+    "validation_evaluator_path": "scripts/evaluate_t1ce_wt_hard_ml1ace_validation.py",
+    "validation_evaluator_sha256": "8195a3ed1622b21975e77641d29a37dc0cdd5a573e561b3d107a2d00b1e7c044"
+  },
+  "frozen_evidence": {
+    "start_checkpoint_sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+    "validation_manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "validation_cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "kd_validation_report_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57"
+  },
+  "start_checkpoint_historical_validation_access": true,
+  "start_checkpoint_historical_test_access_after_selection": true,
+  "preregistration_sha256": "c279d8f17aaa935a626addfe8970acd8c8388708b285d14bb279ddd25d5bed08",
+  "amendment_sha256": "48293660994732ef88ddf8adc15e465f95689946a6f17f312b66eddc1de53540",
+  "synthetic_tests": {
+    "report": "archive/research_records/2026-08-20_hard_ml1ace/SYNTHETIC_TESTS.json",
+    "result": "13 passed"
+  },
+  "gpu_smoke": {
+    "report": "workspace/BraTS/sammed3d_t1ce_wt/plain_hard_ml1ace_20260820/smoke_seed20260860/GPU_SMOKE.json",
+    "report_sha256": "275ae6e8d54dbbb75e0c4054220c0e7e7869542c2b4f5c004c31ab8520d89e8a",
+    "peak_gpu_memory_bytes": 21717570048,
+    "median_step_seconds": 0.43440771102905273,
+    "estimated_formal_seconds": 1306.6983947753906,
+    "ace_to_supervised_ratio": 1.095366377202781,
+    "ace_gradient_finite_nonzero": true,
+    "rng_unchanged_by_loss": true
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

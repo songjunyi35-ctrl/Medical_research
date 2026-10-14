@@ -1,0 +1,26 @@
+{
+  "utc": "2026-09-21T04:43:32.477120+00:00",
+  "reason": "canonical numerical helper rejected all 334 original OpenNeuro case identifiers before resize output",
+  "original_freeze_sha256": "49e40fa181689d1887e4e62d31e3f2645d1686c8dffb09b776c1dbb571c0cabd",
+  "new_files": {
+    "sammed3d/external_t1ce_arrays.py": "5c6f49c2d4ea06b047cd6e083b15c26b54a617f640953cc25cec0af11f6b601e",
+    "tests/test_external_t1ce_arrays.py": "1daa4050ec6ce8ca8e1d07055e0237b7a5b6b2033248509178f23d5b2efb0e3a",
+    "scripts/build_segresnet_two_ideas_pretrain_v2.py": "443105e0ea982bef876b68cf45acda185c466e7695792bc6150bcded263c0b3b",
+    "scripts/repair_segresnet_external_pretrain_queue.py": "b6f108ea9dbb99f9c2fb617a6bdc6093ef79cbdabcff9a56e7501b6da6071f59"
+  },
+  "evidence_sha256": {
+    "DOWNLOAD_RECEIPT.json": "e0cd4d25fb04d17f9dec48e7d189ec0fa4604d3b04327532d445f8bb6dbdbdc4",
+    "PRETRAIN_MANIFEST.jsonl": "4330a4930fee60794e2a46ef2d4a6f580aee95111b6cf6ff443f6a72e517e8c0",
+    "EXTERNAL_PREPARATION_STATUS_attempt1.json": "b8ea51fe0c25a834f6a64dba982143a8a6f2d86d7163ca42cee923357a8c28c6",
+    "FAILURE_build_cache.json": "6c4c19831eefafcb461afa645591ee6b5effc216dc0e721c5857e28abee67ec4"
+  },
+  "numerical_change": false,
+  "original_external_identifiers_preserved": true,
+  "normalization_interpolation_threshold_crop_gate_unchanged": true,
+  "cpu_verification": "3 tests passed: exact image/mask/geometry/normalization parity on two synthetic shapes; invalid inputs still rejected",
+  "external_source_pixel_access_in_failed_attempt": true,
+  "pretrain_model_forward_in_failed_attempt": false,
+  "new_test_access": false,
+  "rebuild_action": "preserve failed zero-output cache by rename; reuse already hash-verified downloads; no HDFS upload or redownload",
+  "queue": "let existing semantic supervisor finish; acquire its exclusive lock; only then train same A pretrain150+finetune200; no B restart"
+}

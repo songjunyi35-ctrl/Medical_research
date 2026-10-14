@@ -1,0 +1,35 @@
+{
+  "schema": "aflow.brats.direct_locator_flip8_tta.stage_a_launch",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-04T07:50:44Z",
+  "status": "frozen_before_formal_stage_a",
+  "documents": {
+    "idea_sha256": "87b53daa6ae91f22d00d16a5b6eef4294b1ee34d12e451060b14417cae4dd095",
+    "prereg_sha256": "cd2fe143f1ddb46062aece1e144c7bfcb04a9f728a85d71765faf7687ed699ec"
+  },
+  "receipts": {
+    "implementation_sha256": "031b29affa7e864f0e26a78f81f36258c3108b9974cd97206c4ea11a55bf9b92",
+    "smoke_sha256": "a0a7947b7a679725a38b9908bb7956975b96e63178dbfc3abba1907047118036"
+  },
+  "artifacts": {
+    "split_manifest_sha256": "45024a9b09ddfbaafbc6b441a94f8fcc5ff4e99fb2a09427b5d1e48e0ea4b836",
+    "train_cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "native_volume_artifact_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31"
+  },
+  "formal_runs": [
+    {"replicate": "a", "arm": "base", "seed": 20261202, "device": "cuda:0", "epoch": 168, "fit_sha256": "c5da4d99278e3ac982d43978dc6a77f70dcaceb885cffa06ce7322f0e76f6da3"},
+    {"replicate": "b", "arm": "base", "seed": 20261204, "device": "cuda:1", "epoch": 168, "fit_sha256": "4a4bb681389b0a7b361cd6ff1659cd4736a35494d2f4009468c27b7305439b9c"}
+  ],
+  "runner_sha256": "a24cb21ae5c49fdf04d563ce6b2ae4f60338556a83acab9660731874547006a6",
+  "formal_output_directories_absent": true,
+  "sequence": "train both base models in parallel; freeze both reports/checkpoints; then one-time evaluate both fresh inners",
+  "access": {
+    "fit": true,
+    "inner_metrics": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

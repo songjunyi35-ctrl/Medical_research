@@ -1,0 +1,124 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_lomix3d_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_implementation_smoke_training_validation",
+  "method": "three_decoder_stage_lomix3d_raw_logit_adaptation",
+  "primary_sources": {
+    "paper": "https://papers.nips.cc/paper_files/paper/2025/file/5f0e54e34ba4c30fbc6f229986dbffb4-Paper-Conference.pdf",
+    "openreview": "https://openreview.net/forum?id=87c2JwNJa0",
+    "official_code": "https://github.com/SLDGroup/LoMix"
+  },
+  "starting_problem": {
+    "historical_validation_scan": 0.7316012189344123,
+    "historical_validation_subject": 0.7221205654811291,
+    "matched_control_epoch200_scan": 0.7336056602221949,
+    "matched_control_epoch200_subject": 0.723671900062334,
+    "best_voxel_kd_epoch200_scan": 0.7343843078447713,
+    "best_voxel_kd_epoch200_subject": 0.7244341433615912,
+    "voxel_kd_minus_control_scan": 0.0007786476225764,
+    "voxel_kd_minus_control_subject": 0.0007622432992572
+  },
+  "student": {
+    "architecture": "true-128^3 4,700,897-parameter plain MONAI SegResNet",
+    "initial_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "initial_checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "initial_global_epoch": 168,
+    "deploy_output": "original final 128^3 raw segmentation logit only",
+    "deploy_parameter_count": 4700897
+  },
+  "teacher": null,
+  "only_changed_factor": "training-time three-stage LoMix auxiliary supervision",
+  "lomix": {
+    "decoder_resolutions": [32, 64, 128],
+    "original_maps": 3,
+    "subsets": [[0, 1], [0, 2], [1, 2], [0, 1, 2]],
+    "operators": ["add", "multiply", "registered_concat_conv3d", "subset_specific_attention_weighted_fusion"],
+    "mutant_maps": 16,
+    "total_supervised_maps": 19,
+    "map_semantics": "raw_logits_matching_official_runtime_code",
+    "coarse_upsampling": "explicit final spatial size, trilinear, align_corners=false",
+    "original_heads": "new Conv3d aux heads only for 32^3 and 64^3; 128^3 reuses existing network.conv_final Norm-Act-Conv",
+    "attention": "for each concrete k-stage subset: Conv3d(k,k,1,bias=true) on concatenated raw logits, softmax dim=1, weighted sum",
+    "stable_map_order": ["original_32", "original_64", "original_128", "then subsets 01,02,12,012 with add,multiply,concat,awf inside each subset"],
+    "per_map_loss": "MONAI DiceCELoss sigmoid=true lambda_dice=1 lambda_ce=0.1",
+    "loss_weight": "softplus(alpha), alpha initialized to zero, unconstrained and unnormalized",
+    "total_loss": "raw sum over all 19 original and mutant weighted losses; no division by 19 or weight sum",
+    "registered_modules": "one Conv3d concat and one attention module per concrete subset",
+    "inference": "discard auxiliary heads, fusion modules, and alpha; use original final head"
+  },
+  "fixed_training": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "train_manifest": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "train_manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "cases": 756,
+    "subjects": 346,
+    "seed": 20260846,
+    "batch_size": 8,
+    "sampler": "weighted replacement, 756 samples per epoch",
+    "max_shift": 8,
+    "optimizer": "AdamW",
+    "weight_decay": 0.00001,
+    "optimizer_parameter_scope": "plain deploy model, 2 aux heads, 4 concat Conv3d, 4 attention Conv3d, and 19 alpha in one AdamW group with the same LR and weight decay",
+    "gradient_clip": "global norm 5.0 over every optimizer parameter",
+    "precision": "bfloat16 autocast",
+    "global_epochs": [169, 200],
+    "checkpoint_epochs": [176, 184, 192, 200],
+    "learning_rate": "existing frozen late-cosine schedule through global epoch200"
+  },
+  "matched_control": {
+    "source": "existing archived supervised continuation with identical starting checkpoint, seed, sampler, augmentation, optimizer, and schedule",
+    "directory": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/control_seed20260846",
+    "checkpoints": {
+      "176": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/control_seed20260846/plain_128_control_global_epoch176.pth", "sha256": "ac50c460fc1d4e936721b4fa69839497878e2c4d0c62c28f91d2de7f1d3f7b8a"},
+      "184": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/control_seed20260846/plain_128_control_global_epoch184.pth", "sha256": "8d5367bbf79bd4c346f51720751eccdfcc3ef6aeb630401a5bba9b6e3f9f36e1"},
+      "192": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/control_seed20260846/plain_128_control_global_epoch192.pth", "sha256": "c3804d93c86c08b6f9b746884ace1a18473b231d9b28bb6bd16c19911f6a70f1"},
+      "200": {"path": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/control_seed20260846/plain_128_control_global_epoch200.pth", "sha256": "0d4246a700e7f85b501faea96dc2f5cc348bfebed42a46bbd0fc76c5963f9bdb"}
+    }
+  },
+  "fixed_validation": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 50,
+    "selection": "maximum LoMix scan Dice among epochs 176/184/192/200; subject Dice exact-tie-break",
+    "comparison_report": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/KD_VALIDATION.json",
+    "comparison_report_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57"
+  },
+  "promotion_gates_all_required": [
+    "selected LoMix scan and subject Dice strictly beat matched control at the same epoch",
+    "selected LoMix scan and subject Dice strictly beat voxel-KD epoch200",
+    "selected LoMix point hit is no more than one of 108 cases below voxel-KD epoch200",
+    "paired scan and subject bootstrap 95% CI lower bounds versus voxel-KD epoch200 are both at least -0.003",
+    "formal checkpoint reload max absolute difference is zero",
+    "stripped deploy-only model final logits exactly equal the training wrapper final logits",
+    "all implementation and GPU smoke gates pass"
+  ],
+  "technical_stop_gates": {
+    "nonfinite": "any NaN or Inf",
+    "missing_gradient": "any registered auxiliary, concat, or attention parameter lacks finite nonzero gradient in synthetic/GPU smoke",
+    "gpu_memory": "batch8 smoke OOM or peak allocated greater than 72 GiB",
+    "deploy_mismatch": "wrapper final logit differs after stripping auxiliary modules",
+    "reload_mismatch": "formal final reload maximum absolute difference is nonzero",
+    "softplus_collapse": "mean softplus(alpha) below 0.173286795 at any saved epoch"
+  },
+  "if_gates_fail": "stop without operation, alpha rule, loss weight, epoch, threshold, checkpoint, or postprocessing search; do not access test270",
+  "cost_budget": {
+    "new_cache": false,
+    "estimated_training_minutes": [15, 35],
+    "estimated_peak_gpu_gib": [25, 45],
+    "estimated_disk_gib_max": 0.25,
+    "deploy_locator_forwards": 1
+  },
+  "planned_outputs": {
+    "training": "workspace/BraTS/sammed3d_t1ce_wt/plain_lomix3d_20260819/seed20260846",
+    "validation": "workspace/BraTS/sammed3d_t1ce_wt/plain_lomix3d_20260819/LOMIX3D_VALIDATION.json",
+    "implementation_receipt": "archive/research_records/2026-08-19_lomix3d/IMPLEMENTATION_RECEIPT.json"
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

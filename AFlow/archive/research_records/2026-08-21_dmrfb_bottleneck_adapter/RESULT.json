@@ -1,0 +1,34 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dmrfb_adapter_result",
+  "schema_version": 1,
+  "status": "fixed_validation_mechanism_positive_promotion_failed_without_test",
+  "selected_epoch": 216,
+  "validation": {
+    "cases": 108,
+    "subjects": 50,
+    "control": {
+      "208":[0.7329622096623536,0.7231872624371734,0.9351851851851852],
+      "216":[0.7339973131677618,0.7245960032372247,0.9351851851851852],
+      "224":[0.7333548335979382,0.7235275026091508,0.9444444444444444],
+      "232":[0.7333889898878557,0.7233216053815116,0.9351851851851852]
+    },
+    "candidate": {
+      "208":[0.7330066231941735,0.7231838201412133,0.9351851851851852],
+      "216":[0.7342424767988699,0.7247423619386696,0.9259259259259259],
+      "224":[0.7336524464190006,0.7239084535695258,0.9351851851851852],
+      "232":[0.7335408536234388,0.7236126919161705,0.9259259259259259]
+    },
+    "field_order":["scan","subject","point"],
+    "selected_minus_control": {"scan":0.00024516363110807206,"scan_95ci":[-0.00014618385790122877,0.000668318047084742],"subject":0.00014635870144480756,"subject_95ci":[-0.00037676866263860787,0.000693317213228772],"point":-0.0092592592592593},
+    "selected_minus_kd200": {"scan":-0.00014183104590133385,"scan_95ci":[-0.0023699482419976482,0.0018814310707427836],"subject":0.00030821857707841074,"subject_95ci":[-0.0022918904656100835,0.002539567541331052],"point":-0.0092592592592593},
+    "boundary27_delta":0.00010709216197331746,
+    "bottom27_delta":0.0011842573682467143
+  },
+  "promotion": {"all_gates_passed":false,"authorized_for_test":false,"passed":["beat control scan","beat control subject","beat KD subject","all CI safety","boundary27","bottom27","all prerequisites"],"failed":["beat KD scan","point101"]},
+  "cost": {"control_seconds":1113.1202774047852,"candidate_seconds":1114.8346753120422,"parallel_wall_minutes":18.58057792186737,"peak_gpu_bytes_each":21904692224,"workspace_megabytes_approx":146,"deploy_parameters":4757985,"deploy_forwards":1},
+  "artifacts": {"raw_validation_v2_sha256":"d164c6818fcd74fefc7d542c33edd9f0883b59281ac5ec192cac3b00ef516a88","started_sha256":"8bb058be0d58f8e847f28bea153936e92c08106eca1d0069809222775b955cf6","pairing_receipt_sha256":"e0670edaa788b88ab5abe943e398e52a02c2e0512ca2f58cbee580ad09f61c00","control_training_sha256":"f9a8d1985af839b875de24d3cae3f0e2daa9c6467c742a560fb3f1ac957d60a2","candidate_training_sha256":"67bfbc4090fb75bf36f463976eef6d272f73a22ffd3d9fb5b07f089f15952fff","selected_checkpoint_sha256":"df53d9bd61f1489746ae1240fffba1f8a3897d0de1416122a389e1d420def684"},
+  "validation_access": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

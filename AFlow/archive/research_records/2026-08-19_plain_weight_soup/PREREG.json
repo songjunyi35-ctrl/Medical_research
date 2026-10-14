@@ -1,0 +1,32 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_weight_soup_preregistration",
+  "status": "frozen_before_soup_creation_and_validation",
+  "formula": "0.75 * historical_epoch168_parameters + 0.25 * EMA168_parameters",
+  "ema_weight": 0.25,
+  "weight_search": false,
+  "historical_checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+  "ema168_checkpoint_sha256": "4ea97dacb9a538993e1c16593bc56b03ce6dc3df2f457c1f0426439c6252197e",
+  "floating_tensors": "linear interpolation",
+  "integer_buffers": "copy historical",
+  "validation_manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+  "validation_cases": 108,
+  "validation_subjects": 50,
+  "threshold": 0.0,
+  "gate": {
+    "scan_gain": "> 0",
+    "subject_gain": "> 0",
+    "point_hit_delta": ">= -0.01",
+    "paired_subject_95ci_lower": ">= -0.003"
+  },
+  "if_gate_fails": "stop without test or alpha search",
+  "output_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_weight_soup_20260819/soup_h075_ema025.pth",
+  "output_validation": "workspace/BraTS/sammed3d_t1ce_wt/plain_weight_soup_20260819/SOUP_VALIDATION.json",
+  "code": {
+    "builder_sha256": "7bc3438e63189bf231260ad74076ba1ffaf776f8005192a1fd91583fe4b7591c",
+    "evaluator_sha256": "bf4e72e5462c1afc900aa8d3ed31f6d3d85c666e4842c9068d773669f8c8d602",
+    "test_sha256": "71022049f2f3824137a558a27e5c7bded58fe67345e54f24a3580a6cdea42277"
+  },
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

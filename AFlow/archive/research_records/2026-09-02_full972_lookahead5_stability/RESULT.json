@@ -1,0 +1,51 @@
+{
+  "schema": "aflow.brats.t1ce_wt_lookahead5_result",
+  "schema_version": 1,
+  "status": "complete_failed_stage_a_promotion",
+  "method": "Lookahead over AdamW with k=5 alpha=0.5 and slow-weight deployment",
+  "cohort": {"role": "fresh_train_only_inner", "fit_scans": 864, "fit_subjects": 392, "scans": 108, "subjects": 52},
+  "control": {"scan": 0.7425747762468679, "subject": 0.7214511774169902, "point_hits": 104},
+  "candidate": {"scan": 0.7386776745940248, "subject": 0.7166945269355216, "point_hits": 104},
+  "candidate_minus_control": {
+    "scan": -0.0038971016528429807,
+    "scan_95ci": [-0.009836552119641392, 0.0016413547960972316],
+    "subject": -0.00475665048146859,
+    "subject_95ci": [-0.01149361304914913, 0.0015516284889040097],
+    "point_hits": 0,
+    "scans_improved_worse_tied": [51, 56, 1],
+    "subjects_improved_worse_tied": [27, 24, 1]
+  },
+  "gates": {"passed": 2, "failed": 4, "full972_final_authorized": false},
+  "engineering_pairing": {
+    "initial_state_exact": true,
+    "sampling_weights_exact": true,
+    "all_168_sampler_epochs_exact": true,
+    "first_augmented_batch_exact": true,
+    "fast_steps": 20328,
+    "slow_updates": 4065,
+    "trailing_fast_steps": 3,
+    "final_slow_loaded": true,
+    "all_gates_passed": true
+  },
+  "cost": {
+    "control_seconds": 12206.02273774147,
+    "candidate_seconds": 12164.237549304962,
+    "formal_gpu_hours": 6.769516746401787,
+    "control_peak_gpu_memory_bytes": 21796646912,
+    "candidate_peak_gpu_memory_bytes": 21815463936,
+    "workspace": "217M",
+    "inference_forwards": 1
+  },
+  "intuition_supported": false,
+  "interpretation": "Lookahead lowered fit loss but reduced fresh-inner Scan and Subject Dice; full-trajectory slow feedback overconstrained the current AdamW schedule.",
+  "evidence": {
+    "idea_sha256": "b71bd5c2a018ee638d3517fa179f42fbe21fa2d197336f7a451888bbec814f36",
+    "prereg_sha256": "cbbdcfdb8a3424e573dbec531edad84b8344abc8827113128eaa4d34720807d9",
+    "preaccess_sha256": "44b2e0005e6d32655733409d22c730762040a029154487e58c3f7d22987ea2cd",
+    "raw_inner_sha256": "6d30ec02e87f68623cbb3eec45eb09be1e81ad3784fb04a4860a48f194f0bcc3",
+    "control_checkpoint_sha256": "1eaca7f2258d7eca2c98d54c967d575e990b0572891950f5f05150e60b4b5513",
+    "candidate_checkpoint_sha256": "179408fd2b6e3a0105ed259c780e76c9b7081cac71fbb917dcc5c51a91e3e2af"
+  },
+  "access": {"train_only_inner": true, "fixed_validation108": false, "outer": false, "confirmation": false, "test270": false},
+  "next_decision": "stop Lookahead5; do not tune; leave optimizer and weight-averaging axis"
+}

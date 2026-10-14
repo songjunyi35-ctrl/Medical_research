@@ -1,0 +1,67 @@
+{
+  "access": {
+    "confirmation": false,
+    "internal_test": false,
+    "model_inference": false,
+    "outer": false,
+    "train_role_labels": 972,
+    "validation": false,
+    "waw_new_arrays": false
+  },
+  "analyzer_sha256": "1f3c7eef997e3a9131916e140e8fc06dd0c76cf720766ec6a52f69c8da5bb18b",
+  "contrasts": {
+    "waw_common_zero_dice_cases": 5,
+    "waw_common_zero_only_label2_cases": 4,
+    "waw_minus_train_label3_absent_fraction": -0.08595949750920509,
+    "waw_minus_train_only_label2_fraction": 0.14018843404808318
+  },
+  "forbidden_use": "no GT label-composition selection, router, exclusion, threshold, training method, or cohort retest",
+  "interpretation": "T1-contrast-only input cannot directly observe FLAIR-defined abnormality. Distribution differences in enhancement-label presence can contribute to domain failure but do not prove causality or authorize GT-based routing.",
+  "schema": "aflow.t1ce_only.label_observability_audit",
+  "schema_version": 1,
+  "source_sha256": {
+    "archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/POSTHOC_FAILURE_TAIL.json": "cdfed37eb2e7586c65525cc25d7b1bf420e172b63a76798050d4a887675ae714",
+    "archive/reviews/2026-09-06_waw_gliomai_source_audit/FROZEN_COHORT.json": "25de15904d8db5e6d6e304bc73058dba4f43e7534ae0a533f4f06636613a263a",
+    "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/train_t1ce_wt.jsonl": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65"
+  },
+  "status": "train_labels_plus_saved_waw_metadata_only_no_model_or_new_evaluation_role",
+  "train972_posttreatment": {
+    "label3_absent": 269,
+    "label3_absent_fraction": 0.2767489711934156,
+    "only_label2": 30,
+    "only_label2_fraction": 0.030864197530864196,
+    "pattern_counts": {
+      "(0, 1, 2, 3)": 115,
+      "(0, 1, 2, 3, 4)": 266,
+      "(0, 1, 2, 4)": 2,
+      "(0, 2)": 30,
+      "(0, 2, 3)": 13,
+      "(0, 2, 3, 4)": 309,
+      "(0, 2, 4)": 237
+    },
+    "scans": 972,
+    "subjects": 444,
+    "subjects_with_any_label3_absent_scan": 145,
+    "subjects_with_only_label2_scan": 18,
+    "wt_voxels_median_all": 41842.0,
+    "wt_voxels_median_label3_absent": 18509.0
+  },
+  "waw152_preoperative": {
+    "label3_absent": 29,
+    "label3_absent_fraction": 0.19078947368421054,
+    "only_label2": 26,
+    "only_label2_fraction": 0.17105263157894737,
+    "pattern_counts": {
+      "(0, 1, 2)": 3,
+      "(0, 1, 2, 3)": 81,
+      "(0, 2)": 26,
+      "(0, 2, 3)": 42
+    },
+    "scans": 152,
+    "subjects": 152,
+    "subjects_with_any_label3_absent_scan": 29,
+    "subjects_with_only_label2_scan": 26,
+    "wt_voxels_median_all": 65555.5,
+    "wt_voxels_median_label3_absent": 22423.0
+  }
+}

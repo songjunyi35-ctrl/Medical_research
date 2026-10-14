@@ -1,0 +1,50 @@
+{
+  "array_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/dpdsam_t1ce_d1/pilot256_exact_d1_k4n1_aug_seed20260722_e20_v1/fit_only_latent_domains.npz",
+  "array_sha256": "99b00bce9c801574245b5e54290e6daf88a026d025c0ccc3deb3c261cbcbaa43",
+  "case_count": 256,
+  "centroid_shape": [
+    4,
+    384
+  ],
+  "descriptor_shape": [
+    256,
+    384
+  ],
+  "domain_counts": [
+    67,
+    99,
+    47,
+    43
+  ],
+  "fit_only": true,
+  "kmeans": {
+    "algorithm": "lloyd",
+    "class": "sklearn.cluster.KMeans",
+    "inertia": 11.046548843383789,
+    "init": "k-means++",
+    "library": "scikit-learn",
+    "max_iter": 300,
+    "n_clusters": 4,
+    "n_init": 10,
+    "n_iter": 18,
+    "random_state": 20260721,
+    "tol": 0.0001,
+    "version": "1.7.2"
+  },
+  "reads_any_labels": false,
+  "reads_validation_images": false,
+  "schema": "aflow.sammed3d.dpdsam_t1ce_binary_d1_latent_domains",
+  "schema_version": 1,
+  "sources": {
+    "domain_count": 4,
+    "kmeans_seed": 20260721,
+    "model_type": "vit_b_ori",
+    "preprocessing": "T1ce_nonzero_zscore_whole_volume_128cubed",
+    "source_checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/SAM-Med3D-main/ckpt/sam_med3d_turbo.pth",
+    "source_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "split_manifest_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_dpdsam_t1ce_binary_seed20260721_v1/split_manifest.json",
+    "split_manifest_sha256": "7447e3cb2499a9b54a74f3fc8522f32eb6301031c0bddb9c5c848313ab641117",
+    "train_manifest_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_dpdsam_t1ce_binary_seed20260721_v1/train_t1ce_binary.jsonl",
+    "train_manifest_sha256": "ce922bdbf2f4bd693aac816a357e76e874aaf6f45d4fc16eeeb357b0c15557df"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "aflow.ucsd75_official_float_source_correction.model_preaccess",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T00:39:42Z",
+  "status": "frozen_after_cache_before_model_inference",
+  "scope": "one-time reused UCSD75 source correction; not a new independent cohort and not model selection",
+  "preregistration": {"path": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/PREREGISTRATION.json", "sha256": "2c0b506e877505fdf65d773f275d497f5bbd12e4a039be997633c992683afd28"},
+  "implementation_receipt": {"path": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/IMPLEMENTATION_RECEIPT.json", "sha256": "fb5c253fb764fc2126a9132dbb0d9de2d76cbac0215672f19df96484784c50f1"},
+  "evaluator": {"path": "scripts/evaluate_ucsd_official_float_source_correction.py", "sha256": "6af7895b05f0bfac684a5bbadc24945608212286db5ea408252568f110a58116"},
+  "cache": {
+    "path": "/tmp/aflow-ucsd-official-float-source-correction-cache-20260906",
+    "index_sha256": "2540d5015008e22b40f3f94cc3f33b0d96cc12ee70a14b12c6d15a48e5a0856f",
+    "images_sha256": "1578f73411ad8a49de9ec67d2cee8d096f4e9fbfcd5104afda3b87af9babfadf",
+    "labels_sha256": "4d5fcb9de1b484ea570cfc0d22ad37a120e7c4c01049145a8c42f63e3c04dd38",
+    "cases": 75,
+    "subjects": 53,
+    "first_case_reproduction_image_and_label_byte_exact": true,
+    "model_inference": false
+  },
+  "cache_comparison": {
+    "path": "archive/research_records/2026-09-06_ucsd_official_float_source_correction/CACHE_COMPARISON.json",
+    "sha256": "641aba1bf001e22c68b62a1f2d6cfab2b96c17b29cb4e15d969a7b28c2decb73",
+    "image_array_equal_cases": 0,
+    "label_array_equal_cases": 75,
+    "crop_origin_and_extent_equal_cases": 75,
+    "prediction_metrics": false
+  },
+  "historical_mirror_report": {"path": "workspace/BraTS/ucsd_ptgbm_external_confirmation_20260902/UCSD_EXTERNAL_CONFIRMATION.json", "sha256": "91910760fbab804ee17b3ad8027a035a6676b02307a6f34d8408ba858c42f593"},
+  "models": [
+    {"identifier": "full972_random_init_voxel_kd_epoch168", "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b"},
+    {"identifier": "gcsam_fit864_inner_selected_epoch184", "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d"}
+  ],
+  "frozen_protocol": {"threshold": 0.0, "views": ["identity"], "forwards_per_model": 1, "tta": false, "sam": false, "postprocessing": false, "ensemble": false, "performance_promotion_gate": null, "result_dependent_repeat": false},
+  "access": {"official_float_cache_built": true, "official_source_labels_already_accessed_for_source_audit": true, "ucsd75_official_float_model_inference": false, "ucsd75_official_float_prediction_metrics": false, "internal_test270": false, "outer": false, "confirmation": false}
+}

@@ -1,0 +1,102 @@
+{
+  "analyzer_sha256": "8e47a8773593b328b6cd6428eb67c4f8e3b3e0a72543eb07d170238f02cdc464",
+  "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b",
+  "cohorts": [
+    {
+      "cases_improved": 217,
+      "cases_worse": 53,
+      "cohort": "Reused internal test270",
+      "delta": 0.0055101244813866085,
+      "delta_ci": [
+        0.0027509939153161317,
+        0.008022352442559269
+      ],
+      "point_delta": 3,
+      "point_denominator": 270,
+      "scope": "reused, not blind/external"
+    },
+    {
+      "cases_improved": 52,
+      "cases_worse": 38,
+      "cohort": "BraTS-Africa95",
+      "delta": 0.0034351092604245166,
+      "delta_ci": [
+        -0.010536166287496688,
+        0.016814528182253582
+      ],
+      "point_delta": 1,
+      "point_denominator": 95,
+      "scope": "public post-challenge; institution-disjoint"
+    },
+    {
+      "cases_improved": 23,
+      "cases_worse": 10,
+      "cohort": "CPTAC33",
+      "delta": 0.003245653494780141,
+      "delta_ci": [
+        0.0008277648965522789,
+        0.005854744230503212
+      ],
+      "point_delta": 0,
+      "point_denominator": 33,
+      "scope": "public Training labels; external to project"
+    },
+    {
+      "cases_improved": 93,
+      "cases_worse": 54,
+      "cohort": "WAW-pre152",
+      "delta": 0.010116119662532444,
+      "delta_ci": [
+        0.004471798791619723,
+        0.016273870768237067
+      ],
+      "point_delta": 2,
+      "point_denominator": 152,
+      "scope": "public preoperative; institution-disjoint"
+    },
+    {
+      "cases_improved": 21,
+      "cases_worse": 10,
+      "cohort": "WAW-post31",
+      "delta": 0.007311971744356782,
+      "delta_ci": [
+        -0.0019253042754067851,
+        0.016626099058617037
+      ],
+      "point_delta": 0,
+      "point_denominator": 31,
+      "scope": "public early postop; patient-disjoint from preop"
+    },
+    {
+      "cases_improved": 32,
+      "cases_worse": 24,
+      "cohort": "UCSD-BraTS2024test56",
+      "delta": 0.002971109308731422,
+      "delta_ci": [
+        -0.00273980804868736,
+        0.008749643998506586
+      ],
+      "point_delta": 0,
+      "point_denominator": 56,
+      "scope": "public post-challenge BraTS2024 test; patient-disjoint, NOT institution-disjoint"
+    }
+  ],
+  "fully_positive_ci_cohorts": [
+    "Reused internal test270",
+    "CPTAC33",
+    "WAW-pre152"
+  ],
+  "interpretation": "Fixed Flip8 minus identity Scan point estimates are positive on all six reported cohorts; paired CIs are entirely positive on internal270/CPTAC33/WAW-pre152 and cross zero on Africa95/WAW-post31/UCSD-BraTS2024test56. Point deltas are never negative. Deployment stays 8x; no view/weight/threshold search is authorized and cohorts must not be pooled.",
+  "new_model_inference": false,
+  "schema": "aflow.flip8.cross_cohort_synthesis",
+  "schema_version": 4,
+  "source_sha256": {
+    "africa": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+    "brats24test": "74466d1cdc56d864d48e5d8604e00d004ecdb636882366546b4738a1b794201c",
+    "cptac": "4b9d8c90e1b5ec45b0e664e560301db20affd6a96387f416a62b561f8d57b4fd",
+    "internal": "29efc557aa12b6f82fd079edd84cc3c8c1e5ad4536880c016b664932234f45ad",
+    "waw": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91",
+    "waw_postop": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98"
+  },
+  "status": "descriptive_separate_cohorts_no_pooled_ranking"
+}

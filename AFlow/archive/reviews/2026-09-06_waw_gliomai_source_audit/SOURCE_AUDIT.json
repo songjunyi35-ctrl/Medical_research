@@ -1,0 +1,148 @@
+{
+  "analyzer_sha256": "d4a1ad1dcca61bc75b506fee2fc8846435fe81bf6eee1bdb33e2367728193197",
+  "annotation": {
+    "final_method": "reviewed and manually refined by radiologists with neuro-oncologic imaging expertise",
+    "initial_method": "FL-PoST/FeTS workflow",
+    "preop_interobserver_cases": 15,
+    "technical_validation_rows": 12,
+    "technical_validation_zip_sha256": "af7521d829986f7292955edb69110cae68d93999b9bf9263100f26168b24c18e"
+  },
+  "cohort": {
+    "all_exam_number_zero": true,
+    "all_positive": true,
+    "cases": 152,
+    "field_strength_counts": {
+      "0.38T": 1,
+      "1.5T": 33,
+      "3T": 114,
+      "missing": 4
+    },
+    "global_label_union": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "label_case_counts": {
+      "0": 152,
+      "1": 84,
+      "2": 152,
+      "3": 123
+    },
+    "mask_positive_voxels": {
+      "max": 269656,
+      "median": 65555.5,
+      "min": 2959
+    },
+    "scanner_counts": {
+      "APERTO_Lucent": 1,
+      "Achieva": 1,
+      "Aera": 1,
+      "Avanto": 9,
+      "Avanto; SIGNA Architect": 1,
+      "Avanto_DOT": 5,
+      "Ingenia": 4,
+      "MAGNETOM Sola": 1,
+      "MAGNETOM_ESSENZA": 1,
+      "MR 5300": 1,
+      "Optima MR360": 1,
+      "Optima MR450w": 1,
+      "SIGNA Architect": 112,
+      "SIGNA Creator": 1,
+      "SIGNA Explorer": 2,
+      "SIGNA Voyager": 2,
+      "Signa HDxt": 3,
+      "Spectra": 1,
+      "missing": 4
+    },
+    "shape_counts": {
+      "240x240x155": 152
+    },
+    "subjects": 152,
+    "who_grade_counts": {
+      "2": 44,
+      "3": 34,
+      "4": 74
+    }
+  },
+  "cohort_path": "archive/reviews/2026-09-06_waw_gliomai_source_audit/FROZEN_COHORT.json",
+  "cohort_sha256": "25de15904d8db5e6d6e304bc73058dba4f43e7534ae0a533f4f06636613a263a",
+  "created_at_utc": "2026-09-06T03:35:28.370546+00:00",
+  "future_image_archive_contract": {
+    "bytes": 3164137716,
+    "md5": "0d24a3a2c76bc6fa9b5b6468679676b1",
+    "name": "2_1_preop_scans_coreg.zip",
+    "url": "https://zenodo.org/api/records/22205631/files/2_1_preop_scans_coreg.zip/content"
+  },
+  "model_or_large_image_access": {
+    "checkpoint_loaded": false,
+    "coreg_image_archive_downloaded": false,
+    "model_forwards": 0,
+    "performance_metrics": false
+  },
+  "release_description_vs_final_files": {
+    "described_preoperative_exams": 156,
+    "final_coreg_t1c_exams": 152,
+    "final_preop_masks": 152,
+    "interpretation": "use the 152-case final-file intersection; do not infer or seek four missing exams",
+    "strict_pairs": 152
+  },
+  "schema": "aflow.waw_gliomai.source_audit",
+  "schema_version": 1,
+  "source_disjointness": {
+    "brats2024_training_sites": [
+      "Duke",
+      "UCSF",
+      "Missouri",
+      "UCSD",
+      "Heidelberg",
+      "Michigan",
+      "Indiana"
+    ],
+    "claim": "institution-disjoint/no-known-overlap; not patient-ID-proven disjoint",
+    "institution_disjoint": true,
+    "patient_id_bridge_available": false
+  },
+  "source_files": {
+    "1_0_clinical_molecular_data.csv": {
+      "bytes": 23110,
+      "official_md5": "7dd4f66797b768853898e77de76cda44",
+      "sha256": "a33af75225099052830e7f5480df07c5027b889f12fdd4123e9a50fdbf2907a2"
+    },
+    "1_1_clinical_molecular_metadata_dictionary.csv": {
+      "bytes": 2494,
+      "official_md5": "f1908b5913c2e3472ab9e24286a1a38d",
+      "sha256": "e8a845560938058f24046dd2fb0101129a6d31d15044ea97e32ad8100132a7c3"
+    },
+    "2_1_preop_scans_coreg_meta.csv": {
+      "bytes": 200644,
+      "official_md5": "39b5d0e2ff1a3f522f80ab4842fa511f",
+      "sha256": "d3b9003e1b90eeada7d02e77a27c7dee57c78bf347d22c6014e20cbdc0af6670"
+    },
+    "3_1_preop_masks.zip": {
+      "bytes": 1982029,
+      "official_md5": "cca9e9da6d7cc4a06e0c31bebb86b592",
+      "sha256": "51daf938a519d7b0d965940dfbe2852a29f0269cb8fd73467d9fe58a31e2056e"
+    },
+    "5_technical_validation.zip": {
+      "bytes": 2519332,
+      "official_md5": "d0294ed8767df6d51b9b52e15f21c1dd",
+      "sha256": "af7521d829986f7292955edb69110cae68d93999b9bf9263100f26168b24c18e"
+    },
+    "6_reproducibility_code.zip": {
+      "bytes": 3963900,
+      "official_md5": "4e9ac5cfa3dd569f72b48bead346bad0",
+      "sha256": "29ec6a8b3336e302e2bd52816aa14b137ba5e36cffe0814bc54972ae387ed55d"
+    }
+  },
+  "zenodo": {
+    "access_right": "open",
+    "concept_record": 15621811,
+    "doi": "10.5281/zenodo.22205631",
+    "license": "CC BY 4.0",
+    "publication_date": "2026-09-01",
+    "publisher": "Scientific Data",
+    "record": 22205631,
+    "source_institution": "Medical University of Warsaw"
+  }
+}

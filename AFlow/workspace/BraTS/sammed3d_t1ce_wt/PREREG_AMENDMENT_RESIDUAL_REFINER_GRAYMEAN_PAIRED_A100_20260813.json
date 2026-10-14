@@ -1,0 +1,23 @@
+{
+  "schema": "aflow.prereg.amendment.residual_refiner_graymean_paired_a100",
+  "created_date_utc": "2026-08-13",
+  "applies_to": "PREREG_RESIDUAL_REFINER_GRAYMEAN_PAIRED_A100_20260813.json",
+  "optimizer_steps_before_amendment": 0,
+  "observed_reloaded_validation_dsc": 0.6695524002941388,
+  "prior_diagnostic_validation_dsc": 0.6695488602509377,
+  "absolute_difference": 0.0000035400432011,
+  "baseline_replay_tolerance_before": 0.0000001,
+  "baseline_replay_tolerance_after": 0.00001,
+  "reason": "The original replay guard was tighter than repeat BF16 convolution variation.",
+  "unchanged": [
+    "data and split",
+    "initial checkpoint",
+    "loss definitions and weights",
+    "optimizer and learning rate",
+    "seed and augmentations",
+    "stopping rule",
+    "validation selection metric",
+    "target threshold"
+  ],
+  "test_access": false
+}

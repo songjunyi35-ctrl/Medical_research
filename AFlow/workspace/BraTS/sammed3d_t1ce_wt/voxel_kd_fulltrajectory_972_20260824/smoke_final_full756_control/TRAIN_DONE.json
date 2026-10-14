@@ -1,0 +1,98 @@
+{
+  "all_gates_passed": true,
+  "arm": "full756_control",
+  "authorized_final_epoch": 168,
+  "checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/smoke_final_full756_control/plain_fulltrajectory_full756_control_epoch1.pth",
+    "sha256": "bfab040d16ff7b0d67c1427e9d50921ab53deada134bae6f0e655bbf1a41d9f6"
+  },
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-24T10:43:31.761553+00:00",
+  "data_role": {
+    "cases": 756,
+    "subjects": 346,
+    "train": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+      "sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16"
+    }
+  },
+  "elapsed_seconds": 4.298943042755127,
+  "fixed_epoch": 1,
+  "fixed_validation108_access": false,
+  "gates": {
+    "all_draws_match_mode": true,
+    "all_losses_finite": true,
+    "all_steps_match_mode": true,
+    "checkpoint_model_state_exact": true,
+    "elapsed_within_6h": true,
+    "epoch_count_exact": true,
+    "peak_allocated_at_most_24gib": true
+  },
+  "history": [
+    {
+      "consumed_draws": 32,
+      "elapsed_seconds": 4.038593292236328,
+      "epoch": 1,
+      "learning_rate": 0.0002,
+      "optimizer_steps": 4,
+      "train_dsc": 0.026956824702892845,
+      "train_kd_loss": 2.6436461806297302,
+      "train_loss": 1.8342723548412323,
+      "train_supervised_loss": 1.041178435087204
+    }
+  ],
+  "hyperparameters": {
+    "arm": "full756_control",
+    "base_lr": 0.0002,
+    "batch_size": 8,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "ce_weight": 0.1,
+    "constant_epochs": 100,
+    "device": "cuda:0",
+    "dropout": 0.1,
+    "ema_teacher_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/plain_128_full756_ema_fixed_epoch168.pth",
+    "expected_parameter_count": 4700897,
+    "historical_teacher_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "idea": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-24_voxel_kd_fulltrajectory_972/IDEA.md",
+    "init_filters": 16,
+    "inner_selection": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-24_voxel_kd_fulltrajectory_972/INNER_SELECTION.json",
+    "max_shift": 8,
+    "min_lr": 1e-05,
+    "native_artifact": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-21_voxel_kd_data972_native_sampling/NATIVE_WT_VOLUMES.json",
+    "num_workers": 4,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/smoke_final_full756_control",
+    "prereg": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-08-24_voxel_kd_fulltrajectory_972/PREREG.md",
+    "schedule_total_epochs": 200,
+    "seed": 20260932,
+    "smoke": true,
+    "smoke_steps": 4,
+    "stop_epoch": 168,
+    "train_case_ids": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "weight_decay": 1e-05
+  },
+  "initial_state_sha256": "c72d7002a95b9f7c10190530343f71ac66cbda6f27c83aab93bde9a193525a0a",
+  "method_documents": {
+    "idea_sha256": "f81eb110ba47083d9c07dafef7603dc16098842e54d442ff6e8d590f4046ac1a",
+    "inner_selection_sha256": "6b88f43291360eedba292165c6a968110a1e618a47a622e2bcda72792db3cca3",
+    "native_artifact_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+    "prereg_sha256": "0df7f883516ba0ad7d7dc0a67feffbb75c59b05ec808649b7d97d3cccd872a84"
+  },
+  "outer_selector_access": false,
+  "parameter_count": 4700897,
+  "peak_gpu_memory_bytes": 21788258304,
+  "runner_sha256": "48b24e5a2e45d8e77533373866898be1893985f824a4a54a13184e2a2be97273",
+  "sampling_contract": {
+    "consumed_draws": 968,
+    "native_weight_sha256": "757e463d8e60f96ef6429613f6783fb3aa1014b580932959f9ed354d37072124",
+    "optimizer_steps": 121,
+    "population_count": 756,
+    "replacement": true,
+    "requested_draws": 972
+  },
+  "schedule_total_epochs": 200,
+  "schema": "aflow.sammed3d.t1ce_wt_voxel_kd_fulltrajectory_final",
+  "schema_version": 1,
+  "status": "complete",
+  "test_access": false,
+  "validation_access": false
+}

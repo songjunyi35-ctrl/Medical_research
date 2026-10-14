@@ -1,0 +1,175 @@
+{
+  "scan_dice": 0.7662715751815725,
+  "subject_dice": 0.7509584770378779,
+  "scan_ci95": [
+    0.7428793159639216,
+    0.7865154968474072
+  ],
+  "subject_ci95": [
+    0.726629325488285,
+    0.773245992698245
+  ],
+  "point_hit": 0.8740740740740741,
+  "scans": 270,
+  "subjects": 119,
+  "bootstrap": "10000 patient cluster percentile95 seed20260917",
+  "status": "complete_test270",
+  "utc": "2026-09-21T13:25:23.860449+00:00",
+  "candidate": "native",
+  "epoch": 166,
+  "checkpoint_sha256": "b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18",
+  "point_hits": 236,
+  "point_denominator": 270,
+  "grid": "native crop 160x208x168 canvas",
+  "comparisons": {
+    "pretrained179_native": {
+      "scan_delta": 0.0017270382355760645,
+      "subject_delta": 0.002199513268988339,
+      "scan_delta_ci95": [
+        -0.0046066005997674716,
+        0.008775581848905029
+      ],
+      "subject_delta_ci95": [
+        -0.005406388526297167,
+        0.010035536456018351
+      ],
+      "scan_delta_ci97_5": [
+        -0.005598882360028803,
+        0.009925218031847403
+      ],
+      "subject_delta_ci97_5": [
+        -0.006550663742980284,
+        0.0109976613985672
+      ],
+      "point_hits_delta": -14,
+      "improved_scans": 134,
+      "worse_scans": 136,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+    },
+    "native173": {
+      "scan_delta": -0.0023063219152390955,
+      "subject_delta": -0.0031854339986152587,
+      "scan_delta_ci95": [
+        -0.00907754383751068,
+        0.005791036780550626
+      ],
+      "subject_delta_ci95": [
+        -0.010886641857361015,
+        0.005776273910603838
+      ],
+      "scan_delta_ci97_5": [
+        -0.009978029652680713,
+        0.007240196596419028
+      ],
+      "subject_delta_ci97_5": [
+        -0.01202133007097144,
+        0.007293409599979023
+      ],
+      "point_hits_delta": -26,
+      "improved_scans": 105,
+      "worse_scans": 165,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+    },
+    "pure193_native": {
+      "scan_delta": 0.005137655677066909,
+      "subject_delta": 0.0039915614842283295,
+      "scan_delta_ci95": [
+        -0.0020558085375017945,
+        0.012751042628662326
+      ],
+      "subject_delta_ci95": [
+        -0.0038060360484566086,
+        0.012179698558023372
+      ],
+      "scan_delta_ci97_5": [
+        -0.002969339290033083,
+        0.014062415243621703
+      ],
+      "subject_delta_ci97_5": [
+        -0.004913831391836144,
+        0.013453078863474466
+      ],
+      "point_hits_delta": -11,
+      "improved_scans": 151,
+      "worse_scans": 119,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons"
+    }
+  },
+  "reference_summaries": {
+    "pretrained179_native": {
+      "scan_dice": 0.7645445369459964,
+      "subject_dice": 0.7487589637688897,
+      "scan_ci95": [
+        0.7391422040863997,
+        0.7866579653632746
+      ],
+      "subject_ci95": [
+        0.722688947754393,
+        0.7723806767090529
+      ],
+      "point_hit": 0.9259259259259259,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917"
+    },
+    "native173": {
+      "scan_dice": 0.7685778970968116,
+      "subject_dice": 0.7541439110364931,
+      "scan_ci95": [
+        0.7416500259035631,
+        0.7920286297597838
+      ],
+      "subject_ci95": [
+        0.7265641472638678,
+        0.7789672230994029
+      ],
+      "point_hit": 0.9703703703703703,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917"
+    },
+    "pure193_native": {
+      "scan_dice": 0.7611339195045056,
+      "subject_dice": 0.7469669155536497,
+      "scan_ci95": [
+        0.7343093263169596,
+        0.7842419272063188
+      ],
+      "subject_ci95": [
+        0.7199032398025018,
+        0.7710899732039892
+      ],
+      "point_hit": 0.9148148148148149,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917"
+    }
+  },
+  "runtime": {
+    "inference_seconds": 27.312918096780777,
+    "peak_allocated_bytes": 3470007808,
+    "gpu": "NVIDIA A100-SXM4-40GB"
+  },
+  "test_access": true,
+  "not_pristine_blind": true,
+  "not_external": true,
+  "prior_test_informed_development": true,
+  "current_test_used_for_selection_or_retuning": false,
+  "new_outer_confirmation_access": false,
+  "validation_gate_passed": false,
+  "evaluation_status": "user-authorized exploratory test after failed validation gate",
+  "evidence": {
+    "archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/checkpoint_selected.pth": "b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18",
+    "archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/SELECTION_RECEIPT.json": "cb464b21d6a50dd321426382aca6919fbb4c594ce4b66a8a164aafec74dea7a8",
+    "archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/PREACCESS.json": "eb5adc05135e03d2b8cda8d7e20e2263343bc4e29ecfdaa04d198a6bb28c9ae7",
+    "archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/MODEL_PREACCESS.json": "780e82f5cb886352a54eef37ca11cea58eb8a09133880837e6f09c546579fc34",
+    "archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/CACHE_RECEIPT.json": "b776ab9103406d68c9286ab71702fc1566414e75e541dcb49f4ae1724859ad97",
+    "archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/RAW_TEST270.json": "bc76b63a2666a4a30c234da2d23e7aa1e18caf991cd4658c7b1d1662dfa528fe",
+    "archive/research_records/2026-09-21_segresnet_followup_test270/FREEZE.json": "1bd21c7bb64d093d4599f5e294fed246f5dfa455683e263cd8c9f012a150823a",
+    "archive/research_records/2026-09-21_segresnet_followup_test270/PRETRAINED179_NATIVE_RAW.json": "3e1f4658639f8c0c270a6f15796e6255e7496549a9104e09a78e668b38e9a865",
+    "archive/research_records/2026-09-21_segresnet_followup_test270/REFERENCE_MODEL_PREACCESS.json": "62b1a80115ef4211358ff4a7abd15153966ef77a1338a0f2101666634a232805"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "aflow.brats.t1ce_wt_coverage_small_lesion_replay_kd_prereg",
+  "schema_version": 1,
+  "status": "frozen_before_implementation",
+  "date_utc": "2026-08-24",
+  "arms": [
+    "native_replacement_control",
+    "coverage_replay_candidate"
+  ],
+  "causal_contrast": "native-volume weighted replacement versus 680 rolling coverage plus 72 consumed native-volume weighted replay draws",
+  "data": {
+    "train_scans": 972,
+    "train_subjects": 444,
+    "train_manifest_sha256": "6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65",
+    "cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+    "validation_scans": 108,
+    "validation_subjects": 50,
+    "test_role": "reused_internal_test270_not_authorized_before_all_validation_gates"
+  },
+  "sampler": {
+    "seed": 20260884,
+    "requested_draws_per_epoch": 756,
+    "consumed_draws_per_epoch": 752,
+    "optimizer_steps_per_epoch": 94,
+    "coverage_consumed": 680,
+    "replay_consumed": 72,
+    "replay_dropped": 4,
+    "coverage_seed_offset": 1001,
+    "replay_seed_offset": 2003,
+    "order_seed_offset": 3007,
+    "native_weight_sha256": "81d3fa6a907f791c4d0b97efe95ece5e057d15b85673463cadbeecc2b3f148ec"
+  },
+  "training": {
+    "start_global_epoch": 168,
+    "continuation_epochs": 32,
+    "save_global_epochs": [176, 184, 192, 200],
+    "batch_size": 8,
+    "kd_weight": 0.3,
+    "temperature": 2.0,
+    "teacher_ema_weight": 0.25,
+    "initial_checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "ema_teacher_checkpoint_sha256": "4ea97dacb9a538993e1c16593bc56b03ce6dc3df2f457c1f0426439c6252197e"
+  },
+  "promotion": {
+    "primary": "fixed_validation108_scan_dice",
+    "candidate_must_strictly_beat_same_epoch_control_scan_subject": true,
+    "candidate_must_strictly_beat_archived_kd200_scan_subject": true,
+    "minimum_point_hits": 101,
+    "paired_bootstrap_draws": 10000,
+    "all_four_ci_lower_bounds_minimum": -0.003,
+    "test_only_if_all_gates_pass": true
+  },
+  "access_at_freeze": {
+    "validation": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false
+  }
+}

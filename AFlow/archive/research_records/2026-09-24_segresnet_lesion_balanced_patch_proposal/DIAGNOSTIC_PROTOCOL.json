@@ -1,0 +1,31 @@
+{
+  "utc": "2026-09-24T05:02:36.057976+00:00",
+  "stage": "diagnostic",
+  "worker": 1109780,
+  "canvas": [
+    160,
+    208,
+    160
+  ],
+  "patch": [
+    128,
+    128,
+    128
+  ],
+  "seed": 20260921,
+  "epochs_simulated": 20,
+  "old": "50% uniform foreground voxel,50% nonzero image voxel",
+  "new": "50% uniform26-connected component then uniform voxel,50% same nonzero image voxel",
+  "small_definition": "all training components volume <= linear percentile25, include ties",
+  "boundary_definition": "foreground minus6-neighbour binary erosion",
+  "admission": {
+    "old_small_coverage_lt": 0.95,
+    "small_paired_gain_ge": 0.05,
+    "all_paired_gain_ge": -0.01
+  },
+  "stage1": "exact paired difference by cancelling unchanged brain branch; absolute coverage bounds only",
+  "stage2": "only if necessary gates pass, rebuild N4 images and measure absolute coverage",
+  "no_parameter_update": true,
+  "new_test_pixels_access": false,
+  "processes": 12
+}

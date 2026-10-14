@@ -1,0 +1,30 @@
+{
+  "schema": "aflow.utsw_primary_fets_canonical_n4_input_bridge.result",
+  "status": "passed_input_only_fixed_three",
+  "cohort": {"subjects": ["BT0001", "BT0002", "BT0003"], "cases": 3},
+  "protocol": {
+    "image": "brain_t1ce.nii.gz",
+    "label": "rtumorseg_manual_correction.nii.gz",
+    "target": "all positive UTSW labels form WT",
+    "n4": "historical canonical positive-mask N4, shrink2, fixed iterations",
+    "processes": 2,
+    "simpleitk_threads_per_process": 1,
+    "output_shape": [128, 128, 128]
+  },
+  "gates": {
+    "cross_process_image_exact": "3/3",
+    "cross_process_label_exact": "3/3",
+    "cross_process_geometry_exact": "3/3",
+    "label_exact_vs_no_n4": "3/3",
+    "geometry_exact_vs_no_n4": "3/3",
+    "image_different_vs_no_n4": "3/3"
+  },
+  "elapsed_seconds": 381.907412,
+  "input_qc_sha256": "1cec4ba98fae05e54caca2a1eb0a14681758e79ed6ac35ec47b0a28a58353be0",
+  "copy_a_qc_sha256": "a1776d09d7e84a786e3fc27f114ec4119a6f02bf1cdb35102906a3e8876a3665",
+  "copy_b_qc_sha256": "28ce48879940b42181305b10da43cf8f780c3ce35d700274df9eb76d60c6920f",
+  "preaccess_sha256": "e160fd6e64786ec3969d06c955d6406144a69e3441cab61698edfb239a93a61f",
+  "implementation_sha256": "27088e8a2ea3c7aa3867706577ce7c30642ae864a2740d4dfffa21dca8c219e7",
+  "access": {"subjects_accessed": 3, "remaining_utsw_subjects_accessed": false, "model_inference": false, "gpu_access": false, "old_cohort_accessed": false},
+  "authorization": "A pass supports only future separately preregistered paired canonical/no-N4 full-362 caches; no download or evaluation is authorized here."
+}

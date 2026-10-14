@@ -1,0 +1,35 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_logit_ensemble_test270_receipt",
+  "schema_version": 1,
+  "status": "frozen_before_ensemble_test270_inference",
+  "authorization": "USER_CONTINUE_RESEARCH_LOGIT_ENSEMBLE_TEST270_2026-08-19",
+  "validation_selection": {
+    "report": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/LOGIT_ENSEMBLE_VALIDATION.json",
+    "sha256": "66681f5d811f25c6fc67eeafa12b7356b5e0962f98c20be66d5e60b53254460a",
+    "selected_ema_weight": 0.25,
+    "all_gates_passed": true
+  },
+  "method": {
+    "formula": "0.75 * historical_epoch168_logit + 0.25 * EMA168_logit",
+    "historical_checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "ema168_checkpoint_sha256": "4ea97dacb9a538993e1c16593bc56b03ce6dc3df2f457c1f0426439c6252197e",
+    "threshold": 0.0,
+    "point": "argmax blended logit",
+    "tta": false,
+    "postprocessing": false
+  },
+  "test": {
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/test270",
+    "cases": 270,
+    "subjects": 119,
+    "bootstrap_seed": 20260842,
+    "bootstrap_samples": 10000,
+    "output": "workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/LOGIT_ENSEMBLE_TEST270.json"
+  },
+  "evaluator_sha256": "5d5959180e34d68bead60a7d21840e018094be45523ce54647043de7482f1677",
+  "result_will_not_trigger_weight_checkpoint_or_threshold_tuning": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access_before_receipt": false
+}

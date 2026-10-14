@@ -1,0 +1,82 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dcd_preregistration_amendment",
+  "schema_version": 1,
+  "amendment": 2,
+  "timing": "before model implementation, synthetic tests, GPU smoke, formal training, or new validation access",
+  "reason": "freeze feature taps, recursive level semantics, MSE reduction, paired bootstrap procedure and parent evidence hashes",
+  "parent_hashes": {
+    "idea_sha256": "1606d2f9747cea1156c31835d282b9fbc378ea0862b0d226028843fc33007cf1",
+    "preregistration_sha256": "7d0a0420cd55f6abfda45bce37c440ca5ac7fd803bff37904846dcbbc0e7f6cf",
+    "amendment_001_sha256": "c66e134fe5f909e8181f36158b85dc4e5d8a4787dbbd0850257e3fa0d874ecaa"
+  },
+  "feature_taps": {
+    "source": "MONAI SegResNet network.encode(augmented_image) returned down_x",
+    "timing": "after each complete down_layer",
+    "ordered_shapes": ["B,16,128,128,128", "B,32,64,64,64", "B,64,32,32,32", "B,128,16,16,16"],
+    "excluded": ["convInit before down_layer", "downsample pre-block tensor", "decoder features"]
+  },
+  "base_voxel_kd_exact_contract": {
+    "historical_runner_sha256": "e10964163c22253af9773d41e72f9dceefc52a27cbcd42c3779073fd2fc38120",
+    "lr_schedule_dependency_sha256": "43d8fdbeeb11983e6327e9347306d5271f4f7a2e82adb96f3661b2d93d5b763b",
+    "dataset_loss_augmentation_dependency_sha256": "d74ff2f0cf190c8a5458a70d19125d9a30603894d5f1799f192f0e60dd088fdb",
+    "plain_model_dependency_sha256": "276ee7c131e413cf7943dc29e5372c1e5bbbb85c780e27f030343c5ef8bf4cd0",
+    "supervised_loss": "MONAI DiceCELoss(sigmoid=true,squared_pred=false,lambda_dice=1.0,lambda_ce=0.1)",
+    "voxel_kl": "student binary logits cat([0,z_s])/T -> log_softmax; teacher binary logits cat([0,z_t])/T -> softmax; F.kl_div(reduction=none).sum(channel).mean(all voxels)*T^2; T=2",
+    "teacher_blend": "under no_grad bfloat16 forwards, cast history and EMA logits to float32, then z_t=0.75*z_history+0.25*z_EMA",
+    "total_without_dcd": "supervised_loss + 0.3*voxel_kl",
+    "optimizer": "torch.optim.AdamW student parameters, lr from frozen late-cosine, weight_decay=1e-5, betas=[0.9,0.999], eps=1e-8, amsgrad=false",
+    "gradient_clip": "global student parameter norm max5.0",
+    "sampler": "WeightedRandomSampler replacement=true,num_samples=756,independent Generator seed20260846,weights SHA256 757e463d8e60f96ef6429613f6783fb3aa1014b580932959f9ed354d37072124",
+    "batch_and_steps": "batch8,drop_last=true,94 optimizer steps per epoch",
+    "augmentation": "existing augment_batch max_shift=8 with global RNG reset after all model/module construction"
+  },
+  "recursive_wavelet_levels": {
+    "levels": 3,
+    "level0_input": "encoder stage feature",
+    "next_level_input": "previous level subband index0 LLL coefficients",
+    "per_level_loss": "F.mse_loss(student_detail_reconstruction.float(), teacher_detail_reconstruction.float(), reduction=mean) over B,C,D,H,W",
+    "within_stage": "arithmetic mean of the three level losses",
+    "across_stages": "direct sum of four stage losses",
+    "paper_code_boundary": "paper describes one l-level detail projection; official runtime recursively feeds each prior LLL, reconstructs each level separately, then means three losses; project freezes official runtime semantics"
+  },
+  "student_ema_source_deviation": "released BraTS config use_ema=true applies EMA to the student for validation/checkpointing; project deliberately keeps student EMA=false so the only change from archived base voxel-KD is DCD",
+  "wavelet_reference_test": {
+    "device": "CPU",
+    "dtype": "float32",
+    "shape": [2, 3, 16, 16, 16],
+    "values": "torch.manual_seed(314159) followed by torch.randn(shape,dtype=float32,device=cpu)",
+    "all_eight_band_reconstruction_max_abs": "<1e-5"
+  },
+  "frozen_db4_coefficients": {
+    "dec_lo_float64_literals": [-0.010597401785069032, 0.0328830116668852, 0.030841381835560764, -0.18703481171909309, -0.027983769416859854, 0.6308807679298587, 0.7148465705529157, 0.2303778133088965],
+    "dec_hi_float64_literals": [-0.2303778133088965, 0.7148465705529157, -0.6308807679298587, -0.027983769416859854, 0.18703481171909309, 0.030841381835560764, -0.0328830116668852, -0.010597401785069032],
+    "runtime_dtype": "convert one-dimensional taps to torch.float32 before constructing the 3D bank",
+    "bank_construction": "for z,y,x in [lo,hi] with lo before hi, take separable outer product, stack eight kernels and unsqueeze channel to contiguous [8,1,8,8,8] float32 CPU tensor",
+    "bank_raw_c_order_bytes_sha256": "1cc1550c3ca56547e427b3568d2d1e2bc5bd52d2a4a39305b7890dc16918240a"
+  },
+  "gradient_audit_unit": "for each stage i separately call autograd.grad(raw_stage_loss_i, captured_student_feature_i); require gradient present, finite, and norm>0; do not substitute total encoder-parameter gradient",
+  "reload_gate_scope": "all four saved checkpoints strict-load into plain AutomaticPromptLocator and reproduce their deploy logits exactly; validation-selected checkpoint receives an additional reload audit",
+  "gpu_smoke_timing": {
+    "weight": 0.01,
+    "warmup_steps": 1,
+    "measured_steps": 3,
+    "measurement": "CUDA synchronize immediately before and after each complete forward+loss+backward+clip+optimizer step; median measured seconds",
+    "mechanical_extrapolation": "median_seconds * 94 * 32",
+    "stop_seconds": 7200
+  },
+  "paired_bootstrap": {
+    "samples": 10000,
+    "interval": "percentile [0.025,0.975]",
+    "rng": "numpy.random.default_rng",
+    "scan_unit": "108 paired case deltas, resample 108 indices with replacement per draw",
+    "subject_unit": "first mean case Dice within each of 50 subjects, then form paired subject deltas and resample 50 indices with replacement per draw",
+    "dcd_vs_same_epoch_base_kd_seeds": {"176": 20260890, "184": 20260891, "192": 20260892, "200": 20260893},
+    "dcd_vs_kd200_seeds": {"176": 20260894, "184": 20260895, "192": 20260896, "200": 20260897}
+  },
+  "scientific_protocol_changed_after_data_access": false,
+  "validation_access": false,
+  "new_method_validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

@@ -1,0 +1,200 @@
+{
+  "all_gates_passed": true,
+  "arm": "coverage_replay_candidate",
+  "checkpoint": {
+    "arm": "coverage_replay_candidate",
+    "global_epoch": 169,
+    "model_state_sha256": "d2a744a17b8aa12825dc833d45b33940464b5040a2c84cb388f3d826175609af",
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/coverage_small_lesion_replay_kd_20260824/smoke_v3_coverage_replay_candidate/smoke_checkpoint.pth",
+    "sha256": "9a3caab734ee208f4304384593e573930195fa49d1b24eb2026616819dc4a544"
+  },
+  "confirmation_access": false,
+  "extrapolated_formal_seconds": 1916.7350766658783,
+  "gates": {
+    "all_losses_gradients_finite": true,
+    "all_student_grad_norms_positive": true,
+    "formal_extrapolation_at_most_45min": true,
+    "four_steps_completed": true,
+    "peak_allocated_at_most_24gib": true,
+    "strict_reload_exact": true,
+    "teacher_gradients_absent": true
+  },
+  "median_measured_step_seconds": 0.6372124589979649,
+  "method_documents": {
+    "amendment_001_sha256": "57e71af8215dd148505e98aeaba5ffed1e7086fe968f1185cd84f89c3ac5eecb",
+    "amendment_002_sha256": "9d59b490b533244fba01dba1554a13d80ffdd67cc672659743a116a879154b38",
+    "amendment_003_sha256": "bce7f00eed898a7d2825b03536f3cf99335b4390315359cd189ec368a57462a8",
+    "amendment_004_sha256": "b1d03a41295fa860c620d8815479e8d1046bbfd052027a80afe253c8d32eee88",
+    "idea_sha256": "9a3bd06d40446db804648d7bf0db23d379266fae80e71fdb188493610565d6d6",
+    "native_artifact_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+    "native_builder_sha256": "80874d4745d7ae5b0ced90471f0fa59d9c6345a597b27ec02a253eb6a19c010a",
+    "prereg_sha256": "61643d8793455446c10128da00a2f796409a5bc3437b87654b6d645e40cd7d08"
+  },
+  "outer_selector_access": false,
+  "peak_gpu_memory_bytes": 21788257792,
+  "peak_gpu_reserved_bytes": 23613931520,
+  "reload_max_abs_difference": 0.0,
+  "runner_sha256": "c0ab8871ff524944e196cb07c4bc234bdf62ad62032780ad112e74c80d55fc3c",
+  "sampler_gates": {
+    "all_adjacent_two_epoch_coverage_unions_complete": true,
+    "all_epoch_counts_exact": true,
+    "all_post_first_transitions_are_292_complement_plus_388_retained": true,
+    "sampler_epoch_count_exact": true
+  },
+  "sampling_contract": {
+    "consumed_draws_per_epoch": 752,
+    "coverage_consumed_per_epoch": 680,
+    "coverage_seed": 20261885,
+    "dropped_draws_per_epoch": 4,
+    "epoch_audits": [
+      {
+        "adjacent_two_epoch_coverage_union": null,
+        "consumed_index_sha256": "2b7a11f2c2b02c509068d3071f1fcfb3f35c9e9c5cc5054c4fc2d3abf85e4daf",
+        "coverage_complement_from_previous": null,
+        "coverage_draws": 680,
+        "coverage_index_sha256": "de3224eafcfafa19e9b65d63412fa3b632afe0f801a0afcc45a351d6449dd950",
+        "coverage_retained_from_previous": null,
+        "coverage_unique_within_epoch": 680,
+        "dropped_index_sha256": "2aa2be160f53a7430e453c16a95c646ec24e4d565a4185276df9a213d49905e4",
+        "replay_consumed": 72,
+        "replay_dropped": 4,
+        "requested_draws": 756,
+        "sampler_epoch": 1
+      }
+    ],
+    "native_volume_artifact_sha256": "32be09856d71e78f512792c8bcf8f5f9ee137e6ba1e4358862ff2a61ba828c31",
+    "native_volume_builder_sha256": "80874d4745d7ae5b0ced90471f0fa59d9c6345a597b27ec02a253eb6a19c010a",
+    "native_weight_sha256": "81d3fa6a907f791c4d0b97efe95ece5e057d15b85673463cadbeecc2b3f148ec",
+    "optimizer_steps_per_epoch": 94,
+    "order_seed": 20263891,
+    "population_count": 972,
+    "replacement": "coverage_uses_previous_epoch_complement_plus_unique_retention; replay_with_replacement",
+    "replay_consumed_per_epoch": 72,
+    "replay_dropped_per_epoch": 4,
+    "replay_seed": 20262887,
+    "sampler_num_samples": 756,
+    "strategy": "adjacent_complement_coverage_680_plus_native_weighted_replay_72",
+    "weight_dtype": "torch.float64_cpu",
+    "weight_formula": "clip(sqrt(median(selected_native_volumes)/native_volume_i),0.5,4.0)",
+    "weight_source": "source-grid WT voxels inside frozen image-only brain crop"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_coverage_small_lesion_replay_kd_train.smoke",
+  "schema_version": 1,
+  "status": "passed",
+  "steps": [
+    {
+      "case_ids": [
+        "BraTS-GLI-02151-101",
+        "BraTS-GLI-02766-101",
+        "BraTS-GLI-02093-101",
+        "BraTS-GLI-02743-100",
+        "BraTS-GLI-02247-104",
+        "BraTS-GLI-02786-101",
+        "BraTS-GLI-02269-100",
+        "BraTS-GLI-02830-101"
+      ],
+      "dice": [
+        0.6775705218315125,
+        0.6937204003334045,
+        0.8441978693008423,
+        0.7763644456863403,
+        0.7411532402038574,
+        0.824999988079071,
+        0.8716832399368286,
+        0.8117362260818481
+      ],
+      "grad_norm_before_clip": 1.1883060932159424,
+      "kd": 0.004650002811104059,
+      "seconds": 1.8127286843955517,
+      "step": 1,
+      "supervised": 0.22573541104793549,
+      "total": 0.22713041305541992
+    },
+    {
+      "case_ids": [
+        "BraTS-GLI-02096-101",
+        "BraTS-GLI-02071-100",
+        "BraTS-GLI-02879-100",
+        "BraTS-GLI-02666-100",
+        "BraTS-GLI-02216-101",
+        "BraTS-GLI-02369-100",
+        "BraTS-GLI-02775-101",
+        "BraTS-GLI-02890-101"
+      ],
+      "dice": [
+        0.7807717323303223,
+        0.8816879391670227,
+        0.7575855255126953,
+        0.6829654574394226,
+        0.8225573301315308,
+        0.6570686101913452,
+        0.7878071665763855,
+        0.6285118460655212
+      ],
+      "grad_norm_before_clip": 0.9807748794555664,
+      "kd": 0.003640298265963793,
+      "seconds": 0.6374822445213795,
+      "step": 2,
+      "supervised": 0.25476133823394775,
+      "total": 0.25585341453552246
+    },
+    {
+      "case_ids": [
+        "BraTS-GLI-02766-100",
+        "BraTS-GLI-02116-100",
+        "BraTS-GLI-02110-101",
+        "BraTS-GLI-02934-101",
+        "BraTS-GLI-02087-101",
+        "BraTS-GLI-02820-100",
+        "BraTS-GLI-02909-100",
+        "BraTS-GLI-02832-100"
+      ],
+      "dice": [
+        0.6851398944854736,
+        0.8721749186515808,
+        0.8731484413146973,
+        0.7255051136016846,
+        0.7970992922782898,
+        0.7833611965179443,
+        0.7875570058822632,
+        0.7861425280570984
+      ],
+      "grad_norm_before_clip": 0.6484501361846924,
+      "kd": 0.0057403650134801865,
+      "seconds": 0.6361225843429565,
+      "step": 3,
+      "supervised": 0.21753165125846863,
+      "total": 0.2192537635564804
+    },
+    {
+      "case_ids": [
+        "BraTS-GLI-02861-101",
+        "BraTS-GLI-02520-103",
+        "BraTS-GLI-02086-101",
+        "BraTS-GLI-02498-101",
+        "BraTS-GLI-02243-101",
+        "BraTS-GLI-00463-100",
+        "BraTS-GLI-02281-100",
+        "BraTS-GLI-02319-100"
+      ],
+      "dice": [
+        0.7413861155509949,
+        0.8171989321708679,
+        0.8131389021873474,
+        0.7964596152305603,
+        0.7225084900856018,
+        0.8414740562438965,
+        0.8401056528091431,
+        0.7252942323684692
+      ],
+      "grad_norm_before_clip": 0.7929126620292664,
+      "kd": 0.0038475224282592535,
+      "seconds": 0.6372124589979649,
+      "step": 4,
+      "supervised": 0.21788142621517181,
+      "total": 0.21903568506240845
+    }
+  ],
+  "test_access": false,
+  "validation_access": false
+}

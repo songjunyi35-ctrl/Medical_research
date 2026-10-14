@@ -1,0 +1,16 @@
+{
+  "schema": "aflow.utsw_frozen_baseline_external.execution_failure",
+  "created_utc": "2026-09-05T23:54:06Z",
+  "status": "implementation_failed_before_payload_or_voxel_access",
+  "boundary": "ascp_session_initiation",
+  "error": "ascp: Internal error, too many source files, Session initiation failed",
+  "copy_a_returncode": 1,
+  "copy_b_returncode": 1,
+  "files_expected_per_copy": 724,
+  "payload_files_present": 0,
+  "failed_source_directory_bytes": 40960,
+  "source_download_report_sha256": "0583c4ae2fff3ed832e95b8c5cf6bc98aeaa1831ab12100f3eb5173c0aadfb68",
+  "implementation_sha256": "9a59bf4b60b515c4f3119fcb96fb5bb4f66c5618d7e2e6584a9ffa817ada590f",
+  "comparison_bug": "missing pairs had bytes=None and sha256=None on both sides, so the descriptive files_copy_exact counter incorrectly reported724; overall status remained failed because both copy transfer gates were false",
+  "access": {"nifti_arrays": false, "cache": false, "model_inference": false, "external_metrics": false}
+}

@@ -1,0 +1,25 @@
+{
+  "utc": "2026-09-18T06:14:33.455408+00:00",
+  "processes": {
+    "train": {
+      "pid": 611,
+      "cmdline": "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=2 scripts/train_segresnet_plain972_no_n4.py train ",
+      "pgid": 611,
+      "stat_starttime": "2251242133"
+    },
+    "supervisor": {
+      "pid": 610,
+      "cmdline": "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python scripts/watch_segresnet_plain972_no_n4.py ",
+      "pgid": 461,
+      "stat_starttime": "2251241416"
+    },
+    "pipeline": {
+      "pid": 530,
+      "cmdline": "../sammed3d-venv/bin/python -u scripts/run_segresnet_plain972_no_n4.py ",
+      "pgid": 461,
+      "stat_starttime": "2251189456"
+    }
+  },
+  "durable_epoch_target": 50,
+  "possible_unsaved_next_epoch_work": "guard observes committed epoch; a fraction of epoch51 may start before SIGSTOP; never reported as epoch51 complete"
+}

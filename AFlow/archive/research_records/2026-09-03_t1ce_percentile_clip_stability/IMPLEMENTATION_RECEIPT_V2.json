@@ -1,0 +1,41 @@
+{
+  "schema": "aflow.brats.t1ce_percentile_clip_stability.implementation_receipt_v2",
+  "schema_version": 1,
+  "status": "frozen_after_cache_before_model_construction",
+  "supersedes_verification_only": "IMPLEMENTATION_RECEIPT.json cache-builder verify function",
+  "documents": {
+    "idea_sha256": "7504085184ea0e17d97268e9233ff4eb857f9f80c1b49e301aa1534416a24b0a",
+    "prereg_sha256": "cf4706a98e6053799f698d83dcd59efbfd87d7ff3880b6bea09624b4ed99e031",
+    "amendment_001_sha256": "0b6ce72205ef18e304dd706ff9fe7610c2151c8f8a300f8d7bb7c89ffd78a8cb"
+  },
+  "entry_points": {
+    "cache_builder_v2": "ab1bf64102ead1674898dae493c2b8afae241a64e9195cd18b0060556cdb6717",
+    "split_builder": "7e786c1f59b5d012ec608c2f3d2e2a1f1d828eede558ff389aa9a1131a0c0d9d",
+    "trainer": "f117d1aa05849672d96674f7ade2b9bec53cb1a6d23bad7ce1fba6a08275abc9",
+    "evaluator": "3ebb437000ca4ecdd54560d0919a6b7205a69f3f7fc2ffebb39b0295fbf30926",
+    "preaccess_freezer": "1468b02c1fedfba48a0cedd893938fcae31d62813aec27d1ef0b548d2a7b1b34",
+    "stage_a_runner": "e4f8264eec536dca9b53dcbcb90ee636b384858e2c22f0126bfce6ab4f83530f",
+    "tests": "d849dbbb16cffdeff13359bfe656173dd7c9957db39add30a8e26d20a46f1451"
+  },
+  "artifacts": {
+    "split_manifest_sha256": "212ec309d9697e3b5ba1eb22d267272f8cf6e41a181ad4f8a8e29c7c4b932c9f",
+    "candidate_cache_index_sha256": "6e51c3b32f6b3ced4d11adabe75c20d1cf746e2bb6e59a8b3456c46801ad8755",
+    "cache_receipt": "CACHE_RECEIPT.json"
+  },
+  "checks": {
+    "pytest": "11 passed",
+    "python_compile": "passed",
+    "cache_labels_byte_exact": true,
+    "independent_rebuilds": "5/5 exact",
+    "historical_entry_points_modified": false
+  },
+  "access": {
+    "fit": true,
+    "inner_metrics": false,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

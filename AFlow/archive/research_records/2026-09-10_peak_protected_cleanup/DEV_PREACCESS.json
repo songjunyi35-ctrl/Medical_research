@@ -1,0 +1,74 @@
+{
+  "bootstrap": {
+    "samples": 10000,
+    "seeds": [
+      2026091061,
+      2026091062
+    ],
+    "selection_correction": false,
+    "unit": "patient_cluster"
+  },
+  "cache_images_sha256": "f772520ca0d99fca0edc60aa04a7c73e0d7818eea9fa0174a29038f8334644b9",
+  "cache_index_sha256": "7373cb306a01ec1ec311a584a088844439de84ff7289ed819127de6270839cfd",
+  "cache_labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+  "controls": {
+    "2026090711": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+        "sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e"
+      },
+      "train_report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/TRAIN_DONE.json",
+      "train_report_sha256": "6cbbf960f62657080b7cb1153ae30040ab42a2299cd38c49142543effd17a1f1"
+    },
+    "2026090712": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/fixed_epoch168.pth",
+        "sha256": "5b014fb256c272b828e01322b7985f10d8ac5c53f19fa475761c25537f697e43"
+      },
+      "train_report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090712_control/TRAIN_DONE.json",
+      "train_report_sha256": "0ccd09881b1c7e5a9f58c46b512d7ed2880cfc09b947022e59eb6066ab10b9a7"
+    }
+  },
+  "created_utc": "2026-09-10T04:15:45.582337+00:00",
+  "dev_sha256": "53885b7e300f915d81eecb115b82123e25330b7da422d3ff0b889b0489a2cdac",
+  "files": {
+    "archive/research_records/2026-09-10_peak_protected_cleanup/IDEA.md": "4b76023adeaf4e54a08ed13942f8ae53f73f1ab3517a0283419af99723a7fddd",
+    "archive/research_records/2026-09-10_peak_protected_cleanup/PREREG.md": "dc2049ce0557d485efe210af31ad5a5d2ea9bf97671cc215d2006581460787e8",
+    "sammed3d/peak_protected_cleanup.py": "6908a50e3c15415b13391fa9376b9dd18a4eae49629a245b3418f8976d7f00cf",
+    "sammed3d/t1ce_wt_capg3d.py": "276ee7c131e413cf7943dc29e5372c1e5bbbb85c780e27f030343c5ef8bf4cd0",
+    "scripts/evaluate_peak_cleanup.py": "e38a08b52c5bfe16624a7ecd9ffc22796f37f612e0e0cddbf7f74459c97e9e7d",
+    "scripts/evaluate_structured_background_aux.py": "967e1bcd69bc86cfd839bcd59c09a6c87240c3f399b17fb3066e142609806b38",
+    "scripts/peak_cleanup_protocol.py": "c2ea730bc68fde9ebe40a069add726b94400d09a86d166e3c29a3b3d6bb2c25b",
+    "scripts/smoke_peak_cleanup.py": "29daf8d10e26faff5fe552f99ef136314d506e5b89ce4f8bce5be6022f2be37f",
+    "scripts/train_t1ce_wt_capg3d.py": "d74ff2f0cf190c8a5458a70d19125d9a30603894d5f1799f192f0e60dd088fdb",
+    "tests/test_peak_cleanup_evaluation.py": "950bed3e832be9799793e8257d813f463d54808d8443e4325f151381ee520be0",
+    "tests/test_peak_protected_cleanup.py": "60c31cbf7913234e5f9fa1dbfcf2126cf8cd0416a749fd9251a717f2c3025f3e"
+  },
+  "fit_sha256": "75504df75fa734723945a9f07d76696fdcca89b8c29563dc0ad02a2560718d61",
+  "gpu_free_bytes_before": 17742757888,
+  "inference": {
+    "batch_size": 8,
+    "dtype": "bfloat16_autocast_float32_logits",
+    "expected_new_forwards": 360,
+    "new_forwards_at_write": 0,
+    "threshold": 0,
+    "tta": false
+  },
+  "output": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-10_peak_protected_cleanup/RAW_DEVELOPMENT.json",
+  "rule": {
+    "absolute_voxels": 8,
+    "always_keep_argmax_component": true,
+    "always_keep_largest_ties": true,
+    "connectivity": 26,
+    "relative_largest_fraction": 0.01,
+    "removed_logit": -1
+  },
+  "smoke_sha256": "3d199b0437bfcedfce5b98d2aab30a59354588b790e3307661e477ffd2cb2964",
+  "source_raw": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-07_structured_background_aux/RAW_DEVELOPMENT.json",
+    "sha256": "80e9bd449d7c72a61de0ecdbdfbc5bb3a61814e7770bbcc1c983ac097b4cd2c6"
+  },
+  "status": "fixed_single_cleanup_rule_before_new_dev_forwards",
+  "test_access": false,
+  "weak_elastic_candidate_development_access": false
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "aflow.brats.flip8_tta.test270_implementation_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-04T11:28:42Z",
+  "status": "passed_before_test270_access",
+  "stage_a": {
+    "all_gates_passed": true,
+    "test270_authorized": true,
+    "report": "archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/STAGE_A_INNER.json",
+    "report_sha256": "d516f3ad2fdb53ee0de4872596c331d772c935ec0b116dd1a9881e0cc6dcff68",
+    "inner_preaccess_sha256": "b2e3cf16ce7b246fccc5d376ca8a8f9e0afa6aa3ee2a7d5e93e846b464370a4f"
+  },
+  "entry_points": {
+    "pretest_freezer": {
+      "path": "scripts/freeze_t1ce_wt_flip8_tta_test270_preaccess.py",
+      "sha256": "85a4f6e1ad48a21bb6003c531b9ddf43bd2de27c78513cac55ce25f9c9d20e32"
+    },
+    "evaluator": {
+      "path": "scripts/evaluate_t1ce_wt_flip8_tta_test270.py",
+      "sha256": "61ea97bd0b60e65140aa40d93b643f86bd28df1a709ad18c3a4a828d554ad037"
+    },
+    "tests": {
+      "path": "tests/test_flip8_tta_test270.py",
+      "sha256": "24233c9f7727e26e0b864bfa6eed5f325dc74244ba9138cd9ef74d1cb838ef71"
+    }
+  },
+  "checks": {
+    "py_compile": "passed",
+    "pytest": "21 passed in 6.95s",
+    "fixed_eight_reflections": true,
+    "identity_first_atom": true,
+    "batch_size_matches_archived_identity_evaluator": 8,
+    "identity_exact_parity_required_before_candidate_publication": true,
+    "repeat_output_refused": true,
+    "threshold_view_weight_epoch_postprocessing_controls_exposed": false
+  },
+  "train_only_gpu_smoke": {
+    "cases": 8,
+    "identity_exact_to_direct_validate": true,
+    "flip8_outputs_finite": true,
+    "peak_gpu_memory_bytes": 5472433152,
+    "test270_access": false
+  },
+  "access": {
+    "fit": true,
+    "inner_metrics": true,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  }
+}

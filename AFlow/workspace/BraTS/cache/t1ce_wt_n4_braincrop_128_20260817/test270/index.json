@@ -1,0 +1,5169 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_preprocess_cache",
+  "schema_version": 1,
+  "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/sealed_test/test_cases_t1ce.jsonl",
+  "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+  "count": 270,
+  "model_shape": [
+    128,
+    128,
+    128
+  ],
+  "image_dtype": "float32",
+  "label_dtype": "uint8",
+  "preprocessing": {
+    "spatial": "braincrop_resize",
+    "spatial_description": "crop to the bounding box of nonzero voxels, then resize that box to 128^3. Does NOT use the label: the box comes from image intensity only, so localization is not oracle.",
+    "image_interpolation": "trilinear",
+    "label_interpolation": "nearest-exact",
+    "normalization": "source nonzero-voxel population z-score before resize; unchanged by the crop because the crop removes only zero voxels",
+    "uses_gt_for_localization": false,
+    "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+    "n4_bias_field_correction": true,
+    "n4_shrink_factor": 2,
+    "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+    "augmentation": "NOT cached; applied per-epoch by the dataset"
+  },
+  "case_ids": [
+    "BraTS-GLI-00006-100",
+    "BraTS-GLI-00006-101",
+    "BraTS-GLI-00096-100",
+    "BraTS-GLI-00096-101",
+    "BraTS-GLI-00469-100",
+    "BraTS-GLI-00469-101",
+    "BraTS-GLI-00472-100",
+    "BraTS-GLI-00472-101",
+    "BraTS-GLI-00491-100",
+    "BraTS-GLI-00491-101",
+    "BraTS-GLI-00506-100",
+    "BraTS-GLI-00506-101",
+    "BraTS-GLI-00528-100",
+    "BraTS-GLI-00528-101",
+    "BraTS-GLI-02061-100",
+    "BraTS-GLI-02061-101",
+    "BraTS-GLI-02061-102",
+    "BraTS-GLI-02061-103",
+    "BraTS-GLI-02062-100",
+    "BraTS-GLI-02062-101",
+    "BraTS-GLI-02062-102",
+    "BraTS-GLI-02062-103",
+    "BraTS-GLI-02062-104",
+    "BraTS-GLI-02062-105",
+    "BraTS-GLI-02066-100",
+    "BraTS-GLI-02066-101",
+    "BraTS-GLI-02066-102",
+    "BraTS-GLI-02066-103",
+    "BraTS-GLI-02066-104",
+    "BraTS-GLI-02066-105",
+    "BraTS-GLI-02072-100",
+    "BraTS-GLI-02072-101",
+    "BraTS-GLI-02072-102",
+    "BraTS-GLI-02072-103",
+    "BraTS-GLI-02072-104",
+    "BraTS-GLI-02072-105",
+    "BraTS-GLI-02074-100",
+    "BraTS-GLI-02074-101",
+    "BraTS-GLI-02079-100",
+    "BraTS-GLI-02079-101",
+    "BraTS-GLI-02083-100",
+    "BraTS-GLI-02083-101",
+    "BraTS-GLI-02083-102",
+    "BraTS-GLI-02083-103",
+    "BraTS-GLI-02084-100",
+    "BraTS-GLI-02084-101",
+    "BraTS-GLI-02084-102",
+    "BraTS-GLI-02084-103",
+    "BraTS-GLI-02085-100",
+    "BraTS-GLI-02085-101",
+    "BraTS-GLI-02085-102",
+    "BraTS-GLI-02085-103",
+    "BraTS-GLI-02085-104",
+    "BraTS-GLI-02085-105",
+    "BraTS-GLI-02088-100",
+    "BraTS-GLI-02088-101",
+    "BraTS-GLI-02088-102",
+    "BraTS-GLI-02091-100",
+    "BraTS-GLI-02091-101",
+    "BraTS-GLI-02091-102",
+    "BraTS-GLI-02091-103",
+    "BraTS-GLI-02108-100",
+    "BraTS-GLI-02108-101",
+    "BraTS-GLI-02111-100",
+    "BraTS-GLI-02111-101",
+    "BraTS-GLI-02111-102",
+    "BraTS-GLI-02111-103",
+    "BraTS-GLI-02111-104",
+    "BraTS-GLI-02111-105",
+    "BraTS-GLI-02111-106",
+    "BraTS-GLI-02111-107",
+    "BraTS-GLI-02119-100",
+    "BraTS-GLI-02119-101",
+    "BraTS-GLI-02119-102",
+    "BraTS-GLI-02124-100",
+    "BraTS-GLI-02124-101",
+    "BraTS-GLI-02132-100",
+    "BraTS-GLI-02132-101",
+    "BraTS-GLI-02132-102",
+    "BraTS-GLI-02132-103",
+    "BraTS-GLI-02132-104",
+    "BraTS-GLI-02138-100",
+    "BraTS-GLI-02138-101",
+    "BraTS-GLI-02146-100",
+    "BraTS-GLI-02146-101",
+    "BraTS-GLI-02146-102",
+    "BraTS-GLI-02146-103",
+    "BraTS-GLI-02152-100",
+    "BraTS-GLI-02152-101",
+    "BraTS-GLI-02152-102",
+    "BraTS-GLI-02152-103",
+    "BraTS-GLI-02152-104",
+    "BraTS-GLI-02162-100",
+    "BraTS-GLI-02162-101",
+    "BraTS-GLI-02171-100",
+    "BraTS-GLI-02171-101",
+    "BraTS-GLI-02172-100",
+    "BraTS-GLI-02172-101",
+    "BraTS-GLI-02176-100",
+    "BraTS-GLI-02176-101",
+    "BraTS-GLI-02176-102",
+    "BraTS-GLI-02176-103",
+    "BraTS-GLI-02223-100",
+    "BraTS-GLI-02227-100",
+    "BraTS-GLI-02227-101",
+    "BraTS-GLI-02230-100",
+    "BraTS-GLI-02230-101",
+    "BraTS-GLI-02230-102",
+    "BraTS-GLI-02238-100",
+    "BraTS-GLI-02238-101",
+    "BraTS-GLI-02238-102",
+    "BraTS-GLI-02238-103",
+    "BraTS-GLI-02241-100",
+    "BraTS-GLI-02241-101",
+    "BraTS-GLI-02241-102",
+    "BraTS-GLI-02244-100",
+    "BraTS-GLI-02244-101",
+    "BraTS-GLI-02244-102",
+    "BraTS-GLI-02244-103",
+    "BraTS-GLI-02244-104",
+    "BraTS-GLI-02245-100",
+    "BraTS-GLI-02245-101",
+    "BraTS-GLI-02245-102",
+    "BraTS-GLI-02245-103",
+    "BraTS-GLI-02245-104",
+    "BraTS-GLI-02246-100",
+    "BraTS-GLI-02246-101",
+    "BraTS-GLI-02251-100",
+    "BraTS-GLI-02254-100",
+    "BraTS-GLI-02254-101",
+    "BraTS-GLI-02270-100",
+    "BraTS-GLI-02273-100",
+    "BraTS-GLI-02284-100",
+    "BraTS-GLI-02302-100",
+    "BraTS-GLI-02314-100",
+    "BraTS-GLI-02318-100",
+    "BraTS-GLI-02331-100",
+    "BraTS-GLI-02337-100",
+    "BraTS-GLI-02347-100",
+    "BraTS-GLI-02358-100",
+    "BraTS-GLI-02358-101",
+    "BraTS-GLI-02375-100",
+    "BraTS-GLI-02375-101",
+    "BraTS-GLI-02378-100",
+    "BraTS-GLI-02378-101",
+    "BraTS-GLI-02378-102",
+    "BraTS-GLI-02379-100",
+    "BraTS-GLI-02379-101",
+    "BraTS-GLI-02384-100",
+    "BraTS-GLI-02385-100",
+    "BraTS-GLI-02389-100",
+    "BraTS-GLI-02390-100",
+    "BraTS-GLI-02390-101",
+    "BraTS-GLI-02390-102",
+    "BraTS-GLI-02394-100",
+    "BraTS-GLI-02548-100",
+    "BraTS-GLI-02548-101",
+    "BraTS-GLI-02548-102",
+    "BraTS-GLI-02549-100",
+    "BraTS-GLI-02549-101",
+    "BraTS-GLI-02549-102",
+    "BraTS-GLI-02552-100",
+    "BraTS-GLI-02561-100",
+    "BraTS-GLI-02561-101",
+    "BraTS-GLI-02631-100",
+    "BraTS-GLI-02631-101",
+    "BraTS-GLI-02638-100",
+    "BraTS-GLI-02638-101",
+    "BraTS-GLI-02650-100",
+    "BraTS-GLI-02661-100",
+    "BraTS-GLI-02665-100",
+    "BraTS-GLI-02675-100",
+    "BraTS-GLI-02698-100",
+    "BraTS-GLI-02699-100",
+    "BraTS-GLI-02708-100",
+    "BraTS-GLI-02709-100",
+    "BraTS-GLI-02717-100",
+    "BraTS-GLI-02725-100",
+    "BraTS-GLI-02747-100",
+    "BraTS-GLI-02747-101",
+    "BraTS-GLI-02760-100",
+    "BraTS-GLI-02760-101",
+    "BraTS-GLI-02763-100",
+    "BraTS-GLI-02763-101",
+    "BraTS-GLI-02774-100",
+    "BraTS-GLI-02774-101",
+    "BraTS-GLI-02787-100",
+    "BraTS-GLI-02787-101",
+    "BraTS-GLI-02788-100",
+    "BraTS-GLI-02788-101",
+    "BraTS-GLI-02794-100",
+    "BraTS-GLI-02794-101",
+    "BraTS-GLI-02798-100",
+    "BraTS-GLI-02798-101",
+    "BraTS-GLI-02803-100",
+    "BraTS-GLI-02803-101",
+    "BraTS-GLI-02806-100",
+    "BraTS-GLI-02806-101",
+    "BraTS-GLI-02810-100",
+    "BraTS-GLI-02810-101",
+    "BraTS-GLI-02834-100",
+    "BraTS-GLI-02834-101",
+    "BraTS-GLI-02838-100",
+    "BraTS-GLI-02838-101",
+    "BraTS-GLI-02842-100",
+    "BraTS-GLI-02842-101",
+    "BraTS-GLI-02854-100",
+    "BraTS-GLI-02854-101",
+    "BraTS-GLI-02857-100",
+    "BraTS-GLI-02857-101",
+    "BraTS-GLI-02858-100",
+    "BraTS-GLI-02858-101",
+    "BraTS-GLI-02860-100",
+    "BraTS-GLI-02860-101",
+    "BraTS-GLI-02863-100",
+    "BraTS-GLI-02863-101",
+    "BraTS-GLI-02865-100",
+    "BraTS-GLI-02865-101",
+    "BraTS-GLI-02871-100",
+    "BraTS-GLI-02871-101",
+    "BraTS-GLI-02878-100",
+    "BraTS-GLI-02878-101",
+    "BraTS-GLI-02885-100",
+    "BraTS-GLI-02885-101",
+    "BraTS-GLI-02887-100",
+    "BraTS-GLI-02887-101",
+    "BraTS-GLI-02891-100",
+    "BraTS-GLI-02891-101",
+    "BraTS-GLI-02892-100",
+    "BraTS-GLI-02892-101",
+    "BraTS-GLI-02897-100",
+    "BraTS-GLI-02897-101",
+    "BraTS-GLI-02917-100",
+    "BraTS-GLI-02917-101",
+    "BraTS-GLI-02920-100",
+    "BraTS-GLI-02920-101",
+    "BraTS-GLI-02939-100",
+    "BraTS-GLI-02939-101",
+    "BraTS-GLI-02949-100",
+    "BraTS-GLI-02949-101",
+    "BraTS-GLI-02958-100",
+    "BraTS-GLI-02958-101",
+    "BraTS-GLI-02960-100",
+    "BraTS-GLI-02960-101",
+    "BraTS-GLI-02968-100",
+    "BraTS-GLI-02968-101",
+    "BraTS-GLI-02989-100",
+    "BraTS-GLI-02989-101",
+    "BraTS-GLI-02993-100",
+    "BraTS-GLI-02993-101",
+    "BraTS-GLI-02997-100",
+    "BraTS-GLI-02997-101",
+    "BraTS-GLI-02999-100",
+    "BraTS-GLI-02999-101",
+    "BraTS-GLI-03008-100",
+    "BraTS-GLI-03008-101",
+    "BraTS-GLI-03009-100",
+    "BraTS-GLI-03009-101",
+    "BraTS-GLI-03014-100",
+    "BraTS-GLI-03014-101",
+    "BraTS-GLI-03019-100",
+    "BraTS-GLI-03019-101",
+    "BraTS-GLI-03028-100",
+    "BraTS-GLI-03028-101",
+    "BraTS-GLI-03051-100",
+    "BraTS-GLI-03051-101",
+    "BraTS-GLI-03051-102",
+    "BraTS-GLI-03054-100",
+    "BraTS-GLI-03054-101",
+    "BraTS-GLI-03054-102"
+  ],
+  "per_case_positive_voxels": {
+    "BraTS-GLI-00006-100": 11181,
+    "BraTS-GLI-00006-101": 11741,
+    "BraTS-GLI-00096-100": 66075,
+    "BraTS-GLI-00096-101": 51277,
+    "BraTS-GLI-00469-100": 83399,
+    "BraTS-GLI-00469-101": 26986,
+    "BraTS-GLI-00472-100": 6195,
+    "BraTS-GLI-00472-101": 5511,
+    "BraTS-GLI-00491-100": 30064,
+    "BraTS-GLI-00491-101": 42321,
+    "BraTS-GLI-00506-100": 14417,
+    "BraTS-GLI-00506-101": 23228,
+    "BraTS-GLI-00528-100": 104360,
+    "BraTS-GLI-00528-101": 128117,
+    "BraTS-GLI-02061-100": 13491,
+    "BraTS-GLI-02061-101": 21027,
+    "BraTS-GLI-02061-102": 36472,
+    "BraTS-GLI-02061-103": 92729,
+    "BraTS-GLI-02062-100": 19431,
+    "BraTS-GLI-02062-101": 24486,
+    "BraTS-GLI-02062-102": 27799,
+    "BraTS-GLI-02062-103": 23465,
+    "BraTS-GLI-02062-104": 21283,
+    "BraTS-GLI-02062-105": 43652,
+    "BraTS-GLI-02066-100": 105098,
+    "BraTS-GLI-02066-101": 29924,
+    "BraTS-GLI-02066-102": 21123,
+    "BraTS-GLI-02066-103": 92477,
+    "BraTS-GLI-02066-104": 101372,
+    "BraTS-GLI-02066-105": 119492,
+    "BraTS-GLI-02072-100": 23607,
+    "BraTS-GLI-02072-101": 25939,
+    "BraTS-GLI-02072-102": 64322,
+    "BraTS-GLI-02072-103": 78832,
+    "BraTS-GLI-02072-104": 61697,
+    "BraTS-GLI-02072-105": 40433,
+    "BraTS-GLI-02074-100": 46825,
+    "BraTS-GLI-02074-101": 65989,
+    "BraTS-GLI-02079-100": 133445,
+    "BraTS-GLI-02079-101": 155678,
+    "BraTS-GLI-02083-100": 8798,
+    "BraTS-GLI-02083-101": 10773,
+    "BraTS-GLI-02083-102": 33620,
+    "BraTS-GLI-02083-103": 47070,
+    "BraTS-GLI-02084-100": 13165,
+    "BraTS-GLI-02084-101": 40182,
+    "BraTS-GLI-02084-102": 75877,
+    "BraTS-GLI-02084-103": 81850,
+    "BraTS-GLI-02085-100": 42761,
+    "BraTS-GLI-02085-101": 44534,
+    "BraTS-GLI-02085-102": 41909,
+    "BraTS-GLI-02085-103": 42895,
+    "BraTS-GLI-02085-104": 99539,
+    "BraTS-GLI-02085-105": 51240,
+    "BraTS-GLI-02088-100": 71440,
+    "BraTS-GLI-02088-101": 72835,
+    "BraTS-GLI-02088-102": 54870,
+    "BraTS-GLI-02091-100": 64836,
+    "BraTS-GLI-02091-101": 63777,
+    "BraTS-GLI-02091-102": 66851,
+    "BraTS-GLI-02091-103": 74659,
+    "BraTS-GLI-02108-100": 119164,
+    "BraTS-GLI-02108-101": 113735,
+    "BraTS-GLI-02111-100": 10712,
+    "BraTS-GLI-02111-101": 14666,
+    "BraTS-GLI-02111-102": 19162,
+    "BraTS-GLI-02111-103": 20145,
+    "BraTS-GLI-02111-104": 17785,
+    "BraTS-GLI-02111-105": 21577,
+    "BraTS-GLI-02111-106": 70650,
+    "BraTS-GLI-02111-107": 23975,
+    "BraTS-GLI-02119-100": 93709,
+    "BraTS-GLI-02119-101": 114577,
+    "BraTS-GLI-02119-102": 97563,
+    "BraTS-GLI-02124-100": 16007,
+    "BraTS-GLI-02124-101": 38179,
+    "BraTS-GLI-02132-100": 112242,
+    "BraTS-GLI-02132-101": 27104,
+    "BraTS-GLI-02132-102": 35623,
+    "BraTS-GLI-02132-103": 60770,
+    "BraTS-GLI-02132-104": 91907,
+    "BraTS-GLI-02138-100": 17279,
+    "BraTS-GLI-02138-101": 31584,
+    "BraTS-GLI-02146-100": 9516,
+    "BraTS-GLI-02146-101": 6916,
+    "BraTS-GLI-02146-102": 7174,
+    "BraTS-GLI-02146-103": 7526,
+    "BraTS-GLI-02152-100": 21705,
+    "BraTS-GLI-02152-101": 52995,
+    "BraTS-GLI-02152-102": 15076,
+    "BraTS-GLI-02152-103": 22377,
+    "BraTS-GLI-02152-104": 25425,
+    "BraTS-GLI-02162-100": 9075,
+    "BraTS-GLI-02162-101": 15338,
+    "BraTS-GLI-02171-100": 33111,
+    "BraTS-GLI-02171-101": 34722,
+    "BraTS-GLI-02172-100": 18476,
+    "BraTS-GLI-02172-101": 62965,
+    "BraTS-GLI-02176-100": 62060,
+    "BraTS-GLI-02176-101": 96213,
+    "BraTS-GLI-02176-102": 119065,
+    "BraTS-GLI-02176-103": 185478,
+    "BraTS-GLI-02223-100": 9291,
+    "BraTS-GLI-02227-100": 29762,
+    "BraTS-GLI-02227-101": 27845,
+    "BraTS-GLI-02230-100": 20773,
+    "BraTS-GLI-02230-101": 16428,
+    "BraTS-GLI-02230-102": 18671,
+    "BraTS-GLI-02238-100": 10884,
+    "BraTS-GLI-02238-101": 5476,
+    "BraTS-GLI-02238-102": 10892,
+    "BraTS-GLI-02238-103": 9265,
+    "BraTS-GLI-02241-100": 14596,
+    "BraTS-GLI-02241-101": 8143,
+    "BraTS-GLI-02241-102": 19702,
+    "BraTS-GLI-02244-100": 13225,
+    "BraTS-GLI-02244-101": 16610,
+    "BraTS-GLI-02244-102": 20857,
+    "BraTS-GLI-02244-103": 23655,
+    "BraTS-GLI-02244-104": 17092,
+    "BraTS-GLI-02245-100": 5976,
+    "BraTS-GLI-02245-101": 13646,
+    "BraTS-GLI-02245-102": 57175,
+    "BraTS-GLI-02245-103": 26613,
+    "BraTS-GLI-02245-104": 22636,
+    "BraTS-GLI-02246-100": 6185,
+    "BraTS-GLI-02246-101": 7813,
+    "BraTS-GLI-02251-100": 67537,
+    "BraTS-GLI-02254-100": 1663,
+    "BraTS-GLI-02254-101": 10506,
+    "BraTS-GLI-02270-100": 41008,
+    "BraTS-GLI-02273-100": 127674,
+    "BraTS-GLI-02284-100": 40604,
+    "BraTS-GLI-02302-100": 39088,
+    "BraTS-GLI-02314-100": 13436,
+    "BraTS-GLI-02318-100": 102653,
+    "BraTS-GLI-02331-100": 7218,
+    "BraTS-GLI-02337-100": 30790,
+    "BraTS-GLI-02347-100": 53097,
+    "BraTS-GLI-02358-100": 59935,
+    "BraTS-GLI-02358-101": 23648,
+    "BraTS-GLI-02375-100": 68649,
+    "BraTS-GLI-02375-101": 46996,
+    "BraTS-GLI-02378-100": 47128,
+    "BraTS-GLI-02378-101": 36765,
+    "BraTS-GLI-02378-102": 87063,
+    "BraTS-GLI-02379-100": 38173,
+    "BraTS-GLI-02379-101": 123587,
+    "BraTS-GLI-02384-100": 48782,
+    "BraTS-GLI-02385-100": 128068,
+    "BraTS-GLI-02389-100": 8161,
+    "BraTS-GLI-02390-100": 5592,
+    "BraTS-GLI-02390-101": 8383,
+    "BraTS-GLI-02390-102": 10195,
+    "BraTS-GLI-02394-100": 33328,
+    "BraTS-GLI-02548-100": 20096,
+    "BraTS-GLI-02548-101": 44506,
+    "BraTS-GLI-02548-102": 101349,
+    "BraTS-GLI-02549-100": 107970,
+    "BraTS-GLI-02549-101": 5950,
+    "BraTS-GLI-02549-102": 20933,
+    "BraTS-GLI-02552-100": 80916,
+    "BraTS-GLI-02561-100": 12035,
+    "BraTS-GLI-02561-101": 12021,
+    "BraTS-GLI-02631-100": 7204,
+    "BraTS-GLI-02631-101": 3863,
+    "BraTS-GLI-02638-100": 42048,
+    "BraTS-GLI-02638-101": 42196,
+    "BraTS-GLI-02650-100": 31712,
+    "BraTS-GLI-02661-100": 1083,
+    "BraTS-GLI-02665-100": 17026,
+    "BraTS-GLI-02675-100": 51722,
+    "BraTS-GLI-02698-100": 7906,
+    "BraTS-GLI-02699-100": 73941,
+    "BraTS-GLI-02708-100": 22090,
+    "BraTS-GLI-02709-100": 5914,
+    "BraTS-GLI-02717-100": 6153,
+    "BraTS-GLI-02725-100": 11521,
+    "BraTS-GLI-02747-100": 12351,
+    "BraTS-GLI-02747-101": 13730,
+    "BraTS-GLI-02760-100": 14416,
+    "BraTS-GLI-02760-101": 30324,
+    "BraTS-GLI-02763-100": 16851,
+    "BraTS-GLI-02763-101": 22066,
+    "BraTS-GLI-02774-100": 19804,
+    "BraTS-GLI-02774-101": 22974,
+    "BraTS-GLI-02787-100": 18029,
+    "BraTS-GLI-02787-101": 14968,
+    "BraTS-GLI-02788-100": 8888,
+    "BraTS-GLI-02788-101": 8732,
+    "BraTS-GLI-02794-100": 13761,
+    "BraTS-GLI-02794-101": 14431,
+    "BraTS-GLI-02798-100": 1081,
+    "BraTS-GLI-02798-101": 1148,
+    "BraTS-GLI-02803-100": 9501,
+    "BraTS-GLI-02803-101": 7851,
+    "BraTS-GLI-02806-100": 21523,
+    "BraTS-GLI-02806-101": 22203,
+    "BraTS-GLI-02810-100": 61977,
+    "BraTS-GLI-02810-101": 70287,
+    "BraTS-GLI-02834-100": 18176,
+    "BraTS-GLI-02834-101": 29029,
+    "BraTS-GLI-02838-100": 17485,
+    "BraTS-GLI-02838-101": 18942,
+    "BraTS-GLI-02842-100": 23976,
+    "BraTS-GLI-02842-101": 67203,
+    "BraTS-GLI-02854-100": 14659,
+    "BraTS-GLI-02854-101": 15874,
+    "BraTS-GLI-02857-100": 34353,
+    "BraTS-GLI-02857-101": 34962,
+    "BraTS-GLI-02858-100": 10351,
+    "BraTS-GLI-02858-101": 9076,
+    "BraTS-GLI-02860-100": 13789,
+    "BraTS-GLI-02860-101": 13337,
+    "BraTS-GLI-02863-100": 11087,
+    "BraTS-GLI-02863-101": 16697,
+    "BraTS-GLI-02865-100": 21240,
+    "BraTS-GLI-02865-101": 20825,
+    "BraTS-GLI-02871-100": 5189,
+    "BraTS-GLI-02871-101": 7304,
+    "BraTS-GLI-02878-100": 24388,
+    "BraTS-GLI-02878-101": 22344,
+    "BraTS-GLI-02885-100": 3818,
+    "BraTS-GLI-02885-101": 6897,
+    "BraTS-GLI-02887-100": 3959,
+    "BraTS-GLI-02887-101": 3437,
+    "BraTS-GLI-02891-100": 14873,
+    "BraTS-GLI-02891-101": 14780,
+    "BraTS-GLI-02892-100": 81281,
+    "BraTS-GLI-02892-101": 94069,
+    "BraTS-GLI-02897-100": 9051,
+    "BraTS-GLI-02897-101": 9620,
+    "BraTS-GLI-02917-100": 32823,
+    "BraTS-GLI-02917-101": 48834,
+    "BraTS-GLI-02920-100": 115725,
+    "BraTS-GLI-02920-101": 142878,
+    "BraTS-GLI-02939-100": 7449,
+    "BraTS-GLI-02939-101": 7707,
+    "BraTS-GLI-02949-100": 18358,
+    "BraTS-GLI-02949-101": 16483,
+    "BraTS-GLI-02958-100": 41096,
+    "BraTS-GLI-02958-101": 65092,
+    "BraTS-GLI-02960-100": 27681,
+    "BraTS-GLI-02960-101": 44390,
+    "BraTS-GLI-02968-100": 6522,
+    "BraTS-GLI-02968-101": 7158,
+    "BraTS-GLI-02989-100": 12749,
+    "BraTS-GLI-02989-101": 18725,
+    "BraTS-GLI-02993-100": 5217,
+    "BraTS-GLI-02993-101": 4201,
+    "BraTS-GLI-02997-100": 63715,
+    "BraTS-GLI-02997-101": 71663,
+    "BraTS-GLI-02999-100": 16246,
+    "BraTS-GLI-02999-101": 17081,
+    "BraTS-GLI-03008-100": 42105,
+    "BraTS-GLI-03008-101": 42817,
+    "BraTS-GLI-03009-100": 27194,
+    "BraTS-GLI-03009-101": 26169,
+    "BraTS-GLI-03014-100": 44293,
+    "BraTS-GLI-03014-101": 42973,
+    "BraTS-GLI-03019-100": 21360,
+    "BraTS-GLI-03019-101": 43605,
+    "BraTS-GLI-03028-100": 30522,
+    "BraTS-GLI-03028-101": 80103,
+    "BraTS-GLI-03051-100": 32161,
+    "BraTS-GLI-03051-101": 32780,
+    "BraTS-GLI-03051-102": 81684,
+    "BraTS-GLI-03054-100": 48946,
+    "BraTS-GLI-03054-101": 53899,
+    "BraTS-GLI-03054-102": 124749
+  },
+  "crop_geometry": {
+    "BraTS-GLI-00006-100": {
+      "origin": [
+        26,
+        17,
+        18
+      ],
+      "extent": [
+        134,
+        179,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00006-101": {
+      "origin": [
+        27,
+        18,
+        15
+      ],
+      "extent": [
+        132,
+        179,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00096-100": {
+      "origin": [
+        21,
+        18,
+        15
+      ],
+      "extent": [
+        144,
+        182,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00096-101": {
+      "origin": [
+        22,
+        18,
+        15
+      ],
+      "extent": [
+        142,
+        181,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00469-100": {
+      "origin": [
+        25,
+        12,
+        15
+      ],
+      "extent": [
+        135,
+        180,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00469-101": {
+      "origin": [
+        27,
+        11,
+        17
+      ],
+      "extent": [
+        132,
+        181,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00472-100": {
+      "origin": [
+        26,
+        13,
+        13
+      ],
+      "extent": [
+        135,
+        181,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00472-101": {
+      "origin": [
+        26,
+        14,
+        13
+      ],
+      "extent": [
+        134,
+        179,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00491-100": {
+      "origin": [
+        28,
+        15,
+        18
+      ],
+      "extent": [
+        132,
+        190,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00491-101": {
+      "origin": [
+        28,
+        17,
+        13
+      ],
+      "extent": [
+        131,
+        184,
+        152
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00506-100": {
+      "origin": [
+        22,
+        14,
+        21
+      ],
+      "extent": [
+        140,
+        184,
+        137
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00506-101": {
+      "origin": [
+        22,
+        14,
+        20
+      ],
+      "extent": [
+        139,
+        184,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00528-100": {
+      "origin": [
+        24,
+        14,
+        13
+      ],
+      "extent": [
+        144,
+        198,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-00528-101": {
+      "origin": [
+        25,
+        17,
+        13
+      ],
+      "extent": [
+        144,
+        193,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02061-100": {
+      "origin": [
+        26,
+        22,
+        6
+      ],
+      "extent": [
+        130,
+        177,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02061-101": {
+      "origin": [
+        23,
+        20,
+        10
+      ],
+      "extent": [
+        130,
+        179,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02061-102": {
+      "origin": [
+        22,
+        23,
+        12
+      ],
+      "extent": [
+        130,
+        177,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02061-103": {
+      "origin": [
+        29,
+        21,
+        15
+      ],
+      "extent": [
+        129,
+        177,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02062-100": {
+      "origin": [
+        28,
+        30,
+        17
+      ],
+      "extent": [
+        126,
+        166,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02062-101": {
+      "origin": [
+        29,
+        25,
+        17
+      ],
+      "extent": [
+        126,
+        167,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02062-102": {
+      "origin": [
+        29,
+        29,
+        16
+      ],
+      "extent": [
+        125,
+        166,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02062-103": {
+      "origin": [
+        28,
+        25,
+        15
+      ],
+      "extent": [
+        127,
+        167,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02062-104": {
+      "origin": [
+        28,
+        25,
+        19
+      ],
+      "extent": [
+        126,
+        167,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02062-105": {
+      "origin": [
+        28,
+        30,
+        22
+      ],
+      "extent": [
+        126,
+        166,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02066-100": {
+      "origin": [
+        29,
+        19,
+        14
+      ],
+      "extent": [
+        132,
+        175,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02066-101": {
+      "origin": [
+        30,
+        20,
+        7
+      ],
+      "extent": [
+        132,
+        174,
+        152
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02066-102": {
+      "origin": [
+        29,
+        19,
+        12
+      ],
+      "extent": [
+        133,
+        174,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02066-103": {
+      "origin": [
+        28,
+        20,
+        12
+      ],
+      "extent": [
+        132,
+        175,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02066-104": {
+      "origin": [
+        30,
+        20,
+        10
+      ],
+      "extent": [
+        132,
+        174,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02066-105": {
+      "origin": [
+        26,
+        19,
+        8
+      ],
+      "extent": [
+        133,
+        174,
+        151
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02072-100": {
+      "origin": [
+        26,
+        22,
+        13
+      ],
+      "extent": [
+        124,
+        167,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02072-101": {
+      "origin": [
+        26,
+        23,
+        16
+      ],
+      "extent": [
+        123,
+        168,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02072-102": {
+      "origin": [
+        31,
+        25,
+        14
+      ],
+      "extent": [
+        123,
+        167,
+        150
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02072-103": {
+      "origin": [
+        33,
+        32,
+        7
+      ],
+      "extent": [
+        121,
+        167,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02072-104": {
+      "origin": [
+        29,
+        23,
+        22
+      ],
+      "extent": [
+        123,
+        169,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02072-105": {
+      "origin": [
+        33,
+        27,
+        4
+      ],
+      "extent": [
+        122,
+        167,
+        158
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02074-100": {
+      "origin": [
+        21,
+        19,
+        13
+      ],
+      "extent": [
+        143,
+        181,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02074-101": {
+      "origin": [
+        22,
+        18,
+        10
+      ],
+      "extent": [
+        143,
+        182,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02079-100": {
+      "origin": [
+        19,
+        17,
+        2
+      ],
+      "extent": [
+        144,
+        185,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02079-101": {
+      "origin": [
+        20,
+        17,
+        4
+      ],
+      "extent": [
+        144,
+        186,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02083-100": {
+      "origin": [
+        25,
+        20,
+        11
+      ],
+      "extent": [
+        131,
+        175,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02083-101": {
+      "origin": [
+        25,
+        19,
+        12
+      ],
+      "extent": [
+        132,
+        176,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02083-102": {
+      "origin": [
+        25,
+        19,
+        14
+      ],
+      "extent": [
+        131,
+        175,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02083-103": {
+      "origin": [
+        26,
+        19,
+        5
+      ],
+      "extent": [
+        133,
+        175,
+        156
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02084-100": {
+      "origin": [
+        25,
+        22,
+        11
+      ],
+      "extent": [
+        135,
+        180,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02084-101": {
+      "origin": [
+        24,
+        21,
+        2
+      ],
+      "extent": [
+        136,
+        180,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02084-102": {
+      "origin": [
+        24,
+        21,
+        7
+      ],
+      "extent": [
+        135,
+        180,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02084-103": {
+      "origin": [
+        24,
+        22,
+        9
+      ],
+      "extent": [
+        135,
+        180,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02085-100": {
+      "origin": [
+        22,
+        17,
+        11
+      ],
+      "extent": [
+        141,
+        185,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02085-101": {
+      "origin": [
+        21,
+        16,
+        10
+      ],
+      "extent": [
+        142,
+        183,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02085-102": {
+      "origin": [
+        22,
+        18,
+        6
+      ],
+      "extent": [
+        140,
+        181,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02085-103": {
+      "origin": [
+        23,
+        16,
+        13
+      ],
+      "extent": [
+        141,
+        185,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02085-104": {
+      "origin": [
+        21,
+        17,
+        13
+      ],
+      "extent": [
+        141,
+        184,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02085-105": {
+      "origin": [
+        21,
+        17,
+        15
+      ],
+      "extent": [
+        141,
+        183,
+        135
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02088-100": {
+      "origin": [
+        23,
+        19,
+        10
+      ],
+      "extent": [
+        138,
+        186,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02088-101": {
+      "origin": [
+        23,
+        17,
+        14
+      ],
+      "extent": [
+        139,
+        186,
+        134
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02088-102": {
+      "origin": [
+        22,
+        15,
+        4
+      ],
+      "extent": [
+        140,
+        189,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02091-100": {
+      "origin": [
+        25,
+        22,
+        10
+      ],
+      "extent": [
+        131,
+        173,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02091-101": {
+      "origin": [
+        25,
+        21,
+        12
+      ],
+      "extent": [
+        131,
+        175,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02091-102": {
+      "origin": [
+        26,
+        22,
+        10
+      ],
+      "extent": [
+        131,
+        174,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02091-103": {
+      "origin": [
+        29,
+        23,
+        13
+      ],
+      "extent": [
+        131,
+        173,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02108-100": {
+      "origin": [
+        28,
+        16,
+        16
+      ],
+      "extent": [
+        128,
+        180,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02108-101": {
+      "origin": [
+        29,
+        15,
+        13
+      ],
+      "extent": [
+        128,
+        180,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02111-100": {
+      "origin": [
+        25,
+        21,
+        2
+      ],
+      "extent": [
+        131,
+        179,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02111-101": {
+      "origin": [
+        25,
+        17,
+        8
+      ],
+      "extent": [
+        134,
+        181,
+        150
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02111-102": {
+      "origin": [
+        25,
+        18,
+        13
+      ],
+      "extent": [
+        134,
+        179,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02111-103": {
+      "origin": [
+        25,
+        18,
+        12
+      ],
+      "extent": [
+        133,
+        178,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02111-104": {
+      "origin": [
+        26,
+        18,
+        3
+      ],
+      "extent": [
+        134,
+        181,
+        158
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02111-105": {
+      "origin": [
+        25,
+        18,
+        9
+      ],
+      "extent": [
+        133,
+        179,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02111-106": {
+      "origin": [
+        24,
+        19,
+        11
+      ],
+      "extent": [
+        135,
+        179,
+        154
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02111-107": {
+      "origin": [
+        25,
+        20,
+        8
+      ],
+      "extent": [
+        135,
+        179,
+        158
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02119-100": {
+      "origin": [
+        26,
+        28,
+        13
+      ],
+      "extent": [
+        133,
+        171,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02119-101": {
+      "origin": [
+        26,
+        26,
+        11
+      ],
+      "extent": [
+        133,
+        170,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02119-102": {
+      "origin": [
+        26,
+        29,
+        9
+      ],
+      "extent": [
+        133,
+        169,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02124-100": {
+      "origin": [
+        26,
+        24,
+        16
+      ],
+      "extent": [
+        125,
+        166,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02124-101": {
+      "origin": [
+        28,
+        27,
+        9
+      ],
+      "extent": [
+        126,
+        165,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02132-100": {
+      "origin": [
+        29,
+        27,
+        4
+      ],
+      "extent": [
+        131,
+        167,
+        152
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02132-101": {
+      "origin": [
+        28,
+        28,
+        7
+      ],
+      "extent": [
+        131,
+        165,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02132-102": {
+      "origin": [
+        27,
+        26,
+        11
+      ],
+      "extent": [
+        132,
+        166,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02132-103": {
+      "origin": [
+        28,
+        27,
+        12
+      ],
+      "extent": [
+        131,
+        165,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02132-104": {
+      "origin": [
+        28,
+        27,
+        11
+      ],
+      "extent": [
+        131,
+        164,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02138-100": {
+      "origin": [
+        24,
+        21,
+        7
+      ],
+      "extent": [
+        136,
+        176,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02138-101": {
+      "origin": [
+        24,
+        21,
+        2
+      ],
+      "extent": [
+        136,
+        176,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02146-100": {
+      "origin": [
+        21,
+        23,
+        11
+      ],
+      "extent": [
+        141,
+        166,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02146-101": {
+      "origin": [
+        20,
+        21,
+        7
+      ],
+      "extent": [
+        142,
+        169,
+        155
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02146-102": {
+      "origin": [
+        20,
+        21,
+        2
+      ],
+      "extent": [
+        141,
+        167,
+        150
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02146-103": {
+      "origin": [
+        20,
+        22,
+        4
+      ],
+      "extent": [
+        142,
+        169,
+        158
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02152-100": {
+      "origin": [
+        25,
+        22,
+        3
+      ],
+      "extent": [
+        131,
+        180,
+        150
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02152-101": {
+      "origin": [
+        25,
+        23,
+        10
+      ],
+      "extent": [
+        132,
+        179,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02152-102": {
+      "origin": [
+        26,
+        23,
+        8
+      ],
+      "extent": [
+        131,
+        179,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02152-103": {
+      "origin": [
+        26,
+        23,
+        9
+      ],
+      "extent": [
+        130,
+        179,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02152-104": {
+      "origin": [
+        26,
+        21,
+        12
+      ],
+      "extent": [
+        131,
+        180,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02162-100": {
+      "origin": [
+        27,
+        19,
+        7
+      ],
+      "extent": [
+        131,
+        179,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02162-101": {
+      "origin": [
+        27,
+        20,
+        13
+      ],
+      "extent": [
+        130,
+        177,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02171-100": {
+      "origin": [
+        24,
+        19,
+        4
+      ],
+      "extent": [
+        137,
+        177,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02171-101": {
+      "origin": [
+        25,
+        21,
+        3
+      ],
+      "extent": [
+        136,
+        182,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02172-100": {
+      "origin": [
+        26,
+        19,
+        0
+      ],
+      "extent": [
+        130,
+        187,
+        156
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02172-101": {
+      "origin": [
+        25,
+        19,
+        1
+      ],
+      "extent": [
+        131,
+        187,
+        154
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02176-100": {
+      "origin": [
+        29,
+        21,
+        15
+      ],
+      "extent": [
+        124,
+        177,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02176-101": {
+      "origin": [
+        24,
+        26,
+        14
+      ],
+      "extent": [
+        124,
+        172,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02176-102": {
+      "origin": [
+        23,
+        25,
+        9
+      ],
+      "extent": [
+        124,
+        173,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02176-103": {
+      "origin": [
+        24,
+        23,
+        15
+      ],
+      "extent": [
+        126,
+        174,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02223-100": {
+      "origin": [
+        21,
+        23,
+        16
+      ],
+      "extent": [
+        136,
+        176,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02227-100": {
+      "origin": [
+        27,
+        23,
+        16
+      ],
+      "extent": [
+        128,
+        171,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02227-101": {
+      "origin": [
+        27,
+        19,
+        11
+      ],
+      "extent": [
+        128,
+        170,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02230-100": {
+      "origin": [
+        19,
+        26,
+        12
+      ],
+      "extent": [
+        143,
+        165,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02230-101": {
+      "origin": [
+        20,
+        24,
+        8
+      ],
+      "extent": [
+        144,
+        166,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02230-102": {
+      "origin": [
+        19,
+        25,
+        13
+      ],
+      "extent": [
+        143,
+        164,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02238-100": {
+      "origin": [
+        23,
+        23,
+        0
+      ],
+      "extent": [
+        136,
+        180,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02238-101": {
+      "origin": [
+        24,
+        25,
+        0
+      ],
+      "extent": [
+        134,
+        177,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02238-102": {
+      "origin": [
+        24,
+        24,
+        16
+      ],
+      "extent": [
+        135,
+        178,
+        129
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02238-103": {
+      "origin": [
+        24,
+        24,
+        7
+      ],
+      "extent": [
+        134,
+        177,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02241-100": {
+      "origin": [
+        29,
+        25,
+        14
+      ],
+      "extent": [
+        128,
+        172,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02241-101": {
+      "origin": [
+        29,
+        21,
+        7
+      ],
+      "extent": [
+        126,
+        175,
+        137
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02241-102": {
+      "origin": [
+        27,
+        24,
+        21
+      ],
+      "extent": [
+        126,
+        174,
+        135
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02244-100": {
+      "origin": [
+        23,
+        19,
+        4
+      ],
+      "extent": [
+        138,
+        172,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02244-101": {
+      "origin": [
+        23,
+        20,
+        3
+      ],
+      "extent": [
+        136,
+        171,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02244-102": {
+      "origin": [
+        24,
+        19,
+        0
+      ],
+      "extent": [
+        136,
+        172,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02244-103": {
+      "origin": [
+        20,
+        20,
+        18
+      ],
+      "extent": [
+        136,
+        169,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02244-104": {
+      "origin": [
+        21,
+        23,
+        18
+      ],
+      "extent": [
+        137,
+        170,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02245-100": {
+      "origin": [
+        25,
+        17,
+        4
+      ],
+      "extent": [
+        133,
+        183,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02245-101": {
+      "origin": [
+        25,
+        16,
+        0
+      ],
+      "extent": [
+        132,
+        182,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02245-102": {
+      "origin": [
+        26,
+        18,
+        14
+      ],
+      "extent": [
+        131,
+        180,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02245-103": {
+      "origin": [
+        23,
+        21,
+        15
+      ],
+      "extent": [
+        132,
+        180,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02245-104": {
+      "origin": [
+        28,
+        22,
+        18
+      ],
+      "extent": [
+        131,
+        180,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02246-100": {
+      "origin": [
+        23,
+        21,
+        12
+      ],
+      "extent": [
+        136,
+        182,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02246-101": {
+      "origin": [
+        21,
+        20,
+        16
+      ],
+      "extent": [
+        136,
+        182,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02251-100": {
+      "origin": [
+        23,
+        25,
+        12
+      ],
+      "extent": [
+        137,
+        166,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02254-100": {
+      "origin": [
+        23,
+        28,
+        9
+      ],
+      "extent": [
+        138,
+        162,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02254-101": {
+      "origin": [
+        22,
+        29,
+        8
+      ],
+      "extent": [
+        138,
+        162,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02270-100": {
+      "origin": [
+        22,
+        22,
+        0
+      ],
+      "extent": [
+        144,
+        180,
+        156
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02273-100": {
+      "origin": [
+        25,
+        27,
+        0
+      ],
+      "extent": [
+        129,
+        191,
+        161
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02284-100": {
+      "origin": [
+        22,
+        21,
+        9
+      ],
+      "extent": [
+        135,
+        177,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02302-100": {
+      "origin": [
+        20,
+        2,
+        39
+      ],
+      "extent": [
+        141,
+        186,
+        137
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02314-100": {
+      "origin": [
+        28,
+        31,
+        11
+      ],
+      "extent": [
+        128,
+        161,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02318-100": {
+      "origin": [
+        27,
+        23,
+        9
+      ],
+      "extent": [
+        135,
+        165,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02331-100": {
+      "origin": [
+        27,
+        30,
+        7
+      ],
+      "extent": [
+        131,
+        173,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02337-100": {
+      "origin": [
+        25,
+        22,
+        13
+      ],
+      "extent": [
+        136,
+        179,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02347-100": {
+      "origin": [
+        27,
+        27,
+        5
+      ],
+      "extent": [
+        130,
+        163,
+        151
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02358-100": {
+      "origin": [
+        21,
+        24,
+        8
+      ],
+      "extent": [
+        137,
+        166,
+        151
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02358-101": {
+      "origin": [
+        23,
+        24,
+        6
+      ],
+      "extent": [
+        137,
+        166,
+        151
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02375-100": {
+      "origin": [
+        27,
+        32,
+        8
+      ],
+      "extent": [
+        130,
+        152,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02375-101": {
+      "origin": [
+        25,
+        32,
+        8
+      ],
+      "extent": [
+        131,
+        151,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02378-100": {
+      "origin": [
+        25,
+        27,
+        11
+      ],
+      "extent": [
+        136,
+        165,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02378-101": {
+      "origin": [
+        26,
+        27,
+        9
+      ],
+      "extent": [
+        135,
+        167,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02378-102": {
+      "origin": [
+        26,
+        27,
+        9
+      ],
+      "extent": [
+        135,
+        166,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02379-100": {
+      "origin": [
+        25,
+        24,
+        8
+      ],
+      "extent": [
+        133,
+        170,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02379-101": {
+      "origin": [
+        21,
+        22,
+        4
+      ],
+      "extent": [
+        135,
+        171,
+        150
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02384-100": {
+      "origin": [
+        24,
+        33,
+        11
+      ],
+      "extent": [
+        137,
+        152,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02385-100": {
+      "origin": [
+        21,
+        29,
+        5
+      ],
+      "extent": [
+        140,
+        163,
+        151
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02389-100": {
+      "origin": [
+        19,
+        25,
+        8
+      ],
+      "extent": [
+        147,
+        166,
+        148
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02390-100": {
+      "origin": [
+        27,
+        21,
+        10
+      ],
+      "extent": [
+        130,
+        181,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02390-101": {
+      "origin": [
+        26,
+        22,
+        10
+      ],
+      "extent": [
+        130,
+        180,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02390-102": {
+      "origin": [
+        26,
+        22,
+        10
+      ],
+      "extent": [
+        130,
+        179,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02394-100": {
+      "origin": [
+        22,
+        25,
+        10
+      ],
+      "extent": [
+        140,
+        168,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02548-100": {
+      "origin": [
+        27,
+        14,
+        13
+      ],
+      "extent": [
+        133,
+        168,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02548-101": {
+      "origin": [
+        27,
+        15,
+        13
+      ],
+      "extent": [
+        132,
+        165,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02548-102": {
+      "origin": [
+        27,
+        14,
+        13
+      ],
+      "extent": [
+        132,
+        168,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02549-100": {
+      "origin": [
+        27,
+        8,
+        13
+      ],
+      "extent": [
+        127,
+        181,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02549-101": {
+      "origin": [
+        29,
+        9,
+        13
+      ],
+      "extent": [
+        125,
+        182,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02549-102": {
+      "origin": [
+        30,
+        10,
+        15
+      ],
+      "extent": [
+        126,
+        181,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02552-100": {
+      "origin": [
+        24,
+        16,
+        13
+      ],
+      "extent": [
+        133,
+        148,
+        132
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02561-100": {
+      "origin": [
+        28,
+        15,
+        13
+      ],
+      "extent": [
+        129,
+        166,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02561-101": {
+      "origin": [
+        31,
+        16,
+        13
+      ],
+      "extent": [
+        126,
+        162,
+        137
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02631-100": {
+      "origin": [
+        27,
+        15,
+        13
+      ],
+      "extent": [
+        128,
+        163,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02631-101": {
+      "origin": [
+        26,
+        13,
+        22
+      ],
+      "extent": [
+        131,
+        161,
+        131
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02638-100": {
+      "origin": [
+        11,
+        11,
+        13
+      ],
+      "extent": [
+        160,
+        162,
+        137
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02638-101": {
+      "origin": [
+        20,
+        2,
+        13
+      ],
+      "extent": [
+        145,
+        184,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02650-100": {
+      "origin": [
+        20,
+        17,
+        5
+      ],
+      "extent": [
+        146,
+        184,
+        152
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02661-100": {
+      "origin": [
+        20,
+        17,
+        5
+      ],
+      "extent": [
+        146,
+        184,
+        153
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02665-100": {
+      "origin": [
+        19,
+        22,
+        4
+      ],
+      "extent": [
+        146,
+        180,
+        152
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02675-100": {
+      "origin": [
+        22,
+        17,
+        2
+      ],
+      "extent": [
+        141,
+        184,
+        154
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02698-100": {
+      "origin": [
+        18,
+        16,
+        0
+      ],
+      "extent": [
+        148,
+        184,
+        159
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02699-100": {
+      "origin": [
+        18,
+        16,
+        5
+      ],
+      "extent": [
+        148,
+        182,
+        155
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02708-100": {
+      "origin": [
+        19,
+        18,
+        1
+      ],
+      "extent": [
+        147,
+        184,
+        155
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02709-100": {
+      "origin": [
+        20,
+        20,
+        0
+      ],
+      "extent": [
+        146,
+        180,
+        155
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02717-100": {
+      "origin": [
+        20,
+        21,
+        2
+      ],
+      "extent": [
+        144,
+        176,
+        154
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02725-100": {
+      "origin": [
+        18,
+        19,
+        7
+      ],
+      "extent": [
+        147,
+        180,
+        152
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02747-100": {
+      "origin": [
+        24,
+        16,
+        15
+      ],
+      "extent": [
+        136,
+        185,
+        133
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02747-101": {
+      "origin": [
+        25,
+        17,
+        13
+      ],
+      "extent": [
+        134,
+        182,
+        131
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02760-100": {
+      "origin": [
+        32,
+        19,
+        13
+      ],
+      "extent": [
+        129,
+        171,
+        123
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02760-101": {
+      "origin": [
+        33,
+        19,
+        13
+      ],
+      "extent": [
+        128,
+        170,
+        122
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02763-100": {
+      "origin": [
+        30,
+        19,
+        14
+      ],
+      "extent": [
+        125,
+        174,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02763-101": {
+      "origin": [
+        31,
+        20,
+        15
+      ],
+      "extent": [
+        122,
+        172,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02774-100": {
+      "origin": [
+        26,
+        18,
+        20
+      ],
+      "extent": [
+        127,
+        176,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02774-101": {
+      "origin": [
+        26,
+        18,
+        22
+      ],
+      "extent": [
+        127,
+        179,
+        137
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02787-100": {
+      "origin": [
+        24,
+        12,
+        18
+      ],
+      "extent": [
+        137,
+        190,
+        137
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02787-101": {
+      "origin": [
+        24,
+        12,
+        14
+      ],
+      "extent": [
+        137,
+        190,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02788-100": {
+      "origin": [
+        19,
+        17,
+        13
+      ],
+      "extent": [
+        147,
+        172,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02788-101": {
+      "origin": [
+        19,
+        19,
+        13
+      ],
+      "extent": [
+        146,
+        169,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02794-100": {
+      "origin": [
+        17,
+        17,
+        13
+      ],
+      "extent": [
+        148,
+        171,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02794-101": {
+      "origin": [
+        17,
+        19,
+        13
+      ],
+      "extent": [
+        147,
+        167,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02798-100": {
+      "origin": [
+        27,
+        12,
+        16
+      ],
+      "extent": [
+        135,
+        180,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02798-101": {
+      "origin": [
+        29,
+        14,
+        18
+      ],
+      "extent": [
+        131,
+        184,
+        137
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02803-100": {
+      "origin": [
+        21,
+        18,
+        13
+      ],
+      "extent": [
+        137,
+        182,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02803-101": {
+      "origin": [
+        22,
+        19,
+        13
+      ],
+      "extent": [
+        136,
+        180,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02806-100": {
+      "origin": [
+        23,
+        13,
+        17
+      ],
+      "extent": [
+        138,
+        175,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02806-101": {
+      "origin": [
+        23,
+        15,
+        17
+      ],
+      "extent": [
+        137,
+        171,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02810-100": {
+      "origin": [
+        23,
+        14,
+        14
+      ],
+      "extent": [
+        132,
+        194,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02810-101": {
+      "origin": [
+        24,
+        15,
+        13
+      ],
+      "extent": [
+        131,
+        200,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02834-100": {
+      "origin": [
+        19,
+        20,
+        18
+      ],
+      "extent": [
+        139,
+        178,
+        130
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02834-101": {
+      "origin": [
+        18,
+        20,
+        13
+      ],
+      "extent": [
+        140,
+        175,
+        135
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02838-100": {
+      "origin": [
+        20,
+        27,
+        13
+      ],
+      "extent": [
+        142,
+        158,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02838-101": {
+      "origin": [
+        20,
+        27,
+        19
+      ],
+      "extent": [
+        141,
+        157,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02842-100": {
+      "origin": [
+        22,
+        9,
+        13
+      ],
+      "extent": [
+        136,
+        181,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02842-101": {
+      "origin": [
+        22,
+        11,
+        13
+      ],
+      "extent": [
+        136,
+        178,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02854-100": {
+      "origin": [
+        20,
+        5,
+        13
+      ],
+      "extent": [
+        144,
+        186,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02854-101": {
+      "origin": [
+        21,
+        5,
+        13
+      ],
+      "extent": [
+        142,
+        187,
+        135
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02857-100": {
+      "origin": [
+        19,
+        16,
+        13
+      ],
+      "extent": [
+        141,
+        179,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02857-101": {
+      "origin": [
+        19,
+        17,
+        13
+      ],
+      "extent": [
+        140,
+        176,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02858-100": {
+      "origin": [
+        31,
+        25,
+        13
+      ],
+      "extent": [
+        125,
+        164,
+        123
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02858-101": {
+      "origin": [
+        32,
+        25,
+        13
+      ],
+      "extent": [
+        123,
+        166,
+        122
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02860-100": {
+      "origin": [
+        26,
+        15,
+        13
+      ],
+      "extent": [
+        131,
+        165,
+        130
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02860-101": {
+      "origin": [
+        27,
+        15,
+        13
+      ],
+      "extent": [
+        130,
+        165,
+        127
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02863-100": {
+      "origin": [
+        21,
+        11,
+        14
+      ],
+      "extent": [
+        143,
+        182,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02863-101": {
+      "origin": [
+        22,
+        13,
+        13
+      ],
+      "extent": [
+        141,
+        178,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02865-100": {
+      "origin": [
+        20,
+        16,
+        14
+      ],
+      "extent": [
+        143,
+        177,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02865-101": {
+      "origin": [
+        21,
+        17,
+        13
+      ],
+      "extent": [
+        141,
+        175,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02871-100": {
+      "origin": [
+        28,
+        17,
+        15
+      ],
+      "extent": [
+        131,
+        178,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02871-101": {
+      "origin": [
+        28,
+        17,
+        13
+      ],
+      "extent": [
+        129,
+        176,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02878-100": {
+      "origin": [
+        28,
+        11,
+        13
+      ],
+      "extent": [
+        137,
+        183,
+        131
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02878-101": {
+      "origin": [
+        29,
+        12,
+        13
+      ],
+      "extent": [
+        135,
+        181,
+        131
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02885-100": {
+      "origin": [
+        21,
+        21,
+        14
+      ],
+      "extent": [
+        146,
+        172,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02885-101": {
+      "origin": [
+        22,
+        21,
+        13
+      ],
+      "extent": [
+        143,
+        172,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02887-100": {
+      "origin": [
+        24,
+        19,
+        13
+      ],
+      "extent": [
+        140,
+        174,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02887-101": {
+      "origin": [
+        25,
+        20,
+        13
+      ],
+      "extent": [
+        137,
+        173,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02891-100": {
+      "origin": [
+        17,
+        19,
+        14
+      ],
+      "extent": [
+        149,
+        177,
+        137
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02891-101": {
+      "origin": [
+        18,
+        18,
+        13
+      ],
+      "extent": [
+        146,
+        180,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02892-100": {
+      "origin": [
+        24,
+        14,
+        21
+      ],
+      "extent": [
+        137,
+        186,
+        136
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02892-101": {
+      "origin": [
+        25,
+        13,
+        20
+      ],
+      "extent": [
+        135,
+        185,
+        136
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02897-100": {
+      "origin": [
+        21,
+        9,
+        16
+      ],
+      "extent": [
+        143,
+        181,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02897-101": {
+      "origin": [
+        21,
+        10,
+        17
+      ],
+      "extent": [
+        142,
+        182,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02917-100": {
+      "origin": [
+        18,
+        13,
+        14
+      ],
+      "extent": [
+        148,
+        176,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02917-101": {
+      "origin": [
+        19,
+        15,
+        14
+      ],
+      "extent": [
+        146,
+        173,
+        138
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02920-100": {
+      "origin": [
+        28,
+        17,
+        13
+      ],
+      "extent": [
+        140,
+        177,
+        133
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02920-101": {
+      "origin": [
+        29,
+        19,
+        13
+      ],
+      "extent": [
+        138,
+        176,
+        129
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02939-100": {
+      "origin": [
+        24,
+        12,
+        17
+      ],
+      "extent": [
+        138,
+        188,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02939-101": {
+      "origin": [
+        25,
+        13,
+        14
+      ],
+      "extent": [
+        136,
+        185,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02949-100": {
+      "origin": [
+        28,
+        12,
+        20
+      ],
+      "extent": [
+        135,
+        183,
+        133
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02949-101": {
+      "origin": [
+        29,
+        14,
+        13
+      ],
+      "extent": [
+        133,
+        179,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02958-100": {
+      "origin": [
+        18,
+        24,
+        13
+      ],
+      "extent": [
+        133,
+        153,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02958-101": {
+      "origin": [
+        19,
+        26,
+        13
+      ],
+      "extent": [
+        131,
+        149,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02960-100": {
+      "origin": [
+        22,
+        13,
+        13
+      ],
+      "extent": [
+        136,
+        185,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02960-101": {
+      "origin": [
+        23,
+        15,
+        13
+      ],
+      "extent": [
+        135,
+        183,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02968-100": {
+      "origin": [
+        27,
+        11,
+        22
+      ],
+      "extent": [
+        133,
+        185,
+        129
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02968-101": {
+      "origin": [
+        28,
+        10,
+        13
+      ],
+      "extent": [
+        131,
+        190,
+        135
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02989-100": {
+      "origin": [
+        20,
+        24,
+        13
+      ],
+      "extent": [
+        136,
+        164,
+        131
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02989-101": {
+      "origin": [
+        21,
+        24,
+        13
+      ],
+      "extent": [
+        134,
+        161,
+        130
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02993-100": {
+      "origin": [
+        27,
+        17,
+        13
+      ],
+      "extent": [
+        129,
+        171,
+        143
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02993-101": {
+      "origin": [
+        28,
+        18,
+        13
+      ],
+      "extent": [
+        127,
+        169,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02997-100": {
+      "origin": [
+        23,
+        11,
+        29
+      ],
+      "extent": [
+        130,
+        171,
+        129
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02997-101": {
+      "origin": [
+        24,
+        12,
+        13
+      ],
+      "extent": [
+        127,
+        169,
+        144
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02999-100": {
+      "origin": [
+        20,
+        24,
+        19
+      ],
+      "extent": [
+        143,
+        169,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-02999-101": {
+      "origin": [
+        21,
+        21,
+        14
+      ],
+      "extent": [
+        140,
+        172,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03008-100": {
+      "origin": [
+        21,
+        12,
+        13
+      ],
+      "extent": [
+        142,
+        192,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03008-101": {
+      "origin": [
+        22,
+        13,
+        13
+      ],
+      "extent": [
+        140,
+        189,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03009-100": {
+      "origin": [
+        25,
+        14,
+        19
+      ],
+      "extent": [
+        137,
+        155,
+        139
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03009-101": {
+      "origin": [
+        26,
+        17,
+        19
+      ],
+      "extent": [
+        134,
+        151,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03014-100": {
+      "origin": [
+        21,
+        14,
+        13
+      ],
+      "extent": [
+        144,
+        187,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03014-101": {
+      "origin": [
+        21,
+        16,
+        13
+      ],
+      "extent": [
+        143,
+        184,
+        142
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03019-100": {
+      "origin": [
+        28,
+        15,
+        13
+      ],
+      "extent": [
+        135,
+        185,
+        149
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03019-101": {
+      "origin": [
+        28,
+        15,
+        13
+      ],
+      "extent": [
+        135,
+        185,
+        147
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03028-100": {
+      "origin": [
+        22,
+        24,
+        22
+      ],
+      "extent": [
+        139,
+        162,
+        136
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03028-101": {
+      "origin": [
+        23,
+        25,
+        24
+      ],
+      "extent": [
+        137,
+        160,
+        133
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03051-100": {
+      "origin": [
+        28,
+        19,
+        13
+      ],
+      "extent": [
+        128,
+        160,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03051-101": {
+      "origin": [
+        27,
+        17,
+        13
+      ],
+      "extent": [
+        128,
+        165,
+        140
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03051-102": {
+      "origin": [
+        28,
+        18,
+        13
+      ],
+      "extent": [
+        127,
+        163,
+        141
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03054-100": {
+      "origin": [
+        22,
+        11,
+        13
+      ],
+      "extent": [
+        141,
+        177,
+        146
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03054-101": {
+      "origin": [
+        22,
+        12,
+        13
+      ],
+      "extent": [
+        140,
+        178,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    },
+    "BraTS-GLI-03054-102": {
+      "origin": [
+        21,
+        12,
+        13
+      ],
+      "extent": [
+        141,
+        178,
+        145
+      ],
+      "native_shape": [
+        182,
+        218,
+        182
+      ]
+    }
+  },
+  "build_seconds": 692.22,
+  "images_sha256": "cf834d2b4e6cdaa414689c8723d532178980f6ad459324d13a903321f1064888",
+  "labels_sha256": "ecb28a45607d54cf453ece3208ef8261ea30f496e747f919242ac1172445f222",
+  "split": "test",
+  "test_access": true,
+  "builder": "scripts/build_t1ce_wt_braincrop_cache.py"
+}

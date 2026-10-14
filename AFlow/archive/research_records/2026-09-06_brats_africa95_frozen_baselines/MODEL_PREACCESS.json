@@ -1,0 +1,18 @@
+{
+  "schema": "aflow.brats_africa95.model_preaccess",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T01:52:00Z",
+  "status": "frozen_after_cache_before_model_inference",
+  "scope": "one-time public post-challenge 95_Glioma; institution-disjoint, not hidden blind, no result-dependent repeat",
+  "cohort_sha256": "a2ce66d546b43e3bc03242a51827a155c7601956b1af52eefddb4fe99a72c449",
+  "source_download_sha256": "f5c129efcf073f24f39f94129e85f3e81c5614f67eb522ead651feac9a30324f",
+  "amendment_receipt_sha256": "b23f3d313f3d7c2f6779429851a8b77815e42768a9505d23cce5d56a7bbc56a7",
+  "cache": {"path": "/tmp/aflow-brats-africa95-cache-20260906", "receipt_sha256": "a9efa53d56b5087ab8d56ad4f69bd808b6e51d8cae70aefc372a59417e341497", "index_sha256": "1493bfde0e82309c3bfc73e2b2b9e1ab631921a6aeb988288f16ddbd9cba1c2e", "images_sha256": "f95959ac50335185d3ec89a777bbef8ac85d54328ebbd53bc434a3a69967ff82", "labels_sha256": "9e937ca9481c9f0661e666f478ba0f860b87d1bf689a54d09d3f70cc3e90b05b", "cases": 95, "subjects": 95, "raw_label_union": [0,1,2,3]},
+  "models": [
+    {"identifier": "full972_random_init_voxel_kd_epoch168", "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b", "views": ["identity", "flip8"]},
+    {"identifier": "gcsam_fit864_inner_selected_epoch184", "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d", "views": ["identity"]}
+  ],
+  "evaluator_sha256": "a09fc77f92ebc5cce1e3d35e32c835058bd8f048c5a1938c4426968f20aedc28",
+  "protocol": {"target": "preoperative WT=all positive", "threshold": 0.0, "forwards": 855, "sam": false, "postprocessing": false, "performance_gate": null, "repeat": false},
+  "access": {"source_arrays": true, "label_values": true, "model_inference": false, "prediction_metrics": false, "internal_test270": false, "fixed_validation108": false, "outer": false, "confirmation": false, "ucsd75": false}
+}

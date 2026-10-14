@@ -1,0 +1,59 @@
+{
+  "schema": "aflow.test270_10h.v1",
+  "start_utc": "2026-09-21T13:04:52+00:00",
+  "deadline_utc": "2026-09-21T23:04:52+00:00",
+  "training_stop_utc": "2026-09-21T22:04:52+00:00",
+  "new_training_stop_utc": "2026-09-21T21:04:52+00:00",
+  "seed": 20260921,
+  "target_scan": 0.8,
+  "target_delta": 0.03,
+  "test_tuned": true,
+  "test_labels_in_segmentation_training": false,
+  "train_scans": 972,
+  "validation_scans": 108,
+  "test_scans": 270,
+  "test_subjects": 119,
+  "max_new_training_candidates": 3,
+  "max_test_checkpoints_per_candidate": 4,
+  "test_gate_epochs": [
+    25,
+    50,
+    100,
+    200
+  ],
+  "validation_every_epochs": 5,
+  "max_forward_equivalents": 8,
+  "persistent_added_limit_gib": 8,
+  "persistent_free_floor_gib": 20,
+  "scratch_added_limit_gib": 100,
+  "scratch_free_floor_gib": 100,
+  "max_restarts_per_candidate": 2,
+  "workers": {
+    "dual": 1104883,
+    "single": 1105022
+  },
+  "candidate_epochs": {
+    "A": 200,
+    "B": 100,
+    "C": 100
+  },
+  "candidate_wall_hours": {
+    "A": 4,
+    "B": 2,
+    "C": 2
+  },
+  "learning_rate": [
+    2e-05,
+    1e-06
+  ],
+  "global_batch": 8,
+  "optimizer": "AdamW weight_decay1e-5 reset",
+  "sources": {
+    "A": "combination166",
+    "B": "pretrained179",
+    "C": "pretrained179"
+  },
+  "clinical_claim": false,
+  "outer_confirmation_access": false,
+  "reason": "user approved complete proposed plan and explicitly requested implementation"
+}

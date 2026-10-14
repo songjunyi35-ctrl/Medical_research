@@ -1,0 +1,240 @@
+{
+  "analysis": {
+    "1": {
+      "case_paired": {
+        "improved": 90,
+        "tie": 0,
+        "tie_tolerance": 0.0,
+        "worse": 18
+      },
+      "scan_macro": {
+        "candidate_dsc_mean": 0.5044827951149315,
+        "difference": 0.0583143031523525,
+        "reference_dsc_mean": 0.446168491962579
+      },
+      "subject_balanced": {
+        "candidate_dsc_mean": 0.5036705170733057,
+        "difference": 0.062021147895073174,
+        "reference_dsc_mean": 0.4416493691782325,
+        "subjects": 50
+      },
+      "subject_level_paired_bootstrap": {
+        "ci": [
+          0.04445806227853422,
+          0.08042231180159885
+        ],
+        "confidence_level": 0.95,
+        "interval_method": "percentile_linear",
+        "iterations": 10000,
+        "seed": 20260724,
+        "statistic": "mean within-subject candidate-minus-reference DSC",
+        "unit": "subject"
+      },
+      "subject_paired": {
+        "improved": 45,
+        "tie": 0,
+        "tie_tolerance": 0.0,
+        "worse": 5
+      }
+    },
+    "2": {
+      "case_paired": {
+        "improved": 80,
+        "tie": 0,
+        "tie_tolerance": 0.0,
+        "worse": 28
+      },
+      "scan_macro": {
+        "candidate_dsc_mean": 0.5133647903638395,
+        "difference": 0.03956141127437229,
+        "reference_dsc_mean": 0.47380337908946724
+      },
+      "subject_balanced": {
+        "candidate_dsc_mean": 0.5111402188373205,
+        "difference": 0.04103352612430919,
+        "reference_dsc_mean": 0.4701066927130113,
+        "subjects": 50
+      },
+      "subject_level_paired_bootstrap": {
+        "ci": [
+          0.02728442540253751,
+          0.054893618207086964
+        ],
+        "confidence_level": 0.95,
+        "interval_method": "percentile_linear",
+        "iterations": 10000,
+        "seed": 20260724,
+        "statistic": "mean within-subject candidate-minus-reference DSC",
+        "unit": "subject"
+      },
+      "subject_paired": {
+        "improved": 43,
+        "tie": 0,
+        "tie_tolerance": 0.0,
+        "worse": 7
+      }
+    },
+    "3": {
+      "case_paired": {
+        "improved": 81,
+        "tie": 0,
+        "tie_tolerance": 0.0,
+        "worse": 27
+      },
+      "scan_macro": {
+        "candidate_dsc_mean": 0.524430512828075,
+        "difference": 0.04282911602295166,
+        "reference_dsc_mean": 0.4816013968051233
+      },
+      "subject_balanced": {
+        "candidate_dsc_mean": 0.5214101623252374,
+        "difference": 0.042905135329893096,
+        "reference_dsc_mean": 0.47850502699534425,
+        "subjects": 50
+      },
+      "subject_level_paired_bootstrap": {
+        "ci": [
+          0.025862911672902784,
+          0.0630796007586718
+        ],
+        "confidence_level": 0.95,
+        "interval_method": "percentile_linear",
+        "iterations": 10000,
+        "seed": 20260724,
+        "statistic": "mean within-subject candidate-minus-reference DSC",
+        "unit": "subject"
+      },
+      "subject_paired": {
+        "improved": 42,
+        "tie": 0,
+        "tie_tolerance": 0.0,
+        "worse": 8
+      }
+    }
+  },
+  "comparison": {
+    "candidate": {
+      "model": {
+        "adapter_config": {
+          "encoder_qv_lora": {
+            "alpha": 8.0,
+            "blocks": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "enabled": true,
+            "projections": [
+              "q",
+              "v"
+            ],
+            "rank": 4
+          },
+          "model_type": "vit_b_ori",
+          "schema_version": 1,
+          "target_token": {
+            "embedding_dim": 384,
+            "enabled": false,
+            "vocab": [
+              "tumor_WT",
+              "tumor_TC",
+              "tumor_ET",
+              "label_SNFH",
+              "label_RC",
+              "label_NETC"
+            ]
+          }
+        },
+        "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/sam_model_val_dice_best.pth",
+        "checkpoint_sha256": "c1d1bd79791aa7beeffc541095472dec968630cc70ea7967128c86552bd7f1ec",
+        "model_type": "vit_b_ori"
+      },
+      "report": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/INDEPENDENT_RELOAD_VAL108_E33_S20260723_CPU_PAIR.json",
+      "report_sha256": "83c726baa0ea02f1eedae57591644fafd64f053a08cf2b61de4f1e42457fe577"
+    },
+    "direction": "candidate_minus_reference",
+    "reference": {
+      "model": {
+        "adapter_config": {
+          "encoder_qv_lora": {
+            "alpha": 8.0,
+            "blocks": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "enabled": false,
+            "projections": [
+              "q",
+              "v"
+            ],
+            "rank": 0
+          },
+          "model_type": "vit_b_ori",
+          "schema_version": 1,
+          "target_token": {
+            "embedding_dim": 384,
+            "enabled": false,
+            "vocab": [
+              "tumor_WT",
+              "tumor_TC",
+              "tumor_ET",
+              "label_SNFH",
+              "label_RC",
+              "label_NETC"
+            ]
+          }
+        },
+        "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_rank0_matched_aug_train972_val108_e50_s20260725/sam_model_val_dice_best.pth",
+        "checkpoint_sha256": "7a25d0268799bdfffc626eacecb2a319a51d8127460143e7c6af3e8d4b532cf9",
+        "model_type": "vit_b_ori"
+      },
+      "report": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_rank0_matched_aug_train972_val108_e50_s20260725/INDEPENDENT_RELOAD_VAL108_E32_S20260723_CPU_PAIR.json",
+      "report_sha256": "59c69d7b5adf47327ea75d55c9edd1d928bd51af39bd9482db4e0511da6fc2e8"
+    }
+  },
+  "created_at_utc": "2026-07-24T19:32:46.656430+00:00",
+  "schema": "aflow.sammed3d.t1ce_wt_paired_validation_analysis",
+  "schema_version": 1,
+  "validation_contract": {
+    "case_and_subject_mapping_exact_match": true,
+    "cases": 108,
+    "complete_manifest_required": true,
+    "evaluation_seed": 20260723,
+    "expected_split": "validation",
+    "manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+    "protocol": {
+      "clicks": "click1 uniform GT foreground; click2/3 uniform XOR error; FN positive, FP negative",
+      "geometry": "canonical whole-volume resize to 128^3; no GT localization",
+      "input": "T1ce single channel",
+      "mask_prompt": "previous low-resolution mask recurrently supplied",
+      "normalization": "source nonzero-voxel population z-score exactly once",
+      "num_clicks": 3,
+      "prompt_history": "all points accumulated",
+      "spatial_preprocessing": "whole_resize",
+      "target": "WT = raw labels {1,2,3}; RC label 4 excluded",
+      "threshold": "raw logit > 0"
+    },
+    "report_schema": "aflow.sammed3d.t1ce_wt_checkpoint_evaluation",
+    "report_schema_version": 2,
+    "subjects": 50
+  }
+}

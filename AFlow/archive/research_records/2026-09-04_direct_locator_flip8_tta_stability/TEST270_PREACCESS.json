@@ -1,0 +1,107 @@
+{
+  "access": {
+    "confirmation": false,
+    "fit": true,
+    "fixed_validation108": false,
+    "inner_metrics": true,
+    "outer": false,
+    "test270": false,
+    "ucsd_external75": false
+  },
+  "archived_identity_report": {
+    "expected": {
+      "cases": 270,
+      "point_hits": 262,
+      "scan_dice": 0.7517595372128266,
+      "subject_dice": 0.7373271071260759,
+      "subjects": 119
+    },
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/FULLTRAJECTORY_TEST270.json",
+    "required_parity": "exact full summary and per-case equality before candidate publication",
+    "sha256": "9827a75b88dc9239902c7e473a7d75e2d6058f4f515bfd2b4d93003ba7bd34cd"
+  },
+  "authorization": "user-authorized leaderboard objective after all preregistered Stage A gates passed",
+  "bootstrap": {
+    "absolute_seed": 20260817,
+    "method": "percentile bootstrap",
+    "paired_seed": 20261207,
+    "samples": 10000
+  },
+  "checkpoint": {
+    "epoch": 168,
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/final_formal_full972_candidate/plain_fulltrajectory_full972_candidate_epoch168.pth",
+    "sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b"
+  },
+  "created_at_utc": "2026-09-04T11:33:25.520614+00:00",
+  "evaluator": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_t1ce_wt_flip8_tta_test270.py",
+    "sha256": "61ea97bd0b60e65140aa40d93b643f86bd28df1a709ad18c3a4a828d554ad037"
+  },
+  "evidence_label": "post-test development; reused internal test; not pristine blind; not external",
+  "one_run_limit": true,
+  "result_must_not_trigger_view_weight_threshold_checkpoint_or_postprocessing_tuning": true,
+  "schema": "aflow.brats.flip8_tta.test270_preaccess",
+  "schema_version": 1,
+  "stage_a": {
+    "inner_preaccess_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/INNER_PREACCESS.json",
+    "inner_preaccess_sha256": "b2e3cf16ce7b246fccc5d376ca8a8f9e0afa6aa3ee2a7d5e93e846b464370a4f",
+    "report_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip8_tta_stability_20260904/STAGE_A_INNER.json",
+    "report_sha256": "d516f3ad2fdb53ee0de4872596c331d772c935ec0b116dd1a9881e0cc6dcff68",
+    "test270_authorized": true
+  },
+  "status": "frozen_after_stage_a_pass_before_test270_access",
+  "success_gates": {
+    "flip8_point_hits_at_least": 261,
+    "flip8_scan_strictly_above_current_leader": 0.752003176,
+    "flip8_scan_strictly_above_identity": 0.7517595372128266,
+    "flip8_subject_at_least_identity": 0.7373271071260759
+  },
+  "test270": {
+    "cache_index_sha256": "41bd6cf44553b8d156de49f2c57bb424cab60cfa26c06881bdfb96ff91de39d3",
+    "cache_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/test270",
+    "cases": 270,
+    "manifest_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/sealed_test/test_cases_t1ce.jsonl",
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "subjects": 119
+  },
+  "test_output": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/flip8_tta_stability_20260904/FLIP8_TEST270.json",
+  "tta": {
+    "aggregation": "ordered float32 mean of inverse-reflected raw logits",
+    "axes": [
+      [],
+      [
+        -1
+      ],
+      [
+        -2
+      ],
+      [
+        -2,
+        -1
+      ],
+      [
+        -3
+      ],
+      [
+        -3,
+        -1
+      ],
+      [
+        -3,
+        -2
+      ],
+      [
+        -3,
+        -2,
+        -1
+      ]
+    ],
+    "batch_size": 8,
+    "forwards_per_case": 8,
+    "identity_is_first_atom": true,
+    "point": "argmax mean raw logit",
+    "postprocessing": false,
+    "sam": false,
+    "threshold": 0.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "aflow.prereg.residual_refiner_robustshift4_ensemble_tta_validation",
+  "created_date_utc": "2026-08-13",
+  "status": "frozen_before_validation_inference",
+  "test_access": false,
+  "motivation": {
+    "three_model_raw_dsc": 0.697902396428446,
+    "three_model_locked_postprocess_dsc": 0.6998133857367098,
+    "distance_to_target": 0.0001866142632902,
+    "prior_single_model_tta_raw_gain": 0.0005780392805360135
+  },
+  "members": [
+    {
+      "seed": 20260813,
+      "sha256": "011a7b0f4a9ee193883662f03fc6d8a54cef9fd3b4c08c2871cdddbdfbe73f6a"
+    },
+    {
+      "seed": 20260814,
+      "sha256": "c94f32c04cb89f51e1b83ae157bbce1d89371aa21b4267164e1ed645fa4d4cbc"
+    },
+    {
+      "seed": 20260815,
+      "sha256": "c5d2b48db2666f097cb0d86e78c20ea95d163c07f98401714d25d755e99aceb0"
+    }
+  ],
+  "inference": {
+    "reflections": "all 8 combinations over the three spatial axes",
+    "aggregation": "equal float32 arithmetic mean over all 3 x 8 = 24 inverse-reflected logits",
+    "raw_prediction": "mean logit > 0",
+    "locked_postprocess_prediction": "mean logit > -1 followed by removal of components below 500 voxels",
+    "new_threshold_search": false,
+    "uses_label": false
+  },
+  "target": "108-case validation scan-macro Dice strictly above 0.70",
+  "code": {
+    "runner_sha256": "4ca7020c9fcd2ed98626f45acdbf57bd9b629f51dad1bc450cfd8ffed6ef46ef",
+    "unit_test_sha256": "05957534a50eeb5abb741aadfe5fca2c0a318edd24619235f8f8ac2d3db7f602",
+    "unit_test_result": "1 passed"
+  },
+  "claim_policy": "Report raw and locked-postprocess results separately; do not access test."
+}

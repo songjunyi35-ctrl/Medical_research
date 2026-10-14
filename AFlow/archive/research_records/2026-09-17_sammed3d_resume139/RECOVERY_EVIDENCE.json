@@ -1,0 +1,19 @@
+{
+  "utc": "2026-09-17T02:37:28.883182+00:00",
+  "observed_events": [
+    {
+      "event": "amp_same_batch_replay",
+      "attempt": 1,
+      "scale_before": 65536.0,
+      "scale_after": 32768.0,
+      "optimizer_updated": false
+    }
+  ],
+  "subsequent_finite_steps_observed": 60,
+  "root_cause_evidence": "gradient nonfinite at scale65536; same-batch replay scale32768 succeeded, supporting scale overflow rather than corrupt checkpoint",
+  "learning_rate_loss_batch_unchanged": true,
+  "failed_prior_partial_epoch_not_counted_as_complete": true,
+  "additional_cost_scope": "prior failed partial epoch and synthetic checks are extra compute outside completed-epoch training totals",
+  "smoke_cleanup_sha256": "8d61358f7016c7eb3ba25e942b1f02f0156e681c98f16c34ba885d309cdd2f99",
+  "test_access": false
+}

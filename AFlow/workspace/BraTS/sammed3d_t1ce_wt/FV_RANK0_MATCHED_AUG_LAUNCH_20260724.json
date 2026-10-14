@@ -1,0 +1,37 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt.fv_rank0_matched_aug_launch",
+  "schema_version": 1,
+  "launched_at_utc": "2026-07-24T03:41:28Z",
+  "status_at_record": "running_epoch_1",
+  "worker": {
+    "id": "1009989",
+    "gpu": "NVIDIA A10",
+    "pid": 275929
+  },
+  "development_boundary": {
+    "train_cases": 972,
+    "validation_cases": 108,
+    "external_holdout_access": false,
+    "automatic_holdout_watcher": false,
+    "selection_data": "108-case subject-clean validation only"
+  },
+  "frozen_inputs": {
+    "preregistration": {
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/FV_RANK0_MATCHED_AUG_PREREG_20260724_V2.json",
+      "sha256": "1d16037d09631f04b3a2f38a3ce186febf575eced539ed90bb737a0609a0d553"
+    },
+    "preflight": {
+      "path": "scripts/preflight_sammed3d_t1ce_rank0_matched_v2.py",
+      "sha256": "1f40081ebe829fad8df35ee50757d1c623f4426e524585c3749acede1fcc5853"
+    },
+    "launcher": {
+      "path": "scripts/launch_sammed3d_t1ce_rank0_matched_a10_v2.sh",
+      "sha256": "6d9cc84679bed8474d8f427543bf731602a06ca6b9084608429bffc5f4b45bf8"
+    },
+    "base_checkpoint_sha256": "899a46d04d3b70f723282ceb489149373558bf0aaba389a346f5ab57da5cdd3c",
+    "train_manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "validation_manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c"
+  },
+  "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/fv_rank0_matched_aug_train972_val108_e50_s20260725",
+  "matched_difference": "FV-LoRA-Aug rank 4 to frozen encoder rank 0; all other preregistered training fields identical"
+}

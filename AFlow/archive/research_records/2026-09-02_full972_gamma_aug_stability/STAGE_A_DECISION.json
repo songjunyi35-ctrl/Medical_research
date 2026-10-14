@@ -1,0 +1,23 @@
+{
+  "schema": "aflow.brats.t1ce_wt_gamma_aug_stage_a_decision",
+  "schema_version": 1,
+  "status": "passed",
+  "full972_final_authorized": true,
+  "cohort": {"role": "fresh_train_only_inner", "scans": 108, "subjects": 52, "fit_scans": 864, "fit_subjects": 392},
+  "control": {"scan": 0.7022047244288303, "subject": 0.704525663380958, "point_hits": 100},
+  "candidate": {"scan": 0.7083561955692453, "subject": 0.7100959860115063, "point_hits": 101},
+  "candidate_minus_control": {
+    "scan": 0.006151471140415028,
+    "scan_95ci": [-0.0015532177424541225, 0.014806706428579572],
+    "subject": 0.005570322630548297,
+    "subject_95ci": [-0.001596281442044117, 0.01345299764838233],
+    "point_hits": 1,
+    "scans_improved_worse_tied": [48, 60, 0],
+    "subjects_improved_worse_tied": [25, 27, 0]
+  },
+  "gates": {"passed": 6, "failed": 0, "all_gates_passed": true},
+  "gamma_audit": {"total_samples": 162624, "applied_samples": 49151, "applied_fraction": 0.302237062180244, "gamma_min": 0.7000014185905457, "gamma_max": 1.4999827146530151, "max_mean_abs_error": 3.203749656677246e-07, "max_population_std_abs_error": 1.1920928955078125e-07},
+  "evidence": {"raw_inner_sha256": "14aee9fd3bf9d9e0d610ca2f2bc1d3da1dc9104b0720b9be439b856b75daca0d", "started_sha256": "6066d490a4acd1eeed3b31641668e15f087294201c0510aece8ab470879ba531", "preaccess_sha256": "9528b6e7d9d71dc7c28ed7ac26593a4d89f073275a20d6758be898ae6e965bfa"},
+  "interpretation": "Gamma improved all three point estimates; Dice CIs cross zero but both lower bounds exceed the frozen -0.003 safety margin, so fresh paired Full972 final is authorized.",
+  "access": {"train_only_inner": true, "fixed_validation108": false, "outer": false, "confirmation": false, "test270": false}
+}

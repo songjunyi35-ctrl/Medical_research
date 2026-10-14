@@ -1,0 +1,17 @@
+{
+  "schema": "aflow.utsw_primary_fets_otsu_n4_input_bridge.result",
+  "status": "passed_input_only_fixed_three",
+  "cohort": {"subjects": ["BT0001", "BT0002", "BT0003"], "cases": 3},
+  "protocol": {"image": "brain_t1ce.nii.gz", "label": "rtumorseg_manual_correction.nii.gz", "target": "all positive UTSW labels form WT", "n4_fit_mask": "OtsuThreshold(full image,0,1,200)", "processes": 2, "simpleitk_threads_per_process": 1, "output_shape": [128, 128, 128]},
+  "gates": {"cross_process_image_exact": "3/3", "cross_process_label_exact": "3/3", "cross_process_geometry_exact": "3/3", "fit_mask_exact": "3/3", "label_geometry_exact_vs_no_n4": "3/3", "image_different_vs_no_n4": "3/3", "label_geometry_exact_vs_canonical": "3/3", "image_different_vs_canonical": "3/3"},
+  "fit_voxels": {"BT0001": 1338299, "BT0002": 1499055, "BT0003": 1431390},
+  "full_positive_voxels": {"BT0001": 1370681, "BT0002": 1519442, "BT0003": 1470146},
+  "elapsed_seconds": 371.255103,
+  "input_qc_sha256": "55b7331695fcdb80723d68c4ed0377d275cab547d2b8f2f52b2a8448fd58a82c",
+  "copy_a_qc_sha256": "eda0243f2dd685d3921d6b3f7805f88301a6bd3786031de3ac624654474178ab",
+  "copy_b_qc_sha256": "d0f19d626811b0a995f2e7d7981229ffa8b47f063fe2ad17a4ba9194d274fc12",
+  "preaccess_sha256": "4db832fd22835f487a818383e8116df85c89b3cfb35f9b6a8aaa7b79d38198f8",
+  "implementation_sha256": "02a3f7d511a03bd44735c45f0063fac7e03630a4f388adcafdeb614677974e01",
+  "access": {"subjects_accessed": 3, "remaining_utsw_subjects_accessed": false, "model_inference": false, "gpu_access": false, "old_cohort_accessed": false},
+  "authorization": "Pass supports only a future separately preregistered Otsu-vs-canonical full-362 path; no full download/model evaluation authorized."
+}

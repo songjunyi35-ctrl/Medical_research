@@ -1,0 +1,24 @@
+{
+  "utc": "2026-09-18T06:07:57.075017+00:00",
+  "user_instruction": "观察到50轮和上次实验对比就行，到时候如果发现没区别就不要训完，节省时间",
+  "status": "frozen_before_candidate_epoch50",
+  "target_epoch": 50,
+  "training_epoch_when_set": 37,
+  "original_freeze_sha256": "ea82a06370396ce6eab18328cd0279901dc38cb6e1a6f69247b296ea4d54a872",
+  "files": {
+    "scripts/guard_segresnet_no_n4_epoch50.py": "9a06ee67704ba0e59185b154e4f322e7570956c18525be0d2df00ad79bde830a",
+    "tests/test_segresnet_epoch50_guard.py": "4ac36afde33b4752e1f6225bbd577fa4253b59fcec37ac8a056dd68b417dd6d7",
+    "archive/research_records/2026-09-18_segresnet_plain972_no_n4/EPOCH50_REVIEW/AMENDMENT.md": "432648f22b47dfac9d8f96ee49607f569c0a5b47f9e9624c39c40561c855f55e",
+    "archive/research_records/2026-09-18_segresnet_plain972_no_n4/EPOCH50_REVIEW/UNIT_TESTS.json": "3e390483ba4914b6198e5d555513d7bb0e8ae446735d2907998f40a45da853e5"
+  },
+  "delta_definition": "noN4 minus N4 same epoch50 reused validation108",
+  "clear_difference_gate": {
+    "absolute_scan_delta_min": 0.01,
+    "paired_ci_excludes_zero": true,
+    "recent41_to50_mean_same_direction": true
+  },
+  "otherwise": "stop at50; no clear difference, not equivalence",
+  "if_clear": "continue unchanged original200 schedule",
+  "test_access": false,
+  "adaptive_after_early_validation": true
+}

@@ -1,0 +1,222 @@
+# AFlow BraTS T1ce/WT Leaderboard
+
+更新时间：2026-09-07 UTC
+
+这是项目唯一的快速排行榜入口。详细实验解释、因果边界和哈希以各自归档为准。不同cohort、数据角色、定位权限和交互协议不得混排。
+
+2026-09-05来源补记：最近Flip8 A/B与镜像一致训练C/D的“fresh inner”仅指学生fit隔离及新划分；固定history/EMA教师的756例训练集与四个inner分别重叠87/72/88/72 scans（39/33/39/37 subjects），所以不具备教师—学生全链路患者隔离。存在间接信息泄漏风险，偏差大小尚未量化；不改变已保存测试点估计/区间，也不撤销UCSD75与项目患者差集结论。[清单审计](archive/reviews/2026-09-05_30h_chain_audit/TEACHER_INNER_EXPOSURE.json)。
+
+所有继承checkpoint还有共同训练源限制：本地BraTS2024来自Kaggle mirror，官方Synapse corrected-v2 zip/member字节parity尚未完成；UCSD/Africa/CPTAC/WAW外部源核验不会反向消除这个caveat。[来源复查](archive/reviews/2026-09-05_brats2024_source_provenance_recheck/RESULT.md)。
+
+## 指标定义
+
+- **Scan Dice**：每个scan的Dice等权平均；多时间点subject会贡献多行。
+- **Subject Dice**：先在每个subject内平均scan Dice，再对subject等权平均。
+- **Point hit**：plain locator全体素最高raw-logit坐标是否落在GT WT内。
+- `1×/2×/8×`表示locator forward数量或近似体素成本，不包含NIfTI预处理。
+
+## External UCSD-PTGBM75：同一患者隔离cohort的两种输入来源版本
+
+全75例官方直接来源核验显示：150/150几何一致、75/75源标签数组相等；官方图像全部float32、镜像全部uint8、0/75源图像数组相等，共18,156个官方非零体素被量化成零。[完整来源更正](archive/reviews/2026-09-05_30h_chain_audit/UCSD_SOURCE_RESULT.md)。2026-09-06按提前冻结的“只换影像来源”协议重建官方float32 cache并一次性运行同两模型；最终75/75 crop与128³标签仍exact，128³影像0/75 exact。
+
+历史两行明确保留为Pittsburgh Fiber Data Hub `data-nih/tcia`整理的**mirror-uint8**版本；新增两行是TCIA package1019直接取得的**official-float32**版本。两种版本是相同75 scans / 53 subjects、相同源标签和相同模型，不是两个独立外部队列；official-float32纠正是在旧结果揭示后对同一cohort的重复访问，必须标为reused/not pristine blind，不能把它称作新的外部确认或用于调参。[官方映射审计](archive/reviews/2026-09-05_30h_chain_audit/UCSD_OFFICIAL_CLINICAL_MAPPING_AUDIT.json)、[来源纠正预注册](archive/research_records/2026-09-06_ucsd_official_float_source_correction/IDEA.md)。
+
+这是独立于下面internal test270的外部排名：TCIA官方主release原有136 subjects/184 studies；用官方`participants.tsv`映射后，109 scans/83 subjects已经出现在本项目1,350例BraTS union中，全部按患者剔除。这里仅保留75 scans/53 subjects，case/subject overlap均为0；官方另列的42-subject/59-study BraTS challenge test package未使用。两模型均在标签访问前冻结，外部结果没有用于调checkpoint、阈值、N4、crop、病例、ensemble或后处理。这是公开外部数据的一次性确认，不是服务器隐藏blind challenge，也不能和internal test270按数值混排。
+
+75例WT均非空，因此Point hit分母为75。原图均为256³、1mm各向同性，两版本统一经canonical RAS、N4 shrink2、image-only brain crop缩至128³；这里存在共同的128³标签rasterization caveat。训练用BraTS副本是182×218×182，故external tensor不能视为internal cache的简单复制。
+
+| 排名 | 方法 | Scan Dice（95% CI） | Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+|---:|---|---:|---:|---:|---:|---|
+| **1** | **GCSAM184，official-float32** | **`0.755889505`** `[0.717191,0.789575]` | **`0.755311886`** `[0.707990,0.796823]` | 70/75 (`0.933333`) | `1×` | 官方来源版Scan/Subject点估计第1；同cohort重复纠正，非新确认 |
+| 2 | GCSAM184，mirror-uint8 | `0.755647338` `[0.717080,0.789172]` | `0.755151670` `[0.707873,0.796526]` | **71/75 (`0.946667`)** | `1×` | 历史8位镜像行保留；四行中Point点估计最高 |
+| 3 | Full972 random-init voxel-KD168，official-float32 | `0.746255043` `[0.706178,0.782003]` | `0.740164863` `[0.688098,0.784670]` | 70/75 (`0.933333`) | `1×` | 官方来源版；同cohort重复纠正，非新确认 |
+| 4 | Full972 random-init voxel-KD168，mirror-uint8 | `0.745554128` `[0.704767,0.781595]` | `0.739054558` `[0.686028,0.784535]` | 70/75 (`0.933333`) | `1×` | 历史8位镜像行保留 |
+
+official-float32内GCSAM − Full972 KD：Scan `+0.009634462`、Subject `+0.015147023`、Point `0/75`；paired 95% CI分别为`[-0.002163,+0.025053]`/`[-0.000553,+0.035820]`。Dice点估计偏向GCSAM，但两个CI仍跨0，不能宣称显著。
+
+同模型official-float32 − mirror-uint8：GCSAM Scan/Subject/Point=`+0.000242167/+0.000160216/−1`，paired 95% CI=`[-0.001168,+0.001658]`/`[-0.000869,+0.001170]`；Full972 KD=`+0.000700915/+0.001110305/0`，CI=`[-0.000863,+0.002658]`/`[-0.000735,+0.003806]`。两模型的来源Dice区间都跨0，说明本次量化影响点估计很小且不确定；这不等于所有预处理或模型都对量化不敏感。
+
+证据：[official-float raw](archive/research_records/2026-09-06_ucsd_official_float_source_correction/RAW_OFFICIAL_FLOAT.json)、[cache比较](archive/research_records/2026-09-06_ucsd_official_float_source_correction/CACHE_COMPARISON.json)、[模型前收据](archive/research_records/2026-09-06_ucsd_official_float_source_correction/MODEL_PREACCESS.json)、[mirror-uint8 raw](workspace/BraTS/ucsd_ptgbm_external_confirmation_20260902/UCSD_EXTERNAL_CONFIRMATION.json)、[原结果归档](archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/RESULT.md)。
+
+## External BraTS-Africa95：尼日利亚四中心公开post-challenge专家胶质瘤
+
+TCIA package948公开146例×T1/T1CE/T2/FLAIR/seg；按发布者目录在任何像素/模型前固定只取`95_Glioma`，排除51例脑膜瘤、转移瘤等`OtherNeoplasms`。TCIA页面的collection级描述称六中心、challenge论文称七中心，但package datainfo对实际95例逐ID映射只有四中心：NKDC48、CRV28、MEDHUB14、LASUTH5；canonical结果以这个子集直接证据为准。四中心与BraTS2024 post-treatment七个欧美来源站机构不同；没有跨库patient-ID bridge，因此只称institution-disjoint/no-known overlap，不称ID证明的patient-disjoint。[中心来源更正](archive/research_records/2026-09-06_brats_africa95_frozen_baselines/CENTER_PROVENANCE_CORRECTION.json)
+
+这些病例原属于2023 challenge的60 train/15 validation/20 test，TCIA现已公开全部95份专家标签。本项目在任何payload前冻结三行、全95例和协议，不用其中任何部分训练/选择，合并报告为public post-challenge external95；不是隐藏blind test。标签由nnU-Net预标后，经有经验的board-certified neuroradiologist人工修订。术前WT取所有正标签；与post-treatment训练时排除resection cavity的语义不同。
+
+| 排名 | 方法 | Scan=Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+|---:|---|---:|---:|---:|---|
+| **1** | **GCSAM fit864，epoch184，identity** | **`0.591619219`** `[0.540914,0.637409]` | 84/95 (`0.884211`) | `1×` | 1× Dice点估计第1；相对Full identity的paired CI整体为正，但Point少3 |
+| 2 | Full972 KD168，固定Flip8 | `0.526437660` `[0.475646,0.577047]` | **88/95 (`0.926316`)** | `8×` | Point点估计第1；相对identity Dice小正但CI跨0 |
+| 3 | Full972 KD168，identity | `0.523002550` `[0.475502,0.567739]` | 87/95 (`0.915789`) | `1×` | 1×基线 |
+
+GCSAM identity − Full identity：Dice=`+0.068616669`，paired 95% CI=`[+0.044472,+0.092498]`，Point=`−3`；80/95例Dice改善、13例变差、2例tie。这里Dice方向很清楚，但Point目标不同，不能称三项全面更好。
+
+不用于选择的中心描述显示GCSAM−Full identity Dice在CRV/LASUTH/MEDHUB/NKDC均为正：`+0.0635/+0.0555/+0.0727/+0.0718`，说明总体方向不是单一中心贡献；小中心LASUTH只有5例，不单独作推断。[中心描述](archive/research_records/2026-09-06_brats_africa95_frozen_baselines/POSTHOC_CENTER_DESCRIPTION.json)
+
+Full Flip8 − identity：Dice=`+0.003435109`，paired 95% CI=`[-0.010536,+0.016815]`，Point=`+1`；52例改善、38例变差、5例tie。固定8镜像的点估计收益没有在这个域形成确定Dice证据。
+
+原始1.5T临床扫描常有3–5mm层厚，发布者重采样到1mm不能恢复丢失细节；本项目又做image-support crop和128³ rasterization。故本节只在Africa95同协议内排序，不与UCSD75或internal test270按数值混排。
+
+证据：[raw report](archive/research_records/2026-09-06_brats_africa95_frozen_baselines/RAW_EXTERNAL95.json)、[七问](archive/research_records/2026-09-06_brats_africa95_frozen_baselines/IDEA.md)、[模型前收据](archive/research_records/2026-09-06_brats_africa95_frozen_baselines/MODEL_PREACCESS.json)、[来源inventory](archive/reviews/2026-09-06_brats_africa_source_audit/OFFICIAL_INVENTORY.json)。
+
+## External CPTAC33：Africa-informed、BraTS2021公开Training标签确认
+
+TCIA官方映射给出39位CPTAC-GBM患者；public Training33每例有T1CE+人工三子区seg，Validation6只有四影像、0 seg，故在payload/模型前按标签公开性排除。Package636官方`.sums`共407,245条MD5，选中66文件全部覆盖；两份独立下载又66/66 size/MD5/SHA exact。
+
+这些标签在原BraTS2021属于Training，但本项目两个模型只使用BraTS2024，故是external-to-this-project的公开标签确认；不是原challenge validation/test或hidden blind。CPTAC/CHOP-UPenn来源不在BraTS2024七站，但无patient-ID bridge，只称source/institution-disjoint no-known overlap。假设在看到CPTAC payload前由Africa结果明确冻结：GCSAM−Full Dice方向能否复现。
+
+| 排名 | 方法 | Scan=Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+|---:|---|---:|---:|---:|---|
+| **1** | **Full972 KD168，固定Flip8** | **`0.844577117`** `[0.813290,0.870795]` | **33/33 (`1.0`)** | `8×` | 相对identity `+0.003246`，paired CI整体为正 |
+| 2 | GCSAM184，identity | `0.843285080` `[0.812977,0.868437]` | **33/33 (`1.0`)** | `1×` | Africa-informed方向仅弱支持：相对Full小正但CI跨0 |
+| 3 | Full972 KD168，identity | `0.841331464` `[0.809100,0.868613]` | **33/33 (`1.0`)** | `1×` | 1×基线 |
+
+GCSAM−Full identity=`+0.001953616`，paired CI=`[-0.006646,+0.012384]`，16/17/0 improve/worse/tie，Point差0。按预注册是弱/不确定方向支持，不复现Africa的`+0.0686`幅度或确定性。
+
+Full Flip8−identity=`+0.003245653`，paired CI=`[+0.000828,+0.005855]`，23/10/0 improve/worse/tie，Point差0。它在这份小队列独立支持固定Flip8 Dice方向；仍不授权新TTA权重/视图或再测。
+
+33人样本小、绝对CI宽；术前WT、公开Training身份和128³ rasterization均需保留。三行只在CPTAC33内排序，不与Africa/UCSD/internal数值混排。
+
+证据：[raw](archive/research_records/2026-09-06_cptac33_africa_informed_confirmation/RAW_CPTAC33.json)、[七问](archive/research_records/2026-09-06_cptac33_africa_informed_confirmation/IDEA.md)、[V2模型前收据](archive/research_records/2026-09-06_cptac33_africa_informed_confirmation/MODEL_PREACCESS_V2.json)、[来源cohort](archive/reviews/2026-09-06_cptac_brats2021_source_audit/FROZEN_TRAINING33_COHORT.json)。
+
+## External WAW-GliomAI152：华沙公开术前人工修订标签
+
+Zenodo final record `22205631`于2026-09-01公开、CC BY 4.0，来自Medical University of Warsaw。发布描述写156份术前检查，但final coreg metadata与preop mask严格交集实际为152名患者/152 scans；以最终文件为准，不补找4例。152/152均有publisher命名为delayed post-contrast T1的`t1c`及专家人工复核mask，原生240×240×155、1mm³、图/标签affine exact，label union `{0,1,2,3}`；WHO grade2/3/4=`44/34/74`。
+
+华沙机构不在BraTS2024的Duke/UCSF/Missouri/UCSD/Heidelberg/Michigan/Indiana七站，只称institution-disjoint/no-known-overlap；没有跨库patient-ID桥，不称ID证明独立。数据是public external-to-project，不是hidden blind。发布者已做coreg/skull-strip/bias correction，项目仍按冻结canonical N4、image-support crop和128³ rasterization；且术前all-positive WT、delayed T1c与post-treatment训练的阶段/命名不同，只能在本cohort内比较。
+
+| 排名 | 方法 | Scan=Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+|---:|---|---:|---:|---:|---|
+| **1** | **GCSAM184，identity** | **`0.693601158`** `[0.660656,0.723433]` | 140/152 (`0.921053`) | `1×` | Dice点估计第1；仅比Flip8高`0.000107`，相对Full identity CI跨0 |
+| 2 | Full972 KD168，固定Flip8 | `0.693494112` `[0.660273,0.723615]` | **143/152 (`0.940789`)** | `8×` | Point第1；相对identity Dice区间全正 |
+| 3 | Full972 KD168，identity | `0.683377992` `[0.649811,0.713659]` | 141/152 (`0.927632`) | `1×` | 1×基线 |
+
+GCSAM identity−Full identity=`+0.010223166`，paired 95% CI=`[-0.003005,+0.023481]`，84/63/5 improve/worse/tie，Point=`−1`。按预注册是positive-but-uncertain：不复现Africa95的`+0.0686`确定优势，也不是反向。
+
+Full Flip8−identity=`+0.010116120`，paired 95% CI=`[+0.004472,+0.016274]`，93/54/5，Point=`+2`。这是internal270、CPTAC33之后第三处Scan配对区间支持；部署仍8×，不能据四个已见cohort搜索视图/权重/阈值。
+
+证据：[raw](archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/RAW_WAW152.json)、[七问](archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/IDEA.md)、[V2模型前收据](archive/research_records/2026-09-06_waw_gliomai152_frozen_panel/MODEL_PREACCESS_V2.json)、[来源审计](archive/reviews/2026-09-06_waw_gliomai_source_audit/RESULT.md)。
+
+## External WAW-postop-only31：与preop已见患者零重叠的早期术后队列
+
+WAW final postop metadata/mask实际160 scans/92 patients（描述161）。先按同release ID排除57名已在preop152的患者；35名postop-only中要求`days_postop`明确，再每人固定最早一张，得到31 patients/scans、day0–22，preop patient overlap=0。4名日期全空患者、17张后续numeric scans均在性能前排除。31人中29名WHO4级；WT严格为labels1/2/3，30例含但排除resection-bed4。
+
+这是同一Warsaw机构的新患者、public early post-resection external-to-project，不是hidden blind。相对BraTS2024七站institution-disjoint但无跨库patient bridge；day0–22不能代表长期复发。Publisher coreg/skull-strip/bias-correct1mm后项目再N4/crop/128³，仍有双重预处理与rasterization caveat。
+
+| 排名 | 方法 | Scan=Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+|---:|---|---:|---:|---:|---|
+| **1** | **Full972 KD168固定Flip8** | **`0.598959388`** `[0.532228,0.662012]` | **15/31 (`0.483871`)** | `8×` | Dice点估计第1；相对identity正但CI跨0 |
+| 2 | GCSAM184 identity | `0.593304725` `[0.527500,0.654293]` | 14/31 (`0.451613`) | `1×` | 最高1× Dice点估计；相对Full正但CI跨0 |
+| 3 | Full972 KD168 identity | `0.591647416` `[0.522240,0.654848]` | **15/31 (`0.483871`)** | `1×` | 1× Point点估计第1（与Flip8同） |
+
+Flip8−identity=`+0.007311972`，paired CI=`[-0.001925,+0.016626]`，21/10/0 improve/worse/tie，Point差0；GCSAM−Full=`+0.001657309`，CI=`[-0.012498,+0.016205]`，17/14/0，Point−1。两者按预注册均positive-but-uncertain。N=31绝对CI宽，不能把点估计排名写成确定优越。
+
+证据：[raw](archive/research_records/2026-09-06_waw_postop_only31_frozen_panel/RAW_WAW_POSTOP31.json)、[七问](archive/research_records/2026-09-06_waw_postop_only31_frozen_panel/IDEA.md)、[模型前收据](archive/research_records/2026-09-06_waw_postop_only31_frozen_panel/MODEL_PREACCESS.json)、[来源](archive/reviews/2026-09-06_waw_postop_only31_source_audit/RESULT.md)。
+
+## External UCSD-BraTS2024test56：公开的BraTS-GLI 2024 test包（UCSD部分）
+
+TCIA UCSD-PTGBM集合Version 2（2026-01-22）公开了原BraTS-GLI 2024隐藏test中UCSD贡献的package 1221（59 studies/42 subjects），Version 3（2026-03-13）修正了临床表患者ID。按官方v3映射的any-timepoint规则，仅`UCSD-PTGBM-0038`（`BraTS-GLI-02289`）与项目1,350例训练union重叠并在像素前排除；冻结**56 scans / 41 subjects**，与union（613 subjects）及此前已评UCSD75（53 subjects）患者零重叠。包内无`.sums`，传输门为双独立官方传输112文件逐文件SHA-256一致。
+
+身份定位：public post-challenge、**非hidden blind**；有官方patient-ID桥、patient-disjoint已证明；但UCSD是BraTS2024七个来源站之一且与UCSD75同机构，**不是institution-disjoint**——这是"近训练域的新患者"证据，不是跨机构泛化证据。治疗后WT=labels`{1,2,3}`、排除切除腔`4`，与训练完全同口径；原生256³/1mm，经canonical N4、image-only crop与128³ rasterization。
+
+| 排名 | 方法 | Scan Dice（95% CI） | Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+|---:|---|---:|---:|---:|---:|---|
+| **1** | **Full972 KD168，固定Flip8** | **`0.732973`** `[0.693045,0.771526]` | **`0.733625`** `[0.694818,0.771538]` | **56/56 (`1.0`)** | `8×` | 三项点估计第1；相对identity CI跨0 |
+| 2 | Full972 KD168，identity | `0.730002` `[0.690626,0.766791]` | `0.730740` `[0.692275,0.767211]` | **56/56 (`1.0`)** | `1×` | 最高1×；Point全中为全部外部cohort最高 |
+| 3 | GCSAM184，identity | `0.717689` `[0.671931,0.761285]` | `0.715545` `[0.667478,0.760680]` | 52/56 (`0.928571`) | `1×` | 负点估计；原配对CI略负但Scan数值精度敏感，见下文 |
+
+Flip8−identity=`+0.002971109`，scan配对CI `[-0.002740,+0.008750]`、subject配对CI `[-0.002830,+0.008735]`，32/24/0改善/变差/tie，Point差0：第六个Scan点估计为正的cohort，本队列区间跨0，仍不能称显著。
+
+**GCSAM−Full identity=`−0.012312488`（Subject `−0.015194370`），原冻结scan配对CI `[-0.025822,-0.000092]`、subject配对CI `[-0.031507,-0.000268]`均略低于0，21/35/0，Point`−4`。** 点估计方向与Africa不同；但不再称两项“稳健确定劣于”。2026-09-07事后数值精度审计中20组10,000次Scan区间有17组跨0，固定百万次Scan CI=`[-0.025714,+0.000140]`；Subject有4/20跨0，百万次CI=`[-0.031763,-0.000223]`。原区间和排名保持，补充结论为“负点估计、原区间贴零，Scan显著性对Monte Carlo精度敏感”；不选择seed替换主报告，不回流模型/阈值选择。[数值精度审计](archive/reviews/2026-09-07_ucsd56_bootstrap_precision/RESULT.md)。
+
+证据：[结果](archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/RESULT.md)、[raw](archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/RAW_UCSD_BRATS2024TEST56.json)、[七问](archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/IDEA.md)、[预注册](archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/PREREG.md)、[模型前收据](archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/MODEL_PREACCESS.json)、[终态验证](archive/research_records/2026-09-06_ucsd_brats2024test_frozen_panel/VERIFICATION_RECEIPT.json)、[来源审计](archive/reviews/2026-09-06_ucsd_brats2024test_source_audit/RESULT.md)。
+
+## Reused internal test270：全自动direct locator
+
+同一270 scans / 119 subjects，严格按Scan Dice降序。该test已多次揭示，只是内部固定报告集，不是pristine blind test、外部确认或公开SOTA。
+
+| 排名 | 方法 | Scan Dice | Subject Dice | Point hit | 成本 | 状态 |
+|---:|---|---:|---:|---:|---:|---|
+| **1** | **Full972 random-init voxel-KD，epoch168，固定Flip8 TTA** | **`0.757269662`** | **`0.741253585`** | **`0.981481`** | `8×` | 两个fresh inner全门后唯一一次post-test/reused评测；三项点估计第1；非盲测/外部确认 |
+| 2 | GCSAM fit864，train-inner-selected epoch184 | `0.752003176` | `0.737266420` | `0.933333` | `1×` | 用户授权failed-gate探索性；1× Scan点估计第1；非Full972 final，CI跨0且Point低 |
+| 3 | Full972 random-init voxel-KD，epoch168 | `0.751759537` | `0.737327107` | `0.970370` | `1×` | 用户授权failed-gate探索性；1× Subject/Point最高 |
+| 4 | 固定logit ensemble：0.75 history168 + 0.25 EMA168 | `0.745054064` | `0.727344609` | `0.955556` | `2×` | 旧总体最高 |
+| 5 | 2025/2026 voxel-KD single，global epoch200 | `0.742976353` | `0.725178533` | `0.955556` | `1×` | 旧最高单模型 |
+| 6 | historical true-128³ plain，epoch168 | `0.741203949` | `0.723179486` | `0.929630` | `1×` | 旧单模型记录 |
+| 7 | EMA168 single | `0.740696468` | `0.724904822` | `0.948148` | `1×` | Dice持平、point更高 |
+| 8 | true-160³ full756，epoch200 | `0.737060297` | `0.719728630` | `0.874074` | `~1.95×` | 负结果；160³标签网格 |
+| 9 | true-128³ plain，epoch99 | `0.725820068` | `0.709412503` | `0.900000` | `1×` | 2026-08-17记录 |
+
+关键增益：
+
+- Flip8 − same-checkpoint identity：scan `+0.005510124`、subject `+0.003926478`、Point `+3/270`；paired 95% CI为`[+0.002751,+0.008022]`/`[-0.000379,+0.007354]`。Scan区间整体为正，Subject区间跨0。相对此前GCSAM Scan榜首，三项点估计为`+0.005266486/+0.003987165/+13 points`，但未做冻结的二者配对检验，不能称相对GCSAM显著。绝对CI按pretest冻结seed20260817从保存的per-case行离线修正；raw helper的seed偏差已保留归档。
+
+- GCSAM − Full972 KD：scan `+0.000243638`、subject `-0.000060687`、point `-0.037037`（少10/270）；scan/subject paired 95% CI为`[-0.005655,+0.005740]`/`[-0.009153,+0.008094]`，均跨0。GCSAM只在Scan点估计上排第1，不能称显著或三指标全面最佳。
+
+- Full972 − ensemble：scan `+0.006705473`、subject `+0.009982499`、point `+0.014815`；scan/subject paired 95% CI下界均大于0。
+- Full972 − KD200：scan `+0.008783184`、subject `+0.012148574`、point `+0.014815`；scan/subject paired 95% CI下界均大于0。
+
+- ensemble − historical168：scan `+0.003850115`、subject `+0.004165123`、point `+0.025926`；scan/subject paired CI下界均大于0。
+- voxel-KD − historical168：scan `+0.001772404`、subject `+0.001999047`、point `+0.025926`；Dice paired CI跨0。
+- voxel-KD相对ensemble少scan/subject `0.002078/0.002166`，但推理从`2×`恢复`1×`。
+
+报告入口：
+
+- Flip8：[报告](workspace/BraTS/sammed3d_t1ce_wt/flip8_tta_stability_20260904/FLIP8_TEST270.json)，[归档](archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/RESULT.md)，[修正记录](archive/research_records/2026-09-04_direct_locator_flip8_tta_stability/BOOTSTRAP_CORRECTION.json)
+
+- GCSAM：[报告](workspace/BraTS/sammed3d_t1ce_wt/gcsam_full972_stability_20260831/GCSAM_INNER_E184_TEST270.json)，[归档](archive/research_records/2026-08-31_gcsam_full972_stability/RESULT.md)
+
+- Full972：[报告](workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/FULLTRAJECTORY_TEST270.json)，[归档](archive/research_records/2026-08-24_voxel_kd_fulltrajectory_972/RESULT.md)
+
+- Ensemble：[报告](workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/LOGIT_ENSEMBLE_TEST270.json)，[归档](archive/research_records/2026-08-19_plain_logit_ensemble/RESULT.md)
+- Voxel-KD：[报告](workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/KD_TEST270.json)，[归档](archive/research_records/2026-08-19_plain_voxel_kd/RESULT.md)
+- Historical168：[报告](workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/FINAL_TEST270_EPOCH168.json)
+- EMA168：[报告](workspace/BraTS/sammed3d_t1ce_wt/plain_ema_20260819/full756_seed20260833_e200/EMA168_TEST270.json)
+- True-160³：[报告](workspace/BraTS/sammed3d_t1ce_wt/plain_resolution_20260818/full756_160_seed20260829_epoch200/FINAL_TEST270_TRUE160_EPOCH200.json)
+- Plain epoch99：[报告](workspace/BraTS/sammed3d_t1ce_wt/plain_locator_subjectclean_confirm_20260817/FINAL_TEST270.json)
+
+## Fixed validation108/50 subjects：true-128³开发榜
+
+同一历史固定validation cache、raw-logit阈值0，严格按Scan Dice降序。这里只用于开发选择，不与test数字混排。
+
+| 排名 | 方法 | Scan Dice | Subject Dice | Point hit | 是否进test | 结论 |
+|---:|---|---:|---:|---:|---|---|
+| **1** | **Full972 random-init KD epoch168** | **`0.740012535`** | **`0.731266217`** | **`0.953704`** | 用户授权门后探索性 | 当前development最高 |
+| 2 | Full972 width16 seed20260961 epoch166 | `0.739335220` | **`0.731320350`** | **`0.972222`** | 否 | width24的matched control |
+| 3 | Full972 width24 seed20260961 epoch166 | `0.736463710` | `0.727794977` | `0.962963` | 否 | 容量扩展失败，低于matched width16 |
+| 4 | GT-routing matched anchor-repeat3 control epoch168 | `0.736013432` | `0.728973188` | `0.953704` | 否 | 新matched control，仍低于archived seed32 |
+| 5 | voxel-KD global epoch200 | `0.734384308` | `0.724434143` | `0.935185` | 是 | 旧单模validation记录 |
+| 6 | fixed logit ensemble，EMA weight0.25 | `0.734171097` | `0.724489716` | `0.944444` | 是 | 当前总体teacher |
+| 7 | matched supervised continuation epoch200 | `0.733605660` | `0.723671900` | `0.935185` | 否 | KD匹配对照 |
+| 8 | ReCo-KD epoch192 | `0.732959670` | `0.723071822` | `0.944444` | 否 | 未超过最佳base KD |
+| 9 | GT-best-of3 routing student epoch168 | `0.732909616` | `0.725997970` | `0.925926` | 否 | 三项低于matched control，九门全失败 |
+| 10 | logit blend，EMA weight0.50 | `0.732048303` | `0.722623021` | `0.953704` | 否 | point高但scan次优 |
+| 11 | historical epoch168 | `0.731601219` | `0.722120565` | `0.925926` | 已历史测评 | 当前起点 |
+| 12 | EMA168 single | `0.718824903` | `0.710217848` | `0.944444` | 用户追加单测 | 弱于历史Dice |
+| 13 | EMA200 single | `0.716017457` | `0.706696547` | `0.935185` | 否 | 负结果 |
+| 14 | same-seed raw200 | `0.715409314` | `0.706007477` | `0.935185` | 否 | EMA200对照 |
+| 15 | same-seed raw168 | `0.706554216` | `0.698670892` | `0.935185` | 否 | EMA168对照 |
+| 16 | cross-seed parameter soup，EMA weight0.25 | `0.431342862` | `0.430487334` | `0.796296` | 否 | 不同权重盆地，灾难性失败 |
+
+## 非同口径test历史：不得与direct locator主榜混排
+
+| 方法 | Scan Dice | Subject Dice | 权限/协议 |
+|---|---:|---:|---|
+| residual refiner | `0.703798` | `0.686637` | GT-centered oracle crop/提示 |
+| historical brain-crop SAM C3 | `0.625359` | `0.610042` | 点击来自GT |
+| upstream-literal vanilla best-of-five | `0.594226` | `0.580970` | GT-centered交互点击 |
+
+## 当前决策
+
+- 最高UCSD-BraTS2024test56三项点估计：Full972 KD168固定Flip8（8×）`0.732973/0.733625/56/56`；最高1×为同checkpoint identity `0.730002/0.730740/56/56`。GCSAM184相对Full为负点估计（Scan`−0.012312`，原CI `[-0.025822,-0.000092]`）且Point少4；原区间贴零，后续数值精度审计不支持稳健Scan显著下降。该cohort是patient-disjoint但非institution-disjoint、非hidden blind，已关闭。
+
+- 最高UCSD75 official-float32 Scan/Subject点估计：GCSAM fit864 inner-selected epoch184（1×），`0.755890/0.755312/70/75`；相对Full972 KD的Dice CI跨0。四个来源版本行中Point点估计最高是同模型mirror-uint8的71/75。两来源是同一reused cohort，不能称两次独立外部验证。
+- 最高BraTS-Africa95 Dice点估计：GCSAM184 identity（1×）`0.591619/0.591619/84/95`；相对Full identity Dice差`+0.068617`且paired CI整体为正，但Point少3。Africa95 Point最高为Full KD168 Flip8的88/95，代价8×；三行是公开post-challenge、机构独立而非隐藏blind。
+- 最高CPTAC33 Scan/Subject点估计：Full KD168 Flip8（8×）`0.844577/0.844577/33/33`，相对identity paired CI整体为正；1× GCSAM `0.843285`只比Full `0.841331`小幅高且CI跨0，Africa-informed方向仅弱支持。Public Training labels external-to-project，不是hidden blind。
+- 最高内部test总体点估计：Full972 random-init KD168固定Flip8（8×），Scan/Subject/Point=`0.757270/0.741254/265/270`；相对same-checkpoint identity的Scan paired CI整体为正，Subject CI跨0。证据是两fresh inner全门后的唯一一次post-test/reused评测，不是盲测或外部确认。
+- 最高内部test 1× Scan点估计仍为GCSAM fit864 epoch184；最高1× Subject/Point仍为Full972 random-init KD168 identity。
+- 160³、cross-seed parameter soup、ReCo-KD停止test或超参搜索。
+- GT最佳老师routing与fresh等权共识均关闭；后续不继续围绕seed32/40/41调teacher权重/router。当前没有已预注册的新候选。
+
+机器可读严格排序版本：[AFLOW_BRATS_LEADERBOARD.json](AFLOW_BRATS_LEADERBOARD.json)。

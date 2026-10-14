@@ -1,0 +1,18 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dmrfb_adapter_implementation_amendment",
+  "schema_version": 1,
+  "amendment_id": "003_partial_validation_output_interface_fix",
+  "timing": "after validation pre-access receipt and first validation batch forward, before any metric summary, checkpoint selection, bootstrap, promotion decision, or test access",
+  "failure": "legacy validation helper calls automatic_prompt_points, which requires output.center_logits; DMRFBAdapterOutput exposed segmentation_logits but lacked the optional center_logits=None property",
+  "fix": "add read-only center_logits property returning None, matching plain center_aware=false behavior; no tensor computation, parameter, state_dict, checkpoint, logit, metric, threshold, or method change",
+  "trained_checkpoint_state_changed": false,
+  "raw_validation_report_written_before_fix": false,
+  "metrics_revealed_before_fix": false,
+  "old_started_receipt": "workspace/BraTS/sammed3d_t1ce_wt/plain_dmrfb_adapter_20260821/DMRFB_ADAPTER_VALIDATION.started.json",
+  "old_started_receipt_declares_validation_access": true,
+  "rerun_output": "workspace/BraTS/sammed3d_t1ce_wt/plain_dmrfb_adapter_20260821/DMRFB_ADAPTER_VALIDATION_V2.json",
+  "validation_access": true,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

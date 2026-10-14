@@ -1,0 +1,83 @@
+{
+  "schema": "aflow.brats.t1ce_mainline_cleanup",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-10",
+  "request": "Retire non-T1ce BraTS work; T1ce is the only active research mainline",
+  "audit": {
+    "parallel_agents": 3,
+    "roles": [
+      "multimodal and legacy artifact inventory",
+      "import and dependency closure audit",
+      "T1ce preservation whitelist and verification plan"
+    ],
+    "all_agent_audits_were_read_only": true
+  },
+  "active_mainline": {
+    "modality": "T1ce only",
+    "target": "WT={1,2,3}; raw label 4 excluded",
+    "input_shape": "128^3",
+    "click_protocol": "3 accumulated corrective clicks with recurrent low-resolution mask",
+    "development_split": "972 train / 108 validation, subject-clean",
+    "sealed_test_access_during_cleanup": false
+  },
+  "retirement": {
+    "method": "same-filesystem move into a reversible archive",
+    "archive": "archive/retired_non_t1ce_20260810",
+    "archive_files": 1508,
+    "archive_size_approx": "34 GiB",
+    "deleted_files": 0,
+    "retired_families": [
+      "four-modal SAM-Med3D",
+      "Paper1913 four-modal baseline",
+      "MedTAWS and four-modal adapters",
+      "old cross-modality prompt baselines",
+      "T2-FLAIR/WT1234 and multi-target manifests/evaluators",
+      "old target-specific supervised and GRPO runs",
+      "old continuation/factorial/gradient-branch runners",
+      "superseded AFlow workflow optimizer and multi-target entrypoints"
+    ],
+    "large_preserved_groups": {
+      "old_grpo": "approximately 25 GiB",
+      "old_target_specific_supervised": "approximately 6.1 GiB",
+      "paper1913": "approximately 2.8 GiB",
+      "four_modal_token_cache": "approximately 27 MiB"
+    },
+    "physical_space_reclaimed": "none; destructive removal requires separate explicit approval"
+  },
+  "active_code_changes": {
+    "sammed3d/brats_data.py": {
+      "purpose": "reduced to the modality-independent supervision-leak guard required by t1ce_binary",
+      "sha256": "da8bcb0f6ef7c3a5f7660af61d84da96ae18db360afef146c48a5b3d51fb0b1d"
+    },
+    "scripts/run_worker_research.sh": {
+      "purpose": "exposes T1ce-only worker modes",
+      "sha256": "6278af43d5d3e52069d4afd8f4a77dfd3c4dcca8677b22790b20f3ad7d318cb8"
+    },
+    "T1CE_MAINLINE.md": {
+      "purpose": "single active entry document",
+      "sha256": "1b7b7c0d75def8ac0db56233a568566e3cc29a8fad17a75c95156a98f96459c5"
+    }
+  },
+  "verification": {
+    "t1ce_import_smoke": "passed",
+    "t1ce_targeted_tests": "137 passed",
+    "all_remaining_active_tests": "164 passed, 24 dependency deprecation warnings",
+    "worker_shell_syntax": "passed",
+    "stale_active_imports_of_retired_modules": 0
+  },
+  "mainline_integrity": {
+    "train_manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "validation_manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+    "sealed_test_manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "whole_resize_checkpoint_sha256": "75dd0b55f9fb29f558b97f9bd8f306b57832c244e49252f2f3095a82dd464e82",
+    "braincrop_checkpoint_sha256": "87dad82c67151128c7e99d64ae87f37c68547c769d2e610a56d432b554e0732a",
+    "gtcrop_checkpoint_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+    "last4_negative_checkpoint_sha256": "f999e12432901e9f1ce21f2c087b6fcfd123abf1210de9b8f883bb1a4776422f",
+    "residual_refiner_checkpoint_sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21"
+  },
+  "historical_hash_note": {
+    "build_t1ce_wt_cache_current_sha256": "329660074d93362633fd858270ce62bdd2acc5ee52fa27874815318e37c84a4e",
+    "evaluate_sammed3d_t1ce_wt_cached_current_sha256": "265cbfc2886b544cd4d84d859485825170b06bc61304cefa6a6f237ea49f3f23",
+    "interpretation": "These current working-copy hashes differ from older handoff prefixes but are the versions bound by the August 6 and August 10 results; cleanup did not modify them."
+  }
+}

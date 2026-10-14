@@ -1,0 +1,77 @@
+{
+  "schema": "aflow.sammed3d.final_test_result",
+  "schema_version": 1,
+  "created_utc": "2026-08-05",
+  "run_identity": "sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805",
+  "binding": {
+    "frozen_configuration": "workspace/BraTS/sammed3d_t1ce_wt/FROZEN_FULLUNFREEZE_TEST_CONFIGURATION_20260805.json",
+    "frozen_configuration_sha256": "9ba3e1b2019e9ce481bfc0f610c74a329a9d3453d01dc561b0ec24000ba11238",
+    "builder_correction": "workspace/BraTS/sammed3d_t1ce_wt/FROZEN_FULLUNFREEZE_TEST_BUILDER_CORRECTION_20260805.json",
+    "checkpoint_sha256": "75dd0b55f9fb29f558b97f9bd8f306b57832c244e49252f2f3095a82dd464e82",
+    "selected_epoch": 24,
+    "test_manifest_sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "test_cache_images_sha256": "a405d54b11ebb2d27a496a7aa160abd58348d99f64f0e4d6195481d1f1da7426",
+    "test_cache_labels_sha256": "e1c1d7ec8585e27fabc9ebd77cc385967e2dd7cac70c562b734a715f5119592e",
+    "report": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805/FROZEN_TEST270_FULLUNFREEZE_20260805.json",
+    "report_sha256": "4ac016df095d1c8dda1209ddce67c558e3b4dbc16628b441ed906c46213f5a14"
+  },
+  "result": {
+    "cases": 270,
+    "subjects": 119,
+    "scan_macro": {"C1": 0.548752, "C2": 0.561177, "C3": 0.571109},
+    "subject_balanced": {"C1": 0.530441, "C2": 0.544117, "C3": 0.553484},
+    "c3_scan_median": 0.604289,
+    "c3_scan_std_population": 0.159465,
+    "c3_iou_mean": 0.416049
+  },
+  "project_history_same_270_cases": {
+    "v1_epoch8_gt_crop": {"scan_c3": 0.549828, "subject_c3": 0.531978},
+    "v2b_gt_crop_previous_best": {"scan_c3": 0.553028, "subject_c3": 0.535621},
+    "fv_lora_aug_whole_volume": {"scan_c3": 0.523030, "subject_c3": 0.509143},
+    "this_arm": {"scan_c3": 0.571109, "subject_c3": 0.553484},
+    "delta_vs_previous_best_v2b": {"scan_c3": 0.018081, "subject_c3": 0.017863},
+    "status": "new best internal held-out result for this project"
+  },
+  "gap_to_reference": {
+    "dpdsam_reported_sammed3d_baseline": 0.741,
+    "this_arm_scan_c3": 0.571109,
+    "shortfall": 0.169891,
+    "why_not_like_for_like": [
+      "0.741 was measured by DPD-SAM's authors on THEIR OWN 8:2 split, not these 270 cases",
+      "their SAM-Med3D baseline prompt protocol is not disclosed anywhere in the paper",
+      "BCGFMamba transcribes that number as 0.731, which does not match DPD-SAM's own table, so even the reference value is unstable",
+      "this arm uses 3 accumulated GT corrective clicks, which is an interactive protocol; the reference sits in a table of automatic methods"
+    ]
+  },
+  "evidence_boundary": [
+    "Training and epoch selection used NO test data. The freeze was written before any test NIfTI was opened.",
+    "These 270 cases have now been consumed 5 times by this project, so this is an internal held-out number, not clean external validation.",
+    "This result must NOT be used to select a next arm, tune hyperparameters, or choose between models. Any further model development must return to the 972/108 clean validation.",
+    "No threshold, TTA, morphology, connected-component or postprocessing search was run."
+  ],
+  "runs_used": 2,
+  "duplicate_run_disclosure": {
+    "declared_runs_allowed": 1,
+    "actual_report_files": 2,
+    "files": [
+      {
+        "path": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805/FROZEN_TEST270_FULLUNFREEZE_20260805.json",
+        "sha256": "4ac016df095d1c8dda1209ddce67c558e3b4dbc16628b441ed906c46213f5a14",
+        "created_at_utc": "2026-08-05T13:21:46.848055+00:00",
+        "canonical": true
+      },
+      {
+        "path": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805/FROZEN_fullunfreeze_test270_n4_s20260723.json",
+        "sha256": "f5bae566935a65c1a7fe995f8e0d6da86faa6c3f903e0dbc1378c7b8a5ec96e4",
+        "created_at_utc": "2026-08-05T13:22:16.714760+00:00",
+        "canonical": false
+      }
+    ],
+    "what_happened": "The agent session was resumed under a new session directory and the single authorized evaluation was issued twice, 30 seconds apart, against the same frozen configuration.",
+    "verified_identical": "All 270 cases carry byte-identical DSC at clicks 1, 2 and 3; the summary blocks are equal; the checkpoint SHA and seed are the same. The only differing top-level fields are created_at_utc and elapsed_seconds.",
+    "scientific_impact": "None. The evaluation is deterministic given the frozen checkpoint, the case-seeded PCG64 click sampling and seed 20260723, so the repeat produced the same numbers rather than a second draw. No selection among runs was possible or performed.",
+    "process_impact": "The declared runs_allowed=1 was nonetheless violated in the literal sense that the sealed test was opened twice. Disclosed here rather than silently reporting a single run.",
+    "remediation": "The 13:21:46 report is treated as canonical; the duplicate is retained unmodified as evidence rather than deleted."
+  },
+  "test_access": true
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "aflow.sammed3d.negative_result",
+  "schema_version": 1,
+  "created_utc": "2026-08-07",
+  "run_identity": "sammed3d_stage2_gtcrop_last4_h100_train972_val108_e200_s20260807",
+  "verdict": "NEGATIVE. Cutting trainable capacity does not close the generalization gap; it lowers the peak instead.",
+
+  "hypothesis_tested": {
+    "claim": "The diagnosed bottleneck is a generalization gap (BOTTLENECK_DIAGNOSIS_20260806.json: the architecture fits 48 unaugmented cases to 0.885 while 972-case validation sits far lower). Reducing trainable capacity from a full image-encoder unfreeze to the last four blocks should therefore raise validation DSC.",
+    "single_factor": "unfreeze policy full -> last4; trainable parameters 100,509,232 -> 35,951,920 (a 64% cut)",
+    "geometry": "gt_crop, i.e. the stage-2 refiner geometry, identical cache to the reference arm"
+  },
+
+  "result_validation_108_3_clicks": {
+    "reference_full_unfreeze": 0.6381,
+    "last4": 0.6274,
+    "paired_delta": -0.0107,
+    "paired_ci95": [-0.0191, -0.0016],
+    "improved_cases": 29,
+    "worsened_cases": 79,
+    "sign_test_p": 1.6e-06,
+    "conclusion": "The loss is statistically clear: the CI excludes zero and 79 of 108 cases got worse."
+  },
+
+  "what_the_capacity_cut_DID_do": {
+    "train_minus_val_gap_at_the_selected_epoch": {"full_unfreeze": 0.1323, "last4": 0.0817},
+    "reading": ("Overfitting was genuinely reduced -- the gap shrank by 38%. But validation fell "
+                "with it. The 64% of parameters that were frozen were therefore not pure "
+                "overfitting capacity: a meaningful part of them was doing useful work. "
+                "Less overfitting is not the same as better generalization.")
+  },
+
+  "second_finding_lr_annealing_is_inert_here": {
+    "observation": ("This arm annealed at epoch 60 (encoder 1e-4 -> 1e-5, head 1e-5 -> 1e-6) and "
+                    "produced no new high in the 24 epochs that followed; its best was epoch 24, "
+                    "long before the milestone. The gt_crop full-unfreeze arm behaved identically: "
+                    "milestones [60, 90] both fired and its best was epoch 48, before either."),
+    "conclusion": ("Two independent arms now show that LR annealing produces no new validation high "
+                   "on this task. An earlier estimate in this project that annealing was worth "
+                   "+0.01 to +0.03 is RETRACTED."),
+    "caveat": ("This does not generalise to the braincrop geometry, where annealing was never "
+               "actually reached (early stopping at epoch 118 preceded milestone 120). That arm's "
+               "schedule remains untested rather than shown inert.")
+  },
+
+  "agent_prediction_record": {
+    "registered_before_the_run": "uncertain; stated to the operator that 'last4 might also lose -- cutting capacity is double-edged and I have no confidence either way'",
+    "outcome": "lost by 0.0107",
+    "note": "The uncertainty was stated honestly in advance rather than after the fact."
+  },
+
+  "implications": [
+    "The generalization gap is NOT addressable by shrinking the model. Remaining levers are ones that add information or vary the data: more training subjects, stronger or better-matched augmentation, multi-modal input, or cross-validated use of the full 1080 outer-train split.",
+    "Capacity-reduction variants (LoRA, deeper partial freezes, adapters) are now a priori less attractive: this project has tested LoRA, rank-0, last-4 partial unfreeze and now last-4 at the stage-2 geometry, and full unfreeze has beaten every one of them.",
+    "LR schedule tuning is deprioritised: shown inert on two arms."
+  ],
+
+  "state_of_the_project_validation_108_3_clicks": {
+    "whole_head_resize": 0.5633,
+    "braincrop_single_stage": 0.6060,
+    "two_stage_cascade": 0.6357,
+    "two_stage_oracle_localization": 0.6380,
+    "gt_crop_full_unfreeze_stage2": 0.6381,
+    "gt_crop_last4_stage2": 0.6274
+  },
+
+  "test_access": false,
+  "no_test_data_was_read": "This arm trained, selected and was evaluated entirely on the 972/108 split. The 270-case test was not opened."
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_plain_long_schedule_outer_eval_freeze",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-18T04:11:53Z",
+  "status": "frozen_before_outer_selector_access",
+  "prereg_sha256": "035cda371ee8ac9d57bf0558d7130534579fad539a72903a486cb1e4a123bc48",
+  "phase2_code_freeze_sha256": "cfffbea6b0b223d5075fda5d9bf6905b7a31c28bda69443cc4147fc1a2fb1651",
+  "inner_decision_sha256": "6308c5e3807e513cc0eb3aebf0c4718e29c7e04e5748b314da6f3b28a7b227b4",
+  "baseline_report_sha256": "9d1afe54a313a3cab370b56207cee9c0cf97d5bebbe4864a7d573a28c1983ee1",
+  "outer_selector_manifest_sha256": "3710d63842acaccb1e4fe81c5fade578b6f1a306363d969ea2d799edd6c32b07",
+  "candidate_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "identity_rule": "exact SHA-256 emitted by the already-running fixed-epoch TRAIN_DONE.json",
+    "epoch": 168,
+    "train_cases": 756,
+    "seed": 20260819
+  },
+  "outer_evaluation": {
+    "allowed_runs": 1,
+    "output": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/OUTER_SELECTOR_FIXED_EPOCH168.json",
+    "fixed_logit_threshold": 0.0,
+    "scan_gain_minimum": 0.003,
+    "subject_gain_minimum": 0.003,
+    "point_hit_maximum_drop": 0.02
+  },
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

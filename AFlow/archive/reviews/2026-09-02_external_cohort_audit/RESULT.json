@@ -1,0 +1,43 @@
+{
+  "schema":"aflow.brats.external_cohort_availability_audit","schema_version":1,"status":"complete_no_external_evaluation",
+  "preferred":{"name":"UCSD-PTGBM main Images and Segmentations","subjects":136,"studies":184,"package_gb":33.1,"labels":"radiologist-corrected and neuroradiologist-approved BraTS-style four compartments","independence_status":"potentially independent; requires manifest/hash overlap audit"},
+  "excluded":{"name":"UCSD-PTGBM BraTS-GLI 2024 Test Data","subjects":42,"studies":59,"package_gb":11.88,"reason":"explicit BraTS test provenance"},
+  "secondary":{"name":"MU-Glioma-Post","subjects":203,"timepoints":596,"package_gb":11,"label_caveat":"automated nnU-Net-based segmentation pipeline and possible shared model bias"},
+  "blockers":{"workspace_available_gb":14,"needed_safe_space_gb":40,"hdfs_writable":false,"aspera_or_oauth_required":true,"anonymous_selective_file_listing_found":false},
+  "external_evaluation_run":false,"new_cohort_labels_accessed":false,
+  "next":"resolved by official data-nih/tcia per-file release assets; see followup",
+  "followup": {
+    "status": "resolved_and_external_confirmation_completed",
+    "official_per_file_release_found": true,
+    "main_release_pairs": 184,
+    "overlapping_main_cases_excluded": 109,
+    "eligible_patient_disjoint_cases": 75,
+    "eligible_patient_disjoint_subjects": 53,
+    "external_evaluation_run": true,
+    "result_path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/RESULT.md"
+  },
+  "mu_followup": {
+    "status": "stopped_before_nifti_or_model_access",
+    "clinical_unique_patients": 203,
+    "clinical_nonempty_timepoint_cells": 597,
+    "official_timepoints": 596,
+    "per_file_github_release_found": false,
+    "cross_dataset_patient_bridge_found": false,
+    "result_path": "archive/reviews/2026-09-02_mu_glioma_post_followup/RESULT.md"
+  },
+  "rhuh_followup": {
+    "status": "stopped_before_official_file_inventory",
+    "subjects": 40,
+    "planned_posttreatment_scans": 80,
+    "expert_corrected_labels": true,
+    "package_gb": 2.9,
+    "faspex_package_id": 684,
+    "public_jwt_scope_error": "external_download_package_id versus required external_download_package",
+    "nifti_or_model_access": false,
+    "result_path": "archive/reviews/2026-09-02_rhuh_gbm_external_feasibility/RESULT.md"
+  },
+  "other_candidates": {
+    "ucsf_alptdg": "excluded as independent external evidence because the primary BraTS 2024 paper identifies approximately 600 UCSF-LPTDG cases as a source cohort",
+    "lumiere": "excluded for this endpoint because it provides expert RANO assessment rather than comparable four-compartment voxelwise labels"
+  }
+}

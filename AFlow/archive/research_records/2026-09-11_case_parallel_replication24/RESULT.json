@@ -1,0 +1,90 @@
+{
+  "access": {
+    "confirmation": false,
+    "development": false,
+    "external": false,
+    "fit_images": true,
+    "labels": false,
+    "outer": false,
+    "test": false
+  },
+  "all_gates_passed": true,
+  "case_forwards": 792,
+  "created_utc": "2026-09-11T08:17:14.933657+00:00",
+  "decision": "retain 4-worker bounded batch option; no per-case latency or accuracy improvement claim",
+  "derivation_sha256": "b95d12eadb2f703781139730b9f4af5bb3fb993fe3a8828a0786e91f6ff6e174",
+  "input_exact": 96,
+  "interpretation": "different fit patients and larger batch; engineering replication, not clinical external validation",
+  "model": {
+    "checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/structured_background_aux_20260907/seed2026090711_control/fixed_epoch168.pth",
+    "seed": 2026090711,
+    "sha256": "fdad97d9abc736638bcd9911fc82ddca1a434fd0c9a46c3e9306d608276b3d6e",
+    "training_report_sha256": "6cbbf960f62657080b7cb1153ae30040ab42a2299cd38c49142543effd17a1f1"
+  },
+  "new_checkpoints": 0,
+  "new_large_cache": false,
+  "new_training_runs": 0,
+  "output_fingerprint_exact": 96,
+  "preaccess_sha256": "52cd815440912c24adb4541990cf4b7a67a89ceed5df905b02b1e401bce8f878",
+  "prior_patient_overlap": 0,
+  "prior_result_sha256": "2120987ce817920b84d3c94b96e5bf67aefc0292b90d154a92c6eef552c27579",
+  "raw_sha256": "68ec4e052d50c0bfdf7c237901917491173aef220a5fac6a430c5a1d51083f9d",
+  "runs": [
+    {
+      "batch_seconds": 503.0926608517766,
+      "cases_per_minute": 2.862295779791268,
+      "first_output_seconds": 45.497959189116955,
+      "including_shutdown_seconds": 503.90658836066723,
+      "repeat": 0,
+      "run_sha256": "97e5901745fe26f606f83b8571c500792a33e7cfd79975d7fd9c3a699dcbbbe4",
+      "sampled_rss_sum_gib": 2.79278564453125,
+      "single_worker_peak_rss_max_gib": 1.7140083312988281,
+      "worker_prepare_cpu_seconds": 493.2663114789999,
+      "workers": 1
+    },
+    {
+      "batch_seconds": 143.08980803191662,
+      "cases_per_minute": 10.063609839205345,
+      "first_output_seconds": 45.26224736869335,
+      "including_shutdown_seconds": 144.1771967485547,
+      "repeat": 0,
+      "run_sha256": "fbb449f20d4f4e44f3d6557fb2679481e443c3460ab4af08b3c614a74fb46387",
+      "sampled_rss_sum_gib": 5.623294830322266,
+      "single_worker_peak_rss_max_gib": 1.8255577087402344,
+      "worker_prepare_cpu_seconds": 495.57338597399996,
+      "workers": 4
+    },
+    {
+      "batch_seconds": 143.96099626272917,
+      "cases_per_minute": 10.002709326712331,
+      "first_output_seconds": 45.798463083803654,
+      "including_shutdown_seconds": 144.90897930413485,
+      "repeat": 1,
+      "run_sha256": "579241f8466993fccdad917e1d976a77521cd2745799d6fb315a42eac3ba3d5e",
+      "sampled_rss_sum_gib": 5.672832489013672,
+      "single_worker_peak_rss_max_gib": 1.8255577087402344,
+      "worker_prepare_cpu_seconds": 497.78681410700005,
+      "workers": 4
+    },
+    {
+      "batch_seconds": 506.34766276180744,
+      "cases_per_minute": 2.8438958168498445,
+      "first_output_seconds": 47.02257164567709,
+      "including_shutdown_seconds": 507.23738273978233,
+      "repeat": 1,
+      "run_sha256": "e0424c22bf9bf683433bdde013e23375a22c1401dd8e7aa9c9dc9b9e6eb4db20",
+      "sampled_rss_sum_gib": 2.804302215576172,
+      "single_worker_peak_rss_max_gib": 1.8255577087402344,
+      "worker_prepare_cpu_seconds": 495.48334064399995,
+      "workers": 1
+    }
+  ],
+  "scans": 24,
+  "seconds": 1300.245320290327,
+  "speedups": {
+    "0": 3.5159223970694002,
+    "1": 3.5172558950461954
+  },
+  "status": "completed",
+  "subjects": 12
+}

@@ -1,0 +1,198 @@
+{
+  "access": {
+    "cohort_reaccess": false,
+    "new_model_inference": false,
+    "selection_or_tuning": false
+  },
+  "analyzer_sha256": "885df0f724769d2ada5afbb7da4136054fa13e15280ce96804b430c60bd46751",
+  "bootstrap": {
+    "posthoc": true,
+    "samples": 10000,
+    "seed": 20261621
+  },
+  "cohorts": [
+    {
+      "cases": 95,
+      "cohort": "Africa95",
+      "flip8": {
+        "precision": 0.8559576716863011,
+        "predicted": 49648.8,
+        "ratio": 0.496698133189673,
+        "recall": 0.41897051183453854
+      },
+      "flip8_minus_identity": {
+        "precision": 0.03328610010204938,
+        "predicted": -886.7368421052631,
+        "ratio": -0.046729551534075715,
+        "recall": 0.0025241942268412693
+      },
+      "identity": {
+        "precision": 0.8226715715842512,
+        "predicted": 50535.53684210526,
+        "ratio": 0.5434276847237486,
+        "recall": 0.4164463176076974
+      },
+      "paired_95ci_posthoc": {
+        "precision": [
+          0.016236183439222077,
+          0.05902713668028116
+        ],
+        "predicted": [
+          -1841.163947368421,
+          70.72105263157842
+        ],
+        "ratio": [
+          -0.11430362241933013,
+          -0.0064212091579547775
+        ],
+        "recall": [
+          -0.009091384837235594,
+          0.014266797504397457
+        ]
+      },
+      "point_delta": 1
+    },
+    {
+      "cases": 33,
+      "cohort": "CPTAC33",
+      "flip8": {
+        "precision": 0.8830583434900307,
+        "predicted": 70958.75757575757,
+        "ratio": 0.9507601667171843,
+        "recall": 0.8237351777677528
+      },
+      "flip8_minus_identity": {
+        "precision": 0.001841975439829184,
+        "predicted": 256.7878787878788,
+        "ratio": 0.0018327075998277893,
+        "recall": 0.0038929211909904966
+      },
+      "identity": {
+        "precision": 0.8812163680502016,
+        "predicted": 70701.9696969697,
+        "ratio": 0.9489274591173565,
+        "recall": 0.8198422565767622
+      },
+      "paired_95ci_posthoc": {
+        "precision": [
+          -0.0020493080044194432,
+          0.005899410416460887
+        ],
+        "predicted": [
+          -123.85757575757575,
+          636.8272727272727
+        ],
+        "ratio": [
+          -0.004014136004066924,
+          0.007772505522219945
+        ],
+        "recall": [
+          0.0008573497615967999,
+          0.007198356787998011
+        ]
+      },
+      "point_delta": 0
+    },
+    {
+      "cases": 152,
+      "cohort": "WAW-pre152",
+      "flip8": {
+        "precision": 0.8424983107802257,
+        "predicted": 39732.46052631579,
+        "ratio": 0.783996591396267,
+        "recall": 0.635624831785254
+      },
+      "flip8_minus_identity": {
+        "precision": 0.04185292836369054,
+        "predicted": -762.9013157894736,
+        "ratio": -0.05781276196453155,
+        "recall": 0.00109674482622903
+      },
+      "identity": {
+        "precision": 0.8006453824165354,
+        "predicted": 40495.36184210526,
+        "ratio": 0.8418093533607985,
+        "recall": 0.634528086959025
+      },
+      "paired_95ci_posthoc": {
+        "precision": [
+          0.018820167879024463,
+          0.06861267362811789
+        ],
+        "predicted": [
+          -1172.296875,
+          -364.2292763157895
+        ],
+        "ratio": [
+          -0.09604083640230617,
+          -0.028471156245320168
+        ],
+        "recall": [
+          -0.0041981640906244766,
+          0.006050268663372198
+        ]
+      },
+      "point_delta": 2
+    },
+    {
+      "cases": 31,
+      "cohort": "WAW-post31",
+      "flip8": {
+        "precision": 0.586957678841027,
+        "predicted": 57636.967741935485,
+        "ratio": 1.2169557285141908,
+        "recall": 0.6541493842181683
+      },
+      "flip8_minus_identity": {
+        "precision": 0.020052490668195075,
+        "predicted": -1636.516129032258,
+        "ratio": -0.033755586533426835,
+        "recall": -0.003580280985092163
+      },
+      "identity": {
+        "precision": 0.5669051881728319,
+        "predicted": 59273.48387096774,
+        "ratio": 1.2507113150476181,
+        "recall": 0.6577296652032605
+      },
+      "paired_95ci_posthoc": {
+        "precision": [
+          0.0074909718457847685,
+          0.03605681937529502
+        ],
+        "predicted": [
+          -2997.9379032258066,
+          -359.25241935483876
+        ],
+        "ratio": [
+          -0.07154897053573944,
+          0.002340972644811264
+        ],
+        "recall": [
+          -0.017784268311570556,
+          0.009324003354718165
+        ]
+      },
+      "point_delta": 0
+    }
+  ],
+  "direction_summary": {
+    "cohorts": 4,
+    "point_negative": 0,
+    "precision_positive": 4,
+    "predicted_volume_positive": 1,
+    "recall_positive": 3
+  },
+  "forbidden_use": "no view/weight/threshold search, pooling, router, postprocessing, or retest",
+  "interpretation": "Flip8 has higher precision point estimates in all four external cohorts, while recall is near zero/mixed and predicted volume is usually lower. This supports a conservative false-positive-reduction tendency, not universal Dice significance or free benefit.",
+  "precision_empty_prediction_convention": 1,
+  "schema": "aflow.flip8.external_overlap_synthesis",
+  "schema_version": 1,
+  "source_sha256": {
+    "Africa95": "c9fb07be4412c160129037104936e4c34b6390fa733b998b8a8f35524ccd30b3",
+    "CPTAC33": "4b9d8c90e1b5ec45b0e664e560301db20affd6a96387f416a62b561f8d57b4fd",
+    "WAW-post31": "72269a5a872389db9d6dd316d7d46b614bad8d81796b0bb72625814907d98a98",
+    "WAW-pre152": "ef35301a78f6e47ac0574e5727aa7c5015b2f30cd73e1c8c45487fa8591dde91"
+  },
+  "status": "posthoc_saved_counts_separate_cohorts_no_pooling_or_selection"
+}

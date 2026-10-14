@@ -1,0 +1,112 @@
+{
+  "schema": "aflow.sammed3d.final_test_result_residual_refiner",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-13T03:43:00Z",
+  "test_access": true,
+  "authorization": "USER_AUTHORIZED_RESIDUAL_REFINER_TEST270_2026-08-13",
+  "method": {
+    "name": "full-resolution T1ce + frozen SAM click-3 logit residual refiner",
+    "input": "N4-corrected T1ce and tanh(frozen click-3 SAM raw logit / 5)",
+    "target": "WT={1,2,3}; raw label 4 excluded",
+    "geometry": "native-resolution ToCanonical + GT-centered CropOrPad 128^3",
+    "uses_gt_for_localization": true,
+    "interaction": "3 accumulated GT-derived corrective clicks with recurrent low-resolution mask",
+    "threshold": "raw logit > 0 for coarse and refined predictions",
+    "postprocessing": "none"
+  },
+  "selection": {
+    "split": "972 train / 108 validation, subject-clean",
+    "epoch": 58,
+    "validation_coarse_dsc_h100": 0.6359485293721298,
+    "validation_refined_dsc_h100": 0.6683989912099032,
+    "validation_gain": 0.032450461837773524,
+    "selection_used_test": false
+  },
+  "test_result": {
+    "cases": 270,
+    "subjects": 119,
+    "scan_macro": {
+      "coarse_dsc": 0.6666580345840297,
+      "refined_dsc": 0.7037975897989611,
+      "paired_gain": 0.03713955521493135,
+      "refined_median": 0.7427021006580345,
+      "refined_std_population": 0.14700989506793483,
+      "improved_cases": 244,
+      "worsened_cases": 26,
+      "unchanged_cases": 0
+    },
+    "subject_balanced": {
+      "coarse_dsc": 0.6488642543727963,
+      "refined_dsc": 0.6866373805111673,
+      "paired_gain": 0.03777312613837106
+    },
+    "by_gt_crop_target_voxels": [
+      {
+        "bin": "<8000",
+        "cases": 10,
+        "coarse_dsc": 0.3746079124969319,
+        "refined_dsc": 0.3741390212744796,
+        "gain": -0.0004688912224523098,
+        "improved_cases": 5
+      },
+      {
+        "bin": "8000-19999",
+        "cases": 56,
+        "coarse_dsc": 0.5480616807720362,
+        "refined_dsc": 0.5856431934986536,
+        "gain": 0.03758151272661742,
+        "improved_cases": 51
+      },
+      {
+        "bin": "20000-39999",
+        "cases": 75,
+        "coarse_dsc": 0.6545428519634422,
+        "refined_dsc": 0.6974647383187008,
+        "gain": 0.042921886355258745,
+        "improved_cases": 69
+      },
+      {
+        "bin": ">=40000",
+        "cases": 129,
+        "coarse_dsc": 0.7478249782343138,
+        "refined_dsc": 0.784326238939128,
+        "gain": 0.036501260704814006,
+        "improved_cases": 119
+      }
+    ]
+  },
+  "binding": {
+    "base_checkpoint_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+    "refiner_checkpoint_sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "cache_index_sha256": "fd9744100a46870b11532239bffdca9633e5f9bcfe66d962d844b9207679bdd4",
+    "cache_images_sha256": "e55572f59aaf49f797fe803d00de08a3f52b129a9fa96e3948d9a1dc0ab74e30",
+    "cache_labels_sha256": "4e1c6b42beca0fe3facf369a6647e844a40c3db9434fa2000a253d7c74344fb1",
+    "freeze_sha256": "7f064622ffcd36674989a05477fd0d926e062a7c69bf54f8f2159359eeb19f38",
+    "test_report_sha256": "f6ef9f1965f29502e1d190747f0363b89ecb42828ac58213dcd3e0fb674f8f44",
+    "test_done_sha256": "2476d42b8ac36f5a99729f22fc3aff78e1a5638271d9fb43ee124fb3cc3b420d",
+    "shard_rank0_sha256": "8cae1f327783da737844678f7e51b35cb6003884ce24a41aecd694d5a15ebe8c",
+    "shard_rank1_sha256": "2db89e381c510f818090c51dcf61a3170840cbcdbbacd4b82969e4fce340aed1"
+  },
+  "runtime": {
+    "preprocessing_seconds": 1296,
+    "evaluation_seconds_including_binding_checks": 30.601385831832886,
+    "gpus": [
+      "NVIDIA A100-SXM4-80GB",
+      "NVIDIA A100-SXM4-80GB"
+    ],
+    "world_size": 2
+  },
+  "interpretation": {
+    "development_to_test": "The test refined DSC is higher than validation because the same-run coarse test DSC is also higher; the paired refiner gain is +0.037140, close to the validation gain +0.032450.",
+    "size_effect": "The refiner gives no aggregate gain for the 10 smallest test crops below 8000 WT voxels, while all three larger strata improve by approximately +0.0376 to +0.0429.",
+    "automatic_system_boundary": "This is an oracle GT-centered result. The strongest completed automatic test result remains the nonzero brain-crop arm at 0.625359 under its older matched protocol."
+  },
+  "evidence_boundary": [
+    "This is a GT-centered/oracle-localization test and cannot be presented as an automatic end-to-end segmentation score.",
+    "It uses the older N4/native-resolution/three-click branch, not official15/five-click preprocessing and interaction.",
+    "The 270-case internal test was already revealed by earlier project arms and is not pristine external validation.",
+    "The test result was not used for checkpoint selection, threshold search, TTA, morphology, connected-component filtering, or any adaptation.",
+    "The raw Dice values across official15, brain-crop, and this refiner are descriptive milestones, not a single-factor ablation table."
+  ]
+}

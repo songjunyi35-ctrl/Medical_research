@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/finalize_t1ce_10h.py", line 110, in <module>
+    {'select':select,'panel':panel,'publish':publish,'complete':lambda:publish(True)}[sys.argv[1]]()
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/finalize_t1ce_10h.py", line 61, in panel
+    dest=export/(Path(c['checkpoint_path']).parent.name+'_'+c['checkpoint_sha256'][:16]+'.pth')
+                      ~^^^^^^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'

@@ -1,0 +1,95 @@
+{
+  "schema": "aflow.prereg.residual_refiner_graymean_paired_a100",
+  "schema_version": 1,
+  "created_date_utc": "2026-08-13",
+  "status": "frozen_before_optimizer_step",
+  "test_access": false,
+  "research_question": "Does a differentiable MSCL-style gray-mean consistency term improve the frozen epoch-58 GT-centered residual refiner?",
+  "primary_target": {
+    "split": "108-case subject-clean validation",
+    "metric": "scan-macro WT Dice",
+    "threshold": 0.70,
+    "strict_comparison": ">"
+  },
+  "attribution_rule": {
+    "gray_arm_minus_control_minimum": 0.005,
+    "reason": "A matched continuation control separates gray-prior benefit from extra optimization."
+  },
+  "source_checkpoint": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/residual_refiner_stage2_gtcrop_h100_train972_val108_e60_s20260810_v2/refiner_val_dice_best.pth",
+    "sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "source_epoch": 58,
+    "reported_h100_validation_dsc": 0.6683989912099032,
+    "reloaded_a100_cache_validation_dsc": 0.6695488602509377,
+    "optimizer_state_policy": "reset in both arms"
+  },
+  "data": {
+    "train_cache": {
+      "path": "/tmp/aflow_refiner_graymean_20260813/train",
+      "count": 972,
+      "index_sha256": "d3cace047fe168e33b465744bf4170e7e323defc6f61e968cd83250e4061f974"
+    },
+    "validation_cache": {
+      "path": "/tmp/aflow_refiner_graymean_20260813/validation",
+      "count": 108,
+      "index_sha256": "cda56539fd59ce9c2579c41de4a8b1467381ab513c66a62397448a1cd470444c"
+    },
+    "training_geometry": "GT-centered N4 128^3",
+    "coarse_prompt": "frozen SAM-Med3D fixed click-3 logits, seed 20260723",
+    "target": "WT={1,2,3}; raw label 4 excluded"
+  },
+  "paired_arms": [
+    {
+      "name": "control_continuation",
+      "gpu": 0,
+      "gray_weight": 0.0
+    },
+    {
+      "name": "graymean_w1",
+      "gpu": 1,
+      "gray_weight": 1.0
+    }
+  ],
+  "fixed_hyperparameters": {
+    "seed": 20260813,
+    "epochs_max": 30,
+    "patience": 10,
+    "batch_size": 2,
+    "num_workers": 4,
+    "optimizer": "AdamW",
+    "learning_rate": 0.00005,
+    "weight_decay": 0.00001,
+    "gradient_clip_norm": 5.0,
+    "sampler": "original sqrt inverse lesion-volume WeightedRandomSampler",
+    "augmentations": "original joint flips, zero-filled shifts <=12, image scale/offset/noise",
+    "segmentation_loss": "original MONAI DiceCELoss: sigmoid, Dice weight 1, CE weight 1",
+    "gray_loss": "MSE between GT-region T1ce mean and sigmoid(logit/1.0)-weighted T1ce mean",
+    "gray_temperature": 1.0,
+    "gray_epsilon": 0.000001,
+    "checkpoint_selection": "strict maximum validation scan-macro Dice including continuation epoch 0"
+  },
+  "paper_alignment": {
+    "reported_term": "L_th = MSE(mean G(R_i), mean G(R_o))",
+    "local_choice": "Use a soft predicted region so the term is differentiable.",
+    "unresolved_in_paper": [
+      "gray-loss coefficient",
+      "hard versus soft predicted region",
+      "exact intensity domain",
+      "empty predicted-region behavior"
+    ],
+    "claim_policy": "Call this MSCL-style local implementation, not an exact undisclosed-code reproduction."
+  },
+  "runner": {
+    "path": "scripts/train_t1ce_wt_residual_refiner_graymean.py",
+    "sha256": "b2949927640e2d656cfe2c71a9f53aec491d9edb9dfa071a634ce7b1037133d2",
+    "unit_test_path": "tests/test_residual_refiner_graymean.py",
+    "unit_test_sha256": "2fc365413821a1e121c059bdcaace6d5bc960f2216183917ea16a8b57c6733df",
+    "unit_test_result": "3 passed"
+  },
+  "decision_policy": [
+    "Do not inspect or evaluate the 270-case test set during this experiment.",
+    "Do not change the loss weight, seed, data, augmentation, batch size, learning rate, patience, or selection metric after launch.",
+    "Report both arms even if the target is missed.",
+    "A score above 0.70 is a validation result and is not automatically a new test result."
+  ]
+}

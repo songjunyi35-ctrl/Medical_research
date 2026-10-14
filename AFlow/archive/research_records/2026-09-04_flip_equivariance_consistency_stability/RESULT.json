@@ -1,0 +1,113 @@
+{
+  "schema": "aflow.brats.flip_equivariance_consistency.result",
+  "schema_version": 1,
+  "date_utc": "2026-09-05",
+  "status": "complete_failed_fresh_inner_gates",
+  "idea_supported": false,
+  "single_changed_factor": "squared-denominator sigmoid soft-Dice flip-equivariance consistency gradient weight 0.0 versus 0.1; both arms used the same two student forwards",
+  "cohorts": {
+    "c": {"fit_scans": 864, "inner_scans": 108, "inner_subjects": 49},
+    "d": {"fit_scans": 864, "inner_scans": 108, "inner_subjects": 49},
+    "c_d_inner_case_overlap": 0,
+    "c_d_inner_subject_overlap": 0,
+    "old_a_b_inner_union_subject_overlap": 0
+  },
+  "replicate_c": {
+    "control": {
+      "identity": {"scan_dice": 0.7371796650672999, "subject_dice": 0.7311484558725725, "point_hits": 101},
+      "flip8": {"scan_dice": 0.742551851042004, "subject_dice": 0.7363445330608224, "point_hits": 100}
+    },
+    "candidate": {
+      "identity": {"scan_dice": 0.7374956054680045, "subject_dice": 0.7325343222200368, "point_hits": 102},
+      "flip8": {"scan_dice": 0.740778693191251, "subject_dice": 0.7369873587062525, "point_hits": 102}
+    },
+    "candidate_minus_control_identity": {
+      "scan_dice": 0.0003159404007045798,
+      "subject_dice": 0.0013858663474643094,
+      "point_hits": 1,
+      "scan_dice_95ci": [-0.004461980271232052, 0.005325482494402971],
+      "subject_dice_95ci": [-0.004281654703911206, 0.007205393108892049]
+    },
+    "candidate_minus_control_flip8": {
+      "scan_dice": -0.0017731578507530668,
+      "subject_dice": 0.0006428256454302535,
+      "point_hits": 2,
+      "scan_dice_95ci": [-0.006636397601494536, 0.0033195633931838164],
+      "subject_dice_95ci": [-0.00589303720707865, 0.007807201311577653]
+    },
+    "mechanism_last5_candidate_over_control": 0.6360572681682716,
+    "all_gates_passed": false
+  },
+  "replicate_d": {
+    "control": {
+      "identity": {"scan_dice": 0.7378672969362539, "subject_dice": 0.7023680063172597, "point_hits": 104},
+      "flip8": {"scan_dice": 0.7415519685636786, "subject_dice": 0.7073404791831641, "point_hits": 106}
+    },
+    "candidate": {
+      "identity": {"scan_dice": 0.7373209273641136, "subject_dice": 0.7024525504810136, "point_hits": 103},
+      "flip8": {"scan_dice": 0.7394884886595676, "subject_dice": 0.7033729886111012, "point_hits": 105}
+    },
+    "candidate_minus_control_identity": {
+      "scan_dice": -0.0005463695721402415,
+      "subject_dice": 0.00008454416375392406,
+      "point_hits": -1,
+      "scan_dice_95ci": [-0.005019566751274774, 0.0041681388678404905],
+      "subject_dice_95ci": [-0.005782921477086154, 0.006180704645537934]
+    },
+    "candidate_minus_control_flip8": {
+      "scan_dice": -0.002063479904110875,
+      "subject_dice": -0.003967490572062994,
+      "point_hits": -1,
+      "scan_dice_95ci": [-0.005777560469819224, 0.0016288113911215017],
+      "subject_dice_95ci": [-0.009181503897762486, 0.0008673277164759931]
+    },
+    "mechanism_last5_candidate_over_control": 0.6480302393498719,
+    "all_gates_passed": false
+  },
+  "cross_replication_means": {
+    "candidate_minus_control_flip8_scan": -0.0019183188774319709,
+    "candidate_minus_control_flip8_subject": -0.0016623324633163702,
+    "candidate_minus_control_identity_scan": -0.00011521458571783088,
+    "candidate_minus_control_identity_subject": 0.0007352052556091167
+  },
+  "engineering": {
+    "both_pairs_all_initial_sampling_augmentation_reflection_and_first_loss_gates_passed": true,
+    "all_four_training_gates_passed": true,
+    "all_four_fixed_epoch168_before_inner_access": true,
+    "amendment_formula_exact_equality_distance_zero": true,
+    "candidate_consistency_mechanism_learned": true
+  },
+  "interpretation": "The regularizer reliably reduced flip disagreement by about 35-36 percent, but stronger agreement did not improve accuracy. C lost Flip8 Scan; D lost identity Scan and Flip8 Scan/Subject. This implementation is ruled out without claiming all equivariant architectures are impossible.",
+  "cost": {
+    "training_gpu_hours": 20.873,
+    "dual_a100_wall_hours": 10.484,
+    "inner_locator_forwards": 3456,
+    "peak_gpu_memory_bytes_each": 42005838848,
+    "workspace_storage": "110M",
+    "archive_storage_before_result_docs": "56K",
+    "deployment_identity_forwards": 1,
+    "deployment_flip8_forwards": 8
+  },
+  "access": {
+    "fit": true,
+    "fresh_c_d_inner": true,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": false,
+    "ucsd_external75": false
+  },
+  "artifacts": {
+    "raw_inner": {"path": "archive/research_records/2026-09-04_flip_equivariance_consistency_stability/RAW_STAGE_A_INNER.json", "sha256": "829138540a462593b1b44eca007d1789fa9155e2d560f685b6cbacebfb8eef67"},
+    "inner_started": {"path": "archive/research_records/2026-09-04_flip_equivariance_consistency_stability/INNER_STARTED.json", "sha256": "4fd19f981f14a1f4448cbd48273f37d631aaede122db82dcb1ae04ccd4c26152"},
+    "inner_preaccess": {"path": "archive/research_records/2026-09-04_flip_equivariance_consistency_stability/INNER_PREACCESS.json", "sha256": "d24c5cb31e7c769e98278f744afdd20db2765a38f5d7af247df3bd11d411662d"},
+    "split_manifest": {"path": "data/datasets/brats2024_t1ce_flip_equivariance_consistency_20260904/split_manifest.json", "sha256": "c18f81618de6d08a7769447746476a1c1da62f624d62e00ea6947ac8dcd2747e"},
+    "checkpoints": {
+      "c_control": "87e76ab640f4c5ea2a4877c9914a02af47be57d029069348efeefa0aba792091",
+      "c_candidate": "93e97fd6b2d3c61d3165f8bb600d31d4486bbd280c425ede1b9d8cb0b9af9da9",
+      "d_control": "4e10e8a48f245952ab6a9dde41b9e6d9f5c3f46e9e3522a67258c99f25c7d731",
+      "d_candidate": "4f164f4fda887a1795c696ebb29b2031cf0a0d466294f89401ab4bb9425d9b8e"
+    }
+  },
+  "next_decision": "Close weight0.1 squared-soft-Dice flip-consistency. Do not tune weight/formula/view/epoch on C/D or any revealed cohort. Continue the user-authorized 30-hour research horizon with a new seven-question, primary-source, fresh-evidence method."
+}

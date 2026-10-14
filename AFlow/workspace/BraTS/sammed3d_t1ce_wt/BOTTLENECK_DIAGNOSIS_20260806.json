@@ -1,0 +1,180 @@
+{
+  "schema": "aflow.sammed3d.bottleneck_diagnosis",
+  "schema_version": 1,
+  "created_utc": "2026-08-06",
+  "question": "Why does the T1ce/WT SAM-Med3D arm plateau at ~0.57 DSC instead of the ~0.73-0.74 referenced from DPD-SAM?",
+  "subject_run": "sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805",
+  "subject_checkpoint_sha256": "75dd0b55f9fb29f558b97f9bd8f306b57832c244e49252f2f3095a82dd464e82",
+
+  "protocol_alignment_with_dpdsam": {
+    "verdict": "ALIGNED on every dimension the paper discloses; the gap is NOT a task mismatch",
+    "target_definition": {
+      "method": "computed candidate label-set volume statistics over all 972 train cases and compared to DPD-SAM Table I",
+      "dpdsam_reported": {"median_ml": 41.64, "iqr_ml": 62.14, "str_rate_lt_5ml_pct": 2.8},
+      "ours_WT_labels_123": {"median_ml": 41.84, "iqr_ml": 61.26, "str_rate_lt_5ml_pct": 3.0},
+      "rejected_alternatives_ml_median": {"TC_13": 1.34, "ET_3": 1.27, "NETC_1": 0.0, "SNFH_2": 37.70, "RC_4": 6.21, "ALL_1234": 60.85},
+      "conclusion": "WT={1,2,3} with RC={4} excluded reproduces all three of DPD-SAM's reported statistics; every other definition is far off. Target definition is confirmed identical."
+    },
+    "modality": "DPD-SAM Sec. III: 'C = 1 for the T1ce sequence adopted in this work'. Identical to ours.",
+    "geometry": "DPD-SAM: 'intensity normalization, bias field correction, and skull stripping ... resized to a consistent input dimension of 128x128x128'. Identical to our N4 whole-volume 128^3 cache.",
+    "loss": "DPD-SAM Eq. 10 is Dice + BCE. Ours is generic.DiceCELoss(sigmoid=True, squared_pred=True).",
+    "augmentation": "DPD-SAM: TorchIO random affine (rot 15 deg, transl 10%) + elastic + noise. Ours: train_augmentation='affine_elastic_noise'.",
+    "split_ratio": "DPD-SAM: random 8:2 train/test on 1350 cases. Ours: outer 1080/270, i.e. the same 8:2, then an inner 972/108 so 108 cases are spent on validation that DPD-SAM does not spend."
+  },
+
+  "hypotheses_tested": [
+    {
+      "hypothesis": "The mask decoder's output resolution caps achievable Dice",
+      "measurement": "image_encoder maps 128^3 -> 8^3x384 tokens; mask_decoder emits logits at 32^3, trilinearly upsampled 4x to 128^3. Naive emulation (downsample GT to 32^3, threshold 0.5, upsample) gives mean Dice 0.8105 over 1080 train+val cases.",
+      "refutation": "That 0.81 is an artifact of the 0.5 threshold. Optimizing a free 32^3 logit field per case by gradient descent against the 128^3 GT reaches mean Dice 0.9266 (median 0.9352) on the 108 validation cases; even the 'tiny' lesion bin reaches 0.8507. Continuous logits recover sub-grid boundary placement.",
+      "verdict": "REFUTED. Output resolution is not the binding constraint."
+    },
+    {
+      "hypothesis": "WT is multi-focal, so a few point prompts cannot specify it",
+      "measurement": "connected components on validation WT: 43% of cases have >=2 components of >=50 voxels, but the largest component holds 99.8% of WT volume at the median, and only 12% of cases have <70% of volume in the largest component.",
+      "verdict": "REAL BUT MINOR. Multi-focality affects a minority of the volume."
+    },
+    {
+      "hypothesis": "The 3-click budget is too small; DPD-SAM's baseline used a richer prompt",
+      "measurement": "validation-only diagnostic click-response curve on the frozen checkpoint: 1 click 0.5432, 3 clicks 0.5633, 5 clicks (SAM-Med3D official budget) 0.5731, 10 clicks 0.5821.",
+      "verdict": "REFUTED. Ten accumulated GT-derived corrective clicks buy only +0.039 over one. Even at the official 5-click budget the arm reads 0.573, nowhere near 0.741. The interaction channel is nearly saturated, i.e. the model behaves as a prompt-insensitive semantic segmenter."
+    },
+    {
+      "hypothesis": "The model systematically over- or under-segments",
+      "measurement": "test click 3: precision 0.5618, recall 0.6152, median predicted/GT volume ratio 1.103. Balanced.",
+      "verdict": "REFUTED for the aggregate. Errors are boundary/extent errors, not a volume bias. Exception: the tiny-lesion bin over-predicts 2.63x, consistent with the model having learned an average lesion scale."
+    },
+    {
+      "hypothesis": "The architecture plus the 3-click protocol cannot represent this task",
+      "measurement": "capacity probe: same model, same full unfreeze, same LRs (1e-4/1e-5), same 3-click cumulative forward, augmentation DISABLED, trained on a fixed 48-case subset of the 972. Fit Dice on those same 48 cases: epoch 10 = 0.7748, epoch 20 = 0.8267, epoch 40 = 0.8627, epoch 60 = 0.8803, epoch 80 = 0.8846 (final, 80/80 epochs, 918 s). Plateaued from epoch ~60: the last 20 epochs move fit Dice by +0.004.",
+      "verdict": "REFUTED, decisively. The architecture reaches 0.88 and passes the 0.741 reference by epoch ~9 when it does not have to generalize."
+    }
+  ],
+
+  "diagnosis": {
+    "primary": "GENERALIZATION GAP, not capacity, resolution, target definition, prompt budget, or preprocessing.",
+    "evidence": [
+      "Capacity probe fits 48 unaugmented cases to 0.88; the arm's validation is stuck at 0.5677.",
+      "Arm history: train Dice rises 0.398 -> 0.685 across 64 epochs while val Dice plateaus from epoch ~12 and best-argmax lands at epoch 24 (0.5677). 40 further epochs never beat it.",
+      "Train-minus-validation Dice gap widens to ~0.11 even with affine+elastic+noise augmentation active.",
+      "100,509,232 parameters fully unfrozen against 972 training scans (613 subjects, ~1.6 scans/subject) is a very high parameter-to-sample ratio."
+    ],
+    "secondary": {
+      "finding": "Performance is dominated by lesion size",
+      "spearman_dsc3_vs_target_volume": 0.7742,
+      "test_bins_click3": {
+        "tiny_lt_2000vox": {"n": 8, "dsc": 0.1928, "precision": 0.1351, "recall": 0.4551},
+        "small_2000_8000": {"n": 87, "dsc": 0.4630, "precision": 0.4239, "recall": 0.5446},
+        "medium_8000_20000": {"n": 83, "dsc": 0.5800, "precision": 0.5852, "recall": 0.6088},
+        "large_ge_20000": {"n": 92, "dsc": 0.6982, "precision": 0.7082, "recall": 0.7017}
+      },
+      "implication": "The large-lesion third already reads 0.698. If the 95 sub-8000-voxel cases (35% of the test set) matched large-case performance, the scan-macro mean would be 0.642. Small-lesion behaviour, not average behaviour, is what separates 0.57 from 0.70."
+    }
+  },
+
+  "reference_credibility": {
+    "note": "Recorded as context, not as an excuse. The protocol alignment above means the gap is real under a like-for-like task definition.",
+    "observations": [
+      "DPD-SAM Table III reports mean+-std over 5 runs. SAM-Med3D 74.1+-1.5; nnU-Net 72.8+-1.2; plain U-Net 51.9+-2.1; 2D SAM ViT-B 68.4 on 3D post-operative MRI (Table IV).",
+      "BCGFMamba transcribes the same SAM-Med3D number as 73.1, which does not match DPD-SAM's own table.",
+      "DPD-SAM states SAM-based baselines use 'automatically generated prompts under a unified protocol without any manual boxes or points'; the actual prompt construction for the SAM-Med3D row is never specified.",
+      "DPD-SAM's own 86.8 is produced by a diffusion refinement U-Net operating at full 128^3 on top of the SAM mask (Table II), i.e. its headline number does not come from the SAM decoder at all."
+    ]
+  },
+
+  "context_numbers": {
+    "zero_shot_pretrained_sammed3d_validation_c3": 0.3073,
+    "this_arm_validation_c3": 0.5633,
+    "this_arm_test270_scan_macro_c3": 0.571109,
+    "this_arm_test270_median_c3": 0.604289,
+    "fine_tuning_gain_on_validation": 0.2560
+  },
+
+  "geometry_vs_nnunet_style_pipeline": {
+    "prompted_by": "Operator asked on 2026-08-06 whether this project skips preprocessing, comparing against a colleague's U-Mamba pipeline: binarize -> crop to nonzero -> resample to 1mm -> brain z-score -> random 128x160x112 patches.",
+    "step_by_step": {
+      "binarize_label": "WE DO. WT={1,2,3} -> 1, RC={4} excluded.",
+      "crop_to_nonzero": "WE DO NOT. This is a real gap. We resize the whole volume to 128^3.",
+      "resample_to_1mm": "NO-OP for BraTS 2024. Measured median voxel zoom over 120 train cases is [1.0, 1.0, 1.0] and median shape 182x218x182 (SRI atlas space); the data is already 1mm isotropic.",
+      "brain_zscore": "WE DO. 'source nonzero-voxel population z-score before resize'.",
+      "random_patch_128x160x112": "WE DO NOT, and CANNOT without changing the architecture: SAM-Med3D vit_b_ori uses a 16^3 PatchEmbed3D with positional embeddings fixed to an 8^3 token grid, i.e. the input shape is pinned to 128^3.",
+      "extra_step_we_add": "N4 bias field correction (SimpleITK, 4x50, shrink 2), which the colleague's pipeline does not list."
+    },
+    "measured_cost_of_skipping_crop_to_nonzero": {
+      "n_train_cases": 120,
+      "median_brain_bbox": [135, 177, 143],
+      "effective_spacing_mm_at_128cubed": {
+        "our_whole_head_resize": [1.42, 1.70, 1.42],
+        "crop_to_brain_then_resize": [1.06, 1.38, 1.12],
+        "native_patch_pipeline": [1.0, 1.0, 1.0]
+      },
+      "median_lesion_voxels_on_the_model_grid": {
+        "our_whole_head_128": 16522, "crop_to_brain_128": 36649, "native_1mm": 56747
+      },
+      "gt_roundtrip_dice_in_native_1mm_space": {
+        "our_whole_head_128": {"mean": 0.9295, "min": 0.8502},
+        "crop_to_brain_128": {"mean": 0.9677, "min": 0.9320},
+        "by_size_small_lt_8k_native_vox": {"our_whole_head": 0.8759, "crop_to_brain": 0.9515},
+        "by_size_large_gt_40k_native_vox": {"our_whole_head": 0.9408, "crop_to_brain": 0.9721}
+      },
+      "interpretation": "Cropping to the brain bounding box before the 128^3 resize roughly doubles the lesion's voxel count on the model grid and lifts the native-space reconstruction ceiling from 0.930 to 0.968. The gain is largest exactly in the small-lesion bin (0.876 -> 0.952), which is this arm's diagnosed weak regime."
+    },
+    "metric_space_caveat": {
+      "statement": "Our reported DSC compares prediction and GT both on the 128^3 model grid. An nnU-Net/U-Mamba pipeline restores its prediction to the native 1mm grid and scores there. Two DSC values on different spatial grids (DSC itself is dimensionless).",
+      "measured_not_estimated": {
+        "method": "Re-ran the frozen checkpoint on all 108 validation cases, restored each click-3 prediction to the native 182x218x182 @1mm grid with nearest-exact, and re-scored against the untouched GT NIfTI.",
+        "dsc_on_128_grid": 0.5633,
+        "dsc_in_native_space": 0.5619,
+        "drop": 0.0014,
+        "gt_only_roundtrip_ceiling_native": 0.9230,
+        "self_check": "the 128^3 column reproduced the published validation readout 0.5633 exactly"
+      },
+      "correction": "An earlier claim in this project's chat that native-space re-scoring would cost ~0.03 (0.571 -> ~0.54-0.55) was derived by multiplying the readout by the 0.923 GT ceiling. That multiplication is invalid and the measurement refutes it: the true cost is 0.0014. The 0.923 ceiling binds a PERFECT prediction; at 0.56 accuracy the model's own regional errors dominate and almost entirely absorb the extra resampling error.",
+      "consequence": "The metric-space difference is negligible at the current accuracy level, so comparison against a native-resolution pipeline is essentially fair as-is and cannot be used to explain the shortfall in either direction. The 0.923 ceiling would only start to bind above roughly 0.85 DSC."
+    },
+    "token_budget_waste": {
+      "brain_bbox_share_of_native_array": 0.478,
+      "actual_nonzero_brain_share_of_native_array": 0.208,
+      "consequence": "About 52% of our 128^3 input lies outside the brain bounding box and ~79% of its voxels are literally zero. Of the image encoder's 8^3 = 512 tokens, roughly 267 cover mostly background. This, not the metric space, is the real cost of skipping crop-to-nonzero: it is a wasted-capacity argument about the input, not a measurement argument about the score."
+    }
+  },
+
+  "crop_to_nonzero_probe_20260806": {
+    "question": "Does inserting crop-to-nonzero before the 128^3 resize help, using the ALREADY-TRAINED whole-head weights?",
+    "design": "2x2: {epoch 24 best, epoch 64 latest} x {whole-head resize, crop-to-nonzero then resize}. Only the geometry changes. N4 (shrink 2), the nonzero-population z-score, the 3-click cumulative protocol, seed 20260723 and the weights are identical. The z-score is provably unaffected by the crop: it is taken over the nonzero-voxel population and cropping to the nonzero bounding box does not change which voxels are nonzero.",
+    "scoring": "every cell restored to the native 182x218x182 @1mm grid and compared against the untouched GT NIfTI, so all four numbers sit on the same grid",
+    "split": "validation 108 only; NO test data read",
+    "results_native_1mm": {
+      "epoch24_best":   {"whole_head": 0.5619, "brain_crop": 0.5659, "delta": 0.0040,
+                          "ci95": [-0.0118, 0.0202], "improved": 57, "worsened": 51, "sign_test_p": 0.63},
+      "epoch64_latest": {"whole_head": 0.5438, "brain_crop": 0.5712, "delta": 0.0274,
+                          "ci95": [0.0158, 0.0394], "improved": 72, "worsened": 36, "sign_test_p": 0.00068}
+    },
+    "by_size_epoch64_native": {
+      "small_lt_8k":  {"whole_head": 0.1743, "brain_crop": 0.1983, "delta": 0.0240, "n": 7},
+      "medium":       {"whole_head": 0.4638, "brain_crop": 0.5082, "delta": 0.0444, "n": 41},
+      "large_gt_40k": {"whole_head": 0.6415, "brain_crop": 0.6577, "delta": 0.0162, "n": 60}
+    },
+    "prediction_that_was_wrong": "Before running this, the agent predicted that feeding brain-cropped input to whole-head-trained weights would be a train/eval preprocessing mismatch and would LOWER the score, so the probe could not demonstrate any benefit. That prediction is refuted: the effect is positive, and for epoch 64 it is statistically clear (95% CI excludes zero, sign test p=0.00068). The operator's original instinct to test the geometry directly was better than the agent's objection.",
+    "honest_limits": [
+      "The epoch-24 effect is NOT significant (CI spans zero, p=0.63). Only the epoch-64 effect is.",
+      "The agent has no confident explanation for why epoch 64 benefits (+0.0274) far more than epoch 24 (+0.0040). Stated as an observation, not a mechanism.",
+      "This is still a mismatched-input measurement. It is a LOWER bound on what training with the crop would give, not an estimate of it.",
+      "n=108. The best cell (epoch64 + brain_crop = 0.5712) beats the frozen configuration (epoch24 + whole_head = 0.5619), but picking it is a validation-based selection and would need a fresh freeze before any test readout."
+    ],
+    "conclusion": "crop-to-nonzero is confirmed worth training with. It is a real, cheap, single-factor gain even before retraining."
+  },
+
+  "implications_for_next_arm": [
+    "Levers that address the generalization gap: train on the full 1080 outer-train (subject-clean CV instead of a fixed 108 holdout); stronger/longer augmentation; partial rather than full unfreeze, or layer-wise LR decay; EMA of weights; early-stopping already fires very early so the epoch budget is not the constraint.",
+    "Levers that address the size dependence: size-stratified or size-reweighted sampling; a loss less dominated by large lesions than mean Dice; a two-stage coarse-to-fine crop so small lesions are not resolved at whole-head scale.",
+    "The single structural difference from DPD-SAM's pipeline that remains untested is its full-resolution refinement stage operating on the SAM mask at 128^3.",
+    "None of the above may be selected using the 270-case test. Model development returns to the 972/108 clean validation."
+  ],
+
+  "test_access": "This record consumed NO new test data. Per-case numbers quoted for the 270 cases were read from the already-published FROZEN_TEST270_FULLUNFREEZE_20260805.json report, not by re-running the evaluator. All new computation ran on the 972 train and 108 validation splits.",
+  "artifacts": {
+    "capacity_probe_script": "scratchpad/capacity_probe.py (diagnostic; not an arm; wrote no checkpoint)",
+    "click_response_diagnostic": "scratchpad/diag_val_clicks5.json, scratchpad/diag_val_clicks10.json (validation split only)"
+  }
+}

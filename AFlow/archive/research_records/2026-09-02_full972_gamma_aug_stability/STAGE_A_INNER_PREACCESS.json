@@ -1,0 +1,27 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_gamma_aug_stage_a_inner.preaccess",
+  "schema_version": 1,
+  "status": "frozen_before_train_only_inner",
+  "created_at_utc": "2026-09-02T17:42:49Z",
+  "evaluator_sha256": "8fe0eafee645d7519c4827c51a970723a33915d69683c53c4f074dfb20e3dffb",
+  "runner_sha256": "9a35cf52a2b4e31ac72c1661a9314c5cda357c897954d8cd838a7310dd83fc9e",
+  "artifact_sha256": {
+    "report": {"baseline_control": "1b69a56aabf2cf0dd4f61039645e2177fa18512885689a4ca38584221d3f9bbf", "gamma_candidate": "3726e187138b501ea3c6ab4dcb433d67ff20a37ddc307892ab8e76afea60040b"},
+    "pairing": {"baseline_control": "771191e10474d4c7e3cfc0c20474182cbefd929140d690901dd3fd61f217fe74", "gamma_candidate": "798d68d1e2e20b30fde83d0389da7eff4816090395ca84840dcc9cb32d7da314"},
+    "checkpoint": {"baseline_control": "8695e533874e303db4834c014ffe25bb5980f432b23262ef0564292fba40884f", "gamma_candidate": "433e40a9c863ec09b6e802b11358574b5b5aedbf80a4a3e3114e4dc2fd2672a9"}
+  },
+  "gamma_audit": {
+    "total_samples": 162624,
+    "applied_samples": 49151,
+    "applied_fraction": 0.302237062180244,
+    "gamma_min": 0.7000014185905457,
+    "gamma_max": 1.4999827146530151,
+    "max_mean_abs_error": 3.203749656677246e-07,
+    "max_population_std_abs_error": 1.1920928955078125e-07,
+    "label_unchanged": true,
+    "global_rng_unchanged": true
+  },
+  "pairing": {"initial_state_exact": true, "sampling_weights_exact": true, "all_168_sampler_epochs_exact": true, "first_pre_gamma_batch_exact": true, "all_gates_passed": true},
+  "bootstrap": {"samples": 10000, "seed": 20261083, "ci_lower_safety_margin": -0.003},
+  "access": {"train_only_inner": false, "fixed_validation108": false, "outer": false, "confirmation": false, "test270": false}
+}

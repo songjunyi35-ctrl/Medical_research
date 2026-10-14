@@ -1,0 +1,86 @@
+{
+  "schema": "aflow.ucsd_ptgbm.external_confirmation.result",
+  "schema_version": 1,
+  "status": "complete_one_time_external_confirmation_no_retuning",
+  "cohort": {
+    "name": "UCSD-PTGBM patient-disjoint main-release difference",
+    "scans": 75,
+    "subjects": 53,
+    "all_wt_positive": true,
+    "existing_case_overlap": 0,
+    "existing_subject_overlap": 0,
+    "existing_ucsd_local_subject_overlap": 0,
+    "separate_brats_challenge_test_package_used": false
+  },
+  "primary_full972_kd": {
+    "scan_dice": 0.7455541275938352,
+    "scan_dice_95ci": [0.7047669399182002, 0.7815954048633575],
+    "subject_dice": 0.739054558458943,
+    "subject_dice_95ci": [0.6860284541247401, 0.7845347816405712],
+    "point_hits": 70,
+    "point_denominator": 75,
+    "point_hit": 0.9333333333333333,
+    "checkpoint_sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b"
+  },
+  "secondary_gcsam": {
+    "scan_dice": 0.7556473382314046,
+    "scan_dice_95ci": [0.7170801040331523, 0.7891719121734302],
+    "subject_dice": 0.7551516704964187,
+    "subject_dice_95ci": [0.7078733323973679, 0.7965259456503317],
+    "point_hits": 71,
+    "point_denominator": 75,
+    "point_hit": 0.9466666666666667,
+    "checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d"
+  },
+  "gcsam_minus_full972_kd": {
+    "scan_dice": 0.010093210637569428,
+    "scan_dice_95ci": [-0.0024646962881088247, 0.027164096742868425],
+    "subject_dice": 0.016097112037475755,
+    "subject_dice_95ci": [-0.0006309193400841825, 0.03895383009558204],
+    "point_hits": 1
+  },
+  "performance_gates": {
+    "atomic_passed": 4,
+    "atomic_failed": 4,
+    "all_passed": false
+  },
+  "intuition_supported": "partial: both frozen models passed absolute transfer gates, but Full972 KD did not preserve its expected relative robustness; GCSAM led all three external point estimates while paired CIs crossed zero",
+  "grid_fov_caveat": "official UCSD release inputs are 256^3 at 1mm while project training BraTS copies are 182x218x182; excluded-overlap QC confirms exact shifted labels and highly correlated T1 wiring, but image-only crop extents and final 128^3 rasterization can differ",
+  "cost": {
+    "training_gpu_hours": 0,
+    "selected_download_bytes": 103182525,
+    "cache_bytes_approx": 786432000,
+    "cache_build_seconds": 419.231463432312,
+    "locator_forwards_total": 150,
+    "deployment_forwards_per_model": 1
+  },
+  "access": {
+    "external_confirmation": true,
+    "new_train": false,
+    "new_fixed_validation": false,
+    "new_outer": false,
+    "new_internal_confirmation": false,
+    "new_reused_test270": false,
+    "test_tuned": false
+  },
+  "evidence": {
+    "raw_report_path": "workspace/BraTS/ucsd_ptgbm_external_confirmation_20260902/UCSD_EXTERNAL_CONFIRMATION.json",
+    "raw_report_sha256": "91910760fbab804ee17b3ad8027a035a6676b02307a6f34d8408ba858c42f593",
+    "preaccess_receipt_sha256": "c13513df4780dceb9c64ea1509985d54cb32ff3b4364b979f895fabc14c1da8b",
+    "official_inventory_sha256": "6cb1f5a5eb740c06c6e8b01e57c7e6aab6dd8a7472f02d8acdd42540e2d16c38",
+    "download_receipt_sha256": "4d635a4b92da11250381b479d1ebc954062197045865a059f88915af5111b331",
+    "cache_index_sha256": "14d944f945d5f6396ab5f676dffeb172be94dd7d781098b615835775640698b8",
+    "postrun_audit_path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/POSTRUN_AUDIT.json",
+    "postrun_audit_sha256": "873215bcd0ffa9402ed46c4f4f557e5537604e53adcb3966f1ce967dd5dc1a44",
+    "development_overlap_label_audit_path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/DEVELOPMENT_OVERLAP_LABEL_AUDIT.json",
+    "development_overlap_label_audit_sha256": "40b7936c7e8912ff0694e43d70560598f7e21ca196467d5e99536d8f0cd11516",
+    "development_overlap_label_delta_audit_path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/DEVELOPMENT_OVERLAP_LABEL_DELTA_AUDIT.json",
+    "development_overlap_label_delta_audit_sha256": "0d83752173c0a7f0cd51a369ac8df3eb338b4b9465bdcb18ecad8a892c78e95c",
+    "descriptive_sensitivity_audit_path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/DESCRIPTIVE_SENSITIVITY_AUDIT.json",
+    "descriptive_sensitivity_audit_sha256": "df372d4aa43bc4d9b10a3b605da1c887e732341a287979532edc7773b33b8818",
+    "power_planning_audit_path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/POWER_PLANNING_AUDIT.json",
+    "power_planning_audit_sha256": "f8e31426380d74e06bab806cd4076a6dfae950e94dd262c0f5c87e9f1b820d6c",
+    "cache_reproduction_audit_path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/CACHE_REPRODUCTION_AUDIT.json",
+    "cache_reproduction_audit_sha256": "f4f25187af4a1771020657b591b978026e5307f63810eed96eec2f8cd8a9c40c"
+  }
+}

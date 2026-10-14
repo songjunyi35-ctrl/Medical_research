@@ -1,0 +1,24 @@
+{
+  "utc": "2026-09-17T11:59:36.619118+00:00",
+  "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/test270",
+  "index_sha256": "41bd6cf44553b8d156de49f2c57bb424cab60cfa26c06881bdfb96ff91de39d3",
+  "payload_sha256": {
+    "images.f32": "cf834d2b4e6cdaa414689c8723d532178980f6ad459324d13a903321f1064888",
+    "labels.u8": "ecb28a45607d54cf453ece3208ef8261ea30f496e747f919242ac1172445f222"
+  },
+  "count": 270,
+  "new_cache_bytes": 0,
+  "preprocessing": {
+    "spatial": "braincrop_resize",
+    "spatial_description": "crop to the bounding box of nonzero voxels, then resize that box to 128^3. Does NOT use the label: the box comes from image intensity only, so localization is not oracle.",
+    "image_interpolation": "trilinear",
+    "label_interpolation": "nearest-exact",
+    "normalization": "source nonzero-voxel population z-score before resize; unchanged by the crop because the crop removes only zero voxels",
+    "uses_gt_for_localization": false,
+    "skull_stripping": "not applied; BraTS 2024 volumes are already stripped",
+    "n4_bias_field_correction": true,
+    "n4_shrink_factor": 2,
+    "n4_implementation": "SimpleITK N4BiasFieldCorrectionImageFilter, 4x50 iterations, nonzero mask",
+    "augmentation": "NOT cached; applied per-epoch by the dataset"
+  }
+}

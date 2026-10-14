@@ -1,0 +1,169 @@
+{
+  "confirmation_access": false,
+  "created_at_utc": "2026-08-18T02:57:00.867957+00:00",
+  "data_roles": {
+    "case_overlap": 0,
+    "fit": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_long_schedule_inner_seed20260822_v1/fit_cases.jsonl",
+      "sha256": "842be9e0d56ba8848bcb913d54808f9e2b468cc0f904f45f1ed91f1452d113f5"
+    },
+    "fit_cases": 2,
+    "fit_subjects": 1,
+    "fresh_tune": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_long_schedule_inner_seed20260822_v1/inner_tune_cases.jsonl",
+      "sha256": "50270be1ecb50a3283e844b2916ae9ee8369989d6f57273706595f3a9cd7d7d2"
+    },
+    "fresh_tune_cases": 2,
+    "fresh_tune_subjects": 1,
+    "subject_overlap": 0
+  },
+  "elapsed_seconds": 1.7609772682189941,
+  "fixed_logit_threshold": 0.0,
+  "history": [
+    {
+      "elapsed_seconds": 1.2422096729278564,
+      "epoch": 1,
+      "learning_rate": 0.0002,
+      "strict_new_high_in_window": true,
+      "train_dsc": 0.04619513638317585,
+      "train_loss": 1.024669885635376,
+      "validation": {
+        "automatic_point_hit_rate": 0.0,
+        "cases": 2,
+        "locator_dsc_mean": 0.16454390436410904,
+        "locator_dsc_median": 0.16454390436410904,
+        "locator_dsc_std_population": 0.006374053657054901,
+        "locator_subject_dsc_mean": 0.16454390436410904,
+        "per_case": [
+          {
+            "automatic_point": [
+              61,
+              10,
+              79
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00020-100",
+            "locator_dsc": 0.15816985070705414,
+            "subject_id": "BraTS-GLI-00020"
+          },
+          {
+            "automatic_point": [
+              64,
+              4,
+              58
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00020-101",
+            "locator_dsc": 0.17091795802116394,
+            "subject_id": "BraTS-GLI-00020"
+          }
+        ],
+        "subjects": 1
+      },
+      "window": "pre100"
+    },
+    {
+      "elapsed_seconds": 1.648164987564087,
+      "epoch": 2,
+      "learning_rate": 1e-05,
+      "strict_new_high_in_window": true,
+      "train_dsc": 0.12936897203326225,
+      "train_loss": 1.0000121593475342,
+      "validation": {
+        "automatic_point_hit_rate": 0.0,
+        "cases": 2,
+        "locator_dsc_mean": 0.17218203842639923,
+        "locator_dsc_median": 0.17218203842639923,
+        "locator_dsc_std_population": 0.00635838508605957,
+        "locator_subject_dsc_mean": 0.17218203842639923,
+        "per_case": [
+          {
+            "automatic_point": [
+              61,
+              10,
+              79
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00020-100",
+            "locator_dsc": 0.16582365334033966,
+            "subject_id": "BraTS-GLI-00020"
+          },
+          {
+            "automatic_point": [
+              64,
+              4,
+              58
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00020-101",
+            "locator_dsc": 0.1785404235124588,
+            "subject_id": "BraTS-GLI-00020"
+          }
+        ],
+        "subjects": 1
+      },
+      "window": "post100"
+    }
+  ],
+  "hyperparameters": {
+    "base_lr": 0.0002,
+    "batch_size": 2,
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_20260817/train",
+    "ce_weight": 0.1,
+    "constant_epochs": 1,
+    "device": "cuda:0",
+    "dropout": 0.1,
+    "epochs": 2,
+    "expected_fit_cases": 2,
+    "expected_fit_sha256": "842be9e0d56ba8848bcb913d54808f9e2b468cc0f904f45f1ed91f1452d113f5",
+    "expected_fresh_tune_cases": 2,
+    "expected_fresh_tune_sha256": "50270be1ecb50a3283e844b2916ae9ee8369989d6f57273706595f3a9cd7d7d2",
+    "expected_parameter_count": 4700897,
+    "fit_case_ids": "data/datasets/brats2024_t1ce_long_schedule_inner_seed20260822_v1/fit_cases.jsonl",
+    "fresh_tune_case_ids": "data/datasets/brats2024_t1ce_long_schedule_inner_seed20260822_v1/inner_tune_cases.jsonl",
+    "init_filters": 16,
+    "limit_fit_cases": 2,
+    "limit_fresh_tune_cases": 2,
+    "max_shift": 8,
+    "min_lr": 1e-05,
+    "num_workers": 0,
+    "output_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/smoke_seed20260823",
+    "seed": 20260823,
+    "smoke": true,
+    "validation_batch_size": 2,
+    "weight_decay": 1e-05
+  },
+  "outer_selector_access": false,
+  "parameter_count": 4700897,
+  "peak_gpu_memory_bytes": 5438319104,
+  "runner_sha256": "43d8fdbeeb11983e6327e9347306d5271f4f7a2e82adb96f3661b2d93d5b763b",
+  "schedule": {
+    "base_lr": 0.0002,
+    "constant_epochs": 1,
+    "epochs": 2,
+    "min_lr": 1e-05,
+    "post100": "cosine inclusive endpoints"
+  },
+  "schema": "aflow.sammed3d.t1ce_wt_plain_long_schedule_training",
+  "schema_version": 1,
+  "selections": {
+    "post100": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/smoke_seed20260823/post100_best.pth",
+        "sha256": "5997c9cc4f31c7d70a0a253ed4b9d6182628aa7256ad4744e40a66f89c0914c6"
+      },
+      "epoch": 2,
+      "value": 0.17218203842639923
+    },
+    "pre100": {
+      "checkpoint": {
+        "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/smoke_seed20260823/pre100_best.pth",
+        "sha256": "0fa8bd22a0d785ebe7eaa37fa9254ca49014012f1ad99fc341ea3fe51ee9ee3a"
+      },
+      "epoch": 1,
+      "value": 0.16454390436410904
+    }
+  },
+  "status": "complete",
+  "test_access": false
+}

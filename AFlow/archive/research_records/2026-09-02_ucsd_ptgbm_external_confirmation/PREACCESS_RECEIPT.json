@@ -1,0 +1,109 @@
+{
+  "schema": "aflow.ucsd_ptgbm.external_confirmation.preaccess_receipt",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-02T21:46:00+00:00",
+  "status": "frozen_before_eligible_external_label_download",
+  "authorization_scope": "user requested autonomous 24-hour repository-compliant work to surpass the leaderboard; this receipt freezes a one-time patient-disjoint external confirmation without training or tuning",
+  "method_documents": {
+    "idea": {
+      "path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/IDEA.md",
+      "sha256": "a8b11ac3886679d6123e9292fd50ba6d42321f6804cb17e3711f4a6fc4d84c77"
+    },
+    "preregistration": {
+      "path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/PREREG.md",
+      "sha256": "c624e7bb9fd905bf46f49b410890aa7440bc07bb0cd8c0e8563a6b98e3aba133"
+    }
+  },
+  "official_metadata": {
+    "inventory": {
+      "path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/OFFICIAL_ASSET_INVENTORY.json",
+      "sha256": "6cb1f5a5eb740c06c6e8b01e57c7e6aab6dd8a7472f02d8acdd42540e2d16c38"
+    },
+    "participants": {
+      "path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/source_metadata/participants.tsv",
+      "sha256": "718854757eba9332f0e2872e93b88809987aff204a3d01350e138f8ae0a5960e"
+    },
+    "main_release_cases": 184,
+    "main_release_subjects": 136,
+    "existing_patient_excluded_cases": 109,
+    "eligible_cases": 75,
+    "eligible_subjects": 53,
+    "eligible_case_overlap": 0,
+    "eligible_subject_overlap": 0,
+    "selected_identity_sha256": "8aa370da9728a77ee441d3e748a30ad6bd1c9b2ed3857a722099dc5ed142f4e5",
+    "selected_asset_bytes": 103182525,
+    "separate_brats_challenge_test_package_used": false
+  },
+  "existing_exposure": {
+    "train_manifest": {
+      "path": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/train_cases.jsonl",
+      "cases": 1080,
+      "sha256": "aa2e55915e2a4bc7c2af2e95d6e08f2199397694fe4a92ea66999b534a22f63d"
+    },
+    "reused_test_manifest": {
+      "path": "data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/test_cases.jsonl",
+      "cases": 270,
+      "sha256": "7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2"
+    }
+  },
+  "checkpoints": {
+    "primary": {
+      "identifier": "full972_random_init_voxel_kd_epoch168",
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/voxel_kd_fulltrajectory_972_20260824/final_formal_full972_candidate/plain_fulltrajectory_full972_candidate_epoch168.pth",
+      "sha256": "f7df2a1678564268e899d20411e55c0163df480498273721a7e5b1b71c80d17b"
+    },
+    "secondary": {
+      "identifier": "gcsam_fit864_inner_selected_epoch184",
+      "path": "workspace/BraTS/sammed3d_t1ce_wt/gcsam_full972_stability_20260831/inner_formal_gcsam_candidate/post100_best.pth",
+      "sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d"
+    }
+  },
+  "implementation": {
+    "prepare_script": {
+      "path": "scripts/prepare_ucsd_ptgbm_external_confirmation.py",
+      "sha256": "fde6bdbf9babd4e98b2e22d47537d4d70485bbff36a8983e11361d464fcfdf9e"
+    },
+    "evaluator": {
+      "path": "scripts/evaluate_ucsd_ptgbm_external_confirmation.py",
+      "sha256": "5499455e5d04bd0184ca283988f4b57d10e756002a4099153c14f1c11c9bdb72"
+    },
+    "tests": {
+      "path": "tests/test_ucsd_ptgbm_external_confirmation.py",
+      "sha256": "1eb04ba97f700c4631e9d997b300f37dbe6d46c4cab718b59beabad49ecb40da"
+    },
+    "synthetic_tests": {
+      "path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/SYNTHETIC_TESTS.json",
+      "sha256": "9b2eaef96471963d72e6fb6e9efa7de6e1358e61bf4e1366b82a45de95eda8a6",
+      "passed": 9,
+      "failed": 0
+    },
+    "gpu_smoke": {
+      "path": "archive/research_records/2026-09-02_ucsd_ptgbm_external_confirmation/GPU_SMOKE.json",
+      "sha256": "b634626c38446747cd7927cb4eb5ea36e2db86038f5f924bf2580563379316db",
+      "passed": true
+    }
+  },
+  "frozen_protocol": {
+    "input": "T1 post-contrast only",
+    "target": "WT={1,2,3}; resection cavity label4 excluded",
+    "preprocessing": "canonical RAS -> N4 shrink2 -> image-only positive bounding box -> source-positive population z-score -> 128^3 trilinear image / nearest-exact target",
+    "threshold": 0.0,
+    "forwards_per_model": 1,
+    "tta": false,
+    "sam": false,
+    "postprocessing": false,
+    "ensemble": false,
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 2026090201,
+    "empty_wt_cases_retained": true,
+    "point_hit_denominator": "source-WT-positive scans only",
+    "result_dependent_repeat_or_tuning_allowed": false
+  },
+  "access": {
+    "official_filename_size_digest_metadata_access": true,
+    "participants_mapping_access": true,
+    "eligible_image_voxel_access": false,
+    "eligible_label_voxel_access": false,
+    "external_model_inference": false
+  }
+}

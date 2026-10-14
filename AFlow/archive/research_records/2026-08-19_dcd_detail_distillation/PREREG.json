@@ -1,0 +1,156 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_dcd_detail_distillation_preregistration",
+  "schema_version": 1,
+  "status": "frozen_before_implementation_smoke_training_new_validation_access",
+  "method": "dcd_increment_on_frozen_voxel_kd_continuation",
+  "primary_sources": {
+    "paper": "https://arxiv.org/html/2605.26382v1",
+    "official_repository": "https://github.com/ClinicaAlpha/DCD-3D-MedSeg",
+    "official_method_commit": "9d3684ffd58333874109bb8efebb8c933fa5ac66",
+    "official_brats_config_commit": "d3c27af9e4d1efdd2080bd1a882350566c427c32"
+  },
+  "adaptation_warning": "paper is large-to-compressed nnU-Net, multimodal, multiclass, 1000 epochs; this is same-capacity SegResNet, T1ce binary WT, 32-epoch late continuation and retains existing voxel KL",
+  "starting_problem": {
+    "matched_control_epoch200_scan": 0.7336056602221949,
+    "matched_control_epoch200_subject": 0.723671900062334,
+    "voxel_kd_epoch200_scan": 0.7343843078447713,
+    "voxel_kd_epoch200_subject": 0.7244341433615912,
+    "voxel_kd_minus_control_scan": 0.0007786476225764,
+    "voxel_kd_minus_control_subject": 0.0007622432992572,
+    "lomix3d_epoch200_scan": 0.7324794675051062,
+    "lomix3d_epoch200_subject": 0.7216071030355635
+  },
+  "student": {
+    "architecture": "true-128^3 4,700,897-parameter plain MONAI SegResNet",
+    "initial_checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_long_schedule_20260818/final756_seed20260819_epoch168/plain_fixed_epoch168.pth",
+    "initial_checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "initial_global_epoch": 168,
+    "encoder_stages": [
+      {"index": 0, "channels": 16, "resolution": 128},
+      {"index": 1, "channels": 32, "resolution": 64},
+      {"index": 2, "channels": 64, "resolution": 32},
+      {"index": 3, "channels": 128, "resolution": 16}
+    ],
+    "deploy_output": "original final 128^3 raw segmentation logit only"
+  },
+  "base_voxel_kd": {
+    "retained_unchanged": true,
+    "teacher_formula": "0.75 historical168 logit + 0.25 EMA168 logit",
+    "historical_checkpoint_sha256": "f7c55b500fbfb1470f120cf682c8fa443995ba6002237d4d8132e3601b8e3be1",
+    "ema168_checkpoint_sha256": "4ea97dacb9a538993e1c16593bc56b03ce6dc3df2f457c1f0426439c6252197e",
+    "temperature": 2.0,
+    "weight": 0.3
+  },
+  "detail_teacher": {
+    "checkpoint": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/kd_seed20260846/plain_128_kd_global_epoch200.pth",
+    "checkpoint_sha256": "56f54898ded11a0208e75f8000d57d4d053e80d6dedd760402730ad345c111b7",
+    "selection_basis": "existing fixed validation selected epoch200 and same history168 initialization path; no test metric used for this DCD teacher choice",
+    "historical_validation_access": true,
+    "historical_test_access_after_selection": true,
+    "frozen_eval_no_grad": true,
+    "same_augmented_input": true
+  },
+  "only_changed_factor": "add KD200-to-student four-encoder-stage wavelet detail DCD loss to the existing voxel-KD arm",
+  "dcd": {
+    "wavelet": "db4",
+    "filter_length": 8,
+    "levels_per_stage": 3,
+    "subband_order": ["LLL", "LLH", "LHL", "LHH", "HLL", "HLH", "HHL", "HHH"],
+    "selected_band_indices": [1, 2, 3, 4, 5, 6],
+    "excluded": ["LLL", "HHH"],
+    "dwt": "per-channel Conv3d stride2 padding7 with db4 decomposition filters",
+    "idwt": "ConvTranspose3d stride2 padding7 with the same frozen db4 decomposition bank (adjoint of PyTorch cross-correlation), crop exactly to level input shape",
+    "official_code_orientation_note": "official dec-filter conv3d plus rec-filter conv_transpose3d fails full-band perfect reconstruction in direct audit; this preregisters the paper-semantics adjoint correction before execution",
+    "full_band_reconstruction_gate": "maximum absolute error < 1e-5 on fixed float32 even-sized tensors",
+    "precision": "filters follow feature dtype under bfloat16 autocast; reconstructed feature MSE accumulated in float32",
+    "projection": null,
+    "projection_reason": "student and KD200 teacher channels match at every stage; official implementation uses align=None",
+    "level_aggregation": "mean over three levels within each stage",
+    "stage_aggregation": "sum over all four encoder stages, matching the formal official CLI path and paper equation"
+  },
+  "dcd_weight_schedule": {
+    "source_conflict": "paper says constant 0.05; released BraTS YAML uses max0.01 cosine_healing start150 ramp800 total1000",
+    "choice": "released executable BraTS YAML",
+    "project_adaptation": "proportional mapping to 32 continuation epochs",
+    "local_index": "k = global_epoch - 169, zero-based 0..31",
+    "start_index": 5,
+    "ramp_epochs": 26,
+    "maximum": 0.01,
+    "formula": "k<5:0; else 0.01*0.5*(1-cos(pi*min((k-5)/26,1)))",
+    "saved_epoch_weights": {"176": 0.00014529091286973994, "184": 0.0032269755647873224, "192": 0.007840323733655778, "200": 0.01},
+    "mean_over_32_epochs": 0.00421875
+  },
+  "fixed_training": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_resolution_20260818/formal_128",
+    "cache_index_sha256": "d26b823a4715d9f3676d75cddabcf630180d48807352c23042be7faf240b622d",
+    "train_manifest": "data/datasets/brats2024_t1ce_plain_locator_confirm_seed20260817_v1/train_cases.jsonl",
+    "train_manifest_sha256": "a520439c5c4b7b6a630a43312c0ce0b2af8d29f671d1e7bea129084bdde74d16",
+    "cases": 756,
+    "subjects": 346,
+    "seed": 20260846,
+    "batch_size": 8,
+    "sampler": "weighted replacement, 756 samples per epoch",
+    "max_shift": 8,
+    "optimizer": "AdamW student parameters only; DCD has no trainable projection in this same-channel adaptation",
+    "weight_decay": 0.00001,
+    "global_gradient_clip": 5.0,
+    "precision": "bfloat16 autocast",
+    "global_epochs": [169, 200],
+    "checkpoint_epochs": [176, 184, 192, 200],
+    "learning_rate": "existing frozen late-cosine schedule through global epoch200",
+    "student_ema": false,
+    "forwards_during_training": 4
+  },
+  "base_comparator": {
+    "method": "existing voxel-KD continuation",
+    "directory": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/kd_seed20260846",
+    "validation_report": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/KD_VALIDATION.json",
+    "validation_report_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57"
+  },
+  "fixed_validation": {
+    "cache": "workspace/BraTS/cache/t1ce_wt_n4_braincrop_128_ema_20260819/validation108",
+    "cache_index_sha256": "9339e4575561447dd5bd99bc29e909ae1e9f566721d351a244d087a40622f322",
+    "manifest": "data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl",
+    "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+    "cases": 108,
+    "subjects": 50,
+    "selection": "maximum DCD scan Dice among epochs176/184/192/200; subject Dice exact tie-break"
+  },
+  "promotion_gates_all_required": [
+    "selected DCD scan and subject Dice strictly beat base voxel-KD at the same global epoch",
+    "selected DCD scan and subject Dice strictly beat voxel-KD epoch200",
+    "selected DCD point hit is no more than one of 108 cases below voxel-KD epoch200",
+    "paired scan and subject bootstrap 95% CI lower bounds versus voxel-KD epoch200 are both at least -0.003",
+    "formal checkpoint reload and stripped deploy maximum absolute differences are zero",
+    "all implementation, synthetic, batch8 GPU smoke, hash, role, and access gates pass"
+  ],
+  "technical_stop_gates": {
+    "wavelet": "canonical frozen db4 coefficients, exact shapes, all-band max reconstruction error <1e-5, finite coefficients/reconstructions, identical-feature loss exactly zero",
+    "gradient": "all four student encoder stages receive finite nonzero DCD gradient when mu>0; every teacher parameter gradient remains null; mu=0 one-step student update exactly matches base voxel-KD",
+    "loss": "all stage raw losses, raw DCD, weighted DCD, supervised, voxel-KD and total are finite",
+    "deploy": "student final logits equal plain locator and reload exactly",
+    "gpu_memory": "batch8 smoke OOM or peak allocated greater than 72GiB",
+    "wall_time": "one-step batch8 smoke mechanical formal extrapolation greater than 2 hours",
+    "protocol": "do not reduce batch, stage, level, band, teacher count or change precision after smoke"
+  },
+  "if_gates_fail": "stop without teacher, wavelet, level, band, stage, mu, schedule, epoch, threshold, checkpoint, or postprocessing search; do not access test270",
+  "cost_budget": {
+    "new_cache": false,
+    "estimated_training_minutes": [30, 60],
+    "estimated_peak_gpu_gib": [25, 55],
+    "gpu_stop_gib": 72,
+    "estimated_disk_gib_max": 0.15,
+    "deploy_parameter_count": 4700897,
+    "deploy_locator_forwards": 1
+  },
+  "planned_outputs": {
+    "training": "workspace/BraTS/sammed3d_t1ce_wt/plain_dcd_20260819/seed20260846",
+    "validation": "workspace/BraTS/sammed3d_t1ce_wt/plain_dcd_20260819/DCD_VALIDATION.json",
+    "implementation_receipt": "archive/research_records/2026-08-19_dcd_detail_distillation/IMPLEMENTATION_RECEIPT.json"
+  },
+  "validation_access": false,
+  "new_method_validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_sammed3d_t1ce_wt_checkpoint.py", line 500, in <module>
+    main()
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_sammed3d_t1ce_wt_checkpoint.py", line 495, in main
+    report = evaluate(args)
+             ^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_sammed3d_t1ce_wt_checkpoint.py", line 384, in evaluate
+    rows, total_rows = read_rows(
+                       ^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_sammed3d_t1ce_wt_checkpoint.py", line 65, in read_rows
+    raise RuntimeError(
+RuntimeError: manifest SHA-256 mismatch: 7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2 != 7b91690c63a5eb359be105b9cc7c4ad563d41fca2b2c84e521251b7ed006b8d2
+Traceback (most recent call last):
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/watch_t1ce_fv_lora_then_test.py", line 336, in <module>
+    main()
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/watch_t1ce_fv_lora_then_test.py", line 320, in main
+    run(args)
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/watch_t1ce_fv_lora_then_test.py", line 271, in run
+    subprocess.run(command, cwd=args.root, check=True)
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python', '-u', '/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/evaluate_sammed3d_t1ce_wt_checkpoint.py', '--manifest', '/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_random_subject_80_20_seed20260722_v1/sealed_test/test_cases.jsonl', '--expected-manifest-sha256', '7b91690c63a5eb359be105b9cc7c4ad563d41fca2b2c84e521251b7ed006b8d2', '--expected-split', 'test', '--checkpoint', '/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/fv_lora_r4_aug_train972_val108_e50_s20260725/sam_model_val_dice_best.pth', '--expected-checkpoint-sha256', 'c1d1bd79791aa7beeffc541095472dec968630cc70ea7967128c86552bd7f1ec', '--spatial-preprocessing', 'whole_resize', '--device', 'cuda', '--seed', '20260723', '--output', '/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/FROZEN_fv_lora_aug_test270_cumulative3_s20260723.json']' returned non-zero exit status 1.

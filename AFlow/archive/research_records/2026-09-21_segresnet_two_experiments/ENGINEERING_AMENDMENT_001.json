@@ -1,0 +1,19 @@
+{
+  "utc": "2026-09-21T03:53:29.559809+00:00",
+  "reason": "training manifest uses label_path; v1 used seg_path and failed before source-label access",
+  "no_training_or_test_model_access_yet": true,
+  "algorithm_or_hyperparameter_change": false,
+  "original_freeze_sha256": "49e40fa181689d1887e4e62d31e3f2645d1686c8dffb09b776c1dbb571c0cabd",
+  "new_files": {
+    "scripts/build_segresnet_two_ideas_classes_v2.py": "ae9bf4f2691b75d5d14d955ae4d5f70d8dbd100f0f8da713c77251e639b8021f",
+    "scripts/resume_segresnet_two_ideas_gate.py": "a5a310e84b14dea4f2bdfb72e86c47136194fc39421b048971cd2ac20593a345"
+  },
+  "passed_gate_sha256": {
+    "DATA_AUDIT.json": "b3c04ea3b2b17d7dda5b8d8974663afe6854929d7ffafad3e026abb12ffd7c17",
+    "GPU_SMOKE_semantic_regions.json": "da8d49d02b0e13eb43f8b4592ef803f8b5272fbb2862973e5c8bc17bc02edf3d",
+    "GPU_SMOKE_pretrain.json": "56c587497d86051b6cbef72576b0207c6adfb01e471d8ee7dba6a8694f2addb6"
+  },
+  "failure_sha256": "3158e5903ec5df3de0d0766f1865868a9248e27b13dd2634061a1840470fbb3b",
+  "verification": "all 972 training metadata rows have label_path; both new entries AST parse; full independent voxel gate reruns on corrected builder",
+  "partial_cache_action": "rename sparse zero-filled failed output; do not delete; build fresh output at frozen class-cache location"
+}

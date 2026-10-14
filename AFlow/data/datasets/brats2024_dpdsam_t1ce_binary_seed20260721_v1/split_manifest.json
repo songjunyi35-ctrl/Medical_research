@@ -1,0 +1,46 @@
+{
+  "excluded_raw_labels": [
+    4
+  ],
+  "foreground_raw_labels": [
+    1,
+    2,
+    3
+  ],
+  "outer_split_manifest": {
+    "path": "data/datasets/brats2024_subject_split_seed2026_v4/split_manifest.json",
+    "sealed_test_jsonl_sha256_from_ledger": "55ad9ddaa03a70403026af20e88a5c32d473c105cfff4e27bc0a32dafb39f464",
+    "sha256": "43e37345150218698a4df6349c266e5177641db0ebb5e2542e40a5ade01be27b"
+  },
+  "output_sha256": {
+    "train_t1ce_binary.jsonl": "ce922bdbf2f4bd693aac816a357e76e874aaf6f45d4fc16eeeb357b0c15557df",
+    "validation_t1ce_binary.jsonl": "e225e244e1fe36944c7f33f64d5316b8665ecd2e7bbac05d2411790bf07059ce"
+  },
+  "reproduction_status": "subject_clean_ratio_aligned_reconstruction_not_bit_exact_paper_split",
+  "schema": "aflow.brats2024.dpdsam_t1ce_binary_split",
+  "schema_version": 1,
+  "seed": 20260721,
+  "source_development_manifests": {
+    "data/datasets/brats2024_four_modal_development_provisional_v2/development_train.jsonl": "965adc6f9b02f6d453141cd14612eb703edacdcf68204a5c43c0986a5de4ca4d",
+    "data/datasets/brats2024_four_modal_development_provisional_v2/development_val.jsonl": "035ccb130070db3ca03b2cd20daa3042bd8c01f110215350edec37322f0443e5"
+  },
+  "split_algorithm": "sha256(seed:subject_id)_ascending_first_n_validation",
+  "status": "frozen_before_t1ce_model_scoring",
+  "summary": {
+    "sealed_outer_test": {
+      "cases": 269,
+      "opened_by_builder": false,
+      "subjects": 127
+    },
+    "train": {
+      "cases": 872,
+      "subjects": 389
+    },
+    "validation": {
+      "cases": 209,
+      "subjects": 97
+    }
+  },
+  "task": "T1ce_to_binary_residual_tumor",
+  "validation_subjects_requested": 97
+}

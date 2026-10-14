@@ -1,0 +1,351 @@
+# AFlow repository instructions
+
+<!-- NNUNET_RESENC_20261013 -->
+## 2026-10-13残差编码器组最终完成（2026-10-14）
+
+- 550轮完成，108选525轮Scan0.784672，验证门通过。270单模型Scan0.811283，最佳三模型融合Scan0.812965、Subject0.797512、Point266/270；相对旧榜首+0.037074，95%CI[+0.030140,+0.044262]。达到本批0.8均值目标，全部test-tuned，非独立泛化。
+- 单T1ce、原972/108/270和患者隔离固定；137500次更新尝试、137449次实际更新，预算受限550轮参考，不称默认1000轮完整复现。唯一525权重SHA31f979ac…，270原生载荷与历史完全一致。
+- 原worker1132660完成训练；字段归档失败发生于270访问前，原节点随后不可连接。用户新提供1133854仅接续评测，V3已完成。旧源码和失败记录不改；当前访问以MODEL_PREACCESS、TEST_ACCESS_ADDENDUM和最终报告为准，训练STATUS中的false只描述训练阶段。
+- 最佳融合为新模型0.75、旧173及组合166各0.125、统一阈值0.4；固定六项全保留。全部test-tuned，未将270标签加入梯度，无新outer/confirmation。本组结束，不自动增加候选、续训、换epoch或重测。[报告](archive/research_records/2026-10-13_nnunet_resenc_reference/RESULT.md)。
+<!-- END_NNUNET_RESENC_20261013 -->
+
+## 2026-10-13 当前方法目录改为单T1ce SegResNet主线
+
+- 用户明确要求删去现行方法目录里的旧交互分割“方法1”，从SegResNet路线讲述。固定比较基线仍是原972纯SegResNet第193轮：128³验证108 Scan0.740032，内部测试270 Scan0.759179；原生1mm、分块及融合结果按同栅格和推理成本单列。当前采用SegResNet作为研究主线，不把现有最好分数称为模型架构的理论极限。
+- `AFLOW_BRATS_METHOD_CATALOG.md`现为精简的SegResNet入口；改版前全文和旧方法的正负结果已保留在`archive/reviews/2026-10-13_segresnet_method_catalog_restructure/`。本次只整理文档，无新训练、验证、test、outer或confirmation访问；不恢复旧实验。下方2026-09-16“当时唯一SAM主线”属于已被9月17日方向切换覆盖的历史安排。
+
+## 2026-10-10 有效区域监督单组：用户最新授权
+
+- **本轮终态：** 选175轮108 Scan0.746077、Subject0.734457、Point98/108；对旧多尺度166差-0.007015、95%CI[-0.023860,+0.003203]。未达到事前明确验证收益门；只评价当前固定配方，不证明所有有效区域策略无效。 已完成200轮/24400更新及严格重载，仅108验证、无新270/outer/confirmation。本组不自动恢复/扩组/测试。
+
+- 用户明确“ok开始干活吧，先检验有效区域监督”，授权worker1127648双A10040GB先合成检验、数据门后执行一组原972/108单T1ce原生多尺度SegResNet。唯一变化为图像几何有效区域损失；原334只复用150轮预训练，不加入回放，不开nnU-Net或其他组。
+- 从原公开预训练150轮初始化，原global8/每卡4/122更新，固定200轮上限/24400更新；不设旧50轮分数早停，不恢复原166已测试模型续训。验证收益门比多尺度166至少+0.01、配对95%区间正、Subject/Point不降；本批无新270/outer/confirmation像素/模型访问。
+- CPU合成通过；双卡完整批量须reserved<=38GiB且尾批/参数同步/AdamW计数通过。新worker/tmp原生缓存须图像/标签逐文件SHA与旧载荷一致；持久新增<=8GiB/剩余>=20GiB。14小时训练墙钟、完整epoch工程恢复最多2次，不按分数改配方或扩组。
+- 真实阶段见`archive/research_records/2026-10-10_segresnet_valid_region_supervision/PIPELINE_STATUS.json`和对应workspace STATUS；CPU与双卡完整批量合成门已通过，reserved峰值约35.75GiB/卡，v2 bf16全1损失/梯度误差0；原972/108缓存载荷SHA已完全匹配旧组，2026-10-10北京时间12:21正式启动训练，真实轮数见新workspace STATUS；旧0.771386不是本组新成绩。
+
+## 2026-09-29 多尺度166一次270测试：用户最新授权
+
+- **本次终态：** 原270扫描/119患者，native1mm裁剪栅格排除填充，Scan 0.771386、Subject 0.757817、Point 248/270。对同格旧组合166差+0.005115、患者配对95%CI[+0.000590,+0.009713]；复用队列的95%配对区间为正，但97.5%区间仍跨0；这是小幅收益的探索性证据，尚不能认定稳健或独立泛化提升。原验证门未过，test-tuned开发/复用内部探索；此次唯一166模型已访问270，无当前test调参或新outer/confirmation。评测与归档结束，不自动重测或新训。[报告](archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/RESULT.md)。
+- 唯一166模型SHA0645c5e7…；270载荷SHA与历史完全一致，135批每例恰一次/主输出全脑前向；旧参考只复用报告。本组训练FINAL_RESULT中的false是历史阶段事实，以独立测试及TEST_ACCESS_ADDENDUM为当前访问范围。不自动换epoch/阈值/融合或重测。
+
+## 2026-09-29 多尺度辅助监督50轮续训到200轮：用户最新授权
+
+- **本轮终态：完成200轮、24400更新，选166轮108 Scan0.753092。** 同格旧166差+0.001913、配对CI[-0.004999,+0.010082]，冻结提升门未通过。训练/验证阶段完成时无270/outer/confirmation新模型访问；后续唯一166的用户授权270测试已完成，见最新条目，不自动续训/扩组/重测；见本轮RESULT和PIPELINE_STATUS。
+
+
+- 用户明确“可以训练完看看”，授权从原第50轮latest完整模型、辅助头和AdamW状态续训第51–200轮；撤销本次后续阶段的50轮预算停止，不改原50轮未过门事实，不追加到200轮以上、不改配方或增加其他组。旧50轮源码/报告/权重完整保留，新归档`archive/research_records/2026-09-29_segresnet_native_multiscale_resume50/`。
+- 原50轮最佳49轮验证0.718758502较旧同预算0.716710192仅+0.002048310，尚不构成稳定提升。此续训是看过验证后的自适应预算修订，仍为test-informed开发；保持原最终108提升门，无新270/outer/confirmation模型访问。
+- 旧worker1109780已不在活动清单，现worker1114913双A10080GB真实CUDA通过。保持每卡4/global8/122更新及原学习率曲线，不借新显存扩大batch；硬件迁移不声称逐位同轨迹。完整50轮checkpoint SHA93a969ad…、全部优化器步6100已核验；新的原生训练/验证缓存需逐文件SHA匹配旧载荷。
+- **正式续训已开始：** 新worker训练/验证原生载荷SHA与旧阶段一致，恢复合成检查通过；第51轮完整完成新增122更新，AdamW计数6100→6222且原50轮检查点未改，51轮验证Scan0.712444。继续第52–200轮，不再执行50轮预算停止。真实最新轮数看新PIPELINE_STATUS/HEARTBEAT及新workspace STATUS；旧目录complete仅描述50轮历史阶段。持久新增<=8GiB且剩余>=20GiB，大缓存只放新worker/tmp。
+
+## 2026-09-24 原生SegResNet多尺度辅助监督：用户授权新一组训练
+
+- **本轮终态：按50轮规则停止、6100更新，选49轮108 Scan0.718759。** 同格旧166差-0.032420、配对CI[-0.040790,-0.024388]，冻结提升门未通过。训练/验证完成、无本组270/outer/confirmation新模型访问，不自动续训/扩组/测试；见本轮RESULT和PIPELINE_STATUS。
+
+
+- 用户最新明确要求“再仔细想其他方法，然后开展训练”，覆盖前一轮“当前没有候选不新训”的结论，但不恢复任何已关闭旧任务。本轮只新增一组单T1ce、原972/108/270、原生1mm整脑SegResNet训练：相对公开预训练＋原生分辨率旧组合，唯一研究变化为训练时1/2与1/4尺度辅助监督，部署仅主输出1次前向。七问与冻结边界见`archive/research_records/2026-09-24_segresnet_native_multiscale_supervision/IDEA.md`。
+- **正式训练已启动：** worker1109780双A10040GB真实CUDA通过；训练972和验证108原生缓存图像/标签载荷均与旧SHA完全一致，全局8/尾批4合成通过。2026-09-24 06:22:27 UTC已完整结束第1轮122更新并完成108/50验证（Scan0.611496），当前监督与训练仍运行。真实最新轮数以本轮PIPELINE_STATUS/HEARTBEAT和持久训练STATUS为准，不能把首轮当最终成绩；自动监督到50轮门/200轮上限后归档，不自动新增270模型访问。
+- 一组最多200轮，每轮972各一次、两卡全局8/122更新，108原生栅格逐轮选Scan；第50轮前50最佳若低于旧组合前50最佳0.716710192加0.003则停，最终提升门为验证Scan至少旧166的0.751179+0.01、50患者配对区间下界正、Subject/Point不降。无本候选新270模型推理或outer/confirmation，虽受既往test影响须标test-informed。持久新增<=8GiB、空闲>=20GiB，大缓存只放worker/tmp。
+
+## 2026-09-24 270测试特征审视训练数据：最新用户授权及终态
+
+- 用户明确允许直接从270测试数据特征出发，判断如何处理原972训练集；此许可覆盖本批早先的“无新270访问”边界，仅对应新归档，不恢复已关闭旧实验。已经访问270的既存128³图像缓存和标签缓存作诊断，复用固定native173逐例报告；**全部结论test-tuned**。没有把270标签加入训练、没有新模型前向或新270评分、没有outer/confirmation。
+- 诊断完成：14项固定影像特征的训练/测试患者分组5折区分AUC0.554；所有单项中位数差<训练IQR0.16倍，与旧173逐例Dice的相关绝对值<0.19。128³肿瘤体素中位数训练25363/test23975.5；低于训练p10的比例10.08%/8.52%；1–5体素碎片占总阳性体素0.00472%/0.00482%，外沿5体素阳性比例0.217%/0.284%。这些是不同概念，不能把128³外沿误报成原生裁剪丢失。训练/验证/测试原生图像自身裁剪框外标签历史聚合分别8/4/4体素。
+- 本轮决策：没有足够的目标域差异支持新病例加权、直方图匹配、自动标签碎片清理或扩大脑区框；既有B目标域加权25轮验证最好为0轮。因此本批仅完成分析、不新开训练或改训练集，不称数据处理方向被普遍否定。真实范围、访问、复核见`archive/reviews/2026-09-24_test270_image_profile/RESULT.md`。worker1109780两张A100正常，但无本批GPU运行任务。旧最高0.775891仍是test-tuned，不作为独立泛化。
+
+## 2026-09-24 病灶均衡选块：用户授权诊断后条件训练
+
+- **本轮终态：诊断完成，未过准入，不启动训练。** 原972/444、20轮模拟，3350区域中预设小区域881个（1–5体素）；新选块覆盖仅+0.008417518（0.842个百分点），低于0.05门；全区域+0.003236167。原生标签SHA与旧缓存一致，独立复核通过。训练0轮/0更新、模型前向0，无新验证/test/outer/confirmation。不能把覆盖增量叫Dice或把1–5体素区域直接叫临床小病灶；绝对覆盖仅有界限，不冒充实测。见本轮RESULT；本实现关闭，不放宽门或自动扩组。
+
+- 用户明确“先开始诊断然后开始训练”，指定worker1109780（双A10040GB）；两卡真实CUDA计算已通过。按已说明方案先做原972训练标签覆盖诊断，仅诊断准入通过后启动一组同166起点、最多200轮训练与108验证，不增加第二组，不恢复旧A组。
+- 新归档为`archive/research_records/2026-09-24_segresnet_lesion_balanced_patch_proposal/`；真实阶段看PIPELINE_STATUS。只改变肿瘤分支的选块规则，保持每扫描每轮一128³块与八块原生推理。50轮同预算提升不足0.003停止；最终108验证较旧A至少+0.01且配对区间为正、Subject/Point不降。
+- 诊断旧小区域覆盖须<0.95、新旧覆盖增量>=0.05、全部区域下降<=0.01；不达则不训练、不改门追分。利用两方案相同脑区随机分支严格抵消，先用原生标签计算精确覆盖差；必要条件失败即可终止，绝对覆盖未测则只能报告界限，不能冒充实测。
+- 原972/108/270与单T1ce固定；本轮无新270/outer/confirmation像素或模型访问授权。旧test-informed历史保留；大缓存只在worker临时盘，持久新增<=8GiB且保留20GiB空闲。旧10小时批次已结束。
+
+## 2026-09-21 10小时test270定向优化（最新授权，执行中）
+
+- **21:06双卡可见性事件：** 1104883最后HB21:06:12，SSH复查失败，平台活动清单为空。科研计算早已完成，部署权重/原始报告/固定清单已再验SHA完整。剩余窗口由主节点监督持久化终态与端点，不重建、不重训、不新增评测；两临时盘当前不可访问，不冒充全程GPU在线。见WORKER_VISIBILITY_INCIDENT_002和MONITORING_AMENDMENT_005。
+
+- **19:08单卡可见性事件：** 1105022最后HB19:06:25，SSH重复失败且平台活动列表已无此worker；B/C研究已早先结束，不恢复训练。持久权重/报告完整，B270预测与双卡ref179逐文件SHA相同且现场复核通过。主节点/双卡继续原截止；不可声称单卡全程在线，单卡磁盘数仅最后观测。见本轮WORKER_VISIBILITY_INCIDENT_001和MONITORING_AMENDMENT_004。
+
+- **本轮优化阶段已结束，监督仍到23:04:52 UTC：** A200轮/24400更新选新增90轮，单模型8块270 Scan0.772830；B25轮/3050更新停止、最佳为初始化0轮；C根据270错误诊断不启动（无C模型前向）。固定12项输出面板最高为已有native173+组合166等权logits、概率阈值0.4，Scan0.775891、Subject0.761694、Point261/270；对当前同格173差+0.007318、描述性95%CI[+0.003116,+0.012786]。未达0.80及+0.03门，全部test-tuned，不称独立泛化。禁止自动恢复/扩组；剩余窗口为冻结模型拟合诊断、归档和监控。
+
+- 用户批准三候选A分块覆盖/B目标影像域权重/C条件召回损失及最多19项受限输出组合；执行窗口13:04:52–23:04:52 UTC，22:04:52停止训练。此次覆盖旧本批次不扩组/不test条款，仅适用于新归档，不恢复历史关闭任务。
+- 原972/108/270、单T1ce和患者隔离固定，270标签允许诊断与选择，不进分割训练。全部成绩test-tuned单列，不作为独立泛化。
+- 预算、七问、门审及真实状态见 archive/research_records/2026-09-21_t1ce_test270_10h/；未启动前不称训练中。项目新增<=8GiB，保留20GiB空闲；临时缓存仅worker /tmp。
+
+
+These rules apply to every Codex run in this repository and are completion requirements.
+
+## 2026-09-21组合166与患者等权172的270测试授权（当前优先）
+
+- **本次终态：** 本次两个固定候选各一次270扫描/119患者测试均已完成。组合166在native grid的Scan 0.766272、Subject 0.750958、Point 236/270；对原native173差-0.002306、95%CI[-0.009078,+0.005791]。患者等权172在128³的Scan 0.759967、Subject 0.745647、Point 250/270；对预训练179差-0.001682、95%CI[-0.008389,+0.005860]。不同栅格不直接相减。验证门未过的事实保留；本次为用户授权、复用内部队列探索，无本批test调优或新outer/confirmation。[组合测试](archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/RESULT.md) · [患者等权测试](archive/research_records/2026-09-21_segresnet_patient_equal_e172_test270/RESULT.md)。 真实总状态见共同归档PIPELINE_STATUS/COMPLETION_AUDIT；两次模型访问均完成，不自动重跑。此终态仅对应166/172固定评测，不覆盖其他授权批次。
+
+- 用户明确“我感觉可以去270个test上测一下 因为有提升”，授权前述两候选各一次固定270测试。组合唯一166轮SHA b2a37a7e…，患者等权唯一172轮SHA46ad9f1c…；不重训/换epoch/阈值/后处理。原验证提升门未通过的事实保留，属于用户授权的探索性测试，不事后改写晋级门。
+- 共同预注册与代码冻结在`archive/research_records/2026-09-21_segresnet_followup_test270/`，两结果分别在`2026-09-21_segresnet_pretrain_native_e166_test270/`和`2026-09-21_segresnet_patient_equal_e172_test270/`。真实总状态看新目录PIPELINE_STATUS，不沿用旧训练/验证状态。
+- 组合在与旧native173相同的160×208×168画布、原始裁剪栅格评分，缓存载荷SHA须与旧收据一致；患者组在原128³缓存评分。不得跨栅格相减。旧native173和193同格逐例报告复用；固定预训练179额外做一次128³→native参考映射，属同一已测试模型重评分、不是第三训练候选，结果也须明确记录双榜。
+- 两候选及参考各由独占MODEL_PREACCESS保护，一次前向；raw先落盘，失败不自动重复模型推理。使用bf16 batch2、raw logit>0、确定性评分，10000患者整簇bootstrap。无当前test调优或新增outer/confirmation。完成后更新双榜、四文档/方法卡、访问补记与四校验，保留原训练RESULT中的false为历史阶段，不否认新测试访问。
+
+## 2026-09-21新组合训练与单卡患者等权并行（当前有效）
+
+- **最新终态：两组均完成，当前无运行训练。** 组合200轮/24400更新，选166，原始栅格108/50验证Scan0.751179、Subject0.739474、Point89/108；对同栅格预训练179为+0.001551、95%CI[−0.005990,+0.008267]，对native173+0.005063、CI跨0，对纯193+0.008497、CI[+0.000827,+0.017430]。未达到“比更强单项至少+0.01且两项97.5%区间为正”门，交互差也跨0，不能称协同或全面改善。组合快照SHA `b2a37a7ed4ea73922a454f5f60995d3a8807f18d122539ba0c85d9b5e62c8a18`。
+- 患者等权组200轮/24400更新，选172，128³验证Scan0.748017、Subject0.735655、Point100/108；对预训练179差+0.001166、95%CI[−0.006032,+0.009311]，未过明确门。快照SHA `46ad9f1ccbb85a2c8f7790a2d225265ddeb50c667f8091e08bf8006e4039083d`。两组均仅固定108验证，无test/outer/confirmation访问，不能把这些分数当270成绩或跨栅格横比；当前两个实现不自动恢复/延长、换epoch或新增测试。终态与COMPLETION_AUDIT见各自归档，旧“执行中”条目为历史过程。
+- 用户已明确“可以那就开始吧 开始训练”，随后授权用另一张空闲A100并行另一idea。当前新增仅两组：公开预训练＋原分辨率组合、公开预训练＋患者等权损失；不自动增加第三组/seed/参数搜索。原先语义分解与预训练128³两组已结束，不能恢复。
+- 组合组在worker1104883双A100执行，归档`archive/research_records/2026-09-21_segresnet_pretrain_native_res/`。复用公开334预训练150轮final SHA3726eac6…，在原972的1mm裁剪/160×208×160画布微调200轮，每卡4/global8/122更新；不从已在972微调过的179模型继续加训。匹配原native主要训练配方；本组与固定193/预训练179/native173参考验证统一确定性数值模式，差异已事前披露。
+- 单卡组在worker1105022执行，归档`archive/research_records/2026-09-21_segresnet_patient_equal_loss/`。同公开150轮初始化、原128³缓存，固定w_i=972/(444*n_subject)乘每例Dice+0.1BCE后batch平均；不在batch内重归一、不改采样。每轮972各一次，单卡batch8/尾批4/122更新、200轮；单卡与旧双rank的随机数差异已披露。原108验证仍以未加权Scan Dice选优，不能切指标追分。
+- 两组均保持单T1ce、SegResNet、原972/108/270与患者隔离；此次执行范围为训练及108验证，无新test/outer/confirmation阶段，历史test定向许可未在本轮使用。正式源代码已各自FREEZE，新增入口不改历史冻结脚本。
+- 双卡组合须先重建约26.8GiB临时缓存、同栅格参考评分后训练；单卡复用128³缓存可先运行。真实状态分别看各目录PIPELINE_STATUS/HEARTBEAT及对应workspace训练STATUS。工程恢复最多2次，不因中途分数改变配方或预算。旧两候选的LIVE_STATUS只描述旧批次，不能代表当前新批次无运行任务。
+
+## 2026-09-21 两个SegResNet实验与test定向优化许可（最新）
+
+- 两组结束后，用户询问“预训练结合原始分辨率”是否有依据；本轮仅讨论并登记新候选，未启动第三组。提案在`archive/research_records/2026-09-21_segresnet_pretrain_native_res_proposal/IDEA.md`；CPU结构核对通过，但无组合训练/患者前向/新test。建议起点为公开预训练150轮final（不是已完成972微调179轮再续训），再匹配原native配方；同原始栅格比较两单项与固定193，不能相加跨栅格涨幅或先称协同/原创。此讨论不恢复旧已关闭实验。
+- **两组最终完成，当前无本轮运行任务：** 第二候选公开预训练150轮+原972微调200轮已完成，验证选179，checkpoint SHA `7006d44a2a2f765562dc0155f914c967a27b22ffba476cea5e966f01d69f7ad0`。108/50验证Scan0.746851，相对193+0.006818、CI跨0，未过至少+0.01明确增益门；一次270/119同128³测试Scan0.761649、Subject0.745859、Point246/270，对193 Scan差+0.002470、95%CI[−0.004343,+0.009627]，97.5%区间也跨0。它是当前128³自动总体及1× Dice最高点估计，不是显著优越，不与native grid的0.768578直接相减。原193仍为用户固定对照，不自动改部署。本候选test已访问，训练STATUS的false仅训练阶段；无新outer/confirmation或当前test调优。语义组也已完成未提分；两组不自动重训、换epoch或重复测试。完整结果与核验在`archive/research_records/2026-09-21_segresnet_external_pretrain/`；旧“微调中”条目均为历史阶段。
+- **第二候选已接续微调：** 1105022公开334例单卡预训练150轮/6300更新已完成，耗时约39分钟；固定final模型SHA `3726eac66918b7afd32ae93500a554534d27528bc86a0fe9dd2a626ce5ac6b76`与微调实际初始化来源一致。1104883双卡已自动进入原972微调200轮；单卡阶段结束，不重复预训练。真实微调进度见`workspace/BraTS/segresnet_t1ce_wt/two_ideas_20260921/finetune_pretrained/STATUS.json`。本候选尚未test，不把公开训练Dice当泛化分数。
+- **语义分解已完成关闭：** 200/200轮、24400更新，验证选第158轮，Scan0.739689（原193为0.740032）。一次270/119同128³测试Scan0.757718、Subject0.743434、Point238/270，对193差−0.001461、患者配对95%CI[−0.006823,+0.003567]，未提分，不能称等效或确定有害。快照SHA `8fe36fdb6ca68e0593b0b3230876b2751ade91e5f4b9dfd9734446205d8e432c`，报告在`archive/research_records/2026-09-21_segresnet_semantic_regions/`，双榜及四校验通过。该组test已访问，不得沿用训练STATUS的false否认；无新outer/confirmation或test定向训练。本实现不自动重训/换epoch。第二组按既定方案继续；旧顺序队列的源准备failed不代表被新协调器接管的第二组失败，真实总状态看LIVE_STATUS。
+- **最新硬件接续：** 用户新增1105022（1×A10040GB），CUDA/UVM实际检查通过。已冻结`HARDWARE_AMENDMENT_003.json`，公开334预训练改单卡直接batch8/150轮/每轮42更新，与1104883语义组并行；之后等语义监督结束回1104883按原双卡/global8微调972例200轮。单卡预训练RNG/浮点轨迹差异已披露，不声称逐位同轨迹。缓存跨节点三SHA一致；单卡合成峰值约20.16GiB。旧公开恢复等待器PID4852已停止，交接收据`OLD_EXTERNAL_QUEUE_STOPPED.json`；新监督`coordinate_pretrain_workers_20260921.py`分别运行single/dual，别重启旧等待器。真实进度看`SINGLE_PRETRAIN_STATUS.json`、`DUAL_FINETUNE_QUEUE_STATUS.json`和各run的STATUS；尚未动用test定向训练许可。
+- 用户提供4张A100，允许最多开展两个SegResNet实验，要求认真选择大幅提分方向；不能保证必达某Dice。继续保持单T1ce和原972/108/270，未授权自动加入其他MRI序列或恢复关闭支线。
+- 本轮选定公开334例监督预训练后微调、前景语义分解两候选，七问草案分别在`archive/research_records/2026-09-21_segresnet_external_pretrain/`及`archive/research_records/2026-09-21_segresnet_semantic_regions/`。尚无正式执行冻结或训练；不能把历史未执行的预训练四运行脚本直接启动。
+- 用户明确允许必要时针对test处理训练集；此许可优先于下方旧的全面禁止test调优条款，但本轮尚未使用。实际动用前记录具体方案、预算和访问，结果标test-tuned并与传统排名分开，保留旧分数与原清单。不得把适配分数宣称独立泛化或隐瞒标签使用。
+- worker1104813的4张A100可见，但缺nvidia_uvm、cuInit=999，实际CUDA计算失败；没有启动GPU训练或新患者推理。需要平台修复/更换节点后完成实现、合成检查及执行冻结。详见`archive/reviews/2026-09-21_segresnet_next_two_ideas/RESULT.md`。
+- 用户随后更换为worker1104883（2×A100），实际CUDA计算通过。两候选改为顺序执行，各自两卡/全局8不变；新入口与6项CPU检查完成、36文件冻结，监督入口已启动。真实阶段以`archive/research_records/2026-09-21_segresnet_two_experiments/PIPELINE_STATUS.json`及阶段HEARTBEAT为准；先合成与数据门，再语义200轮、公开预训练150轮及972微调200轮。每组仅验证选定的一个模型允许一次270；无自动test调优或第三组。
+- 缓存入口第一次因训练清单字段`label_path`误写成`seg_path`，在读取源标签前失败，尚无训练。已新增v2入口和`ENGINEERING_AMENDMENT_001.json`，保留旧源码/收据及空的失败缓存；恢复监督为`resume_segresnet_two_ideas_gate.py`，不要直接重启旧pipeline或因旧`PIPELINE_FAILURE.json`忽略更新的恢复状态。两组双卡合成检查通过，峰值每卡约10.28/10.11GiB。
+- 公开334例已下载到worker1104883的`/tmp/aflow_two_ideas_20260921/raw`，不是HDFS。初次外部缓存因旧包装器只接受BraTS编号而全部失败；源像素/N4已访问，但无预训练模型前向。已冻结工程修订002，新增保留外部编号且数值逐位等价的入口，3项CPU测试通过。`repair_segresnet_external_pretrain_queue.py`负责重建并等旧监督器退出后独占接续A；不重启正在训练的语义组。以`EXTERNAL_REPAIR_STATUS.json`为修复状态，勿因旧failed文件自动重复下载/训练。
+- 用户随后提供worker1105002并明确允许第二组并行，覆盖先前仅顺序执行的硬件安排；两候选配方及数量不变。该新节点也缺nvidia_uvm、cuInit999，虽有2张A100但不能计算，尚未迁移或启动。继续保留1104883工作；健康节点到位后须记录缓存哈希及旧恢复队列的独占交接，防止第二组在两处重复启动。收据见`archive/reviews/2026-09-21_worker1105002_cuda_preflight/RESULT.md`。
+- 再次提供的worker1105007及1105011同样CUDA失败（缺nvidia_uvm、cuInit999），端点IP与1104813/1105002一致，未迁移/训练；须平台修复或不同宿主机健康节点。1104883继续运行，第二组并行授权保持有效。最新收据见`archive/reviews/2026-09-21_worker1105011_cuda_preflight/RESULT.md`。
+
+## 2026-09-20 原始分辨率e173一次test270授权与节点更换（最新）
+
+- 用户2026-09-20明确授权“先把原始分辨率的组去270个test上评测一下”。唯一候选：2026-09-18原始分辨率组验证选出的第173轮（SHA 57d61598…），记录在`archive/research_records/2026-09-20_segresnet_native_res_e173_test270/`，测试画布160×208×168在访问像素前由几何元数据冻结。对照为原193基线在同一原始栅格上的重采样分数；128³栅格的0.759179与本行不可直接相减。
+- worker1103669（4×A100）主机缺nvidia_uvm、cuInit返回999，缓存构建完成但模型未接触测试像素即失败；用户重开worker1103728（2×A100）。构建脚本允许在新节点按同一冻结脚本重建缓存，要求图像/标签SHA与第一次收据一致（IDEA 7b与FREEZE amendment）。
+- 一次性评测保护以MODEL_PREACCESS.json为界；完成后必须更新双榜、四文档校验，并在榜单行内标注“native grid”。无新增outer/confirmation许可；不得按结果调画布/阈值/epoch或重测。
+- 分辨率方向据验证结果（+0.003422、CI跨0）视为已量化并关闭；后续候选方向为单T1ce公开术前数据预训练与nnU-Net参考基线，均需新预注册与用户授权。
+
+## 2026-09-18 原始分辨率整脑SegResNet训练授权（已完成）
+
+- 用户在改进方向讨论后选定第1项并要求“先帮我用一下1……把显卡资源利用率最大化”，随后追问每卡6/8例是否OOM并表示“不会的话就加大吧”。当前唯一新运行：原972/108/270、单T1ce、同N4/裁剪/标准化/初始化seed/损失/200轮计划的纯SegResNet，唯一研究变化为不缩放到128³，保持1mm原始裁剪并零填充到固定160×208×160画布；每卡batch由合成显存探测在8/6/4中取最大可装下者，记录在`archive/research_records/2026-09-18_segresnet_plain972_native_res/BATCH_DECISION.json`，不是研究因素。
+- 验证在原始裁剪栅格上评分（排除填充）；对照为原N4纯193重采样到同一栅格的`BASELINE_E193_NATIVE_VALIDATION.json`，不得拿128³栅格的0.740032直接相减。协议、七问、冻结见该目录IDEA.md/FREEZE.json；真实状态看RESULT.json/HEARTBEAT.json。
+- 本组没有test/outer/confirmation许可；不得根据验证结果调参、换seed或自动测试270。中断后守护器自动从latest续跑，最多4次，续跑次数记录。缓存放worker1100631的/tmp，模型与报告持久化在`workspace/BraTS/segresnet_t1ce_wt/plain972_native_res_20260918`。
+- 无N4对照已按50轮规则停止，不因本组恢复。SAM权重已删除，不恢复。
+
+## 2026-09-18 无N4组按50轮用户规则停止（最新终态）
+
+- 已完成50/200轮、6100更新；50轮与旧N4的固定108验证比较未达到新增明确差异门，按用户要求节省算力停止。保留50轮/前50最佳/latest，训练与监督退出；没有新test。不可称等效或200轮完成，不自动恢复。收据：`archive/research_records/2026-09-18_segresnet_plain972_no_n4/STOP_RESULT.json`。
+
+## 2026-09-18 无N4第50轮节省预算规则（用户最新指令）
+
+- 用户要求观察到50轮对比旧N4，“如果发现没区别就不要训完”。必须执行`archive/research_records/2026-09-18_segresnet_plain972_no_n4/EPOCH50_REVIEW/AMENDMENT.json`的新规则，不能因旧200轮预注册无条件继续。
+- 50轮已保存后暂停并比较：同轮绝对Scan差>=0.01、患者配对95%CI不跨0、41–50平均差同方向才继续原200轮；否则停止并保留50轮/当时best/latest。无明确差异不等于证明等效；这是看过早期验证后的自适应预算修改。
+- 独立守护器负责停止/继续与结果归档，不修改冻结训练源码，不自动测试270，不按结论新开参数/seed。真实决定以该目录DECISION和STOP_RESULT为准。
+
+## 2026-09-18 SegResNet单主线、清理与无N4训练授权（最新）
+
+- 用户明确锚定单T1ce SegResNet分割，授权运行不含额外强度不均匀校正的基础对照。当前一组新训练为原972/108/270、同初始化/200轮/全局8/每轮122更新的no-extra-N4纯SegResNet；默认只去N4，保留脑区裁剪与标准化，不制造少训弱对照。新协议在`archive/research_records/2026-09-18_segresnet_plain972_no_n4/IDEA.md`，真实状态看该组RESULT/PIPELINE_STATUS。
+- 当前0.759179仍是原N4纯193的既有复用test成绩；无N4对照未出来前不能称已证实创新增益，N4自身是已有方法。不得用测试选参数，新组没有270测试许可。
+- 用户明确授权删除SAM-Med3D权重和当前不用的派生缓存。已删除1114文件、约37.956GiB逻辑大小；完整哈希收据见`archive/reviews/2026-09-18_segresnet_only_cleanup/RESULT.md`。旧SAM权重不可再恢复，之前“保留权重”是历史状态；报告、源码、原始数据和全部SegResNet权重保留。不得因旧预注册恢复已关闭SAM分支。
+- 新训练缓存放worker1100631临时盘，模型与报告持久化项目目录。`sammed3d/`仍含SegResNet公共代码，不能因目录名整删。
+
+## 2026-09-18 单T1ce输入约束（用户确认）
+
+- 用户明确“保持单T1ce，与当前场景一致”。后续SegResNet训练和部署输入固定单T1ce，多MRI序列候选退出当前方向；不能自动加入FLAIR/T2或以改变输入条件取得的指标替代当前基线。
+- 当前仅确认研究约束，不构成新训练或测试启动许可；原972/108/270与纯193对照继续固定。
+
+## 2026-09-18 八镜像测试在执行前取消（最新用户决定）
+
+- 用户随后明确“确实我也觉得不需要进入测试”。新建八镜像test270目录只有预注册和入口；测试未启动、无PREACCESS/模型推理/新增test像素访问，终态见该目录CANCELLED.json。禁止因准备好的FREEZE或此前询问自动启动。
+- 当前只讨论SegResNet提升方向，没有新训练/测试授权；纯193仍为唯一基线。讨论记录见`archive/reviews/2026-09-18_segresnet_improvement_options/RESULT.md`。
+
+## 2026-09-18 当前唯一比较基线（用户最新指定）
+
+- 用户明确以后所有优化起点和对照均为本次原972纯SegResNet第193轮：验证108/50 Scan0.7400322696、Subject0.7315383841、Point97/108；复用test270/119 Scan0.7591787810、Subject0.7449846235、Point242/270，单次前向。
+- 固定模型SHA为157fc5af363fc42b2c993df07639693ed8d9f193b8cadd11810a39f62c0f54a5，基线身份见`archive/research_records/2026-09-18_plain972_e193_flip8_validation/REFERENCE_BASELINE.json`。旧756/864、蒸馏或旧八镜像仅历史参考，不替换当前对照。
+- 用户询问旧榜首算法迁移与提升；已完成一次固定八镜像108验证迁移诊断：Scan0.740032→0.741476，差值CI跨0，Point97→95，未通过冻结门；不继续test，不搜索其他视图/权重/阈值。配方和结果见该目录IDEA.md/RESULT.md。没有新训练/seed复制，没有新test/outer/confirmation许可，不能自动重跑270或搜索视图子集、权重、阈值。
+- 本轮是既往测试揭示后的开发，不能称独立确认。效用门通过也不自动授权test；不通过记录负结果，不变相换旧对照。用户的速度偏好只决定是否采用8×部署，不把诊断当作已部署。
+
+## 2026-09-17 SegResNet193测试已完成（最新终态）
+
+- 用户明确授权“193最佳模型去测评”，已固定193轮快照完成原270扫描/119患者一次测试。Scan0.759179、Subject0.744985、Point242/270；当前自动总体及1×Dice最高点估计，但与旧8镜像差值CI跨0，Point非最高。
+- 原972纯训练已完成200轮/24400更新，训练/测评均结束。当前没有可自动恢复的训练或可自动重复的测试；不得根据本结果调参或换其他epoch再测。
+- 本组test访问已发生；训练阶段FINAL_RESULT.json的false标记是历史阶段范围，不得掩盖新独立测试访问。完整材料：`archive/research_records/2026-09-17_segresnet_plain972_e193_test270/RESULT.md`及PREACCESS.json。
+- 旧SAM灰度及旧数据支线仍停止；固定972/108/270与患者隔离继续有效。新研究/评估需用户新明确指令及预注册。
+
+## 2026-09-17 固定972纯SegResNet训练授权（当前最高）
+
+- 用户已明确要求“用972 108 270再训练一下基线”，用于SAM-Med3D与SegResNet模型选型。当前唯一新运行是纯SegResNet基线，不恢复任何历史SAM灰度或756/864旧运行。
+- 固定原972扫描/444患者训练、108/50验证、270/119测试及三份SHA和患者隔离。每轮972各一次，不有放回采样，不丢尾批；两A100每卡4例、全局8，每轮122次更新。这是SegResNet原batch8配方，不能误继承SAM的每轮2次更新。
+- 纯470万参数SegResNet随机初始化；无蒸馏、灰度项、额外中心头、EMA/融合/TTA/后处理。目标200轮，前100 lr2e-4，后100按冻结余弦至1e-5，逐轮固定108验证选Scan Dice最佳。
+- 新组协议与访问边界以`archive/research_records/2026-09-17_segresnet_plain972_baseline/IDEA.md`和FREEZE.json为准。本组没有自动test/outer/confirmation许可，旧测试揭示历史保留。
+- 两次SAM灰度组继续停止。新SegResNet全自动指标叫scan_dice，不叫scan_final5/best5；与SAM的提示权限和输入栅格差异必须披露，不能称纯架构因果对照。
+
+## 2026-09-17方向返回SegResNet（最新研究方向）
+
+- 用户要求“先回到之前训练segresnet上吧，对比segresnet在我的场景下的baseline大概是多少”。当前方向改为SegResNet基线核对；这不等于自动恢复旧训练或新增测试许可。
+- 历史纯模型756训练的test270为0.725820（99轮选中）及0.741204（168轮）；972蒸馏0.751760和8镜像0.757270不是原始纯baseline。不得把旧756/864指标改写为当前972纯模型。
+- 未来若用户进一步要求训练，继续严格固定972/108/270及患者隔离、每轮完整972，不恢复撤销的旧划分/旧运行。两次SAM灰度训练停止状态和历史访问保留。
+- 核对材料：`archive/reviews/2026-09-17_segresnet_baseline_return/RESULT.md`。当前没有运行中的训练或评测。
+
+## 2026-09-17 Mumford–Shah组停止（最新指令，优先于下方训练目标）
+
+- 用户根据验证平台期明确要求结束Mumford–Shah新组。实际完成45/200轮、90次更新，第46轮中途停止，训练和监督已退出。禁止因旧200轮授权、预注册或历史运行日志自动恢复。
+- 按预设best5选择的最佳为第25轮，独立快照已保存；滚动latest为第45轮。第35轮仅有验证报告，没有独立权重，不能冒充其他epoch。
+- 本组未评估test270。验证best5=0.571493略高于历史0.571306，原点估计门数值通过但无明确增益证据；不能标为200轮完成，也不能称一般方法被否定。最终收据见`archive/research_records/2026-09-17_sammed3d_mumford_shah_single972/STOP_RESULT.json`。
+- 旧均值匹配组仍停止161/200。当前没有在运行的训练/评测，禁止新增对照、参数搜索或更多测试；未来运行需用户新的明确指令。
+
+## 2026-09-17新方法训练授权（当前优先）
+
+- 用户在旧灰度组停止后，明确要求“替换进去然后开始训练”，并选择Mumford–Shah区域灰度能量；又明确选择恢复每轮2次参数更新。
+- 当前只允许一组新SAM-Med3D训练，从同一官方Turbo初始化，固定972/108/270与患者隔离。双A100每卡微批4，全局微批8；通过累积分为504/468两次样本加权更新，每轮972各一次。目标200完整轮；旧灰度50/139/161权重不作为起点。
+- 新能量采用作者区域残差+边界平滑的明确三维适配。完整设置以`archive/research_records/2026-09-17_sammed3d_mumford_shah_single972/IDEA.md`及FREEZE.json为准；不能称师兄原版或与旧组单因素对照。
+- 方法选择发生在既往test揭示后，须标记test-informed探索；新组只用固定108验证逐轮best5选优，没有新test/outer/confirmation许可，不扫loss权重、seed、阈值，不额外增加组。
+- 下方“旧组停止161/200”继续约束旧均值匹配实验，不能误用于阻止本次已明确授权的新组，也不能反过来恢复旧组。
+
+## 2026-09-17用户主动停止（优先于下方200轮目标）
+
+- 用户已明确停止当前SAM-Med3D灰度单组训练；实际完成161/200轮，第162轮中途停止，训练及监督进程均已结束。禁止因下方旧200轮目标、预注册或旧“运行中”自动恢复。
+- 保留第50轮最佳、139轮恢复备份和161轮最新检查点。第140轮只有验证报告，没有独立权重，不得用其他轮次冒充。
+- 第50轮已在复用内部270扫描/119患者测试，五点击最佳Scan0.566424，低于旧0.594226。用户随后明确授权单独测第161轮最新模型；只做此固定候选诊断，不恢复训练、不搜索其他epoch/阈值/参数。
+- 本次提前停止与第161轮补充评估发生在第50轮test揭示后，须标记test-informed停止/post-test诊断；不能称预注册早停或独立盲测。未来训练恢复需要用户新的明确指令。
+- 真实停止收据见`archive/research_records/2026-09-17_sammed3d_resume139/STOP_RESULT.json`；第161轮测试材料放`archive/research_records/2026-09-17_sammed3d_graymean_e161_test270/`。
+
+## 固定数据与唯一训练主线（2026-09-16用户纠正，优先于历史记录）
+
+- 以后训练集、验证集、测试集固定为原始 **972扫描／444患者、108扫描／50患者、270扫描／119患者**；case指扫描，不等同于患者。三份清单位于 `data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/`，依次为 `train_t1ce_wt.jsonl`、`validation_t1ce_wt.jsonl`、`sealed_test/test_cases_t1ce.jsonl`。
+- SHA-256依次固定为 `6728d8d5e6846f90f6e5d0ad47acc4f2706eed42763ace4e228abcbbd6a4cf65`、`f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb`、`a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9`。每次新训练核对清单哈希、数量及患者隔离；不得偷偷减少病例、另划开发集、排除旧确认病例，或因旧协议沿用684／180支线。只有用户明确改变划分才可修改这些约束。
+- 当前唯一训练主线为 **SAM-Med3D加师兄灰度校准项，单组训练200个epoch**。论文对应区域灰度均值约束；具体实现与未披露细节写入当次预注册。不得自行增加对照组、配对实验、消融组、seed复制或参数搜索。不得把两张A100理解成两组实验；并行方式以当次冻结协议为准，不擅自改变batch或训练轨迹。
+- 同日用户追加授权：同一灰度实验使用两张A100并增大batch。当前硬件试跑选择每卡4例、全局8例；这不是增加实验组。每轮仍恰好972例，不丢尾批/不重复填充，总计200轮；增大batch改变更新次数，须记录与论文batch1的差异，不能称全部参数完全对齐。后续batch变更仍需明确记录，不从验证/测试分数选择。
+- 6轮最小验证不等于200轮训练完成；报告必须写真实完成轮数。工程中断后，仅按当前单组冻结协议恢复；不得恢复已撤销的旧配对运行或SegResNet训练。
+- 684／180及其派生864支线已由用户撤销；其历史指标、访问记录和测试排行榜仍按真实历史保留，不能改写成972训练，也不能当当前训练入口。清理边界见 `archive/reviews/2026-09-16_remove_684_branch/RECEIPT.md`。
+- 108验证集用于本次冻结协议允许的验证与检查点选择；270测试仍为复用内部测试，禁止用其调参。旧训练池内“开发/确认”身份不再构成本轮新划分，但既往访问与重用事实不消失；不得称全链路全新盲测。新训练仍须先完成七问预注册、固定评估和访问收据。
+
+## Explain research for a beginner
+
+Assume the user is new to medical image segmentation. Never introduce a method only by acronym, paper, loss, or module name.
+
+Before implementing or launching every new method, first explain in plain Chinese:
+
+1. **现在的问题是什么？** Use current project numbers.
+2. **一句话直觉是什么？** Use an everyday analogy when helpful.
+3. **为什么现在选它？** Connect the idea to an observed failure/error pattern and primary source; explain why prior negatives do not already disprove it.
+4. **具体怎么做？** Explain input→model/teacher→loss/fusion→output in words before formulas.
+5. **只改变什么，哪些不变？** Name the single factor and controls.
+6. **怎样算成功/失败？** Freeze promotion and stop gates.
+7. **代价是什么？** Training time, GPU, disk, inference forwards, deployment complexity.
+
+Expand EMA, KD, TTA, ROI, KL, CE, SAM, etc. on first use. A formula may follow the plain explanation, never replace it.
+
+Write the same explanation before formal execution in the preregistration or `IDEA.md`, using `EXPERIMENT_IDEA_TEMPLATE.md`.
+
+## Canonical method catalog
+
+`AFLOW_BRATS_METHOD_CATALOG.md` is the beginner-readable idea history. Whenever a method is proposed, starts, completes, stops, or changes status, update its entry in the same task.
+
+Each completed card must include status, one-sentence idea, starting problem, procedure, changed/fixed factors, expected mechanism, observed metrics, whether intuition was supported, cost, next decision, and evidence links. Preserve negative ideas and distinguish “this implementation failed” from “the general idea is impossible.”
+
+## Root documentation layout
+
+Do not create new top-level handoff continuations, idea notes, plans, or ad-hoc result Markdown files.
+
+The only allowed root Markdown files are:
+
+- `README.md`
+- `AGENTS.md`
+- `AFLOW_BRATS_HANDOFF_CURRENT.md`
+- `AFLOW_BRATS_HANDOFF_20260813_SINGLE_REPO.md` (historical compatibility)
+- `AFLOW_BRATS_LEADERBOARD.md`
+- `AFLOW_BRATS_METHOD_CATALOG.md`
+- `AFLOW_BRATS_RESULTS.md` (active chronological research log)
+- `AFLOW_BRATS_WEEKLY_REPORT.md` (mentor-facing research report)
+- `EXPERIMENT_IDEA_TEMPLATE.md`
+
+New experiment preregistrations/results belong under `archive/research_records/<date>_<method>/`. Staged handoffs, literature notes, or obsolete plans belong under a dated `archive/` directory. Update `AFLOW_BRATS_HANDOFF_CURRENT.md` instead of creating another root continuation.
+
+After moving/adding root documents, run:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python scripts/verify_aflow_brats_doc_layout.py
+```
+
+If it fails, documentation cleanup is incomplete.
+
+## Research workflow
+
+1. Read `AFLOW_BRATS_HANDOFF_CURRENT.md`, leaderboard, method catalog, and relevant archived preregistration.
+2. Explain the idea with the seven beginner questions before implementation/training.
+3. Freeze the plain-language idea/preregistration before formal access.
+4. Keep train, validation, outer, confirmation, and test roles explicit. Never call reused test pristine blind or external.
+5. Freeze data/checkpoint hashes, grid, threshold, TTA/postprocessing/SAM, output, metrics, bootstrap, selection, and stop gates.
+6. Add entry points instead of modifying hash-bound historical scripts. Run focused synthetic tests and proportional GPU smoke.
+7. Do not use test to choose loss, weight, epoch, threshold, resolution, checkpoint, ensemble, TTA, or postprocessing unless the user explicitly changes the objective and evidence is labeled test-tuned.
+8. Record negatives and implementation failures, including whether checkpoint/validation/test access happened before failure.
+9. Check disk before multi-GiB caches. Do not silently delete material data. With authorization, remove raw-rebuildable/hash-archived derived caches while preserving code/checkpoints/reports.
+10. After results, explain what happened, whether intuition was supported, why, and what is ruled in/out.
+
+## Mandatory leaderboard update after test
+
+Canonical files:
+
+- `AFLOW_BRATS_LEADERBOARD.md`
+- `AFLOW_BRATS_LEADERBOARD.json`
+
+Whenever any method finishes a named test cohort, update both before completion. This includes positive, tied, negative, failed-gate, single, ensemble, oracle, and interactive methods.
+
+Record method/identifier, cohort counts, Scan/Subject Dice, Point hit, checkpoint/ensemble formula, resolution/threshold, forward cost, evidence status, report path/SHA, and reused/test-tuned/external status.
+
+Rules:
+
+1. Never mix validation/outer/confirmation/test in one ranking.
+2. Never mix automatic direct locators with GT-centered/oracle/interactive methods in the primary ranking.
+3. Sort comparable JSON lists by descending Scan Dice with contiguous ranks; Markdown must match.
+4. Label grid/rasterization caveats.
+5. Report confidence intervals without turning point-estimate leads into significance.
+6. Preserve prior rows and correct provenance explicitly.
+7. Update `updated_utc` and validate.
+
+Required command:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python scripts/verify_aflow_brats_leaderboard.py
+```
+
+If it fails, the research task is not complete.
+
+## Mandatory result archival
+
+After formal validation/test:
+
+1. Save raw report and pre-access/selection receipt.
+2. Recompute checkpoint/report/receipt/cache-index SHA-256.
+3. Write `archive/research_records/<date>_<method>/RESULT.md` plus machine JSON.
+4. Update `AFLOW_BRATS_HANDOFF_CURRENT.md` with outcome, metrics, access flags, failure boundary, and next decision.
+5. Update `AFLOW_BRATS_METHOD_CATALOG.md` with plain result/interpretation.
+6. If test ran, update both leaderboard files.
+7. Run the method-catalog, leaderboard, and root-layout validators as applicable.
+
+## Final response checklist
+
+State in plain Chinese: idea and motivation; changed/fixed factors; best overall and single-model comparable results; cohort/metric/CI scope; training/inference/storage tradeoff; whether intuition was supported; test/outer/confirmation access; clickable current handoff, catalog, leaderboard, report, archive, and checkpoint.
+
+Do not call a method “best” without naming cohort and overall-versus-single scope.
+
+
+## 导师可读文档维护（2026-09-14用户要求）
+
+根文档分工固定，不再将同一张长卡片复制到多个文件：
+
+- `AFLOW_BRATS_WEEKLY_REPORT.md`是导师汇报：研究起点、核心优化、最终Dice、完成度与局限；重要结论改变时更新，通常控制在150行内。
+- `AFLOW_BRATS_RESULTS.md`是从2026-08-13起的连续日期流水账。每次工作追加/更新对应日期，用“问题→做法→结果→决定”说明；明确仅文档或工程工作是否没有新精度结果。不得再让日期入口停在旧阶段。
+- `AFLOW_BRATS_METHOD_CATALOG.md`保留通俗方法卡及最终状态：保留六个必要字段，短句说明直觉、唯一改动、固定项、结果、成本和下一步，链接标签用“核对材料”等可读名称。不直接显示长目录、哈希、PID、启动命令或多份收据。逐项细节可进入资料层，但负结果必须留有索引。
+- `AFLOW_BRATS_HANDOFF_CURRENT.md`只写当前状态、数据角色、真实待办及禁止恢复的已关闭分支，通常控制在100行内；历史“运行中”不得累积在正文。
+- `AFLOW_BRATS_LEADERBOARD.md/.json`保持精确分队列排名和证据约束，不为精简汇报删除旧排名。
+
+新方法的七问、预注册、过程日志、完整参数、路径、哈希和raw结果仍放对应实验归档；正式结果需同步日期流水账和方法卡。禁止继续调用旧`publish_research_card.py`把完整技术卡自动前插到handoff和方法目录；它保留作历史重现，不再作为新文档发布入口。
+
+历史完整根文档与来源索引见`archive/reviews/2026-09-14_mentor_facing_cleanup/EVIDENCE.md`。当前汇报不应把历史“当时纪录”写成“当前最好”；内部、开发、交互、外部及不同栅格必须明确区分。文档清理不改变数据访问历史或赋予新测试许可。
+
+
+## 根目录技术材料约束（2026-09-14）
+
+根目录JSON仅允许`AFLOW_BRATS_LEADERBOARD.json`，其他实验候选、清理收据、哈希清单必须放入相应archive目录；不得新建根目录临时JSON或SHA文件。历史根交接仅保留不超过20行的兼容导航页，全文放archive。
+
+旧候选路径迁移见`archive/legacy_root_artifacts_20260914/README.md`。冻结脚本原文不改；旧默认根路径已失效，历史复现需显式提供归档候选和预注册参数，不得自动恢复关闭的实验。
+
+文档整理或新增技术材料后，除原三个校验外，运行`PYTHONDONTWRITEBYTECODE=1 ../sammed3d-venv/bin/python scripts/verify_aflow_root_artifacts.py`，防止根目录重新堆积历史JSON和长交接。

@@ -1,0 +1,64 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_vm_dice_amendment",
+  "schema_version": 1,
+  "amendment_id": "002_numeric_reduction_bootstrap_and_tie_contract",
+  "timing": "before synthetic tests, GPU smoke, formal training, or new method validation access",
+  "parent_idea_sha256": "72b5e157aa27d9b7d862a2b4fbb5bb1377a3b85724cb508ef4fb86b3f9a849a0",
+  "parent_preregistration_sha256": "a50aa875bb0b7cb509b8020f3eae1056d24a9cb56bb570f2f52d474b89cb0e0e",
+  "parent_amendment_001_sha256": "af01410acdff1d565e5def1150432b027053bf08104f006be1fdccdcc7e7dea6",
+  "numeric_contract": {
+    "present_classes": "computed only from each volume GT channel sum>0, never from prediction; zero present classes is a technical error",
+    "reductions": "all spatial sums, present-class mean, per-volume loss and batch mean in float32; never pool voxels across volumes or batches",
+    "gamma0": "explicit ones_like(probability); never abs(error)**0",
+    "gamma1": "abs(target-probability.detach()); modulation requires_grad=false",
+    "bce": "torch.nn.functional.binary_cross_entropy_with_logits(raw_logit.float(),target.float(),weight=None,pos_weight=None,reduction='mean')",
+    "bce_weight": 0.1
+  },
+  "selection": {
+    "primary": "maximum full-precision gamma1 Scan Dice",
+    "first_tie_break": "maximum full-precision gamma1 Subject Dice",
+    "final_exact_tie_break": "earlier global epoch",
+    "python_key": "(scan,subject,-epoch)",
+    "calibration_or_strata_never_select": true
+  },
+  "bootstrap_algorithm": {
+    "implementation": "numpy.random.default_rng(seed)",
+    "samples": 10000,
+    "interval": "np.quantile(draw_means,[0.025,0.975],method='linear')",
+    "scan": "paired delta array in manifest order; each draw samples108 indices with replacement and takes arithmetic mean",
+    "subject": "first arithmetic-mean case Dice within each of50 subjects separately per arm, then paired subject deltas; each draw samples50 subjects with replacement",
+    "strata": "paired raw per-case Dice deltas for the frozen27 IDs; each draw samples27 indices with replacement",
+    "comparators": ["same-epoch paper_dice_gamma0", "historical KD200"]
+  },
+  "stratum_delta_contract": {
+    "value": "full-precision arithmetic mean of selected-epoch gamma1 per-case Dice minus same-epoch gamma0 per-case Dice over exactly the frozen27 IDs",
+    "gate": "strictly greater than0 before display rounding",
+    "kd_validation_report": "workspace/BraTS/sammed3d_t1ce_wt/plain_voxel_kd_20260819/KD_VALIDATION.json",
+    "kd_validation_report_sha256": "db7c3bc6b5ff9e1076827d25c9f4de0dea88781bfc5de45da0fb2f79a09bfb57",
+    "set_overlap_cases": 13,
+    "evidence_warning": "both strata come from the same reused fixed validation and overlap in13 cases; they are prespecified mechanism gates, not independent confirmation evidence"
+  },
+  "synthetic_gates": [
+    "foreground/background exchange symmetry when gamma is equal",
+    "all-background GT averages only background and remains finite",
+    "all-foreground GT averages only foreground and remains finite",
+    "perfect prediction limit remains finite",
+    "single-foreground-voxel case remains finite",
+    "gamma0 matches manual two-class squared-denominator Dice",
+    "gamma0 is explicitly documented as not equal to current MONAI squared_pred=false Dice",
+    "gamma1 modulation has no gradient while ordinary probability/logit path has finite nonzero gradient",
+    "finite-difference direction agrees with autograd on a non-boundary toy",
+    "loss computation leaves CPU and CUDA RNG unchanged"
+  ],
+  "planned_outputs": {
+    "control_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_vm_dice_20260820/paper_dice_gamma0_seed20260870",
+    "vm_dir": "workspace/BraTS/sammed3d_t1ce_wt/plain_vm_dice_20260820/vm_dice_gamma1_seed20260870",
+    "validation": "workspace/BraTS/sammed3d_t1ce_wt/plain_vm_dice_20260820/VM_DICE_VALIDATION.json",
+    "pairing_receipt": "archive/research_records/2026-08-20_vm_dice/PAIRING_RECEIPT.json",
+    "validation_preaccess_receipt": "archive/research_records/2026-08-20_vm_dice/VALIDATION_PREACCESS_RECEIPT.json"
+  },
+  "validation_access": false,
+  "outer_selector_access": false,
+  "confirmation_access": false,
+  "test_access": false
+}

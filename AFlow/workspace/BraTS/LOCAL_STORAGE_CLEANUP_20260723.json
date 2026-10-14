@@ -1,0 +1,59 @@
+{
+  "schema": "aflow.brats.local_storage_cleanup",
+  "schema_version": 1,
+  "status": "complete",
+  "completed_at_utc": "2026-07-23T06:38:08Z",
+  "scope": "/mlx_devbox/users/songjunyi.666/playground/AFlow",
+  "policy": {
+    "keep_formal_selected_best_checkpoints": true,
+    "keep_current_t1ce_wt_v2b": true,
+    "keep_experiment_metadata_and_logs": true,
+    "keep_incomplete_run_latest_when_no_best_exists": true,
+    "remove_completed_run_latest_when_best_exists": true,
+    "remove_smoke_and_invalid_checkpoints": true,
+    "remove_repository_python_caches": true,
+    "touch_mnt_data": false,
+    "touch_virtual_environment": false,
+    "touch_source_code": false
+  },
+  "removed": {
+    "checkpoint_files": 30,
+    "checkpoint_bytes": 13856322730,
+    "checkpoint_gib": 12.904706,
+    "completed_run_latest_files": 23,
+    "smoke_or_invalid_best_files": 7,
+    "cache_directories": [
+      ".pytest_cache",
+      "medtaws/__pycache__",
+      "tests/__pycache__",
+      "sammed3d/__pycache__",
+      "scripts/__pycache__"
+    ]
+  },
+  "preserved_without_best_substitute": [
+    "workspace/BraTS/dpdsam_t1ce_b0/full872_exact_b1_lorar4_aug_seed20260722_e50_v1/latest.pth",
+    "workspace/BraTS/dpdsam_t1ce_b0/full872_lorar4_aug_lr4e4_seed20260722_e50_v2/latest.pth",
+    "workspace/BraTS/dpdsam_t1ce_b0/full872_lorar4_noaug_lr1e4_seed20260722_e50_v2/latest.pth"
+  ],
+  "protected_verification": {
+    "t1ce_wt_v1_best_sha256": "4a325a6ffca148941c5d66f4802f331d13b8ddb7862da299981e8fd6be84d7c8",
+    "t1ce_wt_v2a_best_sha256": "eabe17e4fa6b0767c030ec22c671f8fa531a63397cc0a58c2a5f3b72b5a36cf4",
+    "t1ce_wt_v2b_best_sha256": "2b7d5907c78ce2ea7e1b01ff393a5597289af08670f9b4cf2d6e203d2bed5015",
+    "t1ce_wt_v2c_best_sha256": "b56149d880e38564c21359c9cda05a289181f980b652c85119cc5786c2943016",
+    "v2b_final_result_sha256": "884973d5f69ff8012089f762c54cf723ecce23346f19dc5a2f14f3f749c84bb1",
+    "v2b_test_report_sha256": "827a98496c4554f029471d7d6a9f25fc613a00e80f4743977e0b070af7040045"
+  },
+  "after_cleanup": {
+    "remaining_checkpoint_files": 89,
+    "remaining_checkpoint_gib": 38.18,
+    "workspace_brats_du": "42G",
+    "filesystem_used": "86G",
+    "filesystem_available": "40G",
+    "filesystem_use_percent": 69,
+    "duplicate_checkpoint_groups": 0
+  },
+  "notes": [
+    "No experimental metrics, manifests, reports, source files, virtual environments, or /mnt data were deleted.",
+    "Old paper1913 latest.pt files were retained because several diagnostics have no selected-best substitute."
+  ]
+}

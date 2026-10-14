@@ -1,0 +1,109 @@
+{
+  "schema": "aflow.sammed3d.final_test_result",
+  "schema_version": 1,
+  "created_utc": "2026-08-06",
+  "run_identity": "sammed3d_braincrop_fullunfreeze_ddp2_train972_val108_e200_s20260806",
+  "binding": {
+    "frozen_configuration": "workspace/BraTS/sammed3d_t1ce_wt/FROZEN_BRAINCROP_TEST_CONFIGURATION_20260806.json",
+    "frozen_configuration_sha256": "e51493aa0d747f8a0a1589ed824710063f8178f51c2bb8f51370496d0344f855",
+    "preregistration_sha256": "8e52585b7d35c0b61c6fe99fce353ffb44d9dc3c9d4515963330d4f1d374af06",
+    "checkpoint_sha256": "87dad82c67151128c7e99d64ae87f37c68547c769d2e610a56d432b554e0732a",
+    "selected_epoch": 78,
+    "report": "workspace/BraTS/sammed3d_t1ce_wt/sammed3d_braincrop_fullunfreeze_ddp2_train972_val108_e200_s20260806/FROZEN_TEST270_BRAINCROP_20260806.json",
+    "report_sha256": "60e8a96a34c44334d8d1bf0c4879362f0e6631a56cfd1b9db2309b8a6ff0f766",
+    "all_frozen_hashes_verified_before_test_access": true
+  },
+  "result": {
+    "cases": 270,
+    "subjects": 119,
+    "scan_macro": {
+      "C1": 0.606998,
+      "C2": 0.619718,
+      "C3": 0.625359
+    },
+    "subject_balanced": {
+      "C1": 0.591329,
+      "C2": 0.604262,
+      "C3": 0.610042
+    },
+    "c3_scan_median": 0.657522,
+    "c3_scan_std_population": 0.154238,
+    "c3_iou_mean": 0.471893
+  },
+  "controlled_contrast_vs_reference_arm": {
+    "reference_run": "sammed3d_official_fullunfreeze_ddp2_train972_val108_e200_s20260805",
+    "single_factor": "spatial preprocessing: whole_resize -> braincrop_resize; every other setting identical",
+    "reference_scan_c3": 0.571109,
+    "braincrop_scan_c3": 0.625359,
+    "delta_scan_c3": 0.05425,
+    "reference_subject_c3": 0.553484,
+    "braincrop_subject_c3": 0.610042,
+    "delta_subject_c3": 0.056558,
+    "paired_ci95": [
+      0.0455,
+      0.0629
+    ],
+    "improved": 232,
+    "worsened": 38,
+    "sign_test_p": 3.85e-35,
+    "attributable": true,
+    "why": "Unlike the reference arm's own delta against earlier arms, this contrast moves exactly one factor and IS attributable to the geometry change."
+  },
+  "by_lesion_size_common_axis_whole_head_voxels": {
+    "tiny_lt_2k": {
+      "n": 8,
+      "reference": 0.1928,
+      "braincrop": 0.3168,
+      "delta": 0.124
+    },
+    "small_2k_8k": {
+      "n": 87,
+      "reference": 0.463,
+      "braincrop": 0.5202,
+      "delta": 0.0572
+    },
+    "medium_8k_20k": {
+      "n": 83,
+      "reference": 0.58,
+      "braincrop": 0.6379,
+      "delta": 0.0578
+    },
+    "large_gt_20k": {
+      "n": 92,
+      "reference": 0.6982,
+      "braincrop": 0.7403,
+      "delta": 0.0421
+    },
+    "note": "On test the tiny bin IMPROVED by +0.124, opposite to the validation tiny bin, which regressed. The validation regression was traced to a single subject (BraTS-GLI-02208, 3 timepoints) and the test result confirms it was not a systematic small-lesion failure."
+  },
+  "project_history_same_270_cases": {
+    "v1_epoch8_gt_crop": 0.549828,
+    "v2b_gt_crop": 0.553028,
+    "fv_lora_aug_whole_volume": 0.52303,
+    "fullunfreeze_whole_head": 0.571109,
+    "braincrop_fullunfreeze": 0.625359,
+    "status": "new best internal held-out result for this project"
+  },
+  "gap_to_reference_literature": {
+    "dpdsam_reported_sammed3d_baseline": 0.741,
+    "this_arm_scan_c3": 0.625359,
+    "shortfall": 0.115641,
+    "previous_shortfall": 0.169891,
+    "shortfall_closed": 0.05425,
+    "why_not_like_for_like": [
+      "0.741 was measured on DPD-SAM's own 8:2 split, not these 270 cases",
+      "their SAM-Med3D baseline prompt protocol is not disclosed",
+      "BCGFMamba transcribes it as 0.731, inconsistent with DPD-SAM's own table",
+      "target definition, modality, 128^3 geometry, loss and augmentation are all verified aligned (see BOTTLENECK_DIAGNOSIS_20260806.json)"
+    ]
+  },
+  "evidence_boundary": [
+    "Training and epoch selection used NO test data. The freeze was written and all hashes verified before any test NIfTI was opened.",
+    "These 270 cases have now been consumed 6 times by this project; this is an internal held-out number, not clean external validation.",
+    "This result must NOT be used to select a next arm or tune hyperparameters. Further development returns to the 972/108 clean validation.",
+    "No threshold, TTA, morphology, connected-component or postprocessing search was run.",
+    "The main bottleneck identified in BOTTLENECK_DIAGNOSIS_20260806.json -- a generalization gap, with the architecture fitting 48 unaugmented cases to 0.885 -- is NOT addressed by this arm and remains open."
+  ],
+  "runs_used": 1,
+  "test_access": true
+}

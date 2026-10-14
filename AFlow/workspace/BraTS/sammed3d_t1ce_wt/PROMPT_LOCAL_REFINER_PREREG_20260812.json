@@ -1,0 +1,96 @@
+{
+  "schema": "aflow.sammed3d.t1ce_wt_prompt_local_refiner_prereg",
+  "schema_version": 1,
+  "created_at_utc": "2026-08-12T06:00:00Z",
+  "status": "frozen_before_arm_cache_generation_gpu_smoke_or_training",
+  "test_access": false,
+  "mainline_contract": {
+    "input": "T1ce single channel",
+    "target": "WT = raw labels {1,2,3}; raw label 4 excluded",
+    "development_split": "972 train / 108 validation, subject-clean",
+    "click_protocol": "three accumulated GT-derived corrective clicks with recurrent low-resolution mask prompt",
+    "stage1": "braincrop SAM-Med3D automatic localization remains unchanged",
+    "stage2": "native 128^3 SAM-Med3D crop and click-3 checkpoint remains frozen",
+    "global_refiner": "frozen epoch-58 T1ce plus SAM-logit SegResNet residual refiner",
+    "threshold": "raw logit > 0",
+    "forbidden": [
+      "sealed-test access",
+      "threshold search",
+      "TTA search",
+      "morphology or connected-component post-processing",
+      "T2-FLAIR or other added modalities",
+      "including raw label 4 in WT",
+      "validation grid search over patch size or click heatmap width"
+    ]
+  },
+  "evidence_before_registration": {
+    "frozen_same_h100_global_refiner_validation_dsc": 0.6683989912099032,
+    "global_refiner_gain_over_same_h100_sam": 0.032450461837773524,
+    "sub_8000_voxel_cases": 7,
+    "sub_8000_global_refiner_validation_dsc": 0.25668958441487383,
+    "at_least_8000_global_refiner_validation_dsc": 0.6969333,
+    "interpretation": "lesion size is the clearest remaining within-mainline bottleneck; a prompt-centred high-resolution local residual is a direct fixed-geometry test"
+  },
+  "hypothesis": "A fixed local residual model centred on the first positive corrective click will preserve the frozen global prediction outside the prompted neighbourhood while improving small-lesion delineation inside it.",
+  "arm": {
+    "name": "t1ce_wt_prompt_local64_globalresidual_v1",
+    "crop": "one fixed 64x64x64 cube centred on the frozen first positive click and clamped to the 128^3 stage-2 grid",
+    "input_channels": [
+      "N4-corrected post-crop normalized T1ce",
+      "tanh(frozen epoch-58 global-refiner raw logit / 5)",
+      "maximum Gaussian heatmap of accumulated positive clicks",
+      "maximum Gaussian heatmap of accumulated negative clicks"
+    ],
+    "click_heatmap_sigma_voxels": 3.0,
+    "prediction": "global-refiner raw logit plus a learned residual inside the 64^3 cube; global-refiner logit unchanged outside",
+    "zero_initialization": "the final local-residual convolution is zero, so epoch 0 must exactly reproduce the frozen global full-scan DSC",
+    "backbone": "MONAI SegResNet, init_filters=16, blocks_down=[1,2,2,4], blocks_up=[1,1,1], dropout=0.1",
+    "loss": "local-cube DiceCE(sigmoid=true, squared_pred=false, equal Dice/CE weights)",
+    "optimizer": "AdamW(lr=2e-4, weight_decay=1e-5), gradient norm clipped to 5",
+    "distributed": "2 A100-SXM4-80GB ranks with PyTorch DistributedDataParallel",
+    "batch_size": "4 per GPU, effective batch 8",
+    "epochs_max": 80,
+    "early_stop_patience": 15,
+    "seed": 20260812,
+    "sampling": "deterministic distributed replacement sampling weighted by clipped sqrt(median lesion volume / lesion volume), range [0.5,4]",
+    "augmentation": "joint axis flips of all four inputs and target; T1ce-only scale, offset, and Gaussian noise",
+    "selection": "maximum 108-case validation full-scan macro DSC; outside-cube counts remain frozen",
+    "single_fixed_geometry": true
+  },
+  "frozen_inputs": {
+    "stage2_checkpoint_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+    "global_refiner_checkpoint_sha256": "4513ea4544ae153064575ec2ed5c56e1b78adf5e89e9d094754227b3bd429f21",
+    "train_manifest_sha256": "ea21e2306321b71d821146ed01198f52b612d390c0736f8703f81a259c06c23e",
+    "validation_manifest_sha256": "fc750ab15266b8a53c6d9a7ff62bd043b10cc21733e9b68354a2a989fd1f488c",
+    "train_cache_index_sha256": "99324e6ae3d71f38c058de8cb2c0afc7bee079fbaf6af521257e55d1259f9ebd",
+    "validation_cache_index_sha256": "179a5ce1a89bf41b07ae633200950ead3d485e01e49ff8d9494437be531461da"
+  },
+  "code": {
+    "cache_runner": "scripts/cache_t1ce_wt_prompt_local_refiner_inputs.py",
+    "cache_runner_sha256": "2e72534e8d9f0947278f2ac0f4a1612cf8f2c1512cdd50556a268db129c58779",
+    "cache_merger": "scripts/merge_t1ce_wt_prompt_local_refiner_cache.py",
+    "cache_merger_sha256": "b7055502687caa11cb63a494a29d96d3ebf07aef1647927ec4e2718b2b258b88",
+    "train_runner": "scripts/train_t1ce_wt_prompt_local_refiner.py",
+    "train_runner_sha256": "a8d9634a0aac812a5dfffb12b543c38bd2d08d0722a4aa87d0c5be4705dba7c0",
+    "unit_tests": "tests/test_prompt_local_refiner.py",
+    "unit_tests_sha256": "b80f8d9d4d5f649748f97b50794456f8f512fd1549c633df9687227d7f4752e6",
+    "unit_tests_before_registration": "4 passed"
+  },
+  "gates": {
+    "cache_integrity": "two A100 shards must merge into exactly 972 train and 108 validation rows in frozen source-cache order with every binary hash verified",
+    "same_hardware_baseline": "A100 cached global-refiner full-scan validation DSC must be finite and recorded; cross-hardware H100 variation is contextual only",
+    "engineering_smoke": "two DDP epochs complete with finite loss, epoch-0 delta exactly zero, checkpoint written and both GPUs participating",
+    "development_success": "best 108-case validation full-scan macro DSC >= 0.6800",
+    "target_reproduction": "best 108-case validation full-scan macro DSC >= 0.7000",
+    "automatic_cascade_gate": "only if development_success passes, evaluate this frozen local refiner under stage-1-predicted crop geometry on validation",
+    "test_gate": "no sealed-test access without a separate frozen automatic-cascade configuration and new explicit user authorization"
+  },
+  "prediction_registered_before_run": {
+    "expected_best_validation_range": [
+      0.674,
+      0.69
+    ],
+    "confidence": "low-to-moderate",
+    "reason": "the geometry concentrates capacity at the prompted lesion and preserves the strong global solution outside, but the seven worst cases may be intrinsically ambiguous on T1ce and the train-time GT-centred stage-2 geometry remains oracle"
+  }
+}

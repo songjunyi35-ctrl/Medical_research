@@ -1,0 +1,131 @@
+{
+  "arm": "capg",
+  "best_checkpoint": {
+    "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/capg3d_smoke_20260814/capg3d_capg_seed20260819/locator_val_dice_best.pth",
+    "sha256": "f56da49e92313d280ee3a233200be10bb53bd0db732d4f91a2776e348297b6ea"
+  },
+  "created_at_utc": "2026-08-14T08:14:46.119096+00:00",
+  "effective_train_batch_size": 4,
+  "effective_validation_batch_size": 4,
+  "elapsed_seconds": 1.4510936737060547,
+  "history": [
+    {
+      "elapsed_seconds": 1.3611795902252197,
+      "epoch": 1,
+      "stale_epochs": 0,
+      "strict_new_high": true,
+      "train_center_loss": 0.9962911009788513,
+      "train_dsc": 0.010506587335839868,
+      "train_loss": 1.79026198387146,
+      "train_segmentation_loss": 1.6906328201293945,
+      "validation": {
+        "automatic_point_hit_rate": 0.0,
+        "cases": 4,
+        "locator_dsc_mean": 0.03012453275732696,
+        "locator_dsc_median": 0.025933540426194668,
+        "locator_dsc_std_population": 0.022400205628766143,
+        "locator_subject_dsc_mean": 0.03012453275732696,
+        "per_case": [
+          {
+            "automatic_point": [
+              64,
+              19,
+              41
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00046-100",
+            "locator_dsc": 0.008046024478971958,
+            "subject_id": "BraTS-GLI-00046"
+          },
+          {
+            "automatic_point": [
+              72,
+              81,
+              34
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00046-101",
+            "locator_dsc": 0.06058502569794655,
+            "subject_id": "BraTS-GLI-00046"
+          },
+          {
+            "automatic_point": [
+              75,
+              16,
+              27
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00498-100",
+            "locator_dsc": 0.009250527247786522,
+            "subject_id": "BraTS-GLI-00498"
+          },
+          {
+            "automatic_point": [
+              21,
+              38,
+              30
+            ],
+            "automatic_point_hits_gt": false,
+            "case_id": "BraTS-GLI-00498-101",
+            "locator_dsc": 0.042616553604602814,
+            "subject_id": "BraTS-GLI-00498"
+          }
+        ],
+        "subjects": 2
+      }
+    }
+  ],
+  "hyperparameters": {
+    "arm": "capg",
+    "batch_size": 8,
+    "center_sigma": 6.0,
+    "center_weight": 0.1,
+    "device": "cuda:0",
+    "dropout": 0.1,
+    "epochs": 1,
+    "init_filters": 16,
+    "limit_train_cases": 4,
+    "limit_validation_cases": 4,
+    "lr": 0.0002,
+    "max_shift": 8,
+    "min_epochs": 1,
+    "num_workers": 4,
+    "output_dir": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/capg3d_smoke_20260814/capg3d_capg_seed20260819",
+    "patience": 1,
+    "seed": 20260819,
+    "train_cache": "/tmp/aflow_braincrop_cache/t1ce_wt_n4_braincrop_128/train",
+    "validation_batch_size": 8,
+    "validation_cache": "/tmp/aflow_braincrop_cache/t1ce_wt_n4_braincrop_128/validation",
+    "weight_decay": 1e-05
+  },
+  "parameter_count": 4700914,
+  "peak_gpu_memory_bytes": 10820186112,
+  "runner_sha256": "0020ac869b9a077808e145db25211edb4157a8fd5ccb83e887261e49e3f68365",
+  "schema": "aflow.sammed3d.t1ce_wt_capg3d_training",
+  "schema_version": 1,
+  "selection": {
+    "epoch": 1,
+    "metric": "validation scan-macro locator DSC at fixed logit threshold 0",
+    "value": 0.03012453275732696
+  },
+  "task": {
+    "geometry": "image-nonzero brain crop resized to 128^3; no GT localization",
+    "inference_prompt": "argmax learned center heatmap",
+    "input": "T1ce only",
+    "split": "4 train / 4 validation, subject-clean",
+    "target": "WT={1,2,3}; raw label 4 excluded"
+  },
+  "test_access": false,
+  "train_cache": {
+    "images_sha256": "f772520ca0d99fca0edc60aa04a7c73e0d7818eea9fa0174a29038f8334644b9",
+    "index_sha256": "0228dcc6130aa46ed91100d2ee5217b0f8d78eeb5911cc41fbadff1ebca20f16",
+    "labels_sha256": "bf470d48a5f115f09407ad351bb6dee11ee36bdd0c2a4285ae0bd9cc22125724",
+    "path": "/tmp/aflow_braincrop_cache/t1ce_wt_n4_braincrop_128/train"
+  },
+  "validation_cache": {
+    "images_sha256": "19107e84aba65c5c257f6a50273547e1b74e761d72e0487ad6f48a5be16d4bad",
+    "index_sha256": "bf5ddf936c65a2fb069ff2f97ad838cd91b7c7d6e28c4c56fa7ed656b7611df3",
+    "labels_sha256": "6ac3a3909f157eaa629c0fca0dbfb30bd78c23206317c62be2376443ce469e0e",
+    "path": "/tmp/aflow_braincrop_cache/t1ce_wt_n4_braincrop_128/validation"
+  }
+}

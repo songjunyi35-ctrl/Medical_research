@@ -1,0 +1,83 @@
+{
+  "schema": "aflow.brats.t1ce_wt_gcsam_result",
+  "schema_version": 1,
+  "status": "completed_user_authorized_failed_gate_reused_test270",
+  "selected_epoch": 184,
+  "cohort": {
+    "role": "fresh_train_only_inner",
+    "scans": 108,
+    "subjects": 50
+  },
+  "control": {
+    "scan_dice": 0.7527803546852536,
+    "subject_dice": 0.7335818926493327,
+    "point_hits": 102
+  },
+  "candidate": {
+    "scan_dice": 0.7535872718802205,
+    "subject_dice": 0.7361401912569999,
+    "point_hits": 102
+  },
+  "candidate_minus_control": {
+    "scan_dice": 0.0008069171949669167,
+    "scan_95ci": [-0.005464039032381994, 0.006866151998164476],
+    "subject_dice": 0.0025582986076672864,
+    "subject_95ci": [-0.00532710502545039, 0.009841398681203525],
+    "point_hits": 0,
+    "scans_improved_tied_worse": [58, 1, 49],
+    "subjects_improved_tied_worse": [26, 1, 23]
+  },
+  "test270": {
+    "evidence_scope": "user-authorized failed-gate exploratory reused internal test270; fit864 train-inner-selected; not Full972 final; not pristine blind; not external",
+    "scans": 270,
+    "subjects": 119,
+    "scan_dice": 0.7520031755617648,
+    "scan_95ci": [0.7339302155542774, 0.7691406359300189],
+    "subject_dice": 0.7372664203170781,
+    "subject_95ci": [0.710739220444717, 0.761634147492673],
+    "point_hits": 252,
+    "versus_full972_kd168": {
+      "scan_dice": 0.0002436383489381384,
+      "scan_95ci": [-0.005655235725851661, 0.005739641802437181],
+      "subject_dice": -0.000060686808997760744,
+      "subject_95ci": [-0.009153308025809104, 0.00809447719356833],
+      "point_hits": -10,
+      "scans_improved_worse": [150, 120],
+      "subjects_improved_worse": [59, 60]
+    },
+    "scan_rank_point_estimate": 1,
+    "result_must_not_trigger_tuning": true
+  },
+  "gates": {
+    "point_estimates": true,
+    "point_safety": true,
+    "scan_ci_lower_at_least_minus_0.003": false,
+    "subject_ci_lower_at_least_minus_0.003": false,
+    "engineering": true,
+    "final_retraining_authorized": false
+  },
+  "cost": {
+    "control_seconds": 14997.901249885559,
+    "candidate_seconds": 23306.191390514374,
+    "candidate_time_ratio": 1.5539635181083893,
+    "control_peak_gib": 20.29189682006836,
+    "candidate_peak_gib": 20.35801362991333,
+    "inference_forwards": 1
+  },
+  "access": {
+    "train_only_inner": true,
+    "fixed_validation108": false,
+    "outer": false,
+    "confirmation": false,
+    "test270": true
+  },
+  "evidence": {
+    "inner_decision_sha256": "78851d7b15bc4414e404f968dce816241c3d7656fc27c80250059e1a86341577",
+    "control_train_done_sha256": "8b080bd8c4b24c23be35f4085c17e984b3ed9736252c6f43e846c1e329f5fd58",
+    "candidate_train_done_sha256": "9c53d2ef4a7457e85a59b36e59227cb9fdf2265d835c9e66f9b81d768b32da5c",
+    "control_checkpoint_sha256": "5326326fa9caf249f16d7b378bb1ada047b43412f9488b55d3a9d41a30ac14c0",
+    "candidate_checkpoint_sha256": "acf2fce112370e3cdb58fe295642680d5db1db3ceb619defdc47824ef4016d0d",
+    "user_override_receipt_sha256": "527ee72332ce1bbc9edc18dd453230c9654eaa653de37fae91058589e31741df",
+    "test_report_sha256": "d0e2f48e1f499d65adddb3dbe30758caad27768bb75f737ea2cfe4a877c335d5"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "aflow.sammed3d.frozen_test_configuration_correction",
+  "schema_version": 1,
+  "created_utc": "2026-08-05",
+  "corrects": {
+    "path": "workspace/BraTS/sammed3d_t1ce_wt/FROZEN_FULLUNFREEZE_TEST_CONFIGURATION_20260805.json",
+    "sha256": "9ba3e1b2019e9ce481bfc0f610c74a329a9d3453d01dc561b0ec24000ba11238"
+  },
+  "what_happened": "The first test-cache build failed immediately with ValueError: unsupported T1ce/WT row schema 'aflow.brats2024.random_subject_train_test_split'. The sealed test manifest uses the outer split schema (modalities.t1c + seg_path) rather than the inner split's image_path/label_path contract.",
+  "no_test_data_was_read": "The failure occurred inside validate_row, which runs before _load_canonical_nifti. No test image or label NIfTI was opened. Only manifest rows were parsed, and the manifest byte SHA was already bound by the original freeze.",
+  "fix": "scripts/build_t1ce_wt_cache.py now normalizes any non-inner-split row through _whole_volume_training_row imported from scripts/evaluate_sammed3d_t1ce_wt_checkpoint.py, i.e. the same already-validated adapter the frozen evaluator uses for test rows. No path or label mapping was re-derived independently.",
+  "cache_builder_sha256": {
+    "bound_in_original_freeze": "8de618412aa11fbcc6e4d4da3615b5b6150a42da8d2bdb8d61794e55ab086725",
+    "corrected": "c3171ffc932c04a6165735d45c672db9ba09e78a1ca1d09af90945b47762f96e"
+  },
+  "unchanged_by_this_correction": [
+    "model checkpoint and its SHA-256 75dd0b55f9fb29f558b97f9bd8f306b57832c244e49252f2f3095a82dd464e82",
+    "selected epoch 24 and the fact that selection used no test data",
+    "test manifest and its expected SHA-256 7b91690c63a5eb359be105b3cc7c4ad563d41fca2b2c84e521251b7ed006b8d2",
+    "evaluator SHA-256 b3acbb83605e1709fe800b3d510ff19ee38621b086c6aeeca278cff9a22ec51a",
+    "preprocessing (N4, shrink 2, whole-volume 128^3), click protocol, seed 20260723, threshold, runs_allowed=1"
+  ],
+  "regression_after_fix": "tests/test_t1ce_wt_cached.py 13 passed; the validation cache path is unaffected.",
+  "test_access": true
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "aflow.brats_africa95.cache_execution_failure",
+  "schema_version": 1,
+  "created_at_utc": "2026-09-06T01:46:00Z",
+  "status": "failed_first_case_byte_exact_gate_before_index_and_model",
+  "completed_workers": 95,
+  "cache_path": "/tmp/aflow-brats-africa95-cache-20260906",
+  "index_created": false,
+  "cache_receipt_created": false,
+  "gates_recomputed": {"all_memmaps_valid": true, "first_image_exact": false, "first_label_exact": true, "first_probe_image_exact_on_repeat": true, "first_probe_label_exact_on_repeat": true, "image_bytes_exact": true, "label_bytes_exact": true},
+  "first_case_image_max_abs_error_worker_vs_default_thread_probe": 0.00004482269287109375,
+  "images_sha256": "f95959ac50335185d3ec89a777bbef8ac85d54328ebbd53bc434a3a69967ff82",
+  "labels_sha256": "9e937ca9481c9f0661e666f478ba0f860b87d1bf689a54d09d3f70cc3e90b05b",
+  "original_probe_sha256": "9c4e8fa8a0aad9914c578b9f494b6b0af930d90fe375d8f661bdc3c9ff3f70cb",
+  "source_download_sha256": "f5c129efcf073f24f39f94129e85f3e81c5614f67eb522ead651feac9a30324f",
+  "cause": "first-case probe used SimpleITK default thread count while formal cache workers explicitly used one thread",
+  "access": {"all95_source_arrays": true, "all95_label_values": true, "model_inference": false, "prediction_metrics": false, "internal_test270": false, "ucsd75": false}
+}
