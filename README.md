@@ -26,6 +26,14 @@
 
 本次仅补充上述调研材料，其他代码和实验档案仍沿用原发布快照；不表示已同步截至10月28日的全部工作树。
 
+## RACE-Seg算法实现存档
+
+已实现单T1ce整脑分割的局部解剖参照检索、变化类型对比和参照失效门控，并通过7项CPU合成检查及双A10040GB完整原生尺寸合成检查。本次提交存档实现与首次匹配实验协议；患者效果由后续实验结果判断。
+
+- [实现说明与结构图](AFlow/archive/research_records/2026-10-28_race_seg/IMPLEMENTATION.md)
+- [冻结实验方案](AFlow/archive/research_records/2026-10-28_race_seg/IDEA.md)
+- [核心模型](AFlow/sammed3d/race_seg.py)、[训练与协调器](AFlow/scripts/race_seg_20261028/)、[合成检查](AFlow/tests/test_race_seg.py)
+
 ## 阅读入口
 
 - [最终结果报告与比较区间](AFlow/archive/research_records/2026-10-13_nnunet_resenc_reference/RESULT.md)
