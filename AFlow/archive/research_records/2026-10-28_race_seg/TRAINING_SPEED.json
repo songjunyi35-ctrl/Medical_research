@@ -1,0 +1,48 @@
+{
+  "at": "2026-10-28T13:23:04.655755+08:00",
+  "early128_source": "archive/research_records/2026-09-17_segresnet_plain972_baseline/RESULT.md",
+  "early128_200_epoch_wall_seconds": 6194,
+  "early_native16_source": "archive/research_records/2026-09-18_segresnet_plain972_native_res/RESULT.md",
+  "early_native16_reported_training_seconds": 64.5,
+  "early_native16_reported_validation_seconds": 5.2,
+  "current_native_to_128_voxel_ratio": 2.5390625,
+  "current_gpus_per_arm": 1,
+  "current_width": 32,
+  "old_ddp_gpus_per_model": 2,
+  "comparisons": [
+    {
+      "experiment": "2026-10-27_segresnet_width_resume",
+      "arm": "w16",
+      "epochs_observed": 10,
+      "epoch_seconds_mean": 111.95217220820487,
+      "microbatch": 8,
+      "source": "archive/research_records/2026-10-27_segresnet_width_resume/w16/HISTORY.jsonl"
+    },
+    {
+      "experiment": "2026-10-27_segresnet_width_resume",
+      "arm": "w32",
+      "epochs_observed": 10,
+      "epoch_seconds_mean": 215.99890646263958,
+      "microbatch": 4,
+      "source": "archive/research_records/2026-10-27_segresnet_width_resume/w32/HISTORY.jsonl"
+    },
+    {
+      "experiment": "2026-10-28_race_seg",
+      "arm": "control",
+      "epochs_observed": 4,
+      "epoch_seconds_mean": 397.409121629782,
+      "microbatch": 2,
+      "source": "archive/research_records/2026-10-28_race_seg/control/HISTORY.jsonl"
+    },
+    {
+      "experiment": "2026-10-28_race_seg",
+      "arm": "race",
+      "epochs_observed": 3,
+      "epoch_seconds_mean": 430.83108316734433,
+      "microbatch": 2,
+      "source": "archive/research_records/2026-10-28_race_seg/race/HISTORY.jsonl"
+    }
+  ],
+  "cpu_synthetic_profile": "CPU_PROFILE.json",
+  "interpretation": "Most slowdown is present in the matched control; architecture, GPU allocation, microbatch and CPU augmentation differ. Cross-experiment timings do not isolate individual causes. CPU synthetic speed is not a measured whole-epoch improvement."
+}

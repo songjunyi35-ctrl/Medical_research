@@ -1,0 +1,113 @@
+{
+  "at": "2026-10-28T13:44:10.495059+08:00",
+  "status": "passed",
+  "worker": 1152470,
+  "active_arms": [
+    "race"
+  ],
+  "world_size": 2,
+  "stopped_control": {
+    "at": "2026-10-28T13:25:11.864413+08:00",
+    "epoch": 4,
+    "retained_updates": 488,
+    "full_checkpoint_sha256": "1c03a5a21bd4ccb91d2eff2c19c7a88329b18fb967fd41b55aa55acdb760e2bc",
+    "best_sha256": "7512ec570535398ad281f8f3849353321e879c88b5f75e0a08e5ce6fa05bfa1f",
+    "automatic_resume_allowed": false
+  },
+  "prior_complete_epoch": 5,
+  "prior_updates": 610,
+  "restored_ranks": [
+    {
+      "at": "2026-10-28T13:40:03.947411+08:00",
+      "start_epoch": 6,
+      "retained_updates": 610,
+      "strict_model_reload": true,
+      "optimizer_not_reset": true,
+      "source_checkpoint_sha256": "9ad98f3d4b64dbce46ea9507394ff1a87d394fae2e1b5c58459ca35146631c3a",
+      "ddp_freeze_sha256": "58a31cce0e68fc2fc0e37577d02c546968107283a640d21140086085ac76c2c8"
+    },
+    {
+      "at": "2026-10-28T13:40:03.774503+08:00",
+      "start_epoch": 6,
+      "retained_updates": 610,
+      "strict_model_reload": true,
+      "optimizer_not_reset": true,
+      "source_checkpoint_sha256": "9ad98f3d4b64dbce46ea9507394ff1a87d394fae2e1b5c58459ca35146631c3a",
+      "ddp_freeze_sha256": "58a31cce0e68fc2fc0e37577d02c546968107283a640d21140086085ac76c2c8"
+    }
+  ],
+  "first_complete_ddp_epoch": {
+    "at": "2026-10-28T13:43:23.564579+08:00",
+    "state": "training",
+    "arm": "race",
+    "last_complete_epoch": 6,
+    "target_epochs": 200,
+    "updates": 732,
+    "best_epoch": 6,
+    "best_scan": 0.5767720966013493,
+    "validation": {
+      "scan_dice": 0.5767720966013493,
+      "subject_dice": 0.561748282171431,
+      "scan_ci95": [
+        0.5169496816340665,
+        0.6304929357434087
+      ],
+      "subject_ci95": [
+        0.5069674696987938,
+        0.6126048703337355
+      ],
+      "point_hit": 0.8796296296296297,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 95
+    },
+    "training_seconds": 177.05240538716316,
+    "epoch_seconds": 198.492750890553,
+    "elapsed_seconds": 2360.166063055396,
+    "learning_rate": 0.0002,
+    "microbatch": 2,
+    "effective_batch": 8,
+    "world_size": 2,
+    "accumulation_per_rank": 2,
+    "peak_reserved_gib": 34.380859375,
+    "train": {
+      "loss": 0.6989156007766724,
+      "supervised": 0.6811441190448808,
+      "contrast": 0.35542963987883225,
+      "bad_gate": 0.48309188799112424,
+      "fallback": 2.4120677134691386e-05,
+      "gate": 0.2753243152006173,
+      "gradient_norm": 1.1321695640744496,
+      "strength_grad": -0.026092349693424416,
+      "strength": 0.20506204253852123
+    },
+    "test_access": false
+  },
+  "first_complete_reload": {
+    "at": "2026-10-28T13:43:23.388781+08:00",
+    "status": "passed",
+    "updates": 732,
+    "parameter_sha256_both_ranks": "d2fa182a89e5f57f69c96896b86471c7f0ca116ca42258efc89c8cef852af46b",
+    "checkpoint_sha256": "4c1be02c86e5823a30d92e610503e29fc7a851148a4f135ea9796ecfc635abd9"
+  },
+  "validation_scans": 108,
+  "validation_subjects": 50,
+  "each_validation_case_once": true,
+  "validation_report_sha256": "4a8e4d4f2a9838022e660b1be94204afc28857a80e4ab6df0759a29d052576c8",
+  "early_metrics_not_final": true,
+  "source_freeze_sha256": "58a31cce0e68fc2fc0e37577d02c546968107283a640d21140086085ac76c2c8",
+  "original_execution_freeze_sha256": "3d175dcfb9058ae4876922c60b529cc51946c8d3d59681a1d4afbb9d6e5d3b02",
+  "synthetic_gate_sha256": "c41dd1c0b3fb24a896a9f5397663fb243e6413b1b7f37949bb19ebddb6a3523f",
+  "synthetic_process_exit": 0,
+  "target_cumulative_epochs": 200,
+  "target_updates": 24400,
+  "effective_batch": 8,
+  "old_single_gpu_epoch_seconds": 430.4792053475976,
+  "first_ddp_epoch_speedup": 2.168740185302584,
+  "deadline_unix": 1793246768.611393,
+  "deadline_unchanged": true,
+  "archive_watch_lock_held": true,
+  "persistent_free_gib": 26.296642303466797,
+  "new_test_access": false
+}

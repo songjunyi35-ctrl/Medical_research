@@ -1,18 +1,25 @@
 {
-  "at": "2026-10-28T12:56:25.891900+08:00",
+  "at": "2026-10-28T13:39:55.141851+08:00",
   "status": "passed",
-  "epochs": 173,
+  "epochs": 200,
+  "total_updates_each": 24400,
+  "updates_per_epoch": 122,
   "microbatch": 2,
   "effective_batch": 8,
-  "updates_per_epoch": 122,
-  "total_updates_each": 21106,
-  "estimated_epoch_seconds": 469.8217081210265,
-  "estimated_training_hours": 22.577543195816,
-  "remaining_seconds": 81582.71950316429,
-  "selection": "synthetic throughput only, no patient scores",
-  "memory_ceiling_gib": 38,
-  "source_sha256": {
-    "control": "c4ba9aa2f2cebfb18a7b0930b1c31fb0c112bf6a8ea6d1aa16721b1b7c3f6ef0",
-    "race": "60240e661c4ad930baae9d8f0676d73bc876b77c1839a08468b4ca1b3b1399f2"
-  }
+  "world_size": 2,
+  "local_batch": 4,
+  "accumulation_per_rank": 2,
+  "cpu_threads_per_rank": 8,
+  "cpu_augmentation_lookahead": 1,
+  "active_arms": [
+    "race"
+  ],
+  "control": "stopped_by_user_at_epoch4",
+  "selection": "User cancelled control and requested two-GPU algorithm training to cumulative200",
+  "deadline_unix": 1793246768.611393,
+  "deadline_unchanged": true,
+  "original_173_budget": "BUDGET_ORIGINAL_173.json",
+  "memory_ceiling_gib_per_gpu": 38,
+  "smoke_sha256": "c41dd1c0b3fb24a896a9f5397663fb243e6413b1b7f37949bb19ebddb6a3523f",
+  "historical_comparison_only": true
 }

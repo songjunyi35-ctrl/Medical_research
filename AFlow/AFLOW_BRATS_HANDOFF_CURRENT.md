@@ -1,10 +1,52 @@
 # 当前科研状态与接续边界
 
+<!-- WIDTH32_TEST270_20261028 -->
+**2026-10-28固定w32第171轮270测试：** 固定171轮270评测完成：Scan0.773228、Subject0.760027、Point256/270；对多尺度166差+0.001842，95%CI[-0.003712439459196132, 0.007115013465642496]。配对区间跨0，没有确认稳定增益或等效。[结果](archive/research_records/2026-10-28_segresnet_w32_e171_test270/RESULT.md)。 新用户授权仅该模型；原训练验证门未过，单T1ce/同原生栅格/阈值0.5，不重新选epoch或融合。无新outer/confirmation。[方案](archive/research_records/2026-10-28_segresnet_w32_e171_test270/IDEA.md) · [状态](archive/research_records/2026-10-28_segresnet_w32_e171_test270/PIPELINE_STATUS.json)。
+<!-- END_WIDTH32_TEST270_20261028 -->
+
+<!-- WIDTH_RESUME_20261027 -->
+**2026-10-27最新：用户撤销早停，恢复累计200轮。** 两组各200轮完成；w16最佳166轮108 Scan0.747497；w32最佳171轮108 Scan0.753276；32−16差+0.005779，收益门False。[结果](archive/research_records/2026-10-27_segresnet_width_resume/RESULT.md)。 旧85/50停止事实保留，新阶段接续86/51轮，微批8/4、有效8/122更新/LR不变。[新阶段](archive/research_records/2026-10-27_segresnet_width_resume/IDEA.md) · [实时状态](archive/research_records/2026-10-27_segresnet_width_resume/PIPELINE_STATUS.json)。无新270/outer/confirmation；旧停止目录不是新阶段运行状态。
+<!-- END_WIDTH_RESUME_20261027 -->
+
+<!-- WIDTH_THROUGHPUT_AUDIT_20261027 -->
+历史提速阶段：从完整75/45轮恢复到76/46轮，微批8/4、有效8/122更新不变，并非从头重训。随后用户授权前50轮筛选触发，实际85/50轮停止，训练进程已退出、两卡已释放。提速收据不代表当前仍在训练。[最终停止结果](archive/research_records/2026-10-27_segresnet_width/RESULT.md)。
+<!-- END_WIDTH_THROUGHPUT_AUDIT_20261027 -->
+
+<!-- WIDTH_20261027 -->
+**2026-10-27容量对照：** 用户授权前50轮筛选后停止：w16前50最好0.710403、实际结束85轮；w32前50最好0.700533、实际结束50轮。32未超过同期16，撤销剩余200轮预算，不是完整训练终态；不证明32通道普遍无效。[结果](archive/research_records/2026-10-27_segresnet_width/RESULT.md)。 新授权仅16/32通道两组、同随机初始化规则，不恢复旧组。原972/108、各200轮；无新270/outer/confirmation。[协议](archive/research_records/2026-10-27_segresnet_width/IDEA.md) · [实时状态](archive/research_records/2026-10-27_segresnet_width/PIPELINE_STATUS.json)。
+<!-- END_WIDTH_20261027 -->
+
+<!-- SEGRESNET_REVIEW_20261027 -->
+**2026-10-27文献与失败复核完成：** 三组蒸馏未过门，已核对SegResNet原文、官方BraTS/Auto3DSeg配置及现有训练日志。当前16通道470万参数是有效实现，但不是原文32通道+VAE完整配方；CPU实例计数32通道约1880万。两蒸馏组人工标签训练损失也较高，原因未被因果定位。下一步优先设计容量/训练配方分离验证，不恢复旧训练，不自动加损失或测试。[核对材料](archive/reviews/2026-10-27_segresnet_literature_audit/RESULT.json)。
+<!-- END_SEGRESNET_REVIEW_20261027 -->
+
+<!-- DISTILL_20261026 -->
+2026-10-26蒸馏三组：三组各200轮完成；control最佳189轮108 Scan0.745119；plain最佳183轮108 Scan0.743886；reliable最佳158轮108 Scan0.738286。明确收益门False。[结果](archive/research_records/2026-10-26_segresnet_teacher_distill/RESULT.md)。 [协议与边界](archive/research_records/2026-10-26_segresnet_teacher_distill/IDEA.md) · [实时状态](archive/research_records/2026-10-26_segresnet_teacher_distill/PIPELINE_STATUS.json)。无新270/outer/confirmation，不恢复旧分支。
+<!-- END_DISTILL_20261026 -->
+
+2026-10-22从头训练B组complete：完成550/550轮，34100次更新尝试、34091次实际更新，选525轮；108/50验证Scan0.771742492、Subject0.768001627、Point104/108。对原e525差-0.012929153，患者配对95%区间[-0.019600229,-0.006408284]，明确收益门=False。 无新270/outer/confirmation。[结果](archive/research_records/2026-10-22_nnunet_local_full550/RESULT.md)
+
+
+
+2026-10-21旧缓存清理完成：按用户授权删除12个旧输入载荷，持久盘释放14.21875GiB、空闲约37.44GiB；另删除主节点/tmp旧公开334缓存3.26171875GiB。构建脚本、索引/历史SHA、原始源数据、全部模型及报告保留；检查两组训练进程/子进程共14个，确认未用所删缓存，训练继续。清理本身无数组解码或新模型/评分执行。[清理与重建入口](archive/reviews/2026-10-21_unused_cache_cleanup/RESULT.md)。
+
+2026-10-21两个nnU-Net算法组complete。A体积预算竞争：完成150/150轮，尝试37500、实际更新37488；选新增0轮，108 Scan0.784664851、Subject0.780815550、Point105/108。对旧e525 Scan差-0.000006794，患者配对97.5%区间[-0.000023814,+0.000001814]，明确收益门=False。 B局部视图一致性：完成150/150轮，尝试37500、实际更新37488；选新增120轮，108 Scan0.785393948、Subject0.780034644、Point107/108。对旧e525 Scan差+0.000722304，患者配对97.5%区间[-0.002742044,+0.003888593]，明确收益门=False。 本批无新270/outer/confirmation；普通微调对照已取消，算法与额外训练的贡献未被单独识别。 [结果](archive/research_records/2026-10-21_nnunet_error_balance/RESULT.md)
+
+
+
+
+
+<!-- HF_DICE081_20261020 -->
+**2026-10-20完整0.81模型归档完成。** [私有Hugging Face仓库](https://huggingface.co/songjunyi/Medical_seg)现已保存nnU-Net e525（单模型0.811283）、旧原生173／组合166及0.812965融合配方，原始与推理权重、配置和审计齐全；77文件远端核验及六份权重回下载SHA核验通过，旧334预训练档案保留。没有新训练或患者评测；当前0.81结果仍为test-tuned。[发布记录](archive/reviews/2026-10-20_huggingface_dice081/README.md)。
+<!-- END_HF_DICE081_20261020 -->
+
+**2026-10-20预训练起点已备份到Hugging Face。** 公开334例、150轮、6300更新的SegResNet原始final权重与等价safetensors已上传至私有仓库[songjunyi/Medical_seg](https://huggingface.co/songjunyi/Medical_seg/tree/main/segresnet-t1ce-openneuro334-pretrain-e150)，21文件远端核验及两份权重回下载SHA核验通过。它是后续SegResNet微调起点，不是nnU-Net模型；没有新训练或患者评测。[上传与核验记录](archive/reviews/2026-10-20_huggingface_pretrain334/README.md)。
+
 <!-- NNUNET_RESENC_20261013 -->
 **2026-10-14残差编码器组已完成训练、验证、270及六项融合。** 550轮完成，108选525轮Scan0.784672，验证门通过。270单模型Scan0.811283，最佳三模型融合Scan0.812965、Subject0.797512、Point266/270；相对旧榜首+0.037074，95%CI[+0.030140,+0.044262]。达到本批0.8均值目标，全部test-tuned，非独立泛化。 训练节点1132660，评测接续1133854。V3结果与独立复核已归档；旧COORDINATOR_FAILURE描述历史归档失败。本组结束，不自动重训、扩组、换epoch或重测，无新outer/confirmation。[最终报告](archive/research_records/2026-10-13_nnunet_resenc_reference/RESULT.md) · [真实终态](archive/research_records/2026-10-13_nnunet_resenc_reference/PIPELINE_STATUS.json)。
 <!-- END_NNUNET_RESENC_20261013 -->
 
-同日的[候选筛选与纯合成探测](archive/research_records/2026-10-13_dice080_proposal/IDEA_strong_recipe.md)已转入上方正式运行；旧“训练0轮”仅描述准备阶段。旧0.775891仍是已有270榜首，本组尚无新270分数。首次合成重载接口问题已在患者模型访问前通过V2入口修复，旧COORDINATOR_FAILURE只描述失败的V1合成阶段；当前状态看新监督心跳，不重启旧入口。
+同日的[候选筛选与纯合成探测](archive/research_records/2026-10-13_dice080_proposal/IDEA_strong_recipe.md)随后转入正式运行，并于10月14日完成；旧“训练0轮”和“尚无新270分数”只描述准备阶段。旧0.775891为本组前历史榜首，当前结果见上方终态。首次合成重载接口问题已在患者模型访问前通过V2入口修复，后续评测归档通过V3完成；保留旧失败记录，不重启旧入口。
 
 <!-- VALID_REGION_20261010 -->
 **2026-10-10有效区域监督：完成200轮。** worker1127648双A10040GB，单组原972/108、单T1ce原生多尺度SegResNet；当前完成200/200轮，唯一变化为几何有效区域损失，global8/每轮122更新。选175轮108 Scan0.746077、Subject0.734457、Point98/108；对旧多尺度166差-0.007015、95%CI[-0.023860,+0.003203]。未达到事前明确验证收益门；只评价当前固定配方，不证明所有有效区域策略无效。无本候选新270/outer/confirmation访问，test-informed开发。[真实状态](archive/research_records/2026-10-10_segresnet_valid_region_supervision/PIPELINE_STATUS.json) · [方案与报告](archive/research_records/2026-10-10_segresnet_valid_region_supervision/RESULT.md)。
@@ -147,3 +189,11 @@ test270是已复用内部队列；候选在本次测试前选定且固定，但�
 <!-- TEST270_10H_DUAL_VISIBILITY -->
 21:06 UTC起双卡1104883也不可访问，平台活动worker清单为空。全部科研计算已结束；3部署权重/21报告/3固定清单在事后重新验SHA完整。余下窗口由主节点监控持久化终态、资源端点和磁盘；不重建缓存、不恢复训练，不声称GPU worker全程在线。[双卡事件](archive/research_records/2026-09-21_t1ce_test270_10h/WORKER_VISIBILITY_INCIDENT_002.json)。
 <!-- END_TEST270_10H_DUAL_VISIBILITY -->
+
+<!-- RACE_PREP_20261028 -->
+## 2026-10-28 RACE-Seg双卡单算法200轮已接续
+
+用户取消的新对照已在完整4轮/488更新停止，禁止自动恢复。算法从完整第5轮/610更新模型与AdamW接双卡DDP，已完整完成第6轮/732更新、108扫描/50患者验证和CPU严格重载，随后进入第7轮。两rank参数SHA一致；两卡共同训练一个算法，目标累计200轮/24400更新，有效batch8、每卡微批2、原200轮学习率不变。
+首个双卡完整epoch含验证3.31分钟，单卡前一轮7.17分钟；首轮实测约2.17倍。32通道、原生160×208×160及原972/108载荷SHA不变；预取增强逐值核对通过。首轮早期分数不代表最终提分。原24小时截止不变，无新270/outer/confirmation。后续与固定历史w32参考作描述性比较，不能分离种子/执行差异与算法贡献。
+[双卡启动核验](archive/research_records/2026-10-28_race_seg/DDP_STARTUP_VERIFIED.json) · [实时状态](archive/research_records/2026-10-28_race_seg/PIPELINE_STATUS.json) · [接续说明](archive/research_records/2026-10-28_race_seg/RUNBOOK.md)。旧173轮启动和中间修订保留为历史，最终通过审计的汇总将另行存档。
+<!-- END_RACE_PREP_20261028 -->

@@ -1,5 +1,60 @@
 # AFlow BraTS研究汇报
 
+<!-- WIDTH32_TEST270_20261028 -->
+## 2026-10-28：宽模型固定测试
+
+固定171轮270评测完成：Scan0.773228、Subject0.760027、Point256/270；对多尺度166差+0.001842，95%CI[-0.003712439459196132, 0.007115013465642496]。配对区间跨0，没有确认稳定增益或等效。[结果](archive/research_records/2026-10-28_segresnet_w32_e171_test270/RESULT.md)。 仅108验证选定的32通道171轮模型，270扫描/119患者内部复用探索；固定阈值/预处理，无本次测试调参，不称独立泛化。原验证门未过。[材料](archive/research_records/2026-10-28_segresnet_w32_e171_test270/IDEA.md)。
+<!-- END_WIDTH32_TEST270_20261028 -->
+
+<!-- WIDTH_RESUME_20261027 -->
+## 2026-10-27：容量对照继续至完整预算
+
+两组各200轮完成；w16最佳166轮108 Scan0.747497；w32最佳171轮108 Scan0.753276；32−16差+0.005779，收益门False。[结果](archive/research_records/2026-10-27_segresnet_width_resume/RESULT.md)。 用户在前50筛选停止后授权接续85/50轮checkpoint，继续累计200轮；不重置优化器/LR。自适应预算修订如实披露，旧负筛选结果保留。无新测试。[方案](archive/research_records/2026-10-27_segresnet_width_resume/IDEA.md)。
+<!-- END_WIDTH_RESUME_20261027 -->
+
+<!-- WIDTH_20261027 -->
+## 2026-10-27：先验证网络容量
+
+用户授权前50轮筛选后停止：w16前50最好0.710403、实际结束85轮；w32前50最好0.700533、实际结束50轮。32未超过同期16，撤销剩余200轮预算，不是完整训练终态；不证明32通道普遍无效。[结果](archive/research_records/2026-10-27_segresnet_width/RESULT.md)。 两组均从头训练，避免16通道旧预训练与32通道随机起点混比。加宽是基线容量研究，不包装为新算法；原972/108，未访问新test。[方案](archive/research_records/2026-10-27_segresnet_width/IDEA.md)。
+<!-- END_WIDTH_20261027 -->
+
+<!-- SEGRESNET_REVIEW_20261027 -->
+## 2026-10-27：失败复核与文献依据
+
+蒸馏未取得收益后，对照SegResNet原论文与MONAI官方配置：当前使用合法16通道轻量实现，而原文采用32通道及训练期重建分支。容量差是待检验假设，不能作为已证实失败原因；普通/加权蒸馏的人工标签训练目标均未改善。下一步优先建立可归因的容量与配方对照，增强基线不冒充原创算法。本轮仅文献、日志与CPU参数核对，无新训练/测试。[材料](archive/reviews/2026-10-27_segresnet_literature_audit/RESULT.json)。
+<!-- END_SEGRESNET_REVIEW_20261027 -->
+
+<!-- DISTILL_20261026 -->
+## 2026-10-26：强教师指导小模型
+
+三组各200轮完成；control最佳189轮108 Scan0.745119；plain最佳183轮108 Scan0.743886；reliable最佳158轮108 Scan0.738286。明确收益门False。[结果](archive/research_records/2026-10-26_segresnet_teacher_distill/RESULT.md)。 比较同起点普通学生、普通蒸馏与可靠性加权蒸馏，避免把教师0.81直接称为学生成绩。当前仅原972训练与108验证；既往test-informed身份不变。[方案](archive/research_records/2026-10-26_segresnet_teacher_distill/IDEA.md)。
+<!-- END_DISTILL_20261026 -->
+
+2026-10-22从头训练B组complete：完成550/550轮，34100次更新尝试、34091次实际更新，选525轮；108/50验证Scan0.771742492、Subject0.768001627、Point104/108。对原e525差-0.012929153，患者配对95%区间[-0.019600229,-0.006408284]，明确收益门=False。 无新270/outer/confirmation。[结果](archive/research_records/2026-10-22_nnunet_local_full550/RESULT.md)
+
+
+
+
+
+
+2026-10-21两个nnU-Net算法组complete。A体积预算竞争：完成150/150轮，尝试37500、实际更新37488；选新增0轮，108 Scan0.784664851、Subject0.780815550、Point105/108。对旧e525 Scan差-0.000006794，患者配对97.5%区间[-0.000023814,+0.000001814]，明确收益门=False。 B局部视图一致性：完成150/150轮，尝试37500、实际更新37488；选新增120轮，108 Scan0.785393948、Subject0.780034644、Point107/108。对旧e525 Scan差+0.000722304，患者配对97.5%区间[-0.002742044,+0.003888593]，明确收益门=False。 本批无新270/outer/confirmation；普通微调对照已取消，算法与额外训练的贡献未被单独识别。 [结果](archive/research_records/2026-10-21_nnunet_error_balance/RESULT.md)
+
+2026-10-21 18:26阶段更新：A/B原进程持续训练，V5汇总器17:08 I/O异常后由V6附着接管，未重载模型、不增加恢复次数。18:25 A122轮、最好验证0.783914；B61轮、60轮验证0.784031，均未超过起点0.784665，暂无算法增益证据。预算150轮与原截止不变，无新270/outer/confirmation。[监控接管](archive/research_records/2026-10-21_nnunet_error_balance/AMENDMENT_005_MONITOR_ATTACH.md)。
+
+2026-10-21旧缓存清理完成：按用户授权删除12个旧输入载荷，持久盘释放14.21875GiB、空闲约37.44GiB；另删除主节点/tmp旧公开334缓存3.26171875GiB。构建脚本、索引/历史SHA、原始源数据、全部模型及报告保留；检查两组训练进程/子进程共14个，确认未用所删缓存，训练继续。清理本身无数组解码或新模型/评分执行。[清理与重建入口](archive/reviews/2026-10-21_unused_cache_cleanup/RESULT.md)。
+
+2026-10-21 15:20磁盘保护后接续：A44轮、B19轮后曾停止；公开334未用派生缓存完整校验备份后转移释放3.2617GiB，空闲约23.2GiB。V5从原完整checkpoint接续A45/B20轮，各150轮与原配方不变；每组为第2次且最后一次工程恢复。当前训练后验证最高A0.783914/B0.781598，尚未超过起点0.784665，无新270/outer/confirmation。[磁盘恢复记录](archive/research_records/2026-10-21_nnunet_error_balance/AMENDMENT_004_DISK_RESERVE_RECOVERY.md)。
+
+2026-10-21两个nnU-Net算法组incomplete。A体积预算竞争：完成44/150轮，尝试11000、实际更新10997；选新增0轮，108 Scan0.784664851、Subject0.780815550、Point105/108。对旧e525 Scan差-0.000006794，患者配对97.5%区间[-0.000023814,+0.000001814]，明确收益门=False。 B局部视图一致性：完成19/150轮，尝试4750、实际更新4750；选新增0轮，108 Scan0.784664851、Subject0.780815550、Point105/108。对旧e525 Scan差-0.000006794，患者配对97.5%区间[-0.000023814,+0.000001814]，明确收益门=False。 本批无新270/outer/confirmation；普通微调对照已取消，算法与额外训练的贡献未被单独识别。 [结果](archive/research_records/2026-10-21_nnunet_error_balance/RESULT.md)
+
+2026-10-21 12:33工程接续：原972/108 SHA及几何门通过，两算法正式冻结150轮。修复CPU权重导出重复共享参数的问题，逐张量完全一致，原失败阶段已归档；A从完整8轮/2000更新接续第9轮，B开始第1轮，预算/配方不变，无新270/outer/confirmation。[接续记录](archive/research_records/2026-10-21_nnunet_error_balance/AMENDMENT_003_STORAGE_RECOVERY.md)。
+
+2026-10-21两个nnU-Net算法组incomplete。A体积预算竞争：完成8/150轮，尝试2000、实际更新2000；选新增0轮，108 Scan0.784664851、Subject0.780815550、Point105/108。对旧e525 Scan差-0.000006794，患者配对97.5%区间[-0.000023814,+0.000001814]，明确收益门=False。 B局部视图一致性：没有产生可选择模型。 本批无新270/outer/confirmation；普通微调对照已取消，算法与额外训练的贡献未被单独识别。 [结果](archive/research_records/2026-10-21_nnunet_error_balance/RESULT.md)
+
+2026-10-21用户修订：取消普通微调control（患者训练/模型访问0），改为A困难背景竞争与B局部视图一致性两算法、各一张A10080GB。两组分别比较已有e525，额外训练贡献未被单独隔离；V3准备中，无新增Dice或270访问。[最新方案](archive/research_records/2026-10-21_nnunet_error_balance/AMENDMENT_002_TWO_ALGORITHMS.md)。
+
+2026-10-21新增nnU-Net算法候选：用户提供worker1143438双A10080GB、约24小时。旧e525最小WT体积四分位验证Dice0.684294，拟检验体积预算困难背景竞争项；同e525初始化的普通微调作为同预算对照。CPU5项与两组GPU合成门通过，约29.06GiB/卡、算法训练开销约5%；正在重建972/108缓存，尚无新患者模型训练/验证，无新270/outer/confirmation。算法效果及创新性待验证。[方案](archive/research_records/2026-10-21_nnunet_error_balance/IDEA.md)。
+
 <!-- NNUNET_RESENC_20261013 -->
 **2026-10-14新增结果：** 550轮完成，108选525轮Scan0.784672，验证门通过。270单模型Scan0.811283，最佳三模型融合Scan0.812965、Subject0.797512、Point266/270；相对旧榜首+0.037074，95%CI[+0.030140,+0.044262]。达到本批0.8均值目标，全部test-tuned，非独立泛化。 双卡训练约15.47小时，单模型较大且采用滑窗，最佳融合需要3个模型；不能将收益只归于架构。[报告](archive/research_records/2026-10-13_nnunet_resenc_reference/RESULT.md)。
 <!-- END_NNUNET_RESENC_20261013 -->
@@ -150,3 +205,11 @@ Scan患者整簇95%区间[0.732638,0.781993]，Subject[0.718192,0.768915]。相�
 <!-- FOLLOWUP_TEST_NATIVE -->
 公开预训练＋原分辨率组合166：test270/119完成，原始1mm裁剪栅格（native grid），排除填充，Scan 0.766272、Subject 0.750958、Point 236/270；对native173差-0.002306、95%CI[-0.009078,+0.005791]。验证门未过，用户授权探索性测试；无当前test调优或新outer/confirmation。[完整报告](archive/research_records/2026-09-21_segresnet_pretrain_native_e166_test270/RESULT.md)。
 <!-- END_FOLLOWUP_TEST_NATIVE -->
+
+<!-- RACE_PREP_20261028 -->
+## 2026-10-28 RACE-Seg双卡单算法200轮已接续
+
+用户取消的新对照已在完整4轮/488更新停止，禁止自动恢复。算法从完整第5轮/610更新模型与AdamW接双卡DDP，已完整完成第6轮/732更新、108扫描/50患者验证和CPU严格重载，随后进入第7轮。两rank参数SHA一致；两卡共同训练一个算法，目标累计200轮/24400更新，有效batch8、每卡微批2、原200轮学习率不变。
+首个双卡完整epoch含验证3.31分钟，单卡前一轮7.17分钟；首轮实测约2.17倍。32通道、原生160×208×160及原972/108载荷SHA不变；预取增强逐值核对通过。首轮早期分数不代表最终提分。原24小时截止不变，无新270/outer/confirmation。后续与固定历史w32参考作描述性比较，不能分离种子/执行差异与算法贡献。
+[双卡启动核验](archive/research_records/2026-10-28_race_seg/DDP_STARTUP_VERIFIED.json) · [实时状态](archive/research_records/2026-10-28_race_seg/PIPELINE_STATUS.json) · [接续说明](archive/research_records/2026-10-28_race_seg/RUNBOOK.md)。旧173轮启动和中间修订保留为历史，最终通过审计的汇总将另行存档。
+<!-- END_RACE_PREP_20261028 -->
