@@ -24,22 +24,32 @@ def git(*args,environment=None):
     return subprocess.check_output(['git',*args],cwd=RELEASE,env=environment,text=True,stderr=subprocess.STDOUT)
 
 
+def audited_result():
+    required=[R/'RESULT.json',R/'RESULT.md',R/'COMPLETION_AUDIT.json']
+    if not all(path.is_file() for path in required):return None
+    result=read(required[0]);audit=read(required[2])
+    digest=hashlib.sha256(required[0].read_bytes()).hexdigest()
+    if audit.get('result_sha256')!=digest or audit.get('state')!=result.get('state'):return None
+    return result
+
+
 def publish():
     lock=(R/'ARCHIVE_PUBLICATION.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     assert git('remote','get-url','origin').strip()==EXPECTED
     if git('status','--porcelain').strip():raise RuntimeError('archive checkout has other pending changes')
     git('fetch','origin','main');git('merge','--ff-only','FETCH_HEAD')
+    result=audited_result()
     copied=[]
     destination=RELEASE/'AFlow'/R.relative_to(ROOT);destination.mkdir(parents=True,exist_ok=True)
     for name in SUMMARY_FILES:
+        if result is None and name in ('RESULT.md','RESULT.json','COMPLETION_AUDIT.json'):continue
         source=R/name
         if not source.is_file():continue
         if source.stat().st_size>2*2**20:raise RuntimeError('unexpectedly large summary '+name)
         target=destination/name;shutil.copy2(source,target);copied.append(target)
-    result=read(R/'RESULT.json') if (R/'RESULT.json').exists() else None
     summary='本次实验已结束；具体状态、完成轮数及验证指标见[结果记录](AFlow/archive/research_records/2026-10-28_race_seg/RESULT.md)。'
     if result is None:
-        summary='本次实验在获得完整结果前停止；失败或最后可见阶段见[状态记录](AFlow/archive/research_records/2026-10-28_race_seg/PIPELINE_STATUS.json)。'
+        summary='本次实验尚无通过完整归档核查的结果；最后可见阶段见[状态记录](AFlow/archive/research_records/2026-10-28_race_seg/PIPELINE_STATUS.json)。'
     summary+=' 原972/108、单seed、复用验证；无新增test270或独立外部确认。'
     path=RELEASE/'README.md';text=path.read_text();marker='<!-- RACE_EXPERIMENT_OUTCOME -->'
     if marker not in text:
@@ -71,7 +81,7 @@ def main():
     lock=(R/'ARCHIVE_WATCH.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     write(R/'ARCHIVE_WATCH.json',{'at':now(),'pid':os.getpid(),'state':'waiting_for_outcome','deadline_unix':deadline,'summaries_only':True})
     while time.time()<deadline:
-        if (R/'RESULT.json').exists() or (R/'COORDINATOR_FAILURE.json').exists():
+        if audited_result() is not None or (R/'COORDINATOR_FAILURE.json').exists():
             time.sleep(30)  # Let checkpoint/result auditing and document checks finish.
             publish();return
         time.sleep(30)

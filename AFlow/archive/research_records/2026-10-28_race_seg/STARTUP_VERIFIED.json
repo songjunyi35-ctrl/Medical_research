@@ -1,0 +1,191 @@
+{
+  "at": "2026-10-28T13:06:00.644375+08:00",
+  "status": "startup_verified_patient_training_running",
+  "worker": 1152470,
+  "budget": {
+    "at": "2026-10-28T12:56:25.891900+08:00",
+    "status": "passed",
+    "epochs": 173,
+    "microbatch": 2,
+    "effective_batch": 8,
+    "updates_per_epoch": 122,
+    "total_updates_each": 21106,
+    "estimated_epoch_seconds": 469.8217081210265,
+    "estimated_training_hours": 22.577543195816,
+    "remaining_seconds": 81582.71950316429,
+    "selection": "synthetic throughput only, no patient scores",
+    "memory_ceiling_gib": 38,
+    "source_sha256": {
+      "control": "c4ba9aa2f2cebfb18a7b0930b1c31fb0c112bf6a8ea6d1aa16721b1b7c3f6ef0",
+      "race": "60240e661c4ad930baae9d8f0676d73bc876b77c1839a08468b4ca1b3b1399f2"
+    }
+  },
+  "deadline_unix": 1793246768.611393,
+  "train": {
+    "scans": 972,
+    "subjects": 444
+  },
+  "validation": {
+    "scans": 108,
+    "subjects": 50
+  },
+  "payloads": {
+    "train": {
+      "historical_native_sha_exact": true,
+      "historical128_sha_exact": true,
+      "reference_disabled": 0
+    },
+    "validation": {
+      "historical_native_sha_exact": true,
+      "historical128_sha_exact": true,
+      "reference_disabled": 0
+    }
+  },
+  "matched_initial_backbone_sha256": "ab29bad02be4ae24e6338833c19a6f230d7db0dffaecc1fcd17efbcfdb0d0c4b",
+  "arms": {
+    "control": {
+      "status": {
+        "at": "2026-10-28T13:03:14.976910+08:00",
+        "state": "training",
+        "arm": "control",
+        "last_complete_epoch": 1,
+        "target_epochs": 173,
+        "updates": 122,
+        "best_epoch": 1,
+        "best_scan": 0.23286135078847614,
+        "validation": {
+          "scan_dice": 0.23286135078847614,
+          "subject_dice": 0.2190262178919234,
+          "scan_ci95": [
+            0.18563927796241372,
+            0.2768971318500014
+          ],
+          "subject_ci95": [
+            0.17750577384975205,
+            0.2624202948625066
+          ],
+          "point_hit": 0.5277777777777778,
+          "scans": 108,
+          "subjects": 50,
+          "bootstrap": "10000 patient cluster percentile95 seed20260917",
+          "point_hits": 57
+        },
+        "training_seconds": 375.5481414683163,
+        "epoch_seconds": 400.4256516061723,
+        "elapsed_seconds": 400.4303328320384,
+        "learning_rate": 0.0002,
+        "microbatch": 2,
+        "effective_batch": 8,
+        "train": {
+          "loss": 0.9939386200757674,
+          "supervised": 0.9939386200757674,
+          "contrast": 0.0,
+          "bad_gate": 0.0,
+          "fallback": 0.0,
+          "gate": 0.0,
+          "gradient_norm": 0.262841992724089,
+          "strength_grad": 0.0,
+          "strength": 0.0
+        },
+        "peak_reserved_gib": 34.005859375,
+        "test_access": false
+      },
+      "first_reload": {
+        "at": "2026-10-28T13:03:14.802493+08:00",
+        "status": "passed",
+        "sha256": "a909e563425a11b55b8b1a446bc78c5b1b720a5b588d477fb906fdc94390be32",
+        "updates": 122
+      },
+      "preaccess": {
+        "at": "2026-10-28T12:56:34.536043+08:00",
+        "arm": "control",
+        "random_initialization": true,
+        "seed": 20261028,
+        "epochs": 173,
+        "backbone_initial_sha256": "ab29bad02be4ae24e6338833c19a6f230d7db0dffaecc1fcd17efbcfdb0d0c4b",
+        "train_scans": 972,
+        "validation_scans": 108,
+        "test_access": false
+      }
+    },
+    "race": {
+      "status": {
+        "at": "2026-10-28T13:03:47.123970+08:00",
+        "state": "training",
+        "arm": "race",
+        "last_complete_epoch": 1,
+        "target_epochs": 173,
+        "updates": 122,
+        "best_epoch": 1,
+        "best_scan": 0.25156768326996826,
+        "validation": {
+          "scan_dice": 0.25156768326996826,
+          "subject_dice": 0.2429017142666548,
+          "scan_ci95": [
+            0.20764380658849016,
+            0.2928357579615002
+          ],
+          "subject_ci95": [
+            0.20308740125130031,
+            0.2837635964315934
+          ],
+          "point_hit": 0.39814814814814814,
+          "scans": 108,
+          "subjects": 50,
+          "bootstrap": "10000 patient cluster percentile95 seed20260917",
+          "point_hits": 43
+        },
+        "training_seconds": 405.7313650548458,
+        "epoch_seconds": 432.48487911373377,
+        "elapsed_seconds": 432.4902437776327,
+        "learning_rate": 0.0002,
+        "microbatch": 2,
+        "effective_batch": 8,
+        "train": {
+          "loss": 1.0285794148719851,
+          "supervised": 0.9930761147428442,
+          "contrast": 0.7100659980450148,
+          "bad_gate": 0.25878005962312955,
+          "fallback": 1.4666600891767698e-07,
+          "gate": 0.15229150591563786,
+          "gradient_norm": 0.3397730842784599,
+          "strength_grad": -0.0013930716801498473,
+          "strength": 0.00926430883660238
+        },
+        "peak_reserved_gib": 34.15234375,
+        "test_access": false
+      },
+      "first_reload": {
+        "at": "2026-10-28T13:03:46.953390+08:00",
+        "status": "passed",
+        "sha256": "60bc29ad9e418ab8d2a121d0c941354cb9afefaf0ee1aa090d2f88a3a09195ee",
+        "updates": 122
+      },
+      "preaccess": {
+        "at": "2026-10-28T12:56:34.621518+08:00",
+        "arm": "race",
+        "random_initialization": true,
+        "seed": 20261028,
+        "epochs": 173,
+        "backbone_initial_sha256": "ab29bad02be4ae24e6338833c19a6f230d7db0dffaecc1fcd17efbcfdb0d0c4b",
+        "train_scans": 972,
+        "validation_scans": 108,
+        "test_access": false
+      }
+    }
+  },
+  "source_freeze_sha256": "3d175dcfb9058ae4876922c60b529cc51946c8d3d59681a1d4afbb9d6e5d3b02",
+  "numeric_sources_unchanged_after_patient_start": true,
+  "first_epoch_metrics_are_not_final_benefit": true,
+  "algorithm_cpu_checks": 8,
+  "archive_gate_checks": 2,
+  "gpu_synthetic_checks": "passed",
+  "new_test270_or_outer_or_confirmation": false,
+  "main_host_archive_watch": {
+    "at": "2026-10-28T13:02:47.176375+08:00",
+    "pid": 1830787,
+    "prior_pid": 1829598,
+    "host": "main",
+    "role": "audited summary-only outcome archive; no training access"
+  }
+}

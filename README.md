@@ -34,6 +34,11 @@
 - [冻结实验方案](AFlow/archive/research_records/2026-10-28_race_seg/IDEA.md)
 - [核心模型](AFlow/sammed3d/race_seg.py)、[训练与协调器](AFlow/scripts/race_seg_20261028/)、[合成检查](AFlow/tests/test_race_seg.py)
 
+
+<!-- RACE_STARTUP_VERIFIED -->
+2026-10-28启动核验：原972/108缓存载荷SHA完全匹配，两组骨干初始化SHA相同；患者模型前按24小时硬件预算冻结各173轮/21106更新。两组已完成第1轮122真实更新、108完整验证及检查点严格重载，随后继续训练。首轮为随机初始化早期结果，尚无最终提分结论。[启动收据](AFlow/archive/research_records/2026-10-28_race_seg/STARTUP_VERIFIED.json)。仓库中的运行状态为提交时快照；最终通过审计的汇总将另行自动存档。
+<!-- END_RACE_STARTUP_VERIFIED -->
+
 ## 阅读入口
 
 - [最终结果报告与比较区间](AFlow/archive/research_records/2026-10-13_nnunet_resenc_reference/RESULT.md)
