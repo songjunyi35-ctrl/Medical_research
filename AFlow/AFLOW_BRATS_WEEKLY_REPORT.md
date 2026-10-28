@@ -1,5 +1,11 @@
 # AFlow BraTS研究汇报
 
+<!-- AUTO_INFERENCE12H_20261028 -->
+## 2026-10-29：无训练推理自动研究进展
+
+同w32第171轮、原单T1ce与270/119，用户授权12小时持续研究。当前已核验最高Dice0.784139146、Subject0.771156128、Point258/270，8次同权重前向；对原普通推理差+0.010911106。完整约76万配置保留正负，1464216融合与512整数相位继续。所有本轮选择直接test-tuned，无新独立确认；不改独立RACE训练。窗口至08:41，当前是中间快照。[结果与局限](archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md)。
+<!-- END_AUTO_INFERENCE12H_20261028 -->
+
 <!-- INFERENCE_SELECTED_TEST270_20261028 -->
 ## 2026-10-28：不训练模型的推理改进固定测试
 

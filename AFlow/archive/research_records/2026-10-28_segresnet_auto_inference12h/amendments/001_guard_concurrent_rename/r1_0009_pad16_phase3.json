@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-28T20:54:29.825877+08:00",
+  "id": "r1_0009_pad16_phase3",
+  "handler": "render_v1",
+  "kind": "render",
+  "spec": {
+    "batch": 8,
+    "padding_extra": [
+      16,
+      16,
+      16
+    ],
+    "phase": [
+      3,
+      3,
+      3
+    ]
+  },
+  "views": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "keep_atoms": false,
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "source_sha256": {
+    "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+    "scripts/segresnet_auto_inference12h_20261028/worker_v2.py": "fc642453e454c2d219a6c90e98e09d842b5a25a5fd171cc13a9201e123c653be",
+    "scripts/segresnet_auto_inference12h_20261028/render_v1.py": "4ca8989961d29664d970a31a61d4e01aeacba5f8c8fc8a918da288845ce67495",
+    "scripts/segresnet_auto_inference12h_20261028/control_v1.py": "a7630ce252a27cf64992e93b417dae9cb6d070a57456b13fbb05215e269309ac",
+    "scripts/segresnet_inference_search_20261028/common.py": "5a26fb220eb173fb069f6037f8302b2e5ab9a4bdec6d47c9a6b40b4b436110c2",
+    "sammed3d/t1ce_wt_capg3d.py": "276ee7c131e413cf7943dc29e5372c1e5bbbb85c780e27f030343c5ef8bf4cd0"
+  },
+  "test_tuned": true,
+  "all270_same_global_rule": true,
+  "rationale": "Zhang2019 shift sensitivity; padding phase0..7 probes three stride2 stages, retains all input voxels",
+  "seed": 20261028,
+  "resource_token": "r1_worker1153287",
+  "depends_on": [
+    "r1_0000_control"
+  ]
+}

@@ -1,5 +1,11 @@
 # 当前科研状态与接续边界
 
+<!-- AUTO_INFERENCE12H_20261028 -->
+**12小时自动推理研究仍运行至29日08:41。** 用户明确直接按270反馈全局搜索，固定同w32第171轮、T1ce及原972/108/270，无训练/outer/confirmation，独立RACE不动。worker1153287双A10080，数据SHA和旧五镜像270mask/point/Dice精确一致。当前已审计最高Scan0.784139146、Subject0.771156128、Point258/270，8视图一致性加权/校准/连通域；7视图替代0.783850/Point260；较原普通推理+0.010911106，描述性95%[+0.006975465,+0.016120434]，全部test-tuned且未校正多重搜索。所有270掩膜独立核对，双榜39行保留阶段历史。
+
+约76万全270配置完成，1464216组合在GPU0评分；512整数平移相位将在新scratch释放60GiB后用GPU1运行，1/64/128/256/512共享前缀、16CPU校准。恢复3/6；仅删本轮已归档无读者派生文件，输入/权重/原始core8 logits/全部评分掩膜保留。研究不提前结题。[快照](archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md) · [实时状态](archive/research_records/2026-10-28_segresnet_auto_inference12h/RESEARCH_STATUS.json) · [下一步接续](archive/research_records/2026-10-28_segresnet_auto_inference12h/RUNBOOK.md)。
+<!-- END_AUTO_INFERENCE12H_20261028 -->
+
 <!-- INFERENCE_SELECTED_TEST270_20261028 -->
 **2026-10-28固定五镜像＋体积解码270测试完成。** 270/119 Scan0.780995、Subject0.768306、Point255/270；对同权重原始推理差+0.007767，配对95%区间[0.004495999901909861, 0.011791830233831117]，配对区间支持本复用队列的探索性正差。 模型/配方从108选择后固定，本次无test调参，训练0、无新outer/confirmation。复用内部探索，非独立泛化；本批结束不扩搜/重测，不干预独立RACE训练。[报告](archive/research_records/2026-10-28_segresnet_inference_selected_test270/RESULT.md)。
 <!-- END_INFERENCE_SELECTED_TEST270_20261028 -->

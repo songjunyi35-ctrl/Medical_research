@@ -1,0 +1,98 @@
+{
+  "at": "2026-10-28T23:36:45.088294+08:00",
+  "state": "audited_candidate",
+  "method": "segresnet_w32_e171_auto12h_0005_fine_calibration_cc_testtuned_20261028",
+  "metrics": {
+    "scan_dice": 0.7837868808596222,
+    "subject_dice": 0.7709201405445735,
+    "scan_ci95": [
+      0.7616955649634949,
+      0.8033018339996374
+    ],
+    "subject_ci95": [
+      0.7485312739467505,
+      0.7916884772546319
+    ],
+    "point_hit": 0.9629629629629629,
+    "scans": 270,
+    "subjects": 119,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "point_hits": 260
+  },
+  "comparison_to_previous_incumbent": {
+    "scan_delta": 0.002791682630777359,
+    "subject_delta": 0.00261386123796304,
+    "scan_delta_ci95": [
+      0.0010036232780652708,
+      0.005152646015408201
+    ],
+    "subject_delta_ci95": [
+      0.0007757765246706517,
+      0.005110529352929077
+    ],
+    "scan_delta_ci97_5": [
+      0.0008195290562126583,
+      0.005571551560329853
+    ],
+    "subject_delta_ci97_5": [
+      0.000579924766203853,
+      0.005564075224936345
+    ],
+    "point_hits_delta": 5,
+    "improved_scans": 161,
+    "worse_scans": 109,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+    "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+  },
+  "comparison_to_search_base": {
+    "scan_delta": 0.0005915778654593008,
+    "subject_delta": 0.0006484316677606407,
+    "scan_delta_ci95": [
+      -0.00020867221141552167,
+      0.0018531225507998296
+    ],
+    "subject_delta_ci95": [
+      -0.00032853041856395764,
+      0.002092762788971599
+    ],
+    "scan_delta_ci97_5": [
+      -0.0002911976222129448,
+      0.002077703777113741
+    ],
+    "subject_delta_ci97_5": [
+      -0.00043813474810257014,
+      0.0023285287450633806
+    ],
+    "point_hits_delta": 0,
+    "improved_scans": 94,
+    "worse_scans": 56,
+    "tied_scans": 120,
+    "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+    "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+  },
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "analysis": "1102_fine_calibration_components",
+  "best_configuration": {
+    "configuration_index": 170,
+    "recipe": {
+      "id": "c3_min750_protectFalse",
+      "connectivity": 3,
+      "kind": "minimum",
+      "value": 750,
+      "protect_largest": false
+    },
+    "scan_dice": 0.7837868808596222,
+    "subject_dice": 0.7709201405445735,
+    "point_hits": 260,
+    "neural_case_forwards": 7
+  },
+  "locator_forwards": 7,
+  "training": false,
+  "test_tuned": true,
+  "current_test_retuning": true,
+  "all270_masks_independently_verified": true,
+  "model_forwards_added": 0,
+  "raw_sha256": "6ebe2ae82b6f574648dcee9b8ca6556a6c6efb0a987fd31bc19f183ff5e8f310",
+  "recipe_sha256": "26244064bf4003616a51c76b24210f2a512cc7e9b87eb94b84b731db989b93f5"
+}

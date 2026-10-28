@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-28T22:44:36.708713+08:00",
+  "job": "r1_1000_calibration",
+  "mode": "cpu",
+  "worker": 1153287,
+  "error": "FileNotFoundError(2, 'No such file or directory')",
+  "traceback": "Traceback (most recent call last):\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/segresnet_auto_inference12h_20261028/worker_v2.py\", line 58, in main\n    else:module.execute(job)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/segresnet_auto_inference12h_20261028/calibration_v1.py\", line 95, in execute\n    guard();done+=1\n    ^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/segresnet_auto_inference12h_20261028/worker_v2.py\", line 17, in resource_guard\n    guard();assert read(R/'RESOURCE_CURRENT.json')['token']==token,'resource lease superseded'\n    ^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/segresnet_auto_inference12h_20261028/common.py\", line 21, in guard\n    assert sum(p.stat().st_size for p in R.rglob('*') if p.is_file())<2*2**30, 'new persistent above2GiB'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/segresnet_auto_inference12h_20261028/common.py\", line 21, in <genexpr>\n    assert sum(p.stat().st_size for p in R.rglob('*') if p.is_file())<2*2**30, 'new persistent above2GiB'\n               ^^^^^^^^\n  File \"/usr/lib/python3.11/pathlib.py\", line 1014, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/ANALYSIS_STATUS.json.317.tmp'\n",
+  "resource_token": "r1_worker1153287"
+}

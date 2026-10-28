@@ -1,0 +1,86 @@
+{
+  "at": "2026-10-28T22:56:48.092919+08:00",
+  "state": "audited_candidate",
+  "method": "segresnet_w32_e171_auto12h_0002_core_calibration_testtuned_20261028",
+  "metrics": {
+    "scan_dice": 0.7830104277641685,
+    "subject_dice": 0.7698528438451744,
+    "scan_ci95": [
+      0.7610035700594945,
+      0.8026532833431178
+    ],
+    "subject_ci95": [
+      0.7475500020572619,
+      0.790562364655007
+    ],
+    "point_hit": 0.9629629629629629,
+    "scans": 270,
+    "subjects": 119,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "point_hits": 260
+  },
+  "comparison_to_previous_incumbent": {
+    "scan_delta": 0.002015229535323602,
+    "subject_delta": 0.0015465645385640005,
+    "scan_delta_ci95": [
+      0.0006058886463299945,
+      0.003756912357862463
+    ],
+    "subject_delta_ci95": [
+      4.8142540495560845e-05,
+      0.0031197990878049477
+    ],
+    "scan_delta_ci97_5": [
+      0.0004193090716110759,
+      0.0040496927767316865
+    ],
+    "subject_delta_ci97_5": [
+      -0.00016930185789268472,
+      0.003347690877835962
+    ],
+    "point_hits_delta": 5,
+    "improved_scans": 152,
+    "worse_scans": 118,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired percentile, seed20260918; 97.5% for two planned primary comparisons",
+    "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+  },
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "analysis": "r1_1000_calibration",
+  "best_configuration": {
+    "recipe_index": 1780,
+    "recipe": {
+      "id": "meanp_T4.0_subset251",
+      "kind": "probability_mean",
+      "views": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "view_temperature": 4.0
+    },
+    "parameters": {
+      "post_temperature": 1.0,
+      "bias": -1.0,
+      "beta": 1.15,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 2861,
+    "scan_dice": 0.7830104277641685,
+    "subject_dice": 0.7698528438451744,
+    "point_hits": 260
+  },
+  "locator_forwards": 7,
+  "raw_sha256": "ceb422e7f4486c15922a835f4f3eddeb028f29519843eafbf85320c28f5364b3",
+  "recipe_sha256": "4ff20def84e80d813883810d4ba12a0d6eb3f8596d39ba9cf1fef1bc0681d603",
+  "training": false,
+  "test_tuned": true,
+  "current_test_retuning": true,
+  "all270_masks_independently_verified": true,
+  "model_forwards_added": 0,
+  "seconds": 41.62948291102657
+}

@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-28T23:44:44.316983+08:00",
+  "job": "r1_0035_roi_m32_s0.75",
+  "mode": "producer",
+  "worker": 1153287,
+  "error": "FileNotFoundError(2, 'No such file or directory')",
+  "traceback": "Traceback (most recent call last):\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/segresnet_auto_inference12h_20261028/worker_v3.py\", line 59, in main\n    if mode=='producer':module.execute(model,job)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/utils/_contextlib.py\", line 116, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/segresnet_auto_inference12h_20261028/roi_render_v1.py\", line 75, in execute\n    assert sum(p.stat().st_size for p in TMP.rglob('*.npy'))+required<=300*2**30\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/segresnet_auto_inference12h_20261028/roi_render_v1.py\", line 75, in <genexpr>\n    assert sum(p.stat().st_size for p in TMP.rglob('*.npy'))+required<=300*2**30\n               ^^^^^^^^\n  File \"/usr/lib/python3.11/pathlib.py\", line 1014, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/tmp/aflow_auto_inference12h_20261028/analyses/r1_0000_core_fusions/histograms/2072/BraTS-GLI-02920-101.npy'\n",
+  "resource_token": "r1_worker1153287"
+}

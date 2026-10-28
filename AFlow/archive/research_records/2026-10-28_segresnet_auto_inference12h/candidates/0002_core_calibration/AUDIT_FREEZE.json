@@ -1,0 +1,84 @@
+{
+  "at": "2026-10-28T22:56:06.455651+08:00",
+  "analysis": "r1_1000_calibration",
+  "job": {
+    "id": "r1_1000_calibration",
+    "handler": "calibration_v1",
+    "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+    "test_tuned": true,
+    "all270_same_global_rule": true,
+    "resource_token": "r1_worker1153287",
+    "source_analysis": "r1_0000_core_fusions",
+    "analysis_dependencies": [
+      "r1_0000_core_fusions"
+    ],
+    "cpu_workers": 8,
+    "source_sha256": {
+      "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+      "scripts/segresnet_auto_inference12h_20261028/worker_v2.py": "fc642453e454c2d219a6c90e98e09d842b5a25a5fd171cc13a9201e123c653be",
+      "scripts/segresnet_auto_inference12h_20261028/calibration_v1.py": "f503e3ca33b7858ffee9b87aab58318f1ff6fe914a966595bbf7abd496abe726",
+      "scripts/segresnet_auto_inference12h_20261028/worker_v3.py": "1f8788c1ce07e7ccc9a618c734b262d2e183ae44b89cd7ac6da2cdd6acce1099",
+      "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd"
+    },
+    "control_amendment": "guard_v3: identical budgets; ignore vanished atomic JSON tmp names, numerical handler unchanged"
+  },
+  "source_job": {
+    "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+    "test_tuned": true,
+    "all270_same_global_rule": true,
+    "resource_token": "r1_worker1153287",
+    "id": "r1_0000_core_fusions",
+    "handler": "core_fusions_v3",
+    "depends_on": [
+      "r1_0000_control",
+      "r1_0000_core_mirror8"
+    ],
+    "core_source": "r1_0000_core_mirror8",
+    "recipe_count": 2077,
+    "source_sha256": {
+      "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+      "scripts/segresnet_auto_inference12h_20261028/worker_v2.py": "fc642453e454c2d219a6c90e98e09d842b5a25a5fd171cc13a9201e123c653be",
+      "scripts/segresnet_auto_inference12h_20261028/../segresnet_inference_search_20261028/operations.py": "1a90d856e88fa2f926dd5651bcdaf3a13544a172d9e3329123588853547fd86e",
+      "scripts/segresnet_inference_search_20261028/common.py": "5a26fb220eb173fb069f6037f8302b2e5ab9a4bdec6d47c9a6b40b4b436110c2",
+      "sammed3d/t1ce_wt_capg3d.py": "276ee7c131e413cf7943dc29e5372c1e5bbbb85c780e27f030343c5ef8bf4cd0",
+      "scripts/segresnet_auto_inference12h_20261028/core_fusions_v3.py": "11167c27435f2e063a69e41d708ab3f2777857d3fcd5c44651b17d8a20109081",
+      "scripts/segresnet_auto_inference12h_20261028/histograms_triton_v1.py": "274e9fbcfd4d18362159d9c90604a6701e257aa4b265c82252a92325e78cb728"
+    },
+    "amendment": "pre-execution: exact block-aggregated integer histogram,15 synthetic equivalence probes passed"
+  },
+  "best": {
+    "recipe_index": 1780,
+    "recipe": {
+      "id": "meanp_T4.0_subset251",
+      "kind": "probability_mean",
+      "views": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "view_temperature": 4.0
+    },
+    "parameters": {
+      "post_temperature": 1.0,
+      "bias": -1.0,
+      "beta": 1.15,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 2861,
+    "scan_dice": 0.7830104277641685,
+    "subject_dice": 0.7698528438451744,
+    "point_hits": 260
+  },
+  "source_sha256": "303146237901601303c32e9e7e70fdc65a6e7a11ff83d792e2c21d59409acf59",
+  "scalar_gate": {
+    "at": "2026-10-28T22:56:06.294009+08:00",
+    "status": "passed",
+    "independent_scalar_vs_batched_cuts_exact": true,
+    "probes": 10
+  },
+  "test_tuned": true
+}

@@ -1,5 +1,15 @@
 # AFlow repository instructions
 
+<!-- AUTO_INFERENCE12H_20261028 -->
+## 2026-10-28新授权：12小时无训练自动研究｜持续运行
+
+用户要求上网调研、实现、暴力组合至少10多个小时并保持有意义GPU队列；窗口北京时间10月28日20:41:16至29日08:41:16，不提前结题。固定单T1ce/w32第171轮/原972108270，网络训练0。允许直接用270反馈全局选择，所有结果test-tuned，不称独立泛化；不允许GT单例推理/病例记忆，不新增outer/confirmation，独立RACE不干预。
+
+当前worker1153287双A10080。270三载荷SHA匹配，旧五镜像270mask/point/Dice精确复现。已审计最高Scan0.784139146、Subject0.771156128、Point258/270，8视图预测一致性加权＋体积校准＋6连接512过滤；7视图替代仍为0.783850/Point260；对原同权重普通推理差+0.010911106，配对描述性95%[+0.006975465,+0.016120434]，未校正大规模搜索。全部mask独立核对，双榜保留所有已审计阶段。约76万配置完成，另1464216非线性组合运行中；512整数相位共享前缀等清理存储门后执行。
+
+持久新增<=2GiB/空闲>=20GiB；全研究scratch<=300GiB/空闲>=70GiB。仅清理本轮已归档无读者可重建中间输出，保留输入/权重/core8原logits/全部评分和掩膜；并发时只unlink文件、留目录骨架。恢复3/6，后续用stable_size而非inline rglob/stat。来源SHA逐任务绑定，不修改已冻结数值代码。真实状态及全部正负/访问/清理记录见[研究快照](archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md)与[接续说明](archive/research_records/2026-10-28_segresnet_auto_inference12h/RUNBOOK.md)。
+<!-- END_AUTO_INFERENCE12H_20261028 -->
+
 <!-- INFERENCE_SELECTED_TEST270_20261028 -->
 ## 2026-10-28五镜像＋体积解码固定270测试已完成
 

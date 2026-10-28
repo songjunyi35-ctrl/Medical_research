@@ -1,7 +1,7 @@
 {
   "schema": "aflow.brats.t1ce_wt_leaderboard",
   "schema_version": 1,
-  "updated_utc": "2026-10-28T10:11:54.225001+00:00",
+  "updated_utc": "2026-10-28T16:58:44.786719+00:00",
   "ucsd56_bootstrap_mc_precision_20260907": {
     "status": "posthoc_numerical_sensitivity_original_preregistered_intervals_and_ranks_preserved",
     "report_path": "archive/reviews/2026-09-07_ucsd56_bootstrap_precision/RESULT.json",
@@ -3138,6 +3138,781 @@
       "rank": 7
     },
     {
+      "method": "segresnet_w32_e171_auto12h_0008_consensus_cc_testtuned_20261028",
+      "scan_dice": 0.7841391463522558,
+      "subject_dice": 0.7711561284416697,
+      "point_hit": 0.9555555555555556,
+      "point_hits": 258,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 8,
+      "ensemble_size": 1,
+      "forward_equivalents": 21.328125,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RAW_TEST270.json",
+      "report_sha256": "6b1e8bc3a12c6e7f38471f22e7612a99d1b79e0d816d11f34cbfd6175aa92fd5",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RESULT.json",
+      "result_sha256": "00c9d194dacbce182ce29705099ee077e924be4c0cdfad377b36c9738c07e5e2",
+      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7621407086330315,
+        0.8036330423585472
+      ],
+      "subject_ci95": [
+        0.7489818596298329,
+        0.7916994248737036
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 8,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RECIPE.json",
+      "selected_recipe_sha256": "179016ae221ea56da1992197cbf4095365e7c229ac9a9d9c5262d08d593a9410",
+      "research_continues": true,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0031439481234108962,
+          "subject_delta": 0.0028498491350592687,
+          "scan_delta_ci95": [
+            0.001306741096382048,
+            0.005608935327639955
+          ],
+          "subject_delta_ci95": [
+            0.0008558373869049782,
+            0.005537230802246001
+          ],
+          "scan_delta_ci97_5": [
+            0.0011344870827968451,
+            0.006052375732688234
+          ],
+          "subject_delta_ci97_5": [
+            0.0006283091916507032,
+            0.006073333388259669
+          ],
+          "point_hits_delta": 3,
+          "improved_scans": 160,
+          "worse_scans": 110,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      }
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0006_best_holes_testtuned_20261028",
+      "scan_dice": 0.7838496662400387,
+      "subject_dice": 0.7706811142339259,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 7,
+      "ensemble_size": 1,
+      "forward_equivalents": 18.662109375,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0006_best_holes/RAW_TEST270.json",
+      "report_sha256": "d295ede878f056edf84864ecb77c034b85e803d68f086d8bc5a09d515394071a",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0006_best_holes/RESULT.json",
+      "result_sha256": "89e30607b29020de4de1348f4bbfa8d4607b72d3c5a4b0a4ede1d5d64cf0be84",
+      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7618264485159947,
+        0.8033016230316391
+      ],
+      "subject_ci95": [
+        0.748337298239991,
+        0.7913376155986088
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 9,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0006_best_holes/RECIPE.json",
+      "selected_recipe_sha256": "366abcb0fd9a59c65b217ef30a4a646d81f50ba9ae74c75559531567921ba509",
+      "research_continues": true,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.002854468011193805,
+          "subject_delta": 0.0023748349273154715,
+          "scan_delta_ci95": [
+            0.0009029277479248186,
+            0.005396474269742977
+          ],
+          "subject_delta_ci95": [
+            0.00033978398315378925,
+            0.005017791781365787
+          ],
+          "scan_delta_ci97_5": [
+            0.0006925415883992987,
+            0.005820026904805966
+          ],
+          "subject_delta_ci97_5": [
+            0.00011130747017489771,
+            0.00547141861689671
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 157,
+          "worse_scans": 113,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      }
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0003_core_calibration_cc_testtuned_20261028",
+      "scan_dice": 0.7837921336293221,
+      "subject_dice": 0.7706401502739648,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 7,
+      "ensemble_size": 1,
+      "forward_equivalents": 18.662109375,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0003_core_calibration_cc/RAW_TEST270.json",
+      "report_sha256": "73f63eacb9d2eb285dbb8a768e035c648c7820fb2c320a6ae7df24474c82f15f",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0003_core_calibration_cc/RESULT.json",
+      "result_sha256": "0d514bc462b45e394a126e7221e687df2a6f6c2c0750166127dc78ec3dfec124",
+      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7618019353434828,
+        0.8032204865107962
+      ],
+      "subject_ci95": [
+        0.7483044374553115,
+        0.7912932539086381
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 10,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0003_core_calibration_cc/RECIPE.json",
+      "selected_recipe_sha256": "760040238716dde359837b5dd5e69314236c34e1cf294751097b231db3fee657",
+      "research_continues": true,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0027969354004771622,
+          "subject_delta": 0.0023338709673544275,
+          "scan_delta_ci95": [
+            0.0008381429139646784,
+            0.0053469204360777995
+          ],
+          "subject_delta_ci95": [
+            0.0003023812249928964,
+            0.004987852992594284
+          ],
+          "scan_delta_ci97_5": [
+            0.0006265817921503772,
+            0.005749909543231265
+          ],
+          "subject_delta_ci97_5": [
+            7.627144157208234e-05,
+            0.005430498905571219
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 156,
+          "worse_scans": 114,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      }
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0005_fine_calibration_cc_testtuned_20261028",
+      "scan_dice": 0.7837868808596222,
+      "subject_dice": 0.7709201405445735,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 7,
+      "ensemble_size": 1,
+      "forward_equivalents": 18.662109375,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0005_fine_calibration_cc/RAW_TEST270.json",
+      "report_sha256": "6ebe2ae82b6f574648dcee9b8ca6556a6c6efb0a987fd31bc19f183ff5e8f310",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0005_fine_calibration_cc/RESULT.json",
+      "result_sha256": "26744c17c8e84b1c5d9e94448fe49d7c2bccc71faf7779bc3e804f0c1bda63b6",
+      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7616955649634949,
+        0.8033018339996374
+      ],
+      "subject_ci95": [
+        0.7485312739467505,
+        0.7916884772546319
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 11,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0005_fine_calibration_cc/RECIPE.json",
+      "selected_recipe_sha256": "26244064bf4003616a51c76b24210f2a512cc7e9b87eb94b84b731db989b93f5",
+      "research_continues": true,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.002791682630777359,
+          "subject_delta": 0.00261386123796304,
+          "scan_delta_ci95": [
+            0.0010036232780652708,
+            0.005152646015408201
+          ],
+          "subject_delta_ci95": [
+            0.0007757765246706517,
+            0.005110529352929077
+          ],
+          "scan_delta_ci97_5": [
+            0.0008195290562126583,
+            0.005571551560329853
+          ],
+          "subject_delta_ci97_5": [
+            0.000579924766203853,
+            0.005564075224936345
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 161,
+          "worse_scans": 109,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      }
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0007_consensus_calibration_testtuned_20261028",
+      "scan_dice": 0.7834455833390906,
+      "subject_dice": 0.7705088606693832,
+      "point_hit": 0.9555555555555556,
+      "point_hits": 258,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 8,
+      "ensemble_size": 1,
+      "forward_equivalents": 21.328125,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0007_consensus_calibration/RAW_TEST270.json",
+      "report_sha256": "70880fbf4ee25b16083808803c771ec87e2918af447b83774b0ab93c0f2c0720",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0007_consensus_calibration/RESULT.json",
+      "result_sha256": "64fa1e7efba7119052f0084f654c623bd5110f48b57d58bbbf550e6f8b3a7afb",
+      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7613738942781768,
+        0.8030922173586138
+      ],
+      "subject_ci95": [
+        0.7482570150849365,
+        0.7911137745344713
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 12,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0007_consensus_calibration/RECIPE.json",
+      "selected_recipe_sha256": "b1577c91ce29001f25536020a3f1b91aab134e5d747fefead21ebbf502313653",
+      "research_continues": true,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0024503851102458105,
+          "subject_delta": 0.0022025813627727223,
+          "scan_delta_ci95": [
+            0.001098150307730563,
+            0.004037103917093516
+          ],
+          "subject_delta_ci95": [
+            0.0006955184966993599,
+            0.003924856349298891
+          ],
+          "scan_delta_ci97_5": [
+            0.0009547380435476096,
+            0.004294578135836797
+          ],
+          "subject_delta_ci97_5": [
+            0.0004874894276903081,
+            0.004177448685745335
+          ],
+          "point_hits_delta": 3,
+          "improved_scans": 162,
+          "worse_scans": 108,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      }
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0004_fine_calibration_testtuned_20261028",
+      "scan_dice": 0.783195302994163,
+      "subject_dice": 0.7702717088768128,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 7,
+      "ensemble_size": 1,
+      "forward_equivalents": 18.662109375,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0004_fine_calibration/RAW_TEST270.json",
+      "report_sha256": "0a29964e8032c83a0f932fd4b0429aaccfab254dc5ec21397b3c8c407cad2554",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0004_fine_calibration/RESULT.json",
+      "result_sha256": "94f520f29862514b8c8c484b2370df2792315e2e83c0e7cd8a3e61272389f286",
+      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7610360895170893,
+        0.8028564566737774
+      ],
+      "subject_ci95": [
+        0.7479035270376868,
+        0.7909470857613059
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 13,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0004_fine_calibration/RECIPE.json",
+      "selected_recipe_sha256": "349df0e89356dd57525219831235ce760b826090a162acae43195b69928bfae0",
+      "research_continues": true,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.002200104765318058,
+          "subject_delta": 0.0019654295702024,
+          "scan_delta_ci95": [
+            0.0008707408069862321,
+            0.0038129992708968545
+          ],
+          "subject_delta_ci95": [
+            0.0006648766288288585,
+            0.0034630621289077844
+          ],
+          "scan_delta_ci97_5": [
+            0.0006932646121591729,
+            0.00409408042890998
+          ],
+          "subject_delta_ci97_5": [
+            0.00046860806690920314,
+            0.0036993319591956037
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 164,
+          "worse_scans": 106,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      }
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0002_core_calibration_testtuned_20261028",
+      "scan_dice": 0.7830104277641685,
+      "subject_dice": 0.7698528438451744,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 7,
+      "ensemble_size": 1,
+      "forward_equivalents": 18.662109375,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0002_core_calibration/RAW_TEST270.json",
+      "report_sha256": "ceb422e7f4486c15922a835f4f3eddeb028f29519843eafbf85320c28f5364b3",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0002_core_calibration/RESULT.json",
+      "result_sha256": "0481254e32833b8ee906e915a1d740267770d20fa2d6a6dcad9191eee5aa0f3f",
+      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7610035700594945,
+        0.8026532833431178
+      ],
+      "subject_ci95": [
+        0.7475500020572619,
+        0.790562364655007
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 14,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0002_core_calibration/RECIPE.json",
+      "selected_recipe_sha256": "4ff20def84e80d813883810d4ba12a0d6eb3f8596d39ba9cf1fef1bc0681d603",
+      "research_continues": true,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.002015229535323602,
+          "subject_delta": 0.0015465645385640005,
+          "scan_delta_ci95": [
+            0.0006058886463299945,
+            0.003756912357862463
+          ],
+          "subject_delta_ci95": [
+            4.8142540495560845e-05,
+            0.0031197990878049477
+          ],
+          "scan_delta_ci97_5": [
+            0.0004193090716110759,
+            0.0040496927767316865
+          ],
+          "subject_delta_ci97_5": [
+            -0.00016930185789268472,
+            0.003347690877835962
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 152,
+          "worse_scans": 118,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      }
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_component1000_testtuned_20261028",
+      "scan_dice": 0.78165166510476,
+      "subject_dice": 0.769047723698015,
+      "point_hit": 0.9444444444444444,
+      "point_hits": 255,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "per-case probability-volume adaptive, temperature2",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "top-k",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 5,
+      "ensemble_size": 1,
+      "forward_equivalents": 13.330078125,
+      "forward_cost_note": "five forwards of one width32 model plus deterministic volume decoding; voxel equivalence, not FLOPs/latency",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0001_cpu_binary/RAW_TEST270.json",
+      "report_sha256": "e8d0ea8102c431cc5be3fca448cba13dfc2d33d5600ec9f93b05838a50f37ddb",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0001_cpu_binary/RESULT.json",
+      "result_sha256": "f6870986a874276cb43afd466ae793660bd0f236ef4083f4ab2b5dfeae6a42db",
+      "evidence_status": "interim: selected directly on reused270 among179 global binary postprocessing configurations; test-tuned, post-selection descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.75874026990226,
+        0.8019689972733899
+      ],
+      "subject_ci95": [
+        0.7461071829908952,
+        0.7903515254370138
+      ],
+      "role": "candidate",
+      "logit_formula": "mean sigmoid of five inverse-mirrored logits; temperature2; expected-volume ratio top-k; remove predicted26-connected components <1000 voxels",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 15,
+      "views": [
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "postprocessing_rule": "26-connected predicted components >=1000 voxels",
+      "paired_comparisons": {
+        "previous_mirror5": {
+          "scan_delta": 0.0006564668759151741,
+          "subject_delta": 0.0007414443914045473,
+          "scan_delta_ci95": [
+            -0.0005200970042597332,
+            0.002434624956693173
+          ],
+          "subject_delta_ci95": [
+            -0.00041387596193711467,
+            0.002652729875812468
+          ],
+          "scan_delta_ci97_5": [
+            -0.0006509049072647458,
+            0.0027458011670953037
+          ],
+          "subject_delta_ci97_5": [
+            -0.0005042654444810515,
+            0.003082441859239461
+          ],
+          "point_hits_delta": 0,
+          "improved_scans": 85,
+          "worse_scans": 53,
+          "tied_scans": 132,
+          "bootstrap": "10000 patient-cluster paired seed20260918; post-selection/test-tuned descriptive only"
+        }
+      },
+      "research_continues": true,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0001_cpu_binary/RECIPE.json",
+      "selected_recipe_sha256": "f95c3075d3e26a0ac3ba0c09d486645fd9d05a6892f8d79aded22ef02c67e41c"
+    },
+    {
       "method": "segresnet_w32_e171_mirror5_volumeT2_test270_20261028",
       "scan_dice": 0.7809951982288449,
       "subject_dice": 0.7683062793066104,
@@ -3277,7 +4052,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 8,
+      "rank": 16,
       "views": [
         2,
         3,
@@ -3319,7 +4094,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 9,
+      "rank": 17,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -3362,7 +4137,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 10,
+      "rank": 18,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3405,7 +4180,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 11,
+      "rank": 19,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -3608,7 +4383,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 12
+      "rank": 20
     },
     {
       "method": "A_6c53d508f4172cbf",
@@ -3640,7 +4415,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 13,
+      "rank": 21,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3683,7 +4458,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 14,
+      "rank": 22,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3726,7 +4501,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 15,
+      "rank": 23,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -3769,7 +4544,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 16,
+      "rank": 24,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -3911,7 +4686,7 @@
         }
       },
       "new_outer_confirmation_access": false,
-      "rank": 17
+      "rank": 25
     },
     {
       "method": "A_4b4a4f1c7b8e7175",
@@ -3943,7 +4718,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 18,
+      "rank": 26,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3986,7 +4761,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 19,
+      "rank": 27,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4029,7 +4804,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 20,
+      "rank": 28,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4072,7 +4847,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 21,
+      "rank": 29,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4115,7 +4890,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 22,
+      "rank": 30,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -4158,7 +4933,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 23,
+      "rank": 31,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -4201,7 +4976,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 24,
+      "rank": 32,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -4244,7 +5019,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 25,
+      "rank": 33,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4287,7 +5062,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 26,
+      "rank": 34,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4330,7 +5105,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 27,
+      "rank": 35,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -4373,7 +5148,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 28,
+      "rank": 36,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4416,7 +5191,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 29,
+      "rank": 37,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4459,7 +5234,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 30,
+      "rank": 38,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4502,7 +5277,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 31,
+      "rank": 39,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4606,5 +5381,12 @@
     "rank": 8,
     "fixed_recipe": true,
     "current_test_retuning": false
+  },
+  "latest_segresnet_auto12h_interim_20261028": {
+    "method": "segresnet_w32_e171_auto12h_0008_consensus_cc_testtuned_20261028",
+    "scan_dice": 0.7841391463522558,
+    "test_tuned": true,
+    "research_continues": true,
+    "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RESULT.json"
   }
 }

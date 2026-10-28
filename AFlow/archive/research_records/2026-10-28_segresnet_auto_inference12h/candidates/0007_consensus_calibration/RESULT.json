@@ -1,0 +1,91 @@
+{
+  "at": "2026-10-29T00:30:37.937305+08:00",
+  "state": "audited_candidate",
+  "method": "segresnet_w32_e171_auto12h_0007_consensus_calibration_testtuned_20261028",
+  "metrics": {
+    "scan_dice": 0.7834455833390906,
+    "subject_dice": 0.7705088606693832,
+    "scan_ci95": [
+      0.7613738942781768,
+      0.8030922173586138
+    ],
+    "subject_ci95": [
+      0.7482570150849365,
+      0.7911137745344713
+    ],
+    "point_hit": 0.9555555555555556,
+    "scans": 270,
+    "subjects": 119,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "point_hits": 258
+  },
+  "comparison_to_previous_incumbent": {
+    "scan_delta": 0.0024503851102458105,
+    "subject_delta": 0.0022025813627727223,
+    "scan_delta_ci95": [
+      0.001098150307730563,
+      0.004037103917093516
+    ],
+    "subject_delta_ci95": [
+      0.0006955184966993599,
+      0.003924856349298891
+    ],
+    "scan_delta_ci97_5": [
+      0.0009547380435476096,
+      0.004294578135836797
+    ],
+    "subject_delta_ci97_5": [
+      0.0004874894276903081,
+      0.004177448685745335
+    ],
+    "point_hits_delta": 3,
+    "improved_scans": 162,
+    "worse_scans": 108,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+    "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+  },
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "analysis": "r1_1003_consensus_calibration",
+  "best_configuration": {
+    "recipe_index": 46,
+    "recipe": {
+      "id": "agreement_t0.2_logit_w16.0",
+      "kind": "consensus",
+      "mode": "agreement_weight",
+      "vote_threshold": 0.2,
+      "representation": "logit",
+      "exponent": 16.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    "parameters": {
+      "post_temperature": 4.0,
+      "bias": -1.0,
+      "beta": 0.7,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 463,
+    "scan_dice": 0.7834455833390906,
+    "subject_dice": 0.7705088606693832,
+    "point_hits": 258
+  },
+  "locator_forwards": 8,
+  "raw_sha256": "70880fbf4ee25b16083808803c771ec87e2918af447b83774b0ab93c0f2c0720",
+  "recipe_sha256": "b1577c91ce29001f25536020a3f1b91aab134e5d747fefead21ebbf502313653",
+  "training": false,
+  "test_tuned": true,
+  "current_test_retuning": true,
+  "all270_masks_independently_verified": true,
+  "model_forwards_added": 0,
+  "seconds": 88.5000865390175
+}

@@ -1,0 +1,21 @@
+{
+  "resource_token": "r1_worker1153287",
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "test_tuned": true,
+  "all270_same_global_rule": true,
+  "id": "r1_1104_group_calibration",
+  "handler": "calibration_v1",
+  "source_analysis": "r1_0104_group_fusions",
+  "analysis_dependencies": [
+    "r1_0104_group_fusions"
+  ],
+  "cpu_workers": 8,
+  "source_sha256": {
+    "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+    "scripts/segresnet_auto_inference12h_20261028/worker_v2.py": "fc642453e454c2d219a6c90e98e09d842b5a25a5fd171cc13a9201e123c653be",
+    "scripts/segresnet_auto_inference12h_20261028/calibration_v1.py": "f503e3ca33b7858ffee9b87aab58318f1ff6fe914a966595bbf7abd496abe726",
+    "scripts/segresnet_auto_inference12h_20261028/worker_v3.py": "1f8788c1ce07e7ccc9a618c734b262d2e183ae44b89cd7ac6da2cdd6acce1099",
+    "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd"
+  },
+  "control_amendment": "guard_v3: identical budgets; ignore vanished atomic JSON tmp names, numerical handler unchanged"
+}

@@ -1,0 +1,40 @@
+{
+  "at": "2026-10-28T21:48:29.813770+08:00",
+  "attempts": [
+    {
+      "type": "H100-SXM-80GB",
+      "outcome": "platform rejected: group quota requests1, remaining0",
+      "worker_created": false
+    },
+    {
+      "type": "A100-SXM-80GB",
+      "state": "cancelled_while_pending_no_endpoint",
+      "worker": 1153242,
+      "model_forward": false,
+      "reason": "reduce unnecessary CPU/RAM placement constraints"
+    },
+    {
+      "type": "A100-SXM-80GB",
+      "cpu": 8,
+      "memory_gib": 64,
+      "state": "cancelled_while_pending_user_replacement_arrived",
+      "model_forward": false,
+      "worker": 1153273
+    }
+  ],
+  "approval_review_rejected": false,
+  "old_worker_last_seen": "2026-10-28T21:08:16+08:00",
+  "RACE_untouched": true,
+  "replacement": {
+    "token": "r1_worker1153287",
+    "worker": 1153287,
+    "gpu_type": "2x NVIDIA A100-SXM4-80GB",
+    "cache_dir": "/tmp/aflow_inference_selected_test270_20261028/native",
+    "producer_memory_fraction": 0.9,
+    "analysis_memory_fraction": 0.85,
+    "producer_physical_gpu": 0,
+    "analysis_physical_gpu": 1,
+    "authorized_by": "user replacement worker and dual GPU acceleration",
+    "at_unix": 1793197154.2488456
+  }
+}
