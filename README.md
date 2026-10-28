@@ -2,6 +2,28 @@
 
 单T1ce MRI脑肿瘤分割研究代码、实验档案和论文材料。2026-10-14工作树快照，沿用原科研迁移包的范围，保留历史正负结果。
 
+<!-- INFERENCE_IMPROVEMENT_20261028 -->
+## 2026-10-28：SegResNet无需训练的推理提升
+
+固定同一32通道第171轮SegResNet，在108验证上完成32,037项有限推理/解码搜索，再冻结唯一配方评估原270扫描/119患者。新增训练0。
+
+| 原生1mm内部270 | Scan Dice | Subject Dice | 点命中 |
+|---|---:|---:|---:|
+| 原始171轮推理 | 0.773228 | 0.760027 | 256/270 |
+| 五镜像概率融合＋自适应体积解码 | **0.780995** | **0.768306** | 255/270 |
+
+Scan增加 **0.007767**，119患者整簇配对95%区间 **[+0.004496,+0.011792]**；199例改善、71例下降。Point少1例，因此事前“三项不降”的组合门未过，不能称全面提升。这是当前已测SegResNet原生270方案最高Scan点估计（单权重、每例5次前向），不是所有架构总体最高。
+
+配方为视图2/3/4/6/7还原后等权概率平均、温度2、稳定排序及CPU float64期望体积比值解码；不平滑、不删连通域。模型和推理参数在本次270访问前固定，无本次test调参、outer/confirmation或新外部评测。270是历史复用、test-informed内部队列，**不是独立泛化确认**。原生缓存/index SHA与历史完全一致，270份保存掩膜的计数与定位点独立核验通过。
+
+- [270结果与配对区间](AFlow/archive/research_records/2026-10-28_segresnet_inference_selected_test270/RESULT.md)
+- [验证搜索、负结果及确定性修订](AFlow/archive/research_records/2026-10-28_segresnet_inference_search/RESULT.md)
+- [固定配方](AFlow/archive/research_records/2026-10-28_segresnet_inference_selected_test270/SELECTED_RECIPE.json)、[推理入口与使用说明](AFlow/archive/research_records/2026-10-28_segresnet_inference_search/DEPLOYMENT.md)
+- [全部32,037配置](AFlow/archive/research_records/2026-10-28_segresnet_inference_search/ALL_CANDIDATES.tsv)、[推理代码](AFlow/scripts/segresnet_inference_search_20261028/)、[固定测试入口](AFlow/scripts/segresnet_inference_test270_20261028/)
+
+本次仅同步该推理实验、必要基线记录和对应文档入口；其余历史目录保持原已发布快照。按仓库规则不上传MRI/标签、权重或预测/数值数组，原实验收据中对这些二进制证据的SHA引用保留；本次上传范围与排除清单见[归档范围](AFlow/archive/research_records/2026-10-28_segresnet_inference_selected_test270/PUBLICATION_SCOPE.json)。这不构成重启旧实验或再次测试许可。
+<!-- END_INFERENCE_IMPROVEMENT_20261028 -->
+
 ## 最新Dice已超过0.8
 
 固定972训练扫描／444患者、108验证扫描／50患者、270内部测试扫描／119患者，WT标签1/2/3，排除切除腔4。

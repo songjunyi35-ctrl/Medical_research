@@ -1,0 +1,261 @@
+{
+  "at": "2026-10-28T15:37:04.053921+08:00",
+  "state": "complete",
+  "worker": 1152682,
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "configurations": 32037,
+  "stage1_configurations": 26499,
+  "stage2_configurations": 5538,
+  "baseline": {
+    "scan_dice": 0.7532713398061417,
+    "subject_dice": 0.743651814340126,
+    "point_hits": 91,
+    "scans": 108,
+    "subjects": 50,
+    "scan_ci95": [
+      0.7082368605530885,
+      0.7924388011300623
+    ],
+    "subject_ci95": [
+      0.7011645209271283,
+      0.7827625830929192
+    ],
+    "bootstrap": "10000 patient-cluster bootstrap seed20261028; selected/reused descriptive"
+  },
+  "best": {
+    "scan_dice": 0.7617791580657164,
+    "subject_dice": 0.7504094937230861,
+    "point_hits": 96,
+    "scans": 108,
+    "subjects": 50,
+    "scan_ci95": [
+      0.7200123700186072,
+      0.7978285542456846
+    ],
+    "subject_ci95": [
+      0.7091319418177009,
+      0.7885063066493186
+    ],
+    "bootstrap": "10000 patient-cluster bootstrap seed20261028; selected/reused descriptive"
+  },
+  "selected": {
+    "id": "s2_r4_volume_T2.0",
+    "stage": 2,
+    "local_recipe_index": 4,
+    "recipe_index": 493,
+    "sigma": 0.0,
+    "threshold": null,
+    "rule": {
+      "id": "expected_volume_ratio",
+      "kind": "volume_decode",
+      "temperature": 2.0
+    },
+    "score_index": 922,
+    "point_sigma_index": 0,
+    "case_forwards": 5,
+    "native_voxel_equivalent": 5.0,
+    "scan_dice": 0.7617791580657164,
+    "subject_dice": 0.7504094937230861,
+    "point_hits": 96,
+    "index": 31113
+  },
+  "recipe": {
+    "id": "mirror_subset220_probability",
+    "atoms": [
+      "scale1_flip2",
+      "scale1_flip3",
+      "scale1_flip4",
+      "scale1_flip6",
+      "scale1_flip7"
+    ],
+    "weights": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "fusion": "probability"
+  },
+  "difference": {
+    "scan_dice": 0.00850781825957475,
+    "subject_dice": 0.006757679382960001,
+    "point_hits": 96,
+    "scans": 108,
+    "subjects": 50,
+    "scan_ci95": [
+      0.0018803171889399584,
+      0.015552333758712194
+    ],
+    "subject_ci95": [
+      0.0006663435073125929,
+      0.012958013155275866
+    ],
+    "bootstrap": "10000 patient-cluster bootstrap seed20261028; selected/reused descriptive",
+    "point_difference": 5
+  },
+  "descriptive_utility_gate": true,
+  "patient_fold_metrics": {
+    "scan_dice": 0.7612036859823598,
+    "subject_dice": 0.7502494103780815,
+    "point_hits": 97,
+    "scans": 108,
+    "subjects": 50,
+    "scan_ci95": [
+      0.7193290126206177,
+      0.7976593769803644
+    ],
+    "subject_ci95": [
+      0.7089822369824563,
+      0.7882689436322877
+    ],
+    "bootstrap": "10000 patient-cluster bootstrap seed20261028; selected/reused descriptive"
+  },
+  "patient_fold_difference": {
+    "scan_dice": 0.007932346176218104,
+    "subject_dice": 0.006597596037955511,
+    "point_hits": 97,
+    "scans": 108,
+    "subjects": 50,
+    "scan_ci95": [
+      0.001980501565184727,
+      0.014233961339992666
+    ],
+    "subject_ci95": [
+      0.0007249214386656171,
+      0.012582034467231658
+    ],
+    "bootstrap": "10000 patient-cluster bootstrap seed20261028; selected/reused descriptive"
+  },
+  "pareto": [
+    {
+      "id": "s1_r0011_t00",
+      "stage": 1,
+      "recipe_index": 11,
+      "threshold": 0.1,
+      "sigma": 0.0,
+      "rule": {
+        "id": "none",
+        "kind": "none"
+      },
+      "scan_dice": 0.7349493624297557,
+      "subject_dice": 0.7272785420148145,
+      "point_hits": 101,
+      "case_forwards": 1,
+      "native_voxel_equivalent": 0.6113461538461539,
+      "index": 363
+    },
+    {
+      "id": "s1_r0018_t00",
+      "stage": 1,
+      "recipe_index": 18,
+      "threshold": 0.1,
+      "sigma": 0.0,
+      "rule": {
+        "id": "none",
+        "kind": "none"
+      },
+      "scan_dice": 0.7427720067401727,
+      "subject_dice": 0.7339360251738912,
+      "point_hits": 93,
+      "case_forwards": 1,
+      "native_voxel_equivalent": 0.7476923076923077,
+      "index": 594
+    },
+    {
+      "id": "s1_r0006_t00",
+      "stage": 1,
+      "recipe_index": 6,
+      "threshold": 0.1,
+      "sigma": 0.0,
+      "rule": {
+        "id": "none",
+        "kind": "none"
+      },
+      "scan_dice": 0.7561594529974239,
+      "subject_dice": 0.7454099002870775,
+      "point_hits": 92,
+      "case_forwards": 1,
+      "native_voxel_equivalent": 1.0,
+      "index": 198
+    },
+    {
+      "id": "s1_r0098_t02",
+      "stage": 1,
+      "recipe_index": 98,
+      "threshold": 0.15,
+      "sigma": 0.0,
+      "rule": {
+        "id": "none",
+        "kind": "none"
+      },
+      "scan_dice": 0.7586685998572243,
+      "subject_dice": 0.7480811588962873,
+      "point_hits": 90,
+      "case_forwards": 2,
+      "native_voxel_equivalent": 2.0,
+      "index": 3236
+    },
+    {
+      "id": "s1_r0348_t00",
+      "stage": 1,
+      "recipe_index": 348,
+      "threshold": 0.1,
+      "sigma": 0.0,
+      "rule": {
+        "id": "none",
+        "kind": "none"
+      },
+      "scan_dice": 0.7593399981657664,
+      "subject_dice": 0.7485946982673236,
+      "point_hits": 95,
+      "case_forwards": 3,
+      "native_voxel_equivalent": 3.0,
+      "index": 11484
+    },
+    {
+      "id": "s1_r0485_t06",
+      "stage": 1,
+      "recipe_index": 485,
+      "threshold": 0.25,
+      "sigma": 0.0,
+      "rule": {
+        "id": "none",
+        "kind": "none"
+      },
+      "scan_dice": 0.759768696018943,
+      "subject_dice": 0.7481098600583417,
+      "point_hits": 97,
+      "case_forwards": 4,
+      "native_voxel_equivalent": 4.0,
+      "index": 16011
+    },
+    {
+      "id": "s2_r4_volume_T2.0",
+      "stage": 2,
+      "local_recipe_index": 4,
+      "recipe_index": 493,
+      "sigma": 0.0,
+      "threshold": null,
+      "rule": {
+        "id": "expected_volume_ratio",
+        "kind": "volume_decode",
+        "temperature": 2.0
+      },
+      "score_index": 922,
+      "point_sigma_index": 0,
+      "case_forwards": 5,
+      "native_voxel_equivalent": 5.0,
+      "scan_dice": 0.7617791580657164,
+      "subject_dice": 0.7504094937230861,
+      "point_hits": 96,
+      "index": 31113
+    }
+  ],
+  "caveat": "Reused108/50 validation search; selected confidence intervals optimistic; no new test access",
+  "atoms": 70,
+  "training": false,
+  "test_access": false,
+  "wall_seconds": 2772.4897933006287,
+  "peak_reserved_gib": 70.4140625
+}

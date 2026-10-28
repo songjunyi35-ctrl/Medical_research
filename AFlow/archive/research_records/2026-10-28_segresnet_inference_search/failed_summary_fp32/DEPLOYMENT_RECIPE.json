@@ -1,0 +1,87 @@
+{
+  "at": "2026-10-28T15:31:09.452263+08:00",
+  "checkpoint": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "epoch": 171,
+  "width": 32,
+  "candidate": {
+    "id": "s2_r4_volume_T2.0",
+    "stage": 2,
+    "local_recipe_index": 4,
+    "recipe_index": 493,
+    "sigma": 0.0,
+    "threshold": null,
+    "rule": {
+      "id": "expected_volume_ratio",
+      "kind": "volume_decode",
+      "temperature": 2.0
+    },
+    "score_index": 922,
+    "point_sigma_index": 0,
+    "case_forwards": 5,
+    "native_voxel_equivalent": 5.0,
+    "scan_dice": 0.7617727062078538,
+    "subject_dice": 0.7504010805310238,
+    "point_hits": 96,
+    "index": 31113
+  },
+  "recipe": {
+    "id": "mirror_subset220_probability",
+    "atoms": [
+      "scale1_flip2",
+      "scale1_flip3",
+      "scale1_flip4",
+      "scale1_flip6",
+      "scale1_flip7"
+    ],
+    "weights": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "fusion": "probability"
+  },
+  "atoms": [
+    {
+      "id": "scale1_flip2",
+      "kind": "scale_flip",
+      "scale": 1.0,
+      "flip": 2
+    },
+    {
+      "id": "scale1_flip3",
+      "kind": "scale_flip",
+      "scale": 1.0,
+      "flip": 3
+    },
+    {
+      "id": "scale1_flip4",
+      "kind": "scale_flip",
+      "scale": 1.0,
+      "flip": 4
+    },
+    {
+      "id": "scale1_flip6",
+      "kind": "scale_flip",
+      "scale": 1.0,
+      "flip": 6
+    },
+    {
+      "id": "scale1_flip7",
+      "kind": "scale_flip",
+      "scale": 1.0,
+      "flip": 7
+    }
+  ],
+  "grid": "native1mm crop excludes padding",
+  "validation_canvas": [
+    160,
+    208,
+    160
+  ],
+  "training": false,
+  "test_access": false,
+  "selected_on_reused_validation": true
+}

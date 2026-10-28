@@ -1,5 +1,17 @@
 # AFlow repository instructions
 
+<!-- INFERENCE_SELECTED_TEST270_20261028 -->
+## 2026-10-28五镜像＋体积解码固定270测试已完成
+
+用户明确“你去270个test上推理就行了”，仅授权验证已选同一w32第171轮五镜像＋温度2体积解码。270/119 Scan0.780995、Subject0.768306、Point255/270；对同权重原始推理差+0.007767，配对95%区间[0.004495999901909861, 0.011791830233831117]，配对区间支持本复用队列的探索性正差。 单A10080GB，原生载荷/index逐SHA相同，batch8/尾6，每例五视图恰一次；训练0，无本次test调参或新outer/confirmation。内部复用test-informed探索，完整评估结束，不自动扩搜/换参/重测。旧验证搜索的false访问标志保留为历史阶段，本次新测试访问见新归档；独立RACE训练不受影响。[结果](archive/research_records/2026-10-28_segresnet_inference_selected_test270/RESULT.md)。
+<!-- END_INFERENCE_SELECTED_TEST270_20261028 -->
+
+<!-- INFERENCE_SEARCH_20261028 -->
+## 2026-10-28固定w32第171轮推理搜索已完成
+
+用户授权worker1152682无训练推理穷举，并明确选32通道171轮单模型。32037配置完成原108/50验证；108验证原始0.753271→搜索最高0.761779（差+0.008508），Subject0.750409，Point96/108；患者分折0.761204。 全部复用验证选择后的描述性证据，无新270/outer/confirmation；有限搜索结束，不自动扩搜或测试。独立RACE双卡训练不受本批终态影响。[结果](archive/research_records/2026-10-28_segresnet_inference_search/RESULT.md)。
+<!-- END_INFERENCE_SEARCH_20261028 -->
+
 <!-- RACE_DDP_AUTH_20261028 -->
 ## 2026-10-28 最新用户授权：取消对照，双卡同训RACE-Seg累计200轮
 

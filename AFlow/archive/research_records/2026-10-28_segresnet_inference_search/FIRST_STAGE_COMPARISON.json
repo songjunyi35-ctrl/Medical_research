@@ -1,0 +1,125 @@
+{
+  "evidence": "selected/reused validation, descriptive; no new test",
+  "baseline": 0.7532713398061417,
+  "panel": [
+    {
+      "title": "原始输出，仅调阈值",
+      "recipe_index": 0,
+      "recipe_id": "scale1_flip0",
+      "threshold_index": 2,
+      "threshold": 0.15,
+      "scan_dice": 0.7540639307763841,
+      "subject_dice": 0.7443788569172224,
+      "point_hits": 91,
+      "case_forwards": 1,
+      "native_voxel_equivalent": 1.0,
+      "scan_difference": 0.000792590970242465,
+      "paired_ci95": [
+        -0.00033802556077627865,
+        0.001837609407893656
+      ]
+    },
+    {
+      "title": "单次前向最高",
+      "recipe_index": 6,
+      "recipe_id": "scale1_flip6",
+      "threshold_index": 0,
+      "threshold": 0.1,
+      "scan_dice": 0.7561594529974239,
+      "subject_dice": 0.7454099002870775,
+      "point_hits": 92,
+      "case_forwards": 1,
+      "native_voxel_equivalent": 1.0,
+      "scan_difference": 0.0028881131912823076,
+      "paired_ci95": [
+        -0.002815154467980736,
+        0.008511287693287864
+      ]
+    },
+    {
+      "title": "完整八镜像概率平均",
+      "recipe_index": 563,
+      "recipe_id": "mirror_subset255_probability",
+      "threshold_index": 9,
+      "threshold": 0.325,
+      "scan_dice": 0.7594264844363486,
+      "subject_dice": 0.7487917256106934,
+      "point_hits": 98,
+      "case_forwards": 8,
+      "native_voxel_equivalent": 8.0,
+      "scan_difference": 0.006155144630206956,
+      "paired_ci95": [
+        0.0008879459941259237,
+        0.011563781328105236
+      ]
+    },
+    {
+      "title": "完整八镜像logits平均",
+      "recipe_index": 562,
+      "recipe_id": "mirror_subset255_logit",
+      "threshold_index": 0,
+      "threshold": 0.1,
+      "scan_dice": 0.7588687254874794,
+      "subject_dice": 0.7486036001571587,
+      "point_hits": 98,
+      "case_forwards": 8,
+      "native_voxel_equivalent": 8.0,
+      "scan_difference": 0.00559738568133778,
+      "paired_ci95": [
+        0.0014309703357103726,
+        0.009617750034503138
+      ]
+    },
+    {
+      "title": "40视图多尺度平均",
+      "recipe_index": 583,
+      "recipe_id": "multiscale_all40_probability",
+      "threshold_index": 8,
+      "threshold": 0.3,
+      "scan_dice": 0.7539624518680351,
+      "subject_dice": 0.7435605971337784,
+      "point_hits": 99,
+      "case_forwards": 40,
+      "native_voxel_equivalent": 41.50461538461537,
+      "scan_difference": 0.0006911120618934985,
+      "paired_ci95": [
+        -0.005631601854624665,
+        0.007001939749016478
+      ]
+    },
+    {
+      "title": "直接128立方滑窗",
+      "recipe_index": 66,
+      "recipe_id": "sliding128_o0.5_gaussian",
+      "threshold_index": 0,
+      "threshold": 0.1,
+      "scan_dice": 0.6946820680017548,
+      "subject_dice": 0.6871564746789989,
+      "point_hits": 92,
+      "case_forwards": 12,
+      "native_voxel_equivalent": 4.726153846153847,
+      "scan_difference": -0.05858927180438682,
+      "paired_ci95": [
+        -0.08026574803812925,
+        -0.03717736843222678
+      ]
+    },
+    {
+      "title": "第一阶段最高：镜像子集概率平均",
+      "recipe_index": 495,
+      "recipe_id": "mirror_subset221_probability",
+      "threshold_index": 9,
+      "threshold": 0.325,
+      "scan_dice": 0.7602619559124664,
+      "subject_dice": 0.7492883554668655,
+      "point_hits": 99,
+      "case_forwards": 6,
+      "native_voxel_equivalent": 6.0,
+      "scan_difference": 0.006990616106324726,
+      "paired_ci95": [
+        0.0013955367351700736,
+        0.012933918255394234
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-28T14:51:12.919685+08:00",
+  "status": "passed",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "checks": [
+    "actual_cuda",
+    "native_SHA",
+    "threshold_ties",
+    "shift_coverage",
+    "mirror_inverse",
+    "component_filter_counts",
+    "volume_decoder",
+    "strict_checkpoint"
+  ],
+  "probes": [
+    {
+      "batch": 2,
+      "status": "passed",
+      "seconds": 0.41363444924354553,
+      "cases_per_second": 4.835187213389985,
+      "peak_reserved_gib": 9.8828125
+    },
+    {
+      "batch": 4,
+      "status": "passed",
+      "seconds": 0.5753044784069061,
+      "cases_per_second": 6.952840017996256,
+      "peak_reserved_gib": 19.66015625
+    },
+    {
+      "batch": 8,
+      "status": "passed",
+      "seconds": 0.89463010430336,
+      "cases_per_second": 8.942243237197484,
+      "peak_reserved_gib": 39.216796875
+    }
+  ],
+  "selected_batch": 8,
+  "baseline_batch": 2,
+  "training": false,
+  "patient_model_forward": false,
+  "max_scale_shape": [
+    184,
+    240,
+    184
+  ]
+}

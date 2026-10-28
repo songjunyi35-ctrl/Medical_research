@@ -1,5 +1,13 @@
 # 当前科研状态与接续边界
 
+<!-- INFERENCE_SELECTED_TEST270_20261028 -->
+**2026-10-28固定五镜像＋体积解码270测试完成。** 270/119 Scan0.780995、Subject0.768306、Point255/270；对同权重原始推理差+0.007767，配对95%区间[0.004495999901909861, 0.011791830233831117]，配对区间支持本复用队列的探索性正差。 模型/配方从108选择后固定，本次无test调参，训练0、无新outer/confirmation。复用内部探索，非独立泛化；本批结束不扩搜/重测，不干预独立RACE训练。[报告](archive/research_records/2026-10-28_segresnet_inference_selected_test270/RESULT.md)。
+<!-- END_INFERENCE_SELECTED_TEST270_20261028 -->
+
+<!-- INFERENCE_SEARCH_20261028 -->
+**2026-10-28固定w32推理搜索完成。** 用户选择32通道171轮唯一权重，worker1152682单A10080GB；32037配置全部原108/50验证，无新训练/270/outer/confirmation。108验证原始0.753271→搜索最高0.761779（差+0.008508），Subject0.750409，Point96/108；患者分折0.761204。 复用验证选择后的探索证据，非独立确认；原RACE双卡训练不受影响。搜索终止，不自动扩搜或测试。[结果](archive/research_records/2026-10-28_segresnet_inference_search/RESULT.md)。
+<!-- END_INFERENCE_SEARCH_20261028 -->
+
 <!-- WIDTH32_TEST270_20261028 -->
 **2026-10-28固定w32第171轮270测试：** 固定171轮270评测完成：Scan0.773228、Subject0.760027、Point256/270；对多尺度166差+0.001842，95%CI[-0.003712439459196132, 0.007115013465642496]。配对区间跨0，没有确认稳定增益或等效。[结果](archive/research_records/2026-10-28_segresnet_w32_e171_test270/RESULT.md)。 新用户授权仅该模型；原训练验证门未过，单T1ce/同原生栅格/阈值0.5，不重新选epoch或融合。无新outer/confirmation。[方案](archive/research_records/2026-10-28_segresnet_w32_e171_test270/IDEA.md) · [状态](archive/research_records/2026-10-28_segresnet_w32_e171_test270/PIPELINE_STATUS.json)。
 <!-- END_WIDTH32_TEST270_20261028 -->

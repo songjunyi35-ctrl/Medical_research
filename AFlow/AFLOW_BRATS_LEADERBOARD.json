@@ -1,7 +1,7 @@
 {
   "schema": "aflow.brats.t1ce_wt_leaderboard",
   "schema_version": 1,
-  "updated_utc": "2026-10-14T03:56:48.278883+00:00",
+  "updated_utc": "2026-10-28T10:11:54.225001+00:00",
   "ucsd56_bootstrap_mc_precision_20260907": {
     "status": "posthoc_numerical_sensitivity_original_preregistered_intervals_and_ranks_preserved",
     "report_path": "archive/reviews/2026-09-07_ucsd56_bootstrap_precision/RESULT.json",
@@ -3138,6 +3138,158 @@
       "rank": 7
     },
     {
+      "method": "segresnet_w32_e171_mirror5_volumeT2_test270_20261028",
+      "scan_dice": 0.7809951982288449,
+      "subject_dice": 0.7683062793066104,
+      "point_hit": 0.9444444444444444,
+      "point_hits": 255,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "per-case probability-volume adaptive, temperature2",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "top-k",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 5,
+      "ensemble_size": 1,
+      "forward_equivalents": 13.330078125,
+      "forward_cost_note": "five forwards of one width32 model plus deterministic volume decoding; voxel equivalence, not FLOPs/latency",
+      "report_path": "archive/research_records/2026-10-28_segresnet_inference_selected_test270/RAW_TEST270.json",
+      "report_sha256": "90f2385dbbec320dde7ad34c6310df1ef22469b73cbb4fc3e679ed52cfaa3de0",
+      "result_path": "archive/research_records/2026-10-28_segresnet_inference_selected_test270/RESULT.json",
+      "result_sha256": "f79868ff636d49910c57c84b28c2455261db39103dfb711d41ce888058a3d0ab",
+      "evidence_status": "test-informed development; recipe frozen on reused108 validation before this270 access; no current test retuning",
+      "test_tuned": true,
+      "current_test_retuning": false,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7581014536339826,
+        0.8013311243581973
+      ],
+      "subject_ci95": [
+        0.7454552818908871,
+        0.7895475884540794
+      ],
+      "role": "candidate",
+      "logit_formula": "mean sigmoid of five inverse-mirrored logits; temperature2; expected-volume ratio top-k",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "paired_comparisons": {
+        "original_w32": {
+          "scan_delta": 0.007767157780903357,
+          "subject_delta": 0.008279359368842188,
+          "scan_delta_ci95": [
+            0.004495999901909861,
+            0.011791830233831117
+          ],
+          "subject_delta_ci95": [
+            0.004633002105750749,
+            0.012370470023116604
+          ],
+          "scan_delta_ci97_5": [
+            0.0041284419457171505,
+            0.012501456605628257
+          ],
+          "subject_delta_ci97_5": [
+            0.004132605817805486,
+            0.01312081270556407
+          ],
+          "point_hits_delta": -1,
+          "improved_scans": 199,
+          "worse_scans": 71,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile seed20260918;95% primary descriptive interval;97.5% sensitivity only, not multiplicity correction"
+        },
+        "segresnet_fusion": {
+          "scan_delta": 0.00510370503580208,
+          "subject_delta": 0.0066120805654549305,
+          "scan_delta_ci95": [
+            0.0002576913586379102,
+            0.010289585429907116
+          ],
+          "subject_delta_ci95": [
+            0.0007839857902567349,
+            0.012861577901274348
+          ],
+          "scan_delta_ci97_5": [
+            -0.00044483811901379196,
+            0.011050044955301225
+          ],
+          "subject_delta_ci97_5": [
+            -4.5220242875788765e-06,
+            0.013690310579396382
+          ],
+          "point_hits_delta": -6,
+          "improved_scans": 150,
+          "worse_scans": 120,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile seed20260918;95% primary descriptive interval;97.5% sensitivity only, not multiplicity correction"
+        },
+        "nnunet_single525": {
+          "scan_delta": -0.030287433084514405,
+          "subject_delta": -0.027230207552136825,
+          "scan_delta_ci95": [
+            -0.03763596178269494,
+            -0.02283043843528459
+          ],
+          "subject_delta_ci95": [
+            -0.03689501673184043,
+            -0.015769774939901404
+          ],
+          "scan_delta_ci97_5": [
+            -0.03864055260682126,
+            -0.021787435044337142
+          ],
+          "subject_delta_ci97_5": [
+            -0.03802512662427849,
+            -0.013640240052850595
+          ],
+          "point_hits_delta": -10,
+          "improved_scans": 30,
+          "worse_scans": 240,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile seed20260918;95% primary descriptive interval;97.5% sensitivity only, not multiplicity correction"
+        }
+      },
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 8,
+      "views": [
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "inference_validation_utility_gate": true,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_inference_selected_test270/SELECTED_RECIPE.json",
+      "selected_recipe_sha256": "d96ac3d489386faa60a54d685713a21a51112a0abf069574b0c207926270765e"
+    },
+    {
       "method": "panel_10",
       "scan_dice": 0.7758914931930428,
       "subject_dice": 0.7616941987411555,
@@ -3167,7 +3319,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 8,
+      "rank": 9,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -3210,7 +3362,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 9,
+      "rank": 10,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3253,7 +3405,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 10,
+      "rank": 11,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -3265,6 +3417,198 @@
       "uses_GT_for_localization": false,
       "model_precision": "bfloat16",
       "fusion_precision": "float32"
+    },
+    {
+      "method": "segresnet_width32_native_epoch171_test270_20261028",
+      "scan_dice": 0.7732280404479416,
+      "subject_dice": 0.7600269199377683,
+      "point_hit": 0.9481481481481482,
+      "point_hits": 256,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": 0.5,
+      "threshold_space": "sigmoid_probability",
+      "threshold_probability": 0.5,
+      "raw_logit_threshold": 0.0,
+      "threshold_raw_logit": 0.0,
+      "comparison_operator": ">",
+      "tta": false,
+      "postprocessing": false,
+      "locator_forwards": 1,
+      "ensemble_size": 1,
+      "forward_equivalents": 2.666015625,
+      "forward_cost_note": "input-voxel equivalence only, width32 costs more than width16; not FLOPs",
+      "report_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/RAW_TEST270.json",
+      "report_sha256": "546ef1539e10f8ac8c8ebb6cfbe017a0febc76830758409e46b578ed776f0004",
+      "result_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/RESULT.json",
+      "result_sha256": "8569226c913dcb492e9db218fc3cb222b425da18c3bb4f001d72b9957f792dc7",
+      "evidence_status": "test-tuned development; fixed validation-selected one-shot; reused internal exploratory; no current test retuning",
+      "test_tuned": true,
+      "current_test_retuning": false,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7485930812500471,
+        0.7949084789963713
+      ],
+      "subject_ci95": [
+        0.736015424905997,
+        0.7819345459864795
+      ],
+      "role": "candidate",
+      "logit_formula": "single main-output whole-brain model",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "paired_comparisons": {
+        "multiscale166": {
+          "scan_delta": 0.0018419058717511318,
+          "subject_delta": 0.0022096262824739896,
+          "scan_delta_ci95": [
+            -0.003712439459196132,
+            0.007115013465642496
+          ],
+          "subject_delta_ci95": [
+            -0.004722734030971372,
+            0.008936927214177475
+          ],
+          "scan_delta_ci97_5": [
+            -0.004483749232003849,
+            0.007830810568558486
+          ],
+          "subject_delta_ci97_5": [
+            -0.005753218106099166,
+            0.00989947022040602
+          ],
+          "point_hits_delta": 8,
+          "improved_scans": 131,
+          "worse_scans": 139,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile seed20260918;95% primary descriptive;97.5% sensitivity, not correction for all comparisons"
+        },
+        "native173": {
+          "scan_delta": 0.004650143351129911,
+          "subject_delta": 0.005883008901275048,
+          "scan_delta_ci95": [
+            -0.002652567261911179,
+            0.01441474168511446
+          ],
+          "subject_delta_ci95": [
+            -0.0030429362973161777,
+            0.017405024438826446
+          ],
+          "scan_delta_ci97_5": [
+            -0.0034455329216254286,
+            0.016346251115505805
+          ],
+          "subject_delta_ci97_5": [
+            -0.004180080655149279,
+            0.01945065224802784
+          ],
+          "point_hits_delta": -6,
+          "improved_scans": 134,
+          "worse_scans": 136,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile seed20260918;95% primary descriptive;97.5% sensitivity, not correction for all comparisons"
+        },
+        "patch90": {
+          "scan_delta": 0.00039839529880380696,
+          "subject_delta": 0.0012267883770117037,
+          "scan_delta_ci95": [
+            -0.0060620991724733625,
+            0.006816883294019386
+          ],
+          "subject_delta_ci95": [
+            -0.007260988485631011,
+            0.009782396938207464
+          ],
+          "scan_delta_ci97_5": [
+            -0.007169527478712065,
+            0.007666289274769837
+          ],
+          "subject_delta_ci97_5": [
+            -0.00861151075505171,
+            0.01112044716845917
+          ],
+          "point_hits_delta": 3,
+          "improved_scans": 156,
+          "worse_scans": 114,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile seed20260918;95% primary descriptive;97.5% sensitivity, not correction for all comparisons"
+        },
+        "segresnet_fusion": {
+          "scan_delta": -0.002663452745101276,
+          "subject_delta": -0.0016672788033872572,
+          "scan_delta_ci95": [
+            -0.008311993214447805,
+            0.003426003113233038
+          ],
+          "subject_delta_ci95": [
+            -0.00852684349891377,
+            0.005698931358656634
+          ],
+          "scan_delta_ci97_5": [
+            -0.00915220457573028,
+            0.004417872204994659
+          ],
+          "subject_delta_ci97_5": [
+            -0.00929713754334349,
+            0.006794131362849939
+          ],
+          "point_hits_delta": -5,
+          "improved_scans": 117,
+          "worse_scans": 153,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile seed20260918;95% primary descriptive;97.5% sensitivity, not correction for all comparisons"
+        },
+        "nnunet_single525": {
+          "scan_delta": -0.038054590865417764,
+          "subject_delta": -0.035509566920979015,
+          "scan_delta_ci95": [
+            -0.04683567849567637,
+            -0.029991887862664345
+          ],
+          "subject_delta_ci95": [
+            -0.04531684891662511,
+            -0.024515500294268973
+          ],
+          "scan_delta_ci97_5": [
+            -0.04816674130243998,
+            -0.028961827024255052
+          ],
+          "subject_delta_ci97_5": [
+            -0.04668205493137616,
+            -0.02285452809894367
+          ],
+          "point_hits_delta": -9,
+          "improved_scans": 26,
+          "worse_scans": 244,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired percentile seed20260918;95% primary descriptive;97.5% sensitivity, not correction for all comparisons"
+        }
+      },
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 12
     },
     {
       "method": "A_6c53d508f4172cbf",
@@ -3296,7 +3640,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 11,
+      "rank": 13,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3339,7 +3683,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 12,
+      "rank": 14,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3382,7 +3726,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 13,
+      "rank": 15,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -3425,7 +3769,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 14,
+      "rank": 16,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -3567,7 +3911,7 @@
         }
       },
       "new_outer_confirmation_access": false,
-      "rank": 15
+      "rank": 17
     },
     {
       "method": "A_4b4a4f1c7b8e7175",
@@ -3599,7 +3943,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 16,
+      "rank": 18,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3642,7 +3986,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 17,
+      "rank": 19,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3685,7 +4029,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 18,
+      "rank": 20,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3728,7 +4072,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 19,
+      "rank": 21,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3771,7 +4115,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 20,
+      "rank": 22,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -3814,7 +4158,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 21,
+      "rank": 23,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -3857,7 +4201,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 22,
+      "rank": 24,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -3900,7 +4244,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 23,
+      "rank": 25,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3943,7 +4287,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 24,
+      "rank": 26,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -3986,7 +4330,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 25,
+      "rank": 27,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -4029,7 +4373,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 26,
+      "rank": 28,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4072,7 +4416,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 27,
+      "rank": 29,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4115,7 +4459,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 28,
+      "rank": 30,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4158,7 +4502,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 29,
+      "rank": 31,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -4249,5 +4593,18 @@
       "subject_dice": 0.7955364868587472,
       "point_hits": 265
     }
+  },
+  "latest_segresnet_w32_e171_test270_20261028": {
+    "candidate": "segresnet_width32_native_epoch171_test270_20261028",
+    "fixed_epoch": 171,
+    "validation_gate_passed": false,
+    "current_test_retuning": false,
+    "rank": 11
+  },
+  "latest_segresnet_inference_selected_test270_20261028": {
+    "method": "segresnet_w32_e171_mirror5_volumeT2_test270_20261028",
+    "rank": 8,
+    "fixed_recipe": true,
+    "current_test_retuning": false
   }
 }
