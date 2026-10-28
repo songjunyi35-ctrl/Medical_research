@@ -1,102 +1,11 @@
 {
-  "at": "2026-10-28T13:44:35.432947+08:00",
-  "state": "training_ddp200",
-  "training_started": true,
+  "at": "2026-10-28T22:48:13.152324+08:00",
+  "state": "complete",
+  "training_finished": true,
   "active_arms": [
     "race"
   ],
-  "world_size": 2,
-  "budget": {
-    "at": "2026-10-28T13:39:55.141851+08:00",
-    "status": "passed",
-    "epochs": 200,
-    "total_updates_each": 24400,
-    "updates_per_epoch": 122,
-    "microbatch": 2,
-    "effective_batch": 8,
-    "world_size": 2,
-    "local_batch": 4,
-    "accumulation_per_rank": 2,
-    "cpu_threads_per_rank": 8,
-    "cpu_augmentation_lookahead": 1,
-    "active_arms": [
-      "race"
-    ],
-    "control": "stopped_by_user_at_epoch4",
-    "selection": "User cancelled control and requested two-GPU algorithm training to cumulative200",
-    "deadline_unix": 1793246768.611393,
-    "deadline_unchanged": true,
-    "original_173_budget": "BUDGET_ORIGINAL_173.json",
-    "memory_ceiling_gib_per_gpu": 38,
-    "smoke_sha256": "c41dd1c0b3fb24a896a9f5397663fb243e6413b1b7f37949bb19ebddb6a3523f",
-    "historical_comparison_only": true
-  },
-  "recoveries": 0,
-  "race_status": {
-    "at": "2026-10-28T13:43:23.564579+08:00",
-    "state": "training",
-    "arm": "race",
-    "last_complete_epoch": 6,
-    "target_epochs": 200,
-    "updates": 732,
-    "best_epoch": 6,
-    "best_scan": 0.5767720966013493,
-    "validation": {
-      "scan_dice": 0.5767720966013493,
-      "subject_dice": 0.561748282171431,
-      "scan_ci95": [
-        0.5169496816340665,
-        0.6304929357434087
-      ],
-      "subject_ci95": [
-        0.5069674696987938,
-        0.6126048703337355
-      ],
-      "point_hit": 0.8796296296296297,
-      "scans": 108,
-      "subjects": 50,
-      "bootstrap": "10000 patient cluster percentile95 seed20260917",
-      "point_hits": 95
-    },
-    "training_seconds": 177.05240538716316,
-    "epoch_seconds": 198.492750890553,
-    "elapsed_seconds": 2360.166063055396,
-    "learning_rate": 0.0002,
-    "microbatch": 2,
-    "effective_batch": 8,
-    "world_size": 2,
-    "accumulation_per_rank": 2,
-    "peak_reserved_gib": 34.380859375,
-    "train": {
-      "loss": 0.6989156007766724,
-      "supervised": 0.6811441190448808,
-      "contrast": 0.35542963987883225,
-      "bad_gate": 0.48309188799112424,
-      "fallback": 2.4120677134691386e-05,
-      "gate": 0.2753243152006173,
-      "gradient_norm": 1.1321695640744496,
-      "strength_grad": -0.026092349693424416,
-      "strength": 0.20506204253852123
-    },
-    "test_access": false
-  },
-  "race_heartbeat": {
-    "at": "2026-10-28T13:44:15.313529+08:00",
-    "phase": "training_ddp",
-    "epoch": 7,
-    "iteration": 40,
-    "updates": 772,
-    "world_size": 2,
-    "loss": 0.6570584028959274,
-    "supervised": 0.6409986764192581,
-    "contrast": 0.32119468227028847,
-    "bad_gate": 0.979157418012619,
-    "fallback": 2.2834998162579723e-05,
-    "gate": 0.2841796875,
-    "gradient_norm": 1.1871941089630127,
-    "strength_grad": -0.020912015810608864,
-    "strength": 0.23158828914165497
-  },
-  "control_state": "stopped_by_user",
+  "historical_improvement_gate": true,
+  "original_matched_gate_evaluable": false,
   "test_access": false
 }

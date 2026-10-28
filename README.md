@@ -66,6 +66,11 @@ Scan增加 **0.007767**，119患者整簇配对95%区间 **[+0.004496,+0.011792]
 [双卡启动核验](AFlow/archive/research_records/2026-10-28_race_seg/DDP_STARTUP_VERIFIED.json) · [接续说明](AFlow/archive/research_records/2026-10-28_race_seg/RUNBOOK.md)。本仓库运行状态为提交时快照，最终通过审计的结果将另行存档。
 <!-- END_RACE_DDP200_RUNNING -->
 
+
+<!-- RACE_EXPERIMENT_OUTCOME -->
+本次实验已结束；具体状态、完成轮数及验证指标见[结果记录](AFlow/archive/research_records/2026-10-28_race_seg/RESULT.md)。 原972/108、单seed、复用验证；无新增test270或独立外部确认。
+<!-- END_RACE_EXPERIMENT_OUTCOME -->
+
 ## 阅读入口
 
 - [最终结果报告与比较区间](AFlow/archive/research_records/2026-10-13_nnunet_resenc_reference/RESULT.md)
