@@ -118,6 +118,15 @@ def train(arm,resume=False):
             assert read(R/other/'TRAIN_PREACCESS.json')['backbone_initial_sha256']==initial_digest
     tr=RaceDataset('train');va=RaceDataset('validation');assert len(tr)==972 and len(va)==108
     begun=time.monotonic();model.train()
+    if first>epochs:
+        # An I/O failure after the last complete checkpoint may leave DONE absent.
+        # Finish publication from that checkpoint without repeating any forward.
+        report=read(record/f'validation_e{epochs:03}.json')
+        status={'at':now(),'state':'complete','arm':arm,'last_complete_epoch':epochs,'target_epochs':epochs,
+                'updates':updates,'best_epoch':best_epoch,'best_scan':best,'validation':report['metrics'],
+                'elapsed_seconds':elapsed_before,'microbatch':micro,'effective_batch':8,
+                'archive_only_recovery':True,'test_access':False}
+        write(record/'STATUS.json',status)
     for epoch in range(first,epochs+1):
         deadline();disk();started=time.monotonic();native.seed_all(SEED+epoch*10)
         lr=native.learning_rate_for_epoch(epoch,base_lr=2e-4,min_lr=1e-5,constant_epochs=100,total_epochs=200)
