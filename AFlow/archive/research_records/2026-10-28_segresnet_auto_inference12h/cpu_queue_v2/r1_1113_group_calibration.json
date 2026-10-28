@@ -4,7 +4,7 @@
   "test_tuned": true,
   "all270_same_global_rule": true,
   "id": "r1_1113_group_calibration",
-  "handler": "calibration_v1",
+  "handler": "calibration_fast_standard_v1",
   "source_analysis": "r1_0113_group_fusions",
   "analysis_dependencies": [
     "r1_0113_group_fusions"
@@ -15,7 +15,11 @@
     "scripts/segresnet_auto_inference12h_20261028/worker_v2.py": "fc642453e454c2d219a6c90e98e09d842b5a25a5fd171cc13a9201e123c653be",
     "scripts/segresnet_auto_inference12h_20261028/calibration_v1.py": "f503e3ca33b7858ffee9b87aab58318f1ff6fe914a966595bbf7abd496abe726",
     "scripts/segresnet_auto_inference12h_20261028/worker_v3.py": "1f8788c1ce07e7ccc9a618c734b262d2e183ae44b89cd7ac6da2cdd6acce1099",
-    "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd"
+    "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd",
+    "scripts/segresnet_auto_inference12h_20261028/calibration_fast_standard_v1.py": "ee0e8103c331dd0848c5d47718d7ca033e4adbcdbffbcb15db90f05f0b2953bd",
+    "scripts/segresnet_auto_inference12h_20261028/fast_volume_cuts_v1.py": "f165253e90801ef593f8e30c7aae731d305976eff790f48fe72ca9b963fc9b03",
+    "scripts/segresnet_auto_inference12h_20261028/guard_cached_v1.py": "c51d968e563346c29b410483ae7e6f5485c0680797e6ac5438280175400eb3dc",
+    "scripts/segresnet_auto_inference12h_20261028/worker_v4.py": "450d236bedc9ae3e92c743a146423402c3c23a78c3a0ab881486981a278c9760"
   },
-  "control_amendment": "guard_v3: identical budgets; ignore vanished atomic JSON tmp names, numerical handler unchanged"
+  "control_amendment": "same parameters and bitwise cut gates; reuse completed cases; unimodal exact-volume search, cached inventory, boundedCSV shards"
 }

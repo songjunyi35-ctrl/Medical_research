@@ -1,0 +1,109 @@
+{
+  "at": "2026-10-29T03:01:13.960471+08:00",
+  "state": "audited_candidate",
+  "method": "segresnet_w32_e171_auto12h_0016_joint_calibration_testtuned_20261028",
+  "metrics": {
+    "scan_dice": 0.7835348979742439,
+    "subject_dice": 0.7707826295298854,
+    "scan_ci95": [
+      0.7614965752941852,
+      0.8032433697835816
+    ],
+    "subject_ci95": [
+      0.748623289031861,
+      0.791364776181991
+    ],
+    "point_hit": 0.9592592592592593,
+    "scans": 270,
+    "subjects": 119,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "point_hits": 259
+  },
+  "comparison_to_previous_incumbent": {
+    "scan_delta": 0.0025396997453989807,
+    "subject_delta": 0.0024763502232751262,
+    "scan_delta_ci95": [
+      0.001109537620979677,
+      0.0043285473940782564
+    ],
+    "subject_delta_ci95": [
+      0.0008231590739620917,
+      0.004477258471704248
+    ],
+    "scan_delta_ci97_5": [
+      0.0009555051944658082,
+      0.0046253768722350225
+    ],
+    "subject_delta_ci97_5": [
+      0.0006388567072921106,
+      0.00481981818607281
+    ],
+    "point_hits_delta": 4,
+    "improved_scans": 158,
+    "worse_scans": 112,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+    "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+  },
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "analysis": "d1_1000_joint_calibration",
+  "best_configuration": {
+    "recipe_index": 387,
+    "recipe": {
+      "id": "joint_control_uniform_logit4_subset255_tau0.2_case32.0",
+      "kind": "joint_weighted_fusion",
+      "pixel_recipe": {
+        "id": "control_uniform_logit4_subset255",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 1.0,
+        "exponent": 0.0,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "vote_threshold": 0.2,
+      "case_exponent": 32.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    "parameters": {
+      "post_temperature": 1.0,
+      "bias": -0.5,
+      "beta": 0.8,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 5766,
+    "scan_dice": 0.7835348979742439,
+    "subject_dice": 0.7707826295298854,
+    "point_hits": 259
+  },
+  "locator_forwards": 8,
+  "raw_sha256": "2028ed13596f77398cb18ffbc5768f49575964ae028f9f9abbd8fd0c5bd218ec",
+  "recipe_sha256": "fd1e0a518db9ae314f41b5e1c4a4f9a68a70b66bc6893d7a27ba919edc69965d",
+  "training": false,
+  "test_tuned": true,
+  "current_test_retuning": true,
+  "all270_masks_independently_verified": true,
+  "model_forwards_added": 0,
+  "seconds": 26.828810431994498
+}

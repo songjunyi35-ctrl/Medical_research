@@ -1,9 +1,13 @@
 # 当前科研状态与接续边界
 
 <!-- AUTO_INFERENCE12H_20261028 -->
-**12小时自动推理研究仍运行至29日08:41。** 用户明确直接按270反馈全局搜索，固定同w32第171轮、T1ce及原972/108/270，无训练/outer/confirmation，独立RACE不动。worker1153287双A10080，数据SHA和旧五镜像270mask/point/Dice精确一致。当前已审计最高Scan0.784139146、Subject0.771156128、Point258/270，8视图一致性加权/校准/连通域；7视图替代0.783850/Point260；较原普通推理+0.010911106，描述性95%[+0.006975465,+0.016120434]，全部test-tuned且未校正多重搜索。所有270掩膜独立核对，双榜39行保留阶段历史。
+**12小时自动推理研究持续至29日08:41:16。**
 
-约76万全270配置完成，1464216组合在GPU0评分；512整数平移相位将在新scratch释放60GiB后用GPU1运行，1/64/128/256/512共享前缀、16CPU校准。恢复3/6；仅删本轮已归档无读者派生文件，输入/权重/原始core8 logits/全部评分掩膜保留。研究不提前结题。[快照](archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md) · [实时状态](archive/research_records/2026-10-28_segresnet_auto_inference12h/RESEARCH_STATUS.json) · [下一步接续](archive/research_records/2026-10-28_segresnet_auto_inference12h/RUNBOOK.md)。
+当前已审计Scan **0.784311696**、Subject **0.771405304**、Point **260/270**，部署8次同权重前向；相对原普通推理0.773228040差 **+0.011083655**，患者配对描述性95%[0.007213049329584465, 0.016188773416001976]。 全部270掩膜TP/FP/FN、定位点与搜索矩阵独立核对。 所有全局规则直接由复用270选择，全部test-tuned；选择后区间未校正大规模搜索，不称独立泛化。无GT/病例ID单例路由，GT只评分和全局超参选择；脑区支撑限制预测时，仍保留整个原crop GT分母。
+
+完整完成5,785,315个有限全局参数元组（非独立方法或唯一掩膜），保留全部负结果。双A10080的flip0/flip7各512整数相位共享前缀及后续融合/校准继续；当前不是结题。恢复5/6。 [中间快照](archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md) · [接续](archive/research_records/2026-10-28_segresnet_auto_inference12h/RUNBOOK.md)。
+
+当前最高的独立API重新前向270尚未完成；旧0008的fresh270通过仅支持旧配方，不能替代当前最高核验。 当前接续以WORKING_STATE和直连任务为准；只改本研究marker，保护独立RACE。
 <!-- END_AUTO_INFERENCE12H_20261028 -->
 
 <!-- INFERENCE_SELECTED_TEST270_20261028 -->

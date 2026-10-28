@@ -1,0 +1,620 @@
+{
+  "at": "2026-10-29T03:09:30.657240+08:00",
+  "recipes": [
+    {
+      "id": "base0_brainmargin-1",
+      "kind": "brain_domain",
+      "base": {
+        "id": "meanp_T4.0_subset251",
+        "kind": "probability_mean",
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "view_temperature": 4.0
+      },
+      "margin": -1,
+      "views": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 7
+    },
+    {
+      "id": "base0_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "meanp_T4.0_subset251",
+        "kind": "probability_mean",
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "view_temperature": 4.0
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 7
+    },
+    {
+      "id": "base0_brainmargin1",
+      "kind": "brain_domain",
+      "base": {
+        "id": "meanp_T4.0_subset251",
+        "kind": "probability_mean",
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "view_temperature": 4.0
+      },
+      "margin": 1,
+      "views": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 7
+    },
+    {
+      "id": "base0_brainmargin2",
+      "kind": "brain_domain",
+      "base": {
+        "id": "meanp_T4.0_subset251",
+        "kind": "probability_mean",
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "view_temperature": 4.0
+      },
+      "margin": 2,
+      "views": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 7
+    },
+    {
+      "id": "base1_brainmargin-1",
+      "kind": "brain_domain",
+      "base": {
+        "id": "agreement_t0.2_logit_w16.0",
+        "kind": "consensus",
+        "mode": "agreement_weight",
+        "vote_threshold": 0.2,
+        "representation": "logit",
+        "exponent": 16.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": -1,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base1_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "agreement_t0.2_logit_w16.0",
+        "kind": "consensus",
+        "mode": "agreement_weight",
+        "vote_threshold": 0.2,
+        "representation": "logit",
+        "exponent": 16.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base1_brainmargin1",
+      "kind": "brain_domain",
+      "base": {
+        "id": "agreement_t0.2_logit_w16.0",
+        "kind": "consensus",
+        "mode": "agreement_weight",
+        "vote_threshold": 0.2,
+        "representation": "logit",
+        "exponent": 16.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 1,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base1_brainmargin2",
+      "kind": "brain_domain",
+      "base": {
+        "id": "agreement_t0.2_logit_w16.0",
+        "kind": "consensus",
+        "mode": "agreement_weight",
+        "vote_threshold": 0.2,
+        "representation": "logit",
+        "exponent": 16.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 2,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base2_brainmargin-1",
+      "kind": "brain_domain",
+      "base": {
+        "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+        "kind": "case_consistency",
+        "vote_threshold": 0.2,
+        "exponent": 24.0,
+        "keep_views": 8,
+        "representation": "logit",
+        "view_temperature": 4.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": -1,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base2_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+        "kind": "case_consistency",
+        "vote_threshold": 0.2,
+        "exponent": 24.0,
+        "keep_views": 8,
+        "representation": "logit",
+        "view_temperature": 4.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base2_brainmargin1",
+      "kind": "brain_domain",
+      "base": {
+        "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+        "kind": "case_consistency",
+        "vote_threshold": 0.2,
+        "exponent": 24.0,
+        "keep_views": 8,
+        "representation": "logit",
+        "view_temperature": 4.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 1,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base2_brainmargin2",
+      "kind": "brain_domain",
+      "base": {
+        "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+        "kind": "case_consistency",
+        "vote_threshold": 0.2,
+        "exponent": 24.0,
+        "keep_views": 8,
+        "representation": "logit",
+        "view_temperature": 4.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 2,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base3_brainmargin-1",
+      "kind": "brain_domain",
+      "base": {
+        "id": "joint_control_uniform_logit4_subset255_tau0.2_case32.0",
+        "kind": "joint_weighted_fusion",
+        "pixel_recipe": {
+          "id": "control_uniform_logit4_subset255",
+          "kind": "nonlinear_weighted_fusion",
+          "mode": "weighted_logit",
+          "view_temperature": 4.0,
+          "weighting_temperature": 1.0,
+          "exponent": 0.0,
+          "epsilon": 1e-05,
+          "views": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "neural_case_forwards": 8
+        },
+        "vote_threshold": 0.2,
+        "case_exponent": 32.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": -1,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base3_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "joint_control_uniform_logit4_subset255_tau0.2_case32.0",
+        "kind": "joint_weighted_fusion",
+        "pixel_recipe": {
+          "id": "control_uniform_logit4_subset255",
+          "kind": "nonlinear_weighted_fusion",
+          "mode": "weighted_logit",
+          "view_temperature": 4.0,
+          "weighting_temperature": 1.0,
+          "exponent": 0.0,
+          "epsilon": 1e-05,
+          "views": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "neural_case_forwards": 8
+        },
+        "vote_threshold": 0.2,
+        "case_exponent": 32.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base3_brainmargin1",
+      "kind": "brain_domain",
+      "base": {
+        "id": "joint_control_uniform_logit4_subset255_tau0.2_case32.0",
+        "kind": "joint_weighted_fusion",
+        "pixel_recipe": {
+          "id": "control_uniform_logit4_subset255",
+          "kind": "nonlinear_weighted_fusion",
+          "mode": "weighted_logit",
+          "view_temperature": 4.0,
+          "weighting_temperature": 1.0,
+          "exponent": 0.0,
+          "epsilon": 1e-05,
+          "views": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "neural_case_forwards": 8
+        },
+        "vote_threshold": 0.2,
+        "case_exponent": 32.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 1,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base3_brainmargin2",
+      "kind": "brain_domain",
+      "base": {
+        "id": "joint_control_uniform_logit4_subset255_tau0.2_case32.0",
+        "kind": "joint_weighted_fusion",
+        "pixel_recipe": {
+          "id": "control_uniform_logit4_subset255",
+          "kind": "nonlinear_weighted_fusion",
+          "mode": "weighted_logit",
+          "view_temperature": 4.0,
+          "weighting_temperature": 1.0,
+          "exponent": 0.0,
+          "epsilon": 1e-05,
+          "views": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "neural_case_forwards": 8
+        },
+        "vote_threshold": 0.2,
+        "case_exponent": 32.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 2,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    }
+  ],
+  "brain_support": "fill holes(image!=0), optional6-neighbor dilation; no support control",
+  "evaluation": "ALL original native-crop GT including outside support",
+  "test_tuned": true
+}

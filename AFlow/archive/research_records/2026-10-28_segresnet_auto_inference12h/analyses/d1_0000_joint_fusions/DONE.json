@@ -1,0 +1,55 @@
+{
+  "at": "2026-10-29T02:47:11.688428+08:00",
+  "state": "complete",
+  "configurations": 15444,
+  "recipes": 396,
+  "histogram_shortlist": 29,
+  "seconds": 844.9768245200394,
+  "best": {
+    "recipe_index": 79,
+    "recipe": {
+      "id": "joint_weighted_logit_T4.0_W8.0_e-0.5_subset219_tau0.2_case32.0",
+      "kind": "joint_weighted_fusion",
+      "pixel_recipe": {
+        "id": "weighted_logit_T4.0_W8.0_e-0.5_subset219",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 8.0,
+        "exponent": -0.5,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          7
+        ],
+        "neural_case_forwards": 6
+      },
+      "vote_threshold": 0.2,
+      "case_exponent": 32.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    "threshold": 0.45,
+    "threshold_index": 17,
+    "scan_dice": 0.7823001867091214,
+    "subject_dice": 0.7702981453816764,
+    "point_hits": 260
+  },
+  "model_forwards": 0,
+  "test_tuned": true,
+  "dice_sha256": "0cd5924dd581f9a4759fe989c568309eafee3ced1cd99cb023532c7b806b0da3",
+  "hits_sha256": "51931bc61d9e41ae7eefea6e990e0ecd314ffc79f68adb6e94a6e8827524772d"
+}

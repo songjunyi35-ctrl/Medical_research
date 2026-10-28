@@ -1,77 +1,678 @@
 {
-  "at": "2026-10-29T00:50:48.980625+08:00",
+  "at": "2026-10-29T04:14:07.885921+08:00",
   "state": "active_dual_gpu_research",
-  "deadline": "2026-10-29T08:41:16+08:00",
   "worker": 1153287,
+  "resource_token": "r1_worker1153287",
+  "deadline_beijing": "2026-10-29T08:41:16+08:00",
+  "remaining_seconds": 16028.113990545273,
   "incumbent": {
-    "at": "2026-10-29T00:38:39.673593+08:00",
+    "at": "2026-10-29T04:00:07.790508+08:00",
     "state": "interim_audited_test_tuned_incumbent",
-    "method": "segresnet_w32_e171_auto12h_0008_consensus_cc_testtuned_20261028",
-    "scan_dice": 0.7841391463522558,
-    "subject_dice": 0.7711561284416697,
-    "point_hits": 258,
-    "raw_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RAW_TEST270.json",
-    "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RESULT.json",
-    "recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RECIPE.json",
+    "method": "segresnet_w32_e171_auto12h_0023_brain_holes_testtuned_20261028",
+    "scan_dice": 0.7843116955072792,
+    "subject_dice": 0.7714053038392915,
+    "point_hits": 260,
+    "raw_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RAW_TEST270.json",
+    "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RESULT.json",
+    "recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RECIPE.json",
     "test_tuned": true,
     "research_continues": true
   },
-  "completed_configurations": 756694,
-  "nonlinear_status": {
-    "at": "2026-10-29T00:50:33.508153+08:00",
-    "state": "nonlinear_fusion_scoring",
-    "worker": 1153287,
-    "physical_gpu": 0,
-    "resource_token": "r1_worker1153287",
-    "training": false,
-    "test_tuned": true,
-    "job": "b1_0000_nonlinear_fusions",
-    "completed": 167,
-    "total": 270,
-    "recipes": 37544,
-    "configurations": 1464216,
-    "seconds": 3134.950569801964
+  "completed_configuration_tuples": 5838850,
+  "completed_analyses": [
+    {
+      "id": "a3_1002_flip7_phase128_calibration",
+      "configurations": 51000,
+      "best_scan": 0.7829810523876437
+    },
+    {
+      "id": "f3_0000_brain_decoder_component_beam",
+      "configurations": 31232,
+      "best_scan": 0.7842553883239075
+    },
+    {
+      "id": "e1_1000_cross_phase64_calibration",
+      "configurations": 114750,
+      "best_scan": 0.7834857788902742
+    },
+    {
+      "id": "r1_0002_official_rankseg",
+      "configurations": 160,
+      "best_scan": 0.7826284265076673
+    },
+    {
+      "id": "r1_0110_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7805694115382654
+    },
+    {
+      "id": "1201_adaptive_binary_postprocess",
+      "configurations": 203,
+      "best_scan": 0.7840726599097252
+    },
+    {
+      "id": "r1_1122_dropout_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7819291634692086
+    },
+    {
+      "id": "r1_1104_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7816056159359438
+    },
+    {
+      "id": "r1_0114_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7802525594278619
+    },
+    {
+      "id": "r1_1134_roi_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7823449916723701
+    },
+    {
+      "id": "r1_0000b_temperature_extension",
+      "configurations": 79560,
+      "best_scan": 0.7807955261733797
+    },
+    {
+      "id": "f2_0000_brain_component_beam",
+      "configurations": 3904,
+      "best_scan": 0.7842553883239075
+    },
+    {
+      "id": "r1_1151_resize_near_calibration",
+      "configurations": 25500,
+      "best_scan": 0.7814545205621808
+    },
+    {
+      "id": "r1_0105_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7800759711751232
+    },
+    {
+      "id": "r1_1108_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7815373232243238
+    },
+    {
+      "id": "r1_1121_dropout_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7825996391199254
+    },
+    {
+      "id": "d1_1000_joint_calibration",
+      "configurations": 332775,
+      "best_scan": 0.7835348979742439
+    },
+    {
+      "id": "c1_1000_dense_crf_calibration",
+      "configurations": 51000,
+      "best_scan": 0.7834917529313653
+    },
+    {
+      "id": "e1_1001_cross_phase128_calibration",
+      "configurations": 91800,
+      "best_scan": 0.7834999610980352
+    },
+    {
+      "id": "r1_1200_case_consistency_calibration",
+      "configurations": 504900,
+      "best_scan": 0.7835593269930945
+    },
+    {
+      "id": "1203_dense_control_binary_postprocess",
+      "configurations": 203,
+      "best_scan": 0.7841908212613177
+    },
+    {
+      "id": "r1_0151_resize_near_fusions",
+      "configurations": 780,
+      "best_scan": 0.7804875894829079
+    },
+    {
+      "id": "e1_0001_cross_phase128",
+      "configurations": 12870,
+      "best_scan": 0.7818939632839627
+    },
+    {
+      "id": "r1_0001_local_mrf",
+      "configurations": 28080,
+      "best_scan": 0.7801957109460125
+    },
+    {
+      "id": "a2_0103_phase256_fusions",
+      "configurations": 2535,
+      "best_scan": 0.7806740222153841
+    },
+    {
+      "id": "e1_0000_cross_phase64",
+      "configurations": 12987,
+      "best_scan": 0.7818911362577368
+    },
+    {
+      "id": "r1_0120_dropout_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7805862004006351
+    },
+    {
+      "id": "r1_1131_roi_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7824544677717818
+    },
+    {
+      "id": "r1_1130_roi_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7814520671963692
+    },
+    {
+      "id": "a2_0100_phase1_fusions",
+      "configurations": 2535,
+      "best_scan": 0.7806139713084256
+    },
+    {
+      "id": "f1_1000_brain_domain_calibration",
+      "configurations": 183600,
+      "best_scan": 0.7836395580459524
+    },
+    {
+      "id": "r1_1106_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.781559728913837
+    },
+    {
+      "id": "r1_0112_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7802628295289146
+    },
+    {
+      "id": "a2_1003_phase256_calibration",
+      "configurations": 51000,
+      "best_scan": 0.7829925015568733
+    },
+    {
+      "id": "r1_0150_resize_near_fusions",
+      "configurations": 780,
+      "best_scan": 0.7802052510005456
+    },
+    {
+      "id": "a3_0101_flip7_phase64_fusions",
+      "configurations": 2535,
+      "best_scan": 0.7807307019277855
+    },
+    {
+      "id": "r1_0003_consensus",
+      "configurations": 4602,
+      "best_scan": 0.7818911362577368
+    },
+    {
+      "id": "r1_0133_roi_fusions",
+      "configurations": 1560,
+      "best_scan": 0.780614169659438
+    },
+    {
+      "id": "1102_fine_calibration_components",
+      "configurations": 244,
+      "best_scan": 0.7837868808596222
+    },
+    {
+      "id": "a3_1001_flip7_phase64_calibration",
+      "configurations": 51000,
+      "best_scan": 0.782968472606606
+    },
+    {
+      "id": "r1_0121_dropout_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7805407677535657
+    },
+    {
+      "id": "r1_0113_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7802793440995393
+    },
+    {
+      "id": "r1_0135_roi_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7807184871700075
+    },
+    {
+      "id": "r1_1109_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.781580398424908
+    },
+    {
+      "id": "r1_1112_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7815285950623176
+    },
+    {
+      "id": "d1_0000_joint_fusions",
+      "configurations": 15444,
+      "best_scan": 0.7823001867091214
+    },
+    {
+      "id": "1106_rankseg_components",
+      "configurations": 244,
+      "best_scan": 0.7834328180661908
+    },
+    {
+      "id": "r1_0102_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.780221054620213
+    },
+    {
+      "id": "r1_1000a_fine_calibration",
+      "configurations": 85050,
+      "best_scan": 0.783195302994163
+    },
+    {
+      "id": "1100_component_sweep",
+      "configurations": 244,
+      "best_scan": 0.78165166510476
+    },
+    {
+      "id": "r1_1150_resize_near_calibration",
+      "configurations": 25500,
+      "best_scan": 0.7818449024249006
+    },
+    {
+      "id": "1200_best_binary_postprocess",
+      "configurations": 203,
+      "best_scan": 0.7838496662400387
+    },
+    {
+      "id": "1104_adaptive_components",
+      "configurations": 244,
+      "best_scan": 0.7840012399134813
+    },
+    {
+      "id": "r1_1003_consensus_calibration",
+      "configurations": 33000,
+      "best_scan": 0.7834455833390906
+    },
+    {
+      "id": "r1_0103_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7799697237986105
+    },
+    {
+      "id": "r1_1000b_extended_calibration",
+      "configurations": 178500,
+      "best_scan": 0.7830933447789263
+    },
+    {
+      "id": "1108_case_consistency_components",
+      "configurations": 244,
+      "best_scan": 0.7839762109297294
+    },
+    {
+      "id": "r1_1113_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.781542279060792
+    },
+    {
+      "id": "r1_1000_calibration",
+      "configurations": 115500,
+      "best_scan": 0.7830104277641685
+    },
+    {
+      "id": "r1_0131_roi_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7807450219436928
+    },
+    {
+      "id": "r1_1110_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7815202132419303
+    },
+    {
+      "id": "b1_0000_nonlinear_fusions",
+      "configurations": 1464216,
+      "best_scan": 0.781091281219765
+    },
+    {
+      "id": "r1_0122_dropout_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7803356900259301
+    },
+    {
+      "id": "r1_0132_roi_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7802371161955374
+    },
+    {
+      "id": "a2_1000_phase1_calibration",
+      "configurations": 51000,
+      "best_scan": 0.7829824172236302
+    },
+    {
+      "id": "1112_brain_domain_components",
+      "configurations": 244,
+      "best_scan": 0.7842553883239075
+    },
+    {
+      "id": "a2_1001_phase64_calibration",
+      "configurations": 51000,
+      "best_scan": 0.7829853759319694
+    },
+    {
+      "id": "r1_0104_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7801243638550793
+    },
+    {
+      "id": "r1_1105_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7811588118473689
+    },
+    {
+      "id": "a3_0100_flip7_phase1_fusions",
+      "configurations": 2535,
+      "best_scan": 0.7807288677604111
+    },
+    {
+      "id": "a3_1003_flip7_phase256_calibration",
+      "configurations": 51000,
+      "best_scan": 0.7829791320694818
+    },
+    {
+      "id": "r1_1111_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7815779454868149
+    },
+    {
+      "id": "a3_0102_flip7_phase128_fusions",
+      "configurations": 2535,
+      "best_scan": 0.7807447454443684
+    },
+    {
+      "id": "r1_1107_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7814979385584593
+    },
+    {
+      "id": "r1_1001_local_mrf_calibration",
+      "configurations": 33000,
+      "best_scan": 0.7816222300132115
+    },
+    {
+      "id": "r1_0200_case_consistency_extension",
+      "configurations": 262080,
+      "best_scan": 0.7821495477800016
+    },
+    {
+      "id": "r1_1102_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.781179340708035
+    },
+    {
+      "id": "r1_0109_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7805783549944559
+    },
+    {
+      "id": "r1_1002_adaptive_calibration",
+      "configurations": 6480,
+      "best_scan": 0.7829315508405368
+    },
+    {
+      "id": "1105_extended_components",
+      "configurations": 244,
+      "best_scan": 0.7836259944019495
+    },
+    {
+      "id": "1101_core_calibration_components",
+      "configurations": 244,
+      "best_scan": 0.7837921336293221
+    },
+    {
+      "id": "a2_1002_phase128_calibration",
+      "configurations": 51000,
+      "best_scan": 0.7829959907465511
+    },
+    {
+      "id": "r1_1133_roi_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7824290476325485
+    },
+    {
+      "id": "r1_0140_noise64_fusions",
+      "configurations": 780,
+      "best_scan": 0.7804614319845482
+    },
+    {
+      "id": "c1_0000_dense_crf",
+      "configurations": 1053,
+      "best_scan": 0.7818801035483678
+    },
+    {
+      "id": "r1_0108_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7804128639124058
+    },
+    {
+      "id": "r1_0111_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7804381476508246
+    },
+    {
+      "id": "r1_1135_roi_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7824892840313691
+    },
+    {
+      "id": "a2_0101_phase64_fusions",
+      "configurations": 2535,
+      "best_scan": 0.7806612484984927
+    },
+    {
+      "id": "r1_1114_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.78143844705213
+    },
+    {
+      "id": "a3_1000_flip7_phase1_calibration",
+      "configurations": 51000,
+      "best_scan": 0.7829350978687958
+    },
+    {
+      "id": "1107_nonlinear_components",
+      "configurations": 244,
+      "best_scan": 0.7838270308242904
+    },
+    {
+      "id": "b1_1000_nonlinear_calibration",
+      "configurations": 1211250,
+      "best_scan": 0.7831264938469287
+    },
+    {
+      "id": "1202_brain_binary_postprocess",
+      "configurations": 203,
+      "best_scan": 0.7843116955072792
+    },
+    {
+      "id": "1110_zero_phase_control_components",
+      "configurations": 244,
+      "best_scan": 0.7840651244476989
+    },
+    {
+      "id": "1300_shape_distance_fusion",
+      "configurations": 630,
+      "best_scan": 0.7812696406134853
+    },
+    {
+      "id": "a2_0102_phase128_fusions",
+      "configurations": 2535,
+      "best_scan": 0.780677886693566
+    },
+    {
+      "id": "r1_1140_noise64_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7822673201285026
+    },
+    {
+      "id": "r1_0107_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7803768975867166
+    },
+    {
+      "id": "r1_0130_roi_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7803643066574026
+    },
+    {
+      "id": "r1_1120_dropout_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7822009613116582
+    },
+    {
+      "id": "1109_joint_components",
+      "configurations": 244,
+      "best_scan": 0.783903731184977
+    },
+    {
+      "id": "1103_consensus_components",
+      "configurations": 244,
+      "best_scan": 0.7841391463522558
+    },
+    {
+      "id": "r1_0106_group_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7812643912103441
+    },
+    {
+      "id": "a3_0103_flip7_phase256_fusions",
+      "configurations": 2535,
+      "best_scan": 0.7807465897666084
+    },
+    {
+      "id": "r1_1132_roi_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7816273995295718
+    },
+    {
+      "id": "1111_dense_control_components",
+      "configurations": 244,
+      "best_scan": 0.7841380002873916
+    },
+    {
+      "id": "r1_0134_roi_fusions",
+      "configurations": 1560,
+      "best_scan": 0.7806502253920944
+    },
+    {
+      "id": "r1_0000_core_fusions",
+      "configurations": 81003,
+      "best_scan": 0.7810913225015005
+    },
+    {
+      "id": "r1_1103_group_calibration",
+      "configurations": 16500,
+      "best_scan": 0.7814971013891476
+    }
+  ],
+  "active": [
+    {
+      "id": "e1_0002_cross_phase256",
+      "queue": "analysis_queue_aux_v1",
+      "completed_cases": 66,
+      "state": "active_or_waiting_final_summary"
+    }
+  ],
+  "states": {
+    "PIPELINE_STATUS": {
+      "at": "2026-10-29T04:13:36.568898+08:00",
+      "state": "phase512_forward",
+      "worker": 1153287,
+      "gpu_type": "2x NVIDIA A100-SXM4-80GB",
+      "resource_token": "r1_worker1153287",
+      "training": false,
+      "test_tuned": true,
+      "job": "r1_0050_polyphase512_flip7",
+      "prefix": 512,
+      "case_start": 16,
+      "view_in_prefix": 352,
+      "new_case_forwards": 73984,
+      "seconds": 8854.230381611967
+    },
+    "ANALYSIS_AUX_STATUS": {
+      "at": "2026-10-29T04:14:04.349220+08:00",
+      "state": "group_fusion_scoring",
+      "worker": 1153287,
+      "physical_gpu": 0,
+      "resource_token": "r1_worker1153287",
+      "training": false,
+      "test_tuned": true,
+      "job": "e1_0002_cross_phase256",
+      "completed": 65,
+      "total": 270,
+      "configurations": 12870,
+      "seconds": 153.02211619802983
+    },
+    "ANALYSIS_STATUS": {
+      "at": "2026-10-29T04:14:05.547798+08:00",
+      "state": "queue_waiting",
+      "worker": 1153287,
+      "gpu_type": "2x NVIDIA A100-SXM4-80GB",
+      "resource_token": "r1_worker1153287",
+      "training": false,
+      "test_tuned": true,
+      "mode": "analysis"
+    },
+    "CPU_STATUS": {
+      "at": "2026-10-29T04:14:04.881446+08:00",
+      "state": "queue_waiting",
+      "worker": 1153287,
+      "gpu_type": "2x NVIDIA A100-SXM4-80GB",
+      "resource_token": "r1_worker1153287",
+      "training": false,
+      "test_tuned": true,
+      "mode": "cpu"
+    },
+    "AUX_STATUS": {
+      "at": "2026-10-29T04:13:49.384743+08:00",
+      "state": "phase512_forward",
+      "worker": 1153287,
+      "physical_gpu": 1,
+      "resource_token": "r1_worker1153287",
+      "training": false,
+      "test_tuned": true,
+      "job": "a2_0000_polyphase512",
+      "prefix": 512,
+      "case_start": 128,
+      "view_in_prefix": 448,
+      "new_case_forwards": 103424,
+      "seconds": 12312.793225197995
+    },
+    "DENSE_CRF_STATUS": {
+      "at": "2026-10-29T03:33:18.784747+08:00",
+      "completed": 270,
+      "total": 270,
+      "configurations": 1053,
+      "last_case_seconds": 84.54243215400493,
+      "seconds": 3780.509986676974
+    },
+    "BRAIN_DOMAIN_STATUS": {
+      "at": "2026-10-29T03:34:17.537253+08:00",
+      "completed": 261,
+      "total": 270,
+      "seconds": 1484.5286804720527
+    },
+    "ROLLING_CLEANUP_STATUS": {
+      "at": "2026-10-29T04:13:41.251482+08:00",
+      "state": "monitoring",
+      "bytes_freed_total": 268622313984,
+      "gib_freed_total": 250.17402505874634,
+      "protected": [
+        "a2_0000_polyphase512_n64",
+        "r1_0000_core_mirror8",
+        "r1_0050_polyphase512_flip7_n64"
+      ],
+      "global_gap": 0.002
+    }
   },
-  "gpu1_analysis": {
-    "at": "2026-10-29T00:50:43.802182+08:00",
-    "state": "group_fusion_scoring",
-    "worker": 1153287,
-    "gpu_type": "2x NVIDIA A100-SXM4-80GB",
-    "resource_token": "r1_worker1153287",
-    "training": false,
-    "test_tuned": true,
-    "job": "a2_0100_phase1_fusions",
-    "completed": 17,
-    "total": 270,
-    "configurations": 2535,
-    "seconds": 10.751212135015521
-  },
-  "aux_renderer": {
-    "at": "2026-10-29T00:50:33.599110+08:00",
-    "state": "phase512_snapshot",
-    "worker": 1153287,
-    "physical_gpu": 1,
-    "resource_token": "r1_worker1153287",
-    "training": false,
-    "test_tuned": true,
-    "job": "a2_0000_polyphase512",
-    "prefix": 64,
-    "completed": 8,
-    "total": 270,
-    "new_case_forwards": 774,
-    "seconds": 117.007604376995
-  },
-  "cpu_status": {
-    "at": "2026-10-29T00:48:04.290598+08:00",
-    "state": "executing_job",
-    "worker": 1153287,
-    "gpu_type": "2x NVIDIA A100-SXM4-80GB",
-    "resource_token": "r1_worker1153287",
-    "training": false,
-    "test_tuned": true,
-    "job": "r1_1107_group_calibration",
-    "mode": "cpu"
-  },
-  "engineering_recoveries": 3,
+  "engineering_recoveries": 5,
+  "training": false,
+  "test_tuned": true,
   "research_continues": true
 }

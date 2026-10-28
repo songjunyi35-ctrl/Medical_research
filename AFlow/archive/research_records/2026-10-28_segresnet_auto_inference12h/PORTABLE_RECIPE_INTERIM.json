@@ -1,0 +1,43 @@
+{
+  "schema": "aflow_frozen_core_inference_v1",
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "aggregation": {
+    "id": "agreement_t0.2_logit_w16.0",
+    "kind": "consensus",
+    "mode": "agreement_weight",
+    "vote_threshold": 0.2,
+    "representation": "logit",
+    "exponent": 16.0,
+    "views": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "neural_case_forwards": 8
+  },
+  "decoder": {
+    "post_temperature": 4.0,
+    "bias": -1.0,
+    "beta": 0.7,
+    "volume_scale": 1.0
+  },
+  "decoder_kind": "calibration_v1",
+  "point_rule": "mean8 probability argmax before consensus",
+  "postprocessing": [
+    {
+      "id": "c1_min512_protectFalse",
+      "connectivity": 1,
+      "kind": "minimum",
+      "value": 512,
+      "protect_largest": false
+    }
+  ],
+  "selected_on_reused_test270": true,
+  "input_contract": "same native1mm T1ce normalization/canvas; geometry removes padding",
+  "source_result_sha256": "00c9d194dacbce182ce29705099ee077e924be4c0cdfad377b36c9738c07e5e2"
+}

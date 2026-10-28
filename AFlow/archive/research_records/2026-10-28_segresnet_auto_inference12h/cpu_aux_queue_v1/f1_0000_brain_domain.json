@@ -1,0 +1,112 @@
+{
+  "resource_token": "r1_worker1153287",
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "test_tuned": true,
+  "all270_same_global_rule": true,
+  "id": "f1_0000_brain_domain",
+  "handler": "brain_domain_prepare_v1",
+  "bases": [
+    {
+      "id": "meanp_T4.0_subset251",
+      "kind": "probability_mean",
+      "views": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "view_temperature": 4.0
+    },
+    {
+      "id": "agreement_t0.2_logit_w16.0",
+      "kind": "consensus",
+      "mode": "agreement_weight",
+      "vote_threshold": 0.2,
+      "representation": "logit",
+      "exponent": 16.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+      "kind": "case_consistency",
+      "vote_threshold": 0.2,
+      "exponent": 24.0,
+      "keep_views": 8,
+      "representation": "logit",
+      "view_temperature": 4.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "joint_control_uniform_logit4_subset255_tau0.2_case32.0",
+      "kind": "joint_weighted_fusion",
+      "pixel_recipe": {
+        "id": "control_uniform_logit4_subset255",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 1.0,
+        "exponent": 0.0,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "vote_threshold": 0.2,
+      "case_exponent": 32.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    }
+  ],
+  "source_sha256": {
+    "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+    "scripts/segresnet_auto_inference12h_20261028/guard_cached_v1.py": "c51d968e563346c29b410483ae7e6f5485c0680797e6ac5438280175400eb3dc",
+    "scripts/segresnet_auto_inference12h_20261028/brain_domain_v1.py": "d52d77fb9783043f4d7b69ef161de875bc690a24554e92763b72286362be9a38",
+    "scripts/segresnet_auto_inference12h_20261028/brain_domain_prepare_v1.py": "23168035eee6e91f22966029825d5018fa65d462872d5426ed13ccf1f816c81f",
+    "scripts/segresnet_auto_inference12h_20261028/deploy_core_v2.py": "2b5fac7bb05b39205f9ac5d5360ff6c20c74b59d75e427f622b6fca31b9ac6ff",
+    "scripts/segresnet_auto_inference12h_20261028/histograms_adaptive_v1.py": "4100809cf8e980093b3069f5204051cb87bc16ee2fdc64c75751b23d21ece593",
+    "scripts/segresnet_auto_inference12h_20261028/consensus_v1.py": "283429947cae775fe7fd78eb1700cfdd8970dfdddfa8123586f533daf7e673c7",
+    "scripts/segresnet_auto_inference12h_20261028/case_consistency_v1.py": "ab03bbcd0a02b216e6737fb1e7656beb6cb01ceb20f156287b582525ccdf133c",
+    "scripts/segresnet_auto_inference12h_20261028/joint_fusions_v1.py": "97210542a0252c66ec9fe8ef663d53761761099fb6114d2242e63dd3862943be",
+    "scripts/segresnet_auto_inference12h_20261028/nonlinear_fusions_v1.py": "33e7fabb3d21b6423a45d0a4efb85c4a04536416b8e4b81d566f89ba6a5a5195"
+  }
+}

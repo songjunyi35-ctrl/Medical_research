@@ -3,26 +3,25 @@
 单T1ce MRI脑肿瘤分割研究代码、实验档案和论文材料。2026-10-14工作树快照，沿用原科研迁移包的范围，保留历史正负结果。
 
 <!-- AUTO_INFERENCE12H_20261028 -->
-## 2026-10-29：同171权重的无训练推理自动研究｜中间快照，仍在运行
+## 2026-10-29：固定171权重的无训练自动推理研究｜中间快照，仍运行
 
-固定单T1ce、SegResNet32通道第171轮、原270扫描/119患者；新增网络训练0。用户授权直接按这270反馈全局选择，**本批全部test-tuned，不是独立泛化确认**。研究窗口北京时间28日20:41至29日08:41，这次推送不表示结题。
+固定单T1ce、SegResNet32通道第171轮、原270扫描/119患者，网络训练0。研究窗口北京时间28日20:41:16至29日08:41:16。用户授权直接按270反馈全局选择，本批全部test-tuned，非独立泛化确认。
 
-| 同权重原生270方案 | Scan Dice | Subject Dice | Point | 网络前向/例 |
+| 同权重方案 | Scan Dice | Subject Dice | Point | 网络前向/例 |
 |---|---:|---:|---:|---:|
 | 原始推理 | 0.773228 | 0.760027 | 256/270 | 1 |
 | 研究前固定五镜像＋体积解码 | 0.780995 | 0.768306 | 255/270 | 5 |
-| 七镜像温度/体积校准＋全局形态处理 | 0.783850 | 0.770681 | **260/270** | 7 |
-| 预测一致性加权＋体积校准＋连通域 | **0.784139** | **0.771156** | 258/270 | 8 |
+| 7视图自适应解码＋组件＋填孔 | 0.784073 | 0.771076 | 260/270 | 7 |
+| 当前已审计最高 | **0.784312** | **0.771405** | **260/270** | 8 |
 
-最高Scan较原始推理增加0.010911，患者配对描述性95%区间[+0.006975,+0.016120]；大规模选择后区间没有多重搜索校正。八视图规则只读自身预测之间的一致性来赋权，不读真实GT或病例ID作单例路由；GT仅用于评分与全局超参数选择。270掩膜、点与搜索矩阵已逐例独立核验。保留七视图方案的成本/Point取舍及全部负结果。
+已完整评分5,785,315个有限全局参数元组（不是独立方法数）；两路512整数相位及其共享前缀/后续融合仍运行。全部270掩膜计数与矩阵独立核验，当前是否完成重新神经前向以部署报告为准。所有阈值和组件规则直接test-tuned，不使用真实GT或病例ID做单例路由；脑区支撑不缩小GT评估域。
 
-已完成约76万配置；1464216个非线性组合、512个整数平移相位共享前缀及后续校准继续。双A10080，单权重不变，无新outer/confirmation或外部评测，不干预独立RACE。原节点失联/工程修复及新scratch滚动清理均有单独收据。
+- [当前完整快照与限制](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md)
+- [最高候选](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RESULT.md)、[7视图成本替代](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0018_adaptive_holes/RESULT.md)
+- [部署接口及核验状态](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/DEPLOYMENT_INTERIM.md)、[联网调研及实际结果](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/WEB_REVIEW.md)
+- [源码](AFlow/scripts/segresnet_auto_inference12h_20261028/)、[接续记录](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/RUNBOOK.md)
 
-- [中间结果、限制与配方链](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md)
-- [已审计8视图当前最高](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RESULT.md)、[7视图替代](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0006_best_holes/RESULT.md)
-- [源码](AFlow/scripts/segresnet_auto_inference12h_20261028/)、[各轮方案](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/ROUND014.md)、[接续边界](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/RUNBOOK.md)
-
-仅同步源码和文本证据，不上传MRI/标签、模型权重或预测/数值数组；原SHA引用保留。运行日志是本次推送时的前缀快照，最终结果将另行归档。
+只同步源码和文本证据，不上传MRI/标签、模型权重或预测/数值数组。正负结果、工程/清理记录及SHA保留，独立RACE不受影响。当前推送不表示12小时研究已结束。
 <!-- END_AUTO_INFERENCE12H_20261028 -->
 
 <!-- INFERENCE_IMPROVEMENT_20261028 -->

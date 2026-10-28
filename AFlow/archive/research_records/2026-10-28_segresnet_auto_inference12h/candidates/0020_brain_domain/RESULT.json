@@ -1,0 +1,106 @@
+{
+  "at": "2026-10-29T03:37:57.942106+08:00",
+  "state": "audited_candidate",
+  "method": "segresnet_w32_e171_auto12h_0020_brain_domain_testtuned_20261028",
+  "metrics": {
+    "scan_dice": 0.7836395580459524,
+    "subject_dice": 0.7708740517580543,
+    "scan_ci95": [
+      0.7616624516647613,
+      0.8033325045904448
+    ],
+    "subject_ci95": [
+      0.74879491737055,
+      0.7914242324873763
+    ],
+    "point_hit": 0.9629629629629629,
+    "scans": 270,
+    "subjects": 119,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "point_hits": 260
+  },
+  "comparison_to_previous_incumbent": {
+    "scan_delta": 0.0026443598171075186,
+    "subject_delta": 0.0025677724514438323,
+    "scan_delta_ci95": [
+      0.0013162349710278396,
+      0.004273434419641474
+    ],
+    "subject_delta_ci95": [
+      0.0010727395228676353,
+      0.004341780023038887
+    ],
+    "scan_delta_ci97_5": [
+      0.001179262343991468,
+      0.004509140587560028
+    ],
+    "subject_delta_ci97_5": [
+      0.0008785683679438772,
+      0.004616449619708613
+    ],
+    "point_hits_delta": 5,
+    "improved_scans": 167,
+    "worse_scans": 103,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+  },
+  "best_configuration": {
+    "recipe_index": 9,
+    "recipe": {
+      "id": "base2_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+        "kind": "case_consistency",
+        "vote_threshold": 0.2,
+        "exponent": 24.0,
+        "keep_views": 8,
+        "representation": "logit",
+        "view_temperature": 4.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    "parameters": {
+      "post_temperature": 1.0,
+      "bias": 0.5,
+      "beta": 0.5,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 1951,
+    "scan_dice": 0.7836395580459524,
+    "subject_dice": 0.7708740517580543,
+    "point_hits": 260
+  },
+  "analysis": "f1_1000_brain_domain_calibration",
+  "locator_forwards": 8,
+  "all270_masks_independently_verified": true,
+  "GT_domain_unchanged": true,
+  "raw_sha256": "a7009ab3d855dbdaa39f0a13c3b4b0c04bccba5653b37803774041f2818a5ab5",
+  "recipe_sha256": "fe13ed43427dc7b768c6a34cc88cc3a74172ce1372f368a8c8d4ad8c5c439826",
+  "training": false,
+  "test_tuned": true,
+  "current_test_retuning": true,
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade"
+}

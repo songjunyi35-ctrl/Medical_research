@@ -1,0 +1,93 @@
+{
+  "at": "2026-10-29T03:00:47.125298+08:00",
+  "analysis": "r1_1200_case_consistency_calibration",
+  "job": {
+    "resource_token": "r1_worker1153287",
+    "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+    "test_tuned": true,
+    "all270_same_global_rule": true,
+    "id": "r1_1200_case_consistency_calibration",
+    "handler": "calibration_fast_consistency_v1",
+    "source_analysis": "r1_0200_case_consistency_extension",
+    "analysis_dependencies": [
+      "r1_0200_case_consistency_extension"
+    ],
+    "cpu_workers": 16,
+    "source_sha256": {
+      "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+      "scripts/segresnet_auto_inference12h_20261028/worker_v3.py": "1f8788c1ce07e7ccc9a618c734b262d2e183ae44b89cd7ac6da2cdd6acce1099",
+      "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd",
+      "scripts/segresnet_auto_inference12h_20261028/calibration_consistency_v1.py": "43fa5c1b696c6a0767ed7537c0f0d0c6646f83f9ebe7014c6996bfb44561d38f",
+      "scripts/segresnet_auto_inference12h_20261028/calibration_fast_consistency_v1.py": "c82536b076526356e13aa7297a7a7d4e89e73f22c9eb849219d9609cbaa9e388",
+      "scripts/segresnet_auto_inference12h_20261028/fast_volume_cuts_v1.py": "f165253e90801ef593f8e30c7aae731d305976eff790f48fe72ca9b963fc9b03",
+      "scripts/segresnet_auto_inference12h_20261028/guard_cached_v1.py": "c51d968e563346c29b410483ae7e6f5485c0680797e6ac5438280175400eb3dc",
+      "scripts/segresnet_auto_inference12h_20261028/worker_v4.py": "450d236bedc9ae3e92c743a146423402c3c23a78c3a0ab881486981a278c9760"
+    },
+    "control_amendment": "same parameters and bitwise cut gates; reuse completed cases; unimodal exact-volume search, cached inventory, boundedCSV shards"
+  },
+  "source_job": {
+    "resource_token": "r1_worker1153287",
+    "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+    "test_tuned": true,
+    "all270_same_global_rule": true,
+    "id": "r1_0200_case_consistency_extension",
+    "handler": "case_consistency_v1",
+    "core_source": "r1_0000_core_mirror8",
+    "depends_on": [
+      "r1_0000_control",
+      "r1_0000_core_mirror8"
+    ],
+    "recipe_count": 6720,
+    "source_sha256": {
+      "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+      "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd",
+      "scripts/segresnet_auto_inference12h_20261028/worker_v3.py": "1f8788c1ce07e7ccc9a618c734b262d2e183ae44b89cd7ac6da2cdd6acce1099",
+      "scripts/segresnet_auto_inference12h_20261028/case_consistency_v1.py": "ab03bbcd0a02b216e6737fb1e7656beb6cb01ceb20f156287b582525ccdf133c",
+      "scripts/segresnet_auto_inference12h_20261028/histograms_adaptive_v1.py": "4100809cf8e980093b3069f5204051cb87bc16ee2fdc64c75751b23d21ece593",
+      "scripts/segresnet_auto_inference12h_20261028/threshold_histograms_v1.py": "ec302b092feb2046651b6656381d667c74b8b65902a14f3a8883d031f9480b39",
+      "scripts/segresnet_auto_inference12h_20261028/consensus_v1.py": "283429947cae775fe7fd78eb1700cfdd8970dfdddfa8123586f533daf7e673c7",
+      "scripts/segresnet_inference_search_20261028/operations.py": "1a90d856e88fa2f926dd5651bcdaf3a13544a172d9e3329123588853547fd86e"
+    }
+  },
+  "best": {
+    "recipe_index": 3008,
+    "recipe": {
+      "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+      "kind": "case_consistency",
+      "vote_threshold": 0.2,
+      "exponent": 24.0,
+      "keep_views": 8,
+      "representation": "logit",
+      "view_temperature": 4.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    "parameters": {
+      "post_temperature": 1.0,
+      "bias": -1.0,
+      "beta": 1.15,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 9589,
+    "scan_dice": 0.7835593269930945,
+    "subject_dice": 0.7707999736195853,
+    "point_hits": 260
+  },
+  "source_sha256": "5f9b0eec877202ba009fd3223164b56740faf5d35f8ea0630602d83be1658052",
+  "scalar_gate": {
+    "at": "2026-10-29T03:00:47.014797+08:00",
+    "status": "passed",
+    "independent_scalar_vs_batched_cuts_exact": true,
+    "probes": 10
+  },
+  "test_tuned": true
+}

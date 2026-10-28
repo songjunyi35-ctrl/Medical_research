@@ -1,9 +1,11 @@
 # AFlow BraTS研究汇报
 
 <!-- AUTO_INFERENCE12H_20261028 -->
-## 2026-10-29：无训练推理自动研究进展
+## 2026-10-29：无训练自动研究进展
 
-同w32第171轮、原单T1ce与270/119，用户授权12小时持续研究。当前已核验最高Dice0.784139146、Subject0.771156128、Point258/270，8次同权重前向；对原普通推理差+0.010911106。完整约76万配置保留正负，1464216融合与512整数相位继续。所有本轮选择直接test-tuned，无新独立确认；不改独立RACE训练。窗口至08:41，当前是中间快照。[结果与局限](archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md)。
+当前已审计Scan **0.784311696**、Subject **0.771405304**、Point **260/270**，部署8次同权重前向；相对原普通推理0.773228040差 **+0.011083655**，患者配对描述性95%[0.007213049329584465, 0.016188773416001976]。 全部270掩膜TP/FP/FN、定位点与搜索矩阵独立核对。 所有全局规则直接由复用270选择，全部test-tuned；选择后区间未校正大规模搜索，不称独立泛化。无GT/病例ID单例路由，GT只评分和全局超参选择；脑区支撑限制预测时，仍保留整个原crop GT分母。
+
+完整完成5,785,315个有限全局参数元组（非独立方法或唯一掩膜），保留全部负结果。双A10080的flip0/flip7各512整数相位共享前缀及后续融合/校准继续；当前不是结题。恢复5/6。 [中间快照](archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md) · [接续](archive/research_records/2026-10-28_segresnet_auto_inference12h/RUNBOOK.md)。
 <!-- END_AUTO_INFERENCE12H_20261028 -->
 
 <!-- INFERENCE_SELECTED_TEST270_20261028 -->

@@ -1,0 +1,453 @@
+{
+  "at": "2026-10-29T03:00:47.125727+08:00",
+  "analysis": "d1_1000_joint_calibration",
+  "job": {
+    "resource_token": "r1_worker1153287",
+    "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+    "test_tuned": true,
+    "all270_same_global_rule": true,
+    "id": "d1_1000_joint_calibration",
+    "handler": "calibration_fast_consistency_v1",
+    "source_analysis": "d1_0000_joint_fusions",
+    "analysis_dependencies": [
+      "d1_0000_joint_fusions"
+    ],
+    "cpu_workers": 16,
+    "source_sha256": {
+      "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+      "scripts/segresnet_auto_inference12h_20261028/worker_v4.py": "450d236bedc9ae3e92c743a146423402c3c23a78c3a0ab881486981a278c9760",
+      "scripts/segresnet_auto_inference12h_20261028/guard_cached_v1.py": "c51d968e563346c29b410483ae7e6f5485c0680797e6ac5438280175400eb3dc",
+      "scripts/segresnet_auto_inference12h_20261028/fast_volume_cuts_v1.py": "f165253e90801ef593f8e30c7aae731d305976eff790f48fe72ca9b963fc9b03",
+      "scripts/segresnet_auto_inference12h_20261028/calibration_fast_consistency_v1.py": "c82536b076526356e13aa7297a7a7d4e89e73f22c9eb849219d9609cbaa9e388"
+    }
+  },
+  "source_job": {
+    "resource_token": "r1_worker1153287",
+    "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+    "test_tuned": true,
+    "all270_same_global_rule": true,
+    "id": "d1_0000_joint_fusions",
+    "handler": "joint_fusions_v1",
+    "core_source": "r1_0000_core_mirror8",
+    "depends_on": [
+      "r1_0000_control",
+      "r1_0000_core_mirror8"
+    ],
+    "analysis_dependencies": [
+      "b1_1000_nonlinear_calibration"
+    ],
+    "pixel_beam": [
+      {
+        "id": "weighted_logit_T4.0_W8.0_e-1.0_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 8.0,
+        "exponent": -1.0,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_logit_T4.0_W4.0_e-0.25_subset219",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 4.0,
+        "exponent": -0.25,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          7
+        ],
+        "neural_case_forwards": 6
+      },
+      {
+        "id": "weighted_logit_T4.0_W4.0_e-0.25_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 4.0,
+        "exponent": -0.25,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_logit_T4.0_W8.0_e-0.5_subset219",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 8.0,
+        "exponent": -0.5,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          7
+        ],
+        "neural_case_forwards": 6
+      },
+      {
+        "id": "weighted_probability_T3.0_W3.0_e0.25_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 3.0,
+        "weighting_temperature": 3.0,
+        "exponent": 0.25,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T6.0_W6.0_e-0.25_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 6.0,
+        "weighting_temperature": 6.0,
+        "exponent": -0.25,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T4.0_W1.0_e0.125_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 4.0,
+        "weighting_temperature": 1.0,
+        "exponent": 0.125,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T5.0_W5.0_e0.125_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 5.0,
+        "weighting_temperature": 5.0,
+        "exponent": 0.125,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T3.0_W1.0_e0.125_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 3.0,
+        "weighting_temperature": 1.0,
+        "exponent": 0.125,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T4.0_W4.0_e0.125_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 4.0,
+        "weighting_temperature": 4.0,
+        "exponent": 0.125,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T8.0_W8.0_e-0.5_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 8.0,
+        "weighting_temperature": 8.0,
+        "exponent": -0.5,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_logit_T4.0_W8.0_e-0.5_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 8.0,
+        "exponent": -0.5,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T5.0_W5.0_e-0.25_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 5.0,
+        "weighting_temperature": 5.0,
+        "exponent": -0.25,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T5.0_W5.0_e0.25_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 5.0,
+        "weighting_temperature": 5.0,
+        "exponent": 0.25,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T3.0_W3.0_e0.125_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 3.0,
+        "weighting_temperature": 3.0,
+        "exponent": 0.125,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "weighted_probability_T8.0_W8.0_e-0.25_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_probability",
+        "view_temperature": 8.0,
+        "weighting_temperature": 8.0,
+        "exponent": -0.25,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "control_uniform_logit4_subset251",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 1.0,
+        "exponent": 0.0,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 7
+      },
+      {
+        "id": "control_uniform_logit4_subset255",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 1.0,
+        "exponent": 0.0,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      }
+    ],
+    "recipe_count": 396,
+    "beam_rank_sha256": "daa60b610ee4b086bce3fb38c33cb402f0a9fc909b6df58c017aadc1ea83bdec",
+    "source_sha256": {
+      "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+      "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd",
+      "scripts/segresnet_auto_inference12h_20261028/analysis_aux_worker_v1.py": "b88e847c33aaee3432e49fc32baed011b610b37e56538c7e2aa9279315c8a146",
+      "scripts/segresnet_auto_inference12h_20261028/joint_fusions_v1.py": "97210542a0252c66ec9fe8ef663d53761761099fb6114d2242e63dd3862943be",
+      "scripts/segresnet_auto_inference12h_20261028/nonlinear_fusions_v1.py": "33e7fabb3d21b6423a45d0a4efb85c4a04536416b8e4b81d566f89ba6a5a5195",
+      "scripts/segresnet_auto_inference12h_20261028/case_consistency_v1.py": "ab03bbcd0a02b216e6737fb1e7656beb6cb01ceb20f156287b582525ccdf133c",
+      "scripts/segresnet_auto_inference12h_20261028/histograms_adaptive_v1.py": "4100809cf8e980093b3069f5204051cb87bc16ee2fdc64c75751b23d21ece593",
+      "scripts/segresnet_auto_inference12h_20261028/threshold_histograms_v1.py": "ec302b092feb2046651b6656381d667c74b8b65902a14f3a8883d031f9480b39"
+    }
+  },
+  "best": {
+    "recipe_index": 387,
+    "recipe": {
+      "id": "joint_control_uniform_logit4_subset255_tau0.2_case32.0",
+      "kind": "joint_weighted_fusion",
+      "pixel_recipe": {
+        "id": "control_uniform_logit4_subset255",
+        "kind": "nonlinear_weighted_fusion",
+        "mode": "weighted_logit",
+        "view_temperature": 4.0,
+        "weighting_temperature": 1.0,
+        "exponent": 0.0,
+        "epsilon": 1e-05,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "vote_threshold": 0.2,
+      "case_exponent": 32.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    "parameters": {
+      "post_temperature": 1.0,
+      "bias": -0.5,
+      "beta": 0.8,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 5766,
+    "scan_dice": 0.7835348979742439,
+    "subject_dice": 0.7707826295298854,
+    "point_hits": 259
+  },
+  "source_sha256": "5f9b0eec877202ba009fd3223164b56740faf5d35f8ea0630602d83be1658052",
+  "scalar_gate": {
+    "at": "2026-10-29T03:00:47.015286+08:00",
+    "status": "passed",
+    "independent_scalar_vs_batched_cuts_exact": true,
+    "probes": 10
+  },
+  "test_tuned": true
+}
