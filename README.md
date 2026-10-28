@@ -16,6 +16,16 @@
 
 **这些是test-tuned探索性结果，不是独立泛化或官方隐藏榜成绩。** 原内部270队列被重复用于诊断与有限融合选择，未取得新的outer/confirmation评测；270标签未进入训练梯度。保留原始角色清单、验证选优规则及全部六项固定融合结果。108验证选第525轮；训练完成预算内550轮，不能称为默认1000轮完整复现。完整管线有多项变化，不能把收益全部归因于架构。不同栅格和推理成本分开比较。
 
+## 2026-10-28论文算法调研存档
+
+新增24篇相关研究的比较、可靠解剖参照与变化证据解耦分割候选方案，以及六页导师汇报稿。当前为研究设计，尚未实现或训练，没有新增精度结果。
+
+- [算法调研与选题比较](AFlow/archive/reviews/2026-10-28_thesis_algorithm_survey/REPORT.md)
+- [算法草案与消融设计](AFlow/archive/reviews/2026-10-28_thesis_algorithm_survey/IDEA.md)
+- [导师汇报稿](AFlow/archive/reviews/2026-10-28_thesis_algorithm_survey/BRIEFING.md)
+
+本次仅补充上述调研材料，其他代码和实验档案仍沿用原发布快照；不表示已同步截至10月28日的全部工作树。
+
 ## 阅读入口
 
 - [最终结果报告与比较区间](AFlow/archive/research_records/2026-10-13_nnunet_resenc_reference/RESULT.md)
