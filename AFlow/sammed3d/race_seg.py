@@ -191,4 +191,6 @@ def typed_contrast(embedding, classes, prototypes, valid, max_per_class=128):
             case_terms.append(F.cross_entropy(logits, torch.full((len(indices),), category, device=indices.device)))
         if case_terms:
             terms.append(torch.stack(case_terms).mean())
-    return torch.stack(terms).mean() if terms else embedding.sum()*0
+    # Keep zero gradients (rather than None) for all prototype parameters on an
+    # entirely invalid-reference batch, preserving optimizer-step accounting.
+    return torch.stack(terms).mean() if terms else embedding.sum()*0 + prototypes.sum()*0

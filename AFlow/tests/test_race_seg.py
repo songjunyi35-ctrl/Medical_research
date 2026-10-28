@@ -68,6 +68,9 @@ def test_missing_classes_and_prototype_gradients():
     assert loss.isfinite() and proto.grad.isfinite().all() and proto.grad.abs().sum()>0
     empty=typed_contrast(emb,labels,proto,torch.zeros_like(labels),8)
     assert empty==0 and empty.isfinite()
+    proto.grad=None
+    empty.backward()
+    assert proto.grad is not None and torch.count_nonzero(proto.grad)==0
 
 
 def test_auxiliary_sampling_does_not_change_backbone_rng():
