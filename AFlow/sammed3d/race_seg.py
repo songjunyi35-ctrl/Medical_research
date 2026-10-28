@@ -176,6 +176,7 @@ def typed_contrast(embedding, classes, prototypes, valid, max_per_class=128):
     terms = []
     for b in range(len(labels)):
         flat = embedding[b].flatten(1).T
+        case_terms = []
         for category in range(3):
             indices = ((labels[b].flatten() == category) & support[b].flatten()).nonzero().flatten()
             if not len(indices):
@@ -187,5 +188,7 @@ def typed_contrast(embedding, classes, prototypes, valid, max_per_class=128):
                     indices = indices[torch.randperm(len(indices), device=indices.device)[:max_per_class]]
             logits = torch.einsum("nd,ckd->nck", flat[indices].float(), anchors) / .2
             logits = torch.logsumexp(logits, -1)
-            terms.append(F.cross_entropy(logits, torch.full((len(indices),), category, device=indices.device)))
+            case_terms.append(F.cross_entropy(logits, torch.full((len(indices),), category, device=indices.device)))
+        if case_terms:
+            terms.append(torch.stack(case_terms).mean())
     return torch.stack(terms).mean() if terms else embedding.sum()*0

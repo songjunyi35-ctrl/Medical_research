@@ -95,3 +95,16 @@ def test_matched_backbone_initialization_and_auxiliary_gradients():
     for module in (candidate.reference.query,candidate.project,candidate.gate_head):
         assert module.weight.grad is not None and torch.isfinite(module.weight.grad).all()
         assert module.weight.grad.abs().sum()>0
+
+
+def test_typed_contrast_weights_cases_equally_with_different_present_classes():
+    torch.manual_seed(22)
+    embedding=torch.randn(2,4,4,4,4)
+    prototypes=torch.randn(3,2,4)
+    labels=torch.zeros(2,1,32,32,32,dtype=torch.uint8)
+    labels[1,:,8:16]=1
+    labels[1,:,16:24]=2
+    valid=torch.ones_like(labels,dtype=torch.float32)
+    joint=typed_contrast(embedding,labels,prototypes,valid,128)
+    separate=torch.stack([typed_contrast(embedding[i:i+1],labels[i:i+1],prototypes,valid[i:i+1],128) for i in range(2)]).mean()
+    assert torch.allclose(joint,separate,atol=1e-6,rtol=0)
