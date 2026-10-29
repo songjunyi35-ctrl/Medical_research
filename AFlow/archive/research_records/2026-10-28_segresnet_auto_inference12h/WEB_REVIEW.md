@@ -30,3 +30,5 @@
 ## 原生全连接CRF已完成（03:34）
 
 27候选×39＋后校准完整270结束；裸阈值和体积校准最高均是无边项控制（校准0.783491753/Point258）。当前证据没有显示该Gaussian/双边图有限参数格带来额外收益；这不是所有CRF方法无效的结论。若此控制叠加形态后有小增益，也只能归给概率表示/校准/形态，不归给不存在的pairwise消息传递。
+
+2026-10-29 04:10补充：再次检索原始SegTTA https://arxiv.org/abs/2604.17451 核对gamma/contrast/Gaussian blur/noise。现补齐ROUND026本单权重强度TTA，非其多MedSAM2模型复现；28组仅已登记待phase依赖，尚无此分支患者分数。OptTTA https://proceedings.mlr.press/v172/tomar22a.html 和JCSAugment https://pubmed.ncbi.nlm.nih.gov/37276115/ 有学习/优化策略，不直接视为当前固定无训练复现；本轮只用手工有限网格。

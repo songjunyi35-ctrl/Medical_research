@@ -3,7 +3,7 @@
 单T1ce MRI脑肿瘤分割研究代码、实验档案和论文材料。2026-10-14工作树快照，沿用原科研迁移包的范围，保留历史正负结果。
 
 <!-- AUTO_INFERENCE12H_20261028 -->
-## 2026-10-29：固定171权重的无训练自动推理研究｜中间快照，仍运行
+## 2026-10-29：固定171权重的无训练自动推理研究｜已完成至少12小时研究
 
 固定单T1ce、SegResNet32通道第171轮、原270扫描/119患者，网络训练0。研究窗口北京时间28日20:41:16至29日08:41:16。用户授权直接按270反馈全局选择，本批全部test-tuned，非独立泛化确认。
 
@@ -12,16 +12,16 @@
 | 原始推理 | 0.773228 | 0.760027 | 256/270 | 1 |
 | 研究前固定五镜像＋体积解码 | 0.780995 | 0.768306 | 255/270 | 5 |
 | 7视图自适应解码＋组件＋填孔 | 0.784073 | 0.771076 | 260/270 | 7 |
-| 当前已审计最高 | **0.784312** | **0.771405** | **260/270** | 8 |
+| 当前已审计最高 | **0.784382** | **0.771379** | **260/270** | 8 |
 
-已完整评分5,785,315个有限全局参数元组（不是独立方法数）；两路512整数相位及其共享前缀/后续融合仍运行。全部270掩膜计数与矩阵独立核验，当前是否完成重新神经前向以部署报告为准。所有阈值和组件规则直接test-tuned，不使用真实GT或病例ID做单例路由；脑区支撑不缩小GT评估域。
+已完整评分7,896,659个有限全局参数元组（不是独立方法数）；两方向512相位、28强度增强及其组合已经完成。全部270掩膜计数与矩阵独立核验，重新神经前向的具体范围以最终报告为准。所有阈值和组件规则直接test-tuned，不使用真实GT或病例ID做单例路由；脑区支撑不缩小GT评估域。
 
-- [当前完整快照与限制](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/INTERIM_RESULT.md)
-- [最高候选](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RESULT.md)、[7视图成本替代](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0018_adaptive_holes/RESULT.md)
-- [部署接口及核验状态](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/DEPLOYMENT_INTERIM.md)、[联网调研及实际结果](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/WEB_REVIEW.md)
+- [最终报告与限制](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/RESULT.md)
+- [最高候选](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0036_local_brain_joint/RESULT.md)、[7视图成本替代](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0018_adaptive_holes/RESULT.md)
+- [部署接口及核验状态](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/DEPLOYMENT.md)、[联网调研及实际结果](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/WEB_REVIEW.md)
 - [源码](AFlow/scripts/segresnet_auto_inference12h_20261028/)、[接续记录](AFlow/archive/research_records/2026-10-28_segresnet_auto_inference12h/RUNBOOK.md)
 
-只同步源码和文本证据，不上传MRI/标签、模型权重或预测/数值数组。正负结果、工程/清理记录及SHA保留，独立RACE不受影响。当前推送不表示12小时研究已结束。
+只同步源码和文本证据，不上传MRI/标签、模型权重或预测/数值数组。正负结果、工程/清理记录及SHA保留，独立RACE不受影响。本研究已经结题，不自动扩搜或重启旧实验。
 <!-- END_AUTO_INFERENCE12H_20261028 -->
 
 <!-- INFERENCE_IMPROVEMENT_20261028 -->

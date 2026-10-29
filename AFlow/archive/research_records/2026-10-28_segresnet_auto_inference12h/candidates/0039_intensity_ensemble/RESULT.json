@@ -1,0 +1,115 @@
+{
+  "at": "2026-10-29T07:34:29.955694+08:00",
+  "state": "audited_candidate",
+  "method": "segresnet_w32_e171_auto12h_0039_intensity_ensemble_testtuned_20261028",
+  "metrics": {
+    "scan_dice": 0.7837962384577151,
+    "subject_dice": 0.7711923258645195,
+    "scan_ci95": [
+      0.7617068093148068,
+      0.8034784971274807
+    ],
+    "subject_ci95": [
+      0.7489645385326874,
+      0.7917702483187536
+    ],
+    "point_hit": 0.9592592592592593,
+    "scans": 270,
+    "subjects": 119,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "point_hits": 259
+  },
+  "comparison_to_previous_incumbent": {
+    "scan_delta": 0.00280104022887018,
+    "subject_delta": 0.0028860465579089666,
+    "scan_delta_ci95": [
+      0.0015178511611627977,
+      0.004394956310056303
+    ],
+    "subject_delta_ci95": [
+      0.0014483310092313615,
+      0.004625746952135022
+    ],
+    "scan_delta_ci97_5": [
+      0.0013723400544092817,
+      0.004657087785944079
+    ],
+    "subject_delta_ci97_5": [
+      0.0012673515292322814,
+      0.004910736319906384
+    ],
+    "point_hits_delta": 4,
+    "improved_scans": 165,
+    "worse_scans": 105,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+  },
+  "best_configuration": {
+    "recipe_index": 1497,
+    "recipe": {
+      "id": "offset_high_trim1_probability_T1.0_a0.2_wNone",
+      "kind": "group_mix",
+      "multi_group_fusion": true,
+      "groups": [
+        "r1_0061_intensity02",
+        "r1_0082_intensity05",
+        "r1_0064_intensity08",
+        "r1_0085_intensity11",
+        "r1_0086_intensity13",
+        "r1_0068_intensity16",
+        "r1_0089_intensity19",
+        "r1_0071_intensity22",
+        "r1_0092_intensity25"
+      ],
+      "group": "r1_0061_intensity02",
+      "group_sources": [
+        "r1_0061_intensity02",
+        "r1_0082_intensity05",
+        "r1_0064_intensity08",
+        "r1_0085_intensity11",
+        "r1_0086_intensity13",
+        "r1_0068_intensity16",
+        "r1_0089_intensity19",
+        "r1_0071_intensity22",
+        "r1_0092_intensity25"
+      ],
+      "base": "base8soft_case24",
+      "family": "offset_high",
+      "mode": "trim1_probability",
+      "group_temperature": 1.0,
+      "alpha": 0.2,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 80,
+      "brain_support_margin": 0
+    },
+    "parameters": {
+      "post_temperature": 1.0,
+      "bias": -0.25,
+      "beta": 0.9,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 7042,
+    "scan_dice": 0.7837962384577151,
+    "subject_dice": 0.7711923258645195,
+    "point_hits": 259
+  },
+  "analysis": "g2_1000_intensity_ensemble_calibration",
+  "locator_forwards": 80,
+  "all270_masks_independently_verified": true,
+  "GT_domain_unchanged": true,
+  "raw_sha256": "b59da3d0ee44a792b726b76a78daf0bef37c4f5c88e954ff853e2c8f99d2aa31",
+  "recipe_sha256": "e96ad689de7ca8a6a31bbdf31b42780e2ad1b1160a255e223d80a82461e6ad66",
+  "training": false,
+  "test_tuned": true,
+  "current_test_retuning": true,
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade"
+}

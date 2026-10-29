@@ -1,0 +1,79 @@
+{
+  "at": "2026-10-29T05:40:41.438163+08:00",
+  "state": "audited_candidate",
+  "method": "segresnet_w32_e171_auto12h_0036_local_brain_joint_testtuned_20261028",
+  "metrics": {
+    "scan_dice": 0.7843821133176486,
+    "subject_dice": 0.7713788106390574,
+    "scan_ci95": [
+      0.7624335921353215,
+      0.8038062807785045
+    ],
+    "subject_ci95": [
+      0.7492636207000194,
+      0.7919028828433436
+    ],
+    "point_hit": 0.9629629629629629,
+    "scans": 270,
+    "subjects": 119,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "point_hits": 260
+  },
+  "comparison_to_previous_incumbent": {
+    "scan_delta": 0.00338691508880368,
+    "subject_delta": 0.0030725313324470815,
+    "scan_delta_ci95": [
+      0.0014956890700031417,
+      0.005926036315733135
+    ],
+    "subject_delta_ci95": [
+      0.0010372198901089636,
+      0.005773558332180442
+    ],
+    "scan_delta_ci97_5": [
+      0.0013087248548870815,
+      0.006360349811794269
+    ],
+    "subject_delta_ci97_5": [
+      0.0008497956150057477,
+      0.006335435638540748
+    ],
+    "point_hits_delta": 5,
+    "improved_scans": 170,
+    "worse_scans": 100,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+  },
+  "best_configuration": {
+    "parameter_index": 316,
+    "hole_index": 2,
+    "parameters": {
+      "post_temperature": 1.125,
+      "bias": 0.375,
+      "beta": 0.5,
+      "volume_scale": 1.0
+    },
+    "hole_maximum": 1000,
+    "component": {
+      "id": "c3_min512_protectFalse",
+      "connectivity": 3,
+      "kind": "minimum",
+      "value": 512,
+      "protect_largest": false
+    },
+    "scan_dice": 0.7843821133176486,
+    "subject_dice": 0.7713788106390574,
+    "point_hits": 260,
+    "neural_case_forwards": 8
+  },
+  "analysis": "h1_0000_local_brain_joint",
+  "locator_forwards": 8,
+  "all270_masks_independently_verified": true,
+  "GT_domain_unchanged": true,
+  "raw_sha256": "c642006004376d13aa3df1f7e2f35e84e593c3340b9f73332f211c71c2be79b5",
+  "recipe_sha256": "b6f28afe0cb68cd386406db1891e2a1621c50cc6be67ce11cf3a41aacb0d4599",
+  "training": false,
+  "test_tuned": true,
+  "current_test_retuning": true,
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade"
+}

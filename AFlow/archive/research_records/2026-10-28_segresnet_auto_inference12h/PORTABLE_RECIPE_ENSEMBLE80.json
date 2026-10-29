@@ -1,0 +1,162 @@
+{
+  "schema": "aflow_frozen_photometric_inference_v1",
+  "predictor_kind": "photometric_ensemble",
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "aggregation": {
+    "id": "offset_high_trim1_probability_T1.0_a0.2_wNone",
+    "kind": "group_mix",
+    "multi_group_fusion": true,
+    "groups": [
+      "r1_0061_intensity02",
+      "r1_0082_intensity05",
+      "r1_0064_intensity08",
+      "r1_0085_intensity11",
+      "r1_0086_intensity13",
+      "r1_0068_intensity16",
+      "r1_0089_intensity19",
+      "r1_0071_intensity22",
+      "r1_0092_intensity25"
+    ],
+    "group": "r1_0061_intensity02",
+    "group_sources": [
+      "r1_0061_intensity02",
+      "r1_0082_intensity05",
+      "r1_0064_intensity08",
+      "r1_0085_intensity11",
+      "r1_0086_intensity13",
+      "r1_0068_intensity16",
+      "r1_0089_intensity19",
+      "r1_0071_intensity22",
+      "r1_0092_intensity25"
+    ],
+    "base": "base8soft_case24",
+    "family": "offset_high",
+    "mode": "trim1_probability",
+    "group_temperature": 1.0,
+    "alpha": 0.2,
+    "views": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "neural_case_forwards": 80,
+    "brain_support_margin": 0,
+    "group_specs": {
+      "r1_0061_intensity02": {
+        "batch": 8,
+        "gamma": 0.85,
+        "gain": 0.85,
+        "offset": 0.15
+      },
+      "r1_0082_intensity05": {
+        "batch": 8,
+        "gamma": 0.85,
+        "gain": 1.0,
+        "offset": 0.15
+      },
+      "r1_0064_intensity08": {
+        "batch": 8,
+        "gamma": 0.85,
+        "gain": 1.15,
+        "offset": 0.15
+      },
+      "r1_0085_intensity11": {
+        "batch": 8,
+        "gamma": 1.0,
+        "gain": 0.85,
+        "offset": 0.15
+      },
+      "r1_0086_intensity13": {
+        "batch": 8,
+        "gamma": 1.0,
+        "gain": 1.0,
+        "offset": 0.15
+      },
+      "r1_0068_intensity16": {
+        "batch": 8,
+        "gamma": 1.0,
+        "gain": 1.15,
+        "offset": 0.15
+      },
+      "r1_0089_intensity19": {
+        "batch": 8,
+        "gamma": 1.15,
+        "gain": 0.85,
+        "offset": 0.15
+      },
+      "r1_0071_intensity22": {
+        "batch": 8,
+        "gamma": 1.15,
+        "gain": 1.0,
+        "offset": 0.15
+      },
+      "r1_0092_intensity25": {
+        "batch": 8,
+        "gamma": 1.15,
+        "gain": 1.15,
+        "offset": 0.15
+      }
+    },
+    "group_views": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "base_recipe": {
+      "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+      "kind": "case_consistency",
+      "vote_threshold": 0.2,
+      "exponent": 24.0,
+      "keep_views": 8,
+      "representation": "logit",
+      "view_temperature": 4.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    }
+  },
+  "decoder": {
+    "post_temperature": 1.0,
+    "bias": -0.25,
+    "beta": 0.9,
+    "volume_scale": 1.0
+  },
+  "decoder_kind": "brain_domain_volume",
+  "postprocessing": [
+    {
+      "id": "c2_min512_protectFalse",
+      "connectivity": 2,
+      "kind": "minimum",
+      "value": 512,
+      "protect_largest": false
+    },
+    {
+      "id": "fill_small_hole1000",
+      "source": "selected",
+      "operation": "fill_holes",
+      "value": 1000
+    }
+  ],
+  "selected_on_reused_test270": true,
+  "input_contract": "same native1mm T1ce normalization/canvas and image-derived unpadding geometry",
+  "source_result_sha256": "c87570a39200e3a16b1bb46ab9e6e8ab59ec3f857ffaeec43fd05362b7706f00",
+  "neural_case_forwards": 80
+}

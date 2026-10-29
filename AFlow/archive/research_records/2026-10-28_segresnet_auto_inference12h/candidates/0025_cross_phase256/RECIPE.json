@@ -1,0 +1,1147 @@
+{
+  "at": "2026-10-29T04:29:33.707423+08:00",
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "aggregation": {
+    "id": "cross_phase256_w0.25_T0.25_base8soft_a0.025",
+    "kind": "group_mix",
+    "group": "a2_0000_polyphase512_n256",
+    "group_sources": [
+      "a2_0000_polyphase512_n256",
+      "r1_0050_polyphase512_flip7_n256"
+    ],
+    "phase_weight": 0.25,
+    "base": "base8soft",
+    "group_temperature": 0.25,
+    "alpha": 0.025,
+    "views": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "neural_case_forwards": 520
+  },
+  "decoder": {
+    "post_temperature": 1.0,
+    "bias": -0.75,
+    "beta": 1.0,
+    "volume_scale": 1.0
+  },
+  "decoder_kind": "calibration_fast_consistency_v1",
+  "selected_on_test270": true,
+  "GT_input_to_inference": false,
+  "source_job": {
+    "resource_token": "r1_worker1153287",
+    "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+    "test_tuned": true,
+    "all270_same_global_rule": true,
+    "id": "e1_0002_cross_phase256",
+    "handler": "cross_phase_fusions_v1",
+    "prefix": 256,
+    "phase0_source": "a2_0000_polyphase512_n256",
+    "phase7_source": "r1_0050_polyphase512_flip7_n256",
+    "group_source": "r1_0050_polyphase512_flip7_n256",
+    "core_source": "r1_0000_core_mirror8",
+    "depends_on": [
+      "a2_0000_polyphase512_n256",
+      "r1_0050_polyphase512_flip7_n256",
+      "r1_0000_core_mirror8"
+    ],
+    "source_sha256": {
+      "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+      "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd",
+      "scripts/segresnet_auto_inference12h_20261028/analysis_aux_worker_v1.py": "b88e847c33aaee3432e49fc32baed011b610b37e56538c7e2aa9279315c8a146",
+      "scripts/segresnet_auto_inference12h_20261028/cross_phase_fusions_v1.py": "399e7bc61ec55a2a6c92be323c37b743389a48c828a1dcd076b94fa0ca133902",
+      "scripts/segresnet_auto_inference12h_20261028/core_fusions_v1.py": "55f102665b16f8168f013acc238004acda30fdf7fd99e67687c5cec361f5453c",
+      "scripts/segresnet_auto_inference12h_20261028/histograms_triton_v1.py": "274e9fbcfd4d18362159d9c90604a6701e257aa4b265c82252a92325e78cb728"
+    }
+  },
+  "point_rule": "aggregation probability argmax",
+  "quantization_bins": 65536,
+  "realized_cuts": [
+    {
+      "case_id": "BraTS-GLI-00006-100",
+      "quantized_cut": 24481
+    },
+    {
+      "case_id": "BraTS-GLI-00006-101",
+      "quantized_cut": 25327
+    },
+    {
+      "case_id": "BraTS-GLI-00096-100",
+      "quantized_cut": 34268
+    },
+    {
+      "case_id": "BraTS-GLI-00096-101",
+      "quantized_cut": 34231
+    },
+    {
+      "case_id": "BraTS-GLI-00469-100",
+      "quantized_cut": 35377
+    },
+    {
+      "case_id": "BraTS-GLI-00469-101",
+      "quantized_cut": 31640
+    },
+    {
+      "case_id": "BraTS-GLI-00472-100",
+      "quantized_cut": 20198
+    },
+    {
+      "case_id": "BraTS-GLI-00472-101",
+      "quantized_cut": 18829
+    },
+    {
+      "case_id": "BraTS-GLI-00491-100",
+      "quantized_cut": 31164
+    },
+    {
+      "case_id": "BraTS-GLI-00491-101",
+      "quantized_cut": 33134
+    },
+    {
+      "case_id": "BraTS-GLI-00506-100",
+      "quantized_cut": 30324
+    },
+    {
+      "case_id": "BraTS-GLI-00506-101",
+      "quantized_cut": 30486
+    },
+    {
+      "case_id": "BraTS-GLI-00528-100",
+      "quantized_cut": 34692
+    },
+    {
+      "case_id": "BraTS-GLI-00528-101",
+      "quantized_cut": 34976
+    },
+    {
+      "case_id": "BraTS-GLI-02061-100",
+      "quantized_cut": 23579
+    },
+    {
+      "case_id": "BraTS-GLI-02061-101",
+      "quantized_cut": 27261
+    },
+    {
+      "case_id": "BraTS-GLI-02061-102",
+      "quantized_cut": 30888
+    },
+    {
+      "case_id": "BraTS-GLI-02061-103",
+      "quantized_cut": 35815
+    },
+    {
+      "case_id": "BraTS-GLI-02062-100",
+      "quantized_cut": 27711
+    },
+    {
+      "case_id": "BraTS-GLI-02062-101",
+      "quantized_cut": 30090
+    },
+    {
+      "case_id": "BraTS-GLI-02062-102",
+      "quantized_cut": 30900
+    },
+    {
+      "case_id": "BraTS-GLI-02062-103",
+      "quantized_cut": 30235
+    },
+    {
+      "case_id": "BraTS-GLI-02062-104",
+      "quantized_cut": 27884
+    },
+    {
+      "case_id": "BraTS-GLI-02062-105",
+      "quantized_cut": 33086
+    },
+    {
+      "case_id": "BraTS-GLI-02066-100",
+      "quantized_cut": 35622
+    },
+    {
+      "case_id": "BraTS-GLI-02066-101",
+      "quantized_cut": 31638
+    },
+    {
+      "case_id": "BraTS-GLI-02066-102",
+      "quantized_cut": 29397
+    },
+    {
+      "case_id": "BraTS-GLI-02066-103",
+      "quantized_cut": 35431
+    },
+    {
+      "case_id": "BraTS-GLI-02066-104",
+      "quantized_cut": 35237
+    },
+    {
+      "case_id": "BraTS-GLI-02066-105",
+      "quantized_cut": 35148
+    },
+    {
+      "case_id": "BraTS-GLI-02072-100",
+      "quantized_cut": 30132
+    },
+    {
+      "case_id": "BraTS-GLI-02072-101",
+      "quantized_cut": 30665
+    },
+    {
+      "case_id": "BraTS-GLI-02072-102",
+      "quantized_cut": 34984
+    },
+    {
+      "case_id": "BraTS-GLI-02072-103",
+      "quantized_cut": 35538
+    },
+    {
+      "case_id": "BraTS-GLI-02072-104",
+      "quantized_cut": 34075
+    },
+    {
+      "case_id": "BraTS-GLI-02072-105",
+      "quantized_cut": 31893
+    },
+    {
+      "case_id": "BraTS-GLI-02074-100",
+      "quantized_cut": 33410
+    },
+    {
+      "case_id": "BraTS-GLI-02074-101",
+      "quantized_cut": 34954
+    },
+    {
+      "case_id": "BraTS-GLI-02079-100",
+      "quantized_cut": 33481
+    },
+    {
+      "case_id": "BraTS-GLI-02079-101",
+      "quantized_cut": 34143
+    },
+    {
+      "case_id": "BraTS-GLI-02083-100",
+      "quantized_cut": 17305
+    },
+    {
+      "case_id": "BraTS-GLI-02083-101",
+      "quantized_cut": 21714
+    },
+    {
+      "case_id": "BraTS-GLI-02083-102",
+      "quantized_cut": 32536
+    },
+    {
+      "case_id": "BraTS-GLI-02083-103",
+      "quantized_cut": 33927
+    },
+    {
+      "case_id": "BraTS-GLI-02084-100",
+      "quantized_cut": 25822
+    },
+    {
+      "case_id": "BraTS-GLI-02084-101",
+      "quantized_cut": 33274
+    },
+    {
+      "case_id": "BraTS-GLI-02084-102",
+      "quantized_cut": 35049
+    },
+    {
+      "case_id": "BraTS-GLI-02084-103",
+      "quantized_cut": 35178
+    },
+    {
+      "case_id": "BraTS-GLI-02085-100",
+      "quantized_cut": 33047
+    },
+    {
+      "case_id": "BraTS-GLI-02085-101",
+      "quantized_cut": 32857
+    },
+    {
+      "case_id": "BraTS-GLI-02085-102",
+      "quantized_cut": 33249
+    },
+    {
+      "case_id": "BraTS-GLI-02085-103",
+      "quantized_cut": 32780
+    },
+    {
+      "case_id": "BraTS-GLI-02085-104",
+      "quantized_cut": 35124
+    },
+    {
+      "case_id": "BraTS-GLI-02085-105",
+      "quantized_cut": 32995
+    },
+    {
+      "case_id": "BraTS-GLI-02088-100",
+      "quantized_cut": 34618
+    },
+    {
+      "case_id": "BraTS-GLI-02088-101",
+      "quantized_cut": 33326
+    },
+    {
+      "case_id": "BraTS-GLI-02088-102",
+      "quantized_cut": 33701
+    },
+    {
+      "case_id": "BraTS-GLI-02091-100",
+      "quantized_cut": 33993
+    },
+    {
+      "case_id": "BraTS-GLI-02091-101",
+      "quantized_cut": 33322
+    },
+    {
+      "case_id": "BraTS-GLI-02091-102",
+      "quantized_cut": 33155
+    },
+    {
+      "case_id": "BraTS-GLI-02091-103",
+      "quantized_cut": 33774
+    },
+    {
+      "case_id": "BraTS-GLI-02108-100",
+      "quantized_cut": 35004
+    },
+    {
+      "case_id": "BraTS-GLI-02108-101",
+      "quantized_cut": 34461
+    },
+    {
+      "case_id": "BraTS-GLI-02111-100",
+      "quantized_cut": 24422
+    },
+    {
+      "case_id": "BraTS-GLI-02111-101",
+      "quantized_cut": 26792
+    },
+    {
+      "case_id": "BraTS-GLI-02111-102",
+      "quantized_cut": 28738
+    },
+    {
+      "case_id": "BraTS-GLI-02111-103",
+      "quantized_cut": 28990
+    },
+    {
+      "case_id": "BraTS-GLI-02111-104",
+      "quantized_cut": 28454
+    },
+    {
+      "case_id": "BraTS-GLI-02111-105",
+      "quantized_cut": 29051
+    },
+    {
+      "case_id": "BraTS-GLI-02111-106",
+      "quantized_cut": 34946
+    },
+    {
+      "case_id": "BraTS-GLI-02111-107",
+      "quantized_cut": 30207
+    },
+    {
+      "case_id": "BraTS-GLI-02119-100",
+      "quantized_cut": 35508
+    },
+    {
+      "case_id": "BraTS-GLI-02119-101",
+      "quantized_cut": 35673
+    },
+    {
+      "case_id": "BraTS-GLI-02119-102",
+      "quantized_cut": 35554
+    },
+    {
+      "case_id": "BraTS-GLI-02124-100",
+      "quantized_cut": 28482
+    },
+    {
+      "case_id": "BraTS-GLI-02124-101",
+      "quantized_cut": 32822
+    },
+    {
+      "case_id": "BraTS-GLI-02132-100",
+      "quantized_cut": 35922
+    },
+    {
+      "case_id": "BraTS-GLI-02132-101",
+      "quantized_cut": 31035
+    },
+    {
+      "case_id": "BraTS-GLI-02132-102",
+      "quantized_cut": 32702
+    },
+    {
+      "case_id": "BraTS-GLI-02132-103",
+      "quantized_cut": 34941
+    },
+    {
+      "case_id": "BraTS-GLI-02132-104",
+      "quantized_cut": 35834
+    },
+    {
+      "case_id": "BraTS-GLI-02138-100",
+      "quantized_cut": 26997
+    },
+    {
+      "case_id": "BraTS-GLI-02138-101",
+      "quantized_cut": 31171
+    },
+    {
+      "case_id": "BraTS-GLI-02146-100",
+      "quantized_cut": 3075
+    },
+    {
+      "case_id": "BraTS-GLI-02146-101",
+      "quantized_cut": 15489
+    },
+    {
+      "case_id": "BraTS-GLI-02146-102",
+      "quantized_cut": 15635
+    },
+    {
+      "case_id": "BraTS-GLI-02146-103",
+      "quantized_cut": 18073
+    },
+    {
+      "case_id": "BraTS-GLI-02152-100",
+      "quantized_cut": 28767
+    },
+    {
+      "case_id": "BraTS-GLI-02152-101",
+      "quantized_cut": 34178
+    },
+    {
+      "case_id": "BraTS-GLI-02152-102",
+      "quantized_cut": 26308
+    },
+    {
+      "case_id": "BraTS-GLI-02152-103",
+      "quantized_cut": 30436
+    },
+    {
+      "case_id": "BraTS-GLI-02152-104",
+      "quantized_cut": 29744
+    },
+    {
+      "case_id": "BraTS-GLI-02162-100",
+      "quantized_cut": 23774
+    },
+    {
+      "case_id": "BraTS-GLI-02162-101",
+      "quantized_cut": 27183
+    },
+    {
+      "case_id": "BraTS-GLI-02171-100",
+      "quantized_cut": 30192
+    },
+    {
+      "case_id": "BraTS-GLI-02171-101",
+      "quantized_cut": 30634
+    },
+    {
+      "case_id": "BraTS-GLI-02172-100",
+      "quantized_cut": 27377
+    },
+    {
+      "case_id": "BraTS-GLI-02172-101",
+      "quantized_cut": 33520
+    },
+    {
+      "case_id": "BraTS-GLI-02176-100",
+      "quantized_cut": 34611
+    },
+    {
+      "case_id": "BraTS-GLI-02176-101",
+      "quantized_cut": 35300
+    },
+    {
+      "case_id": "BraTS-GLI-02176-102",
+      "quantized_cut": 35879
+    },
+    {
+      "case_id": "BraTS-GLI-02176-103",
+      "quantized_cut": 36036
+    },
+    {
+      "case_id": "BraTS-GLI-02223-100",
+      "quantized_cut": 21866
+    },
+    {
+      "case_id": "BraTS-GLI-02227-100",
+      "quantized_cut": 30031
+    },
+    {
+      "case_id": "BraTS-GLI-02227-101",
+      "quantized_cut": 29521
+    },
+    {
+      "case_id": "BraTS-GLI-02230-100",
+      "quantized_cut": 29386
+    },
+    {
+      "case_id": "BraTS-GLI-02230-101",
+      "quantized_cut": 27126
+    },
+    {
+      "case_id": "BraTS-GLI-02230-102",
+      "quantized_cut": 28053
+    },
+    {
+      "case_id": "BraTS-GLI-02238-100",
+      "quantized_cut": 24062
+    },
+    {
+      "case_id": "BraTS-GLI-02238-101",
+      "quantized_cut": 15356
+    },
+    {
+      "case_id": "BraTS-GLI-02238-102",
+      "quantized_cut": 19910
+    },
+    {
+      "case_id": "BraTS-GLI-02238-103",
+      "quantized_cut": 21997
+    },
+    {
+      "case_id": "BraTS-GLI-02241-100",
+      "quantized_cut": 17665
+    },
+    {
+      "case_id": "BraTS-GLI-02241-101",
+      "quantized_cut": 18731
+    },
+    {
+      "case_id": "BraTS-GLI-02241-102",
+      "quantized_cut": 24544
+    },
+    {
+      "case_id": "BraTS-GLI-02244-100",
+      "quantized_cut": 25173
+    },
+    {
+      "case_id": "BraTS-GLI-02244-101",
+      "quantized_cut": 27233
+    },
+    {
+      "case_id": "BraTS-GLI-02244-102",
+      "quantized_cut": 28387
+    },
+    {
+      "case_id": "BraTS-GLI-02244-103",
+      "quantized_cut": 29427
+    },
+    {
+      "case_id": "BraTS-GLI-02244-104",
+      "quantized_cut": 28610
+    },
+    {
+      "case_id": "BraTS-GLI-02245-100",
+      "quantized_cut": 18402
+    },
+    {
+      "case_id": "BraTS-GLI-02245-101",
+      "quantized_cut": 25441
+    },
+    {
+      "case_id": "BraTS-GLI-02245-102",
+      "quantized_cut": 32666
+    },
+    {
+      "case_id": "BraTS-GLI-02245-103",
+      "quantized_cut": 29632
+    },
+    {
+      "case_id": "BraTS-GLI-02245-104",
+      "quantized_cut": 27800
+    },
+    {
+      "case_id": "BraTS-GLI-02246-100",
+      "quantized_cut": 22771
+    },
+    {
+      "case_id": "BraTS-GLI-02246-101",
+      "quantized_cut": 21374
+    },
+    {
+      "case_id": "BraTS-GLI-02251-100",
+      "quantized_cut": 34851
+    },
+    {
+      "case_id": "BraTS-GLI-02254-100",
+      "quantized_cut": 9783
+    },
+    {
+      "case_id": "BraTS-GLI-02254-101",
+      "quantized_cut": 23462
+    },
+    {
+      "case_id": "BraTS-GLI-02270-100",
+      "quantized_cut": 31968
+    },
+    {
+      "case_id": "BraTS-GLI-02273-100",
+      "quantized_cut": 35876
+    },
+    {
+      "case_id": "BraTS-GLI-02284-100",
+      "quantized_cut": 32506
+    },
+    {
+      "case_id": "BraTS-GLI-02302-100",
+      "quantized_cut": 30295
+    },
+    {
+      "case_id": "BraTS-GLI-02314-100",
+      "quantized_cut": 25035
+    },
+    {
+      "case_id": "BraTS-GLI-02318-100",
+      "quantized_cut": 35276
+    },
+    {
+      "case_id": "BraTS-GLI-02331-100",
+      "quantized_cut": 25859
+    },
+    {
+      "case_id": "BraTS-GLI-02337-100",
+      "quantized_cut": 29692
+    },
+    {
+      "case_id": "BraTS-GLI-02347-100",
+      "quantized_cut": 33865
+    },
+    {
+      "case_id": "BraTS-GLI-02358-100",
+      "quantized_cut": 34593
+    },
+    {
+      "case_id": "BraTS-GLI-02358-101",
+      "quantized_cut": 30050
+    },
+    {
+      "case_id": "BraTS-GLI-02375-100",
+      "quantized_cut": 34787
+    },
+    {
+      "case_id": "BraTS-GLI-02375-101",
+      "quantized_cut": 33289
+    },
+    {
+      "case_id": "BraTS-GLI-02378-100",
+      "quantized_cut": 33306
+    },
+    {
+      "case_id": "BraTS-GLI-02378-101",
+      "quantized_cut": 31209
+    },
+    {
+      "case_id": "BraTS-GLI-02378-102",
+      "quantized_cut": 34900
+    },
+    {
+      "case_id": "BraTS-GLI-02379-100",
+      "quantized_cut": 32263
+    },
+    {
+      "case_id": "BraTS-GLI-02379-101",
+      "quantized_cut": 35555
+    },
+    {
+      "case_id": "BraTS-GLI-02384-100",
+      "quantized_cut": 30932
+    },
+    {
+      "case_id": "BraTS-GLI-02385-100",
+      "quantized_cut": 35523
+    },
+    {
+      "case_id": "BraTS-GLI-02389-100",
+      "quantized_cut": 23407
+    },
+    {
+      "case_id": "BraTS-GLI-02390-100",
+      "quantized_cut": 20666
+    },
+    {
+      "case_id": "BraTS-GLI-02390-101",
+      "quantized_cut": 22258
+    },
+    {
+      "case_id": "BraTS-GLI-02390-102",
+      "quantized_cut": 23448
+    },
+    {
+      "case_id": "BraTS-GLI-02394-100",
+      "quantized_cut": 26897
+    },
+    {
+      "case_id": "BraTS-GLI-02548-100",
+      "quantized_cut": 26863
+    },
+    {
+      "case_id": "BraTS-GLI-02548-101",
+      "quantized_cut": 33983
+    },
+    {
+      "case_id": "BraTS-GLI-02548-102",
+      "quantized_cut": 36225
+    },
+    {
+      "case_id": "BraTS-GLI-02549-100",
+      "quantized_cut": 34920
+    },
+    {
+      "case_id": "BraTS-GLI-02549-101",
+      "quantized_cut": 25588
+    },
+    {
+      "case_id": "BraTS-GLI-02549-102",
+      "quantized_cut": 30520
+    },
+    {
+      "case_id": "BraTS-GLI-02552-100",
+      "quantized_cut": 33227
+    },
+    {
+      "case_id": "BraTS-GLI-02561-100",
+      "quantized_cut": 24841
+    },
+    {
+      "case_id": "BraTS-GLI-02561-101",
+      "quantized_cut": 24133
+    },
+    {
+      "case_id": "BraTS-GLI-02631-100",
+      "quantized_cut": 14139
+    },
+    {
+      "case_id": "BraTS-GLI-02631-101",
+      "quantized_cut": 18885
+    },
+    {
+      "case_id": "BraTS-GLI-02638-100",
+      "quantized_cut": 28191
+    },
+    {
+      "case_id": "BraTS-GLI-02638-101",
+      "quantized_cut": 33086
+    },
+    {
+      "case_id": "BraTS-GLI-02650-100",
+      "quantized_cut": 30817
+    },
+    {
+      "case_id": "BraTS-GLI-02661-100",
+      "quantized_cut": 14274
+    },
+    {
+      "case_id": "BraTS-GLI-02665-100",
+      "quantized_cut": 26877
+    },
+    {
+      "case_id": "BraTS-GLI-02675-100",
+      "quantized_cut": 31468
+    },
+    {
+      "case_id": "BraTS-GLI-02698-100",
+      "quantized_cut": 22582
+    },
+    {
+      "case_id": "BraTS-GLI-02699-100",
+      "quantized_cut": 33075
+    },
+    {
+      "case_id": "BraTS-GLI-02708-100",
+      "quantized_cut": 29538
+    },
+    {
+      "case_id": "BraTS-GLI-02709-100",
+      "quantized_cut": 13997
+    },
+    {
+      "case_id": "BraTS-GLI-02717-100",
+      "quantized_cut": 21958
+    },
+    {
+      "case_id": "BraTS-GLI-02725-100",
+      "quantized_cut": 25718
+    },
+    {
+      "case_id": "BraTS-GLI-02747-100",
+      "quantized_cut": 26745
+    },
+    {
+      "case_id": "BraTS-GLI-02747-101",
+      "quantized_cut": 26777
+    },
+    {
+      "case_id": "BraTS-GLI-02760-100",
+      "quantized_cut": 27205
+    },
+    {
+      "case_id": "BraTS-GLI-02760-101",
+      "quantized_cut": 31768
+    },
+    {
+      "case_id": "BraTS-GLI-02763-100",
+      "quantized_cut": 29803
+    },
+    {
+      "case_id": "BraTS-GLI-02763-101",
+      "quantized_cut": 30251
+    },
+    {
+      "case_id": "BraTS-GLI-02774-100",
+      "quantized_cut": 26410
+    },
+    {
+      "case_id": "BraTS-GLI-02774-101",
+      "quantized_cut": 26872
+    },
+    {
+      "case_id": "BraTS-GLI-02787-100",
+      "quantized_cut": 24358
+    },
+    {
+      "case_id": "BraTS-GLI-02787-101",
+      "quantized_cut": 22909
+    },
+    {
+      "case_id": "BraTS-GLI-02788-100",
+      "quantized_cut": 21664
+    },
+    {
+      "case_id": "BraTS-GLI-02788-101",
+      "quantized_cut": 21426
+    },
+    {
+      "case_id": "BraTS-GLI-02794-100",
+      "quantized_cut": 25535
+    },
+    {
+      "case_id": "BraTS-GLI-02794-101",
+      "quantized_cut": 25987
+    },
+    {
+      "case_id": "BraTS-GLI-02798-100",
+      "quantized_cut": 6212
+    },
+    {
+      "case_id": "BraTS-GLI-02798-101",
+      "quantized_cut": 6891
+    },
+    {
+      "case_id": "BraTS-GLI-02803-100",
+      "quantized_cut": 22038
+    },
+    {
+      "case_id": "BraTS-GLI-02803-101",
+      "quantized_cut": 23563
+    },
+    {
+      "case_id": "BraTS-GLI-02806-100",
+      "quantized_cut": 29483
+    },
+    {
+      "case_id": "BraTS-GLI-02806-101",
+      "quantized_cut": 29359
+    },
+    {
+      "case_id": "BraTS-GLI-02810-100",
+      "quantized_cut": 32620
+    },
+    {
+      "case_id": "BraTS-GLI-02810-101",
+      "quantized_cut": 32796
+    },
+    {
+      "case_id": "BraTS-GLI-02834-100",
+      "quantized_cut": 27558
+    },
+    {
+      "case_id": "BraTS-GLI-02834-101",
+      "quantized_cut": 31169
+    },
+    {
+      "case_id": "BraTS-GLI-02838-100",
+      "quantized_cut": 28958
+    },
+    {
+      "case_id": "BraTS-GLI-02838-101",
+      "quantized_cut": 29339
+    },
+    {
+      "case_id": "BraTS-GLI-02842-100",
+      "quantized_cut": 29153
+    },
+    {
+      "case_id": "BraTS-GLI-02842-101",
+      "quantized_cut": 34196
+    },
+    {
+      "case_id": "BraTS-GLI-02854-100",
+      "quantized_cut": 26365
+    },
+    {
+      "case_id": "BraTS-GLI-02854-101",
+      "quantized_cut": 26649
+    },
+    {
+      "case_id": "BraTS-GLI-02857-100",
+      "quantized_cut": 32617
+    },
+    {
+      "case_id": "BraTS-GLI-02857-101",
+      "quantized_cut": 32743
+    },
+    {
+      "case_id": "BraTS-GLI-02858-100",
+      "quantized_cut": 23659
+    },
+    {
+      "case_id": "BraTS-GLI-02858-101",
+      "quantized_cut": 24369
+    },
+    {
+      "case_id": "BraTS-GLI-02860-100",
+      "quantized_cut": 28726
+    },
+    {
+      "case_id": "BraTS-GLI-02860-101",
+      "quantized_cut": 28719
+    },
+    {
+      "case_id": "BraTS-GLI-02863-100",
+      "quantized_cut": 23803
+    },
+    {
+      "case_id": "BraTS-GLI-02863-101",
+      "quantized_cut": 26009
+    },
+    {
+      "case_id": "BraTS-GLI-02865-100",
+      "quantized_cut": 28547
+    },
+    {
+      "case_id": "BraTS-GLI-02865-101",
+      "quantized_cut": 30427
+    },
+    {
+      "case_id": "BraTS-GLI-02871-100",
+      "quantized_cut": 21052
+    },
+    {
+      "case_id": "BraTS-GLI-02871-101",
+      "quantized_cut": 22703
+    },
+    {
+      "case_id": "BraTS-GLI-02878-100",
+      "quantized_cut": 28936
+    },
+    {
+      "case_id": "BraTS-GLI-02878-101",
+      "quantized_cut": 29782
+    },
+    {
+      "case_id": "BraTS-GLI-02885-100",
+      "quantized_cut": 22079
+    },
+    {
+      "case_id": "BraTS-GLI-02885-101",
+      "quantized_cut": 25188
+    },
+    {
+      "case_id": "BraTS-GLI-02887-100",
+      "quantized_cut": 20574
+    },
+    {
+      "case_id": "BraTS-GLI-02887-101",
+      "quantized_cut": 10022
+    },
+    {
+      "case_id": "BraTS-GLI-02891-100",
+      "quantized_cut": 27297
+    },
+    {
+      "case_id": "BraTS-GLI-02891-101",
+      "quantized_cut": 27068
+    },
+    {
+      "case_id": "BraTS-GLI-02892-100",
+      "quantized_cut": 33814
+    },
+    {
+      "case_id": "BraTS-GLI-02892-101",
+      "quantized_cut": 34934
+    },
+    {
+      "case_id": "BraTS-GLI-02897-100",
+      "quantized_cut": 23058
+    },
+    {
+      "case_id": "BraTS-GLI-02897-101",
+      "quantized_cut": 23359
+    },
+    {
+      "case_id": "BraTS-GLI-02917-100",
+      "quantized_cut": 31812
+    },
+    {
+      "case_id": "BraTS-GLI-02917-101",
+      "quantized_cut": 33381
+    },
+    {
+      "case_id": "BraTS-GLI-02920-100",
+      "quantized_cut": 35493
+    },
+    {
+      "case_id": "BraTS-GLI-02920-101",
+      "quantized_cut": 35696
+    },
+    {
+      "case_id": "BraTS-GLI-02939-100",
+      "quantized_cut": 24021
+    },
+    {
+      "case_id": "BraTS-GLI-02939-101",
+      "quantized_cut": 24073
+    },
+    {
+      "case_id": "BraTS-GLI-02949-100",
+      "quantized_cut": 27629
+    },
+    {
+      "case_id": "BraTS-GLI-02949-101",
+      "quantized_cut": 27427
+    },
+    {
+      "case_id": "BraTS-GLI-02958-100",
+      "quantized_cut": 32045
+    },
+    {
+      "case_id": "BraTS-GLI-02958-101",
+      "quantized_cut": 32625
+    },
+    {
+      "case_id": "BraTS-GLI-02960-100",
+      "quantized_cut": 31672
+    },
+    {
+      "case_id": "BraTS-GLI-02960-101",
+      "quantized_cut": 33888
+    },
+    {
+      "case_id": "BraTS-GLI-02968-100",
+      "quantized_cut": 23106
+    },
+    {
+      "case_id": "BraTS-GLI-02968-101",
+      "quantized_cut": 20367
+    },
+    {
+      "case_id": "BraTS-GLI-02989-100",
+      "quantized_cut": 25502
+    },
+    {
+      "case_id": "BraTS-GLI-02989-101",
+      "quantized_cut": 28766
+    },
+    {
+      "case_id": "BraTS-GLI-02993-100",
+      "quantized_cut": 21687
+    },
+    {
+      "case_id": "BraTS-GLI-02993-101",
+      "quantized_cut": 19551
+    },
+    {
+      "case_id": "BraTS-GLI-02997-100",
+      "quantized_cut": 35116
+    },
+    {
+      "case_id": "BraTS-GLI-02997-101",
+      "quantized_cut": 35772
+    },
+    {
+      "case_id": "BraTS-GLI-02999-100",
+      "quantized_cut": 29070
+    },
+    {
+      "case_id": "BraTS-GLI-02999-101",
+      "quantized_cut": 28976
+    },
+    {
+      "case_id": "BraTS-GLI-03008-100",
+      "quantized_cut": 32983
+    },
+    {
+      "case_id": "BraTS-GLI-03008-101",
+      "quantized_cut": 33078
+    },
+    {
+      "case_id": "BraTS-GLI-03009-100",
+      "quantized_cut": 31756
+    },
+    {
+      "case_id": "BraTS-GLI-03009-101",
+      "quantized_cut": 28679
+    },
+    {
+      "case_id": "BraTS-GLI-03014-100",
+      "quantized_cut": 32872
+    },
+    {
+      "case_id": "BraTS-GLI-03014-101",
+      "quantized_cut": 32946
+    },
+    {
+      "case_id": "BraTS-GLI-03019-100",
+      "quantized_cut": 27924
+    },
+    {
+      "case_id": "BraTS-GLI-03019-101",
+      "quantized_cut": 30221
+    },
+    {
+      "case_id": "BraTS-GLI-03028-100",
+      "quantized_cut": 32625
+    },
+    {
+      "case_id": "BraTS-GLI-03028-101",
+      "quantized_cut": 35259
+    },
+    {
+      "case_id": "BraTS-GLI-03051-100",
+      "quantized_cut": 31497
+    },
+    {
+      "case_id": "BraTS-GLI-03051-101",
+      "quantized_cut": 32196
+    },
+    {
+      "case_id": "BraTS-GLI-03051-102",
+      "quantized_cut": 34870
+    },
+    {
+      "case_id": "BraTS-GLI-03054-100",
+      "quantized_cut": 34044
+    },
+    {
+      "case_id": "BraTS-GLI-03054-101",
+      "quantized_cut": 34296
+    },
+    {
+      "case_id": "BraTS-GLI-03054-102",
+      "quantized_cut": 35091
+    }
+  ]
+}

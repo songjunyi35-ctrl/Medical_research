@@ -117,3 +117,59 @@ PORTABLE_RECIPE_BRAIN_INTERIM.json已导出0021。verify_portable_live_v3准备�
 research_snapshot_v1新脚本计算完整配置元组、completed NN lowerbound及20秒采样GPU时间加权利用率，写COMPUTE_SNAPSHOT.json。只统计记录，old失联/未完/失败重算未入lowerbound，无空档外推；phase父项与共享前缀不双计。当前5.75m配置（f2完成后再刷新）、completed182340患者前向lowerbound，观察新worker均值GPU0约78%、GPU1约70%，不可把某次双100%说成全程100%。最低12小时仍08:41才完成，工作继续。
 
 03:57补充：1202脑区203形态DONE，fill_small_hole1000最高Scan0.7843116955072792、Subject0.7714053038392915、Point260、8次；已在原worker启动promote_postprocess_v2 --analysis1202_brain_binary_postprocess --candidate0023_brain_holes，SSHsession80762，**尚待全部270auditRESULT**，不能提前注册或声称freshAPI已过。0023若完成，register_candidate_v2后deploy_core_v3导出当前配方；fresh仍等phase腾卡。1203dense控制session59413还在收尾。f3联合31232 session33712，早期30/270；其源auditor是promote_brain_beam_v2。goal持续active，不在08:41前结束。
+
+## 04:18最新：第二次中间推送完成，研究继续到08:41
+
+当前最高已正式审计/登记**0023_brain_holes**：Scan0.7843116955072792、Subject0.7714053038392915、Point260，8次。链0020 brainmargin0(case24/T4,postT1/bias+.5/beta.5)→0021 26连接>=512→0023填小孔<=1000。全部270mask与搜索精确；原生双榜54行（本研究23行），新pairwise原w32差+.011083655059337616、95描述性[.007213049329584465,.016188773416001976]，未校正搜索。7视图0018仍.784072660/Point260。
+
+**f3_0000_brain_decoder_component_beam31232已全完**，最高仍0021 .784255388，无新胜者，不再审计同配方。1203dense无边控制+孔343 .784190821，低于当前，完整203矩阵保留不必再审。f2/f3两beam的4张uint16codes已在全DONE后逐SHA/无读者释放6.811GiB，原logits/所有score-cuts/掩膜都保留，cleanup_records/brain_component_codes。若将来要重跑beam须先按原4base重建codes，绝不能当其仍存在。
+
+新增**ROUND026**注册28强度组（完整3³减identity26 + sigma.5/1.blur2），同原输入的gain→nonzero-offset→signedgamma，所有28无患者/无网络合成门过。每卡14，strict依赖自己512父DONE后才开，现相位未完所以CNN尚未开始该分支。总新增预期60480CNN；每组phase_fusions_fast_v1的65×39=2535＋8×6375校准，共1498980配置。GPU0 queue_v2 r1_0060_intensity00等14；GPU1 queue_aux_v1 r1_0080_intensity01等14。**所有28评分在normal analysis_queue_v2（物理GPU1）g1_0000...0027，CPU g1_1000...1027**。SOURCE.json已先写供phase融合读取。fast模块仅cached_guard替换，逆替换后与旧phase_v1逐字节完全同数学；不用重启现控制器。预计phase完成后每卡约一小时，不再新增无关分支。若group真赢用promote_v7审计，然后对应group部署器，现coreAPI不能处理groupMix。
+
+存储初算28组最坏超300所以未启动，cleanup_completed_histograms_v3已安全释放12个已评分来源约21GiB（全部消费者DONE、逐SHA/无读者）；到c1_dense数量校验不匹配即停，c1没有删除，**不重试其清理**。这个辅助门错误保守收费1，现**恢复5/6**，无患者模型或数值任务中断。amendments/005保留，不把它隐瞒。大多数phase/brain/consistency/joint的hist已经删，分数和cuts都完整，API审计不依赖hist。MAIN_SCRATCH_BUDGET扩为保守4GiB，含主机labels和整个publication checkout/Git瞬态；INTENSITY_BUDGET_GATE_POSTPUBLICATION重新核28最坏316414999750<322122547200，含8GiB额外phase余量。初始冻结gate不覆盖，注册账SHA仍指原beforepublications门。
+
+中间发布**8ab1c08f98437db4b1c39a31500ad680d3d81805**已push并lsremote核远程main相同。14,506源码/文本文件，约765MB（不含数组/模型/图像）；manifest24,361项全过，本研究23行×270=6210计数/SHA均过，新91链接无断。旧全历史63链接/titlechecker限制不谎称修复。PRIVATE原始AFlow.git依然未动，只/tmp/medical_research_publish_20261014。新stager/tmp/stage_auto12h_interim_20261029.py已改动态当前metrics，删除4个旧迁移active队列，合并只AUTO marker/native本研究行，不覆盖RACE。README现自动current而非旧0008常量。下次最终还需fetch+stage+校验+push。
+
+新工具**refresh_interim_v1**按当前已审计INCUMBENT刷新5个根marker（严格证明marker外字节不变）、INTERIM_RESULT/DEPLOYMENT_INTERIM/PORTABLE_RECIPE_CURRENT和配对区间/计算快照；final文案需另改completed，不能把interim硬改即结题。**audit_publication_v1 --root <checkout>/AFlow**验证所有本研究native行SHA、270 TPFPFN→Dice/119subject/point和本研究MD链接；不冒称模型fresh或fulllegacy全过。**plot_audited_progress_v2**只用审计结果，SVG去生成尾空格，5/7视图标签位置已查看不重叠，PNG不上传。当前已完成5,785,315元组，completed NN lowerbound216900（不含未完phase/失败未提交/旧失联），util采样统计由research_snapshot_v1，只据实际新worker覆盖区间。
+
+最关键未完成：**当前0023还未API重新神经前向270**，PORTABLE_RECIPE_CURRENT已导出，verify_portable_live_v3用deploy_core_v3和ones合成门已备。旧0008fresh通过不能替代。等物理GPU1 phase完成并检查真实空闲>=35GiB，再同nativebatch8/尾6 fresh。此时新intensity native峰值约30GiB＋fresh约30GiB＋analysis小于10GiB可并行；**仍在phase47GiB时不要叠fresh避免80GiB溢出**。新候选若之后又赢应重新验证最终配方。最低12h终点08:41:16，仍留4h多，不提前完成goal。
+
+## 06:10最新续接（必须坚持到08:41:16至少12h）
+
+当前真实最高变**0036_local_brain_joint**：Scan0.7843821133176486、Subject0.7713788106390574、Point260，仍8前向。h1_0000_local_brain_joint625解码×4孔洞=2500全270完整，控制参数312/孔1000逐270精确复现0023；新最高参数316=postT1.125/bias.375/beta.5/scale1，26连接>=512、孔<=1000。独立原logits270审计通过，**fresh270于05:49通过maskxor0/points相同/Dice差0，2160NN，约461.9s并行环境**，live_verification/0036.../DONE。已register_v3，原生榜68行/本研究37行（包含下述负probe）。refresh_interim_v2已刷新根5marker/INTERIM报告/当前JSON，权重训练0，全部test-tuned。最后推送仍8ab1c08(.784312中间版)，最终需再推。
+
+f4_0000_brain_phase：6源（coreλ16/20/24/28T4以及cross128/256）脑区margin0，68850解码全完，λ24仍裸最高.783639558。**CONTROL_PIXELS_EQ.json270像素0差/point同、无GT/NN0**，为原0020控制像素证据。0028_case16/0029_case20/0030_case28/0031_braincross128/0032_braincross256都裸审计并注册；5×244组件全完。再审计0033_case20_cc、0034_braincross128_cc、0035_braincross256_cc并做203形态（1206/7/8），均DONE；最高分别.784250463/Point259、.784283793/260、.784281914/260，全负于0036，不必再promote。此前0024/25原cross128/256裸、0026/27组件都审计注册，1204/5形态max.784113189/.784114140也负。
+
+**register_candidate_v3**优先用于新行：沿base_recipe链找到group源，从SOURCE实际176224184 padding canvas折体素；264NN=906.828125个128³输入体素当量，520NN=1792.328125，不能仍按native体素乘264/520。DEPLOYMENT_COST.json绑定v3源码SHA，别改v3。**audit_publication_v2**额外核这个cost SHA/求和。native榜已加AUTO_INFERENCE12H_NATIVE_SCOPE_20261028注，明确270当前调参区别历史五镜像不调参；stager已会单独合并该note，不覆盖别人。
+
+**plot_audited_progress_v3**代替v2：三栏低成本<=16/高phase对数成本/相对原始gain，避免520把1–8挤一起；SVG去尾空格，PNG本地不发布。标签布局已人工view，结果只取已审计RESULT。不把体素当FLOPs/延迟。
+
+第一路flip0完整512于05:19 DONE，138240NN；物理GPU0的flip7仍跑（06:08 case248）。随后各自14个intensity产出，28Gamma/Gain/Offset立方加blur组已有约10组完成，GPU1已进入其第11组。**g1校准workers现8**（amendments/006，任何PLAN前修改，原28份job保留；避免H1/形态/旧16cal超31CPU，没有重启或恢复计数）。新0.784382核心已由监督PID20165自动fresh270通过；监督继续等新incumbent，物理1 free>=35GiB才启动，没有主权重训练。
+
+**源保留：rolling_cleanup PID8077已在sleep终止，不要重启！** 原单组cleanup不知后续ensemble会删负mean；amendments/007有STOPPED、原状态和预算证据。只是清理阶段正常结束，不是模型/数值恢复，仍5/6。R/ROLLING_CLEANUP_STATUS已改stopped，旧monitoring别当live。保留28组mean供G2。合并全部28保留+f4+h1+G2额外1.5GiB，最坏298.847GiB<300。后续不再加无关数据；h1代码场约1.7GiB可在如需时按SHA/无读者释放（所有score/cuts/masks必须保留），目前还在。MAIN保守4GiB含主机labels+发布checkout/Git，若增大需重核最坏。
+
+**ROUND030/G2已完整实现并登记**：analysis_queue_aux_v1/g2_0000_intensity_ensemble，依赖全部28 GROUP DONE，GPU0辅助分析；12增强族×6模式×4温度×6混合=1728，加216预测一致性组权重+core24 alpha0控制=1945。75855阈值，前7非控制＋强制控制共8源进入CPU校准11475各，共91800，CPU8，whole原crop GT总量保留。模式mean prob/组概率logit均值/trim1/硬票/均值±.25std；case权重按输入脑区内预测一致性，λ0与算术逐位相等。源**intensity_ensemble_v1冻结，Gate已过全最大shape peak3.541GiB、NN0、GT0**，不要改source。目标不需要新增CNN，全部28 mean是当前缓存。若alpha0控制最高不能把收益归增强。
+
+**新的photometric Group部署接口已备且合成Gate7过（不是真网络结果）**：deploy_group_v1.FrozenGroupPredictor，可处理确定性单强度组(G1 base5/7)和G2多组，复用固定checkpoint及旧forward_view，无GT/CaseID。Group spec白名单gain/gamma/offset/Gaussian；**不支持phase/ROI/noise/dropout**，不得伪称。多组核心base固定case24/T4；alpha1可省core，union等若需原0会正确补1NN。postprocess_sweep_v3已修canonical_views成本（变换view0不是原0），在1206等冻结前完成改动，当前SHA fc9e505...，不要再改。旧v2用于历史保持。
+
+**0037_intensity_api_probe**是按固定登记第一已完成g1_1001组挑的真实接口工程probe，已全270缓存审计注册；Dice.7834167667、Point259、15NN，不是新最高。导出PORTABLE_RECIPE_GROUP_PROBE.json。**verify_group_live_v1正在物理GPU1完整270NN重推，SSHsession61165**，合成B8/尾6 gate29.9GiB通过，当前已约128+例；取DONE/JOURNAL检查，不要重复启动。deploy_group_v1已绑定GROUP_PORTABLE_SYNTHETIC_GATE.predictor_sha，不能直接改；若真有bug写v2。当前新core0036的fresh已过，与Group probe无关。
+
+**G2后续工具**：promote_intensity_ensemble_v1 --candidate0038... 专审g2最高的脑区计数（普通promote_v7不识calibration_brain_domain）。它alpha0导出core脑区结构，非0导出group_mix（附group_specs/base_recipe），旧core导出会拒绝group，监督不会错误跑core。审计后component_sweep_v4再按需postprocess_sweep_v3；注册register_v3，导出deploy_group_v1。**verify_group_live_v1**按ROUND030预登记NN<=32→全270，>32→固定原顺序前8例（原始完整270依然实际推理过且缓存独立重建）；报告scans及full270_fresh，**不把8例fresh称270**。部署API不读cohort manifest/GT或270切点查表，source仅配置算法。真正最高若核心保持8则仍fresh270。
+
+**refresh_interim_v2**替代v1，支持Group导出+动态fresh8/270范围，以及已完成phase/28组数；.PORTABLE_RECIPE_CURRENT已为0036。**verify_group_live_v1**刚完成字段修正，将fresh270角色字样改为declared-scope，源码未开始0037前冻结。高成本输出只有fresh_subset_scan_dice，不把子集均值当270均值。若新Group最高缺真实验证要跑这个；Core8继续原verify_portable_live_v3。
+
+最终仍须到08:41后、全已注册任务DONE或透明预算终态、当前最高独立复现适当scope、更新最终报告/证据/成本/预算/SHA/全正负、root docs和双榜，再/tmp Medical_research checkout fetch+只合并本研究scope+manifest/新行/新links核对+push/remote verify，最后goalcomplete。不得拿当前12小时未满或仅中间push当完成。所有旧实验和独立RACE继续不碰。
+
+06:19补充：两个512父任务都DONE（flip7已进入其r1_0060第一强度组），各138240 NN。0037新Group真实全270复核于06:14通过，maskxor0/point同/Dice差0，4050患者NN、约731s并行环境，**新GroupAPI已真实工程验证**但该probe分数低，不当新最高。合成7gate仅编排，二者区分。现新启动0018_adaptive_holes的ALT7独立完整270，物理GPU1观测空闲48GiB后开，SSH**31534**；这是尚未fresh的低成本部署替代，别重复开。当前主最高0036的fresh270早已通过。下一步只监控完成现有强度/组合队列、核验真实新最高、准备最终报告与08:41后发布；不要新增无关分支。
+
+06:25执行前加速：**G2 handler已从v1换intensity_ensemble_dual_v2**，原job存amendments/008，任何G2 PLAN之前改，参数1945完全不变、数学直接调用冻结v1。GPU0even/GPU1odd原顺序135各，源码Gate验证2进程mmap不同列全270逐值完全一致；gate记录INTENSITY_ENSEMBLE_DUAL_GATE，v2源码SHA也在jobsource。未重启数值/模型，无重放/恢复收费，仍5/6。v2 GT_TOTALS按labels>0计数，不能标签值求和。评分和8源hist都双lane，子进程状态/PID在R/G2_LANES，日志workerTMP/g2_dual_score_lane1.log及histograms...；所有源mean保留。**不要再改v1或v2**，新GroupAPI/promoter仍直接用v1纯概率函数，故兼容新handler。预计利用两卡压缩尾段时间。当前尚未开始（依赖全28sourceDONE），不得把queued称得分。
+
+06:59结题工具已准备（尚未执行结题）：**finalize_report_v1**断言实际>=08:41:16，先refresh_interim_v2/collect证据，除最终报告未写外其他要求全proved才写RESULT.md、FINAL_RESULT.json、DEPLOYMENT.md、全分析/候选TSV和五根marker终态；COMPLETION_AUDIT先pending，再独立completion_audit_v2 --final必须passed。**final_runtime_audit_v1**在worker最后只读核images/labels/index历史SHA、checkpointSHA、全部当前job.source_sha、实际2/300GiB及20/70空闲，写FINAL_RUNTIME_AUDIT，需最后运行还未跑。**INFERENCE_CONTRACT_PROBE**已实际用当前0036的真实model合成1例验证全部param无grad、eval、state含buffers前后SHA完全相同、API参数仅images/geometries；若最高改了需对新source再跑。completion_audit_v2比v1多验证该actualprobe，不只靠授权字段。
+
+**/tmp/stage_auto12h_final_20261029.py**由interim独立复制，必须FINAL_RESULT.elapsed>=43200且COMPLETION_AUDITpassed才允许stage，带最新finalboardkey、完成README/最终报告及动态真实NN成本，不会把group固定写8；继承只合并本研究scope/保护RACE/排数组模型MRI与旧63链接基线规则。最终push前仍需fetch、manifest、ownnativeSHA/links、whitespace，remoteverify，另出发布收据；不要把脚本prepared当publication完成。主pipeline还24/28inputsDONE、G2待输入，不是结题。没有再加研究分支。
+
+07:10最新：**28组输入全部DONE，G2双lane评分已07:08真实启动**，GPU0父PID6426、GPU1子PID35746（命令intensity_ensemble_dual_v2 --lane1 --phase score）都ps实查存活，源数学v1不变。接下来读G2_LANES/score_lane0/1_STATUS、各DONE，汇总后才会创建RANKING并双lane8源hist，再g2_1000 CPUbraincal。勿把当前部分病例评分当最终270。
+
+为平衡空闲卡，06:59前把**未开始GATE**的r1_0072_intensity24和r1_0073_intensity26从queue_v2原子撤回/移入queue_aux_v1，source和原queue保留migrations/002_balance_intensity；未中断或重跑任何已开始任务，seed/spec/batch/checkpoint不变，恢复5/6。当前两个stage stager都已加入按receipt删除旧发布producerqueue路径+manifest+Gitpathspec，别留下重复队列。
+
+G1单组校准当前27已完，最高仍g1_1011.783603293/Point261/15NN。0038已经全270缓存审计注册，1120组件最高.784009942、Point261，低于当前0036.784382，暂不再形态或fresh这个分支。G1最后一个cal会自动完成。所有任务/当前最高状态以文件和实际PID为准。

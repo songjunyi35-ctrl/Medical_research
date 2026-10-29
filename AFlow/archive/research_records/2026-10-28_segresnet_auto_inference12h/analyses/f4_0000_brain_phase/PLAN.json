@@ -1,0 +1,303 @@
+{
+  "at": "2026-10-29T04:47:07.971136+08:00",
+  "recipes": [
+    {
+      "id": "base0_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "case_agree_t0.2_w16.0_k8_logit_T4.0",
+        "kind": "case_consistency",
+        "vote_threshold": 0.2,
+        "exponent": 16.0,
+        "keep_views": 8,
+        "representation": "logit",
+        "view_temperature": 4.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "base_source_job": {
+        "handler": "case_consistency_v1",
+        "core_source": "r1_0000_core_mirror8"
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base1_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "case_agree_t0.2_w20.0_k8_logit_T4.0",
+        "kind": "case_consistency",
+        "vote_threshold": 0.2,
+        "exponent": 20.0,
+        "keep_views": 8,
+        "representation": "logit",
+        "view_temperature": 4.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "base_source_job": {
+        "handler": "case_consistency_v1",
+        "core_source": "r1_0000_core_mirror8"
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base2_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+        "kind": "case_consistency",
+        "vote_threshold": 0.2,
+        "exponent": 24.0,
+        "keep_views": 8,
+        "representation": "logit",
+        "view_temperature": 4.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "base_source_job": {
+        "handler": "case_consistency_v1",
+        "core_source": "r1_0000_core_mirror8"
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base3_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "case_agree_t0.2_w28.0_k8_logit_T4.0",
+        "kind": "case_consistency",
+        "vote_threshold": 0.2,
+        "exponent": 28.0,
+        "keep_views": 8,
+        "representation": "logit",
+        "view_temperature": 4.0,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 8
+      },
+      "base_source_job": {
+        "handler": "case_consistency_v1",
+        "core_source": "r1_0000_core_mirror8"
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    {
+      "id": "base4_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "cross_phase128_w0.25_T0.25_base8soft_a0.025",
+        "kind": "group_mix",
+        "group": "a2_0000_polyphase512_n128",
+        "group_sources": [
+          "a2_0000_polyphase512_n128",
+          "r1_0050_polyphase512_flip7_n128"
+        ],
+        "phase_weight": 0.25,
+        "base": "base8soft",
+        "group_temperature": 0.25,
+        "alpha": 0.025,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 264
+      },
+      "base_source_job": {
+        "resource_token": "r1_worker1153287",
+        "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+        "test_tuned": true,
+        "all270_same_global_rule": true,
+        "id": "e1_0001_cross_phase128",
+        "handler": "cross_phase_fusions_v1",
+        "prefix": 128,
+        "phase0_source": "a2_0000_polyphase512_n128",
+        "phase7_source": "r1_0050_polyphase512_flip7_n128",
+        "group_source": "r1_0050_polyphase512_flip7_n128",
+        "core_source": "r1_0000_core_mirror8",
+        "depends_on": [
+          "a2_0000_polyphase512_n128",
+          "r1_0050_polyphase512_flip7_n128",
+          "r1_0000_core_mirror8"
+        ],
+        "source_sha256": {
+          "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+          "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd",
+          "scripts/segresnet_auto_inference12h_20261028/analysis_aux_worker_v1.py": "b88e847c33aaee3432e49fc32baed011b610b37e56538c7e2aa9279315c8a146",
+          "scripts/segresnet_auto_inference12h_20261028/cross_phase_fusions_v1.py": "399e7bc61ec55a2a6c92be323c37b743389a48c828a1dcd076b94fa0ca133902",
+          "scripts/segresnet_auto_inference12h_20261028/core_fusions_v1.py": "55f102665b16f8168f013acc238004acda30fdf7fd99e67687c5cec361f5453c",
+          "scripts/segresnet_auto_inference12h_20261028/histograms_triton_v1.py": "274e9fbcfd4d18362159d9c90604a6701e257aa4b265c82252a92325e78cb728"
+        }
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 264
+    },
+    {
+      "id": "base5_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "cross_phase256_w0.25_T0.25_base8soft_a0.025",
+        "kind": "group_mix",
+        "group": "a2_0000_polyphase512_n256",
+        "group_sources": [
+          "a2_0000_polyphase512_n256",
+          "r1_0050_polyphase512_flip7_n256"
+        ],
+        "phase_weight": 0.25,
+        "base": "base8soft",
+        "group_temperature": 0.25,
+        "alpha": 0.025,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 520
+      },
+      "base_source_job": {
+        "resource_token": "r1_worker1153287",
+        "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+        "test_tuned": true,
+        "all270_same_global_rule": true,
+        "id": "e1_0002_cross_phase256",
+        "handler": "cross_phase_fusions_v1",
+        "prefix": 256,
+        "phase0_source": "a2_0000_polyphase512_n256",
+        "phase7_source": "r1_0050_polyphase512_flip7_n256",
+        "group_source": "r1_0050_polyphase512_flip7_n256",
+        "core_source": "r1_0000_core_mirror8",
+        "depends_on": [
+          "a2_0000_polyphase512_n256",
+          "r1_0050_polyphase512_flip7_n256",
+          "r1_0000_core_mirror8"
+        ],
+        "source_sha256": {
+          "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+          "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd",
+          "scripts/segresnet_auto_inference12h_20261028/analysis_aux_worker_v1.py": "b88e847c33aaee3432e49fc32baed011b610b37e56538c7e2aa9279315c8a146",
+          "scripts/segresnet_auto_inference12h_20261028/cross_phase_fusions_v1.py": "399e7bc61ec55a2a6c92be323c37b743389a48c828a1dcd076b94fa0ca133902",
+          "scripts/segresnet_auto_inference12h_20261028/core_fusions_v1.py": "55f102665b16f8168f013acc238004acda30fdf7fd99e67687c5cec361f5453c",
+          "scripts/segresnet_auto_inference12h_20261028/histograms_triton_v1.py": "274e9fbcfd4d18362159d9c90604a6701e257aa4b265c82252a92325e78cb728"
+        }
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 520
+    }
+  ],
+  "source_sha256": "908ddefed4d30dda5c65c1b1de7cc111d4896f6ceb6556b339ff4e1724124602",
+  "whole_original_GT_domain": true,
+  "GT_input_to_prediction": false,
+  "model_forwards_added": 0,
+  "test_tuned": true,
+  "extra_scratch_upper_bound_bytes": 961090920
+}

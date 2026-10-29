@@ -1,0 +1,96 @@
+{
+  "at": "2026-10-29T04:29:33.849953+08:00",
+  "state": "audited_candidate",
+  "method": "segresnet_w32_e171_auto12h_0024_cross_phase128_testtuned_20261028",
+  "metrics": {
+    "scan_dice": 0.7834999610980352,
+    "subject_dice": 0.7706222636400817,
+    "scan_ci95": [
+      0.7614633238086254,
+      0.8031573270685556
+    ],
+    "subject_ci95": [
+      0.7483529946665051,
+      0.7912627358751305
+    ],
+    "point_hit": 0.9629629629629629,
+    "scans": 270,
+    "subjects": 119,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "point_hits": 260
+  },
+  "comparison_to_previous_incumbent": {
+    "scan_delta": 0.002504762869190287,
+    "subject_delta": 0.0023159843334714237,
+    "scan_delta_ci95": [
+      0.0011862756183909343,
+      0.004137873420557284
+    ],
+    "subject_delta_ci95": [
+      0.0008558756421927979,
+      0.004083889042802092
+    ],
+    "scan_delta_ci97_5": [
+      0.0010317046632081005,
+      0.004392967242987857
+    ],
+    "subject_delta_ci97_5": [
+      0.000645004907761197,
+      0.00439740878186797
+    ],
+    "point_hits_delta": 5,
+    "improved_scans": 169,
+    "worse_scans": 101,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+    "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+  },
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "analysis": "e1_1001_cross_phase128_calibration",
+  "best_configuration": {
+    "recipe_index": 15,
+    "recipe": {
+      "id": "cross_phase128_w0.25_T0.25_base8soft_a0.025",
+      "kind": "group_mix",
+      "group": "a2_0000_polyphase512_n128",
+      "group_sources": [
+        "a2_0000_polyphase512_n128",
+        "r1_0050_polyphase512_flip7_n128"
+      ],
+      "phase_weight": 0.25,
+      "base": "base8soft",
+      "group_temperature": 0.25,
+      "alpha": 0.025,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 264
+    },
+    "parameters": {
+      "post_temperature": 1.0,
+      "bias": -0.75,
+      "beta": 1.0,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 8315,
+    "scan_dice": 0.7834999610980352,
+    "subject_dice": 0.7706222636400817,
+    "point_hits": 260
+  },
+  "locator_forwards": 264,
+  "raw_sha256": "f10e52891fb8b9c87bc57ecced8c2fcc101d2abe38f16919411238961a30059e",
+  "recipe_sha256": "121ae1ac156e7aeea7fe0d3c4a8b0e2d3d8f1017b91396c77c475a6cf629daad",
+  "training": false,
+  "test_tuned": true,
+  "current_test_retuning": true,
+  "all270_masks_independently_verified": true,
+  "model_forwards_added": 0,
+  "seconds": 28.96267495804932
+}

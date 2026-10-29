@@ -1,0 +1,136 @@
+{
+  "at": "2026-10-29T04:57:04.896721+08:00",
+  "state": "audited_candidate",
+  "method": "segresnet_w32_e171_auto12h_0032_brain_cross256_testtuned_20261028",
+  "metrics": {
+    "scan_dice": 0.7835546445515421,
+    "subject_dice": 0.7707607659534748,
+    "scan_ci95": [
+      0.7615087843636844,
+      0.803239326453714
+    ],
+    "subject_ci95": [
+      0.7486324212629172,
+      0.7913366710366967
+    ],
+    "point_hit": 0.9629629629629629,
+    "scans": 270,
+    "subjects": 119,
+    "bootstrap": "10000 patient cluster percentile95 seed20260917",
+    "point_hits": 260
+  },
+  "comparison_to_previous_incumbent": {
+    "scan_delta": 0.00255944632269718,
+    "subject_delta": 0.0024544866468642606,
+    "scan_delta_ci95": [
+      0.0012973859179647577,
+      0.004123156752055183
+    ],
+    "subject_delta_ci95": [
+      0.0010718246124403067,
+      0.004107363943808844
+    ],
+    "scan_delta_ci97_5": [
+      0.0011333138153854488,
+      0.004342463799656976
+    ],
+    "subject_delta_ci97_5": [
+      0.0008750607295963571,
+      0.004357785193891335
+    ],
+    "point_hits_delta": 5,
+    "improved_scans": 168,
+    "worse_scans": 102,
+    "tied_scans": 0,
+    "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+  },
+  "best_configuration": {
+    "recipe_index": 5,
+    "recipe": {
+      "id": "base5_brainmargin0",
+      "kind": "brain_domain",
+      "base": {
+        "id": "cross_phase256_w0.25_T0.25_base8soft_a0.025",
+        "kind": "group_mix",
+        "group": "a2_0000_polyphase512_n256",
+        "group_sources": [
+          "a2_0000_polyphase512_n256",
+          "r1_0050_polyphase512_flip7_n256"
+        ],
+        "phase_weight": 0.25,
+        "base": "base8soft",
+        "group_temperature": 0.25,
+        "alpha": 0.025,
+        "views": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "neural_case_forwards": 520
+      },
+      "base_source_job": {
+        "resource_token": "r1_worker1153287",
+        "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+        "test_tuned": true,
+        "all270_same_global_rule": true,
+        "id": "e1_0002_cross_phase256",
+        "handler": "cross_phase_fusions_v1",
+        "prefix": 256,
+        "phase0_source": "a2_0000_polyphase512_n256",
+        "phase7_source": "r1_0050_polyphase512_flip7_n256",
+        "group_source": "r1_0050_polyphase512_flip7_n256",
+        "core_source": "r1_0000_core_mirror8",
+        "depends_on": [
+          "a2_0000_polyphase512_n256",
+          "r1_0050_polyphase512_flip7_n256",
+          "r1_0000_core_mirror8"
+        ],
+        "source_sha256": {
+          "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
+          "scripts/segresnet_auto_inference12h_20261028/guard_v2.py": "fd296f3c77cf706e5eb6c5160939295f6faa9ce41a02ee655bb7c56ea208a7cd",
+          "scripts/segresnet_auto_inference12h_20261028/analysis_aux_worker_v1.py": "b88e847c33aaee3432e49fc32baed011b610b37e56538c7e2aa9279315c8a146",
+          "scripts/segresnet_auto_inference12h_20261028/cross_phase_fusions_v1.py": "399e7bc61ec55a2a6c92be323c37b743389a48c828a1dcd076b94fa0ca133902",
+          "scripts/segresnet_auto_inference12h_20261028/core_fusions_v1.py": "55f102665b16f8168f013acc238004acda30fdf7fd99e67687c5cec361f5453c",
+          "scripts/segresnet_auto_inference12h_20261028/histograms_triton_v1.py": "274e9fbcfd4d18362159d9c90604a6701e257aa4b265c82252a92325e78cb728"
+        }
+      },
+      "margin": 0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 520
+    },
+    "parameters": {
+      "post_temperature": 1.25,
+      "bias": -1.5,
+      "beta": 1.3,
+      "volume_scale": 1.0
+    },
+    "parameter_index": 10880,
+    "scan_dice": 0.7835546445515421,
+    "subject_dice": 0.7707607659534748,
+    "point_hits": 260
+  },
+  "analysis": "f4_1000_brain_phase_calibration",
+  "locator_forwards": 520,
+  "all270_masks_independently_verified": true,
+  "GT_domain_unchanged": true,
+  "raw_sha256": "6a2159a1672f70fd36cef19d27e3d34aa18af8707d8821822b4e7302df8fe3ac",
+  "recipe_sha256": "4f224f5a61141a8d69e162e4b53b49048d3ea4525b5056189736ed6441b954cd",
+  "training": false,
+  "test_tuned": true,
+  "current_test_retuning": true,
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade"
+}

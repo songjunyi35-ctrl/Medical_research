@@ -1,0 +1,58 @@
+{
+  "at": "2026-10-29T04:56:57.685249+08:00",
+  "aggregation": {
+    "id": "base1_brainmargin0",
+    "kind": "brain_domain",
+    "base": {
+      "id": "case_agree_t0.2_w20.0_k8_logit_T4.0",
+      "kind": "case_consistency",
+      "vote_threshold": 0.2,
+      "exponent": 20.0,
+      "keep_views": 8,
+      "representation": "logit",
+      "view_temperature": 4.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    "base_source_job": {
+      "handler": "case_consistency_v1",
+      "core_source": "r1_0000_core_mirror8"
+    },
+    "margin": 0,
+    "views": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "neural_case_forwards": 8
+  },
+  "source_job": {
+    "handler": "case_consistency_v1",
+    "core_source": "r1_0000_core_mirror8"
+  },
+  "decoder": {
+    "post_temperature": 1.0,
+    "bias": 0.0625,
+    "beta": 0.7,
+    "volume_scale": 1.0
+  },
+  "decoder_kind": "brain_domain_volume",
+  "point_rule": "unchanged base aggregation point",
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "GT_or_case_ID_input": false,
+  "evaluation_domain_unchanged": true
+}

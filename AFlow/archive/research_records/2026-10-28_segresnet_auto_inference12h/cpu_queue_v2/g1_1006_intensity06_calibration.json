@@ -9,7 +9,7 @@
   "analysis_dependencies": [
     "g1_0006_intensity06_fusions"
   ],
-  "cpu_workers": 16,
+  "cpu_workers": 8,
   "source_sha256": {
     "scripts/segresnet_auto_inference12h_20261028/common.py": "c6ad20373adc0566ad48437e61e8e8350cccc24e4e150f9b6013ed016ddfc2c7",
     "scripts/segresnet_auto_inference12h_20261028/worker_v3.py": "1f8788c1ce07e7ccc9a618c734b262d2e183ae44b89cd7ac6da2cdd6acce1099",
@@ -20,5 +20,6 @@
     "scripts/segresnet_auto_inference12h_20261028/guard_cached_v1.py": "c51d968e563346c29b410483ae7e6f5485c0680797e6ac5438280175400eb3dc",
     "scripts/segresnet_auto_inference12h_20261028/worker_v4.py": "450d236bedc9ae3e92c743a146423402c3c23a78c3a0ab881486981a278c9760"
   },
-  "control_amendment": "same parameters and bitwise cut gates; reuse completed cases; unimodal exact-volume search, cached inventory, boundedCSV shards"
+  "control_amendment": "same parameters and bitwise cut gates; reuse completed cases; unimodal exact-volume search, cached inventory, boundedCSV shards",
+  "cpu_concurrency_note": "Before any execution: cap8 to share31 CPUs with h1 eight-worker joint grid and current morphology; all numerical parameters/order unchanged, no restart or replay."
 }

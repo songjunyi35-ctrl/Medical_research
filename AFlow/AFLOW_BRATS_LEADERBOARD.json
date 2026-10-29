@@ -1,7 +1,7 @@
 {
   "schema": "aflow.brats.t1ce_wt_leaderboard",
   "schema_version": 1,
-  "updated_utc": "2026-10-28T20:14:18.512611+00:00",
+  "updated_utc": "2026-10-29T00:44:15.773164+00:00",
   "ucsd56_bootstrap_mc_precision_20260907": {
     "status": "posthoc_numerical_sensitivity_original_preregistered_intervals_and_ranks_preserved",
     "report_path": "archive/reviews/2026-09-07_ucsd56_bootstrap_precision/RESULT.json",
@@ -3138,6 +3138,306 @@
       "rank": 7
     },
     {
+      "method": "segresnet_w32_e171_auto12h_0036_local_brain_joint_testtuned_20261028",
+      "scan_dice": 0.7843821133176486,
+      "subject_dice": 0.7713788106390574,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 8,
+      "ensemble_size": 1,
+      "forward_equivalents": 21.328125,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0036_local_brain_joint/RAW_TEST270.json",
+      "report_sha256": "c642006004376d13aa3df1f7e2f35e84e593c3340b9f73332f211c71c2be79b5",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0036_local_brain_joint/RESULT.json",
+      "result_sha256": "dc4aedd47aa427f453ee2ed543a78f7620a1715c5da9a9cd433989a719dd4d83",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7624335921353215,
+        0.8038062807785045
+      ],
+      "subject_ci95": [
+        0.7492636207000194,
+        0.7919028828433436
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 8,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0036_local_brain_joint/RECIPE.json",
+      "selected_recipe_sha256": "b6f28afe0cb68cd386406db1891e2a1621c50cc6be67ce11cf3a41aacb0d4599",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.00338691508880368,
+          "subject_delta": 0.0030725313324470815,
+          "scan_delta_ci95": [
+            0.0014956890700031417,
+            0.005926036315733135
+          ],
+          "subject_delta_ci95": [
+            0.0010372198901089636,
+            0.005773558332180442
+          ],
+          "scan_delta_ci97_5": [
+            0.0013087248548870815,
+            0.006360349811794269
+          ],
+          "subject_delta_ci97_5": [
+            0.0008497956150057477,
+            0.006335435638540748
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 170,
+          "worse_scans": 100,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+        }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0041_intensity_ensemble_holes_testtuned_20261028",
+      "scan_dice": 0.7843547410435147,
+      "subject_dice": 0.7716056795597744,
+      "point_hit": 0.9592592592592593,
+      "point_hits": 259,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 80,
+      "ensemble_size": 1,
+      "forward_equivalents": 213.28125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0041_intensity_ensemble_holes/RAW_TEST270.json",
+      "report_sha256": "814191f6622f213c68cb9dcdc2becd5fd9bff30418c03b64b5c3df4782d041e4",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0041_intensity_ensemble_holes/RESULT.json",
+      "result_sha256": "c87570a39200e3a16b1bb46ab9e6e8ab59ec3f857ffaeec43fd05362b7706f00",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7622925517063909,
+        0.8037958625507416
+      ],
+      "subject_ci95": [
+        0.7494261769925347,
+        0.7922707399388863
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 9,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0041_intensity_ensemble_holes/RECIPE.json",
+      "selected_recipe_sha256": "34fe9bab118c3108559937842532d245bd2cbe7119ea5c131cdaa62844eced6f",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0033595428146697857,
+          "subject_delta": 0.003299400253164,
+          "scan_delta_ci95": [
+            0.0016897831120518867,
+            0.005569525295121094
+          ],
+          "subject_delta_ci95": [
+            0.001446252528718915,
+            0.005719654360154763
+          ],
+          "scan_delta_ci97_5": [
+            0.001524640516224205,
+            0.005969891238721825
+          ],
+          "subject_delta_ci97_5": [
+            0.0012183575781782258,
+            0.0061768405392103425
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 169,
+          "worse_scans": 101,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0041_intensity_ensemble_holes/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "92efe55fed5f4c396ff5667833f3b4fbc87b61ffd181e732068b995c042085d1",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0040_intensity_ensemble_cc_testtuned_20261028",
+      "scan_dice": 0.784313346279992,
+      "subject_dice": 0.771638940621157,
+      "point_hit": 0.9592592592592593,
+      "point_hits": 259,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 80,
+      "ensemble_size": 1,
+      "forward_equivalents": 213.28125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0040_intensity_ensemble_cc/RAW_TEST270.json",
+      "report_sha256": "ebf00a84c70d74618eda436c6d8b46adc8e768ef979be149f13e4ebb055a38db",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0040_intensity_ensemble_cc/RESULT.json",
+      "result_sha256": "a08c748740487d3d19245c51c420d893affc238c460a1fb892287348d97cd6fc",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7622816641024043,
+        0.8037277443608598
+      ],
+      "subject_ci95": [
+        0.7494689924892883,
+        0.7922965563538402
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 10,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0040_intensity_ensemble_cc/RECIPE.json",
+      "selected_recipe_sha256": "5acd2016b8a44213700c68342f12d41c8f7301361fb0e0518f3eac41ef11f656",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0033181480511471077,
+          "subject_delta": 0.0033326613145465613,
+          "scan_delta_ci95": [
+            0.0016685908232885066,
+            0.005522559579136553
+          ],
+          "subject_delta_ci95": [
+            0.0015079569839546324,
+            0.005737514226626947
+          ],
+          "scan_delta_ci97_5": [
+            0.001489470742513422,
+            0.005929739410152164
+          ],
+          "subject_delta_ci97_5": [
+            0.0012938238297398685,
+            0.006196145177505787
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 166,
+          "worse_scans": 104,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0040_intensity_ensemble_cc/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "fabb7b0132441eba7f7e7f659067fac19a208840d57676d0744788b4c92f20dc",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
       "method": "segresnet_w32_e171_auto12h_0023_brain_holes_testtuned_20261028",
       "scan_dice": 0.7843116955072792,
       "subject_dice": 0.7714053038392915,
@@ -3169,7 +3469,7 @@
       "report_sha256": "401490ba971ab9aeefe46dc8999f6c25dc7d3db9464ac7c70b45bbe5f409c62e",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RESULT.json",
       "result_sha256": "bbc2c7928f9bb7b71b77035e70da396fcfbec79b2b30f04f857eb6578037f153",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -3200,10 +3500,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 8,
+      "rank": 11,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RECIPE.json",
       "selected_recipe_sha256": "7f3ebab8190d45cdadaa441333403e9b0e17ace95804cb87cc8846016f0ada73",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.003316497278434259,
@@ -3231,7 +3531,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0021_brain_domain_cc_testtuned_20261028",
@@ -3265,7 +3568,7 @@
       "report_sha256": "9b80af2c7c89f3f419283fedb05c4b64651f793451a5042822cea369eb2b1778",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0021_brain_domain_cc/RESULT.json",
       "result_sha256": "4f0a464788fe2dbf0cbd1e0ffc466648ca102ef21cd1b8ce2874b24a87a1f4ae",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -3296,10 +3599,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 9,
+      "rank": 12,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0021_brain_domain_cc/RECIPE.json",
       "selected_recipe_sha256": "905f071761d8721a0f421bd5fb1ef5091d5e5b6dd80906b8270a4c271f3c9951",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.003260190095062609,
@@ -3327,7 +3630,311 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0034_brain_cross128_cc_testtuned_20261028",
+      "scan_dice": 0.7842327636149194,
+      "subject_dice": 0.7713966520957084,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 264,
+      "ensemble_size": 1,
+      "forward_equivalents": 906.828125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0034_brain_cross128_cc/RAW_TEST270.json",
+      "report_sha256": "ab1ed057b065b82af6b1074eacbabcca3b1b3c4b25b347293947699b2fa2baee",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0034_brain_cross128_cc/RESULT.json",
+      "result_sha256": "73b2d658cdf4ad32cfa6a3aea3cdd8d9ab4c2fd3ffda8ac90d81c490ed796e87",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7622484876313976,
+        0.803752608054293
+      ],
+      "subject_ci95": [
+        0.749258544006925,
+        0.7919757429275568
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 13,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0034_brain_cross128_cc/RECIPE.json",
+      "selected_recipe_sha256": "16d014229401d2941babd80a6d113904d1b1d55e0d9d259491ed492de25215a0",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0032375653860745607,
+          "subject_delta": 0.003090372789098101,
+          "scan_delta_ci95": [
+            0.00151002484651277,
+            0.005610398297406723
+          ],
+          "subject_delta_ci95": [
+            0.0012154228772696745,
+            0.005670483404123524
+          ],
+          "scan_delta_ci97_5": [
+            0.0013339516166092581,
+            0.006066266901961831
+          ],
+          "subject_delta_ci97_5": [
+            0.0010395761598971168,
+            0.006206268028836152
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 167,
+          "worse_scans": 103,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0034_brain_cross128_cc/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "89174e97919dec1c70d5275fc3bd2743081c37b86e07356897d7986a5ad4d512",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0035_brain_cross256_cc_testtuned_20261028",
+      "scan_dice": 0.7842308111212871,
+      "subject_dice": 0.771394963159698,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 520,
+      "ensemble_size": 1,
+      "forward_equivalents": 1792.328125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0035_brain_cross256_cc/RAW_TEST270.json",
+      "report_sha256": "3a4015c5836cdf94c378f8f388fc72b7f9274f098eda3312212de7f176dd8841",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0035_brain_cross256_cc/RESULT.json",
+      "result_sha256": "4088130bfd0d1205fd993d4b8ae3d32ea4f259ddc3a204a0fe508f9b3efd623d",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7622421399174868,
+        0.803751702961262
+      ],
+      "subject_ci95": [
+        0.7492551158646681,
+        0.7919723963863751
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 14,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0035_brain_cross256_cc/RECIPE.json",
+      "selected_recipe_sha256": "6b63e4b0101f7fee13aac71cf9766e792d1d90b93cdd4a8c850c3fe6bf08b6ed",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0032356128924422795,
+          "subject_delta": 0.0030886838530876383,
+          "scan_delta_ci95": [
+            0.0015030444238122468,
+            0.0056093607718233985
+          ],
+          "subject_delta_ci95": [
+            0.001214565384209532,
+            0.005668633310359064
+          ],
+          "scan_delta_ci97_5": [
+            0.001333325411984347,
+            0.0060650732532953
+          ],
+          "subject_delta_ci97_5": [
+            0.001036410801130913,
+            0.006203301355558398
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 168,
+          "worse_scans": 102,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0035_brain_cross256_cc/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "12606d302cc2566d7b6a523773ccae0dfbfee2744cc96fd3acc1c142ededc7da",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0033_brain_case20_cc_testtuned_20261028",
+      "scan_dice": 0.7841992668531559,
+      "subject_dice": 0.7713957664679413,
+      "point_hit": 0.9592592592592593,
+      "point_hits": 259,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 8,
+      "ensemble_size": 1,
+      "forward_equivalents": 21.328125,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0033_brain_case20_cc/RAW_TEST270.json",
+      "report_sha256": "9a8bdace4f6c1e5c6713950943ea89561ea3830fdcadddbc0d2c25b9feeaeae3",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0033_brain_case20_cc/RESULT.json",
+      "result_sha256": "9e963a5c155caff353a89307aa2be3480050c88052993aa2604ecb5bcfb75c11",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7620937078034625,
+        0.8037742251346774
+      ],
+      "subject_ci95": [
+        0.7492694367894105,
+        0.7919811060118909
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 15,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0033_brain_case20_cc/RECIPE.json",
+      "selected_recipe_sha256": "b5d2540b3f1fb632ea8aa317b8f4f495e47d2344ef833a93b3bfb80125ab04d3",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0032040686243110235,
+          "subject_delta": 0.0030894871613308165,
+          "scan_delta_ci95": [
+            0.0015043996395074208,
+            0.005526474052895038
+          ],
+          "subject_delta_ci95": [
+            0.001208544826312434,
+            0.0056304152223545035
+          ],
+          "scan_delta_ci97_5": [
+            0.0013555914010913645,
+            0.0059669393642570075
+          ],
+          "subject_delta_ci97_5": [
+            0.0010348793035060042,
+            0.006185855953262843
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 170,
+          "worse_scans": 100,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0008_consensus_cc_testtuned_20261028",
@@ -3361,7 +3968,7 @@
       "report_sha256": "6b1e8bc3a12c6e7f38471f22e7612a99d1b79e0d816d11f34cbfd6175aa92fd5",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RESULT.json",
       "result_sha256": "00c9d194dacbce182ce29705099ee077e924be4c0cdfad377b36c9738c07e5e2",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -3392,10 +3999,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 10,
+      "rank": 16,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RECIPE.json",
       "selected_recipe_sha256": "179016ae221ea56da1992197cbf4095365e7c229ac9a9d9c5262d08d593a9410",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0031439481234108962,
@@ -3423,7 +4030,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0022_dense_unary_cc_testtuned_20261028",
@@ -3457,7 +4067,7 @@
       "report_sha256": "069af2b37e22adc6a4d23b83c3928d921e45a59dd9ddee719b0f7474b9e52561",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0022_dense_unary_cc/RESULT.json",
       "result_sha256": "a56b236139028a76fd44357359dc290905f09a023d9faa6e9be71b977411adaa",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -3488,10 +4098,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 11,
+      "rank": 17,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0022_dense_unary_cc/RECIPE.json",
       "selected_recipe_sha256": "4681698e5ac7eb8d11f845c92be5e00954582635d104be8fc8fb27240a59228e",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0031428020585466316,
@@ -3519,7 +4129,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0018_adaptive_holes_testtuned_20261028",
@@ -3553,7 +4166,7 @@
       "report_sha256": "089d9d6cccf678b7492f3a4a59512ab19dd83d52e0546f309752acbf978441dc",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0018_adaptive_holes/RESULT.json",
       "result_sha256": "deb508d3efd5d2d09d82e665cb7a6cbfc34fccf56b5e6315509fc7dccf1ef873",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -3584,10 +4197,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 12,
+      "rank": 18,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0018_adaptive_holes/RECIPE.json",
       "selected_recipe_sha256": "d716917f59857581316c71c2ba4d26d74da99f5a179740b9578664145609401c",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0030774616808802993,
@@ -3615,7 +4228,212 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0027_cross256_cc_testtuned_20261028",
+      "scan_dice": 0.7840604991824539,
+      "subject_dice": 0.771127417929867,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 520,
+      "ensemble_size": 1,
+      "forward_equivalents": 1792.328125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0027_cross256_cc/RAW_TEST270.json",
+      "report_sha256": "37a14592b3e4aeae13d5964fd0f88d1faef6c9c461ceab168b50d05f039d85a9",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0027_cross256_cc/RESULT.json",
+      "result_sha256": "f1de3f5fd51b62e7b71011d902afea3d1931f48526544e0e3e6c102e7eec6b86",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.76196093250278,
+        0.803590046129737
+      ],
+      "subject_ci95": [
+        0.7489027179864233,
+        0.7917419368871788
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 19,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0027_cross256_cc/RECIPE.json",
+      "selected_recipe_sha256": "e352953440086cd756af1332ab49b5b8783ea1cb7365e71c43150dccc1c72fac",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.003065300953608972,
+          "subject_delta": 0.0028211386232566433,
+          "scan_delta_ci95": [
+            0.0013184636080395635,
+            0.005392234654584242
+          ],
+          "subject_delta_ci95": [
+            0.0009227973892658698,
+            0.005372825567232293
+          ],
+          "scan_delta_ci97_5": [
+            0.0011708288600514418,
+            0.005840126438018837
+          ],
+          "subject_delta_ci97_5": [
+            0.0007135513650790819,
+            0.005919115006968028
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 167,
+          "worse_scans": 103,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0027_cross256_cc/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "936df890d51e310dd5963d0138734f4839db8b98c0df522918825f62fcc5d162",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0026_cross128_cc_testtuned_20261028",
+      "scan_dice": 0.78405943788864,
+      "subject_dice": 0.7711250467168517,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 264,
+      "ensemble_size": 1,
+      "forward_equivalents": 906.828125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0026_cross128_cc/RAW_TEST270.json",
+      "report_sha256": "60758e9a33996c152c7ab47d201e8c3182707f04dd4cf9e9040e42027a95b226",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0026_cross128_cc/RESULT.json",
+      "result_sha256": "47ee957fb49ae7a739d0ca2a065210a486d338661c4d44e12c20dd2543d449f5",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.761960046487992,
+        0.8035912102770627
+      ],
+      "subject_ci95": [
+        0.7488987500881072,
+        0.7917417897724386
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 20,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0026_cross128_cc/RECIPE.json",
+      "selected_recipe_sha256": "28aa19f9154995cdc4342839cfe5cc33a50916f00556662ff7544ee38a53eef2",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.003064239659795055,
+          "subject_delta": 0.0028187674102412553,
+          "scan_delta_ci95": [
+            0.001319080290589929,
+            0.005389309447575367
+          ],
+          "subject_delta_ci95": [
+            0.0009233948618371865,
+            0.005369445955699065
+          ],
+          "scan_delta_ci97_5": [
+            0.001171078823284377,
+            0.005837605172823831
+          ],
+          "subject_delta_ci97_5": [
+            0.0007140604151068489,
+            0.005907973360533751
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 167,
+          "worse_scans": 103,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0026_cross128_cc/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "cca8392b0d05f5e36c20d56bd7757e019d35eb904dce5b31758a0b289ef902b3",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0013_adaptive_cc_testtuned_20261028",
@@ -3649,7 +4467,7 @@
       "report_sha256": "51c4f54bdaf79e2083ec58d2b28f67016dc32605e697867e5ebf5cba8c4ea704",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0013_adaptive_cc/RESULT.json",
       "result_sha256": "d63a0c622924442bb4441afbf7232b45ba38a3d043b3e266e65454dba2f697fa",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -3680,10 +4498,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 13,
+      "rank": 21,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0013_adaptive_cc/RECIPE.json",
       "selected_recipe_sha256": "fcc900619ea613a36a11aaee36b1d7dba2a61c491227c9f7f696baef7e28fbbd",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0030060416846363633,
@@ -3711,7 +4529,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0006_best_holes_testtuned_20261028",
@@ -3745,7 +4566,7 @@
       "report_sha256": "d295ede878f056edf84864ecb77c034b85e803d68f086d8bc5a09d515394071a",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0006_best_holes/RESULT.json",
       "result_sha256": "89e30607b29020de4de1348f4bbfa8d4607b72d3c5a4b0a4ede1d5d64cf0be84",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -3776,10 +4597,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 14,
+      "rank": 22,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0006_best_holes/RECIPE.json",
       "selected_recipe_sha256": "366abcb0fd9a59c65b217ef30a4a646d81f50ba9ae74c75559531567921ba509",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.002854468011193805,
@@ -3807,7 +4628,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0014_nonlinear_cc_testtuned_20261028",
@@ -3841,7 +4665,7 @@
       "report_sha256": "29cd47fa7c40b52482e7094dad7ffbbd39acbd4cffa421c4cea65f68624df2c9",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0014_nonlinear_cc/RESULT.json",
       "result_sha256": "c4f991cd516defce939e76f5fdc02ca164789c1cfe062bc33e491728133c49b5",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -3872,10 +4696,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 15,
+      "rank": 23,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0014_nonlinear_cc/RECIPE.json",
       "selected_recipe_sha256": "72a3bca6e67670293bb933e5e2e8caedf56cd13956af1d4803bc9a94c222be2f",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.002831832595445492,
@@ -3903,7 +4727,110 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0039_intensity_ensemble_testtuned_20261028",
+      "scan_dice": 0.7837962384577151,
+      "subject_dice": 0.7711923258645195,
+      "point_hit": 0.9592592592592593,
+      "point_hits": 259,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 80,
+      "ensemble_size": 1,
+      "forward_equivalents": 213.28125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0039_intensity_ensemble/RAW_TEST270.json",
+      "report_sha256": "b59da3d0ee44a792b726b76a78daf0bef37c4f5c88e954ff853e2c8f99d2aa31",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0039_intensity_ensemble/RESULT.json",
+      "result_sha256": "64403e33fce46006c076f715f29560c87c1691a318410d7651848b2f1abf7b97",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7617068093148068,
+        0.8034784971274807
+      ],
+      "subject_ci95": [
+        0.7489645385326874,
+        0.7917702483187536
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 24,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0039_intensity_ensemble/RECIPE.json",
+      "selected_recipe_sha256": "e96ad689de7ca8a6a31bbdf31b42780e2ad1b1160a255e223d80a82461e6ad66",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.00280104022887018,
+          "subject_delta": 0.0028860465579089666,
+          "scan_delta_ci95": [
+            0.0015178511611627977,
+            0.004394956310056303
+          ],
+          "subject_delta_ci95": [
+            0.0014483310092313615,
+            0.004625746952135022
+          ],
+          "scan_delta_ci97_5": [
+            0.0013723400544092817,
+            0.004657087785944079
+          ],
+          "subject_delta_ci97_5": [
+            0.0012673515292322814,
+            0.004910736319906384
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 165,
+          "worse_scans": 105,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0039_intensity_ensemble/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "1035bc6a4b98983e1591ade92ada92c20a02b2ee64f90a4d2eb5bc60b68096f3",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0003_core_calibration_cc_testtuned_20261028",
@@ -3937,7 +4864,7 @@
       "report_sha256": "73f63eacb9d2eb285dbb8a768e035c648c7820fb2c320a6ae7df24474c82f15f",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0003_core_calibration_cc/RESULT.json",
       "result_sha256": "0d514bc462b45e394a126e7221e687df2a6f6c2c0750166127dc78ec3dfec124",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -3968,10 +4895,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 16,
+      "rank": 25,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0003_core_calibration_cc/RECIPE.json",
       "selected_recipe_sha256": "760040238716dde359837b5dd5e69314236c34e1cf294751097b231db3fee657",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0027969354004771622,
@@ -3999,7 +4926,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0005_fine_calibration_cc_testtuned_20261028",
@@ -4033,7 +4963,7 @@
       "report_sha256": "6ebe2ae82b6f574648dcee9b8ca6556a6c6efb0a987fd31bc19f183ff5e8f310",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0005_fine_calibration_cc/RESULT.json",
       "result_sha256": "26744c17c8e84b1c5d9e94448fe49d7c2bccc71faf7779bc3e804f0c1bda63b6",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4064,10 +4994,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 17,
+      "rank": 26,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0005_fine_calibration_cc/RECIPE.json",
       "selected_recipe_sha256": "26244064bf4003616a51c76b24210f2a512cc7e9b87eb94b84b731db989b93f5",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.002791682630777359,
@@ -4095,7 +5025,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0020_brain_domain_testtuned_20261028",
@@ -4129,7 +5062,7 @@
       "report_sha256": "a7009ab3d855dbdaa39f0a13c3b4b0c04bccba5653b37803774041f2818a5ab5",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0020_brain_domain/RESULT.json",
       "result_sha256": "74720adb33b4b8a28c6497f5b9f98762d0940571ab68c97706120f1ea75654ed",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4160,10 +5093,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 18,
+      "rank": 27,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0020_brain_domain/RECIPE.json",
       "selected_recipe_sha256": "fe13ed43427dc7b768c6a34cc88cc3a74172ce1372f368a8c8d4ad8c5c439826",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0026443598171075186,
@@ -4190,7 +5123,405 @@
           "tied_scans": 0,
           "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0030_brain_case28_testtuned_20261028",
+      "scan_dice": 0.783637797942868,
+      "subject_dice": 0.7709459214901723,
+      "point_hit": 0.9592592592592593,
+      "point_hits": 259,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 8,
+      "ensemble_size": 1,
+      "forward_equivalents": 21.328125,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0030_brain_case28/RAW_TEST270.json",
+      "report_sha256": "aa5f6958603e92fad3cded0019895d35e23542eab5c0871a13b0a73d4e9a60b1",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0030_brain_case28/RESULT.json",
+      "result_sha256": "2bbdd0a4029987c4e8ed072c02a69414110ca06f5f4dd6feb975b91c888a6a75",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7615812313603877,
+        0.8033417386256836
+      ],
+      "subject_ci95": [
+        0.7488102665771039,
+        0.7914946875063813
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 28,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0030_brain_case28/RECIPE.json",
+      "selected_recipe_sha256": "1a6e8ec2360be951c22bf265c40df3a8fcf8a4b48d91fb89bc7e262f68c9d90e",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0026425997140230957,
+          "subject_delta": 0.0026396421835619527,
+          "scan_delta_ci95": [
+            0.0013088704140356451,
+            0.004326423434371294
+          ],
+          "subject_delta_ci95": [
+            0.0010913587518620728,
+            0.0045310211751390895
+          ],
+          "scan_delta_ci97_5": [
+            0.0011622643462638326,
+            0.004639554517737853
+          ],
+          "subject_delta_ci97_5": [
+            0.0009005731487573656,
+            0.004897558352758676
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 172,
+          "worse_scans": 98,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+        }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0029_brain_case20_testtuned_20261028",
+      "scan_dice": 0.7836266962466416,
+      "subject_dice": 0.7708693480082586,
+      "point_hit": 0.9592592592592593,
+      "point_hits": 259,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 8,
+      "ensemble_size": 1,
+      "forward_equivalents": 21.328125,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0029_brain_case20/RAW_TEST270.json",
+      "report_sha256": "f5f06b06679d095460bc8d2553e81fd353a46272e2786a903ae000329919cc17",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0029_brain_case20/RESULT.json",
+      "result_sha256": "11dda3fd942dd1b0e5f5ac75fde3df1730b738742305838433f97231deb051b9",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7616057576080424,
+        0.8033382735358865
+      ],
+      "subject_ci95": [
+        0.7487072833445894,
+        0.7914618079974746
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 29,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0029_brain_case20/RECIPE.json",
+      "selected_recipe_sha256": "0887eaf7909348842ef9afd9729610df9aaf997936885bcf3c535e27834db0b0",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0026314980177967635,
+          "subject_delta": 0.002563068701648245,
+          "scan_delta_ci95": [
+            0.0013500769840237754,
+            0.004240695446343565
+          ],
+          "subject_delta_ci95": [
+            0.0011316742519234995,
+            0.0043097947220414505
+          ],
+          "scan_delta_ci97_5": [
+            0.0012087591999112937,
+            0.0044949842263784495
+          ],
+          "subject_delta_ci97_5": [
+            0.0009292084797147234,
+            0.004603654651691308
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 171,
+          "worse_scans": 99,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+        }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0038_intensity11_cal_testtuned_20261028",
+      "scan_dice": 0.7836032931451444,
+      "subject_dice": 0.7707179960583439,
+      "point_hit": 0.9666666666666667,
+      "point_hits": 261,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 15,
+      "ensemble_size": 1,
+      "forward_equivalents": 39.990234375,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0038_intensity11_cal/RAW_TEST270.json",
+      "report_sha256": "94641234db9f307308731c52b833b74135e00769988650f44737104a7c8bb0af",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0038_intensity11_cal/RESULT.json",
+      "result_sha256": "c3ff32fa31b59eeaef35dc52d378243daee073ce762acc1f72d3a2013f83775f",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7617482298833784,
+        0.8031455608190768
+      ],
+      "subject_ci95": [
+        0.748619385287583,
+        0.79117076467107
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 30,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0038_intensity11_cal/RECIPE.json",
+      "selected_recipe_sha256": "8d90a4d2e6fd5ae046970d224669b9490697de74f35618d801f530681b22ab8c",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0026080949162995376,
+          "subject_delta": 0.0024117167517334137,
+          "scan_delta_ci95": [
+            0.0007634570174964204,
+            0.004850954887394886
+          ],
+          "subject_delta_ci95": [
+            0.0005559265700427173,
+            0.004365173239412218
+          ],
+          "scan_delta_ci97_5": [
+            0.0005537066498859211,
+            0.005254866506972156
+          ],
+          "subject_delta_ci97_5": [
+            0.0003043045700431204,
+            0.004689425578398281
+          ],
+          "point_hits_delta": 6,
+          "improved_scans": 159,
+          "worse_scans": 111,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0038_intensity11_cal/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "ae2105a5b759b210dd68e43e930cba623cd063772085a435f095b0da7278538b",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0028_brain_case16_testtuned_20261028",
+      "scan_dice": 0.7835648237003221,
+      "subject_dice": 0.7707753698344159,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 8,
+      "ensemble_size": 1,
+      "forward_equivalents": 21.328125,
+      "forward_cost_note": "full-canvas voxel equivalence per128^3; not FLOPs/latency; ROI counts include shared base once",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0028_brain_case16/RAW_TEST270.json",
+      "report_sha256": "3f9f8a38aef2e6dec6e7219196118d4e941aeb35b937bce55c88da8fb1fb76ac",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0028_brain_case16/RESULT.json",
+      "result_sha256": "943f07048674b0fdc45cd9a597ffe95c5e8d16da732cfa277f148f189f12b4ae",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7614823139273875,
+        0.8033004917436304
+      ],
+      "subject_ci95": [
+        0.7485027761328495,
+        0.7914114389910835
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 31,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0028_brain_case16/RECIPE.json",
+      "selected_recipe_sha256": "987751872f4706bf1f5aee52301842c9910fd98a84d2e70894a10b4009b88bdb",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0025696254714771554,
+          "subject_delta": 0.002469090527805293,
+          "scan_delta_ci95": [
+            0.0013180428554996721,
+            0.004148214129233099
+          ],
+          "subject_delta_ci95": [
+            0.001064967642686948,
+            0.0042021151930250284
+          ],
+          "scan_delta_ci97_5": [
+            0.001162137954904218,
+            0.004423474348159919
+          ],
+          "subject_delta_ci97_5": [
+            0.0008777960968863857,
+            0.004474947721363472
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 170,
+          "worse_scans": 100,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+        }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0015_case_consistency_testtuned_20261028",
@@ -4224,7 +5555,7 @@
       "report_sha256": "b1255583be3a619e91fe49013eb013c841f1b5e02ea8355581d3a3214ede8c39",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0015_case_consistency/RESULT.json",
       "result_sha256": "f36d92e0a282d1af3d581a6dc2a93241cc95f7760997b7eb95a6a75ad81d027e",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4255,10 +5586,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 19,
+      "rank": 32,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0015_case_consistency/RECIPE.json",
       "selected_recipe_sha256": "58ee454bce01033686ef26391a87fce82abd3aead004f4cdffe0f3c00bf8402f",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0025641287642496602,
@@ -4286,7 +5617,210 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0031_brain_cross128_testtuned_20261028",
+      "scan_dice": 0.7835563883185387,
+      "subject_dice": 0.7707624209883001,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 264,
+      "ensemble_size": 1,
+      "forward_equivalents": 906.828125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0031_brain_cross128/RAW_TEST270.json",
+      "report_sha256": "77d9ebe93d243f014b7096c429f53e38ba9229194e4c6c07e05f6bf85352d970",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0031_brain_cross128/RESULT.json",
+      "result_sha256": "c868b1eaec726094cac906a3bfcc5891afd9e93a9a6ba6f2aeaa33fa82758d6e",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7615087218500037,
+        0.8032412448291426
+      ],
+      "subject_ci95": [
+        0.7486336481262322,
+        0.7913409503325508
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 33,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0031_brain_cross128/RECIPE.json",
+      "selected_recipe_sha256": "612b2f9ccd8ed02b53f4f6b5366963bb8ec3cf8a9d2d397061903b8f9c7f533d",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.002561190089693776,
+          "subject_delta": 0.0024561416816895076,
+          "scan_delta_ci95": [
+            0.0012976448496354338,
+            0.004125777466049985
+          ],
+          "subject_delta_ci95": [
+            0.0010757150841193375,
+            0.004108676221821697
+          ],
+          "scan_delta_ci97_5": [
+            0.0011358037110767328,
+            0.004346905337556528
+          ],
+          "subject_delta_ci97_5": [
+            0.0008794870666496936,
+            0.004356464246282725
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 167,
+          "worse_scans": 103,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0031_brain_cross128/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "54ed0e5a7eca66c31b59a03a0b2a16b19f5c1d3cb277e3d2d6dcc638d802680b",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0032_brain_cross256_testtuned_20261028",
+      "scan_dice": 0.7835546445515421,
+      "subject_dice": 0.7707607659534748,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 520,
+      "ensemble_size": 1,
+      "forward_equivalents": 1792.328125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0032_brain_cross256/RAW_TEST270.json",
+      "report_sha256": "6a2159a1672f70fd36cef19d27e3d34aa18af8707d8821822b4e7302df8fe3ac",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0032_brain_cross256/RESULT.json",
+      "result_sha256": "ca78cc8321c75e890eb222f6fdee142f1b8d545d5e57d249ed35260f41214e93",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7615087843636844,
+        0.803239326453714
+      ],
+      "subject_ci95": [
+        0.7486324212629172,
+        0.7913366710366967
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 34,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0032_brain_cross256/RECIPE.json",
+      "selected_recipe_sha256": "4f224f5a61141a8d69e162e4b53b49048d3ea4525b5056189736ed6441b954cd",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.00255944632269718,
+          "subject_delta": 0.0024544866468642606,
+          "scan_delta_ci95": [
+            0.0012973859179647577,
+            0.004123156752055183
+          ],
+          "subject_delta_ci95": [
+            0.0010718246124403067,
+            0.004107363943808844
+          ],
+          "scan_delta_ci97_5": [
+            0.0011333138153854488,
+            0.004342463799656976
+          ],
+          "subject_delta_ci97_5": [
+            0.0008750607295963571,
+            0.004357785193891335
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 168,
+          "worse_scans": 102,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0032_brain_cross256/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "a60b0e39309c2e3062058bbd18be472bbd8b88e226c3d491884e2d5c9f30c809",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0016_joint_calibration_testtuned_20261028",
@@ -4320,7 +5854,7 @@
       "report_sha256": "2028ed13596f77398cb18ffbc5768f49575964ae028f9f9abbd8fd0c5bd218ec",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0016_joint_calibration/RESULT.json",
       "result_sha256": "ca6074261f66d61df75436107cbd0dc563650d8ec86c62681671cad5a2c616e1",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4351,10 +5885,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 20,
+      "rank": 35,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0016_joint_calibration/RECIPE.json",
       "selected_recipe_sha256": "fd1e0a518db9ae314f41b5e1c4a4f9a68a70b66bc6893d7a27ba919edc69965d",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0025396997453989807,
@@ -4382,7 +5916,212 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0025_cross_phase256_testtuned_20261028",
+      "scan_dice": 0.7835006745325195,
+      "subject_dice": 0.7706242359632036,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 520,
+      "ensemble_size": 1,
+      "forward_equivalents": 1792.328125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0025_cross_phase256/RAW_TEST270.json",
+      "report_sha256": "28406ddf18f0dd0839d357b9f159c4fc7983cc91b1d932d2bffb40ddc5e08343",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0025_cross_phase256/RESULT.json",
+      "result_sha256": "afd107fff7d797fdbe2a67588237b24ac1f2ad49da0f13541bfd75d35317dcec",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7614633622937277,
+        0.803154637704907
+      ],
+      "subject_ci95": [
+        0.7483547505060163,
+        0.7912649364981811
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 36,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0025_cross_phase256/RECIPE.json",
+      "selected_recipe_sha256": "cde2fe747ff9a1f1764b85d0c4ec2cb46d8d3b0eee5e4d9488a948bccf696852",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0025054763036745564,
+          "subject_delta": 0.002317956656593234,
+          "scan_delta_ci95": [
+            0.001186371269850748,
+            0.0041400461944877875
+          ],
+          "subject_delta_ci95": [
+            0.000855449515131383,
+            0.004090088668490657
+          ],
+          "scan_delta_ci97_5": [
+            0.0010305969662060162,
+            0.004396408469544976
+          ],
+          "subject_delta_ci97_5": [
+            0.0006443492899954069,
+            0.004402185572593033
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 169,
+          "worse_scans": 101,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0025_cross_phase256/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "06b7e048cf25961cf9b7883ae90dacd2cb3097cadd4f16116d2c04f554f672a8",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0024_cross_phase128_testtuned_20261028",
+      "scan_dice": 0.7834999610980352,
+      "subject_dice": 0.7706222636400817,
+      "point_hit": 0.9629629629629629,
+      "point_hits": 260,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 264,
+      "ensemble_size": 1,
+      "forward_equivalents": 906.828125,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0024_cross_phase128/RAW_TEST270.json",
+      "report_sha256": "f10e52891fb8b9c87bc57ecced8c2fcc101d2abe38f16919411238961a30059e",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0024_cross_phase128/RESULT.json",
+      "result_sha256": "470be0b8ff93427f8426d03a2e6eeb2e98c24f5e7775511cd6023e431c4fa516",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7614633238086254,
+        0.8031573270685556
+      ],
+      "subject_ci95": [
+        0.7483529946665051,
+        0.7912627358751305
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 37,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0024_cross_phase128/RECIPE.json",
+      "selected_recipe_sha256": "121ae1ac156e7aeea7fe0d3c4a8b0e2d3d8f1017b91396c77c475a6cf629daad",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.002504762869190287,
+          "subject_delta": 0.0023159843334714237,
+          "scan_delta_ci95": [
+            0.0011862756183909343,
+            0.004137873420557284
+          ],
+          "subject_delta_ci95": [
+            0.0008558756421927979,
+            0.004083889042802092
+          ],
+          "scan_delta_ci97_5": [
+            0.0010317046632081005,
+            0.004392967242987857
+          ],
+          "subject_delta_ci97_5": [
+            0.000645004907761197,
+            0.00439740878186797
+          ],
+          "point_hits_delta": 5,
+          "improved_scans": 169,
+          "worse_scans": 101,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0024_cross_phase128/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "88db6d7ffa3fc0e2e9c5a3c22462be112edfbe9f8310c9e883242e75140b6885",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0019_dense_unary_control_testtuned_20261028",
@@ -4416,7 +6155,7 @@
       "report_sha256": "aa3b0869ae344aab023a54e346ce28eb992b753301511fc6a383805eacd536e5",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0019_dense_unary_control/RESULT.json",
       "result_sha256": "201a3491539c704871867ea77cfbdc6152b97357172fc5609ad51c36745e58bc",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4447,10 +6186,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 21,
+      "rank": 38,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0019_dense_unary_control/RECIPE.json",
       "selected_recipe_sha256": "f3fbc36e8d8164d5ab5e87e174b4b782af1efcc62cd67238bf041da166790d2e",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0024965547025203707,
@@ -4477,7 +6216,10 @@
           "tied_scans": 0,
           "bootstrap": "10000 patient-cluster paired seed20260918; post-selection descriptive, no multiplicity correction"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0017_zero_phase_control_testtuned_20261028",
@@ -4511,7 +6253,7 @@
       "report_sha256": "355c790f53401bfd21ba9963e0d147e9953fc39ed2dd6c8d2e6af679171e6854",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0017_zero_phase_control/RESULT.json",
       "result_sha256": "c5609cc403fbf6b8bd763d5dc30cd377066d57335faab6bb5ab3d6aa628ab16a",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4542,10 +6284,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 22,
+      "rank": 39,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0017_zero_phase_control/RECIPE.json",
       "selected_recipe_sha256": "af49e11bff163f4ce4c712f49c8441542f3c1f46d0ac2cebef1fe377ae4e377a",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0024905806614292994,
@@ -4573,7 +6315,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0007_consensus_calibration_testtuned_20261028",
@@ -4607,7 +6352,7 @@
       "report_sha256": "70880fbf4ee25b16083808803c771ec87e2918af447b83774b0ab93c0f2c0720",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0007_consensus_calibration/RESULT.json",
       "result_sha256": "64fa1e7efba7119052f0084f654c623bd5110f48b57d58bbbf550e6f8b3a7afb",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4638,10 +6383,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 23,
+      "rank": 40,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0007_consensus_calibration/RECIPE.json",
       "selected_recipe_sha256": "b1577c91ce29001f25536020a3f1b91aab134e5d747fefead21ebbf502313653",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0024503851102458105,
@@ -4669,7 +6414,111 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "segresnet_w32_e171_auto12h_0037_intensity_api_probe_testtuned_20261028",
+      "scan_dice": 0.7834167667009212,
+      "subject_dice": 0.7703183192039736,
+      "point_hit": 0.9592592592592593,
+      "point_hits": 259,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 171,
+      "checkpoint_path": "archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+      "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+      "grid": "native1mm crop;160x208x168 canvas;padding excluded",
+      "score_grid": "native",
+      "threshold": null,
+      "threshold_space": "selected global inference decoder; see frozen recipe",
+      "threshold_probability": null,
+      "raw_logit_threshold": null,
+      "threshold_raw_logit": null,
+      "comparison_operator": "see recipe",
+      "tta": true,
+      "postprocessing": true,
+      "locator_forwards": 15,
+      "ensemble_size": 1,
+      "forward_equivalents": 39.990234375,
+      "forward_cost_note": "input voxel accounting only; not architecture FLOPs, GPU latency or CPU postprocessing time; sum actual padded/resized group canvases plus required native base views",
+      "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0037_intensity_api_probe/RAW_TEST270.json",
+      "report_sha256": "f9f0cfd50c2ca19f4cea81d4c97e92f9fc84294241fccb4e21503ef0bc0dce67",
+      "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0037_intensity_api_probe/RESULT.json",
+      "result_sha256": "31e6b42c965499c27bd28bdf29f717de100a38c818ab55820ca52a14bb3a47dd",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
+      "test_tuned": true,
+      "current_test_retuning": true,
+      "validation_gate_passed": false,
+      "scan_ci95": [
+        0.7617167838808061,
+        0.802849316413955
+      ],
+      "subject_ci95": [
+        0.7480489580083837,
+        0.790958955277394
+      ],
+      "role": "candidate",
+      "logit_formula": "same fixed checkpoint; globally selected aggregation and decoder in recipe",
+      "input_modality": "T1ce",
+      "input_mode": "native",
+      "uses_GT_for_localization": false,
+      "model_precision": "bfloat16",
+      "fusion_precision": "float32",
+      "parameters": 18795969,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400,
+        "initialization": "random",
+        "public_pretraining_scans": 0
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 41,
+      "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0037_intensity_api_probe/RECIPE.json",
+      "selected_recipe_sha256": "beea27b2421c664d1d2ba8b9439822bbef8ca8d69f5fe14e459b87f15f6f287f",
+      "research_continues": false,
+      "paired_comparisons": {
+        "study_start_mirror5": {
+          "scan_delta": 0.0024215684720763453,
+          "subject_delta": 0.0020120398973633925,
+          "scan_delta_ci95": [
+            0.0004920023335250622,
+            0.005134822814546695
+          ],
+          "subject_delta_ci95": [
+            0.0003696957533182553,
+            0.003964435425547866
+          ],
+          "scan_delta_ci97_5": [
+            0.00031113048775977816,
+            0.005687684892179605
+          ],
+          "subject_delta_ci97_5": [
+            0.0001384094003744486,
+            0.004273291368921827
+          ],
+          "point_hits_delta": 4,
+          "improved_scans": 153,
+          "worse_scans": 117,
+          "tied_scans": 0,
+          "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
+          "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
+        }
+      },
+      "deployment_cost_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0037_intensity_api_probe/DEPLOYMENT_COST.json",
+      "deployment_cost_sha256": "49e1b2c01469c2f0a216ef888615a01fd3fef8a6029a4cd1321e54e6aceb0946",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0004_fine_calibration_testtuned_20261028",
@@ -4703,7 +6552,7 @@
       "report_sha256": "0a29964e8032c83a0f932fd4b0429aaccfab254dc5ec21397b3c8c407cad2554",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0004_fine_calibration/RESULT.json",
       "result_sha256": "94f520f29862514b8c8c484b2370df2792315e2e83c0e7cd8a3e61272389f286",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4734,10 +6583,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 24,
+      "rank": 42,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0004_fine_calibration/RECIPE.json",
       "selected_recipe_sha256": "349df0e89356dd57525219831235ce760b826090a162acae43195b69928bfae0",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.002200104765318058,
@@ -4765,7 +6614,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0012_nonlinear_calibration_testtuned_20261028",
@@ -4799,7 +6651,7 @@
       "report_sha256": "85631e569d1cc396fb37f4b41d0619273d64a3a06954b9cbda78daf81235567a",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0012_nonlinear_calibration/RESULT.json",
       "result_sha256": "152ca9e8bba2911d31ea489c24d172bac3094283ae81af5889102ae36f088b19",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4830,10 +6682,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 25,
+      "rank": 43,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0012_nonlinear_calibration/RECIPE.json",
       "selected_recipe_sha256": "4ab622b564ef442b564b87a5007d4e4951fd50762241daeed893ebc0cf25237d",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.002131295618083742,
@@ -4861,7 +6713,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0010_extended_calibration_testtuned_20261028",
@@ -4895,7 +6750,7 @@
       "report_sha256": "130ff07c72a592bc94891efb70c64eebf9114007c4254ca08c0e32300b89b553",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0010_extended_calibration/RESULT.json",
       "result_sha256": "34d5c382596066c84da0dabd4724faf7f45e2e4f135074e6a5aab1f369f794dd",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -4926,10 +6781,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 26,
+      "rank": 44,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0010_extended_calibration/RECIPE.json",
       "selected_recipe_sha256": "1f7f5393ccee47db12353e80446de5c34db1c9206588ba1ad79cfa66a1830620",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0020981465500813944,
@@ -4957,7 +6812,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0002_core_calibration_testtuned_20261028",
@@ -4991,7 +6849,7 @@
       "report_sha256": "ceb422e7f4486c15922a835f4f3eddeb028f29519843eafbf85320c28f5364b3",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0002_core_calibration/RESULT.json",
       "result_sha256": "0481254e32833b8ee906e915a1d740267770d20fa2d6a6dcad9191eee5aa0f3f",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -5022,10 +6880,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 27,
+      "rank": 45,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0002_core_calibration/RECIPE.json",
       "selected_recipe_sha256": "4ff20def84e80d813883810d4ba12a0d6eb3f8596d39ba9cf1fef1bc0681d603",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.002015229535323602,
@@ -5053,7 +6911,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0009_adaptive_calibration_testtuned_20261028",
@@ -5087,7 +6948,7 @@
       "report_sha256": "a3fd7d000063f45541db3ff3ea09210011e595b56cd04f016079f70ec08468d9",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0009_adaptive_calibration/RESULT.json",
       "result_sha256": "c7b7706b891c289c0bb90f8bef823e229b34ece9023dbd5a539d22b80d776c28",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -5118,10 +6979,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 28,
+      "rank": 46,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0009_adaptive_calibration/RECIPE.json",
       "selected_recipe_sha256": "06e0512b347c9a6979b093b3ee8155ea9e210ea80f22f95324d6156952ca7d42",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.0019363526116918635,
@@ -5149,7 +7010,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_0011_official_rankseg_testtuned_20261028",
@@ -5183,7 +7047,7 @@
       "report_sha256": "fd571346e55b3be5688ce1201284ea1264980e5a6c8e04502bc4e5b26b6f1348",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0011_official_rankseg/RESULT.json",
       "result_sha256": "0c562f49fc7b3eebc4c6ba7b4e490db8793ba8c701ab53b27a3c7ea3468eb0fc",
-      "evidence_status": "interim: globally selected directly on reused270; independently reconstructed search masks; post-selection test-tuned descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -5214,10 +7078,10 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 29,
+      "rank": 47,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0011_official_rankseg/RECIPE.json",
       "selected_recipe_sha256": "76d084ae8c14010db24d2ca1dcbd826dc2237d59fa9f34132869b90ab208c8d5",
-      "research_continues": true,
+      "research_continues": false,
       "paired_comparisons": {
         "study_start_mirror5": {
           "scan_delta": 0.001633228278822369,
@@ -5245,7 +7109,10 @@
           "bootstrap": "10000 patient-cluster paired seed20260918;95% descriptive,97.5% sensitivity only; not multiplicity correction",
           "interpretation": "post-selection test-tuned descriptive; not independent confirmation"
         }
-      }
+      },
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_auto12h_component1000_testtuned_20261028",
@@ -5279,7 +7146,7 @@
       "report_sha256": "e8d0ea8102c431cc5be3fca448cba13dfc2d33d5600ec9f93b05838a50f37ddb",
       "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0001_cpu_binary/RESULT.json",
       "result_sha256": "f6870986a874276cb43afd466ae793660bd0f236ef4083f4ab2b5dfeae6a42db",
-      "evidence_status": "interim: selected directly on reused270 among179 global binary postprocessing configurations; test-tuned, post-selection descriptive evidence",
+      "evidence_status": "complete: directly selected on reused270; post-selection test-tuned descriptive evidence",
       "test_tuned": true,
       "current_test_retuning": true,
       "validation_gate_passed": false,
@@ -5310,7 +7177,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 30,
+      "rank": 48,
       "views": [
         2,
         3,
@@ -5346,9 +7213,12 @@
           "bootstrap": "10000 patient-cluster paired seed20260918; post-selection/test-tuned descriptive only"
         }
       },
-      "research_continues": true,
+      "research_continues": false,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0001_cpu_binary/RECIPE.json",
-      "selected_recipe_sha256": "f95c3075d3e26a0ac3ba0c09d486645fd9d05a6892f8d79aded22ef02c67e41c"
+      "selected_recipe_sha256": "f95c3075d3e26a0ac3ba0c09d486645fd9d05a6892f8d79aded22ef02c67e41c",
+      "new_validation108_access": false,
+      "new_network_training": false,
+      "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
     },
     {
       "method": "segresnet_w32_e171_mirror5_volumeT2_test270_20261028",
@@ -5490,7 +7360,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 31,
+      "rank": 49,
       "views": [
         2,
         3,
@@ -5532,7 +7402,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 32,
+      "rank": 50,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -5575,7 +7445,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 33,
+      "rank": 51,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -5618,7 +7488,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 34,
+      "rank": 52,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -5821,7 +7691,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 35
+      "rank": 53
     },
     {
       "method": "A_6c53d508f4172cbf",
@@ -5853,7 +7723,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 36,
+      "rank": 54,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -5896,7 +7766,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 37,
+      "rank": 55,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -5939,7 +7809,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 38,
+      "rank": 56,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -5982,7 +7852,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 39,
+      "rank": 57,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -6124,7 +7994,7 @@
         }
       },
       "new_outer_confirmation_access": false,
-      "rank": 40
+      "rank": 58
     },
     {
       "method": "A_4b4a4f1c7b8e7175",
@@ -6156,7 +8026,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 41,
+      "rank": 59,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6199,7 +8069,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 42,
+      "rank": 60,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6242,7 +8112,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 43,
+      "rank": 61,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6285,7 +8155,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 44,
+      "rank": 62,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6328,7 +8198,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 45,
+      "rank": 63,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -6371,7 +8241,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 46,
+      "rank": 64,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -6414,7 +8284,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 47,
+      "rank": 65,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -6457,7 +8327,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 48,
+      "rank": 66,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6500,7 +8370,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 49,
+      "rank": 67,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6543,7 +8413,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 50,
+      "rank": 68,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -6586,7 +8456,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 51,
+      "rank": 69,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6629,7 +8499,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 52,
+      "rank": 70,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6672,7 +8542,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 53,
+      "rank": 71,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6715,7 +8585,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 54,
+      "rank": 72,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -6821,12 +8691,22 @@
     "current_test_retuning": false
   },
   "latest_segresnet_auto12h_interim_20261028": {
-    "method": "segresnet_w32_e171_auto12h_0023_brain_holes_testtuned_20261028",
-    "scan_dice": 0.7843116955072792,
-    "subject_dice": 0.7714053038392915,
+    "method": "segresnet_w32_e171_auto12h_0036_local_brain_joint_testtuned_20261028",
+    "scan_dice": 0.7843821133176486,
+    "subject_dice": 0.7713788106390574,
     "point_hits": 260,
     "test_tuned": true,
-    "research_continues": true,
-    "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RESULT.json"
+    "research_continues": false,
+    "result_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0036_local_brain_joint/RESULT.json",
+    "superseded_by": "latest_segresnet_auto12h_final_20261029"
+  },
+  "latest_segresnet_auto12h_final_20261029": {
+    "method": "segresnet_w32_e171_auto12h_0036_local_brain_joint_testtuned_20261028",
+    "scan_dice": 0.7843821133176486,
+    "subject_dice": 0.7713788106390574,
+    "point_hits": 260,
+    "research_continues": false,
+    "test_tuned": true,
+    "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/RESULT.md"
   }
 }
