@@ -1,0 +1,103 @@
+{
+  "schema": "aflow.race_v2.final_test270.v1",
+  "schema_only_not_authorization": true,
+  "required_top_level": [
+    "schema",
+    "registered_by",
+    "approval_scope",
+    "at",
+    "training_terminal",
+    "validation_audit",
+    "cohort",
+    "data",
+    "candidates",
+    "entry_source_sha256"
+  ],
+  "registered_by": "root",
+  "approval_scope": "final_frozen_test270_only",
+  "training_terminal": {
+    "done_path": "absolute",
+    "done_sha256": "SHA256",
+    "budget_path": "absolute",
+    "budget_sha256": "SHA256",
+    "result_path": "absolute",
+    "result_sha256": "SHA256"
+  },
+  "validation_audit": "list of {path,sha256}; includes initial JOINT_INFERENCE108_AUDIT and final snapshot arithmetic audit if new best",
+  "cohort": {
+    "manifest_path": "absolute sealed_test/test_cases_t1ce.jsonl",
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "scans": 270,
+    "subjects": 119,
+    "canvas": [
+      160,
+      208,
+      168
+    ],
+    "spacing_mm": [
+      1,
+      1,
+      1
+    ],
+    "modality": "T1ce",
+    "scoring": "native1mm original crop excludes padding"
+  },
+  "data": {
+    "native_cache": "/tmp/aflow_race_e164_test270_20261029/native",
+    "index_sha256": "0593265eeaa910a477f2dadb5fdb1518d9a60ade22676bf9afe6bc0167c843a3",
+    "payload_sha256": "full old CACHE_READY payload dict; actual native SHA before execution",
+    "existing_cache_audit_path": "A EXISTING270_CACHE_AUDIT.json",
+    "existing_cache_audit_sha256": "SHA256"
+  },
+  "candidates_maximum": 2,
+  "candidate": {
+    "candidate_id": "single or fusion",
+    "kind": "single or fusion",
+    "models": "embedded model dictionaries below; ordered primary first",
+    "single_recipe": "A selected candidate {id,mode,config,neural_case_forwards}; only for single",
+    "fusion": "only for fusion: {primary_weight,space:logit|probability,decoder:raw|full}",
+    "full_recipe_path": "absolute existing SELECTED_RECIPE.json; only fusion",
+    "full_recipe_sha256": "SHA256",
+    "validation_metrics": "metrics on108",
+    "validation_sources": "list of {path,sha256}"
+  },
+  "model": {
+    "model_id": "race164|w32e171|race_v2_final",
+    "checkpoint_path": "absolute immutable fixed weight",
+    "checkpoint_sha256": "SHA256",
+    "architecture": "full class name",
+    "construction": "constructor keyword arguments",
+    "atom_source": "reuse_race164|new_snapshot|new_w32",
+    "owner": "inference_a for both RACE models; inference_b for w32",
+    "atoms_ready_path": "A/final270/models/<model_id>/ATOMS_READY.json for RACE; B/final270/models/w32e171/ATOMS_READY.json for w32",
+    "historical_atom_reports": "for reuse_race164: list of {path,sha256} for two old FORWARD_COMPLETE rank reports",
+    "handoff_path": "for new_snapshot only",
+    "handoff_sha256": "for new_snapshot only",
+    "registration_108_path": "for new_snapshot only",
+    "registration_108_sha256": "for new_snapshot only"
+  },
+  "ready_manifest_required_fields": [
+    "status",
+    "model_id",
+    "checkpoint_sha256",
+    "manifest_sha256",
+    "index_sha256",
+    "case_forwards",
+    "atoms"
+  ],
+  "atom_manifest_fields": [
+    "slot",
+    "view",
+    "path",
+    "shape",
+    "sha256"
+  ],
+  "expected_case_forwards": 2160,
+  "metrics": "Scan/Subject/Point and paired patient CI seed20261029 n10000; per_case tp/fp/fn and automatic point; masks path/shape/SHA retained worker/tmp",
+  "failure": "exclusive PREACCESS before each new model forward; never automatic neural retry; complete READY permits decode/stat-only recovery",
+  "per_candidate_deployment_forward_limit": 16,
+  "selection_policy": "After full training: compare old chosen single against final-best transferred chosen single; compare old best fusion against final one-partner best12 fusion; highest108 Scan, earlier old configuration on ties; never use270",
+  "final_selection_requires_new_model": "Only if best_new_epoch>0; otherwise root FINAL_HANDOFF_NO_NEW_MODEL plus old108 results",
+  "new_test_access_by_this_schema": false,
+  "recorded_at": "2026-10-29T06:50:16.083920+00:00"
+}

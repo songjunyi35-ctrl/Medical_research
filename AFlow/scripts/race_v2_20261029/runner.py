@@ -100,6 +100,9 @@ def update(model,bare,opt,fn,local,iteration,coefficient=.05,margin=.002):
 
 def smoke(rank,bare):
     # Complete native canvas, real reference code, four global8 + one tail4.
+    frozen=read(R/'SMOKE_SOURCE_FREEZE_V3.json')
+    assert numerical_functions()==frozen['numerical_function_ast_sha256']
+    for path,digest in frozen['source_sha256'].items():assert sha(ROOT/path)==digest
     generator=torch.Generator().manual_seed(21)
     image=torch.randn(8,1,*CANVAS,generator=generator)
     target=torch.zeros_like(image);target[:,:,48:80,80:100,64:80]=1
@@ -138,6 +141,7 @@ def smoke(rank,bare):
     path.unlink()
     if rank==0:write(R/'SMOKE_DDP.json',dict(at=now(),status='passed',patient_forwards=0,effective_batch=8,
        microbatch_per_gpu=2,optimizer_new=True,bf16_deployment_exact=True,ranks=records,
+       numerical_function_ast_sha256=numerical_functions(),smoke_source_freeze_sha256=sha(R/'SMOKE_SOURCE_FREEZE_V3.json'),
        numerical_source_sha256={p:sha(ROOT/p) for p in ('scripts/race_v2_20261029/model.py','scripts/race_v2_20261029/benefit.py')}))
     finish(rank,'SMOKE_DDP')
 
@@ -240,6 +244,7 @@ def train(rank,bare,resume=False):
     assert read(R/'DATA_READY.json')['status']=='passed'
     smoke=read(R/'SMOKE_DDP.json');assert smoke['status']=='passed' and smoke['bf16_deployment_exact']
     for path,digest in smoke['numerical_source_sha256'].items():assert sha(ROOT/path)==digest
+    assert numerical_functions()==smoke['numerical_function_ast_sha256']
     budget=read(R/'BUDGET_DECISION.json');assert budget['status']=='passed'
     epochs=budget['new_epochs'];recipe=read(R/'RECIPE.json');freeze_sha=sha(R/'EXECUTION_FREEZE.json')
     target=TMP/'run';target.mkdir(parents=True,exist_ok=True)
@@ -249,6 +254,9 @@ def train(rank,bare,resume=False):
     if resume:
         saved=torch.load(target/'latest.pth',map_location='cpu',weights_only=False)
         assert saved['freeze_sha256']==freeze_sha and saved['run_id']==recipe['run_id']
+        assert saved['source_epoch']==164 and saved['source_sha256']==SOURCE_SHA
+        assert 1<=saved['new_epoch']<=epochs and saved['new_updates']==saved['new_epoch']*122
+        assert 0<=saved['best_new_epoch']<=saved['new_epoch'] and np.isfinite(saved['best_scan'])
         bare.load_state_dict(saved['model_state_dict'],strict=True);opt.load_state_dict(saved['optimizer_state_dict'])
         first=saved['new_epoch']+1;updates=saved['new_updates'];best=saved['best_scan'];best_epoch=saved['best_new_epoch'];elapsed_before=saved['elapsed_seconds']
         assert updates==(first-1)*122 and all(int(s['step'])==updates for s in opt.state.values())
@@ -329,12 +337,14 @@ def train(rank,bare,resume=False):
             with (R/'HISTORY.jsonl').open('a') as handle:handle.write(json.dumps(status)+'\n')
         dist.barrier();digest=check_sync(bare)
         if rank==0 and epoch==first:
-            write(R/'STARTUP_VERIFIED.json',dict(at=now(),status='passed',new_epoch=epoch,
+            startup=dict(at=now(),status='passed',new_epoch=epoch,
                  new_updates=updates,real_train_cases=972,real_validation_cases=108,
                  effective_batch=8,updates_per_epoch=122,optimizer_new_at_stage_start=True,
                  source_checkpoint_sha256=SOURCE_SHA,strict_cpu_reload=read(R/f'RELOAD_e{epoch:03}.json'),
                  rank_parameter_sha256=digest,epoch_seconds=time.monotonic()-started,
-                 metrics=report['metrics'],early_score_not_final_result=True,test_pixels=False))
+                 metrics=report['metrics'],early_score_not_final_result=True,test_pixels=False)
+            write(R/f'STARTUP_VERIFIED_e{epoch:03}.json',startup)
+            if not (R/'STARTUP_VERIFIED.json').exists():write(R/'STARTUP_VERIFIED.json',startup)
     if rank==0:
         write(R/'DONE.json',status)
     finish(rank,'TRAIN')

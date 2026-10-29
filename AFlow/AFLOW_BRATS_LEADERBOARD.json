@@ -1,7 +1,7 @@
 {
   "schema": "aflow.brats.t1ce_wt_leaderboard",
   "schema_version": 1,
-  "updated_utc": "2026-10-29T06:31:57.283086+00:00",
+  "updated_utc": "2026-10-29T06:55:48.562598+00:00",
   "ucsd56_bootstrap_mc_precision_20260907": {
     "status": "posthoc_numerical_sensitivity_original_preregistered_intervals_and_ranks_preserved",
     "report_path": "archive/reviews/2026-09-07_ucsd56_bootstrap_precision/RESULT.json",
@@ -8827,7 +8827,7 @@
   },
   "active_research_stage_20261029": {
     "run_id": "race_v2_stage_20261029",
-    "status": "preparation_and_gates",
+    "status": "initial_inference108_complete_training_preparation",
     "new_test270_results": false,
     "existing_single_segresnet_scan_reference": 0.789263,
     "goal_scan_dice": 0.8,
@@ -8837,6 +8837,62 @@
       "race": 32,
       "fusion": 12
     },
-    "test_candidates_max": 2
+    "test_candidates_max": 2,
+    "validation108": {
+      "single": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7680118805556385,
+        "subject_dice": 0.7582598586238567,
+        "point_hits": 98,
+        "scan_ci95": [
+          0.7279056461996511,
+          0.8030896060275887
+        ],
+        "subject_ci95": [
+          0.7181756252195863,
+          0.7945500674985705
+        ]
+      },
+      "pure_segresnet_ensemble": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7695545650742672,
+        "subject_dice": 0.7592392948269844,
+        "point_hits": 98,
+        "scan_ci95": [
+          0.7296301634587121,
+          0.8041511641643941
+        ],
+        "subject_ci95": [
+          0.7193128753056129,
+          0.7954716160098712
+        ]
+      },
+      "patient_fold_fusion": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7681778685914146,
+        "subject_dice": 0.7574413404720169,
+        "point_hits": 101,
+        "scan_ci95": [
+          0.7280672391036562,
+          0.8032159693474098
+        ],
+        "subject_ci95": [
+          0.7168609684709282,
+          0.794159787055992
+        ]
+      },
+      "fusion_vs_single_ci95": [
+        9.738612202329374e-05,
+        0.0029335944338559484
+      ],
+      "patient_fold_fusion_vs_single_ci95": [
+        -0.0020811166007014123,
+        0.00200719364951022
+      ],
+      "report_path": "archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md"
+    }
   }
 }

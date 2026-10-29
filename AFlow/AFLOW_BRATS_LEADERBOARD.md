@@ -3,7 +3,7 @@
 更新时间：2026-10-29 UTC
 
 <!-- RACE_V2_STAGE_20261029 -->
-新阶段已授权：RACE164新优化器微调、RACE专属校准与w32有限融合，先108选择、最终最多2固定270候选；当前没有新270分数，不新增排名。单模型／纯SegResNet多模型分别报告，继承test-tuned历史。[本轮分工与状态](archive/research_records/2026-10-29_race_v2_stage/RUNBOOK.md)。
+本轮108验证：单模型等权8镜像Scan **0.768011881**、Subject0.758259859、Point98/108；纯SegResNet双模最高 **0.769554565**，患者分折选择后0.768177869，相对单模区间跨0。此为验证结果，不加入270排名；训练数据准备中，无新270成绩。[完整结果与成本](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md)。
 <!-- END_RACE_V2_STAGE_20261029 -->
 
 这是项目唯一的快速排行榜入口。详细实验解释、因果边界和哈希以各自归档为准。不同cohort、数据角色、定位权限和交互协议不得混排。

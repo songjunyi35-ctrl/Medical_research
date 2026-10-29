@@ -1,4 +1,5 @@
 """New-stage paths and guards. Never inherit a historical experiment deadline."""
+import ast
 import datetime
 import hashlib
 import json
@@ -52,8 +53,34 @@ def deadline(required=False):
         return
     if time.time() >= stop: raise RuntimeError('new-stage resource deadline reached')
 def verify_sources(name='EXECUTION_FREEZE.json'):
-    for path, digest in read(R/name)['source_sha256'].items():
+    frozen=read(R/name)
+    for path, digest in frozen['source_sha256'].items():
         if sha(ROOT/path) != digest: raise RuntimeError('frozen source changed: '+path)
+    if name=='EXECUTION_FREEZE.json':
+        for key,file in [('recipe_sha256','RECIPE.json'),('budget_sha256','BUDGET_DECISION.json'),('idea_sha256','IDEA.md')]:
+            if sha(R/file)!=frozen[key]:raise RuntimeError('frozen recipe/budget/idea changed: '+file)
+        assert frozen['source_checkpoint_sha256']==SOURCE_SHA and sha(SOURCE)==SOURCE_SHA
+        assert sha(R/'SMOKE_DDP.json')==frozen['smoke_gate_sha256']
+        assert sha(R/'SMOKE_SOURCE_FREEZE_V3.json')==frozen['smoke_source_freeze_sha256']
+        assert frozen['bf16_deployment_exact'] is True
+        budget=read(R/'BUDGET_DECISION.json');recipe=read(R/'RECIPE.json')
+        assert recipe['source_epoch']==164 and recipe['source_checkpoint_sha256']==SOURCE_SHA
+        assert budget['status']=='passed' and 1<=budget['new_epochs']<=80
+        assert budget['new_updates']==budget['new_epochs']*122
+        assert budget['effective_batch']==recipe['effective_batch']==8
+        assert budget['microbatch_per_gpu']==recipe['microbatch_per_gpu']==2
+        assert budget['world_size']==recipe['world_size']==2
+        assert budget['updates_per_epoch']==recipe['updates_per_epoch']==122
+        assert budget['examples_per_epoch']==recipe['train_cases_per_epoch']==972
+        for path,functions in frozen['numerical_function_ast_sha256'].items():
+            assert function_ast_sha(ROOT/path,list(functions))==functions,'numerical function AST changed: '+path
+    return frozen
+def function_ast_sha(path,names):
+    functions={node.name:node for node in ast.parse(Path(path).read_text()).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    return {name:hashlib.sha256(ast.dump(functions[name],include_attributes=False).encode()).hexdigest() for name in names}
+def numerical_functions():
+    return {'scripts/race_v2_20261029/runner.py':function_ast_sha(ROOT/'scripts/race_v2_20261029/runner.py',
+              ['initialize','optimizer','prepared_batches','update'])}
 def rows(split):
     if split not in ('train','validation'): raise ValueError('training code disallows test rows')
     from scripts.nnunet_resenc_20261013.common import rows as load

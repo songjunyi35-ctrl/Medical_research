@@ -1,0 +1,43 @@
+{
+  "at": "2026-10-29T06:49:36.797488+00:00",
+  "state": "prepared_not_executed",
+  "phase": "only_after_complete_training_budget",
+  "expected_terminal": "DONE state complete and new_epoch==target_new_epochs==BUDGET_DECISION.new_epochs",
+  "no_new_best": "if actual_new_epochs0 write NO_NEW_SELECTED and no neural generation",
+  "global_partner_rule": {
+    "eligible_if_partner_scan_at_least_candidate_minus": 0.03,
+    "correlation_gap_to_choose_lower": 0.01,
+    "tie_or_no_eligible": "higher raw Scan then lexical id",
+    "interpretation": "bounded heuristic diversity proxy; not optimal/causal evidence"
+  },
+  "partner_choices": [
+    "race164",
+    "w32e171"
+  ],
+  "historical_report_sha256": {
+    "race164": "a0a3dcf2a9d8a06aab6dfd129cebf73d9955b4a97c2d42dea88433603235b2e5",
+    "w32e171": "e97f5905bbda32fe06c8bc29fc90b800b4373e6f482d7b99817c7981d28be6c8"
+  },
+  "folds": "same5 patient SHA folds; each fold recomputes partner on4 development folds, then chooses12 fusion recipe on those4; fifth only scores",
+  "maximum_cached_decode_comparisons": 24,
+  "grid_per_partner": 12,
+  "grid": {
+    "candidate_weights": [
+      0.5,
+      0.75,
+      0.9
+    ],
+    "spaces": [
+      "logit",
+      "probability"
+    ],
+    "decoders": [
+      "raw",
+      "full"
+    ]
+  },
+  "final_deployment_models": 2,
+  "final_deployment_forwards": 16,
+  "extra_network_for_decode": 0,
+  "caveat": "Checkpoint and old models/decoder historically selected on reused108/test; no independent confirmation"
+}

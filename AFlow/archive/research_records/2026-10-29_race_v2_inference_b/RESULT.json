@@ -1,0 +1,1437 @@
+{
+  "at": "2026-10-29T14:44:32.456097+08:00",
+  "state": "complete",
+  "split": "validation",
+  "scans": 108,
+  "subjects": 50,
+  "training": false,
+  "test_access": false,
+  "single_models": {
+    "race_identity": {
+      "scan_dice": 0.7632656678281449,
+      "subject_dice": 0.7530846276808353,
+      "point_hits": 97,
+      "scans": 108,
+      "subjects": 50
+    },
+    "race_equal8": {
+      "scan_dice": 0.7680118805556385,
+      "subject_dice": 0.7582598586238567,
+      "point_hits": 98,
+      "scans": 108,
+      "subjects": 50
+    },
+    "race_full": {
+      "scan_dice": 0.7647051812597999,
+      "subject_dice": 0.7557431313182628,
+      "point_hits": 99,
+      "scans": 108,
+      "subjects": 50
+    },
+    "w32_identity": {
+      "scan_dice": 0.7532713398061417,
+      "subject_dice": 0.743651814340126,
+      "point_hits": 91,
+      "scans": 108,
+      "subjects": 50
+    },
+    "w32_equal8": {
+      "scan_dice": 0.7565277650676392,
+      "subject_dice": 0.7469117328311715,
+      "point_hits": 98,
+      "scans": 108,
+      "subjects": 50
+    },
+    "w32_full": {
+      "scan_dice": 0.7607097279418398,
+      "subject_dice": 0.7498300151314055,
+      "point_hits": 95,
+      "scans": 108,
+      "subjects": 50
+    }
+  },
+  "fusion_ranking": [
+    {
+      "id": "race0.75_logit_raw",
+      "race_weight": 0.75,
+      "space": "logit",
+      "decoder": "raw",
+      "metrics": {
+        "scan_dice": 0.7695545650742672,
+        "subject_dice": 0.7592392948269844,
+        "point_hits": 98,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.004849383814467324,
+        "scan_delta_ci95": [
+          0.000848171063877929,
+          0.01052612771793214
+        ],
+        "subject_delta": 0.00349616350872176,
+        "subject_delta_ci95": [
+          -0.0007062619757794201,
+          0.008425929610573106
+        ],
+        "improved": 70,
+        "worsened": 38,
+        "equal": 0,
+        "worsened_at_least_001": 6,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": 0.0015426845186286503,
+        "scan_delta_ci95": [
+          9.738612202329374e-05,
+          0.0029335944338559484
+        ],
+        "subject_delta": 0.0009794362031278155,
+        "subject_delta_ci95": [
+          -0.0005056872286257289,
+          0.0024551318626673444
+        ],
+        "improved": 76,
+        "worsened": 32,
+        "equal": 0,
+        "worsened_at_least_001": 3,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.75_probability_raw",
+      "race_weight": 0.75,
+      "space": "probability",
+      "decoder": "raw",
+      "metrics": {
+        "scan_dice": 0.7695006094872952,
+        "subject_dice": 0.7593636492817174,
+        "point_hits": 103,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.004795428227495264,
+        "scan_delta_ci95": [
+          0.0009826917114557608,
+          0.010599027307892164
+        ],
+        "subject_delta": 0.003620517963454837,
+        "subject_delta_ci95": [
+          -0.00025758029378595795,
+          0.008408258432788505
+        ],
+        "improved": 65,
+        "worsened": 43,
+        "equal": 0,
+        "worsened_at_least_001": 6,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": 0.0014887289316565901,
+        "scan_delta_ci95": [
+          0.00033242458335857477,
+          0.0027757034286962326
+        ],
+        "subject_delta": 0.0011037906578608922,
+        "subject_delta_ci95": [
+          1.9469340997082865e-05,
+          0.0023035092130303373
+        ],
+        "improved": 68,
+        "worsened": 40,
+        "equal": 0,
+        "worsened_at_least_001": 1,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.9_logit_raw",
+      "race_weight": 0.9,
+      "space": "logit",
+      "decoder": "raw",
+      "metrics": {
+        "scan_dice": 0.7688430122755192,
+        "subject_dice": 0.758808107092267,
+        "point_hits": 100,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.004137831015719308,
+        "scan_delta_ci95": [
+          0.0005695396558869453,
+          0.009406037901599754
+        ],
+        "subject_delta": 0.003064975774004346,
+        "subject_delta_ci95": [
+          -0.0007160685920999162,
+          0.0075347163700276885
+        ],
+        "improved": 66,
+        "worsened": 42,
+        "equal": 0,
+        "worsened_at_least_001": 5,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": 0.0008311317198806339,
+        "scan_delta_ci95": [
+          0.00023873230227484154,
+          0.0014561789488879502
+        ],
+        "subject_delta": 0.0005482484684104012,
+        "subject_delta_ci95": [
+          -3.750627842687428e-05,
+          0.0011419127407882894
+        ],
+        "improved": 78,
+        "worsened": 30,
+        "equal": 0,
+        "worsened_at_least_001": 1,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.9_probability_raw",
+      "race_weight": 0.9,
+      "space": "probability",
+      "decoder": "raw",
+      "metrics": {
+        "scan_dice": 0.7687553630934821,
+        "subject_dice": 0.7588350406572931,
+        "point_hits": 103,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.004050181833682237,
+        "scan_delta_ci95": [
+          0.0004919822472255222,
+          0.009513524352485087
+        ],
+        "subject_delta": 0.003091909339030584,
+        "subject_delta_ci95": [
+          -0.0005001398979553154,
+          0.0075555599362012865
+        ],
+        "improved": 63,
+        "worsened": 45,
+        "equal": 0,
+        "worsened_at_least_001": 3,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": 0.0007434825378435629,
+        "scan_delta_ci95": [
+          3.2693418633891076e-06,
+          0.0016089740169650695
+        ],
+        "subject_delta": 0.000575182033436639,
+        "subject_delta_ci95": [
+          -8.298429651629358e-05,
+          0.0013198662213981147
+        ],
+        "improved": 67,
+        "worsened": 41,
+        "equal": 0,
+        "worsened_at_least_001": 0,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.5_probability_raw",
+      "race_weight": 0.5,
+      "space": "probability",
+      "decoder": "raw",
+      "metrics": {
+        "scan_dice": 0.7686798351782339,
+        "subject_dice": 0.7583522050153642,
+        "point_hits": 102,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.003974653918434073,
+        "scan_delta_ci95": [
+          -0.00035011202546087546,
+          0.009325758392780268
+        ],
+        "subject_delta": 0.0026090736971015028,
+        "subject_delta_ci95": [
+          -0.0022631349739219457,
+          0.007755032274339879
+        ],
+        "improved": 62,
+        "worsened": 46,
+        "equal": 0,
+        "worsened_at_least_001": 12,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": 0.0006679546225953985,
+        "scan_delta_ci95": [
+          -0.0020815355010140243,
+          0.003254766672699383
+        ],
+        "subject_delta": 9.234639150755744e-05,
+        "subject_delta_ci95": [
+          -0.003027649581432342,
+          0.003218103947561411
+        ],
+        "improved": 61,
+        "worsened": 47,
+        "equal": 0,
+        "worsened_at_least_001": 15,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.5_logit_raw",
+      "race_weight": 0.5,
+      "space": "logit",
+      "decoder": "raw",
+      "metrics": {
+        "scan_dice": 0.7681930498392494,
+        "subject_dice": 0.757932835788954,
+        "point_hits": 99,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.003487868579449477,
+        "scan_delta_ci95": [
+          -0.0009786835307198942,
+          0.008626175471864424
+        ],
+        "subject_delta": 0.0021897044706912262,
+        "subject_delta_ci95": [
+          -0.003093781292261112,
+          0.007463908275678039
+        ],
+        "improved": 63,
+        "worsened": 45,
+        "equal": 0,
+        "worsened_at_least_001": 13,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": 0.00018116928361080312,
+        "scan_delta_ci95": [
+          -0.002866395663138073,
+          0.003077045889132369
+        ],
+        "subject_delta": -0.0003270228349027179,
+        "subject_delta_ci95": [
+          -0.0038074662779413516,
+          0.003117582021902002
+        ],
+        "improved": 63,
+        "worsened": 45,
+        "equal": 0,
+        "worsened_at_least_001": 13,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.5_logit_full",
+      "race_weight": 0.5,
+      "space": "logit",
+      "decoder": "full",
+      "metrics": {
+        "scan_dice": 0.7663660322626432,
+        "subject_dice": 0.7565014698462826,
+        "point_hits": 99,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.0016608510028432917,
+        "scan_delta_ci95": [
+          -0.0011346906073672824,
+          0.0041699697415552095
+        ],
+        "subject_delta": 0.0007583385280200413,
+        "subject_delta_ci95": [
+          -0.0020808646895346186,
+          0.0034485277097140036
+        ],
+        "improved": 68,
+        "worsened": 40,
+        "equal": 0,
+        "worsened_at_least_001": 11,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": -0.0016458482929953822,
+        "scan_delta_ci95": [
+          -0.006716635607619275,
+          0.002391637600106852
+        ],
+        "subject_delta": -0.0017583887775739035,
+        "subject_delta_ci95": [
+          -0.006217160918882914,
+          0.002320775367674373
+        ],
+        "improved": 59,
+        "worsened": 49,
+        "equal": 0,
+        "worsened_at_least_001": 18,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.75_logit_full",
+      "race_weight": 0.75,
+      "space": "logit",
+      "decoder": "full",
+      "metrics": {
+        "scan_dice": 0.7662500609402303,
+        "subject_dice": 0.7568744545181594,
+        "point_hits": 98,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.0015448796804304475,
+        "scan_delta_ci95": [
+          0.0005885711601185361,
+          0.0024508463251436577
+        ],
+        "subject_delta": 0.0011313231998965852,
+        "subject_delta_ci95": [
+          0.00010160271308961372,
+          0.0021431557821730766
+        ],
+        "improved": 75,
+        "worsened": 33,
+        "equal": 0,
+        "worsened_at_least_001": 1,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": -0.0017618196154082263,
+        "scan_delta_ci95": [
+          -0.006421011756766926,
+          0.001521046326841626
+        ],
+        "subject_delta": -0.0013854041056973593,
+        "subject_delta_ci95": [
+          -0.005264058700097459,
+          0.0019155929429190495
+        ],
+        "improved": 61,
+        "worsened": 47,
+        "equal": 0,
+        "worsened_at_least_001": 12,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.9_logit_full",
+      "race_weight": 0.9,
+      "space": "logit",
+      "decoder": "full",
+      "metrics": {
+        "scan_dice": 0.7655333949735871,
+        "subject_dice": 0.7564211571500414,
+        "point_hits": 100,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.0008282137137872201,
+        "scan_delta_ci95": [
+          0.0004990169128818265,
+          0.0011482851020164213
+        ],
+        "subject_delta": 0.0006780258317788443,
+        "subject_delta_ci95": [
+          0.0003273565047198818,
+          0.00103000482473345
+        ],
+        "improved": 81,
+        "worsened": 27,
+        "equal": 0,
+        "worsened_at_least_001": 0,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": -0.002478485582051454,
+        "scan_delta_ci95": [
+          -0.007176801339621739,
+          0.0007167603665341931
+        ],
+        "subject_delta": -0.0018387014738151007,
+        "subject_delta_ci95": [
+          -0.005789011000345151,
+          0.0014918360704822189
+        ],
+        "improved": 59,
+        "worsened": 49,
+        "equal": 0,
+        "worsened_at_least_001": 13,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.75_probability_full",
+      "race_weight": 0.75,
+      "space": "probability",
+      "decoder": "full",
+      "metrics": {
+        "scan_dice": 0.7654682330235287,
+        "subject_dice": 0.7563321173829692,
+        "point_hits": 97,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.0007630517637288129,
+        "scan_delta_ci95": [
+          -0.0007773558366692291,
+          0.0018149860840010958
+        ],
+        "subject_delta": 0.0005889860647065298,
+        "subject_delta_ci95": [
+          -0.0010068155019765808,
+          0.0017606507667473383
+        ],
+        "improved": 78,
+        "worsened": 30,
+        "equal": 0,
+        "worsened_at_least_001": 1,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": -0.002543647532109861,
+        "scan_delta_ci95": [
+          -0.007875026830839455,
+          0.001294728107866468
+        ],
+        "subject_delta": -0.001927741240887415,
+        "subject_delta_ci95": [
+          -0.006506745822018101,
+          0.001960224579487528
+        ],
+        "improved": 63,
+        "worsened": 45,
+        "equal": 0,
+        "worsened_at_least_001": 15,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.9_probability_full",
+      "race_weight": 0.9,
+      "space": "probability",
+      "decoder": "full",
+      "metrics": {
+        "scan_dice": 0.7652617568771044,
+        "subject_dice": 0.7562547058079923,
+        "point_hits": 98,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.0005565756173045547,
+        "scan_delta_ci95": [
+          0.00030946030139417975,
+          0.0007918252358360895
+        ],
+        "subject_delta": 0.000511574489729745,
+        "subject_delta_ci95": [
+          0.00023650113706077852,
+          0.0008007349183871631
+        ],
+        "improved": 81,
+        "worsened": 27,
+        "equal": 0,
+        "worsened_at_least_001": 0,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": -0.0027501236785341192,
+        "scan_delta_ci95": [
+          -0.007602027920440512,
+          0.0005739254761241888
+        ],
+        "subject_delta": -0.0020051528158641996,
+        "subject_delta_ci95": [
+          -0.006074176004954747,
+          0.001437269244875223
+        ],
+        "improved": 54,
+        "worsened": 54,
+        "equal": 0,
+        "worsened_at_least_001": 13,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    {
+      "id": "race0.5_probability_full",
+      "race_weight": 0.5,
+      "space": "probability",
+      "decoder": "full",
+      "metrics": {
+        "scan_dice": 0.76520282416432,
+        "subject_dice": 0.7555973611275355,
+        "point_hits": 98,
+        "scans": 108,
+        "subjects": 50
+      },
+      "paired_to_race_full": {
+        "scan_delta": 0.0004976429045200348,
+        "scan_delta_ci95": [
+          -0.002405727001888139,
+          0.0029212348849869487
+        ],
+        "subject_delta": -0.00014577019072714305,
+        "subject_delta_ci95": [
+          -0.0030980429353103752,
+          0.002423962283702123
+        ],
+        "improved": 66,
+        "worsened": 42,
+        "equal": 0,
+        "worsened_at_least_001": 9,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "paired_to_strongest_single": {
+        "scan_delta": -0.0028090563913186393,
+        "scan_delta_ci95": [
+          -0.00890209829699147,
+          0.001930156777442505
+        ],
+        "subject_delta": -0.0026624974963210877,
+        "subject_delta_ci95": [
+          -0.00785690862543526,
+          0.0019645178413816855
+        ],
+        "improved": 57,
+        "worsened": 51,
+        "equal": 0,
+        "worsened_at_least_001": 19,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      },
+      "models": 2,
+      "forwards_per_scan": 16
+    }
+  ],
+  "strongest_single_reference": {
+    "id": "race_equal8",
+    "metrics": {
+      "scan_dice": 0.7680118805556385,
+      "subject_dice": 0.7582598586238567,
+      "point_hits": 98,
+      "scans": 108,
+      "subjects": 50
+    },
+    "selection": "highest Scan among6 predefined single-model reference configurations; same choice for all cases"
+  },
+  "patient_folds": [
+    {
+      "fold": 0,
+      "subjects": [
+        "BraTS-GLI-02875",
+        "BraTS-GLI-02724",
+        "BraTS-GLI-02249",
+        "BraTS-GLI-02327",
+        "BraTS-GLI-02196",
+        "BraTS-GLI-02782",
+        "BraTS-GLI-00507",
+        "BraTS-GLI-02112",
+        "BraTS-GLI-02258",
+        "BraTS-GLI-02386"
+      ],
+      "selected": {
+        "id": "race0.5_probability_raw",
+        "race_weight": 0.5,
+        "space": "probability",
+        "decoder": "raw"
+      },
+      "held_out_metrics": {
+        "scan_dice": 0.78256473193566,
+        "subject_dice": 0.7454070617045675,
+        "point_hits": 23,
+        "scans": 24,
+        "subjects": 10
+      },
+      "held_out_paired_to_race_full": {
+        "scan_delta": -0.0026069836070140204,
+        "scan_delta_ci95": [
+          -0.009013352933384124,
+          0.00159186650724972
+        ],
+        "subject_delta": -0.00518564549939973,
+        "subject_delta_ci95": [
+          -0.009890072662383318,
+          -0.0008676794144724103
+        ],
+        "improved": 10,
+        "worsened": 14,
+        "equal": 0,
+        "worsened_at_least_001": 4,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      }
+    },
+    {
+      "fold": 1,
+      "subjects": [
+        "BraTS-GLI-02381",
+        "BraTS-GLI-02256",
+        "BraTS-GLI-03007",
+        "BraTS-GLI-02796",
+        "BraTS-GLI-02750",
+        "BraTS-GLI-02219",
+        "BraTS-GLI-02919",
+        "BraTS-GLI-02859",
+        "BraTS-GLI-02845",
+        "BraTS-GLI-02208"
+      ],
+      "selected": {
+        "id": "race0.75_logit_raw",
+        "race_weight": 0.75,
+        "space": "logit",
+        "decoder": "raw"
+      },
+      "held_out_metrics": {
+        "scan_dice": 0.7603066468780691,
+        "subject_dice": 0.779081413646539,
+        "point_hits": 20,
+        "scans": 22,
+        "subjects": 10
+      },
+      "held_out_paired_to_race_full": {
+        "scan_delta": 0.012222178957679054,
+        "scan_delta_ci95": [
+          -0.004054982713178584,
+          0.03386183312783639
+        ],
+        "subject_delta": 0.007965338726838429,
+        "subject_delta_ci95": [
+          -0.004418588988482952,
+          0.026630894616246223
+        ],
+        "improved": 15,
+        "worsened": 7,
+        "equal": 0,
+        "worsened_at_least_001": 3,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      }
+    },
+    {
+      "fold": 2,
+      "subjects": [
+        "BraTS-GLI-00046",
+        "BraTS-GLI-02694",
+        "BraTS-GLI-02792",
+        "BraTS-GLI-02829",
+        "BraTS-GLI-03059",
+        "BraTS-GLI-02657",
+        "BraTS-GLI-02387",
+        "BraTS-GLI-02800",
+        "BraTS-GLI-02991",
+        "BraTS-GLI-02102"
+      ],
+      "selected": {
+        "id": "race0.75_probability_raw",
+        "race_weight": 0.75,
+        "space": "probability",
+        "decoder": "raw"
+      },
+      "held_out_metrics": {
+        "scan_dice": 0.7229108074132133,
+        "subject_dice": 0.6957747131586075,
+        "point_hits": 16,
+        "scans": 17,
+        "subjects": 10
+      },
+      "held_out_paired_to_race_full": {
+        "scan_delta": 0.007814303917043349,
+        "scan_delta_ci95": [
+          0.0019873975727118945,
+          0.01502993955989094
+        ],
+        "subject_delta": 0.008595143258571625,
+        "subject_delta_ci95": [
+          0.001962817125022412,
+          0.0165360077470541
+        ],
+        "improved": 12,
+        "worsened": 5,
+        "equal": 0,
+        "worsened_at_least_001": 0,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      }
+    },
+    {
+      "fold": 3,
+      "subjects": [
+        "BraTS-GLI-02060",
+        "BraTS-GLI-02912",
+        "BraTS-GLI-02905",
+        "BraTS-GLI-02976",
+        "BraTS-GLI-02927",
+        "BraTS-GLI-00547",
+        "BraTS-GLI-02128",
+        "BraTS-GLI-02178",
+        "BraTS-GLI-02980",
+        "BraTS-GLI-02647"
+      ],
+      "selected": {
+        "id": "race0.75_logit_raw",
+        "race_weight": 0.75,
+        "space": "logit",
+        "decoder": "raw"
+      },
+      "held_out_metrics": {
+        "scan_dice": 0.8002859381112185,
+        "subject_dice": 0.7892269844810167,
+        "point_hits": 21,
+        "scans": 22,
+        "subjects": 10
+      },
+      "held_out_paired_to_race_full": {
+        "scan_delta": 0.0010679418390447443,
+        "scan_delta_ci95": [
+          -0.0035754271019670303,
+          0.005372220065753918
+        ],
+        "subject_delta": -0.00032797803481419887,
+        "subject_delta_ci95": [
+          -0.00599473487585783,
+          0.005289747814337412
+        ],
+        "improved": 11,
+        "worsened": 11,
+        "equal": 0,
+        "worsened_at_least_001": 2,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      }
+    },
+    {
+      "fold": 4,
+      "subjects": [
+        "BraTS-GLI-02103",
+        "BraTS-GLI-02656",
+        "BraTS-GLI-02883",
+        "BraTS-GLI-02720",
+        "BraTS-GLI-02910",
+        "BraTS-GLI-00505",
+        "BraTS-GLI-03020",
+        "BraTS-GLI-02068",
+        "BraTS-GLI-00498",
+        "BraTS-GLI-00557"
+      ],
+      "selected": {
+        "id": "race0.75_logit_raw",
+        "race_weight": 0.75,
+        "space": "logit",
+        "decoder": "raw"
+      },
+      "held_out_metrics": {
+        "scan_dice": 0.7634406802446946,
+        "subject_dice": 0.7777165293693542,
+        "point_hits": 21,
+        "scans": 23,
+        "subjects": 10
+      },
+      "held_out_paired_to_race_full": {
+        "scan_delta": 0.0005387832289156706,
+        "scan_delta_ci95": [
+          -0.00689799587297089,
+          0.004070301212015606
+        ],
+        "subject_delta": -0.002555812682424273,
+        "subject_delta_ci95": [
+          -0.013620187278304783,
+          0.004118259272405078
+        ],
+        "improved": 14,
+        "worsened": 9,
+        "equal": 0,
+        "worsened_at_least_001": 1,
+        "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+      }
+    }
+  ],
+  "oof_metrics": {
+    "scan_dice": 0.7681778685914146,
+    "subject_dice": 0.7574413404720169,
+    "point_hits": 101,
+    "scans": 108,
+    "subjects": 50
+  },
+  "oof_paired_to_race_full": {
+    "scan_delta": 0.003472687331614671,
+    "scan_delta_ci95": [
+      -0.000668548335524187,
+      0.00914701562348163
+    ],
+    "subject_delta": 0.0016982091537543701,
+    "subject_delta_ci95": [
+      -0.0025538970290550165,
+      0.006655439769937876
+    ],
+    "improved": 62,
+    "worsened": 46,
+    "equal": 0,
+    "worsened_at_least_001": 10,
+    "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+  },
+  "oof_paired_to_strongest_single": {
+    "scan_delta": 0.00016598803577599702,
+    "scan_delta_ci95": [
+      -0.0020811166007014123,
+      0.00200719364951022
+    ],
+    "subject_delta": -0.0008185181518395742,
+    "subject_delta_ci95": [
+      -0.0031309662510951362,
+      0.0012147332876920687
+    ],
+    "improved": 68,
+    "worsened": 40,
+    "equal": 0,
+    "worsened_at_least_001": 8,
+    "bootstrap": "10000 patient-cluster paired, seed20261029; descriptive post-selection interval"
+  },
+  "complementarity": {
+    "equal8_dice_correlation": 0.9644895327138002,
+    "w32_better_scans": 40,
+    "race_better_scans": 68,
+    "equal_scans": 0,
+    "voxel_totals": {
+      "race_fp_corrected_by_w32": 340388,
+      "race_fn_corrected_by_w32": 171098,
+      "w32_fp_corrected_by_race": 231000,
+      "w32_fn_corrected_by_race": 249810,
+      "disagreement_voxels": 992296
+    }
+  },
+  "model_forwards": {
+    "race": 864,
+    "w32": 864,
+    "total": 1728,
+    "per_scan": 16,
+    "new_during_decode": 0
+  },
+  "caveat": "Reused validation and historically test-tuned checkpoints/decoder; patient folds assess stability, not independent confirmation",
+  "best_worsened_cases": [
+    {
+      "case_id": "BraTS-GLI-02720-100",
+      "subject_id": "BraTS-GLI-02720",
+      "delta": -0.04873180389404297,
+      "dice": 0.6523595452308655,
+      "reference_dice": 0.7010913491249084
+    },
+    {
+      "case_id": "BraTS-GLI-02845-101",
+      "subject_id": "BraTS-GLI-02845",
+      "delta": -0.02327829599380493,
+      "dice": 0.8554613590240479,
+      "reference_dice": 0.8787396550178528
+    },
+    {
+      "case_id": "BraTS-GLI-02647-100",
+      "subject_id": "BraTS-GLI-02647",
+      "delta": -0.019569337368011475,
+      "dice": 0.725445568561554,
+      "reference_dice": 0.7450149059295654
+    },
+    {
+      "case_id": "BraTS-GLI-02845-100",
+      "subject_id": "BraTS-GLI-02845",
+      "delta": -0.016765475273132324,
+      "dice": 0.8585329055786133,
+      "reference_dice": 0.8752983808517456
+    },
+    {
+      "case_id": "BraTS-GLI-02980-101",
+      "subject_id": "BraTS-GLI-02980",
+      "delta": -0.01362520456314087,
+      "dice": 0.8433637022972107,
+      "reference_dice": 0.8569889068603516
+    },
+    {
+      "case_id": "BraTS-GLI-02750-100",
+      "subject_id": "BraTS-GLI-02750",
+      "delta": -0.011338412761688232,
+      "dice": 0.7685876488685608,
+      "reference_dice": 0.779926061630249
+    },
+    {
+      "case_id": "BraTS-GLI-02386-100",
+      "subject_id": "BraTS-GLI-02386",
+      "delta": -0.00640493631362915,
+      "dice": 0.864297091960907,
+      "reference_dice": 0.8707020282745361
+    },
+    {
+      "case_id": "BraTS-GLI-02980-100",
+      "subject_id": "BraTS-GLI-02980",
+      "delta": -0.005705416202545166,
+      "dice": 0.7989141941070557,
+      "reference_dice": 0.8046196103096008
+    },
+    {
+      "case_id": "BraTS-GLI-02387-100",
+      "subject_id": "BraTS-GLI-02387",
+      "delta": -0.004548966884613037,
+      "dice": 0.6913902759552002,
+      "reference_dice": 0.6959392428398132
+    },
+    {
+      "case_id": "BraTS-GLI-02976-100",
+      "subject_id": "BraTS-GLI-02976",
+      "delta": -0.004351139068603516,
+      "dice": 0.7437799572944641,
+      "reference_dice": 0.7481310963630676
+    },
+    {
+      "case_id": "BraTS-GLI-02912-100",
+      "subject_id": "BraTS-GLI-02912",
+      "delta": -0.00399857759475708,
+      "dice": 0.6990026235580444,
+      "reference_dice": 0.7030012011528015
+    },
+    {
+      "case_id": "BraTS-GLI-02112-100",
+      "subject_id": "BraTS-GLI-02112",
+      "delta": -0.0031502842903137207,
+      "dice": 0.9071424603462219,
+      "reference_dice": 0.9102927446365356
+    },
+    {
+      "case_id": "BraTS-GLI-02829-101",
+      "subject_id": "BraTS-GLI-02829",
+      "delta": -0.0029410719871520996,
+      "dice": 0.8544833064079285,
+      "reference_dice": 0.8574243783950806
+    },
+    {
+      "case_id": "BraTS-GLI-02859-101",
+      "subject_id": "BraTS-GLI-02859",
+      "delta": -0.0028208494186401367,
+      "dice": 0.8352668881416321,
+      "reference_dice": 0.8380877375602722
+    },
+    {
+      "case_id": "BraTS-GLI-00046-101",
+      "subject_id": "BraTS-GLI-00046",
+      "delta": -0.002697467803955078,
+      "dice": 0.7923576831817627,
+      "reference_dice": 0.7950551509857178
+    },
+    {
+      "case_id": "BraTS-GLI-02060-101",
+      "subject_id": "BraTS-GLI-02060",
+      "delta": -0.0023259520530700684,
+      "dice": 0.8153808116912842,
+      "reference_dice": 0.8177067637443542
+    },
+    {
+      "case_id": "BraTS-GLI-02381-100",
+      "subject_id": "BraTS-GLI-02381",
+      "delta": -0.002179563045501709,
+      "dice": 0.9232505559921265,
+      "reference_dice": 0.9254301190376282
+    },
+    {
+      "case_id": "BraTS-GLI-02256-101",
+      "subject_id": "BraTS-GLI-02256",
+      "delta": -0.001993894577026367,
+      "dice": 0.780648410320282,
+      "reference_dice": 0.7826423048973083
+    },
+    {
+      "case_id": "BraTS-GLI-02112-103",
+      "subject_id": "BraTS-GLI-02112",
+      "delta": -0.0018844008445739746,
+      "dice": 0.8723911046981812,
+      "reference_dice": 0.8742755055427551
+    },
+    {
+      "case_id": "BraTS-GLI-02068-101",
+      "subject_id": "BraTS-GLI-02068",
+      "delta": -0.0016530156135559082,
+      "dice": 0.8128264546394348,
+      "reference_dice": 0.8144794702529907
+    },
+    {
+      "case_id": "BraTS-GLI-00507-101",
+      "subject_id": "BraTS-GLI-00507",
+      "delta": -0.0015925168991088867,
+      "dice": 0.7106574773788452,
+      "reference_dice": 0.7122499942779541
+    },
+    {
+      "case_id": "BraTS-GLI-00505-101",
+      "subject_id": "BraTS-GLI-00505",
+      "delta": -0.0015823841094970703,
+      "dice": 0.7929483652114868,
+      "reference_dice": 0.7945307493209839
+    },
+    {
+      "case_id": "BraTS-GLI-02782-100",
+      "subject_id": "BraTS-GLI-02782",
+      "delta": -0.0015755295753479004,
+      "dice": 0.8347849249839783,
+      "reference_dice": 0.8363604545593262
+    },
+    {
+      "case_id": "BraTS-GLI-02103-101",
+      "subject_id": "BraTS-GLI-02103",
+      "delta": -0.0013118386268615723,
+      "dice": 0.7860615849494934,
+      "reference_dice": 0.787373423576355
+    },
+    {
+      "case_id": "BraTS-GLI-02112-101",
+      "subject_id": "BraTS-GLI-02112",
+      "delta": -0.0012949705123901367,
+      "dice": 0.9065453410148621,
+      "reference_dice": 0.9078403115272522
+    },
+    {
+      "case_id": "BraTS-GLI-02910-100",
+      "subject_id": "BraTS-GLI-02910",
+      "delta": -0.0012760758399963379,
+      "dice": 0.6807138323783875,
+      "reference_dice": 0.6819899082183838
+    },
+    {
+      "case_id": "BraTS-GLI-02927-101",
+      "subject_id": "BraTS-GLI-02927",
+      "delta": -0.0006097555160522461,
+      "dice": 0.838300347328186,
+      "reference_dice": 0.8389101028442383
+    },
+    {
+      "case_id": "BraTS-GLI-00547-101",
+      "subject_id": "BraTS-GLI-00547",
+      "delta": -0.0005863308906555176,
+      "dice": 0.818548858165741,
+      "reference_dice": 0.8191351890563965
+    },
+    {
+      "case_id": "BraTS-GLI-02927-100",
+      "subject_id": "BraTS-GLI-02927",
+      "delta": -0.0005701184272766113,
+      "dice": 0.8046802878379822,
+      "reference_dice": 0.8052504062652588
+    },
+    {
+      "case_id": "BraTS-GLI-00498-101",
+      "subject_id": "BraTS-GLI-00498",
+      "delta": -0.0005530118942260742,
+      "dice": 0.8097512722015381,
+      "reference_dice": 0.8103042840957642
+    },
+    {
+      "case_id": "BraTS-GLI-02196-101",
+      "subject_id": "BraTS-GLI-02196",
+      "delta": -0.0004463791847229004,
+      "dice": 0.8920394778251648,
+      "reference_dice": 0.8924858570098877
+    },
+    {
+      "case_id": "BraTS-GLI-02219-100",
+      "subject_id": "BraTS-GLI-02219",
+      "delta": -0.00037276744842529297,
+      "dice": 0.8016383051872253,
+      "reference_dice": 0.8020110726356506
+    },
+    {
+      "case_id": "BraTS-GLI-02128-102",
+      "subject_id": "BraTS-GLI-02128",
+      "delta": -0.0003476142883300781,
+      "dice": 0.8641448020935059,
+      "reference_dice": 0.8644924163818359
+    },
+    {
+      "case_id": "BraTS-GLI-03020-100",
+      "subject_id": "BraTS-GLI-03020",
+      "delta": -0.0002542734146118164,
+      "dice": 0.9114736914634705,
+      "reference_dice": 0.9117279648780823
+    },
+    {
+      "case_id": "BraTS-GLI-02656-100",
+      "subject_id": "BraTS-GLI-02656",
+      "delta": -0.0002478957176208496,
+      "dice": 0.7298152446746826,
+      "reference_dice": 0.7300631403923035
+    },
+    {
+      "case_id": "BraTS-GLI-02800-100",
+      "subject_id": "BraTS-GLI-02800",
+      "delta": -0.0001939535140991211,
+      "dice": 0.8367617130279541,
+      "reference_dice": 0.8369556665420532
+    },
+    {
+      "case_id": "BraTS-GLI-02976-101",
+      "subject_id": "BraTS-GLI-02976",
+      "delta": -0.000110626220703125,
+      "dice": 0.8534217476844788,
+      "reference_dice": 0.8535323739051819
+    },
+    {
+      "case_id": "BraTS-GLI-02103-103",
+      "subject_id": "BraTS-GLI-02103",
+      "delta": -7.036328315734863e-05,
+      "dice": 0.4876689016819,
+      "reference_dice": 0.4877392649650574
+    }
+  ],
+  "best_worsened_cases_vs_strongest_single": [
+    {
+      "case_id": "BraTS-GLI-02249-100",
+      "subject_id": "BraTS-GLI-02249",
+      "delta": -0.05551241338253021,
+      "dice": 0.179701030254364,
+      "reference_dice": 0.23521344363689423
+    },
+    {
+      "case_id": "BraTS-GLI-02845-101",
+      "subject_id": "BraTS-GLI-02845",
+      "delta": -0.01477193832397461,
+      "dice": 0.8554613590240479,
+      "reference_dice": 0.8702332973480225
+    },
+    {
+      "case_id": "BraTS-GLI-02720-100",
+      "subject_id": "BraTS-GLI-02720",
+      "delta": -0.01161867380142212,
+      "dice": 0.6523595452308655,
+      "reference_dice": 0.6639782190322876
+    },
+    {
+      "case_id": "BraTS-GLI-02845-100",
+      "subject_id": "BraTS-GLI-02845",
+      "delta": -0.005600094795227051,
+      "dice": 0.8585329055786133,
+      "reference_dice": 0.8641330003738403
+    },
+    {
+      "case_id": "BraTS-GLI-02387-100",
+      "subject_id": "BraTS-GLI-02387",
+      "delta": -0.005358099937438965,
+      "dice": 0.6913902759552002,
+      "reference_dice": 0.6967483758926392
+    },
+    {
+      "case_id": "BraTS-GLI-02750-100",
+      "subject_id": "BraTS-GLI-02750",
+      "delta": -0.00504535436630249,
+      "dice": 0.7685876488685608,
+      "reference_dice": 0.7736330032348633
+    },
+    {
+      "case_id": "BraTS-GLI-02875-100",
+      "subject_id": "BraTS-GLI-02875",
+      "delta": -0.004921436309814453,
+      "dice": 0.786032497882843,
+      "reference_dice": 0.7909539341926575
+    },
+    {
+      "case_id": "BraTS-GLI-02647-100",
+      "subject_id": "BraTS-GLI-02647",
+      "delta": -0.0035966038703918457,
+      "dice": 0.725445568561554,
+      "reference_dice": 0.7290421724319458
+    },
+    {
+      "case_id": "BraTS-GLI-02386-100",
+      "subject_id": "BraTS-GLI-02386",
+      "delta": -0.0033881068229675293,
+      "dice": 0.864297091960907,
+      "reference_dice": 0.8676851987838745
+    },
+    {
+      "case_id": "BraTS-GLI-02976-100",
+      "subject_id": "BraTS-GLI-02976",
+      "delta": -0.003327667713165283,
+      "dice": 0.7437799572944641,
+      "reference_dice": 0.7471076250076294
+    },
+    {
+      "case_id": "BraTS-GLI-03007-100",
+      "subject_id": "BraTS-GLI-03007",
+      "delta": -0.0031800270080566406,
+      "dice": 0.7093361616134644,
+      "reference_dice": 0.712516188621521
+    },
+    {
+      "case_id": "BraTS-GLI-02875-101",
+      "subject_id": "BraTS-GLI-02875",
+      "delta": -0.002971827983856201,
+      "dice": 0.768838107585907,
+      "reference_dice": 0.7718099355697632
+    },
+    {
+      "case_id": "BraTS-GLI-00507-100",
+      "subject_id": "BraTS-GLI-00507",
+      "delta": -0.0028748512268066406,
+      "dice": 0.7424339652061462,
+      "reference_dice": 0.7453088164329529
+    },
+    {
+      "case_id": "BraTS-GLI-02112-100",
+      "subject_id": "BraTS-GLI-02112",
+      "delta": -0.0027251839637756348,
+      "dice": 0.9071424603462219,
+      "reference_dice": 0.9098676443099976
+    },
+    {
+      "case_id": "BraTS-GLI-00507-101",
+      "subject_id": "BraTS-GLI-00507",
+      "delta": -0.0027011632919311523,
+      "dice": 0.7106574773788452,
+      "reference_dice": 0.7133586406707764
+    },
+    {
+      "case_id": "BraTS-GLI-02859-101",
+      "subject_id": "BraTS-GLI-02859",
+      "delta": -0.002486586570739746,
+      "dice": 0.8352668881416321,
+      "reference_dice": 0.8377534747123718
+    },
+    {
+      "case_id": "BraTS-GLI-03059-101",
+      "subject_id": "BraTS-GLI-03059",
+      "delta": -0.0022016167640686035,
+      "dice": 0.7705662250518799,
+      "reference_dice": 0.7727678418159485
+    },
+    {
+      "case_id": "BraTS-GLI-02219-100",
+      "subject_id": "BraTS-GLI-02219",
+      "delta": -0.0019071698188781738,
+      "dice": 0.8016383051872253,
+      "reference_dice": 0.8035454750061035
+    },
+    {
+      "case_id": "BraTS-GLI-00505-101",
+      "subject_id": "BraTS-GLI-00505",
+      "delta": -0.0017548203468322754,
+      "dice": 0.7929483652114868,
+      "reference_dice": 0.7947031855583191
+    },
+    {
+      "case_id": "BraTS-GLI-02980-101",
+      "subject_id": "BraTS-GLI-02980",
+      "delta": -0.0015686750411987305,
+      "dice": 0.8433637022972107,
+      "reference_dice": 0.8449323773384094
+    },
+    {
+      "case_id": "BraTS-GLI-02103-103",
+      "subject_id": "BraTS-GLI-02103",
+      "delta": -0.0014982223510742188,
+      "dice": 0.4876689016819,
+      "reference_dice": 0.48916712403297424
+    },
+    {
+      "case_id": "BraTS-GLI-02724-100",
+      "subject_id": "BraTS-GLI-02724",
+      "delta": -0.0010508298873901367,
+      "dice": 0.8595234751701355,
+      "reference_dice": 0.8605743050575256
+    },
+    {
+      "case_id": "BraTS-GLI-02829-101",
+      "subject_id": "BraTS-GLI-02829",
+      "delta": -0.00104600191116333,
+      "dice": 0.8544833064079285,
+      "reference_dice": 0.8555293083190918
+    },
+    {
+      "case_id": "BraTS-GLI-02128-102",
+      "subject_id": "BraTS-GLI-02128",
+      "delta": -0.0006968379020690918,
+      "dice": 0.8641448020935059,
+      "reference_dice": 0.864841639995575
+    },
+    {
+      "case_id": "BraTS-GLI-00505-100",
+      "subject_id": "BraTS-GLI-00505",
+      "delta": -0.000672459602355957,
+      "dice": 0.7778867483139038,
+      "reference_dice": 0.7785592079162598
+    },
+    {
+      "case_id": "BraTS-GLI-02060-101",
+      "subject_id": "BraTS-GLI-02060",
+      "delta": -0.00043267011642456055,
+      "dice": 0.8153808116912842,
+      "reference_dice": 0.8158134818077087
+    },
+    {
+      "case_id": "BraTS-GLI-02782-101",
+      "subject_id": "BraTS-GLI-02782",
+      "delta": -0.00036650896072387695,
+      "dice": 0.7875815033912659,
+      "reference_dice": 0.7879480123519897
+    },
+    {
+      "case_id": "BraTS-GLI-02657-100",
+      "subject_id": "BraTS-GLI-02657",
+      "delta": -0.0003273487091064453,
+      "dice": 0.26604121923446655,
+      "reference_dice": 0.266368567943573
+    },
+    {
+      "case_id": "BraTS-GLI-03020-100",
+      "subject_id": "BraTS-GLI-03020",
+      "delta": -0.00028073787689208984,
+      "dice": 0.9114736914634705,
+      "reference_dice": 0.9117544293403625
+    },
+    {
+      "case_id": "BraTS-GLI-02381-100",
+      "subject_id": "BraTS-GLI-02381",
+      "delta": -0.00016367435455322266,
+      "dice": 0.9232505559921265,
+      "reference_dice": 0.9234142303466797
+    },
+    {
+      "case_id": "BraTS-GLI-00046-101",
+      "subject_id": "BraTS-GLI-00046",
+      "delta": -0.00010579824447631836,
+      "dice": 0.7923576831817627,
+      "reference_dice": 0.792463481426239
+    },
+    {
+      "case_id": "BraTS-GLI-02128-103",
+      "subject_id": "BraTS-GLI-02128",
+      "delta": -6.890296936035156e-05,
+      "dice": 0.8300888538360596,
+      "reference_dice": 0.8301577568054199
+    }
+  ]
+}

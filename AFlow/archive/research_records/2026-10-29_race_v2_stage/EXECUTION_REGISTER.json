@@ -1,0 +1,77 @@
+{
+  "at": "2026-10-29T15:08:41.523162+08:00",
+  "state": "running_preparation_and_gated_pipeline",
+  "head_node_supervisors": [
+    {
+      "name": "resource_monitor",
+      "pid": 2030618,
+      "alive": true
+    },
+    {
+      "name": "stage_observer",
+      "pid": 2034737,
+      "alive": true
+    },
+    {
+      "name": "accept_final_handoff",
+      "pid": 2038213,
+      "alive": true
+    },
+    {
+      "name": "final_selector",
+      "pid": 2041903,
+      "alive": true
+    },
+    {
+      "name": "final_publication_v2",
+      "pid": 2045160,
+      "alive": true
+    },
+    {
+      "name": "training_checkpoint_backup_only",
+      "pid": 2034632,
+      "alive": true
+    }
+  ],
+  "worker_queues": {
+    "training": {
+      "worker": 1154259,
+      "gpus": [
+        0,
+        1
+      ],
+      "prepare_pid": 367,
+      "coordinator_pid": 2941
+    },
+    "inference_a": {
+      "worker": 1154121,
+      "gpus": [
+        0
+      ],
+      "snapshot_waiter_pid": 1642,
+      "final_waiter_pid": 2863
+    },
+    "inference_b": {
+      "worker": 1154121,
+      "gpus": [
+        1
+      ],
+      "snapshot_waiter_pid": 2529,
+      "final_waiter_pid": 2442
+    }
+  },
+  "execution_chain": [
+    "training cache SHA+geometry andV3 numerical+budget freeze",
+    "new optimizer training full frozen budget",
+    "strict final fixed best handoff; epoch0 skips duplicate model",
+    "root register final108 only",
+    "new final-best108 and bounded partner fusion",
+    "root freeze exactly one single and one pair from108",
+    "fixed270 cached/new model atoms and540 worker-local mask audits",
+    "head integer statistics, doc/leaderboard update and code/text push"
+  ],
+  "current_test_selection_exists": false,
+  "clinical_array_transfer": "auto-review blocked head backup; not executed; worker-only scratch",
+  "old_coordinators_restarted": false,
+  "conditional_96h_spent": false
+}

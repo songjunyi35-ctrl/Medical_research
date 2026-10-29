@@ -17,7 +17,7 @@ ARCHITECTURES={'sammed3d.race_seg.RaceSeg','scripts.race_v2_20261029.model.RaceB
 def freeze():
     assert not FREEZE.exists();selected=read(R/'SELECTED_RECIPE.json')
     assert read(R/'DONE.json')['state']=='validation108_complete'
-    files=[Path(__file__),ROOT/'scripts/race_v2_inference_a_20261029/predictor.py',ROOT/'scripts/race_v2_inference_a_20261029/common.py',ROOT/'scripts/race_v2_inference_a_20261029/statistics.py',ROOT/'sammed3d/race_seg.py',ROOT/'scripts/race_v2_20261029/model.py']
+    files=[Path(__file__),ROOT/'scripts/race_v2_inference_a_20261029/predictor.py',ROOT/'scripts/race_v2_inference_a_20261029/common.py',ROOT/'scripts/race_v2_inference_a_20261029/statistics.py',ROOT/'sammed3d/race_seg.py']
     write(FREEZE,dict(at=now(),source_sha256={str(p.relative_to(ROOT)):sha(p) for p in files},initial_execution_freeze_sha256=sha(R/'EXECUTION_FREEZE.json'),selected_recipe_path=str(R/'SELECTED_RECIPE.json'),selected_recipe_sha256=sha(R/'SELECTED_RECIPE.json'),initial_plan_sha256=sha(R/'PLAN.json'),allowed_architectures=sorted(ARCHITECTURES),registered_job_directory=str(QUEUE),jobs_maximum=1,patient_forwards_per_job=864,required_training_terminal_state='complete and new_epoch==target_new_epochs',references=['raw_identity_t05','equal8_logit_t05','legacy_full'],transferred_selected_id=selected['candidate']['id'],new_search=False,new270_access=False,worker=1154121,physical_gpu=0,root_registration_schema=dict(job_id='safe basename',registered_by='root',approval_scope='final_completed_training_snapshot108_only',run_id='exact handoff run_id',handoff_path='absolute immutable HANDOFF.json',handoff_sha256='SHA256',training_done_path='absolute final DONE.json',training_done_sha256='SHA256',registered_at='root timestamp')))
 
 def verify_snapshot():
@@ -43,6 +43,10 @@ def load_handoff(job):
     assert h['actual_new_updates']==h['actual_new_epochs']*122
     assert h['source_epoch']==164 and h['source_checkpoint_sha256']==CHECKPOINT_SHA and h['optimizer_new'] is True
     assert sha(handoff_path.parent/'EXECUTION_FREEZE.json')==h['execution_freeze_sha256']
+    training_freeze=read(handoff_path.parent/'EXECUTION_FREEZE.json')
+    for p,d in training_freeze['source_sha256'].items():assert sha(ROOT/p)==d,p
+    if h['architecture']=='scripts.race_v2_20261029.model.RaceBenefitSeg':
+        assert 'scripts/race_v2_20261029/model.py' in training_freeze['source_sha256']
     assert sha(handoff_path.parent/'RECIPE.json')==h['recipe_sha256']
     geometry=h['input_geometry'];assert geometry['validation_canvas']==list(CANVAS) and geometry['spacing_mm']==[1,1,1]
     assert 'T@R@T' in geometry['mirror'] and 'valid support' in geometry['mirror']
@@ -105,6 +109,8 @@ def process(job):
         del image,values
     assert len(atoms)==864 and len({(a['slot'],a['view']) for a in atoms})==864
     assert sha(h['checkpoint_path'])==h['checkpoint_sha256']
+    for directory in (scratch/'atoms').iterdir():directory.chmod(0o555)
+    (scratch/'atoms').chmod(0o555)
     write(folder/'ATOMS_READY.json',dict(at=now(),status='passed',run_id=h['run_id'],checkpoint_sha256=h['checkpoint_sha256'],checkpoint_path=h['checkpoint_path'],architecture=h['architecture'],construction=h['construction'],actual_new_epochs=h['actual_new_epochs'],actual_new_updates=h['actual_new_updates'],input_geometry=h['input_geometry'],case_ids=index['case_ids'],manifest_sha256=sha(ROOT/'data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/validation_t1ce_wt.jsonl'),index_sha256=sha(CACHE/'index.json'),atoms=atoms,case_forwards=864,seconds=time.monotonic()-started,peak_reserved_gib=torch.cuda.max_memory_reserved()/2**30,snapshot_freeze_sha256=sha(FREEZE)))
     del model;torch.cuda.empty_cache();fcntl.flock(lock,fcntl.LOCK_UN)
     plan=read(R/'PLAN.json');recipes=plan['recipes'][:3];selected=read(R/'SELECTED_RECIPE.json')['candidate']

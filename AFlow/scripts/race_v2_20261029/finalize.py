@@ -5,6 +5,7 @@ from scripts.race_v2_20261029.common import *
 from scripts.race_v2_20261029.model import RaceBenefitSeg
 from scripts.race_v2_20261029.runner import checkpoint
 from scripts import segresnet_pretrained_native_common as native
+from scripts.race_v2_inference_a_20261029 import statistics as stage_statistics
 
 def main():
     verify_sources();disk();done=read(R/'DONE.json');best_epoch=done['best_new_epoch']
@@ -12,7 +13,8 @@ def main():
     base_cases=[dict(case_id=c['case_id'],subject_id=c['subject_id'],**{k:v for k,v in c['modes']['normal'].items() if k not in ('gate','logit_correction','probability_correction')}) for c in diagnosis['per_case']]
     report=(read(R/f'validation_e{best_epoch:03}.json') if best_epoch else
             dict(metrics=diagnosis['metrics']['normal'],per_case=base_cases))
-    comparison=native.paired(base_cases,report['per_case'])
+    report['metrics']=stage_statistics.summary_ci(report['per_case'])
+    comparison=stage_statistics.paired(report['per_case'],base_cases)
     promoted=(comparison['scan_delta']>=.003 and comparison['scan_delta_ci95'][0]>0 and
               comparison['subject_delta']>=0 and comparison['point_hits_delta']>=0 and best_epoch>0)
     portable={}
@@ -21,9 +23,17 @@ def main():
         model=RaceBenefitSeg(width=32,dropout=.1,dim=16,enabled=True)
         model.load_state_dict(saved['model_state_dict'],strict=True)
         assert all(bool(v.isfinite().all()) for v in model.state_dict().values())
-        path=R/'checkpoints'/f'{name}.pth';disk(extra=80<<20)
+        path=R/'checkpoints'/f'{name}.pth'
         state={k:v for k,v in saved.items() if k!='optimizer_state_dict'}
-        checkpoint(path,state)
+        if path.exists():
+            # Keep previously exported bytes stable across publication recovery;
+            # torch.save ZIP metadata can differ despite identical tensors.
+            previous=torch.load(path,map_location='cpu',weights_only=False)
+            for key in ('new_epoch','new_updates','freeze_sha256','run_id','source_epoch','source_sha256'):
+                assert previous[key]==state[key],'existing portable identity mismatch: '+key
+            assert all(torch.equal(v,previous['model_state_dict'][key]) for key,v in state['model_state_dict'].items())
+        else:
+            disk(extra=80<<20);checkpoint(path,state)
         reload=torch.load(path,map_location='cpu',weights_only=False)
         model.load_state_dict(reload['model_state_dict'],strict=True)
         assert all(torch.equal(v,reload['model_state_dict'][k]) for k,v in state['model_state_dict'].items())
