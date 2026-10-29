@@ -1,0 +1,6 @@
+{
+  "at": "2026-10-29T16:11:16.416036+08:00",
+  "error": "AssertionError('persistent reserve below 20 GiB')",
+  "traceback": "Traceback (most recent call last):\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_b_20261029/final_watch.py\", line 66, in <module>\n    try:main()\n        ^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_b_20261029/final_watch.py\", line 47, in main\n    guard();time.sleep(30)\n    ^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_b_20261029/common.py\", line 44, in guard\n    assert shutil.disk_usage(ROOT).free >= 20 * 2**30, 'persistent reserve below 20 GiB'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: persistent reserve below 20 GiB\n",
+  "automatic_neural_retry": false
+}

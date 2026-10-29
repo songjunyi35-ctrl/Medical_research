@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-10-29T16:25:55.033769+08:00",
+  "scope": "CPU read-only review, not an execution authorization or experiment result",
+  "existing_full80_unchanged": true,
+  "first17_best_trained_epoch": 12,
+  "first17_best_trained_scan": 0.7600270316556648,
+  "reference_scan": 0.7632662633226978,
+  "first17_best_delta": -0.0032392316670329935,
+  "full_first17_gate_range": [
+    0.08144708139890874,
+    0.09084798995819357
+  ],
+  "source_gate_mean": 9.732040948367487e-05,
+  "calibration_loss_first_last": [
+    1.7624446454116838,
+    0.6996626145064585
+  ],
+  "supervised_loss_first_last": [
+    0.1909656837245319,
+    0.17562889864231335
+  ],
+  "query_gradient_median": 0.004688049243080886,
+  "query_gradient_range": [
+    0.004123112189663965,
+    0.015926622701310574
+  ],
+  "full17_steady_epoch_seconds_median": 172.12257471494377,
+  "full80_observed_epoch_proxy_hours": 3.824946104776528,
+  "explicit_source_residual_scan_delta": 3.739087669937699e-07,
+  "gate_only_trainable_parameters": 34,
+  "gate_only_trainable_named_shapes": {
+    "gate_head.weight": [
+      1,
+      33,
+      1,
+      1,
+      1
+    ],
+    "gate_head.bias": [
+      1
+    ]
+  },
+  "model_parameters_total": 18811141,
+  "direct_empirical_base_drift_proven": false,
+  "evidence_limit": "Per-epoch logs lack base-only/mismatched Dice, backbone parameter/output drift and loss-specific backbone gradient decomposition. Nonzero query total gradient proves common adaptation, not that base drift caused lower Dice.",
+  "independent_design_basis": "Hold the nearly all-performing e164 base and ungated proposal fixed. Gate targets become stationary for identical augmented input; isolate a 34-parameter utility calibration from joint feature/base/proposal co-adaptation.",
+  "recommendation": "Mechanistically defensible as the only second candidate if root precommits it; not empirically necessary or guaranteed better, and not justified by GPU idleness or score alone.",
+  "resource_assessment": "80 rounds is plausible inside remaining initial24h using full80 measured runtime as conservative proxy, but no gate-only CUDA measurement exists; full synthetic timing/memory and new budget freeze required before training."
+}

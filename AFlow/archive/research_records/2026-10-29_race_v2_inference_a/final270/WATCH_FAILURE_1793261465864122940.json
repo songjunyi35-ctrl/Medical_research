@@ -1,0 +1,6 @@
+{
+  "at": "2026-10-29T16:11:05.865456+08:00",
+  "error": "AssertionError('persistent free <20GiB')",
+  "traceback": "Traceback (most recent call last):\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_a_20261029/final270_watch.py\", line 52, in <module>\n    try:main(args.watch,args.statistics_only)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_a_20261029/final270_watch.py\", line 47, in main\n    while not base.SELECTION.exists():guard();time.sleep(30)\n                                      ^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_a_20261029/common.py\", line 30, in guard\n    assert shutil.disk_usage(ROOT).free>=20*2**30,'persistent free <20GiB'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: persistent free <20GiB\n",
+  "automatic_neural_retry": false
+}

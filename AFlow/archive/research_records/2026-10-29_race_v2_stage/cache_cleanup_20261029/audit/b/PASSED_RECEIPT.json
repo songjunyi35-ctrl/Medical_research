@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-29T16:35:30.592425+08:00",
+  "status": "passed",
+  "scope": "Exact payload identity and no open/mapped hit in readable head/worker1154121 application processes; OS infrastructure permission exceptions explicitly retained",
+  "candidate_files": 1134,
+  "logical_bytes": 3112369422,
+  "allocated_bytes": 3114659840,
+  "all_payload_sha_match_preserved_index_or_journal": true,
+  "all_nlink1": true,
+  "all_files_regular_non_symlink": true,
+  "zip_schema_exact": true,
+  "zip_schema": "gray=image.npy+label.npy; nnunet=margin.npy only; metadata read, no array decode",
+  "opened_or_mapped_candidate_hits": [],
+  "process_coverage": {
+    "head_unsandboxed_processes": 53,
+    "head_fd_targets_read": 702,
+    "head_maps_files_read": 33,
+    "head_same_uid_exception": "PID2011268 sshd; all other sameUID application processes readable",
+    "worker_user_scan_processes": 12,
+    "worker_user_fd_targets": 20,
+    "worker_user_maps": 4,
+    "worker_user_exception": "ephemeral sameUID sshd PID8243; later identity scan shows it exited",
+    "worker_root_scan_processes": 13,
+    "worker_root_fd_targets": 33,
+    "worker_root_maps": 6,
+    "opaque_infrastructure_processes_not_claimed_fully_audited": true,
+    "full_permission_denials_in_evidence": true
+  },
+  "evidence_sha256": {
+    "archive/reviews/2026-10-29_cache_cleanup/b/audit_candidates.py": "d833a0fca2aff9c3d3a7e9d85f09582d735a65dd9b537a84fa5879500ebb7832",
+    "archive/reviews/2026-10-29_cache_cleanup/b/PAYLOAD_SHA_AUDIT.json": "7e20bc088f6f642d61ea616248614ace3c2021923ce574f53f833fccfb988d4d",
+    "archive/reviews/2026-10-29_cache_cleanup/b/HEAD_PROC_AUDIT.json": "b3663522247e2edb74f3e33b583495206dbcf644347bd718f17b81507f2de081",
+    "archive/reviews/2026-10-29_cache_cleanup/b/HEAD_PROC_AUDIT_UNSANDBOXED.json": "64159465484d5e8529f2812a779de90c3dd3c3375ff3aaa9bec1cb1292c7c5af",
+    "archive/reviews/2026-10-29_cache_cleanup/b/WORKER1154121_PROC_AUDIT.json": "9eedbe061d0fe806328cac3ccbceb9c32e7329b93a92f3e257a8c71d096ad63a",
+    "archive/reviews/2026-10-29_cache_cleanup/b/WORKER1154121_PROC_AUDIT_PRIVILEGED.json": "c1f701d35e02a7ced427a5084b5c9ea6984162791b50844ef43262dbe526fcd7",
+    "archive/reviews/2026-10-29_cache_cleanup/b/HEAD_PERMISSION_EXCEPTION_IDENTITIES.json": "63deb2f5b120263a4d5bfcdc5b60776151d2dc9dfcfa1131fe874136e7681eb5",
+    "archive/reviews/2026-10-29_cache_cleanup/b/WORKER1154121_PROCESS_IDENTITIES.txt": "58791e007b39216b1629e0779b58df2c513e4237e33db05c0e6dc376c4c3cc5c"
+  },
+  "delete_performed_by_b": false,
+  "transfer_performed": false,
+  "preserve": "Builders/index/journal/final JSON+masks/all weights/original sources/.git/current active worker caches; no restore/train/test run authorized by this audit"
+}

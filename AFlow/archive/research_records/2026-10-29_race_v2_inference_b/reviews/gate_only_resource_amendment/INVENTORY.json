@@ -1,0 +1,172 @@
+{
+  "at": "2026-10-29T16:26:41.717475+08:00",
+  "review_only_no_process_or_GPU_change": true,
+  "candidate2_decision": "not yet authorized to start by root",
+  "original_frozen_sources": {
+    "archive/research_records/2026-10-29_race_v2_stage/RESOURCE_ALLOCATION.json": "ec143b38bb2c19098ec646bdf2351c19495e5ebf4364523d859da1428111d36f",
+    "archive/research_records/2026-10-29_race_v2_stage/AUTHORIZATION.json": "55f239f6ed6e07427abedc9f5691883e8280dbf9ed3014b8a8478ab9a8a7e937",
+    "archive/research_records/2026-10-29_race_v2_stage/FINAL_HANDOFF_POLICY_FREEZE.json": "9b3215682fcd240d44bf0d39527dd7732100bf678dedb81a2ab339089ad04bf8",
+    "archive/research_records/2026-10-29_race_v2_stage/FINAL_SELECTION_POLICY_FREEZE.json": "0ee46425257f612c04e310be015f3a3ee18d43ea3abd721907a07ee394baa1a7",
+    "archive/research_records/2026-10-29_race_v2_stage/FINAL_PUBLICATION_FREEZE_V2.json": "af6fde78b3badfdfd47b9a7d015b09b073d5a852d1020281a0750e8a71a4d4a0"
+  },
+  "head_process_inventory": [
+    {
+      "name": "resource_monitor",
+      "pid": 2030618,
+      "alive_cpu_observed": true,
+      "cmdline": "python3 -m scripts.race_v2_stage_20261029.resource_monitor "
+    },
+    {
+      "name": "stage_observer",
+      "pid": 2034737,
+      "alive_cpu_observed": true,
+      "cmdline": "../sammed3d-venv/bin/python -m scripts.race_v2_stage_20261029.supervise "
+    },
+    {
+      "name": "accept_final_handoff",
+      "pid": 2038213,
+      "alive_cpu_observed": true,
+      "cmdline": "../sammed3d-venv/bin/python -m scripts.race_v2_stage_20261029.accept_final_handoff "
+    },
+    {
+      "name": "final_selector",
+      "pid": 2041903,
+      "alive_cpu_observed": true,
+      "cmdline": "../sammed3d-venv/bin/python -m scripts.race_v2_stage_20261029.select_final "
+    },
+    {
+      "name": "final_publication_v2",
+      "pid": 2045160,
+      "alive_cpu_observed": false,
+      "cmdline": ""
+    },
+    {
+      "name": "training_checkpoint_backup_only",
+      "pid": 2047159,
+      "alive_cpu_observed": true,
+      "cmdline": "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python -m scripts.race_v2_20261029.backup_watch "
+    },
+    {
+      "name": "real_startup_publication",
+      "pid": 2046465,
+      "alive_cpu_observed": false,
+      "cmdline": ""
+    }
+  ],
+  "workers_old_pid_records": {
+    "training": {
+      "worker": 1154259,
+      "gpus": [
+        0,
+        1
+      ],
+      "prepare_pid": 367,
+      "coordinator_pid": 2941,
+      "training_launcher_pid": 4604,
+      "rank_pids": [
+        4608,
+        4609
+      ],
+      "cache_preparation": "complete_actual_sha_and_geometry_passed",
+      "startup_verified": true
+    },
+    "inference_a": {
+      "worker": 1154121,
+      "gpus": [
+        0
+      ],
+      "snapshot_waiter_pid": 1642,
+      "final_waiter_pid": 2863
+    },
+    "inference_b": {
+      "worker": 1154121,
+      "gpus": [
+        1
+      ],
+      "snapshot_waiter_pid": 2529,
+      "final_waiter_pid": 2442
+    }
+  },
+  "root_trigger_files": {
+    "FINAL_TEST_SELECTION.json": false,
+    "FINAL_HANDOFF_ACCEPTED.json": false,
+    "FINAL_HANDOFF_NO_NEW_MODEL.json": false,
+    "SNAPSHOT108_QUEUE/race_v2_final_best108.json": false
+  },
+  "new270_preaccess": {
+    "inference_a": [],
+    "inference_b": []
+  },
+  "primary_status": {
+    "at": "2026-10-29T16:23:51.336751+08:00",
+    "state": "training",
+    "new_epoch": 22,
+    "new_updates": 2684,
+    "target_new_epochs": 80,
+    "best_new_epoch": 0,
+    "best_scan": 0.7632662633226978,
+    "metrics": {
+      "scan_dice": 0.7595629545825499,
+      "subject_dice": 0.7499191772795859,
+      "scan_ci95": [
+        0.7155901862070301,
+        0.7971447960026323
+      ],
+      "subject_ci95": [
+        0.7067212772791585,
+        0.7879962489594308
+      ],
+      "point_hit": 0.8703703703703703,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 94
+    },
+    "training_seconds": 158.88594104722142,
+    "epoch_seconds": 172.20327808335423,
+    "elapsed_seconds": 3833.1173926740885,
+    "learning_rate": 1.8726039142416796e-05,
+    "effective_batch": 8,
+    "world_size": 2,
+    "microbatch_per_gpu": 2,
+    "optimizer_new_at_stage_start": true,
+    "test_pixels": false,
+    "peak_reserved_gib": 34.34765625,
+    "train": {
+      "loss": 0.21572333080655753,
+      "supervised": 0.17311607223050093,
+      "contrast": 0.15712840711782253,
+      "calibration": 0.6950167435922741,
+      "gate_mean": 0.078295797968107,
+      "gain_positive": 119.02674897119341,
+      "gain_negative": 397.38683127572017,
+      "gain_neutral": 5348.197530864198,
+      "target_gain_mean": -0.006032314414537891,
+      "gradient_norm": 0.44880400849467933,
+      "gradient_gate": 0.003906495825084762,
+      "gradient_correction": 9.998524033463533e-05,
+      "gradient_query": 0.004003581605322751,
+      "gradient_strength": 3.804223118922405e-05
+    }
+  },
+  "primary_frozen_budget": {
+    "at": "2026-10-29T15:19:46.619977+08:00",
+    "status": "passed",
+    "new_epochs": 80,
+    "new_updates": 9760,
+    "seconds_per_update": 1.3506509102880955,
+    "per_epoch_estimated_seconds": 337.1691165827215,
+    "remaining_training_seconds": 76370.3800342083,
+    "estimated_training_seconds": 26973.529326617718,
+    "training_deadline_unix": 1793337457.0,
+    "effective_batch": 8,
+    "microbatch_per_gpu": 2,
+    "world_size": 2,
+    "updates_per_epoch": 122,
+    "examples_per_epoch": 972,
+    "epochs_chosen_before_patient_updates": true
+  },
+  "persistent_free_bytes": 21793738752,
+  "persistent_margin_over20GiB": 318902272,
+  "gate_only_speed_not_measured": true
+}

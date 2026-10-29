@@ -1,0 +1,19 @@
+{
+  "verified_date": "2026-10-29",
+  "primary_source": {
+    "title": "Multi-Atlas Segmentation with Joint Label Fusion",
+    "authors": "Wang et al.",
+    "year": 2013,
+    "doi": "10.1109/TPAMI.2012.143",
+    "url": "https://ieeexplore.ieee.org/abstract/document/6226425",
+    "accessible_primary_index": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3864549/",
+    "support": "Models spatial pairwise atlas-error dependencies rather than assigning independent atlas weights; local intensity similarity estimates the dependency matrix.",
+    "access_scope": "Primary abstract and indexed primary text verified; direct PMC full-text page presented browser challenge, publisher implementation page timed out. No claim to reproduce full original protocol."
+  },
+  "adaptation": "RACE8 uses other-seven majority disagreement as an unlabelled error proxy, estimates patchwise second moments, and regularizes the inverse matrix. Nonnegative renormalization and clipped uncertain-region residual updates are engineering choices, not original JLF guarantees.",
+  "risk": "Same-network view errors can be correlated and shared errors can evade consensus. Error-proxy agreement is not observed error probability. Validation Dice and matched diagonal controls determine this experiment's outcome.",
+  "historical_search_count": 7896659,
+  "new_candidate_count": 16,
+  "new_network_forwards": 0,
+  "new270_scoring": false
+}

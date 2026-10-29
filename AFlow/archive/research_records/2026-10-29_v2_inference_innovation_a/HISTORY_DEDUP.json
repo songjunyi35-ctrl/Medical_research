@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-29T17:07:28.861381+08:00",
+  "source_sha256": {
+    "scripts/segresnet_auto_inference12h_20261028/consensus_v1.py": "283429947cae775fe7fd78eb1700cfdd8970dfdddfa8123586f533daf7e673c7",
+    "scripts/segresnet_auto_inference12h_20261028/case_consistency_v1.py": "ab03bbcd0a02b216e6737fb1e7656beb6cb01ceb20f156287b582525ccdf133c",
+    "scripts/segresnet_auto_inference12h_20261028/core_fusions_v3.py": "11167c27435f2e063a69e41d708ab3f2777857d3fcd5c44651b17d8a20109081",
+    "scripts/segresnet_auto_inference12h_20261028/nonlinear_fusions_v1.py": "33e7fabb3d21b6423a45d0a4efb85c4a04536416b8e4b81d566f89ba6a5a5195",
+    "scripts/segresnet_auto_inference12h_20261028/joint_fusions_v1.py": "97210542a0252c66ec9fe8ef663d53761761099fb6114d2242e63dd3862943be",
+    "scripts/segresnet_auto_inference12h_20261028/local_mrf_v1.py": "f870ecb40fab00bccb95528d4a79dde91d06f0a7e64dc18886604b9a5cadd985",
+    "scripts/segresnet_auto_inference12h_20261028/shape_fusion_sweep_v1.py": "dc3476662c1da6cf8db2f45ceb94a239308a09daff382e6a1d78a19eca1e076f",
+    "scripts/segresnet_auto_inference12h_20261028/local_brain_joint_v1.py": "0676f74a94f2e6396f8c980ade94a9c737c4bf94a46cec7192c46a4e4d00c7ad"
+  },
+  "old_global_consistency": "one scalar weight per view/case",
+  "old_voxel_confidence": "independent inverse p(1-p) per voxel",
+  "old_joint": "product of scalar case agreement and independent voxel confidence, not8x8 dependency",
+  "old_consensus": "global EM sensitivity/specificity or scalar self-selection",
+  "old_MRF": "spatial Potts smoothing after fusion",
+  "old_SDF": "global shape-distance mean/trim/quantile and whole-case weights",
+  "new_mechanism": "spatial 8x8 cross-view disagreement moments and regularized inverse-dependency weights with diagonal control",
+  "LOO_warning": "LOO mean residual is merely8/7 of mean residual; this implementation uses other7 majority sign, not that renamed identity",
+  "no_claim_of_first_in_literature": true,
+  "no_old790million_or512phase_repeat": true
+}

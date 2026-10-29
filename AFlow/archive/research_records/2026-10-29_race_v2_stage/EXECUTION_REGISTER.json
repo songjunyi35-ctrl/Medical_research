@@ -1,6 +1,6 @@
 {
-  "at": "2026-10-29T15:28:02.395440+08:00",
-  "state": "formal_training_after_verified_first_full_epoch",
+  "at": "2026-10-29T17:13:37.014785+08:00",
+  "state": "training_unchanged_parallel_bounded_inference_innovation",
   "head_node_supervisors": [
     {
       "name": "resource_monitor",
@@ -18,16 +18,6 @@
       "alive": true
     },
     {
-      "name": "final_selector",
-      "pid": 2041903,
-      "alive": true
-    },
-    {
-      "name": "final_publication_v2",
-      "pid": 2045160,
-      "alive": true
-    },
-    {
       "name": "training_checkpoint_backup_only",
       "pid": 2047159,
       "alive": true
@@ -38,6 +28,17 @@
       "alive": false,
       "completed_successfully": true,
       "remote_commit": "20f0804186c6125b9f4ff552d6bacbb444b92600"
+    },
+    {
+      "name": "prior_final_selector",
+      "pid": 2041903,
+      "alive": false,
+      "reason": "replaced_for_inference_innovation_before_any_final270_selection"
+    },
+    {
+      "name": "final_publication_v2",
+      "pid": 2068677,
+      "alive": true
     }
   ],
   "worker_queues": {
@@ -63,15 +64,19 @@
         0
       ],
       "snapshot_waiter_pid": 1642,
-      "final_waiter_pid": 2863
+      "final_waiter_pid": 9259,
+      "innovation_pid": 10722,
+      "innovation_completed108": true
     },
     "inference_b": {
       "worker": 1154121,
       "gpus": [
         1
       ],
-      "snapshot_waiter_pid": 2529,
-      "final_waiter_pid": 2442
+      "snapshot_waiter_pid": 9260,
+      "final_waiter_pid": 9261,
+      "innovation_pid": 10631,
+      "innovation_completed108": true
     }
   },
   "execution_chain": [
@@ -87,5 +92,6 @@
   "current_test_selection_exists": false,
   "clinical_array_transfer": "auto-review blocked head backup; not executed; worker-only scratch",
   "old_coordinators_restarted": false,
-  "conditional_96h_spent": false
+  "conditional_96h_spent": false,
+  "prior_register_retained_path": "EXECUTION_REGISTER_20261029T1528.json"
 }

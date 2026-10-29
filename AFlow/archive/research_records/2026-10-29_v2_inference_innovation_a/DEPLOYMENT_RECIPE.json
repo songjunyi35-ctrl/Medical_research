@@ -1,0 +1,108 @@
+{
+  "at": "2026-10-29T17:16:48.450668+08:00",
+  "innovation_entry": {
+    "id": "race8_local_joint_k17_ridge0.2_blend1.0",
+    "mode": "race8_local_dependency",
+    "config": {
+      "id": "race8_local_joint_k17_ridge0.2_blend1.0",
+      "kind": "race_same_model8_local_dependency",
+      "dependency": "joint",
+      "box_mm": 17,
+      "lattice_stride": 4,
+      "ridge": 0.2,
+      "blend": 1.0,
+      "residual_clip": 2.0,
+      "uncertain_logit_band": 2.0,
+      "vote_logit_threshold": 0.0,
+      "output_logit_threshold": 0.0,
+      "point_rule": "final_refined_logit_argmax",
+      "base_point_auxiliary": true,
+      "neural_case_forwards": 8
+    },
+    "neural_case_forwards": 8
+  },
+  "innovation_metrics": {
+    "scan_dice": 0.7683146568360152,
+    "subject_dice": 0.7584739059067909,
+    "scan_ci95": [
+      0.7285715769540082,
+      0.8032561713786573
+    ],
+    "subject_ci95": [
+      0.7184078584625608,
+      0.7946545279331152
+    ],
+    "scans": 108,
+    "subjects": 50,
+    "point_hits": 98,
+    "bootstrap": "10000 patient whole-cluster percentile seed20261029; descriptive after selection"
+  },
+  "reference_metrics": {
+    "scan_dice": 0.7680118805556385,
+    "subject_dice": 0.7582598586238567,
+    "scan_ci95": [
+      0.7279056461996511,
+      0.8030896060275887
+    ],
+    "subject_ci95": [
+      0.7181756252195863,
+      0.7945500674985705
+    ],
+    "scans": 108,
+    "subjects": 50,
+    "point_hits": 98,
+    "bootstrap": "10000 patient whole-cluster percentile seed20261029; descriptive after selection"
+  },
+  "best_overall": {
+    "id": "race8_local_joint_k17_ridge0.2_blend1.0",
+    "order": 8,
+    "metrics": {
+      "scan_dice": 0.7683146568360152,
+      "subject_dice": 0.7584739059067909,
+      "scan_ci95": [
+        0.7285715769540082,
+        0.8032561713786573
+      ],
+      "subject_ci95": [
+        0.7184078584625608,
+        0.7946545279331152
+      ],
+      "scans": 108,
+      "subjects": 50,
+      "point_hits": 98,
+      "bootstrap": "10000 patient whole-cluster percentile seed20261029; descriptive after selection"
+    },
+    "paired_vs_equal8": {
+      "scan_delta": 0.00030277628037664626,
+      "subject_delta": 0.00021404728293418883,
+      "scan_delta_ci95": [
+        -9.873267294531719e-05,
+        0.0008811266346394381
+      ],
+      "subject_delta_ci95": [
+        -0.000183804238481181,
+        0.0006808403027909141
+      ],
+      "point_hits_delta": 0,
+      "improved_scans": 54,
+      "worse_scans": 54,
+      "tied_scans": 0,
+      "bootstrap": "10000 paired patient whole-cluster percentile seed20261029; descriptive after selection"
+    },
+    "point_refined": 98,
+    "point_base": 98
+  },
+  "source_result_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_v2_inference_innovation_a/RESULT.json",
+  "source_result_sha256": "9d4d431131af2f64d195d2d57120efcb1eef16744d14194f333edcf96e23593f",
+  "raw_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_v2_inference_innovation_a/RAW_VALIDATION108.json",
+  "raw_sha256": "fe32d051e72d6d73803749be3829627ebf4c3e218d8c6080a2e071b4be94a94b",
+  "mask_audit_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_v2_inference_innovation_a/MASK_AUDIT_VALIDATION108.json",
+  "mask_audit_sha256": "58432bbb06df72a781db7c584c24ef7fea5c647761a1bd40600c34d5d3ebfd73",
+  "deploy_callable": "scripts.race_v2_inference_innovation_a_20261029.deployment.deploy",
+  "source_sha256": {
+    "scripts/race_v2_inference_innovation_a_20261029/algorithm.py": "912e050df5c08b7d0d8183d9fa512a6f13016bc79c8cbdd6cf7423d4d91fbf6d",
+    "scripts/race_v2_inference_innovation_a_20261029/deployment.py": "32e5b365a075936702c4d543ab8e50e2ed06fe9c9c9d5538dc1dd0180bcd28ca"
+  },
+  "selection": "highest108 Scan new recipe among16; same frozen one transfers to final snapshot; equal8 remains independent global option",
+  "new270_authorization": false
+}

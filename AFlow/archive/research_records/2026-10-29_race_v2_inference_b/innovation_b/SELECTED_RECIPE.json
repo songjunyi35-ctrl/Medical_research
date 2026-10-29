@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-29T17:08:30.632171+08:00",
+  "candidate": {
+    "id": "paired_cov_k5_ridge4_conflict0",
+    "kind": "paired_covariance_shrinkage",
+    "kernel": 5,
+    "ridge": 4.0,
+    "conflict_gate": false,
+    "anchor": 0.75,
+    "alpha_min": 0.5,
+    "alpha_max": 0.95,
+    "statistics_temperature": 4.0,
+    "epsilon": 0.0001,
+    "singular_relative_tolerance": 1e-06,
+    "zero_variance_floor": 1e-08,
+    "threshold_logit": 0.0,
+    "models": 2,
+    "forwards_per_scan": 16
+  },
+  "selected_on": "reused validation108 only",
+  "new_model_forwards": 0,
+  "test_access": false,
+  "source_sha256": "d50cce7bb5c0ffcee78aa4c5fc23516d83ea5506c7a2192a46bbe5798ddd9469",
+  "deployment_interface": "deploy(logits_primary,logits_partner,image,recipe)",
+  "dynamic_input": "two aligned8-view crops; same shape as image; no labels or case lookup",
+  "model_order": [
+    "RACE164 primary",
+    "w32e171 partner"
+  ],
+  "checkpoint_sha256": [
+    "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+    "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade"
+  ],
+  "condition": "anchor.75 was selected on full108 before this study; five folds are conditional stability, not fresh OOF"
+}

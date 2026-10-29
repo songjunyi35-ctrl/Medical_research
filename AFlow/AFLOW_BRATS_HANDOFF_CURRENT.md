@@ -1,11 +1,17 @@
 # 当前科研状态与接续边界
 
 <!-- RACE_V2_STAGE_20261029 -->
-## 2026-10-29：新阶段108首批完成，正式微调进行中
+## 2026-10-29：训练与推理创新两worker并行
 
-三agent按两worker四卡隔离执行。首批108单模型RACE等权8镜像Scan0.768011881／Subject0.758259859／Point98/108；纯SegResNet双模型最高Scan0.769554565，但患者分折选择后0.768177869，相对单模区间跨0，稳定优势未确认。总控50配置算术复核通过，无新270评分。
+用户最新明确：1154259 GPU0+1保持正在执行的80新增轮／9760更新RACE-v2双卡训练，进程、源码冻结、数据、优化器、学习率和预算均不改；1154121 GPU0做RACE单模型推理创新，GPU1做纯SegResNet双模型推理创新。第二训练候选只做过CPU评审，未实施，现已取消。
 
-训练972/108实际载荷、几何和数值／预算门已通过；从e164新建AdamW正式微调，冻结新增80轮／9760更新，首完整epoch、108验证及CPU严格重载通过。首轮分数仅为早期结果。[启动证据](archive/research_records/2026-10-29_race_v2_training/STARTUP_VERIFIED.json)。最终固定best终态后再做108与有界融合，最多2个配置270，已核验的RACE270视图直接复用。实际进度以[实时监督](archive/research_records/2026-10-29_race_v2_stage/STAGE_STATUS.json)为准；训练尚未完成，270是否超过0.8仍待实测。[首轮结果与边界](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md)。
+首批108单模equal8 Scan0.768011881，双模固定0.75融合0.769554565，分折融合0.768177869，稳定优势未确认。推理侧继续两项已登记新机制：A局部跨镜像相关分歧融合16配置，B配对镜像协方差收缩融合12配置；只读复用108视图，新增网络前向0，部署单模8／双模16前向。新机制已完成：A最高Scan0.768314657／Subject0.758473906／Point98，对equal8差+0.000302776；B最高Scan0.769835511／Subject0.759471253／Point99，对旧固定融合差+0.000280946，两者患者配对区间均跨0，未确认稳定收益。
+
+保持单T1ce、原972／108／270与原生1mm完整裁剪评分；108选择后最终最多两个候选270，旧RACE270视图经完整SHA审计后直接复用，新模型生成自身预测。保留test-tuned历史，单模型与纯SegResNet融合分别报告，禁GT路由、额外模态和nnU-Net。尚无本轮新270分数，目标0.8待实测。
+
+按用户授权删除1134份旧缓存，实际释放2.900753GiB，清理后空闲约23.19GiB；构建源码／索引／SHA、193份模型和当前worker缓存均保留，训练未中断。大数组仅worker/tmp，持久空闲至少20GiB，总新增上限0.75GiB。资源仅按原保守24小时截止执行，条件96小时不预支，不重启旧协调器。
+
+[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · [推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · [新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · [实时状态](archive/research_records/2026-10-29_race_v2_stage/STAGE_STATUS.json) · [清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)
 <!-- END_RACE_V2_STAGE_20261029 -->
 
 <!-- RACE164_TEST270_20261029 -->

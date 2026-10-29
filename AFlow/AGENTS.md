@@ -1,11 +1,17 @@
 # AFlow repository instructions
 
 <!-- RACE_V2_STAGE_20261029 -->
-## 2026-10-29：新授权RACE-v2与双队列推理阶段
+## 2026-10-29：双卡训练保持原执行，另一worker推进推理创新
 
-用户新授权覆盖此前“一台worker分卡”安排及已关闭组不自动新训边界，仅本新阶段。从RACE164 best新建优化器微调（不是无缝续训），首选80新增轮，必须在972/108独立载荷SHA、双卡完整合成/尾批/重载与预算冻结后开训。1154259 GPU0+1仅训练；1154121 GPU0仅RACE校准、GPU1仅w32互补融合，四物理UUID已核验互异，独占锁且只有总控改分配。首阶段先1训练候选、最多2；初始推理2模型/16前向每例。A32配置、B12融合，统一患者五折与10000患者整簇bootstrap；108选择后最多2固定候选270，旧RACE270八视图完整SHA通过则复用，新权重须自身预测。保留test-tuned历史，单模型和纯SegResNet融合分报，禁GT病例路由、nnU-Net和额外模态。
+用户最新明确：1154259 GPU0+1保持正在执行的80新增轮／9760更新RACE-v2双卡训练，进程、源码冻结、数据、优化器、学习率和预算均不改；1154121 GPU0做RACE单模型推理创新，GPU1做纯SegResNet双模型推理创新。第二训练候选只做过CPU评审，未实施，现已取消。
 
-用户资源“24小时起步，高利用率可96小时，低利用率5小时查杀”；当前只冻结创建时间+24h的保守窗口：推理北京时间10月30日12:59:34，训练计算13:17:37／整体14:17:37，条件延长不预支。新持久总<=0.75GiB且实时空闲>=20GiB，大缓存/完整优化器各worker/tmp，保留best/latest和恢复备份。不重启任何旧协调器。正式新优化器微调已启动，数据／数值／预算及首完整epoch／108验证／CPU重载通过，无新270成绩。[本轮总控与分工](archive/research_records/2026-10-29_race_v2_stage/RUNBOOK.md)。
+首批108单模equal8 Scan0.768011881，双模固定0.75融合0.769554565，分折融合0.768177869，稳定优势未确认。推理侧继续两项已登记新机制：A局部跨镜像相关分歧融合16配置，B配对镜像协方差收缩融合12配置；只读复用108视图，新增网络前向0，部署单模8／双模16前向。新机制已完成：A最高Scan0.768314657／Subject0.758473906／Point98，对equal8差+0.000302776；B最高Scan0.769835511／Subject0.759471253／Point99，对旧固定融合差+0.000280946，两者患者配对区间均跨0，未确认稳定收益。
+
+保持单T1ce、原972／108／270与原生1mm完整裁剪评分；108选择后最终最多两个候选270，旧RACE270视图经完整SHA审计后直接复用，新模型生成自身预测。保留test-tuned历史，单模型与纯SegResNet融合分别报告，禁GT路由、额外模态和nnU-Net。尚无本轮新270分数，目标0.8待实测。
+
+按用户授权删除1134份旧缓存，实际释放2.900753GiB，清理后空闲约23.19GiB；构建源码／索引／SHA、193份模型和当前worker缓存均保留，训练未中断。大数组仅worker/tmp，持久空闲至少20GiB，总新增上限0.75GiB。资源仅按原保守24小时截止执行，条件96小时不预支，不重启旧协调器。
+
+[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · [推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · [新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · [实时状态](archive/research_records/2026-10-29_race_v2_stage/STAGE_STATUS.json) · [清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)
 <!-- END_RACE_V2_STAGE_20261029 -->
 
 <!-- RACE164_TEST270_20261029 -->

@@ -1,0 +1,57 @@
+{
+  "at": "2026-10-29T16:35:18.115316+08:00",
+  "files": [
+    {
+      "split": "train",
+      "payload_path": "workspace/BraTS/cache/smoke_single_repo_refiner/train/sam_logits.f16",
+      "bytes": 4194304,
+      "sha256": "2e43c583f9dcdee3acfd5adb93ff7a599e0f5fadb2f6aec7a8151166728bcf13",
+      "historical_sha256": "2e43c583f9dcdee3acfd5adb93ff7a599e0f5fadb2f6aec7a8151166728bcf13",
+      "actual_matches_historical": true,
+      "index_path": "workspace/BraTS/cache/smoke_single_repo_refiner/train/index.json",
+      "index_sha256": "d78818fbfc4fa0f1d58f3a81e96bccc83c01869d16ee01de1f18ed2ab6038543",
+      "generator_path": "scripts/cache_sammed3d_t1ce_wt_refiner_inputs.py",
+      "generator_current_sha256": "74559d0106ab109b30deab3787610ee1c3f51a9d48b6e5a4bf8abeade1369c31",
+      "generator_historical_sha256": "74559d0106ab109b30deab3787610ee1c3f51a9d48b6e5a4bf8abeade1369c31",
+      "generator_sha_matches": true,
+      "source_cache_path": "workspace/BraTS/cache/t1ce_wt_gtcrop_n4_128/train",
+      "upstream_images_present": false,
+      "upstream_labels_present": false,
+      "source_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/sammed3d_native_gtcrop_fullunfreeze_ddp2_train972_val108_e100_s20260805/sam_model_val_dice_best.pth",
+      "source_checkpoint_present": false,
+      "source_checkpoint_expected_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+      "rebuildable_now": false
+    },
+    {
+      "split": "validation",
+      "payload_path": "workspace/BraTS/cache/smoke_single_repo_refiner/validation/sam_logits.f16",
+      "bytes": 4194304,
+      "sha256": "2e52e0cf8c628360006848b7f45ad708e80583c1af5cc0aa696391e71f55be1e",
+      "historical_sha256": "2e52e0cf8c628360006848b7f45ad708e80583c1af5cc0aa696391e71f55be1e",
+      "actual_matches_historical": true,
+      "index_path": "workspace/BraTS/cache/smoke_single_repo_refiner/validation/index.json",
+      "index_sha256": "5c6ff65522dc17229c0991039184ba6043d144f494f9f474fc61aee8b0126377",
+      "generator_path": "scripts/cache_sammed3d_t1ce_wt_refiner_inputs.py",
+      "generator_current_sha256": "74559d0106ab109b30deab3787610ee1c3f51a9d48b6e5a4bf8abeade1369c31",
+      "generator_historical_sha256": "74559d0106ab109b30deab3787610ee1c3f51a9d48b6e5a4bf8abeade1369c31",
+      "generator_sha_matches": true,
+      "source_cache_path": "workspace/BraTS/cache/t1ce_wt_gtcrop_n4_128/validation",
+      "upstream_images_present": false,
+      "upstream_labels_present": false,
+      "source_checkpoint": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/sammed3d_t1ce_wt/sammed3d_native_gtcrop_fullunfreeze_ddp2_train972_val108_e100_s20260805/sam_model_val_dice_best.pth",
+      "source_checkpoint_present": false,
+      "source_checkpoint_expected_sha256": "42f96a0a2ade9d98d9db897a11a5a285f7a6351a7693c6884d6ac97a29dfde52",
+      "rebuildable_now": false
+    }
+  ],
+  "total_bytes": 8388608,
+  "confirmed_rebuildable_aux_whitelist": false,
+  "reason": "builder survives but historical SAM weight and upstream input payloads are absent; no immediate exact rebuild claim",
+  "upstream_builder": {
+    "path": "scripts/build_t1ce_wt_official15_cache.py",
+    "sha256": "ee882e0eed4704b398568dd2a36683ac1312cb429c5be85de1636816599114c9"
+  },
+  "deleted": false,
+  "decode": false,
+  "network": false
+}
