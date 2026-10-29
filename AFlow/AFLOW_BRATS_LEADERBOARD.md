@@ -1,12 +1,26 @@
 # AFlow BraTS T1ce/WT Leaderboard
 
-更新时间：2026-10-14（北京时间）
+更新时间：2026-10-29 UTC
 
 这是项目唯一的快速排行榜入口。详细实验解释、因果边界和哈希以各自归档为准。不同cohort、数据角色、定位权限和交互协议不得混排。
 
 2026-09-05来源补记：最近Flip8 A/B与镜像一致训练C/D的“fresh inner”仅指学生fit隔离及新划分；固定history/EMA教师的756例训练集与四个inner分别重叠87/72/88/72 scans（39/33/39/37 subjects），所以不具备教师—学生全链路患者隔离。存在间接信息泄漏风险，偏差大小尚未量化；不改变已保存测试点估计/区间，也不撤销UCSD75与项目患者差集结论。[清单审计](archive/reviews/2026-09-05_30h_chain_audit/TEACHER_INNER_EXPOSURE.json)。
 
 所有继承checkpoint还有共同训练源限制：本地BraTS2024来自Kaggle mirror，官方Synapse corrected-v2 zip/member字节parity尚未完成；UCSD/Africa/CPTAC/WAW外部源核验不会反向消除这个caveat。[来源复查](archive/reviews/2026-09-05_brats2024_source_provenance_recheck/RESULT.md)。
+
+<!-- CHINESE_METHOD_GUIDE -->
+## 方法名怎么理解
+
+- **基础模型**：正常训练，直接分割肿瘤。
+- **蒸馏**：让学生模型学习老师模型的预测。
+- **权重平滑**：把训练过程中各步的参数逐渐平均，尝试减少波动。
+- **八镜像预测**：只在推理时翻转出8个视图，预测还原后平均；不为此重训。
+- **预训练**：先用公开334例学习，再用原972例微调。
+- **原生／不缩放**：保持原始体素尺寸；**分块**则是一块一块处理影像。
+- **预测融合**：把多个模型的输出合起来；**参数平均**则是直接平均模型权重，两者不同。
+
+“第几轮”指保存权重时的训练轮次；“重复甲／乙”是同一方案的两次不同随机训练。名字只作中文展示，原实验编号仍保留在机器排行榜和归档中。不同栅格、训练集和内部／外部队列仍须分开比较。
+<!-- END_CHINESE_METHOD_GUIDE -->
 
 ## 指标定义
 
@@ -25,12 +39,12 @@
 
 75例WT均非空，因此Point hit分母为75。原图均为256³、1mm各向同性，两版本统一经canonical RAS、N4 shrink2、image-only brain crop缩至128³；这里存在共同的128³标签rasterization caveat。训练用BraTS副本是182×218×182，故external tensor不能视为internal cache的简单复制。
 
-| 排名 | 方法 | Scan Dice（95% CI） | Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+| 排名 | 方法 | 扫描平均Dice（95%置信区间） | 患者平均Dice（95%置信区间） | 定位命中 | 计算量 | 状态 |
 |---:|---|---:|---:|---:|---:|---|
-| **1** | **GCSAM184，official-float32** | **`0.755889505`** `[0.717191,0.789575]` | **`0.755311886`** `[0.707990,0.796823]` | 70/75 (`0.933333`) | `1×` | 官方来源版Scan/Subject点估计第1；同cohort重复纠正，非新确认 |
-| 2 | GCSAM184，mirror-uint8 | `0.755647338` `[0.717080,0.789172]` | `0.755151670` `[0.707873,0.796526]` | **71/75 (`0.946667`)** | `1×` | 历史8位镜像行保留；四行中Point点估计最高 |
-| 3 | Full972 random-init voxel-KD168，official-float32 | `0.746255043` `[0.706178,0.782003]` | `0.740164863` `[0.688098,0.784670]` | 70/75 (`0.933333`) | `1×` | 官方来源版；同cohort重复纠正，非新确认 |
-| 4 | Full972 random-init voxel-KD168，mirror-uint8 | `0.745554128` `[0.704767,0.781595]` | `0.739054558` `[0.686028,0.784535]` | 70/75 (`0.933333`) | `1×` | 历史8位镜像行保留 |
+| **1** | **改进优化器（864例，184轮）；官方浮点影像** | **`0.755889505`** `[0.717191,0.789575]` | **`0.755311886`** `[0.707990,0.796823]` | 70/75 (`0.933333`) | `1×` | 官方来源版Scan/Subject点估计第1；同cohort重复纠正，非新确认 |
+| 2 | 改进优化器（864例，184轮）；镜像版8位影像 | `0.755647338` `[0.717080,0.789172]` | `0.755151670` `[0.707873,0.796526]` | **71/75 (`0.946667`)** | `1×` | 历史8位镜像行保留；四行中Point点估计最高 |
+| 3 | 972例蒸馏模型（168轮）；官方浮点影像 | `0.746255043` `[0.706178,0.782003]` | `0.740164863` `[0.688098,0.784670]` | 70/75 (`0.933333`) | `1×` | 官方来源版；同cohort重复纠正，非新确认 |
+| 4 | 972例蒸馏模型（168轮）；镜像版8位影像 | `0.745554128` `[0.704767,0.781595]` | `0.739054558` `[0.686028,0.784535]` | 70/75 (`0.933333`) | `1×` | 历史8位镜像行保留 |
 
 official-float32内GCSAM − Full972 KD：Scan `+0.009634462`、Subject `+0.015147023`、Point `0/75`；paired 95% CI分别为`[-0.002163,+0.025053]`/`[-0.000553,+0.035820]`。Dice点估计偏向GCSAM，但两个CI仍跨0，不能宣称显著。
 
@@ -44,11 +58,11 @@ TCIA package948公开146例×T1/T1CE/T2/FLAIR/seg；按发布者目录在任何�
 
 这些病例原属于2023 challenge的60 train/15 validation/20 test，TCIA现已公开全部95份专家标签。本项目在任何payload前冻结三行、全95例和协议，不用其中任何部分训练/选择，合并报告为public post-challenge external95；不是隐藏blind test。标签由nnU-Net预标后，经有经验的board-certified neuroradiologist人工修订。术前WT取所有正标签；与post-treatment训练时排除resection cavity的语义不同。
 
-| 排名 | 方法 | Scan=Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+| 排名 | 方法 | 扫描与患者平均Dice（95%置信区间） | 定位命中 | 计算量 | 状态 |
 |---:|---|---:|---:|---:|---|
-| **1** | **GCSAM fit864，epoch184，identity** | **`0.591619219`** `[0.540914,0.637409]` | 84/95 (`0.884211`) | `1×` | 1× Dice点估计第1；相对Full identity的paired CI整体为正，但Point少3 |
-| 2 | Full972 KD168，固定Flip8 | `0.526437660` `[0.475646,0.577047]` | **88/95 (`0.926316`)** | `8×` | Point点估计第1；相对identity Dice小正但CI跨0 |
-| 3 | Full972 KD168，identity | `0.523002550` `[0.475502,0.567739]` | 87/95 (`0.915789`) | `1×` | 1×基线 |
+| **1** | **改进优化器（864例，184轮）；单次预测** | **`0.591619219`** `[0.540914,0.637409]` | 84/95 (`0.884211`) | `1×` | 1× Dice点估计第1；相对Full identity的paired CI整体为正，但Point少3 |
+| 2 | 972例蒸馏模型（168轮）；八镜像预测 | `0.526437660` `[0.475646,0.577047]` | **88/95 (`0.926316`)** | `8×` | Point点估计第1；相对identity Dice小正但CI跨0 |
+| 3 | 972例蒸馏模型（168轮）；单次预测 | `0.523002550` `[0.475502,0.567739]` | 87/95 (`0.915789`) | `1×` | 1×基线 |
 
 GCSAM identity − Full identity：Dice=`+0.068616669`，paired 95% CI=`[+0.044472,+0.092498]`，Point=`−3`；80/95例Dice改善、13例变差、2例tie。这里Dice方向很清楚，但Point目标不同，不能称三项全面更好。
 
@@ -66,11 +80,11 @@ TCIA官方映射给出39位CPTAC-GBM患者；public Training33每例有T1CE+人�
 
 这些标签在原BraTS2021属于Training，但本项目两个模型只使用BraTS2024，故是external-to-this-project的公开标签确认；不是原challenge validation/test或hidden blind。CPTAC/CHOP-UPenn来源不在BraTS2024七站，但无patient-ID bridge，只称source/institution-disjoint no-known overlap。假设在看到CPTAC payload前由Africa结果明确冻结：GCSAM−Full Dice方向能否复现。
 
-| 排名 | 方法 | Scan=Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+| 排名 | 方法 | 扫描与患者平均Dice（95%置信区间） | 定位命中 | 计算量 | 状态 |
 |---:|---|---:|---:|---:|---|
-| **1** | **Full972 KD168，固定Flip8** | **`0.844577117`** `[0.813290,0.870795]` | **33/33 (`1.0`)** | `8×` | 相对identity `+0.003246`，paired CI整体为正 |
-| 2 | GCSAM184，identity | `0.843285080` `[0.812977,0.868437]` | **33/33 (`1.0`)** | `1×` | Africa-informed方向仅弱支持：相对Full小正但CI跨0 |
-| 3 | Full972 KD168，identity | `0.841331464` `[0.809100,0.868613]` | **33/33 (`1.0`)** | `1×` | 1×基线 |
+| **1** | **972例蒸馏模型（168轮）；八镜像预测** | **`0.844577117`** `[0.813290,0.870795]` | **33/33 (`1.0`)** | `8×` | 相对identity `+0.003246`，paired CI整体为正 |
+| 2 | 改进优化器（864例，184轮）；单次预测 | `0.843285080` `[0.812977,0.868437]` | **33/33 (`1.0`)** | `1×` | Africa-informed方向仅弱支持：相对Full小正但CI跨0 |
+| 3 | 972例蒸馏模型（168轮）；单次预测 | `0.841331464` `[0.809100,0.868613]` | **33/33 (`1.0`)** | `1×` | 1×基线 |
 
 GCSAM−Full identity=`+0.001953616`，paired CI=`[-0.006646,+0.012384]`，16/17/0 improve/worse/tie，Point差0。按预注册是弱/不确定方向支持，不复现Africa的`+0.0686`幅度或确定性。
 
@@ -86,11 +100,11 @@ Zenodo final record `22205631`于2026-09-01公开、CC BY 4.0，来自Medical Un
 
 华沙机构不在BraTS2024的Duke/UCSF/Missouri/UCSD/Heidelberg/Michigan/Indiana七站，只称institution-disjoint/no-known-overlap；没有跨库patient-ID桥，不称ID证明独立。数据是public external-to-project，不是hidden blind。发布者已做coreg/skull-strip/bias correction，项目仍按冻结canonical N4、image-support crop和128³ rasterization；且术前all-positive WT、delayed T1c与post-treatment训练的阶段/命名不同，只能在本cohort内比较。
 
-| 排名 | 方法 | Scan=Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+| 排名 | 方法 | 扫描与患者平均Dice（95%置信区间） | 定位命中 | 计算量 | 状态 |
 |---:|---|---:|---:|---:|---|
-| **1** | **GCSAM184，identity** | **`0.693601158`** `[0.660656,0.723433]` | 140/152 (`0.921053`) | `1×` | Dice点估计第1；仅比Flip8高`0.000107`，相对Full identity CI跨0 |
-| 2 | Full972 KD168，固定Flip8 | `0.693494112` `[0.660273,0.723615]` | **143/152 (`0.940789`)** | `8×` | Point第1；相对identity Dice区间全正 |
-| 3 | Full972 KD168，identity | `0.683377992` `[0.649811,0.713659]` | 141/152 (`0.927632`) | `1×` | 1×基线 |
+| **1** | **改进优化器（864例，184轮）；单次预测** | **`0.693601158`** `[0.660656,0.723433]` | 140/152 (`0.921053`) | `1×` | Dice点估计第1；仅比Flip8高`0.000107`，相对Full identity CI跨0 |
+| 2 | 972例蒸馏模型（168轮）；八镜像预测 | `0.693494112` `[0.660273,0.723615]` | **143/152 (`0.940789`)** | `8×` | Point第1；相对identity Dice区间全正 |
+| 3 | 972例蒸馏模型（168轮）；单次预测 | `0.683377992` `[0.649811,0.713659]` | 141/152 (`0.927632`) | `1×` | 1×基线 |
 
 GCSAM identity−Full identity=`+0.010223166`，paired 95% CI=`[-0.003005,+0.023481]`，84/63/5 improve/worse/tie，Point=`−1`。按预注册是positive-but-uncertain：不复现Africa95的`+0.0686`确定优势，也不是反向。
 
@@ -104,11 +118,11 @@ WAW final postop metadata/mask实际160 scans/92 patients（描述161）。先�
 
 这是同一Warsaw机构的新患者、public early post-resection external-to-project，不是hidden blind。相对BraTS2024七站institution-disjoint但无跨库patient bridge；day0–22不能代表长期复发。Publisher coreg/skull-strip/bias-correct1mm后项目再N4/crop/128³，仍有双重预处理与rasterization caveat。
 
-| 排名 | 方法 | Scan=Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+| 排名 | 方法 | 扫描与患者平均Dice（95%置信区间） | 定位命中 | 计算量 | 状态 |
 |---:|---|---:|---:|---:|---|
-| **1** | **Full972 KD168固定Flip8** | **`0.598959388`** `[0.532228,0.662012]` | **15/31 (`0.483871`)** | `8×` | Dice点估计第1；相对identity正但CI跨0 |
-| 2 | GCSAM184 identity | `0.593304725` `[0.527500,0.654293]` | 14/31 (`0.451613`) | `1×` | 最高1× Dice点估计；相对Full正但CI跨0 |
-| 3 | Full972 KD168 identity | `0.591647416` `[0.522240,0.654848]` | **15/31 (`0.483871`)** | `1×` | 1× Point点估计第1（与Flip8同） |
+| **1** | **972例蒸馏模型（168轮）；八镜像预测** | **`0.598959388`** `[0.532228,0.662012]` | **15/31 (`0.483871`)** | `8×` | Dice点估计第1；相对identity正但CI跨0 |
+| 2 | 改进优化器（864例，184轮）；单次预测 | `0.593304725` `[0.527500,0.654293]` | 14/31 (`0.451613`) | `1×` | 最高1× Dice点估计；相对Full正但CI跨0 |
+| 3 | 972例蒸馏模型（168轮）；单次预测 | `0.591647416` `[0.522240,0.654848]` | **15/31 (`0.483871`)** | `1×` | 1× Point点估计第1（与Flip8同） |
 
 Flip8−identity=`+0.007311972`，paired CI=`[-0.001925,+0.016626]`，21/10/0 improve/worse/tie，Point差0；GCSAM−Full=`+0.001657309`，CI=`[-0.012498,+0.016205]`，17/14/0，Point−1。两者按预注册均positive-but-uncertain。N=31绝对CI宽，不能把点估计排名写成确定优越。
 
@@ -120,11 +134,11 @@ TCIA UCSD-PTGBM集合Version 2（2026-01-22）公开了原BraTS-GLI 2024隐藏te
 
 身份定位：public post-challenge、**非hidden blind**；有官方patient-ID桥、patient-disjoint已证明；但UCSD是BraTS2024七个来源站之一且与UCSD75同机构，**不是institution-disjoint**——这是"近训练域的新患者"证据，不是跨机构泛化证据。治疗后WT=labels`{1,2,3}`、排除切除腔`4`，与训练完全同口径；原生256³/1mm，经canonical N4、image-only crop与128³ rasterization。
 
-| 排名 | 方法 | Scan Dice（95% CI） | Subject Dice（95% CI） | Point hit | 成本 | 状态 |
+| 排名 | 方法 | 扫描平均Dice（95%置信区间） | 患者平均Dice（95%置信区间） | 定位命中 | 计算量 | 状态 |
 |---:|---|---:|---:|---:|---:|---|
-| **1** | **Full972 KD168，固定Flip8** | **`0.732973`** `[0.693045,0.771526]` | **`0.733625`** `[0.694818,0.771538]` | **56/56 (`1.0`)** | `8×` | 三项点估计第1；相对identity CI跨0 |
-| 2 | Full972 KD168，identity | `0.730002` `[0.690626,0.766791]` | `0.730740` `[0.692275,0.767211]` | **56/56 (`1.0`)** | `1×` | 最高1×；Point全中为全部外部cohort最高 |
-| 3 | GCSAM184，identity | `0.717689` `[0.671931,0.761285]` | `0.715545` `[0.667478,0.760680]` | 52/56 (`0.928571`) | `1×` | 负点估计；原配对CI略负但Scan数值精度敏感，见下文 |
+| **1** | **972例蒸馏模型（168轮）；八镜像预测** | **`0.732973`** `[0.693045,0.771526]` | **`0.733625`** `[0.694818,0.771538]` | **56/56 (`1.0`)** | `8×` | 三项点估计第1；相对identity CI跨0 |
+| 2 | 972例蒸馏模型（168轮）；单次预测 | `0.730002` `[0.690626,0.766791]` | `0.730740` `[0.692275,0.767211]` | **56/56 (`1.0`)** | `1×` | 最高1×；Point全中为全部外部cohort最高 |
+| 3 | 改进优化器（864例，184轮）；单次预测 | `0.717689` `[0.671931,0.761285]` | `0.715545` `[0.667478,0.760680]` | 52/56 (`0.928571`) | `1×` | 负点估计；原配对CI略负但Scan数值精度敏感，见下文 |
 
 Flip8−identity=`+0.002971109`，scan配对CI `[-0.002740,+0.008750]`、subject配对CI `[-0.002830,+0.008735]`，32/24/0改善/变差/tie，Point差0：第六个Scan点估计为正的cohort，本队列区间跨0，仍不能称显著。
 
@@ -136,30 +150,30 @@ Flip8−identity=`+0.002971109`，scan配对CI `[-0.002740,+0.008750]`、subject
 
 同一270 scans /119 subjects，按Scan Dice降序。复用内部测试，非pristine blind、外部确认或公开SOTA；legacy160³栅格限制仍保留。**2026-09-20起新增原始1mm栅格评分行，其分数与128³栅格行不可直接相减，排名仅按原始数值。**
 
-| 排名 | 方法 | Scan Dice | Subject Dice | Point hit | 成本 | 状态 |
+| 排名 | 方法 | 扫描平均Dice | 患者平均Dice | 定位命中 | 计算量 | 状态 |
 |---:|---|---:|---:|---:|---:|---|
-| 1 | 原始分辨率纯SegResNet（不缩放），原972训练，epoch173，**原始1mm栅格评分（native grid）** | `0.768577897` | `0.754143911` | 262/270 (`0.970370`) | `1×`（体素量2.5×） | native grid；仅与同栅格行比较；同栅格基线193为`0.761134`，配对差+0.007444、CI[-0.0006,+0.0143]；配对区间跨0，不确定 |
-| 2 | 公开预训练＋原分辨率组合166，**native grid** | `0.766271575` | `0.750958477` | 236/270 (`0.874074`) | `1×` | 用户授权未过验证门探索；对native173差-0.002306，95%CI[-0.009078,+0.005791]；不跨栅格相减 |
-| 3 | 预训练179固定参考，128³预测→**native grid**评分 | `0.764544537` | `0.748758964` | 250/270 (`0.925926`) | `1×` | 同一已测试模型的不同评分栅格；非第三训练候选，不能把重评分差当方法增益 |
-| 4 | 公开334例预训练后微调SegResNet，epoch179，128³ | `0.761648736` | `0.745858610` | 246/270 (`0.911111`) | `1×` | 当前128³组总体及1× Dice最高点估计；未过验证提升门；对193差+0.002470，95%CI[-0.004343,+0.009627]，非显著胜出 |
-| 5 | 预训练＋患者等权损失172，**128³** | `0.759967225` | `0.745646555` | 250/270 (`0.925926`) | `1×` | 用户授权未过验证门探索；对pretrained179差-0.001682，95%CI[-0.008389,+0.005860]；不跨栅格相减 |
-| 6 | 纯SegResNet，原972训练，epoch193 | `0.759178781` | `0.744984623` | 242/270 (`0.896296`) | `1×` | 用户固定比较基线；历史128³ Dice纪录；复用内部；无蒸馏/TTA，Point非最高 |
-| 7 | 前景语义分解SegResNet，epoch158，128³ | `0.757718039` | `0.743434022` | 238/270 (`0.881481`) | `1×` | 未达到预设验证提升门；复用内部；对193差-0.001461，95%CI[-0.006823,+0.003567] |
-| 8 | Full972 random-init voxel-KD，epoch168，固定Flip8 TTA | `0.757269662` | `0.741253585` | `0.981481` | `8×` | 历史状态：两个fresh inner全门后唯一一次post-test/reused评测；三项点估计第1；非盲测/外部确认 |
-| 9 | GCSAM fit864，train-inner-selected epoch184 | `0.752003176` | `0.737266420` | `0.933333` | `1×` | 历史状态：用户授权failed-gate探索性；1× Scan点估计第1；非Full972 final，CI跨0且Point低 |
-| 10 | Full972 random-init voxel-KD，epoch168 | `0.751759537` | `0.737327107` | `0.970370` | `1×` | 历史状态：用户授权failed-gate探索性；1× Subject/Point最高 |
-| 11 | Fit684 native168 seed2026090711 full8 | `0.748065184` | `0.736042143` | 262/270 (`0.970370`) | `8×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
-| 12 | Fit684 native168 seed2026090712 full8 | `0.746917944` | `0.732314896` | 258/270 (`0.955556`) | `8×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
-| 13 | 固定logit ensemble：0.75 history168 + 0.25 EMA168 | `0.745054064` | `0.727344609` | `0.955556` | `2×` | 历史状态：旧总体最高 |
-| 14 | Fit684 native168 seed2026090711 pruned | `0.744795478` | `0.733333687` | 257/270 (`0.951852`) | `2×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
-| 15 | Fit684 native168 seed2026090712 pruned | `0.744617935` | `0.729756966` | 258/270 (`0.955556`) | `3×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
-| 16 | 2025/2026 voxel-KD single，global epoch200 | `0.742976353` | `0.725178533` | `0.955556` | `1×` | 历史状态：旧最高单模型 |
-| 17 | historical true-128³ plain，epoch168 | `0.741203949` | `0.723179486` | `0.929630` | `1×` | 历史状态：旧单模型记录 |
-| 18 | Fit684 native168 seed2026090712 identity | `0.740868264` | `0.725770935` | 252/270 (`0.933333`) | `1×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
-| 19 | EMA168 single | `0.740696468` | `0.724904822` | `0.948148` | `1×` | 历史状态：Dice持平、point更高 |
-| 20 | Fit684 native168 seed2026090711 identity | `0.739987540` | `0.728200802` | 252/270 (`0.933333`) | `1×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
-| 21 | true-160³ full756，epoch200 | `0.737060297` | `0.719728630` | `0.874074` | `~1.95×` | 历史状态：负结果；160³标签网格 |
-| 22 | true-128³ plain，epoch99 | `0.725820068` | `0.709412503` | `0.900000` | `1×` | 历史状态：2026-08-17记录 |
+| 1 | 不缩放影像的基础模型（173轮，原生栅格） | `0.768577897` | `0.754143911` | 262/270 (`0.970370`) | `1×`（体素量2.5×） | native grid；仅与同栅格行比较；同栅格基线193为`0.761134`，配对差+0.007444、CI[-0.0006,+0.0143]；配对区间跨0，不确定 |
+| 2 | 公开数据预训练＋不缩放影像（166轮） | `0.766271575` | `0.750958477` | 236/270 (`0.874074`) | `1×` | 用户授权未过验证门探索；对native173差-0.002306，95%CI[-0.009078,+0.005791]；不跨栅格相减 |
+| 3 | 预训练模型（179轮，预测还原到原生栅格） | `0.764544537` | `0.748758964` | 250/270 (`0.925926`) | `1×` | 同一已测试模型的不同评分栅格；非第三训练候选，不能把重评分差当方法增益 |
+| 4 | 334例预训练后微调（179轮，128³） | `0.761648736` | `0.745858610` | 246/270 (`0.911111`) | `1×` | 当前128³组总体及1× Dice最高点估计；未过验证提升门；对193差+0.002470，95%CI[-0.004343,+0.009627]，非显著胜出 |
+| 5 | 预训练＋每位患者同等权重（172轮） | `0.759967225` | `0.745646555` | 250/270 (`0.925926`) | `1×` | 用户授权未过验证门探索；对pretrained179差-0.001682，95%CI[-0.008389,+0.005860]；不跨栅格相减 |
+| 6 | 固定基础模型（972例，第193轮） | `0.759178781` | `0.744984623` | 242/270 (`0.896296`) | `1×` | 用户固定比较基线；历史128³ Dice纪录；复用内部；无蒸馏/TTA，Point非最高 |
+| 7 | 先分肿瘤细类、再合并（158轮） | `0.757718039` | `0.743434022` | 238/270 (`0.881481`) | `1×` | 未达到预设验证提升门；复用内部；对193差-0.001461，95%CI[-0.006823,+0.003567] |
+| 8 | 972例蒸馏训练＋八镜像预测（168轮） | `0.757269662` | `0.741253585` | `0.981481` | `8×` | 历史状态：两个fresh inner全门后唯一一次post-test/reused评测；三项点估计第1；非盲测/外部确认 |
+| 9 | 改进优化器（864例，第184轮） | `0.752003176` | `0.737266420` | `0.933333` | `1×` | 历史状态：用户授权failed-gate探索性；1× Scan点估计第1；非Full972 final，CI跨0且Point低 |
+| 10 | 972例蒸馏训练（168轮） | `0.751759537` | `0.737327107` | `0.970370` | `1×` | 历史状态：用户授权failed-gate探索性；1× Subject/Point最高 |
+| 11 | 684例训练·八镜像预测（168轮，重复甲） | `0.748065184` | `0.736042143` | 262/270 (`0.970370`) | `8×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
+| 12 | 684例训练·八镜像预测（168轮，重复乙） | `0.746917944` | `0.732314896` | 258/270 (`0.955556`) | `8×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
+| 13 | 双模型预测融合（原模型75%＋平滑模型25%） | `0.745054064` | `0.727344609` | `0.955556` | `2×` | 历史状态：旧总体最高 |
+| 14 | 684例训练·精简多视图预测（168轮，重复甲） | `0.744795478` | `0.733333687` | 257/270 (`0.951852`) | `2×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
+| 15 | 684例训练·精简多视图预测（168轮，重复乙） | `0.744617935` | `0.729756966` | 258/270 (`0.955556`) | `3×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
+| 16 | 逐体素蒸馏单模型（200轮） | `0.742976353` | `0.725178533` | `0.955556` | `1×` | 历史状态：旧最高单模型 |
+| 17 | 旧基础模型（128³，第168轮） | `0.741203949` | `0.723179486` | `0.929630` | `1×` | 历史状态：旧单模型记录 |
+| 18 | 684例训练·单次预测（168轮，重复乙） | `0.740868264` | `0.725770935` | 252/270 (`0.933333`) | `1×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
+| 19 | 训练权重平滑（168轮） | `0.740696468` | `0.724904822` | `0.948148` | `1×` | 历史状态：Dice持平、point更高 |
+| 20 | 684例训练·单次预测（168轮，重复甲） | `0.739987540` | `0.728200802` | 252/270 (`0.933333`) | `1×` | 本次固定面板；复用非盲；完整结果/CI见报告 |
+| 21 | 更大输入模型（756例，160³，第200轮） | `0.737060297` | `0.719728630` | `0.874074` | `~1.95×` | 历史状态：负结果；160³标签网格 |
+| 22 | 早期基础模型（128³，第99轮） | `0.725820068` | `0.709412503` | `0.900000` | `1×` | 历史状态：2026-08-17记录 |
 
 2026-09-20同栅格比较：原始分辨率e173与原193基线都在原始1mm裁剪栅格上评分，Scan 0.768578 对 0.761134，患者配对差+0.007444、95%CI[-0.000608,+0.014305]，Subject差+0.007177、Point+15，177胜93负。配对区间跨0，不确定。基线在128³栅格重算0.759179与记录0.759179一致。[本次完整结果](archive/research_records/2026-09-20_segresnet_native_res_e173_test270/RESULT.md)。
 
@@ -201,24 +215,24 @@ Flip8−identity=`+0.002971109`，scan配对CI `[-0.002740,+0.008750]`、subject
 
 同一历史固定validation cache、raw-logit阈值0，严格按Scan Dice降序。这里只用于开发选择，不与test数字混排。
 
-| 排名 | 方法 | Scan Dice | Subject Dice | Point hit | 是否进test | 结论 |
+| 排名 | 方法 | 扫描平均Dice | 患者平均Dice | 定位命中 | 是否进test | 结论 |
 |---:|---|---:|---:|---:|---|---|
-| **1** | **Full972 random-init KD epoch168** | **`0.740012535`** | **`0.731266217`** | **`0.953704`** | 用户授权门后探索性 | 当前development最高 |
-| 2 | Full972 width16 seed20260961 epoch166 | `0.739335220` | **`0.731320350`** | **`0.972222`** | 否 | width24的matched control |
-| 3 | Full972 width24 seed20260961 epoch166 | `0.736463710` | `0.727794977` | `0.962963` | 否 | 容量扩展失败，低于matched width16 |
-| 4 | GT-routing matched anchor-repeat3 control epoch168 | `0.736013432` | `0.728973188` | `0.953704` | 否 | 新matched control，仍低于archived seed32 |
-| 5 | voxel-KD global epoch200 | `0.734384308` | `0.724434143` | `0.935185` | 是 | 旧单模validation记录 |
-| 6 | fixed logit ensemble，EMA weight0.25 | `0.734171097` | `0.724489716` | `0.944444` | 是 | 当前总体teacher |
-| 7 | matched supervised continuation epoch200 | `0.733605660` | `0.723671900` | `0.935185` | 否 | KD匹配对照 |
-| 8 | ReCo-KD epoch192 | `0.732959670` | `0.723071822` | `0.944444` | 否 | 未超过最佳base KD |
-| 9 | GT-best-of3 routing student epoch168 | `0.732909616` | `0.725997970` | `0.925926` | 否 | 三项低于matched control，九门全失败 |
-| 10 | logit blend，EMA weight0.50 | `0.732048303` | `0.722623021` | `0.953704` | 否 | point高但scan次优 |
-| 11 | historical epoch168 | `0.731601219` | `0.722120565` | `0.925926` | 已历史测评 | 当前起点 |
-| 12 | EMA168 single | `0.718824903` | `0.710217848` | `0.944444` | 用户追加单测 | 弱于历史Dice |
-| 13 | EMA200 single | `0.716017457` | `0.706696547` | `0.935185` | 否 | 负结果 |
-| 14 | same-seed raw200 | `0.715409314` | `0.706007477` | `0.935185` | 否 | EMA200对照 |
-| 15 | same-seed raw168 | `0.706554216` | `0.698670892` | `0.935185` | 否 | EMA168对照 |
-| 16 | cross-seed parameter soup，EMA weight0.25 | `0.431342862` | `0.430487334` | `0.796296` | 否 | 不同权重盆地，灾难性失败 |
+| **1** | **972例蒸馏训练（168轮）** | **`0.740012535`** | **`0.731266217`** | **`0.953704`** | 用户授权门后探索性 | 当前development最高 |
+| 2 | 基础宽度网络（16通道，第166轮） | `0.739335220` | **`0.731320350`** | **`0.972222`** | 否 | width24的matched control |
+| 3 | 加宽网络（24通道，第166轮） | `0.736463710` | `0.727794977` | `0.962963` | 否 | 容量扩展失败，低于matched width16 |
+| 4 | 固定老师重复三次指导（对照，168轮） | `0.736013432` | `0.728973188` | `0.953704` | 否 | 新matched control，仍低于archived seed32 |
+| 5 | 逐体素蒸馏（200轮） | `0.734384308` | `0.724434143` | `0.935185` | 是 | 旧单模validation记录 |
+| 6 | 双模型预测融合（平滑模型占25%） | `0.734171097` | `0.724489716` | `0.944444` | 是 | 当前总体teacher |
+| 7 | 只用真实标签继续训练（200轮） | `0.733605660` | `0.723671900` | `0.935185` | 否 | KD匹配对照 |
+| 8 | 区域均衡蒸馏（192轮） | `0.732959670` | `0.723071822` | `0.944444` | 否 | 未超过最佳base KD |
+| 9 | 按训练标签从三个老师中择优指导（168轮） | `0.732909616` | `0.725997970` | `0.925926` | 否 | 三项低于matched control，九门全失败 |
+| 10 | 双模型预测融合（平滑模型占50%） | `0.732048303` | `0.722623021` | `0.953704` | 否 | point高但scan次优 |
+| 11 | 旧基础模型（168轮） | `0.731601219` | `0.722120565` | `0.925926` | 已历史测评 | 当前起点 |
+| 12 | 训练权重平滑（168轮） | `0.718824903` | `0.710217848` | `0.944444` | 用户追加单测 | 弱于历史Dice |
+| 13 | 训练权重平滑（200轮） | `0.716017457` | `0.706696547` | `0.935185` | 否 | 负结果 |
+| 14 | 同次训练的原始权重（200轮） | `0.715409314` | `0.706007477` | `0.935185` | 否 | EMA200对照 |
+| 15 | 同次训练的原始权重（168轮） | `0.706554216` | `0.698670892` | `0.935185` | 否 | EMA168对照 |
+| 16 | 不同训练的参数直接平均（平滑权重占25%） | `0.431342862` | `0.430487334` | `0.796296` | 否 | 不同权重盆地，灾难性失败 |
 
 ## 非同口径test历史：不得与direct locator主榜混排
 
@@ -233,7 +247,7 @@ Flip8−identity=`+0.002971109`，scan配对CI `[-0.002740,+0.008750]`、subject
 
 同270扫描/119患者，独立于全自动榜。固定128³/1.5mm、阈值0、无增强/后处理，三行复用内部测试，非外部/新盲测；重建测试张量与旧基线SHA完全一致。161轮在看到50轮测试后由用户指定，属事后诊断，未调整参数；不能称独立胜出确认。
 
-| 排名 | 模型 | Scan Dice（95% CI） | Subject Dice（95% CI） | Point hit | 前向成本 |
+| 排名 | 模型 | 扫描平均Dice（95%置信区间） | 患者平均Dice（95%置信区间） | 定位命中 | 前向计算量 |
 |---:|---|---:|---:|---|---|
 | 1 | 旧基础模型，第21轮 | 0.594226196 [0.570952, 0.616407] | 0.580970118 [0.557979, 0.602854] | 不适用（交互） | 1编码+5解码 |
 | 2 | 灰度模型，第50轮 | 0.566424175 [0.540070, 0.591636] | 0.550521517 [0.524077, 0.575588] | 不适用（交互） | 1编码+5解码 |
@@ -283,72 +297,73 @@ Flip8−identity=`+0.002971109`，scan配对CI `[-0.002740,+0.008750]`、subject
 | 5 | nnunet_resenc_20261013_mix_a0.50_t0.50 | 0.805437345 | 0.790659164 | 266/270 | 7.719× | [报告](archive/research_records/2026-10-13_nnunet_resenc_reference/reports/nnunet_resenc_20261013_mix_a0.50_t0.50.json) |
 | 6 | nnunet_resenc_20261013_mix_a0.25_t0.40 | 0.790235410 | 0.776102962 | 267/270 | 7.719× | [报告](archive/research_records/2026-10-13_nnunet_resenc_reference/reports/nnunet_resenc_20261013_mix_a0.25_t0.40.json) |
 | 7 | nnunet_resenc_20261013_mix_a0.25_t0.50 | 0.789749882 | 0.775520535 | 267/270 | 7.719× | [报告](archive/research_records/2026-10-13_nnunet_resenc_reference/reports/nnunet_resenc_20261013_mix_a0.25_t0.50.json) |
-| 8 | segresnet_w32_e171_auto12h_0036_local_brain_joint_testtuned_20261028 | 0.784382113 | 0.771378811 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0036_local_brain_joint/RAW_TEST270.json) |
-| 9 | segresnet_w32_e171_auto12h_0041_intensity_ensemble_holes_testtuned_20261028 | 0.784354741 | 0.771605680 | 259/270 | 213.281× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0041_intensity_ensemble_holes/RAW_TEST270.json) |
-| 10 | segresnet_w32_e171_auto12h_0040_intensity_ensemble_cc_testtuned_20261028 | 0.784313346 | 0.771638941 | 259/270 | 213.281× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0040_intensity_ensemble_cc/RAW_TEST270.json) |
-| 11 | segresnet_w32_e171_auto12h_0023_brain_holes_testtuned_20261028 | 0.784311696 | 0.771405304 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RAW_TEST270.json) |
-| 12 | segresnet_w32_e171_auto12h_0021_brain_domain_cc_testtuned_20261028 | 0.784255388 | 0.771433421 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0021_brain_domain_cc/RAW_TEST270.json) |
-| 13 | segresnet_w32_e171_auto12h_0034_brain_cross128_cc_testtuned_20261028 | 0.784232764 | 0.771396652 | 260/270 | 906.828× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0034_brain_cross128_cc/RAW_TEST270.json) |
-| 14 | segresnet_w32_e171_auto12h_0035_brain_cross256_cc_testtuned_20261028 | 0.784230811 | 0.771394963 | 260/270 | 1792.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0035_brain_cross256_cc/RAW_TEST270.json) |
-| 15 | segresnet_w32_e171_auto12h_0033_brain_case20_cc_testtuned_20261028 | 0.784199267 | 0.771395766 | 259/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0033_brain_case20_cc/RAW_TEST270.json) |
-| 16 | segresnet_w32_e171_auto12h_0008_consensus_cc_testtuned_20261028 | 0.784139146 | 0.771156128 | 258/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RAW_TEST270.json) |
-| 17 | segresnet_w32_e171_auto12h_0022_dense_unary_cc_testtuned_20261028 | 0.784138000 | 0.771220087 | 258/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0022_dense_unary_cc/RAW_TEST270.json) |
-| 18 | segresnet_w32_e171_auto12h_0018_adaptive_holes_testtuned_20261028 | 0.784072660 | 0.771075667 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0018_adaptive_holes/RAW_TEST270.json) |
-| 19 | segresnet_w32_e171_auto12h_0027_cross256_cc_testtuned_20261028 | 0.784060499 | 0.771127418 | 260/270 | 1792.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0027_cross256_cc/RAW_TEST270.json) |
-| 20 | segresnet_w32_e171_auto12h_0026_cross128_cc_testtuned_20261028 | 0.784059438 | 0.771125047 | 260/270 | 906.828× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0026_cross128_cc/RAW_TEST270.json) |
-| 21 | segresnet_w32_e171_auto12h_0013_adaptive_cc_testtuned_20261028 | 0.784001240 | 0.771026028 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0013_adaptive_cc/RAW_TEST270.json) |
-| 22 | segresnet_w32_e171_auto12h_0006_best_holes_testtuned_20261028 | 0.783849666 | 0.770681114 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0006_best_holes/RAW_TEST270.json) |
-| 23 | segresnet_w32_e171_auto12h_0014_nonlinear_cc_testtuned_20261028 | 0.783827031 | 0.771028561 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0014_nonlinear_cc/RAW_TEST270.json) |
-| 24 | segresnet_w32_e171_auto12h_0039_intensity_ensemble_testtuned_20261028 | 0.783796238 | 0.771192326 | 259/270 | 213.281× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0039_intensity_ensemble/RAW_TEST270.json) |
-| 25 | segresnet_w32_e171_auto12h_0003_core_calibration_cc_testtuned_20261028 | 0.783792134 | 0.770640150 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0003_core_calibration_cc/RAW_TEST270.json) |
-| 26 | segresnet_w32_e171_auto12h_0005_fine_calibration_cc_testtuned_20261028 | 0.783786881 | 0.770920141 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0005_fine_calibration_cc/RAW_TEST270.json) |
-| 27 | segresnet_w32_e171_auto12h_0020_brain_domain_testtuned_20261028 | 0.783639558 | 0.770874052 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0020_brain_domain/RAW_TEST270.json) |
-| 28 | segresnet_w32_e171_auto12h_0030_brain_case28_testtuned_20261028 | 0.783637798 | 0.770945921 | 259/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0030_brain_case28/RAW_TEST270.json) |
-| 29 | segresnet_w32_e171_auto12h_0029_brain_case20_testtuned_20261028 | 0.783626696 | 0.770869348 | 259/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0029_brain_case20/RAW_TEST270.json) |
-| 30 | segresnet_w32_e171_auto12h_0038_intensity11_cal_testtuned_20261028 | 0.783603293 | 0.770717996 | 261/270 | 39.990× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0038_intensity11_cal/RAW_TEST270.json) |
-| 31 | segresnet_w32_e171_auto12h_0028_brain_case16_testtuned_20261028 | 0.783564824 | 0.770775370 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0028_brain_case16/RAW_TEST270.json) |
-| 32 | segresnet_w32_e171_auto12h_0015_case_consistency_testtuned_20261028 | 0.783559327 | 0.770799974 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0015_case_consistency/RAW_TEST270.json) |
-| 33 | segresnet_w32_e171_auto12h_0031_brain_cross128_testtuned_20261028 | 0.783556388 | 0.770762421 | 260/270 | 906.828× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0031_brain_cross128/RAW_TEST270.json) |
-| 34 | segresnet_w32_e171_auto12h_0032_brain_cross256_testtuned_20261028 | 0.783554645 | 0.770760766 | 260/270 | 1792.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0032_brain_cross256/RAW_TEST270.json) |
-| 35 | segresnet_w32_e171_auto12h_0016_joint_calibration_testtuned_20261028 | 0.783534898 | 0.770782630 | 259/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0016_joint_calibration/RAW_TEST270.json) |
-| 36 | segresnet_w32_e171_auto12h_0025_cross_phase256_testtuned_20261028 | 0.783500675 | 0.770624236 | 260/270 | 1792.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0025_cross_phase256/RAW_TEST270.json) |
-| 37 | segresnet_w32_e171_auto12h_0024_cross_phase128_testtuned_20261028 | 0.783499961 | 0.770622264 | 260/270 | 906.828× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0024_cross_phase128/RAW_TEST270.json) |
-| 38 | segresnet_w32_e171_auto12h_0019_dense_unary_control_testtuned_20261028 | 0.783491753 | 0.770633068 | 258/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0019_dense_unary_control/RAW_TEST270.json) |
-| 39 | segresnet_w32_e171_auto12h_0017_zero_phase_control_testtuned_20261028 | 0.783485779 | 0.770627748 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0017_zero_phase_control/RAW_TEST270.json) |
-| 40 | segresnet_w32_e171_auto12h_0007_consensus_calibration_testtuned_20261028 | 0.783445583 | 0.770508861 | 258/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0007_consensus_calibration/RAW_TEST270.json) |
-| 41 | segresnet_w32_e171_auto12h_0037_intensity_api_probe_testtuned_20261028 | 0.783416767 | 0.770318319 | 259/270 | 39.990× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0037_intensity_api_probe/RAW_TEST270.json) |
-| 42 | segresnet_w32_e171_auto12h_0004_fine_calibration_testtuned_20261028 | 0.783195303 | 0.770271709 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0004_fine_calibration/RAW_TEST270.json) |
-| 43 | segresnet_w32_e171_auto12h_0012_nonlinear_calibration_testtuned_20261028 | 0.783126494 | 0.770329978 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0012_nonlinear_calibration/RAW_TEST270.json) |
-| 44 | segresnet_w32_e171_auto12h_0010_extended_calibration_testtuned_20261028 | 0.783093345 | 0.769932445 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0010_extended_calibration/RAW_TEST270.json) |
-| 45 | segresnet_w32_e171_auto12h_0002_core_calibration_testtuned_20261028 | 0.783010428 | 0.769852844 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0002_core_calibration/RAW_TEST270.json) |
-| 46 | segresnet_w32_e171_auto12h_0009_adaptive_calibration_testtuned_20261028 | 0.782931551 | 0.769998416 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0009_adaptive_calibration/RAW_TEST270.json) |
-| 47 | segresnet_w32_e171_auto12h_0011_official_rankseg_testtuned_20261028 | 0.782628427 | 0.769737055 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0011_official_rankseg/RAW_TEST270.json) |
-| 48 | segresnet_w32_e171_auto12h_component1000_testtuned_20261028 | 0.781651665 | 0.769047724 | 255/270 | 13.330× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0001_cpu_binary/RAW_TEST270.json) |
-| 49 | segresnet_w32_e171_mirror5_volumeT2_test270_20261028 | 0.780995198 | 0.768306279 | 255/270 | 13.330× | [报告](archive/research_records/2026-10-28_segresnet_inference_selected_test270/RAW_TEST270.json) |
-| 50 | panel_10 | 0.775891493 | 0.761694199 | 261/270 | 5.332× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_10.json) |
-| 51 | panel_11 | 0.775823547 | 0.761543765 | 261/270 | 5.332× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_11.json) |
-| 52 | panel_12 | 0.775561193 | 0.761252936 | 261/270 | 5.332× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_12.json) |
-| 53 | segresnet_width32_native_epoch171_test270_20261028 | 0.773228040 | 0.760026920 | 256/270 | 2.666× | [报告](archive/research_records/2026-10-28_segresnet_w32_e171_test270/RAW_TEST270.json) |
-| 54 | A_6c53d508f4172cbf | 0.772829645 | 0.758800132 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/A_6c53d508f4172cbf.json) |
-| 55 | panel_02 | 0.772829645 | 0.758800132 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_02.json) |
-| 56 | panel_01 | 0.772810871 | 0.758769746 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_01.json) |
-| 57 | panel_03 | 0.772760359 | 0.758769868 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_03.json) |
-| 58 | segresnet_multiscale_native_epoch166_test270_20260929 | 0.771386135 | 0.757817294 | 248/270 | 2.666× | [报告](archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/RAW_TEST270.json) |
-| 59 | A_4b4a4f1c7b8e7175 | 0.770114302 | 0.756940881 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/A_4b4a4f1c7b8e7175.json) |
-| 60 | A_1d7ffa9fe448c903 | 0.769373712 | 0.754786090 | 250/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/A_1d7ffa9fe448c903.json) |
-| 61 | panel_05 | 0.768573106 | 0.754142334 | 261/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_05.json) |
-| 62 | ref_native173 | 0.768573106 | 0.754142334 | 261/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_native173.json) |
-| 63 | panel_04 | 0.768565588 | 0.754105597 | 261/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_04.json) |
-| 64 | panel_06 | 0.768537587 | 0.754132893 | 261/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_06.json) |
-| 65 | panel_09 | 0.766437954 | 0.751128725 | 237/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_09.json) |
-| 66 | panel_08 | 0.766282487 | 0.750971793 | 237/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_08.json) |
-| 67 | ref_combination166 | 0.766282487 | 0.750971793 | 237/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_combination166.json) |
-| 68 | panel_07 | 0.766018417 | 0.750707659 | 237/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_07.json) |
-| 69 | B_4d6b52d8b95261de | 0.764542988 | 0.748758376 | 249/270 | 1.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/B_4d6b52d8b95261de.json) |
-| 70 | ref_pretrained179 | 0.764542988 | 0.748758376 | 249/270 | 1.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_pretrained179.json) |
-| 71 | ref_patient172 | 0.762327244 | 0.748078780 | 253/270 | 1.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_patient172.json) |
-| 72 | ref_pure193 | 0.761135070 | 0.746964020 | 246/270 | 1.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_pure193.json) |
-
+| 8 | race_segresnet_e164_enhanced_test270_20261029 | 0.789263436 | 0.775438295 | 256/270 | 21.328× | [报告](archive/research_records/2026-10-29_race_e164_inference_test270/RAW_TEST270_enhanced.json) |
+| 9 | segresnet_w32_e171_auto12h_0036_local_brain_joint_testtuned_20261028 | 0.784382113 | 0.771378811 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0036_local_brain_joint/RAW_TEST270.json) |
+| 10 | segresnet_w32_e171_auto12h_0041_intensity_ensemble_holes_testtuned_20261028 | 0.784354741 | 0.771605680 | 259/270 | 213.281× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0041_intensity_ensemble_holes/RAW_TEST270.json) |
+| 11 | segresnet_w32_e171_auto12h_0040_intensity_ensemble_cc_testtuned_20261028 | 0.784313346 | 0.771638941 | 259/270 | 213.281× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0040_intensity_ensemble_cc/RAW_TEST270.json) |
+| 12 | segresnet_w32_e171_auto12h_0023_brain_holes_testtuned_20261028 | 0.784311696 | 0.771405304 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RAW_TEST270.json) |
+| 13 | segresnet_w32_e171_auto12h_0021_brain_domain_cc_testtuned_20261028 | 0.784255388 | 0.771433421 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0021_brain_domain_cc/RAW_TEST270.json) |
+| 14 | segresnet_w32_e171_auto12h_0034_brain_cross128_cc_testtuned_20261028 | 0.784232764 | 0.771396652 | 260/270 | 906.828× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0034_brain_cross128_cc/RAW_TEST270.json) |
+| 15 | segresnet_w32_e171_auto12h_0035_brain_cross256_cc_testtuned_20261028 | 0.784230811 | 0.771394963 | 260/270 | 1792.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0035_brain_cross256_cc/RAW_TEST270.json) |
+| 16 | segresnet_w32_e171_auto12h_0033_brain_case20_cc_testtuned_20261028 | 0.784199267 | 0.771395766 | 259/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0033_brain_case20_cc/RAW_TEST270.json) |
+| 17 | segresnet_w32_e171_auto12h_0008_consensus_cc_testtuned_20261028 | 0.784139146 | 0.771156128 | 258/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RAW_TEST270.json) |
+| 18 | segresnet_w32_e171_auto12h_0022_dense_unary_cc_testtuned_20261028 | 0.784138000 | 0.771220087 | 258/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0022_dense_unary_cc/RAW_TEST270.json) |
+| 19 | segresnet_w32_e171_auto12h_0018_adaptive_holes_testtuned_20261028 | 0.784072660 | 0.771075667 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0018_adaptive_holes/RAW_TEST270.json) |
+| 20 | segresnet_w32_e171_auto12h_0027_cross256_cc_testtuned_20261028 | 0.784060499 | 0.771127418 | 260/270 | 1792.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0027_cross256_cc/RAW_TEST270.json) |
+| 21 | segresnet_w32_e171_auto12h_0026_cross128_cc_testtuned_20261028 | 0.784059438 | 0.771125047 | 260/270 | 906.828× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0026_cross128_cc/RAW_TEST270.json) |
+| 22 | segresnet_w32_e171_auto12h_0013_adaptive_cc_testtuned_20261028 | 0.784001240 | 0.771026028 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0013_adaptive_cc/RAW_TEST270.json) |
+| 23 | segresnet_w32_e171_auto12h_0006_best_holes_testtuned_20261028 | 0.783849666 | 0.770681114 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0006_best_holes/RAW_TEST270.json) |
+| 24 | segresnet_w32_e171_auto12h_0014_nonlinear_cc_testtuned_20261028 | 0.783827031 | 0.771028561 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0014_nonlinear_cc/RAW_TEST270.json) |
+| 25 | segresnet_w32_e171_auto12h_0039_intensity_ensemble_testtuned_20261028 | 0.783796238 | 0.771192326 | 259/270 | 213.281× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0039_intensity_ensemble/RAW_TEST270.json) |
+| 26 | segresnet_w32_e171_auto12h_0003_core_calibration_cc_testtuned_20261028 | 0.783792134 | 0.770640150 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0003_core_calibration_cc/RAW_TEST270.json) |
+| 27 | segresnet_w32_e171_auto12h_0005_fine_calibration_cc_testtuned_20261028 | 0.783786881 | 0.770920141 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0005_fine_calibration_cc/RAW_TEST270.json) |
+| 28 | segresnet_w32_e171_auto12h_0020_brain_domain_testtuned_20261028 | 0.783639558 | 0.770874052 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0020_brain_domain/RAW_TEST270.json) |
+| 29 | segresnet_w32_e171_auto12h_0030_brain_case28_testtuned_20261028 | 0.783637798 | 0.770945921 | 259/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0030_brain_case28/RAW_TEST270.json) |
+| 30 | segresnet_w32_e171_auto12h_0029_brain_case20_testtuned_20261028 | 0.783626696 | 0.770869348 | 259/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0029_brain_case20/RAW_TEST270.json) |
+| 31 | segresnet_w32_e171_auto12h_0038_intensity11_cal_testtuned_20261028 | 0.783603293 | 0.770717996 | 261/270 | 39.990× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0038_intensity11_cal/RAW_TEST270.json) |
+| 32 | segresnet_w32_e171_auto12h_0028_brain_case16_testtuned_20261028 | 0.783564824 | 0.770775370 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0028_brain_case16/RAW_TEST270.json) |
+| 33 | segresnet_w32_e171_auto12h_0015_case_consistency_testtuned_20261028 | 0.783559327 | 0.770799974 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0015_case_consistency/RAW_TEST270.json) |
+| 34 | segresnet_w32_e171_auto12h_0031_brain_cross128_testtuned_20261028 | 0.783556388 | 0.770762421 | 260/270 | 906.828× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0031_brain_cross128/RAW_TEST270.json) |
+| 35 | segresnet_w32_e171_auto12h_0032_brain_cross256_testtuned_20261028 | 0.783554645 | 0.770760766 | 260/270 | 1792.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0032_brain_cross256/RAW_TEST270.json) |
+| 36 | segresnet_w32_e171_auto12h_0016_joint_calibration_testtuned_20261028 | 0.783534898 | 0.770782630 | 259/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0016_joint_calibration/RAW_TEST270.json) |
+| 37 | segresnet_w32_e171_auto12h_0025_cross_phase256_testtuned_20261028 | 0.783500675 | 0.770624236 | 260/270 | 1792.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0025_cross_phase256/RAW_TEST270.json) |
+| 38 | segresnet_w32_e171_auto12h_0024_cross_phase128_testtuned_20261028 | 0.783499961 | 0.770622264 | 260/270 | 906.828× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0024_cross_phase128/RAW_TEST270.json) |
+| 39 | segresnet_w32_e171_auto12h_0019_dense_unary_control_testtuned_20261028 | 0.783491753 | 0.770633068 | 258/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0019_dense_unary_control/RAW_TEST270.json) |
+| 40 | segresnet_w32_e171_auto12h_0017_zero_phase_control_testtuned_20261028 | 0.783485779 | 0.770627748 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0017_zero_phase_control/RAW_TEST270.json) |
+| 41 | segresnet_w32_e171_auto12h_0007_consensus_calibration_testtuned_20261028 | 0.783445583 | 0.770508861 | 258/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0007_consensus_calibration/RAW_TEST270.json) |
+| 42 | segresnet_w32_e171_auto12h_0037_intensity_api_probe_testtuned_20261028 | 0.783416767 | 0.770318319 | 259/270 | 39.990× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0037_intensity_api_probe/RAW_TEST270.json) |
+| 43 | race_segresnet_e164_raw_test270_20261029 | 0.783374226 | 0.769423177 | 249/270 | 2.666× | [报告](archive/research_records/2026-10-29_race_e164_inference_test270/RAW_TEST270_raw.json) |
+| 44 | segresnet_w32_e171_auto12h_0004_fine_calibration_testtuned_20261028 | 0.783195303 | 0.770271709 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0004_fine_calibration/RAW_TEST270.json) |
+| 45 | segresnet_w32_e171_auto12h_0012_nonlinear_calibration_testtuned_20261028 | 0.783126494 | 0.770329978 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0012_nonlinear_calibration/RAW_TEST270.json) |
+| 46 | segresnet_w32_e171_auto12h_0010_extended_calibration_testtuned_20261028 | 0.783093345 | 0.769932445 | 260/270 | 21.328× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0010_extended_calibration/RAW_TEST270.json) |
+| 47 | segresnet_w32_e171_auto12h_0002_core_calibration_testtuned_20261028 | 0.783010428 | 0.769852844 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0002_core_calibration/RAW_TEST270.json) |
+| 48 | segresnet_w32_e171_auto12h_0009_adaptive_calibration_testtuned_20261028 | 0.782931551 | 0.769998416 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0009_adaptive_calibration/RAW_TEST270.json) |
+| 49 | segresnet_w32_e171_auto12h_0011_official_rankseg_testtuned_20261028 | 0.782628427 | 0.769737055 | 260/270 | 18.662× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0011_official_rankseg/RAW_TEST270.json) |
+| 50 | segresnet_w32_e171_auto12h_component1000_testtuned_20261028 | 0.781651665 | 0.769047724 | 255/270 | 13.330× | [报告](archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0001_cpu_binary/RAW_TEST270.json) |
+| 51 | segresnet_w32_e171_mirror5_volumeT2_test270_20261028 | 0.780995198 | 0.768306279 | 255/270 | 13.330× | [报告](archive/research_records/2026-10-28_segresnet_inference_selected_test270/RAW_TEST270.json) |
+| 52 | panel_10 | 0.775891493 | 0.761694199 | 261/270 | 5.332× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_10.json) |
+| 53 | panel_11 | 0.775823547 | 0.761543765 | 261/270 | 5.332× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_11.json) |
+| 54 | panel_12 | 0.775561193 | 0.761252936 | 261/270 | 5.332× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_12.json) |
+| 55 | segresnet_width32_native_epoch171_test270_20261028 | 0.773228040 | 0.760026920 | 256/270 | 2.666× | [报告](archive/research_records/2026-10-28_segresnet_w32_e171_test270/RAW_TEST270.json) |
+| 56 | A_6c53d508f4172cbf | 0.772829645 | 0.758800132 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/A_6c53d508f4172cbf.json) |
+| 57 | panel_02 | 0.772829645 | 0.758800132 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_02.json) |
+| 58 | panel_01 | 0.772810871 | 0.758769746 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_01.json) |
+| 59 | panel_03 | 0.772760359 | 0.758769868 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_03.json) |
+| 60 | segresnet_multiscale_native_epoch166_test270_20260929 | 0.771386135 | 0.757817294 | 248/270 | 2.666× | [报告](archive/research_records/2026-09-29_segresnet_multiscale_e166_test270/RAW_TEST270.json) |
+| 61 | A_4b4a4f1c7b8e7175 | 0.770114302 | 0.756940881 | 253/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/A_4b4a4f1c7b8e7175.json) |
+| 62 | A_1d7ffa9fe448c903 | 0.769373712 | 0.754786090 | 250/270 | 8.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/A_1d7ffa9fe448c903.json) |
+| 63 | panel_05 | 0.768573106 | 0.754142334 | 261/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_05.json) |
+| 64 | ref_native173 | 0.768573106 | 0.754142334 | 261/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_native173.json) |
+| 65 | panel_04 | 0.768565588 | 0.754105597 | 261/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_04.json) |
+| 66 | panel_06 | 0.768537587 | 0.754132893 | 261/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_06.json) |
+| 67 | panel_09 | 0.766437954 | 0.751128725 | 237/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_09.json) |
+| 68 | panel_08 | 0.766282487 | 0.750971793 | 237/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_08.json) |
+| 69 | ref_combination166 | 0.766282487 | 0.750971793 | 237/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_combination166.json) |
+| 70 | panel_07 | 0.766018417 | 0.750707659 | 237/270 | 2.666× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/panel_07.json) |
+| 71 | B_4d6b52d8b95261de | 0.764542988 | 0.748758376 | 249/270 | 1.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/B_4d6b52d8b95261de.json) |
+| 72 | ref_pretrained179 | 0.764542988 | 0.748758376 | 249/270 | 1.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_pretrained179.json) |
+| 73 | ref_patient172 | 0.762327244 | 0.748078780 | 253/270 | 1.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_patient172.json) |
+| 74 | ref_pure193 | 0.761135070 | 0.746964020 | 246/270 | 1.000× | [报告](archive/research_records/2026-09-21_t1ce_test270_10h/reports/ref_pure193.json) |
 <!-- END_TEST270_TUNED_NATIVE -->
 
 

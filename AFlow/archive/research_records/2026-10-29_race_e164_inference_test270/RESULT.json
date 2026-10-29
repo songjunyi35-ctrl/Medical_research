@@ -1,0 +1,189 @@
+{
+  "at": "2026-10-29T13:37:39.215302+08:00",
+  "state": "complete",
+  "checkpoint_epoch": 164,
+  "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+  "metrics": {
+    "raw": {
+      "scan_dice": 0.7833742264796186,
+      "subject_dice": 0.7694231767343038,
+      "scan_ci95": [
+        0.7614955604316523,
+        0.8024436118407355
+      ],
+      "subject_ci95": [
+        0.746394132796195,
+        0.7904357138477495
+      ],
+      "point_hit": 0.9222222222222223,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 249
+    },
+    "enhanced": {
+      "scan_dice": 0.7892634363086135,
+      "subject_dice": 0.7754382947120679,
+      "scan_ci95": [
+        0.7682902297309876,
+        0.8077148063764318
+      ],
+      "subject_ci95": [
+        0.7533681559257983,
+        0.7957858213524567
+      ],
+      "point_hit": 0.9481481481481482,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 256
+    }
+  },
+  "comparisons": {
+    "enhanced_minus_race_raw": {
+      "scan_delta": 0.005889209828994892,
+      "subject_delta": 0.006015117977764093,
+      "scan_delta_ci95": [
+        0.0036050984607035896,
+        0.008361956075480034
+      ],
+      "subject_delta_ci95": [
+        0.0033674610550163174,
+        0.008770153333252968
+      ],
+      "scan_delta_ci97_5": [
+        0.0032555103538174455,
+        0.008695376876196419
+      ],
+      "subject_delta_ci97_5": [
+        0.0030024534919630493,
+        0.009242116733837662
+      ],
+      "point_hits_delta": 7,
+      "improved_scans": 217,
+      "worse_scans": 53,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile95 seed20260918; descriptive reused/test-informed cohort;97.5 sensitivity not overall search correction"
+    },
+    "race_raw_minus_historical_w32_raw": {
+      "scan_delta": 0.010146186031677105,
+      "subject_delta": 0.009396256796535657,
+      "scan_delta_ci95": [
+        0.004870925880598136,
+        0.016356548426904937
+      ],
+      "subject_delta_ci95": [
+        0.003910183888606999,
+        0.015023132155307614
+      ],
+      "scan_delta_ci97_5": [
+        0.004240355012216767,
+        0.017322122061430464
+      ],
+      "subject_delta_ci97_5": [
+        0.0030689507446327465,
+        0.015916675352452312
+      ],
+      "point_hits_delta": -7,
+      "improved_scans": 175,
+      "worse_scans": 95,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile95 seed20260918; descriptive reused/test-informed cohort;97.5 sensitivity not overall search correction"
+    },
+    "race_enhanced_minus_historical_w32_enhanced": {
+      "scan_delta": 0.00488132299096496,
+      "subject_delta": 0.004059484073010479,
+      "scan_delta_ci95": [
+        0.0008625424858278225,
+        0.008995003254077726
+      ],
+      "subject_delta_ci95": [
+        -0.0010199397508086278,
+        0.0089834430697961
+      ],
+      "scan_delta_ci97_5": [
+        0.00021668351812304063,
+        0.00962151972193441
+      ],
+      "subject_delta_ci97_5": [
+        -0.0018453837756631003,
+        0.009837537519190288
+      ],
+      "point_hits_delta": -4,
+      "improved_scans": 176,
+      "worse_scans": 94,
+      "tied_scans": 0,
+      "bootstrap": "10000 patient-cluster paired percentile95 seed20260918; descriptive reused/test-informed cohort;97.5 sensitivity not overall search correction"
+    }
+  },
+  "inference_Dice_support": true,
+  "joint_nondecrease_gate": true,
+  "engineering_amendment": "INPUT_SCHEMA_AMENDMENT.json",
+  "active_execution_freeze_sha256": "311e71b93c93256db4771e95cd1534dbb524e60e975a74b56eb03b859b060e39",
+  "training": false,
+  "test_access": true,
+  "current_test_parameter_search": false,
+  "inherited_test_tuned_recipe": true,
+  "new_outer_confirmation_access": false,
+  "cache": {
+    "at": "2026-10-29T13:27:15.727735+08:00",
+    "status": "passed",
+    "all_four_payloads_exact": true,
+    "payload_sha256": {
+      "native_image": "845ee16e29afd3c84161791ead53870aeb7f9dd06a45cb19d4d42653a6d0842a",
+      "native_label": "044384d4941af5a93deac0dc252ce6138444012f2016a4f839184c983b170803",
+      "canon_image": "cf834d2b4e6cdaa414689c8723d532178980f6ad459324d13a903321f1064888",
+      "canon_label": "ecb28a45607d54cf453ece3208ef8261ea30f496e747f919242ac1172445f222"
+    },
+    "index_sha256": "0593265eeaa910a477f2dadb5fdb1518d9a60ade22676bf9afe6bc0167c843a3",
+    "derived_reflection_metadata_added": true,
+    "disabled_references": 0,
+    "seconds": 615.2550276406109,
+    "processes": 23,
+    "scans": 270,
+    "subjects": 119,
+    "recovery": "CACHE_RECOVERY.json"
+  },
+  "batch": {
+    "at": "2026-10-29T13:21:10.903711+08:00",
+    "status": "passed",
+    "batch": 8,
+    "tail": 7,
+    "safe_scans_per_second": {
+      "2": 0.7509652965687802,
+      "4": 1.046512041154459,
+      "8": 1.3338098647330043
+    },
+    "criterion": "minimum batch within97percent of best shared synthetic throughput",
+    "memory_ceiling_gib": 38,
+    "selection_from_patient_scores": false
+  },
+  "runtime": {
+    "case_forwards": 2160,
+    "neural_batch_calls": 272,
+    "per_rank": [
+      {
+        "rank": 0,
+        "case_forwards": 1080,
+        "batch_calls": 136,
+        "seconds": 113.07639626041055,
+        "peak_reserved_gib": 30.0,
+        "decode_seconds": 51.21201000735164
+      },
+      {
+        "rank": 1,
+        "case_forwards": 1080,
+        "batch_calls": 136,
+        "seconds": 113.99058954790235,
+        "peak_reserved_gib": 30.0,
+        "decode_seconds": 52.61529693752527
+      }
+    ]
+  },
+  "grid": "native1mm original crop;160x208x168 canvas;all padding excluded",
+  "reference_reports": {
+    "archive/research_records/2026-10-28_segresnet_w32_e171_test270/RAW_TEST270.json": "546ef1539e10f8ac8c8ebb6cfbe017a0febc76830758409e46b578ed776f0004",
+    "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0036_local_brain_joint/RAW_TEST270.json": "c642006004376d13aa3df1f7e2f35e84e593c3340b9f73332f211c71c2be79b5"
+  },
+  "no_automatic_continuation": true
+}

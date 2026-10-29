@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_inference_test270_20261029/evaluate.py", line 93, in <module>
+    try:main(a.rank,a.statistics_only)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_inference_test270_20261029/evaluate.py", line 87, in main
+    if not statistics_only:forward(rank,index,images)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_inference_test270_20261029/evaluate.py", line 34, in forward
+    guard();values=forward_view(model,image,geometry,flip);calls+=1
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_inference_test270_20261029/predictor.py", line 35, in forward_view
+    assert len(image)==len(geometries) and image.ndim==5 and image.shape[1]==1
+                                                             ^^^^^^^^^^^^^^^^^
+AssertionError

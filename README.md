@@ -93,6 +93,16 @@ Scan增加 **0.007767**，119患者整簇配对95%区间 **[+0.004496,+0.011792]
 本次实验已结束；具体状态、完成轮数及验证指标见[结果记录](AFlow/archive/research_records/2026-10-28_race_seg/RESULT.md)。 原972/108、单seed、复用验证；无新增test270或独立外部确认。
 <!-- END_RACE_EXPERIMENT_OUTCOME -->
 
+<!-- RACE164_FIXED_TEST270_20261029 -->
+## RACE164叠加固定最佳推理：270评测完成
+
+固定164轮RACE-Seg在原270扫描/119患者、native1mm去填充栅格上，原始Scan 0.783374226，加既有8视图一致性/脑区体积解码/结构后处理后 **0.789263436**，Subject 0.775438295、Point 256/270。同权重Scan差+0.005889210，描述性患者配对95%区间[0.0036050984607035896, 0.008361956075480034]。未达到0.8；旧w32最佳推理Scan0.784382113、Point260/270，本次Dice更高但Point少4。总体历史nnU-Net单模型0.811283/融合0.812965仍更高。
+
+本次训练0、共2160病例前向，原始输出共享identity；全部540掩膜独立核验，参数原样迁移且无当前test重搜。继承同一270选参历史，仍test-tuned，非独立泛化。准备和前向前输入维度失败及修复完整保留，实际神经前向没有重复。MRI、标签、权重和预测数组未上传Git。
+
+[结果](AFlow/archive/research_records/2026-10-29_race_e164_inference_test270/RESULT.md) · [配方](AFlow/archive/research_records/2026-10-29_race_e164_inference_test270/SELECTED_RECIPE.json) · [入口说明](AFlow/archive/research_records/2026-10-29_race_e164_inference_test270/RUNBOOK.md)
+<!-- END_RACE164_FIXED_TEST270_20261029 -->
+
 ## 阅读入口
 
 - [最终结果报告与比较区间](AFlow/archive/research_records/2026-10-13_nnunet_resenc_reference/RESULT.md)

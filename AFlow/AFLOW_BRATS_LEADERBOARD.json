@@ -1,7 +1,7 @@
 {
   "schema": "aflow.brats.t1ce_wt_leaderboard",
   "schema_version": 1,
-  "updated_utc": "2026-10-29T00:44:15.773164+00:00",
+  "updated_utc": "2026-10-29T05:37:39.340333+00:00",
   "ucsd56_bootstrap_mc_precision_20260907": {
     "status": "posthoc_numerical_sensitivity_original_preregistered_intervals_and_ranks_preserved",
     "report_path": "archive/reviews/2026-09-07_ucsd56_bootstrap_precision/RESULT.json",
@@ -3138,6 +3138,60 @@
       "rank": 7
     },
     {
+      "method": "race_segresnet_e164_enhanced_test270_20261029",
+      "scan_dice": 0.7892634363086135,
+      "subject_dice": 0.7754382947120679,
+      "scan_ci95": [
+        0.7682902297309876,
+        0.8077148063764318
+      ],
+      "subject_ci95": [
+        0.7533681559257983,
+        0.7957858213524567
+      ],
+      "point_hit": 0.9481481481481482,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 256,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 164,
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/race_20261028/race/best.pth",
+      "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+      "grid": "native1mm original crop;160x208x168 canvas;all padding excluded",
+      "score_grid": "native",
+      "locator_forwards": 8,
+      "ensemble_size": 1,
+      "forward_equivalents": 21.328125,
+      "forward_cost_note": "input-voxel equivalence only; not FLOPs or latency",
+      "threshold": "prediction_only_volume_decode",
+      "tta": true,
+      "postprocessing": true,
+      "report_path": "archive/research_records/2026-10-29_race_e164_inference_test270/RAW_TEST270_enhanced.json",
+      "report_sha256": "9dd3b0b0cb0edfde2a242c2048c5989ba33250a3ab40ac1a7489df74bec8e141",
+      "result_path": "archive/research_records/2026-10-29_race_e164_inference_test270/RESULT.json",
+      "result_sha256": "5cba2cc155e1142a44cd7d4c3d4bb94f81e2e77879257d9c5f4c6c2823bd2cb1",
+      "evidence_status": "user-authorized fixed recipe transfer; inherited reused270 test-tuned history; no current test parameter search; not independent confirmation",
+      "test_tuned": true,
+      "current_test_retuning": false,
+      "input_modality": "T1ce",
+      "uses_GT_for_localization": false,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 8
+    },
+    {
       "method": "segresnet_w32_e171_auto12h_0036_local_brain_joint_testtuned_20261028",
       "scan_dice": 0.7843821133176486,
       "subject_dice": 0.7713788106390574,
@@ -3200,7 +3254,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 8,
+      "rank": 9,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0036_local_brain_joint/RECIPE.json",
       "selected_recipe_sha256": "b6f28afe0cb68cd386406db1891e2a1621c50cc6be67ce11cf3a41aacb0d4599",
       "research_continues": false,
@@ -3298,7 +3352,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 9,
+      "rank": 10,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0041_intensity_ensemble_holes/RECIPE.json",
       "selected_recipe_sha256": "34fe9bab118c3108559937842532d245bd2cbe7119ea5c131cdaa62844eced6f",
       "research_continues": false,
@@ -3399,7 +3453,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 10,
+      "rank": 11,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0040_intensity_ensemble_cc/RECIPE.json",
       "selected_recipe_sha256": "5acd2016b8a44213700c68342f12d41c8f7301361fb0e0518f3eac41ef11f656",
       "research_continues": false,
@@ -3500,7 +3554,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 11,
+      "rank": 12,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0023_brain_holes/RECIPE.json",
       "selected_recipe_sha256": "7f3ebab8190d45cdadaa441333403e9b0e17ace95804cb87cc8846016f0ada73",
       "research_continues": false,
@@ -3599,7 +3653,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 12,
+      "rank": 13,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0021_brain_domain_cc/RECIPE.json",
       "selected_recipe_sha256": "905f071761d8721a0f421bd5fb1ef5091d5e5b6dd80906b8270a4c271f3c9951",
       "research_continues": false,
@@ -3698,7 +3752,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 13,
+      "rank": 14,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0034_brain_cross128_cc/RECIPE.json",
       "selected_recipe_sha256": "16d014229401d2941babd80a6d113904d1b1d55e0d9d259491ed492de25215a0",
       "research_continues": false,
@@ -3799,7 +3853,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 14,
+      "rank": 15,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0035_brain_cross256_cc/RECIPE.json",
       "selected_recipe_sha256": "6b63e4b0101f7fee13aac71cf9766e792d1d90b93cdd4a8c850c3fe6bf08b6ed",
       "research_continues": false,
@@ -3900,7 +3954,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 15,
+      "rank": 16,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0033_brain_case20_cc/RECIPE.json",
       "selected_recipe_sha256": "b5d2540b3f1fb632ea8aa317b8f4f495e47d2344ef833a93b3bfb80125ab04d3",
       "research_continues": false,
@@ -3999,7 +4053,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 16,
+      "rank": 17,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0008_consensus_cc/RECIPE.json",
       "selected_recipe_sha256": "179016ae221ea56da1992197cbf4095365e7c229ac9a9d9c5262d08d593a9410",
       "research_continues": false,
@@ -4098,7 +4152,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 17,
+      "rank": 18,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0022_dense_unary_cc/RECIPE.json",
       "selected_recipe_sha256": "4681698e5ac7eb8d11f845c92be5e00954582635d104be8fc8fb27240a59228e",
       "research_continues": false,
@@ -4197,7 +4251,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 18,
+      "rank": 19,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0018_adaptive_holes/RECIPE.json",
       "selected_recipe_sha256": "d716917f59857581316c71c2ba4d26d74da99f5a179740b9578664145609401c",
       "research_continues": false,
@@ -4296,7 +4350,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 19,
+      "rank": 20,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0027_cross256_cc/RECIPE.json",
       "selected_recipe_sha256": "e352953440086cd756af1332ab49b5b8783ea1cb7365e71c43150dccc1c72fac",
       "research_continues": false,
@@ -4397,7 +4451,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 20,
+      "rank": 21,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0026_cross128_cc/RECIPE.json",
       "selected_recipe_sha256": "28aa19f9154995cdc4342839cfe5cc33a50916f00556662ff7544ee38a53eef2",
       "research_continues": false,
@@ -4498,7 +4552,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 21,
+      "rank": 22,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0013_adaptive_cc/RECIPE.json",
       "selected_recipe_sha256": "fcc900619ea613a36a11aaee36b1d7dba2a61c491227c9f7f696baef7e28fbbd",
       "research_continues": false,
@@ -4597,7 +4651,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 22,
+      "rank": 23,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0006_best_holes/RECIPE.json",
       "selected_recipe_sha256": "366abcb0fd9a59c65b217ef30a4a646d81f50ba9ae74c75559531567921ba509",
       "research_continues": false,
@@ -4696,7 +4750,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 23,
+      "rank": 24,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0014_nonlinear_cc/RECIPE.json",
       "selected_recipe_sha256": "72a3bca6e67670293bb933e5e2e8caedf56cd13956af1d4803bc9a94c222be2f",
       "research_continues": false,
@@ -4795,7 +4849,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 24,
+      "rank": 25,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0039_intensity_ensemble/RECIPE.json",
       "selected_recipe_sha256": "e96ad689de7ca8a6a31bbdf31b42780e2ad1b1160a255e223d80a82461e6ad66",
       "research_continues": false,
@@ -4895,7 +4949,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 25,
+      "rank": 26,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0003_core_calibration_cc/RECIPE.json",
       "selected_recipe_sha256": "760040238716dde359837b5dd5e69314236c34e1cf294751097b231db3fee657",
       "research_continues": false,
@@ -4994,7 +5048,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 26,
+      "rank": 27,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0005_fine_calibration_cc/RECIPE.json",
       "selected_recipe_sha256": "26244064bf4003616a51c76b24210f2a512cc7e9b87eb94b84b731db989b93f5",
       "research_continues": false,
@@ -5093,7 +5147,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 27,
+      "rank": 28,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0020_brain_domain/RECIPE.json",
       "selected_recipe_sha256": "fe13ed43427dc7b768c6a34cc88cc3a74172ce1372f368a8c8d4ad8c5c439826",
       "research_continues": false,
@@ -5191,7 +5245,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 28,
+      "rank": 29,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0030_brain_case28/RECIPE.json",
       "selected_recipe_sha256": "1a6e8ec2360be951c22bf265c40df3a8fcf8a4b48d91fb89bc7e262f68c9d90e",
       "research_continues": false,
@@ -5289,7 +5343,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 29,
+      "rank": 30,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0029_brain_case20/RECIPE.json",
       "selected_recipe_sha256": "0887eaf7909348842ef9afd9729610df9aaf997936885bcf3c535e27834db0b0",
       "research_continues": false,
@@ -5387,7 +5441,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 30,
+      "rank": 31,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0038_intensity11_cal/RECIPE.json",
       "selected_recipe_sha256": "8d90a4d2e6fd5ae046970d224669b9490697de74f35618d801f530681b22ab8c",
       "research_continues": false,
@@ -5488,7 +5542,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 31,
+      "rank": 32,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0028_brain_case16/RECIPE.json",
       "selected_recipe_sha256": "987751872f4706bf1f5aee52301842c9910fd98a84d2e70894a10b4009b88bdb",
       "research_continues": false,
@@ -5586,7 +5640,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 32,
+      "rank": 33,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0015_case_consistency/RECIPE.json",
       "selected_recipe_sha256": "58ee454bce01033686ef26391a87fce82abd3aead004f4cdffe0f3c00bf8402f",
       "research_continues": false,
@@ -5685,7 +5739,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 33,
+      "rank": 34,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0031_brain_cross128/RECIPE.json",
       "selected_recipe_sha256": "612b2f9ccd8ed02b53f4f6b5366963bb8ec3cf8a9d2d397061903b8f9c7f533d",
       "research_continues": false,
@@ -5785,7 +5839,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 34,
+      "rank": 35,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0032_brain_cross256/RECIPE.json",
       "selected_recipe_sha256": "4f224f5a61141a8d69e162e4b53b49048d3ea4525b5056189736ed6441b954cd",
       "research_continues": false,
@@ -5885,7 +5939,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 35,
+      "rank": 36,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0016_joint_calibration/RECIPE.json",
       "selected_recipe_sha256": "fd1e0a518db9ae314f41b5e1c4a4f9a68a70b66bc6893d7a27ba919edc69965d",
       "research_continues": false,
@@ -5984,7 +6038,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 36,
+      "rank": 37,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0025_cross_phase256/RECIPE.json",
       "selected_recipe_sha256": "cde2fe747ff9a1f1764b85d0c4ec2cb46d8d3b0eee5e4d9488a948bccf696852",
       "research_continues": false,
@@ -6085,7 +6139,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 37,
+      "rank": 38,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0024_cross_phase128/RECIPE.json",
       "selected_recipe_sha256": "121ae1ac156e7aeea7fe0d3c4a8b0e2d3d8f1017b91396c77c475a6cf629daad",
       "research_continues": false,
@@ -6186,7 +6240,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 38,
+      "rank": 39,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0019_dense_unary_control/RECIPE.json",
       "selected_recipe_sha256": "f3fbc36e8d8164d5ab5e87e174b4b782af1efcc62cd67238bf041da166790d2e",
       "research_continues": false,
@@ -6284,7 +6338,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 39,
+      "rank": 40,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0017_zero_phase_control/RECIPE.json",
       "selected_recipe_sha256": "af49e11bff163f4ce4c712f49c8441542f3c1f46d0ac2cebef1fe377ae4e377a",
       "research_continues": false,
@@ -6383,7 +6437,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 40,
+      "rank": 41,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0007_consensus_calibration/RECIPE.json",
       "selected_recipe_sha256": "b1577c91ce29001f25536020a3f1b91aab134e5d747fefead21ebbf502313653",
       "research_continues": false,
@@ -6482,7 +6536,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 41,
+      "rank": 42,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0037_intensity_api_probe/RECIPE.json",
       "selected_recipe_sha256": "beea27b2421c664d1d2ba8b9439822bbef8ca8d69f5fe14e459b87f15f6f287f",
       "research_continues": false,
@@ -6519,6 +6573,60 @@
       "new_validation108_access": false,
       "new_network_training": false,
       "validation_gate_note": "Historical training gate only; no new108 evaluation in this study"
+    },
+    {
+      "method": "race_segresnet_e164_raw_test270_20261029",
+      "scan_dice": 0.7833742264796186,
+      "subject_dice": 0.7694231767343038,
+      "scan_ci95": [
+        0.7614955604316523,
+        0.8024436118407355
+      ],
+      "subject_ci95": [
+        0.746394132796195,
+        0.7904357138477495
+      ],
+      "point_hit": 0.9222222222222223,
+      "scans": 270,
+      "subjects": 119,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 249,
+      "point_denominator": 270,
+      "cohort": {
+        "scans": 270,
+        "subjects": 119
+      },
+      "checkpoint_epoch": 164,
+      "checkpoint_path": "workspace/BraTS/segresnet_t1ce_wt/race_20261028/race/best.pth",
+      "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+      "grid": "native1mm original crop;160x208x168 canvas;all padding excluded",
+      "score_grid": "native",
+      "locator_forwards": 1,
+      "ensemble_size": 1,
+      "forward_equivalents": 2.666015625,
+      "forward_cost_note": "input-voxel equivalence only; not FLOPs or latency",
+      "threshold": 0.5,
+      "tta": false,
+      "postprocessing": false,
+      "report_path": "archive/research_records/2026-10-29_race_e164_inference_test270/RAW_TEST270_raw.json",
+      "report_sha256": "132551cedf5cf6c37e653651415b50ee0114c53907cd72e1ab8ec16bc5b8ed25",
+      "result_path": "archive/research_records/2026-10-29_race_e164_inference_test270/RESULT.json",
+      "result_sha256": "5cba2cc155e1142a44cd7d4c3d4bb94f81e2e77879257d9c5f4c6c2823bd2cb1",
+      "evidence_status": "user-authorized fixed recipe transfer; inherited reused270 test-tuned history; no current test parameter search; not independent confirmation",
+      "test_tuned": true,
+      "current_test_retuning": false,
+      "input_modality": "T1ce",
+      "uses_GT_for_localization": false,
+      "training_scope": {
+        "train_scans": 972,
+        "train_subjects": 444,
+        "validation_scans": 108,
+        "validation_subjects": 50,
+        "epochs": 200,
+        "optimizer_updates": 24400
+      },
+      "new_outer_confirmation_access": false,
+      "rank": 43
     },
     {
       "method": "segresnet_w32_e171_auto12h_0004_fine_calibration_testtuned_20261028",
@@ -6583,7 +6691,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 42,
+      "rank": 44,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0004_fine_calibration/RECIPE.json",
       "selected_recipe_sha256": "349df0e89356dd57525219831235ce760b826090a162acae43195b69928bfae0",
       "research_continues": false,
@@ -6682,7 +6790,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 43,
+      "rank": 45,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0012_nonlinear_calibration/RECIPE.json",
       "selected_recipe_sha256": "4ab622b564ef442b564b87a5007d4e4951fd50762241daeed893ebc0cf25237d",
       "research_continues": false,
@@ -6781,7 +6889,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 44,
+      "rank": 46,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0010_extended_calibration/RECIPE.json",
       "selected_recipe_sha256": "1f7f5393ccee47db12353e80446de5c34db1c9206588ba1ad79cfa66a1830620",
       "research_continues": false,
@@ -6880,7 +6988,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 45,
+      "rank": 47,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0002_core_calibration/RECIPE.json",
       "selected_recipe_sha256": "4ff20def84e80d813883810d4ba12a0d6eb3f8596d39ba9cf1fef1bc0681d603",
       "research_continues": false,
@@ -6979,7 +7087,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 46,
+      "rank": 48,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0009_adaptive_calibration/RECIPE.json",
       "selected_recipe_sha256": "06e0512b347c9a6979b093b3ee8155ea9e210ea80f22f95324d6156952ca7d42",
       "research_continues": false,
@@ -7078,7 +7186,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 47,
+      "rank": 49,
       "selected_recipe_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/candidates/0011_official_rankseg/RECIPE.json",
       "selected_recipe_sha256": "76d084ae8c14010db24d2ca1dcbd826dc2237d59fa9f34132869b90ab208c8d5",
       "research_continues": false,
@@ -7177,7 +7285,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 48,
+      "rank": 50,
       "views": [
         2,
         3,
@@ -7360,7 +7468,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 49,
+      "rank": 51,
       "views": [
         2,
         3,
@@ -7402,7 +7510,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 50,
+      "rank": 52,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -7445,7 +7553,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 51,
+      "rank": 53,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -7488,7 +7596,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 52,
+      "rank": 54,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -7691,7 +7799,7 @@
         "public_pretraining_scans": 0
       },
       "new_outer_confirmation_access": false,
-      "rank": 53
+      "rank": 55
     },
     {
       "method": "A_6c53d508f4172cbf",
@@ -7723,7 +7831,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 54,
+      "rank": 56,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -7766,7 +7874,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 55,
+      "rank": 57,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -7809,7 +7917,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 56,
+      "rank": 58,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -7852,7 +7960,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 57,
+      "rank": 59,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -7994,7 +8102,7 @@
         }
       },
       "new_outer_confirmation_access": false,
-      "rank": 58
+      "rank": 60
     },
     {
       "method": "A_4b4a4f1c7b8e7175",
@@ -8026,7 +8134,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 59,
+      "rank": 61,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8069,7 +8177,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 60,
+      "rank": 62,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8112,7 +8220,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 61,
+      "rank": 63,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8155,7 +8263,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 62,
+      "rank": 64,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8198,7 +8306,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 63,
+      "rank": 65,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -8241,7 +8349,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 64,
+      "rank": 66,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -8284,7 +8392,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 65,
+      "rank": 67,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.6,
       "threshold_raw_logit": 0.4054651081081642,
@@ -8327,7 +8435,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 66,
+      "rank": 68,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8370,7 +8478,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 67,
+      "rank": 69,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8413,7 +8521,7 @@
       ],
       "role": "fixed_output_panel",
       "logit_formula": "arithmetic mean of native-crop float32 logits, then common threshold",
-      "rank": 68,
+      "rank": 70,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.4,
       "threshold_raw_logit": -0.4054651081081643,
@@ -8456,7 +8564,7 @@
       ],
       "role": "candidate",
       "logit_formula": "single model",
-      "rank": 69,
+      "rank": 71,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8499,7 +8607,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 70,
+      "rank": 72,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8542,7 +8650,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 71,
+      "rank": 73,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8585,7 +8693,7 @@
       ],
       "role": "frozen_reference",
       "logit_formula": "single model",
-      "rank": 72,
+      "rank": 74,
       "threshold_space": "sigmoid_probability",
       "threshold_probability": 0.5,
       "threshold_raw_logit": 0.0,
@@ -8708,5 +8816,13 @@
     "research_continues": false,
     "test_tuned": true,
     "report_path": "archive/research_records/2026-10-28_segresnet_auto_inference12h/RESULT.md"
+  },
+  "latest_race164_fixed_inference_test270_20261029": {
+    "methods": [
+      "race_segresnet_e164_raw_test270_20261029",
+      "race_segresnet_e164_enhanced_test270_20261029"
+    ],
+    "report_path": "archive/research_records/2026-10-29_race_e164_inference_test270/RESULT.md",
+    "current_test_parameter_search": false
   }
 }

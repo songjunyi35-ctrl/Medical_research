@@ -1,0 +1,72 @@
+{
+  "schema": "aflow_frozen_core_inference_v1",
+  "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+  "aggregation": {
+    "id": "base2_brainmargin0",
+    "kind": "brain_domain",
+    "base": {
+      "id": "case_agree_t0.2_w24.0_k8_logit_T4.0",
+      "kind": "case_consistency",
+      "vote_threshold": 0.2,
+      "exponent": 24.0,
+      "keep_views": 8,
+      "representation": "logit",
+      "view_temperature": 4.0,
+      "views": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neural_case_forwards": 8
+    },
+    "margin": 0,
+    "views": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "neural_case_forwards": 8
+  },
+  "decoder": {
+    "post_temperature": 1.125,
+    "bias": 0.375,
+    "beta": 0.5,
+    "volume_scale": 1.0
+  },
+  "decoder_kind": "brain_domain_volume",
+  "point_rule": "unchanged base aggregation point",
+  "postprocessing": [
+    {
+      "id": "c3_min512_protectFalse",
+      "connectivity": 3,
+      "kind": "minimum",
+      "value": 512,
+      "protect_largest": false
+    },
+    {
+      "id": "fill_small_hole1000",
+      "source": "selected",
+      "operation": "fill_holes",
+      "value": 1000
+    }
+  ],
+  "selected_on_reused_test270": true,
+  "input_contract": "same native1mm T1ce normalization/canvas; geometry removes padding",
+  "source_result_sha256": "dc4aedd47aa427f453ee2ed543a78f7620a1715c5da9a9cd433989a719dd4d83",
+  "source_recipe_checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "model_class": "RaceSeg",
+  "epoch": 164,
+  "source_recipe_sha256": "143a9952f62dff340ab77fa590092f9e8a27428af25850cda42c2c724c87cd40",
+  "source_candidate": "0036_local_brain_joint",
+  "parameters_transferred_without_search": true
+}

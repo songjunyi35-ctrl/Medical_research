@@ -1,5 +1,15 @@
 # AFlow repository instructions
 
+<!-- RACE164_TEST270_20261029 -->
+## 2026-10-29：RACE164叠加既有最佳推理已完成
+
+原270/119，RACE原始Scan 0.783374，固定8镜像＋解码＋后处理Scan 0.789263、Subject 0.775438、Point 256/270；同权重差+0.005889，描述性95%区间[0.0036050984607035896, 0.008361956075480034]。训练0、2160病例前向，两个输出共用8视图。继承test-tuned历史，无当前新搜索或outer/confirmation。本轮结束不自动重测或续训。[结果](archive/research_records/2026-10-29_race_e164_inference_test270/RESULT.md)。
+<!-- END_RACE164_TEST270_20261029 -->
+
+<!-- RACE_DDP_FINAL_20261028 -->
+RACE-Seg双卡单算法complete，累计200轮，最佳164轮108 Scan 0.763266。历史参考差+0.009990，描述性区间[0.0009791717071146928, 0.021314055377539866]；历史提升门True。同期对照已由用户取消，不能单独确认算法因果收益。无新270/outer/confirmation，本轮结束不自动恢复。[结果](archive/research_records/2026-10-28_race_seg/RESULT.md)。
+<!-- END_RACE_DDP_FINAL_20261028 -->
+
 <!-- AUTO_INFERENCE12H_20261028 -->
 ## 2026-10-29：12小时无训练推理研究完成
 
