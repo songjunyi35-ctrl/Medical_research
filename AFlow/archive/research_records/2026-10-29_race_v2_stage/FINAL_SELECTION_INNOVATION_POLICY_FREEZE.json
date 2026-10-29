@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-29T09:22:49.016256+00:00",
+  "source_sha256": {
+    "scripts/race_v2_stage_20261029/select_final_innovation.py": "35f04c97c3d32d75d55eb7709655e27b9c6aa746172d146680d9200467d03aa8",
+    "scripts/race_v2_stage_20261029/select_final.py": "60d298bde1b370c31a48ac9380050cf9cd974a1da9760872718caeb1210a1533",
+    "scripts/race_v2_stage_20261029/audit_validation.py": "c7e2854955d5716ee891127c411349e9421b3533eb5dc3cab433b17bd25457aa",
+    "scripts/race_v2_stage_20261029/governance.py": "5014175ddce0b2be2a0b7da8645e0393b84660f0b997b850cb6c361ee1506951"
+  },
+  "evidence_sha256": {
+    "archive/research_records/2026-10-29_v2_inference_innovation_a/DEPLOYMENT_RECIPE.json": "2a84c9be7f74aad88c8399f24252462e93ce5bc07096f1d7c9e49a46c4470f7c",
+    "archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/SELECTED_RECIPE.json": "2b1ed94eaf2ee9f1692afedde04ff3a8a5c39e47843f5ab911e76ec5c0a1f8dd",
+    "archive/research_records/2026-10-29_v2_inference_innovation_a/RESULT.json": "9d4d431131af2f64d195d2d57120efcb1eef16744d14194f333edcf96e23593f",
+    "archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/RESULT.json": "a1491a42be9b7788363eb02f42a2183a0bdede065af2874e05ceca75677e768c",
+    "archive/research_records/2026-10-29_v2_inference_innovation_a/PLAN.json": "d9718f4fb0bc7446ffcee106f22307e11b50c17958776ea576c7cd6011d0d0fa",
+    "archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/PLAN.json": "e18a3b991599bc18a7e20d36c537edf47b722e6a3ede12d5ef8f55f4654ed971",
+    "archive/research_records/2026-10-29_race_v2_inference_a/SELECTED_RECIPE.json": "9a4d14dbd1e8bb056b23314cf5012fa18ab245532542bc55e9ef824d98a71a71",
+    "archive/research_records/2026-10-29_race_v2_inference_a/RANKING.json": "946ad96fa1c1dd907ef0503fc227171f8b7f28c906c3c9221e11d4c339e17208",
+    "archive/research_records/2026-10-29_race_v2_inference_b/RESULT.json": "0e42b8981e0840481c02b185c19bc6933b8cd8f36c23145ee079e9918c82d59e",
+    "archive/research_records/2026-10-29_race_v2_stage/STATISTICS_FREEZE.json": "daca4996d43c6ff1e8cac630913261163cdc2e25a961ad8b108a549b29f744e5",
+    "archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.json": "558521a9fe95252c5bc04a243a7bf73082152919adb14ad0404177a0a5074dd5"
+  },
+  "policy": "After full original80 training and final108 transfer, highest108 Scan among up to4 single and4 pair options; old options win exact ties; exactly one single and one pair",
+  "single_options": [
+    "race164 equal8",
+    "race164 fixed local dependency innovation",
+    "final training best equal8",
+    "final training best one fixed innovation transfer"
+  ],
+  "fusion_options": [
+    "race164/w32 old global best",
+    "race164/w32 one paired covariance innovation",
+    "final training best/one frozen partner old bounded global best",
+    "final training best/same partner one fixed covariance transfer"
+  ],
+  "fixed_recipe_transfer_per_new_model": {
+    "single": 1,
+    "fusion": 1
+  },
+  "no_research_grid_on_new_model": true,
+  "best_epoch0": "skip duplicate new model predictions and use old model options only",
+  "models_per_deployment_max": 2,
+  "forwards_per_deployment_max": 16,
+  "final_candidates_max": 2,
+  "policy_adapted_after_initial_and_innovation108_results": true,
+  "before_final_training_result": true,
+  "inherited_test_tuned_history": true,
+  "independent_confirmation": false,
+  "new270_access_during_policy_freeze": false,
+  "training_source_recipe_budget_or_process_changed": false
+}

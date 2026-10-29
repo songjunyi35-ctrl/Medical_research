@@ -11,7 +11,7 @@
 
 按用户授权删除1134份旧缓存，实际释放2.900753GiB，清理后空闲约23.19GiB；构建源码／索引／SHA、193份模型和当前worker缓存均保留，训练未中断。大数组仅worker/tmp，持久空闲至少20GiB，总新增上限0.75GiB。资源仅按原保守24小时截止执行，条件96小时不预支，不重启旧协调器。
 
-[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · [推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · [新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · [实时状态](archive/research_records/2026-10-29_race_v2_stage/STAGE_STATUS.json) · [清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)
+[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · [推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · [新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · [实时状态](archive/research_records/2026-10-29_race_v2_stage/INNOVATION_STAGE_STATUS.json) · [清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)
 <!-- END_RACE_V2_STAGE_20261029 -->
 
 <!-- RACE164_TEST270_20261029 -->

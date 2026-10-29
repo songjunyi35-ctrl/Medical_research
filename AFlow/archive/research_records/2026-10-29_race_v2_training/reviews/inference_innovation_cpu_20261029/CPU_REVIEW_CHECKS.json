@@ -1,0 +1,61 @@
+{
+  "at": "2026-10-29T17:22:46.194098+08:00",
+  "scope": "CPU synthetic and integer-evidence review only; no patient arrays or GPU",
+  "checks": {
+    "A_numerical_gate": {
+      "status": "passed",
+      "device": "cpu",
+      "separable_vs_full_box_max_error": 1.1920928955078125e-07,
+      "alpha0_exact": true,
+      "unanimous_exact": true,
+      "permutation_max_error": 2.384185791015625e-07,
+      "weights_nonnegative_sum1": true,
+      "point_rule": "refined argmax; base point separately reported",
+      "GT_input": false
+    },
+    "B_numerical_gate": {
+      "status": "passed",
+      "configurations": 12,
+      "all12_finite_bounded_and_repeatable": true,
+      "identical_experts_fixed_point": true,
+      "zero_variance_anchor_fixed_point": true,
+      "quadratic_optimum_checked_against101_alphas": true,
+      "pairing_shuffle_max_alpha_change": 0.263263097972778,
+      "unpaired_means_unchanged": true,
+      "PSD_and_positive_ridge_checked": true,
+      "singular_covariance_falls_back_to075": true,
+      "standalone_dynamic_deploy_matches_cached": true,
+      "labels_or_case_ids_accepted_by_predictor": false,
+      "patient_arrays_loaded": false,
+      "model_forwards": 0
+    },
+    "dynamic_CPU_crops_final_score_points_and_normalized_equal8_fallback": true,
+    "four_baselines_432_rows_integer_Dice_Point_exact": true,
+    "all_ranked_A17_B12_primary_statistics_recomputed": true,
+    "patient_folds_match_root_frozen_assignment": true
+  },
+  "source_sha256": {
+    "scripts/race_v2_inference_innovation_a_20261029/algorithm.py": "912e050df5c08b7d0d8183d9fa512a6f13016bc79c8cbdd6cf7423d4d91fbf6d",
+    "scripts/race_v2_inference_innovation_a_20261029/run.py": "b264ef730b93a52322c6e008f4c3bd759ecfcf0f0b53e3875c52b3f730c04c6d",
+    "scripts/race_v2_inference_innovation_a_20261029/deployment.py": "32e5b365a075936702c4d543ab8e50e2ed06fe9c9c9d5538dc1dd0180bcd28ca",
+    "scripts/race_v2_inference_b_20261029/innovation_b/core.py": "d50cce7bb5c0ffcee78aa4c5fc23516d83ea5506c7a2192a46bbe5798ddd9469",
+    "scripts/race_v2_inference_b_20261029/innovation_b/run.py": "1a911ea6f4ec051f1b29fe3dbd47cc530db27dbf0031cc3466ddd40f081db384",
+    "scripts/race_v2_stage_20261029/select_final_innovation.py": "35f04c97c3d32d75d55eb7709655e27b9c6aa746172d146680d9200467d03aa8",
+    "scripts/race_v2_stage_20261029/final_report_innovation.py": "f7aa67eebbad0f91f837820a653312399ec81f201594c61374b257b537114f1b",
+    "scripts/race_v2_stage_20261029/final_report_watch_innovation.py": "e081dccfa0b637fe6db81b2599c5b835152ca1b0792c3adbf07bc8641dc84c0e",
+    "scripts/race_v2_stage_20261029/publish_innovation.py": "ba2e66775b023e162a0e37972d487fe1f689ac01b2bc0c7ec9635ec0714814b0",
+    "scripts/race_v2_stage_20261029/publish_snapshot_v2.py": "7bfe7f47959d08409878c0f264b83d56b0cb2646d34ce9bec11e8a45f32b960c"
+  },
+  "source_changed_during_review": {},
+  "reports_sha256": {
+    "archive/research_records/2026-10-29_v2_inference_innovation_a/RAW_VALIDATION108.json": "fe32d051e72d6d73803749be3829627ebf4c3e218d8c6080a2e071b4be94a94b",
+    "archive/research_records/2026-10-29_v2_inference_innovation_a/RESULT.json": "9d4d431131af2f64d195d2d57120efcb1eef16744d14194f333edcf96e23593f",
+    "archive/research_records/2026-10-29_v2_inference_innovation_a/DEPLOYMENT_RECIPE.json": "2a84c9be7f74aad88c8399f24252462e93ce5bc07096f1d7c9e49a46c4470f7c",
+    "archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/RAW_VALIDATION.json": "4037caa19c26ab1d96ea3d2ac594e5a6475a073fd7e85b3e37e08f3a3aa38cd0",
+    "archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/RESULT.json": "a1491a42be9b7788363eb02f42a2183a0bdede065af2874e05ceca75677e768c",
+    "archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/SELECTED_RECIPE.json": "2b1ed94eaf2ee9f1692afedde04ff3a8a5c39e47843f5ab911e76ec5c0a1f8dd"
+  },
+  "training_modified": false,
+  "model_forwards": 0,
+  "new_test270_access": false
+}

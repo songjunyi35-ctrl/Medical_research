@@ -48,6 +48,7 @@ def selection(candidate_id=None):
     recipe_sha=candidate.get('algorithm_recipe_sha256',fusion.get('algorithm_recipe_sha256'))
     assert recipe_sha and sha(recipe_path)==recipe_sha
     bound=read(recipe_path);assert bound['candidate']==recipe and bound['source_sha256']==sha(CORE)
+    assert fusion['algorithm_source_sha256']==sha(CORE)
     assert recipe==read(I/'SELECTED_RECIPE.json')['candidate'],'only one108-selected innovation formula may transfer'
     assert recipe['models']==2 and recipe['forwards_per_scan']==16
     return root,candidate

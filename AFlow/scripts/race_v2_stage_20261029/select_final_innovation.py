@@ -9,7 +9,6 @@ from __future__ import annotations
 import datetime
 import json
 from pathlib import Path
-import shutil
 import time
 
 from .governance import ROOT, RECORD, atomic_json, guard, sha
@@ -25,6 +24,8 @@ AUDIT = RECORD / 'INNOVATION108_ARITHMETIC_AUDIT.json'
 def verify_freeze(path):
     frozen = read(path)
     for relative, digest in frozen['source_sha256'].items():
+        assert sha(ROOT / relative) == digest, relative
+    for relative, digest in frozen.get('evidence_sha256', {}).items():
         assert sha(ROOT / relative) == digest, relative
     return frozen['source_sha256']
 
@@ -113,24 +114,46 @@ def select():
     assert done['state'] == read(TRAIN / 'RESULT.json')['state'] == 'complete'
     assert done['new_epoch'] == done['target_new_epochs'] == read(TRAIN / 'BUDGET_DECISION.json')['new_epochs']
     assert done['new_updates'] == done['new_epoch'] * 122
+    assert handoff['total_stage_new_epochs'] == done['new_epoch']
+    assert handoff['total_stage_new_updates'] == done['new_updates']
+    assert 0 <= handoff['actual_new_epochs'] <= done['new_epoch']
+    assert handoff['actual_new_updates'] == 122 * handoff['actual_new_epochs']
+    assert handoff['strict_cpu_reload'] is True and handoff['optimizer_new'] is True
+    assert handoff['architecture'] == 'scripts.race_v2_20261029.model.RaceBenefitSeg'
+    assert handoff['construction'] == dict(width=32, dropout=.1, dim=16, enabled=True)
+    assert handoff['source_epoch'] == 164
     equal8 = read(A / 'SELECTED_RECIPE.json')['candidate']
     innovation_a = read(IA / 'DEPLOYMENT_RECIPE.json')['innovation_entry']
     innovation_b = read(IB / 'SELECTED_RECIPE.json')['candidate']
     assert innovation_a['mode'] == 'race8_local_dependency'
     assert innovation_b['kind'] == 'paired_covariance_shrinkage'
+    assert innovation_a['config'] in read(IA / 'PLAN.json')['recipes']
+    assert innovation_a['id'] == innovation_a['config']['id']
+    assert innovation_b == read(IB / 'RESULT.json')['best']['recipe']
     paths = [IA / 'RAW_VALIDATION108.json', IB / 'RAW_VALIDATION.json']
     reports, _ = audited_reports(paths)
     initial_a = read(A / 'RANKING.json')
     initial_b = read(B / 'RESULT.json')
+    old_a_rows = read(A / 'RAW_VALIDATION108.json')['per_configuration'][equal8['id']]
+    old_b_rows = read(B / 'RAW_VALIDATION.json')['per_configuration']
+    cohort = [json.loads(line) for line in MANIFEST.read_text().splitlines() if line.strip()]
+    validate(old_a_rows, cohort)
+    verified_old_single = aggregate(old_a_rows)
+    for key in ('scan_dice', 'subject_dice', 'point_hits'):
+        assert abs(verified_old_single[key] - initial_a['best_metrics_ci'][key]) < 1e-12
     single_options = [dict(origin='old_equal8', model_id='race164', recipe=equal8,
-        metrics=initial_a['best_metrics_ci'], sources=[evidence(A / 'RANKING.json'), evidence(A / 'SELECTED_RECIPE.json')])]
+        metrics=verified_old_single, sources=[evidence(A / 'RANKING.json'), evidence(A / 'SELECTED_RECIPE.json')])]
     single_options.append(dict(origin='old_model_new_inference', model_id='race164', recipe=innovation_a,
         metrics=aggregate(reports[str(paths[0])][innovation_a['id']]),
         sources=[evidence(IA / 'RESULT.json'), evidence(IA / 'DEPLOYMENT_RECIPE.json')]))
     old_pair = initial_b['fusion_ranking'][0]
+    validate(old_b_rows[old_pair['id']], cohort)
+    verified_old_pair = aggregate(old_b_rows[old_pair['id']])
+    for key in ('scan_dice', 'subject_dice', 'point_hits'):
+        assert abs(verified_old_pair[key] - old_pair['metrics'][key]) < 1e-12
     pair_options = [dict(origin='old_global_fusion', ids=['race164', 'w32e171'],
         fusion=dict(primary_weight=old_pair['race_weight'], space=old_pair['space'], decoder=old_pair['decoder']),
-        metrics=old_pair['metrics'], sources=[evidence(B / 'RESULT.json')], stability=initial_b['oof_metrics'])]
+        metrics=verified_old_pair, sources=[evidence(B / 'RESULT.json')], stability=initial_b['oof_metrics'])]
     new_fusion = dict(primary_weight=.75, space='paired_covariance_shrinkage', decoder='raw',
         algorithm_recipe=innovation_b, algorithm_recipe_path=str(IB / 'SELECTED_RECIPE.json'),
         algorithm_recipe_sha256=sha(IB / 'SELECTED_RECIPE.json'),
@@ -163,9 +186,12 @@ def select():
             metrics=aggregate(new_reports[str(new_paths[2])][innovation_a['id']]),
             sources=[evidence(IA / 'final_snapshot/RESULT.json'), evidence(IA / 'DEPLOYMENT_RECIPE.json')]))
         fixed_pair = b_new['fusion_ranking'][0]
+        verified_fixed_pair = aggregate(new_reports[str(new_paths[1])][fixed_pair['id']])
+        for key in ('scan_dice', 'subject_dice', 'point_hits'):
+            assert abs(verified_fixed_pair[key] - fixed_pair['metrics'][key]) < 1e-12
         pair_options.append(dict(origin='new_model_global_fusion', ids=['race_v2_final', b_new['global_partner']],
             fusion=dict(primary_weight=fixed_pair['candidate_weight'], space=fixed_pair['space'], decoder=fixed_pair['decoder']),
-            metrics=fixed_pair['metrics'], sources=[evidence(B / 'final_snapshot/RESULT.json')], stability=b_new['oof_metrics']))
+            metrics=verified_fixed_pair, sources=[evidence(B / 'final_snapshot/RESULT.json')], stability=b_new['oof_metrics']))
         pair_options.append(dict(origin='new_model_new_inference', ids=['race_v2_final', b_new['global_partner']], fusion=new_fusion,
             metrics=aggregate(new_reports[str(new_paths[3])][innovation_b['id']]),
             sources=[evidence(IB / 'final_snapshot/RESULT.json'), evidence(IB / 'SELECTED_RECIPE.json')],

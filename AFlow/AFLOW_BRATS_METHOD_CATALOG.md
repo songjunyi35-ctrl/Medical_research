@@ -10,7 +10,7 @@
 **是否支持直觉：** 首批等权镜像有收益；融合分折区间跨0，新局部机制不能把扰动代理当真实错误。
 **代价/下一步：** 新解码网络0，部署8／16前向；最终模型和配方只在108选，最多两个270候选。
 
-[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · [推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · [新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · [实时状态](archive/research_records/2026-10-29_race_v2_stage/STAGE_STATUS.json) · [清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)
+[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · [推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · [新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · [实时状态](archive/research_records/2026-10-29_race_v2_stage/INNOVATION_STAGE_STATUS.json) · [清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)
 <!-- END_RACE_V2_STAGE_20261029 -->
 
 <!-- RACE164_TEST270_20261029 -->

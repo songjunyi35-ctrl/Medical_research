@@ -20,7 +20,7 @@ def main():
     links = ('[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · '
              '[推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · '
              '[新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · '
-             '[实时状态](archive/research_records/2026-10-29_race_v2_stage/STAGE_STATUS.json) · '
+             '[实时状态](archive/research_records/2026-10-29_race_v2_stage/INNOVATION_STAGE_STATUS.json) · '
              '[清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)')
     scope = ('用户最新明确：1154259 GPU0+1保持正在执行的80新增轮／9760更新RACE-v2双卡训练，'
              '进程、源码冻结、数据、优化器、学习率和预算均不改；1154121 GPU0做RACE单模型推理创新，'

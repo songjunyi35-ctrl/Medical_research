@@ -1,0 +1,110 @@
+{
+  "at": "2026-10-29T17:26:11.737085+08:00",
+  "scope": "read-only CPU/code and metadata; no patient arrays/network/GPU",
+  "training": {
+    "at": "2026-10-29T17:23:30.719833+08:00",
+    "state": "training",
+    "new_epoch": 43,
+    "new_updates": 5246,
+    "target_new_epochs": 80,
+    "best_new_epoch": 0,
+    "best_scan": 0.7632662633226978,
+    "metrics": {
+      "scan_dice": 0.7584964753025107,
+      "subject_dice": 0.7488109787801902,
+      "scan_ci95": [
+        0.7117721164228257,
+        0.7974129908004741
+      ],
+      "subject_ci95": [
+        0.7030068866362174,
+        0.788388819873333
+      ],
+      "point_hit": 0.8796296296296297,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 95
+    },
+    "training_seconds": 156.80180952697992,
+    "epoch_seconds": 170.04603702574968,
+    "elapsed_seconds": 7412.49132771045,
+    "learning_rate": 1.1806753780130902e-05,
+    "effective_batch": 8,
+    "world_size": 2,
+    "microbatch_per_gpu": 2,
+    "optimizer_new_at_stage_start": true,
+    "test_pixels": false,
+    "peak_reserved_gib": 34.34765625,
+    "train": {
+      "loss": 0.21071010320581526,
+      "supervised": 0.16883043031143063,
+      "contrast": 0.15066303472981285,
+      "calibration": 0.686930397165165,
+      "gate_mean": 0.07583429783950617,
+      "gain_positive": 116.50411522633745,
+      "gain_negative": 398.80041152263374,
+      "gain_neutral": 5349.874485596708,
+      "target_gain_mean": -0.0060074956054749435,
+      "gradient_norm": 0.4453390991246259,
+      "gradient_gate": 0.0033641090557178475,
+      "gradient_correction": 8.637482423044037e-05,
+      "gradient_query": 0.003715313132660686,
+      "gradient_strength": 3.923873910699277e-05
+    }
+  },
+  "training_unchanged": true,
+  "training_latest_read": false,
+  "manifest_parity": {
+    "A_root_and_actual_tmp_sha256": "1e907ecf7d7fa9b2b639b6e8fe23eb147bce6f7c4ba1b447b137567b6c4bc54b",
+    "B_root_and_actual_tmp_sha256": "b35a6ffc4fbf78cfee925674d2edfed49d9a4ff5f4aab85cf6f38cd5d540b7ea",
+    "A_actual_index_and_frozen_plan_sha256": "5623d725f3584c40e7fdebf7493f42286a0db870b24075a08619e44df51ccf85",
+    "independent_actual_worker_read": true,
+    "owner_receipt": "archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/ACTUAL_MANIFEST_PARITY_AUDIT.json"
+  },
+  "findings": [
+    {
+      "id": "A_BASELINE_DEPLOY",
+      "severity": "P2",
+      "status": "resolved_in_new_normalized_wrapper",
+      "trigger": "equal8 reference wins selection and old algorithm.deploy receives reference_equal8 marker",
+      "cpu_reproduced": "KeyError('box_mm')",
+      "current_selected_innovation_unaffected": true,
+      "new_wrapper": "scripts/race_v2_inference_innovation_a_20261029/deployment.py",
+      "new_wrapper_cpu_verified": true
+    },
+    {
+      "id": "B_ACTUAL_MANIFEST_BINDING",
+      "severity": "P2_integrity_hardening",
+      "status": "actual_copies_exact_owner_audit_available",
+      "description": "Runtime TMP READY copies were not directly compared to frozen ROOT READY in run.py; independent parity checks prove current data identical, no invalid results or model rerun required."
+    },
+    {
+      "id": "ROOT_MASK_RECEIPT_BINDING",
+      "severity": "P2",
+      "status": "reported_to_root_before_freeze",
+      "description": "ready/complete validate receipt SHA and selection but not equality of audit raw SHA to actual canonical raw and wrapper canonical identity/records. Bind these to ensure same-selection stale receipt cannot certify another report."
+    },
+    {
+      "id": "ROOT_ARCHIVED_PY_PUBLICATION",
+      "severity": "P2",
+      "status": "reported_to_root_before_freeze",
+      "description": "publish_snapshot_v2 archive stage filter excludes.py; prior frozen source archive mappings under training/engineering point to bytes not uploaded by current wrapper, though local bytes remain preserved. Include historical Python source snapshots in new publisher without weights/arrays."
+    }
+  ],
+  "selector": {
+    "blocking_bug_in_current_legal_contract_found": false,
+    "recipe_and_handoff_binding_hardening_recommended": true,
+    "model_families": "RACE/SegResNet only",
+    "single_models": 1,
+    "fusion_models": 2,
+    "deployment_case_forwards": {
+      "single": 8,
+      "fusion": 16
+    },
+    "uses_test270_for_selection": false,
+    "best0_branch_no_new_model": true,
+    "stage_budget_includes_new_A_directory": true
+  },
+  "no_train_source_freeze_recipe_budget_allocation_changes": true
+}

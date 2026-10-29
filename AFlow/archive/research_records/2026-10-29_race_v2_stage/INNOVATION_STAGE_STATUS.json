@@ -1,0 +1,80 @@
+{
+  "at_beijing": "2026-10-29T17:32:39.816736+08:00",
+  "state": "original_training_and_registered_inference_queues",
+  "observer_pid": 2082805,
+  "queues": {
+    "training": {
+      "STATUS.json": {
+        "at": "2026-10-29T17:31:59.699895+08:00",
+        "state": "training",
+        "new_epoch": 46,
+        "new_updates": 5612,
+        "best_new_epoch": 0,
+        "best_scan": 0.7632662633226978,
+        "metrics": {
+          "scan_dice": 0.7576106479046522,
+          "subject_dice": 0.7480369392392181,
+          "scan_ci95": [
+            0.7117924039248574,
+            0.7964203681680553
+          ],
+          "subject_ci95": [
+            0.7023563377605307,
+            0.787771684254564
+          ],
+          "point_hit": 0.8518518518518519,
+          "scans": 108,
+          "subjects": 50,
+          "bootstrap": "10000 patient cluster percentile95 seed20260917",
+          "point_hits": 92
+        }
+      },
+      "HEARTBEAT.json": {
+        "at": "2026-10-29T17:32:27.444145+08:00",
+        "phase": "training",
+        "new_epoch": 47,
+        "iteration": 20,
+        "new_updates": 5632
+      }
+    },
+    "innovation_a": {
+      "HEARTBEAT.json": {
+        "at": "2026-10-29T17:09:46.009893+08:00",
+        "stage": "GPU0_local_dependency_validation",
+        "completed": 108,
+        "total": 108
+      },
+      "RESULT.json": {
+        "at": "2026-10-29T17:09:46.964140+08:00",
+        "state": "complete",
+        "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7"
+      },
+      "DONE.json": {
+        "at": "2026-10-29T17:09:46.985082+08:00",
+        "state": "complete"
+      }
+    },
+    "innovation_b": {
+      "HEARTBEAT.json": {
+        "at": "2026-10-29T17:08:30.242540+08:00",
+        "stage": "useful_GPU_covariance_and_fixed_decoding",
+        "completed": 108,
+        "total": 108
+      },
+      "RESULT.json": {
+        "at": "2026-10-29T17:08:30.591135+08:00",
+        "state": "complete"
+      }
+    },
+    "a_transfer": {},
+    "b_transfer": {},
+    "a_final": {},
+    "b_final": {}
+  },
+  "new_innovation_failures": [],
+  "final_test_selection_frozen": false,
+  "final_result": null,
+  "no_training_or_model_operation_by_observer": true,
+  "report": "INFERENCE_INNOVATION108_RESULT.md",
+  "note": "Completed cached decoders may leave GPUs idle while waiting for the original80 training; no artificial load"
+}

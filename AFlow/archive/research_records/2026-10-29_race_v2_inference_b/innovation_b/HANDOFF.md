@@ -1,0 +1,11 @@
+# B协方差推理创新交接
+
+12新增配置完成，仅复用RACE164/w32e171各108×8 logits，网络新增0。GPU纯门通过，真实108解码42.48秒、峰值3.330GiB。所选k5/ridge4/conflict0：Scan0.769835511、Subject0.759471253、Point99/108；对旧全局融合+0.000280946，95%[-0.000366286,0.000918899]。分折合并0.769660600，预设收益和稳定门均未过，不称稳健提升。RESULT和SELECTED_RECIPE已由root绑定SHA，禁止覆盖。
+
+核心deploy(logits_primary,logits_partner,image,recipe)支持任意对齐三维原生crop，不接GT/ID；方差是八镜像扰动代理，不是真实误差协方差。所有变差、整数统计和掩膜路径/SHA见RAW_VALIDATION和RESULT；实际TMP与冻结ROOT两READY文件逐字节一致见ACTUAL_MANIFEST_PARITY_AUDIT。
+
+未来终态108仅固定移植这一条公式，输出innovation_b/final_snapshot/{RESULT.json,RAW_VALIDATION.json}。transfer waiter11776等原snapshot9260完整完成和所选伙伴后才使用GPU1，best_new_epoch0显式写NO_NEW_MODEL并退出；不重开创新12网格，不新增网络。
+
+最终dispatcher waiter11777支持legacy global fusion与root fusion.space=paired_covariance_shrinkage。只有真实root FINAL_TEST_SELECTION触发；必要w32模型预测仍delegate原严格2160一次入口，RACE只读A缓存。独立270保存mask重载审计后发布B/final270/RAW_FUSION.json，A+B合计540。旧final9261已按root授权核对后退出，旧snapshot9260和所有训练进程未动。
+
+新冻结B/FINAL270_INNOVATION_ENTRY_FREEZE，旧FINAL270_ENTRY_FREEZE和代码原样保留；两位新waiter以及替换收据见WAITER_REPLACEMENT。当前没有270新访问或自动评测结果。gate-only候选2仅评审，用户已取消实施方向。
