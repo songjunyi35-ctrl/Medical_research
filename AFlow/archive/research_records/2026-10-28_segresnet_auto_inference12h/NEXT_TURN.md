@@ -1,7 +1,5 @@
-# Research complete, publication pending
+# Research complete and published
 
-Actual12hminimum met08:41:16; terminalscientificreportgenerated08:42. COMPLETION_AUDIT13/13passed. Allfinitegridsandrealverificationdone; nofollow-onexperiments. Finalselected0036:Scan0.7843821133176486/Subject0.7713788106390574/Point260/8NN,full270freshmaskxor0. Alltest-tuned/noindependentgeneralization.
+At least 12 hours of research completed. All registered experiments and scientific audits passed; no further experiments are pending. Final fixed-weight result: Scan Dice 0.7843821133176486, Subject 0.7713788106390574, Point 260/270, 8 neural forwards per scan. Full270 fresh inference exactly reproduced all masks and points. All results are test-tuned.
 
-Finalpublication isbeingvalidated in/tmp/medical_research_publish_20261014. Source_FINAL_RESULT/RESULT/DEPLOYMENTandrootcompletedmarkers exist. Needpublishscopedfiles/manifest,newnativeSHA/links/whitespace,commit,pushmain,lsremoteverify,receipt; onlythencompletegoal. Currentremoteparent8ab1c08interim. DoNOTtouchoriginalAFlow.git orRACE. NoPRcreated.
-
-Checkedownprocesses3215/5084/3216/6426/9770/20165/636/13699 allgone andbothGPU0MiB,workerretained. No moremodelcallsneeded. Finalruntimeauditdata/checkpoint/sourceSHAanddisklimitsallpassed. Laststaticmainallow4GiB,newworkerTMPScratch~297.98GiB<300,sourceR~1.10GiB<2.
+Verified scientific archive commit: 040004f06383946c3c4154f5d1bd37e656092eeb. See PUBLICATION_FINAL_RECEIPT.json. Only the receipt closure commit remains to be remotely checked before goal completion. Own worker processes exited and both GPU allocations were released; worker retained and RACE untouched. Do not restart experiments or touch original repository Git changes.
