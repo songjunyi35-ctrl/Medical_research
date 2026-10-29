@@ -5,7 +5,7 @@
 
 三agent按两worker四卡隔离执行。首批108单模型RACE等权8镜像Scan0.768011881／Subject0.758259859／Point98/108；纯SegResNet双模型最高Scan0.769554565，但患者分折选择后0.768177869，相对单模区间跨0，稳定优势未确认。总控50配置算术复核通过，无新270评分。
 
-训练972/108实际载荷、几何和数值／预算门已通过；从e164新建AdamW正式微调，冻结新增80轮／9760更新，首完整epoch、108验证及CPU严格重载通过。首轮分数仅为早期结果。[启动证据](archive/research_records/2026-10-29_race_v2_training/STARTUP_VERIFIED.json)。最终固定best终态后再做108与有界融合，最多2个配置270，已核验的RACE270视图直接复用。实际进度以[实时监督](archive/research_records/2026-10-29_race_v2_stage/STAGE_STATUS.json)为准；当前不能称已训练或270超过0.8。[首轮结果与边界](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md)。
+训练972/108实际载荷、几何和数值／预算门已通过；从e164新建AdamW正式微调，冻结新增80轮／9760更新，首完整epoch、108验证及CPU严格重载通过。首轮分数仅为早期结果。[启动证据](archive/research_records/2026-10-29_race_v2_training/STARTUP_VERIFIED.json)。最终固定best终态后再做108与有界融合，最多2个配置270，已核验的RACE270视图直接复用。实际进度以[实时监督](archive/research_records/2026-10-29_race_v2_stage/STAGE_STATUS.json)为准；训练尚未完成，270是否超过0.8仍待实测。[首轮结果与边界](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md)。
 <!-- END_RACE_V2_STAGE_20261029 -->
 
 <!-- RACE164_TEST270_20261029 -->

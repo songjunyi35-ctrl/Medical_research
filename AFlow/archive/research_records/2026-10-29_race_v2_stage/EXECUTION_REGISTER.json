@@ -1,6 +1,6 @@
 {
-  "at": "2026-10-29T15:18:25.573004+08:00",
-  "state": "running_preparation_and_gated_pipeline",
+  "at": "2026-10-29T15:28:02.395440+08:00",
+  "state": "formal_training_after_verified_first_full_epoch",
   "head_node_supervisors": [
     {
       "name": "resource_monitor",
@@ -35,7 +35,9 @@
     {
       "name": "real_startup_publication",
       "pid": 2046465,
-      "alive": true
+      "alive": false,
+      "completed_successfully": true,
+      "remote_commit": "20f0804186c6125b9f4ff552d6bacbb444b92600"
     }
   ],
   "worker_queues": {
@@ -46,7 +48,14 @@
         1
       ],
       "prepare_pid": 367,
-      "coordinator_pid": 2941
+      "coordinator_pid": 2941,
+      "training_launcher_pid": 4604,
+      "rank_pids": [
+        4608,
+        4609
+      ],
+      "cache_preparation": "complete_actual_sha_and_geometry_passed",
+      "startup_verified": true
     },
     "inference_a": {
       "worker": 1154121,
