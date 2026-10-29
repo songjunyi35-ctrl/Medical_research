@@ -1,0 +1,57 @@
+{
+  "at": "2026-10-29T18:17:56.619058+08:00",
+  "recipe": {
+    "id": "contra_absolute_k11_b0.2",
+    "kind": "contralateral_image_evidence",
+    "evidence": "absolute",
+    "kernel": 11,
+    "beta": 0.2,
+    "anchor": 0.75,
+    "alpha_min": 0.5,
+    "alpha_max": 0.95,
+    "image_center": 0.0,
+    "image_scale": 1.0,
+    "standard_deviation_floor": 0.25,
+    "reference_probability_ceiling": 0.2,
+    "plane_minimum_dice": 0.8,
+    "direction_temperature": 4.0,
+    "threshold_logit": 0.0,
+    "models": 2,
+    "forwards_per_scan": 16
+  },
+  "regions": {
+    "effective_brain": {
+      "voxels": 162472097,
+      "trust": 0.9074918953067045,
+      "conflict": 0.003886053172130344,
+      "alpha_shift": 4.05755491080976e-05,
+      "fallback_fraction": 0.9950565796189761
+    },
+    "conflict": {
+      "voxels": 992200,
+      "trust": 0.8047310182889235,
+      "conflict": 0.6366606004059471,
+      "alpha_shift": 0.006644219601192447,
+      "fallback_fraction": 0.19051904697046207
+    },
+    "lesion": {
+      "voxels": 6743974,
+      "trust": 0.7612528606527624,
+      "conflict": 0.03917439145294377,
+      "alpha_shift": 0.00038724040176691445,
+      "fallback_fraction": 0.9524153010319127
+    },
+    "boundary": {
+      "voxels": 5810453,
+      "trust": 0.8307616435460313,
+      "conflict": 0.05674635714796269,
+      "alpha_shift": 0.0005373331476993232,
+      "fallback_fraction": 0.9238436285402286
+    }
+  },
+  "plane_dice_range": [
+    0.8533700079344089,
+    0.9778344982992743
+  ],
+  "note": "Lesion/boundary masks are scorer-only diagnostic regions; never gate inputs. Regional means do not establish causal effectiveness."
+}

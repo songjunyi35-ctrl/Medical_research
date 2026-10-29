@@ -1,40 +1,40 @@
 {
-  "at_beijing": "2026-10-29T17:32:39.816736+08:00",
+  "at_beijing": "2026-10-29T19:07:34.842366+08:00",
   "state": "original_training_and_registered_inference_queues",
-  "observer_pid": 2082805,
+  "observer_pid": 2105350,
   "queues": {
     "training": {
       "STATUS.json": {
-        "at": "2026-10-29T17:31:59.699895+08:00",
+        "at": "2026-10-29T19:05:02.911936+08:00",
         "state": "training",
-        "new_epoch": 46,
-        "new_updates": 5612,
+        "new_epoch": 79,
+        "new_updates": 9638,
         "best_new_epoch": 0,
         "best_scan": 0.7632662633226978,
         "metrics": {
-          "scan_dice": 0.7576106479046522,
-          "subject_dice": 0.7480369392392181,
+          "scan_dice": 0.7552599996604301,
+          "subject_dice": 0.7462168562128432,
           "scan_ci95": [
-            0.7117924039248574,
-            0.7964203681680553
+            0.7068796026422863,
+            0.7954409024466701
           ],
           "subject_ci95": [
-            0.7023563377605307,
-            0.787771684254564
+            0.6997795361809078,
+            0.7862923375403597
           ],
-          "point_hit": 0.8518518518518519,
+          "point_hit": 0.8796296296296297,
           "scans": 108,
           "subjects": 50,
           "bootstrap": "10000 patient cluster percentile95 seed20260917",
-          "point_hits": 92
+          "point_hits": 95
         }
       },
       "HEARTBEAT.json": {
-        "at": "2026-10-29T17:32:27.444145+08:00",
+        "at": "2026-10-29T19:07:12.653243+08:00",
         "phase": "training",
-        "new_epoch": 47,
-        "iteration": 20,
-        "new_updates": 5632
+        "new_epoch": 80,
+        "iteration": 100,
+        "new_updates": 9738
       }
     },
     "innovation_a": {
@@ -42,16 +42,19 @@
         "at": "2026-10-29T17:09:46.009893+08:00",
         "stage": "GPU0_local_dependency_validation",
         "completed": 108,
-        "total": 108
+        "total": 108,
+        "new_network_forwards": 0
       },
       "RESULT.json": {
         "at": "2026-10-29T17:09:46.964140+08:00",
         "state": "complete",
-        "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7"
+        "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+        "new_network_forwards": 0
       },
       "DONE.json": {
         "at": "2026-10-29T17:09:46.985082+08:00",
-        "state": "complete"
+        "state": "complete",
+        "new_network_forwards": 0
       }
     },
     "innovation_b": {
@@ -68,6 +71,83 @@
     },
     "a_transfer": {},
     "b_transfer": {},
+    "healthy_input_a": {
+      "HEARTBEAT.json": {
+        "at": "2026-10-29T18:17:38.303215+08:00",
+        "stage": "cached_normalization_decode",
+        "completed": 108,
+        "total": 108,
+        "new_network_forwards": 3024
+      },
+      "RESULT.json": {
+        "at": "2026-10-29T18:17:42.010489+08:00",
+        "state": "complete",
+        "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+        "new_network_forwards": 3024
+      },
+      "DONE.json": {
+        "at": "2026-10-29T18:17:42.033144+08:00",
+        "state": "complete",
+        "new_network_forwards": 3024
+      }
+    },
+    "image_evidence_b": {
+      "HEARTBEAT.json": {
+        "at": "2026-10-29T18:17:15.673980+08:00",
+        "stage": "GPU_image_evidence_conflict_decoding",
+        "completed": 108,
+        "total": 108,
+        "new_model_forwards": 0
+      },
+      "RESULT.json": {
+        "at": "2026-10-29T18:17:16.069687+08:00",
+        "state": "complete",
+        "new_model_forwards": 0
+      }
+    },
+    "soft_context_a": {
+      "HEARTBEAT.json": {
+        "at": "2026-10-29T18:42:07.598926+08:00",
+        "stage": "cached_soft_context_decode",
+        "completed": 108,
+        "total": 108,
+        "new_network_forwards": 3024
+      },
+      "RESULT.json": {
+        "at": "2026-10-29T18:42:09.606351+08:00",
+        "state": "complete",
+        "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+        "new_network_forwards": 3024
+      },
+      "DONE.json": {
+        "at": "2026-10-29T18:42:09.624817+08:00",
+        "state": "complete",
+        "new_network_forwards": 3024
+      }
+    },
+    "guided_input_b": {
+      "HEARTBEAT.json": {
+        "at": "2026-10-29T18:35:33.734276+08:00",
+        "stage": "w32_guided_input_eight_mirrors",
+        "maximum": 1728
+      },
+      "RESULT.json": {
+        "at": "2026-10-29T18:36:24.224468+08:00",
+        "state": "complete",
+        "new_model_forwards": 1728
+      }
+    },
+    "appearance_b": {
+      "HEARTBEAT.json": {
+        "at": "2026-10-29T18:47:47.604331+08:00",
+        "completed": 108,
+        "total": 108
+      },
+      "RESULT.json": {
+        "at": "2026-10-29T18:47:47.839915+08:00",
+        "state": "complete"
+      }
+    },
     "a_final": {},
     "b_final": {}
   },
@@ -76,5 +156,5 @@
   "final_result": null,
   "no_training_or_model_operation_by_observer": true,
   "report": "INFERENCE_INNOVATION108_RESULT.md",
-  "note": "Completed cached decoders may leave GPUs idle while waiting for the original80 training; no artificial load"
+  "note": "Actual new forwards and completed studies are listed; CPU analysis/audits may leave GPUs idle; no artificial load"
 }

@@ -17,9 +17,13 @@ def replace_block(name, body):
 
 
 def main():
+    status = RECORD / 'PIPELINE_STATUS.json'
+    if status.exists() and json.loads(status.read_text()).get('state') == 'complete':
+        raise RuntimeError('completed stage must not be reset by a progress updater')
     links = ('[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · '
              '[推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · '
              '[新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · '
+             '[持续输入研究](archive/research_records/2026-10-29_race_v2_stage/CONTINUED_INPUT_PLAN.md) · '
              '[实时状态](archive/research_records/2026-10-29_race_v2_stage/INNOVATION_STAGE_STATUS.json) · '
              '[清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)')
     scope = ('用户最新明确：1154259 GPU0+1保持正在执行的80新增轮／9760更新RACE-v2双卡训练，'
@@ -32,6 +36,11 @@ def main():
     inference += ('新机制已完成：A最高Scan0.768314657／Subject0.758473906／Point98，'
                   '对equal8差+0.000302776；B最高Scan0.769835511／Subject0.759471253／Point99，'
                   '对旧固定融合差+0.000280946，两者患者配对区间均跨0，未确认稳定收益。')
+    inference += ('用户指出空闲后恢复研究：健康脑归一化8项、软上下文4项均未胜equal8，'
+                  'w32边缘保留输入4项未胜cov；真实新增网络分别3024／3024／1728。'
+                  '对侧图像证据8项最高0.769754121，也未胜cov；最后四项同图外观unary已完成，'
+                  '108最高0.769895753，仅比旧cov高0.000060242。'
+                  '原80训练保持运行，后续研究不改其配方或进程。')
     bounds = ('保持单T1ce、原972／108／270与原生1mm完整裁剪评分；108选择后最终最多两个候选270，'
               '旧RACE270视图经完整SHA审计后直接复用，新模型生成自身预测。保留test-tuned历史，'
               '单模型与纯SegResNet融合分别报告，禁GT路由、额外模态和nnU-Net。尚无本轮新270分数，目标0.8待实测。')

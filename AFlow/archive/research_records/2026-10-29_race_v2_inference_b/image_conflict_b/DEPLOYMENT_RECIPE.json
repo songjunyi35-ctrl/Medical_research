@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-29T18:17:16.121883+08:00",
+  "candidate": {
+    "id": "contra_absolute_k11_b0.2",
+    "kind": "contralateral_image_evidence",
+    "evidence": "absolute",
+    "kernel": 11,
+    "beta": 0.2,
+    "anchor": 0.75,
+    "alpha_min": 0.5,
+    "alpha_max": 0.95,
+    "image_center": 0.0,
+    "image_scale": 1.0,
+    "standard_deviation_floor": 0.25,
+    "reference_probability_ceiling": 0.2,
+    "plane_minimum_dice": 0.8,
+    "direction_temperature": 4.0,
+    "threshold_logit": 0.0,
+    "models": 2,
+    "forwards_per_scan": 16
+  },
+  "source_sha256": "55bc0a9b9b69bc4b671b689f354b57ff7eb2b46029ee337f669180f056a5420d",
+  "innovation_entry": {
+    "mode": "contralateral_image_evidence",
+    "deployment_interface": "deploy(logits_primary,logits_partner,image,recipe)"
+  },
+  "selected_on": "reused validation108 only",
+  "test_access": false,
+  "model_order": [
+    "RACE164 primary",
+    "w32e171 partner"
+  ],
+  "checkpoint_sha256": [
+    "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+    "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade"
+  ],
+  "forwards_per_scan": 16,
+  "new_neural_forwards": 0
+}

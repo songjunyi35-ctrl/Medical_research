@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-29T18:10:32.839359+08:00",
+  "source_sha256": {
+    "scripts/segresnet_auto_inference12h_20261028/intensity_gate_v1.py": "cc68a67e86b67cc30ea1589d4c2f099a1e88f79d13e4b15f5892559b28e07c40",
+    "scripts/segresnet_auto_inference12h_20261028/render_v1.py": "4ca8989961d29664d970a31a61d4e01aeacba5f8c8fc8a918da288845ce67495",
+    "scripts/segresnet_auto_inference12h_20261028/brain_phase_prepare_v1.py": "908ddefed4d30dda5c65c1b1de7cc111d4896f6ceb6556b339ff4e1724124602",
+    "scripts/segresnet_auto_inference12h_20261028/intensity_ensemble_v1.py": "33cb7f7f8fae6a9a161d46b1926a152d664b10c31b2c0b346cd8cdaf8b01a19f"
+  },
+  "old_intensity": "28 globally fixed gain/offset/signed gamma groups; no model-seed exclusion or per-image healthy moments",
+  "old_ROI_and_phase": "brain/ROI geometry and expensive512phase, not this intensity-only affine feedback",
+  "old_local_dependency": "spatial output covariance weighting, no new image or network views",
+  "new": "one original seed -> exclude suspected lesion -> bounded per-image healthy moment affine -> seven mirror views",
+  "no_first_in_literature_claim": true,
+  "no_old_search_repeat": true
+}

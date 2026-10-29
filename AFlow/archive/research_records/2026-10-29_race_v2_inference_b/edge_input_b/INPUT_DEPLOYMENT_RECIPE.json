@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-29T18:37:33.559505+08:00",
+  "input_recipe": {
+    "id": "guided_beta025",
+    "beta": 0.25,
+    "kernel": 5,
+    "epsilon": 0.04
+  },
+  "source_sha256": "0b8797b7e82c2399c86edf236fbf0dca3c9fd1274085f86174b87a88453d89c4",
+  "model_id": "w32e171_guided",
+  "base_model_id": "w32e171",
+  "atom_source": "guided_input_w32",
+  "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "architecture": "sammed3d.t1ce_wt_capg3d.AutomaticPromptLocator",
+  "construction": {
+    "center_aware": false,
+    "init_filters": 32,
+    "dropout": 0.1
+  },
+  "transform_interface": "transform(image,beta)",
+  "support": "original nonzero image support; zero outside preserved",
+  "normalization": "original N4/zscore, no additional global normalization",
+  "views": 8,
+  "forwards_per_scan": 8,
+  "selection": "one globally selected input variant only; never combine both input8sets",
+  "test_access": false
+}

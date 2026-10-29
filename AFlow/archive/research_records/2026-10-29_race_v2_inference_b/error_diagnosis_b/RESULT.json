@@ -1,0 +1,583 @@
+{
+  "at": "2026-10-29T18:25:40.248543+08:00",
+  "state": "complete",
+  "scans": 108,
+  "subjects": 50,
+  "aggregate": {
+    "fixed075": {
+      "fn": 1251949,
+      "fp": 1247461,
+      "total_error_voxels": 2499410,
+      "FN_outside_image_nonzero": 90,
+      "partition": {
+        "all16_wrong_confident09": {
+          "fn": 643299,
+          "fp": 521848
+        },
+        "all16_wrong_not_all_confident09": {
+          "fn": 73448,
+          "fp": 79984
+        },
+        "mean_experts_wrong_but_some_view_correct": {
+          "fn": 353362,
+          "fp": 361722
+        },
+        "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+          "fn": 98935,
+          "fp": 137377
+        },
+        "bounded_alpha_can_correct": {
+          "fn": 82905,
+          "fp": 146530
+        }
+      },
+      "errors_within_model_mirror_sign_instability": 1124284
+    },
+    "covariance": {
+      "fn": 1254809,
+      "fp": 1229296,
+      "total_error_voxels": 2484105,
+      "FN_outside_image_nonzero": 90,
+      "partition": {
+        "all16_wrong_confident09": {
+          "fn": 643299,
+          "fp": 521848
+        },
+        "all16_wrong_not_all_confident09": {
+          "fn": 73448,
+          "fp": 79984
+        },
+        "mean_experts_wrong_but_some_view_correct": {
+          "fn": 353362,
+          "fp": 361722
+        },
+        "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+          "fn": 98935,
+          "fp": 137377
+        },
+        "bounded_alpha_can_correct": {
+          "fn": 85765,
+          "fp": 128365
+        }
+      },
+      "errors_within_model_mirror_sign_instability": 1112324
+    },
+    "contralateral": {
+      "fn": 1238923,
+      "fp": 1270189,
+      "total_error_voxels": 2509112,
+      "FN_outside_image_nonzero": 90,
+      "partition": {
+        "all16_wrong_confident09": {
+          "fn": 643299,
+          "fp": 521848
+        },
+        "all16_wrong_not_all_confident09": {
+          "fn": 73448,
+          "fp": 79984
+        },
+        "mean_experts_wrong_but_some_view_correct": {
+          "fn": 353362,
+          "fp": 361722
+        },
+        "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+          "fn": 98935,
+          "fp": 137377
+        },
+        "bounded_alpha_can_correct": {
+          "fn": 69879,
+          "fp": 169258
+        }
+      },
+      "errors_within_model_mirror_sign_instability": 1133669
+    }
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "subjects": 10,
+      "aggregate": {
+        "fixed075": {
+          "fn": 288764,
+          "fp": 273378,
+          "total_error_voxels": 562142,
+          "FN_outside_image_nonzero": 7,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 139857,
+              "fp": 109982
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 19205,
+              "fp": 19228
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 83779,
+              "fp": 87158
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 23742,
+              "fp": 29574
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 22181,
+              "fp": 27436
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 264144
+        },
+        "covariance": {
+          "fn": 289029,
+          "fp": 273329,
+          "total_error_voxels": 562358,
+          "FN_outside_image_nonzero": 7,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 139857,
+              "fp": 109982
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 19205,
+              "fp": 19228
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 83779,
+              "fp": 87158
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 23742,
+              "fp": 29574
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 22446,
+              "fp": 27387
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 264636
+        },
+        "contralateral": {
+          "fn": 285981,
+          "fp": 278113,
+          "total_error_voxels": 564094,
+          "FN_outside_image_nonzero": 7,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 139857,
+              "fp": 109982
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 19205,
+              "fp": 19228
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 83779,
+              "fp": 87158
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 23742,
+              "fp": 29574
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 19398,
+              "fp": 32171
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 266075
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "subjects": 10,
+      "aggregate": {
+        "fixed075": {
+          "fn": 119578,
+          "fp": 137550,
+          "total_error_voxels": 257128,
+          "FN_outside_image_nonzero": 3,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 60765,
+              "fp": 55187
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 6995,
+              "fp": 8426
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 35946,
+              "fp": 41707
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 7163,
+              "fp": 17505
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 8709,
+              "fp": 14725
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 121633
+        },
+        "covariance": {
+          "fn": 120456,
+          "fp": 135796,
+          "total_error_voxels": 256252,
+          "FN_outside_image_nonzero": 3,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 60765,
+              "fp": 55187
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 6995,
+              "fp": 8426
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 35946,
+              "fp": 41707
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 7163,
+              "fp": 17505
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 9587,
+              "fp": 12971
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 120772
+        },
+        "contralateral": {
+          "fn": 117578,
+          "fp": 139907,
+          "total_error_voxels": 257485,
+          "FN_outside_image_nonzero": 3,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 60765,
+              "fp": 55187
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 6995,
+              "fp": 8426
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 35946,
+              "fp": 41707
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 7163,
+              "fp": 17505
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 6709,
+              "fp": 17082
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 122022
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "subjects": 10,
+      "aggregate": {
+        "fixed075": {
+          "fn": 200954,
+          "fp": 291316,
+          "total_error_voxels": 492270,
+          "FN_outside_image_nonzero": 0,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 97322,
+              "fp": 101472
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 14975,
+              "fp": 17007
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 55046,
+              "fp": 85052
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 18139,
+              "fp": 39593
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 15472,
+              "fp": 48192
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 239629
+        },
+        "covariance": {
+          "fn": 201090,
+          "fp": 283039,
+          "total_error_voxels": 484129,
+          "FN_outside_image_nonzero": 0,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 97322,
+              "fp": 101472
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 14975,
+              "fp": 17007
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 55046,
+              "fp": 85052
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 18139,
+              "fp": 39593
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 15608,
+              "fp": 39915
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 233349
+        },
+        "contralateral": {
+          "fn": 198118,
+          "fp": 299216,
+          "total_error_voxels": 497334,
+          "FN_outside_image_nonzero": 0,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 97322,
+              "fp": 101472
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 14975,
+              "fp": 17007
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 55046,
+              "fp": 85052
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 18139,
+              "fp": 39593
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 12636,
+              "fp": 56092
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 244638
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "subjects": 10,
+      "aggregate": {
+        "fixed075": {
+          "fn": 231644,
+          "fp": 271246,
+          "total_error_voxels": 502890,
+          "FN_outside_image_nonzero": 42,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 123005,
+              "fp": 147427
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 15580,
+              "fp": 19466
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 63302,
+              "fp": 67893
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 16720,
+              "fp": 18772
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 13037,
+              "fp": 17688
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 192911
+        },
+        "covariance": {
+          "fn": 231541,
+          "fp": 269989,
+          "total_error_voxels": 501530,
+          "FN_outside_image_nonzero": 42,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 123005,
+              "fp": 147427
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 15580,
+              "fp": 19466
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 63302,
+              "fp": 67893
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 16720,
+              "fp": 18772
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 12934,
+              "fp": 16431
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 191631
+        },
+        "contralateral": {
+          "fn": 229656,
+          "fp": 274384,
+          "total_error_voxels": 504040,
+          "FN_outside_image_nonzero": 42,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 123005,
+              "fp": 147427
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 15580,
+              "fp": 19466
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 63302,
+              "fp": 67893
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 16720,
+              "fp": 18772
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 11049,
+              "fp": 20826
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 193839
+        }
+      }
+    },
+    {
+      "fold": 4,
+      "subjects": 10,
+      "aggregate": {
+        "fixed075": {
+          "fn": 411009,
+          "fp": 273971,
+          "total_error_voxels": 684980,
+          "FN_outside_image_nonzero": 38,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 222350,
+              "fp": 107780
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 16693,
+              "fp": 15857
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 115289,
+              "fp": 79912
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 33171,
+              "fp": 31933
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 23506,
+              "fp": 38489
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 305967
+        },
+        "covariance": {
+          "fn": 412693,
+          "fp": 267143,
+          "total_error_voxels": 679836,
+          "FN_outside_image_nonzero": 38,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 222350,
+              "fp": 107780
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 16693,
+              "fp": 15857
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 115289,
+              "fp": 79912
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 33171,
+              "fp": 31933
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 25190,
+              "fp": 31661
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 301936
+        },
+        "contralateral": {
+          "fn": 407590,
+          "fp": 278569,
+          "total_error_voxels": 686159,
+          "FN_outside_image_nonzero": 38,
+          "partition": {
+            "all16_wrong_confident09": {
+              "fn": 222350,
+              "fp": 107780
+            },
+            "all16_wrong_not_all_confident09": {
+              "fn": 16693,
+              "fp": 15857
+            },
+            "mean_experts_wrong_but_some_view_correct": {
+              "fn": 115289,
+              "fp": 79912
+            },
+            "mean_expert_conflict_but_alpha_bound_cannot_correct": {
+              "fn": 33171,
+              "fp": 31933
+            },
+            "bounded_alpha_can_correct": {
+              "fn": 20087,
+              "fp": 43087
+            }
+          },
+          "errors_within_model_mirror_sign_instability": 307095
+        }
+      }
+    }
+  ],
+  "optimistic_GT_oracle_dice": {
+    "mean_expert_convex_hull": {
+      "scan_dice": 0.8103098132544093,
+      "subject_dice": 0.8007017187987054
+    },
+    "bounded_alpha_05_095": {
+      "scan_dice": 0.789603524185993,
+      "subject_dice": 0.7794137228812491
+    },
+    "all16_view_convex_hull": {
+      "scan_dice": 0.8787728674985744,
+      "subject_dice": 0.8720466654499373
+    }
+  },
+  "GT_positive_total": 6743974,
+  "GT_outside_image_nonzero": 156,
+  "seconds": 55.687785528600216,
+  "full_crop_FN_FP_accounting": true,
+  "new_model_forwards": 0,
+  "test_access": false,
+  "warning": "GT post-hoc per-voxel oracle is only a convex-hull error bound, not a deployable algorithm, attainable estimate, model score, or patient-level GT route. No methods selected using these oracle masks."
+}

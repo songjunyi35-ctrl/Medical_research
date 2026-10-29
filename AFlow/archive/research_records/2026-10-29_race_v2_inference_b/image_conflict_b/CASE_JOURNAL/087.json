@@ -1,0 +1,1600 @@
+{
+  "at": "2026-10-29T18:17:08.083513+08:00",
+  "slot": 87,
+  "records": {
+    "contra_absolute_k5_b0.1": {
+      "case_id": "BraTS-GLI-02905-101",
+      "subject_id": "BraTS-GLI-02905",
+      "source_slot": 87,
+      "locator_dsc": 0.6180798411369324,
+      "tp": 14324,
+      "fp": 16123,
+      "fn": 1579,
+      "automatic_point": [
+        19,
+        129,
+        81
+      ],
+      "automatic_point_hits_gt": true,
+      "prediction_path": "/tmp/aflow_race_v2_20261029/inference_b/image_conflict_b/predictions/contra_absolute_k5_b0.1/087.npz",
+      "prediction_sha256": "32a1c5f4bf4c6d8cb7a7a0afd762157b4f1450d189f67b9d2d590bff257e39e2",
+      "prediction_shape": [
+        149,
+        192,
+        143
+      ],
+      "alpha": {
+        "count": 4090944,
+        "mean": 0.7500016093254089,
+        "minimum": 0.6509206891059875,
+        "maximum": 0.8458300232887268,
+        "quantiles": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "conflict_gate": {
+        "count": 4090944,
+        "mean": 0.0005585226463153958,
+        "minimum": 0.0,
+        "maximum": 0.9992120265960693,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "alpha_at_point": 0.75,
+      "changed_weight_over005_fraction": 0.00026106444420292974,
+      "regional_diagnostics": {
+        "effective_brain": {
+          "count": 1856360,
+          "trust": {
+            "count": 1856360,
+            "mean": 0.9266380071640015,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.0,
+              0.9999992251396179,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 1856360,
+            "mean": 0.0012308412697166204,
+            "minimum": 0.0,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 1856360,
+            "mean": 3.473976903478615e-06,
+            "minimum": -0.09907931089401245,
+            "maximum": 0.0958300232887268,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9978522062301636
+        },
+        "conflict": {
+          "count": 4007,
+          "trust": {
+            "count": 4007,
+            "mean": 0.9950061440467834,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999901056289673,
+              0.9999993443489075,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 4007,
+            "mean": 0.5702232122421265,
+            "minimum": 0.0001467748952563852,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.04295488819479942,
+              0.619012176990509,
+              0.9880096912384033
+            ]
+          },
+          "alpha_shift": {
+            "count": 4007,
+            "mean": 0.001609421567991376,
+            "minimum": -0.09907931089401245,
+            "maximum": 0.0958300232887268,
+            "quantiles": [
+              -0.06939240545034409,
+              -0.00033789873123168945,
+              0.07958510518074036
+            ]
+          },
+          "fallback_fraction": 0.0049912650138139725
+        },
+        "lesion": {
+          "count": 15903,
+          "trust": {
+            "count": 15903,
+            "mean": 0.999683141708374,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999923706054688,
+              0.9999997019767761,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 15903,
+            "mean": 0.015867117792367935,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 15903,
+            "mean": -0.0006983245257288218,
+            "minimum": -0.09859812259674072,
+            "maximum": 0.06312710046768188,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9714519381523132
+        },
+        "boundary": {
+          "count": 25948,
+          "trust": {
+            "count": 25948,
+            "mean": 0.9967208504676819,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999911785125732,
+              0.9999995827674866,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 25948,
+            "mean": 0.031120868399739265,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.12346811592578888
+            ]
+          },
+          "alpha_shift": {
+            "count": 25948,
+            "mean": -0.0008677602163515985,
+            "minimum": -0.09907931089401245,
+            "maximum": 0.0958300232887268,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9419223070144653
+        },
+        "plane_center_crop": 72.0,
+        "plane_support_dice": 0.9454959294919463,
+        "missing_reference_fraction": 0.5710540413856506
+      }
+    },
+    "contra_absolute_k5_b0.2": {
+      "case_id": "BraTS-GLI-02905-101",
+      "subject_id": "BraTS-GLI-02905",
+      "source_slot": 87,
+      "locator_dsc": 0.6173248887062073,
+      "tp": 14342,
+      "fp": 16220,
+      "fn": 1561,
+      "automatic_point": [
+        19,
+        129,
+        81
+      ],
+      "automatic_point_hits_gt": true,
+      "prediction_path": "/tmp/aflow_race_v2_20261029/inference_b/image_conflict_b/predictions/contra_absolute_k5_b0.2/087.npz",
+      "prediction_sha256": "a59e080397fd583cd82350a10936141d1d0c0d90bfe33dbef62cfc032b897b37",
+      "prediction_shape": [
+        149,
+        192,
+        143
+      ],
+      "alpha": {
+        "count": 4090944,
+        "mean": 0.7500031590461731,
+        "minimum": 0.5518413782119751,
+        "maximum": 0.9416599869728088,
+        "quantiles": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "conflict_gate": {
+        "count": 4090944,
+        "mean": 0.0005585226463153958,
+        "minimum": 0.0,
+        "maximum": 0.9992120265960693,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "alpha_at_point": 0.75,
+      "changed_weight_over005_fraction": 0.0004737293056678027,
+      "regional_diagnostics": {
+        "effective_brain": {
+          "count": 1856360,
+          "trust": {
+            "count": 1856360,
+            "mean": 0.9266380071640015,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.0,
+              0.9999992251396179,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 1856360,
+            "mean": 0.0012308412697166204,
+            "minimum": 0.0,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 1856360,
+            "mean": 6.9479556259466335e-06,
+            "minimum": -0.1981586217880249,
+            "maximum": 0.19165998697280884,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9978522062301636
+        },
+        "conflict": {
+          "count": 4007,
+          "trust": {
+            "count": 4007,
+            "mean": 0.9950061440467834,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999901056289673,
+              0.9999993443489075,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 4007,
+            "mean": 0.5702232122421265,
+            "minimum": 0.0001467748952563852,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.04295488819479942,
+              0.619012176990509,
+              0.9880096912384033
+            ]
+          },
+          "alpha_shift": {
+            "count": 4007,
+            "mean": 0.0032188440673053265,
+            "minimum": -0.1981586217880249,
+            "maximum": 0.19165998697280884,
+            "quantiles": [
+              -0.1387847661972046,
+              -0.0006757378578186035,
+              0.15917018055915833
+            ]
+          },
+          "fallback_fraction": 0.0049912650138139725
+        },
+        "lesion": {
+          "count": 15903,
+          "trust": {
+            "count": 15903,
+            "mean": 0.999683141708374,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999923706054688,
+              0.9999997019767761,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 15903,
+            "mean": 0.015867117792367935,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 15903,
+            "mean": -0.0013966490514576435,
+            "minimum": -0.19719630479812622,
+            "maximum": 0.12625420093536377,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9714519381523132
+        },
+        "boundary": {
+          "count": 25948,
+          "trust": {
+            "count": 25948,
+            "mean": 0.9967208504676819,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999911785125732,
+              0.9999995827674866,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 25948,
+            "mean": 0.031120868399739265,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.12346811592578888
+            ]
+          },
+          "alpha_shift": {
+            "count": 25948,
+            "mean": -0.0017355201998725533,
+            "minimum": -0.1981586217880249,
+            "maximum": 0.19165998697280884,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9419223070144653
+        },
+        "plane_center_crop": 72.0,
+        "plane_support_dice": 0.9454959294919463,
+        "missing_reference_fraction": 0.5710540413856506
+      }
+    },
+    "contra_absolute_k11_b0.1": {
+      "case_id": "BraTS-GLI-02905-101",
+      "subject_id": "BraTS-GLI-02905",
+      "source_slot": 87,
+      "locator_dsc": 0.6183514595031738,
+      "tp": 14317,
+      "fp": 16087,
+      "fn": 1586,
+      "automatic_point": [
+        19,
+        129,
+        81
+      ],
+      "automatic_point_hits_gt": true,
+      "prediction_path": "/tmp/aflow_race_v2_20261029/inference_b/image_conflict_b/predictions/contra_absolute_k11_b0.1/087.npz",
+      "prediction_sha256": "5add3d88edf5511fb7b567d953eadf63ce18b0f00263105d3f7e8b25157b9c82",
+      "prediction_shape": [
+        149,
+        192,
+        143
+      ],
+      "alpha": {
+        "count": 4090944,
+        "mean": 0.7500015497207642,
+        "minimum": 0.6561658978462219,
+        "maximum": 0.8352580070495605,
+        "quantiles": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "conflict_gate": {
+        "count": 4090944,
+        "mean": 0.0005585226463153958,
+        "minimum": 0.0,
+        "maximum": 0.9992120265960693,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "alpha_at_point": 0.75,
+      "changed_weight_over005_fraction": 0.00013077666517347097,
+      "regional_diagnostics": {
+        "effective_brain": {
+          "count": 1856360,
+          "trust": {
+            "count": 1856360,
+            "mean": 0.9266380071640015,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.0,
+              0.9999992251396179,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 1856360,
+            "mean": 0.0012308412697166204,
+            "minimum": 0.0,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 1856360,
+            "mean": 3.3562293992872583e-06,
+            "minimum": -0.09383410215377808,
+            "maximum": 0.08525800704956055,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9978522062301636
+        },
+        "conflict": {
+          "count": 4007,
+          "trust": {
+            "count": 4007,
+            "mean": 0.9950061440467834,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999901056289673,
+              0.9999993443489075,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 4007,
+            "mean": 0.5702232122421265,
+            "minimum": 0.0001467748952563852,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.04295488819479942,
+              0.619012176990509,
+              0.9880096912384033
+            ]
+          },
+          "alpha_shift": {
+            "count": 4007,
+            "mean": 0.0015548714436590672,
+            "minimum": -0.09383410215377808,
+            "maximum": 0.08525800704956055,
+            "quantiles": [
+              -0.049252502620220184,
+              -0.00021916627883911133,
+              0.05710180103778839
+            ]
+          },
+          "fallback_fraction": 0.0049912650138139725
+        },
+        "lesion": {
+          "count": 15903,
+          "trust": {
+            "count": 15903,
+            "mean": 0.999683141708374,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999923706054688,
+              0.9999997019767761,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 15903,
+            "mean": 0.015867117792367935,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 15903,
+            "mean": -0.00038132211193442345,
+            "minimum": -0.09130960702896118,
+            "maximum": 0.04496431350708008,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9714519381523132
+        },
+        "boundary": {
+          "count": 25948,
+          "trust": {
+            "count": 25948,
+            "mean": 0.9967208504676819,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999911785125732,
+              0.9999995827674866,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 25948,
+            "mean": 0.031120868399739265,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.12346811592578888
+            ]
+          },
+          "alpha_shift": {
+            "count": 25948,
+            "mean": -0.0005550616187974811,
+            "minimum": -0.09383410215377808,
+            "maximum": 0.06639754772186279,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9419223070144653
+        },
+        "plane_center_crop": 72.0,
+        "plane_support_dice": 0.9454959294919463,
+        "missing_reference_fraction": 0.5710540413856506
+      }
+    },
+    "contra_absolute_k11_b0.2": {
+      "case_id": "BraTS-GLI-02905-101",
+      "subject_id": "BraTS-GLI-02905",
+      "source_slot": 87,
+      "locator_dsc": 0.6177757382392883,
+      "tp": 14329,
+      "fp": 16157,
+      "fn": 1574,
+      "automatic_point": [
+        19,
+        129,
+        81
+      ],
+      "automatic_point_hits_gt": true,
+      "prediction_path": "/tmp/aflow_race_v2_20261029/inference_b/image_conflict_b/predictions/contra_absolute_k11_b0.2/087.npz",
+      "prediction_sha256": "5a41121b76b9315f218c924c22076f228fcd9fef748eaad1d72e457ea69fa6a8",
+      "prediction_shape": [
+        149,
+        192,
+        143
+      ],
+      "alpha": {
+        "count": 4090944,
+        "mean": 0.7500030398368835,
+        "minimum": 0.5623317360877991,
+        "maximum": 0.9205159544944763,
+        "quantiles": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "conflict_gate": {
+        "count": 4090944,
+        "mean": 0.0005585226463153958,
+        "minimum": 0.0,
+        "maximum": 0.9992120265960693,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "alpha_at_point": 0.75,
+      "changed_weight_over005_fraction": 0.0003620191419031471,
+      "regional_diagnostics": {
+        "effective_brain": {
+          "count": 1856360,
+          "trust": {
+            "count": 1856360,
+            "mean": 0.9266380071640015,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.0,
+              0.9999992251396179,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 1856360,
+            "mean": 0.0012308412697166204,
+            "minimum": 0.0,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 1856360,
+            "mean": 6.712454251101008e-06,
+            "minimum": -0.18766826391220093,
+            "maximum": 0.17051595449447632,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9978522062301636
+        },
+        "conflict": {
+          "count": 4007,
+          "trust": {
+            "count": 4007,
+            "mean": 0.9950061440467834,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999901056289673,
+              0.9999993443489075,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 4007,
+            "mean": 0.5702232122421265,
+            "minimum": 0.0001467748952563852,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.04295488819479942,
+              0.619012176990509,
+              0.9880096912384033
+            ]
+          },
+          "alpha_shift": {
+            "count": 4007,
+            "mean": 0.0031097405590116978,
+            "minimum": -0.18766826391220093,
+            "maximum": 0.17051595449447632,
+            "quantiles": [
+              -0.09850500524044037,
+              -0.00043827295303344727,
+              0.1142035573720932
+            ]
+          },
+          "fallback_fraction": 0.0049912650138139725
+        },
+        "lesion": {
+          "count": 15903,
+          "trust": {
+            "count": 15903,
+            "mean": 0.999683141708374,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999923706054688,
+              0.9999997019767761,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 15903,
+            "mean": 0.015867117792367935,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 15903,
+            "mean": -0.0007626441074535251,
+            "minimum": -0.18261921405792236,
+            "maximum": 0.08992862701416016,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9714519381523132
+        },
+        "boundary": {
+          "count": 25948,
+          "trust": {
+            "count": 25948,
+            "mean": 0.9967208504676819,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999911785125732,
+              0.9999995827674866,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 25948,
+            "mean": 0.031120868399739265,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.12346811592578888
+            ]
+          },
+          "alpha_shift": {
+            "count": 25948,
+            "mean": -0.0011101232375949621,
+            "minimum": -0.18766826391220093,
+            "maximum": 0.1327950358390808,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9419223070144653
+        },
+        "plane_center_crop": 72.0,
+        "plane_support_dice": 0.9454959294919463,
+        "missing_reference_fraction": 0.5710540413856506
+      }
+    },
+    "contra_positive_difference_k5_b0.1": {
+      "case_id": "BraTS-GLI-02905-101",
+      "subject_id": "BraTS-GLI-02905",
+      "source_slot": 87,
+      "locator_dsc": 0.6187037825584412,
+      "tp": 14310,
+      "fp": 16045,
+      "fn": 1593,
+      "automatic_point": [
+        19,
+        129,
+        81
+      ],
+      "automatic_point_hits_gt": true,
+      "prediction_path": "/tmp/aflow_race_v2_20261029/inference_b/image_conflict_b/predictions/contra_positive_difference_k5_b0.1/087.npz",
+      "prediction_sha256": "1f26dc07e6ef563940ee710c50cbc4d2d73072a5e925b7e9abb1a250869a89a3",
+      "prediction_shape": [
+        149,
+        192,
+        143
+      ],
+      "alpha": {
+        "count": 4090944,
+        "mean": 0.7500102519989014,
+        "minimum": 0.6554943919181824,
+        "maximum": 0.8490793108940125,
+        "quantiles": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "conflict_gate": {
+        "count": 4090944,
+        "mean": 0.0005585226463153958,
+        "minimum": 0.0,
+        "maximum": 0.9992120265960693,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "alpha_at_point": 0.75,
+      "changed_weight_over005_fraction": 0.00026106444420292974,
+      "regional_diagnostics": {
+        "effective_brain": {
+          "count": 1856360,
+          "trust": {
+            "count": 1856360,
+            "mean": 0.9266380071640015,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.0,
+              0.9999992251396179,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 1856360,
+            "mean": 0.0012308412697166204,
+            "minimum": 0.0,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 1856360,
+            "mean": 2.267042509629391e-05,
+            "minimum": -0.09450560808181763,
+            "maximum": 0.09907931089401245,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9978522062301636
+        },
+        "conflict": {
+          "count": 4007,
+          "trust": {
+            "count": 4007,
+            "mean": 0.9950061440467834,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999901056289673,
+              0.9999993443489075,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 4007,
+            "mean": 0.5702232122421265,
+            "minimum": 0.0001467748952563852,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.04295488819479942,
+              0.619012176990509,
+              0.9880096912384033
+            ]
+          },
+          "alpha_shift": {
+            "count": 4007,
+            "mean": 0.010502737946808338,
+            "minimum": -0.09450560808181763,
+            "maximum": 0.09907931089401245,
+            "quantiles": [
+              -0.06004496291279793,
+              0.0037623047828674316,
+              0.08264445513486862
+            ]
+          },
+          "fallback_fraction": 0.0049912650138139725
+        },
+        "lesion": {
+          "count": 15903,
+          "trust": {
+            "count": 15903,
+            "mean": 0.999683141708374,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999923706054688,
+              0.9999997019767761,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 15903,
+            "mean": 0.015867117792367935,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 15903,
+            "mean": 4.403807906783186e-05,
+            "minimum": -0.09122598171234131,
+            "maximum": 0.09859812259674072,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9714519381523132
+        },
+        "boundary": {
+          "count": 25948,
+          "trust": {
+            "count": 25948,
+            "mean": 0.9967208504676819,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999911785125732,
+              0.9999995827674866,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 25948,
+            "mean": 0.031120868399739265,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.12346811592578888
+            ]
+          },
+          "alpha_shift": {
+            "count": 25948,
+            "mean": 0.0003078096196986735,
+            "minimum": -0.09450560808181763,
+            "maximum": 0.09907931089401245,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9419223070144653
+        },
+        "plane_center_crop": 72.0,
+        "plane_support_dice": 0.9454959294919463,
+        "missing_reference_fraction": 0.5710540413856506
+      }
+    },
+    "contra_positive_difference_k5_b0.2": {
+      "case_id": "BraTS-GLI-02905-101",
+      "subject_id": "BraTS-GLI-02905",
+      "source_slot": 87,
+      "locator_dsc": 0.6185259819030762,
+      "tp": 14313,
+      "fp": 16065,
+      "fn": 1590,
+      "automatic_point": [
+        19,
+        129,
+        81
+      ],
+      "automatic_point_hits_gt": true,
+      "prediction_path": "/tmp/aflow_race_v2_20261029/inference_b/image_conflict_b/predictions/contra_positive_difference_k5_b0.2/087.npz",
+      "prediction_sha256": "39ffee89ceb0bc58c3944f53035bec224444cea7005df00c652acf55483d9c24",
+      "prediction_shape": [
+        149,
+        192,
+        143
+      ],
+      "alpha": {
+        "count": 4090944,
+        "mean": 0.7500205636024475,
+        "minimum": 0.5609887838363647,
+        "maximum": 0.9481586217880249,
+        "quantiles": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "conflict_gate": {
+        "count": 4090944,
+        "mean": 0.0005585226463153958,
+        "minimum": 0.0,
+        "maximum": 0.9992120265960693,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "alpha_at_point": 0.75,
+      "changed_weight_over005_fraction": 0.0004737293056678027,
+      "regional_diagnostics": {
+        "effective_brain": {
+          "count": 1856360,
+          "trust": {
+            "count": 1856360,
+            "mean": 0.9266380071640015,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.0,
+              0.9999992251396179,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 1856360,
+            "mean": 0.0012308412697166204,
+            "minimum": 0.0,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 1856360,
+            "mean": 4.534085746854544e-05,
+            "minimum": -0.18901121616363525,
+            "maximum": 0.1981586217880249,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9978522062301636
+        },
+        "conflict": {
+          "count": 4007,
+          "trust": {
+            "count": 4007,
+            "mean": 0.9950061440467834,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999901056289673,
+              0.9999993443489075,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 4007,
+            "mean": 0.5702232122421265,
+            "minimum": 0.0001467748952563852,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.04295488819479942,
+              0.619012176990509,
+              0.9880096912384033
+            ]
+          },
+          "alpha_shift": {
+            "count": 4007,
+            "mean": 0.021005475893616676,
+            "minimum": -0.18901121616363525,
+            "maximum": 0.1981586217880249,
+            "quantiles": [
+              -0.12008992582559586,
+              0.007524609565734863,
+              0.16528891026973724
+            ]
+          },
+          "fallback_fraction": 0.0049912650138139725
+        },
+        "lesion": {
+          "count": 15903,
+          "trust": {
+            "count": 15903,
+            "mean": 0.999683141708374,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999923706054688,
+              0.9999997019767761,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 15903,
+            "mean": 0.015867117792367935,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 15903,
+            "mean": 8.80760489962995e-05,
+            "minimum": -0.1824520230293274,
+            "maximum": 0.19719630479812622,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9714519381523132
+        },
+        "boundary": {
+          "count": 25948,
+          "trust": {
+            "count": 25948,
+            "mean": 0.9967208504676819,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999911785125732,
+              0.9999995827674866,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 25948,
+            "mean": 0.031120868399739265,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.12346811592578888
+            ]
+          },
+          "alpha_shift": {
+            "count": 25948,
+            "mean": 0.0006156191229820251,
+            "minimum": -0.18901121616363525,
+            "maximum": 0.1981586217880249,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9419223070144653
+        },
+        "plane_center_crop": 72.0,
+        "plane_support_dice": 0.9454959294919463,
+        "missing_reference_fraction": 0.5710540413856506
+      }
+    },
+    "contra_positive_difference_k11_b0.1": {
+      "case_id": "BraTS-GLI-02905-101",
+      "subject_id": "BraTS-GLI-02905",
+      "source_slot": 87,
+      "locator_dsc": 0.6189817190170288,
+      "tp": 14309,
+      "fp": 16022,
+      "fn": 1594,
+      "automatic_point": [
+        19,
+        129,
+        81
+      ],
+      "automatic_point_hits_gt": true,
+      "prediction_path": "/tmp/aflow_race_v2_20261029/inference_b/image_conflict_b/predictions/contra_positive_difference_k11_b0.1/087.npz",
+      "prediction_sha256": "a84d5205fa00cd679834a2e4fdc516402f0dc945fa2154ba66d7e65768cb0bb6",
+      "prediction_shape": [
+        149,
+        192,
+        143
+      ],
+      "alpha": {
+        "count": 4090944,
+        "mean": 0.750005304813385,
+        "minimum": 0.6647419929504395,
+        "maximum": 0.8438341021537781,
+        "quantiles": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "conflict_gate": {
+        "count": 4090944,
+        "mean": 0.0005585226463153958,
+        "minimum": 0.0,
+        "maximum": 0.9992120265960693,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "alpha_at_point": 0.75,
+      "changed_weight_over005_fraction": 0.00013077666517347097,
+      "regional_diagnostics": {
+        "effective_brain": {
+          "count": 1856360,
+          "trust": {
+            "count": 1856360,
+            "mean": 0.9266380071640015,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.0,
+              0.9999992251396179,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 1856360,
+            "mean": 0.0012308412697166204,
+            "minimum": 0.0,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 1856360,
+            "mean": 1.172241991298506e-05,
+            "minimum": -0.08525800704956055,
+            "maximum": 0.09383410215377808,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9978522062301636
+        },
+        "conflict": {
+          "count": 4007,
+          "trust": {
+            "count": 4007,
+            "mean": 0.9950061440467834,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999901056289673,
+              0.9999993443489075,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 4007,
+            "mean": 0.5702232122421265,
+            "minimum": 0.0001467748952563852,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.04295488819479942,
+              0.619012176990509,
+              0.9880096912384033
+            ]
+          },
+          "alpha_shift": {
+            "count": 4007,
+            "mean": 0.005430753342807293,
+            "minimum": -0.08525800704956055,
+            "maximum": 0.09383410215377808,
+            "quantiles": [
+              -0.04391944408416748,
+              0.0012437701225280762,
+              0.05901598185300827
+            ]
+          },
+          "fallback_fraction": 0.0049912650138139725
+        },
+        "lesion": {
+          "count": 15903,
+          "trust": {
+            "count": 15903,
+            "mean": 0.999683141708374,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999923706054688,
+              0.9999997019767761,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 15903,
+            "mean": 0.015867117792367935,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 15903,
+            "mean": 4.5762164518237114e-05,
+            "minimum": -0.05916053056716919,
+            "maximum": 0.09130960702896118,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9714519381523132
+        },
+        "boundary": {
+          "count": 25948,
+          "trust": {
+            "count": 25948,
+            "mean": 0.9967208504676819,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999911785125732,
+              0.9999995827674866,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 25948,
+            "mean": 0.031120868399739265,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.12346811592578888
+            ]
+          },
+          "alpha_shift": {
+            "count": 25948,
+            "mean": 0.00020533532369881868,
+            "minimum": -0.08077925443649292,
+            "maximum": 0.09383410215377808,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9419223070144653
+        },
+        "plane_center_crop": 72.0,
+        "plane_support_dice": 0.9454959294919463,
+        "missing_reference_fraction": 0.5710540413856506
+      }
+    },
+    "contra_positive_difference_k11_b0.2": {
+      "case_id": "BraTS-GLI-02905-101",
+      "subject_id": "BraTS-GLI-02905",
+      "source_slot": 87,
+      "locator_dsc": 0.618931233882904,
+      "tp": 14310,
+      "fp": 16028,
+      "fn": 1593,
+      "automatic_point": [
+        19,
+        129,
+        81
+      ],
+      "automatic_point_hits_gt": true,
+      "prediction_path": "/tmp/aflow_race_v2_20261029/inference_b/image_conflict_b/predictions/contra_positive_difference_k11_b0.2/087.npz",
+      "prediction_sha256": "144ef75baf894ee8eb34f66ad5785d0803aaa6c97e0412970b97023e64ed6314",
+      "prediction_shape": [
+        149,
+        192,
+        143
+      ],
+      "alpha": {
+        "count": 4090944,
+        "mean": 0.7500106692314148,
+        "minimum": 0.5794840455055237,
+        "maximum": 0.9376682639122009,
+        "quantiles": [
+          0.75,
+          0.75,
+          0.75
+        ]
+      },
+      "conflict_gate": {
+        "count": 4090944,
+        "mean": 0.0005585226463153958,
+        "minimum": 0.0,
+        "maximum": 0.9992120265960693,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "alpha_at_point": 0.75,
+      "changed_weight_over005_fraction": 0.0003620191419031471,
+      "regional_diagnostics": {
+        "effective_brain": {
+          "count": 1856360,
+          "trust": {
+            "count": 1856360,
+            "mean": 0.9266380071640015,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.0,
+              0.9999992251396179,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 1856360,
+            "mean": 0.0012308412697166204,
+            "minimum": 0.0,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 1856360,
+            "mean": 2.3444838006980717e-05,
+            "minimum": -0.17051595449447632,
+            "maximum": 0.18766826391220093,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9978522062301636
+        },
+        "conflict": {
+          "count": 4007,
+          "trust": {
+            "count": 4007,
+            "mean": 0.9950061440467834,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999901056289673,
+              0.9999993443489075,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 4007,
+            "mean": 0.5702232122421265,
+            "minimum": 0.0001467748952563852,
+            "maximum": 0.9992120265960693,
+            "quantiles": [
+              0.04295488819479942,
+              0.619012176990509,
+              0.9880096912384033
+            ]
+          },
+          "alpha_shift": {
+            "count": 4007,
+            "mean": 0.010861506685614586,
+            "minimum": -0.17051595449447632,
+            "maximum": 0.18766826391220093,
+            "quantiles": [
+              -0.08783884346485138,
+              0.0024875998497009277,
+              0.11803200840950012
+            ]
+          },
+          "fallback_fraction": 0.0049912650138139725
+        },
+        "lesion": {
+          "count": 15903,
+          "trust": {
+            "count": 15903,
+            "mean": 0.999683141708374,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999923706054688,
+              0.9999997019767761,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 15903,
+            "mean": 0.015867117792367935,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "alpha_shift": {
+            "count": 15903,
+            "mean": 9.152420534519479e-05,
+            "minimum": -0.11832106113433838,
+            "maximum": 0.18261921405792236,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9714519381523132
+        },
+        "boundary": {
+          "count": 25948,
+          "trust": {
+            "count": 25948,
+            "mean": 0.9967208504676819,
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "quantiles": [
+              0.9999911785125732,
+              0.9999995827674866,
+              0.9999999403953552
+            ]
+          },
+          "conflict": {
+            "count": 25948,
+            "mean": 0.031120868399739265,
+            "minimum": 0.0,
+            "maximum": 0.9979934692382812,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.12346811592578888
+            ]
+          },
+          "alpha_shift": {
+            "count": 25948,
+            "mean": 0.00041067058918997645,
+            "minimum": -0.16155856847763062,
+            "maximum": 0.18766826391220093,
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "fallback_fraction": 0.9419223070144653
+        },
+        "plane_center_crop": 72.0,
+        "plane_support_dice": 0.9454959294919463,
+        "missing_reference_fraction": 0.5710540413856506
+      }
+    }
+  },
+  "three_controls_exact": true,
+  "new_model_forwards": 0
+}

@@ -1,0 +1,21 @@
+{
+  "at_utc": "2026-10-29T10:48:24.914526+00:00",
+  "evidence_type": "frozen_source_call_chain_not_runtime_flag_receipt",
+  "process_id": 16155,
+  "source_sha256": {
+    "scripts/race_v2_inference_soft_context_a_20261029/run.py": "b53f19a93714e1217e93be0c8c861307946eb092ec6dee5dbd6afb55b57f4a2b",
+    "scripts/race_v2_inference_a_20261029/predictor.py": "4b4cd80515091fc723a1907f0898c8994aa8293967a6c96a6e8e7d2f94e2ed0b",
+    "scripts/followup_test270_common.py": "3f9c120df078951f81d8a40005949998a4b5ce19b73964de5ec9fca69ea1ec7a"
+  },
+  "call_chain": [
+    "run.main -> predictor.load_model()",
+    "load_model -> followup_test270_common.numeric_mode() before checkpoint/model loading",
+    "numeric_mode sets cudnn deterministic=True,benchmark=False,matmul TF32=False,cudnn TF32=True",
+    "run uses same process for native synthetic gates and patient forward; no backend overrides in run"
+  ],
+  "source_chain_frozen_before_patient_preaccess": true,
+  "patient_preaccess_sha256": "31754b18f41eca6159fecc4ea159b80dcc215ff0736afbc6f07ebc4156b45605",
+  "GPU_gate_sha256": "0a1a94c699b1618b527ca48161016bac28fcd21fd13e40283e23ce16ef1a66c6",
+  "runtime_flag_receipt_available_for_this_old164_run": false,
+  "future_transfer_and_final_have_same_process_runtime_receipts": true
+}

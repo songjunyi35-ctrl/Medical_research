@@ -1,0 +1,121 @@
+{
+  "at": "2026-10-29T18:18:33.993389+08:00",
+  "innovation_entry": {
+    "id": "healthy_q0.1_alpha0.5_seed0.125",
+    "mode": "race8_seed_health_normalization",
+    "config": {
+      "id": "healthy_q0.1_alpha0.5_seed0.125",
+      "kind": "race_seed_healthy_normalization",
+      "input_group": {
+        "id": "healthy_q0.1_alpha0.5",
+        "exclude_probability": 0.1,
+        "alpha": 0.5,
+        "dilation_voxels": 3,
+        "dilation_metric": "Chebyshev",
+        "minimum_healthy_fraction": 0.2,
+        "minimum_standard_deviation": 0.1,
+        "gain_bounds": [
+          0.85,
+          1.15
+        ],
+        "offset_bounds": [
+          -0.15,
+          0.15
+        ]
+      },
+      "seed_weight": 0.125,
+      "other_views": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "output_logit_threshold": 0.0,
+      "point_rule": "actual_final_score_argmax",
+      "neural_case_forwards": 8
+    },
+    "neural_case_forwards": 8
+  },
+  "best_overall_id": "equal8_logit_t05",
+  "metrics": {
+    "scan_dice": 0.7679434529057255,
+    "subject_dice": 0.758179504743644,
+    "scan_ci95": [
+      0.7278133694693593,
+      0.8030068346208571
+    ],
+    "subject_ci95": [
+      0.7181256740462213,
+      0.7945272662884423
+    ],
+    "scans": 108,
+    "subjects": 50,
+    "point_hits": 98,
+    "bootstrap": "10000 patient whole-cluster percentile seed20261029; descriptive after selection"
+  },
+  "source_result_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_normalization_a/RESULT.json",
+  "source_result_sha256": "5cac11244819260892a639077ca472dca18fa57c559cba3f6b1be90e35219ff2",
+  "original_run_recipe_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_normalization_a/DEPLOYMENT_RECIPE.json",
+  "original_run_recipe_sha256": "1ead4587ca0eb6204fcdb2e0724203669c8859c3431fc5f1dedbd38647b2bc04",
+  "raw_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_normalization_a/RAW_VALIDATION108.json",
+  "raw_sha256": "d110c7600f7c78117c3bbd7de5a468540918329aacd1205029172f101c7b31b3",
+  "mask_audit_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_normalization_a/MASK_AUDIT_VALIDATION108.json",
+  "mask_audit_sha256": "eb5ca850a6e007fe70ebf401c8442f4ea292713cf97b985c8af8d6b4b44376d3",
+  "deploy_callable": "scripts.race_v2_inference_normalization_a_20261029.deployment.deploy",
+  "cache_callable": "scripts.race_v2_inference_normalization_a_20261029.cache.generate",
+  "input_recipe": {
+    "id": "healthy_q0.1_alpha0.5_seed0.125",
+    "mode": "race8_seed_health_normalization",
+    "config": {
+      "id": "healthy_q0.1_alpha0.5_seed0.125",
+      "kind": "race_seed_healthy_normalization",
+      "input_group": {
+        "id": "healthy_q0.1_alpha0.5",
+        "exclude_probability": 0.1,
+        "alpha": 0.5,
+        "dilation_voxels": 3,
+        "dilation_metric": "Chebyshev",
+        "minimum_healthy_fraction": 0.2,
+        "minimum_standard_deviation": 0.1,
+        "gain_bounds": [
+          0.85,
+          1.15
+        ],
+        "offset_bounds": [
+          -0.15,
+          0.15
+        ]
+      },
+      "seed_weight": 0.125,
+      "other_views": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "output_logit_threshold": 0.0,
+      "point_rule": "actual_final_score_argmax",
+      "neural_case_forwards": 8
+    },
+    "neural_case_forwards": 8
+  },
+  "input_recipe_sha256": "1ead4587ca0eb6204fcdb2e0724203669c8859c3431fc5f1dedbd38647b2bc04",
+  "seed_dependency": "same-weight original-input identity logit only; produced first or audited cached view0",
+  "normalized_views": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "logical_forwards_per_scan": 8,
+  "new270_access": false
+}

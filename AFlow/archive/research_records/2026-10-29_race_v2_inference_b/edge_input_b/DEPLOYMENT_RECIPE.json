@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-29T18:36:24.283357+08:00",
+  "candidate": {
+    "id": "guided_beta025_covariance",
+    "kind": "guided_input_fusion",
+    "input_spec": {
+      "id": "guided_beta025",
+      "beta": 0.25,
+      "kernel": 5,
+      "epsilon": 0.04
+    },
+    "decoder": "covariance",
+    "anchor": 0.75,
+    "models": 2,
+    "forwards_per_scan": 16,
+    "covariance_recipe": {
+      "id": "paired_cov_k5_ridge4_conflict0",
+      "kind": "paired_covariance_shrinkage",
+      "kernel": 5,
+      "ridge": 4.0,
+      "conflict_gate": false,
+      "anchor": 0.75,
+      "alpha_min": 0.5,
+      "alpha_max": 0.95,
+      "statistics_temperature": 4.0,
+      "epsilon": 0.0001,
+      "singular_relative_tolerance": 1e-06,
+      "zero_variance_floor": 1e-08,
+      "threshold_logit": 0.0,
+      "models": 2,
+      "forwards_per_scan": 16
+    }
+  },
+  "source_sha256": "0b8797b7e82c2399c86edf236fbf0dca3c9fd1274085f86174b87a88453d89c4",
+  "innovation_entry": {
+    "mode": "guided_input_w32_fusion",
+    "input_transform_interface": "transform(image,beta)",
+    "partner_model_id": "w32e171_guided",
+    "base_model_id": "w32e171",
+    "atom_source": "guided_input_w32"
+  },
+  "selected_on": "reused108",
+  "models": 2,
+  "forwards_per_scan": 16,
+  "all_input_views_deployed": "one selected input variant only, eight mirrors",
+  "test_access": false
+}

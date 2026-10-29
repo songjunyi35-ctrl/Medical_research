@@ -1,0 +1,1348 @@
+{
+  "at": "2026-10-29T18:53:24.540743+08:00",
+  "status": "passed",
+  "scans": 108,
+  "recipe": {
+    "id": "appearance_k1_lambda0.5",
+    "kind": "image_appearance_unary",
+    "components": 1,
+    "strength": 0.5,
+    "base_covariance_recipe": {
+      "id": "paired_cov_k5_ridge4_conflict0",
+      "kind": "paired_covariance_shrinkage",
+      "kernel": 5,
+      "ridge": 4.0,
+      "conflict_gate": false,
+      "anchor": 0.75,
+      "alpha_min": 0.5,
+      "alpha_max": 0.95,
+      "statistics_temperature": 4.0,
+      "epsilon": 0.0001,
+      "singular_relative_tolerance": 1e-06,
+      "zero_variance_floor": 1e-08,
+      "threshold_logit": 0.0,
+      "models": 2,
+      "forwards_per_scan": 16
+    },
+    "foreground_probability_minimum": 0.95,
+    "background_probability_maximum": 0.01,
+    "foreground_seed_minimum": 64,
+    "background_seed_minimum": 1024,
+    "histogram_bins": 256,
+    "histogram_domain": "full_image_nonzero_min_max",
+    "sampling": "all_seed_voxels_no_subsampling",
+    "maximum_crop_voxels": 5591040,
+    "initialization": "equal_weights_weighted_hist_midquantiles_global_variance",
+    "EM_iterations": 5,
+    "variance_floor": 0.01,
+    "mixture_weight_floor": 1e-06,
+    "range_floor": 1e-06,
+    "log_likelihood_ratio_clip": 6.0,
+    "trust": "one_minus_Bhattacharyya_coefficient_of_normalized_densities_on256bin_centers",
+    "threshold_logit": 0.0,
+    "models": 2,
+    "forwards_per_scan": 16,
+    "new_neural_forwards": 0
+  },
+  "all_counts_points_exact": true,
+  "per_case": [
+    {
+      "case_id": "BraTS-GLI-00046-100",
+      "prediction_sha256": "939f52bfaf6871d07b56feb8d4d8adcf1d9cfcf6a0908d393a5f4fdaa6a36ebe",
+      "tp": 23714,
+      "fp": 8895,
+      "fn": 3387,
+      "point": [
+        91,
+        70,
+        126
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00046-101",
+      "prediction_sha256": "6745001ed8a0b90d89d557abbe41ebd4491df1eeb35330faf83dbbe4bc08e82d",
+      "tp": 83196,
+      "fp": 32015,
+      "fn": 11666,
+      "point": [
+        90,
+        73,
+        121
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00498-100",
+      "prediction_sha256": "427fd4e3ba394cd7e098d2d0e7f3364049a394b2098ded26cac2986e68dc97f4",
+      "tp": 14319,
+      "fp": 11183,
+      "fn": 4228,
+      "point": [
+        21,
+        83,
+        45
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00498-101",
+      "prediction_sha256": "0fa21d3cb9a0ae5e1331558bed2d69b06fa187c8cd79df4fccb0c418c770c6be",
+      "tp": 89087,
+      "fp": 33373,
+      "fn": 8446,
+      "point": [
+        20,
+        86,
+        65
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00505-100",
+      "prediction_sha256": "7516a222f62752d53d672ac824d759901988e648fb681ce26feb655613f9af3a",
+      "tp": 19038,
+      "fp": 4336,
+      "fn": 6485,
+      "point": [
+        38,
+        50,
+        93
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00505-101",
+      "prediction_sha256": "10f74488f2f0530860394ce2b1cf38e595bcfc5eed520c68586dbd9a92bd596f",
+      "tp": 21814,
+      "fp": 5566,
+      "fn": 5866,
+      "point": [
+        24,
+        49,
+        73
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00507-100",
+      "prediction_sha256": "e8e419cc3241d73b06269e4059cf7758da98020a1dc6bd84045a103585a44f6b",
+      "tp": 12141,
+      "fp": 4503,
+      "fn": 4000,
+      "point": [
+        41,
+        141,
+        77
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00507-101",
+      "prediction_sha256": "12d2279134b37a31fc481655c2e5cb3c00ac4ccd114ed3939dfdecb0634ba854",
+      "tp": 13349,
+      "fp": 6248,
+      "fn": 4749,
+      "point": [
+        38,
+        144,
+        82
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00547-100",
+      "prediction_sha256": "c78f55a6355c46fd4cb4e0b20d5b46de463e8c9fc4904efbb02b11751ee337a1",
+      "tp": 162965,
+      "fp": 31654,
+      "fn": 23384,
+      "point": [
+        27,
+        111,
+        116
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00547-101",
+      "prediction_sha256": "713061ec6ab52b0ac03752befe0ffe50e9ef9630d814d77728e85a4ae0b19da5",
+      "tp": 113990,
+      "fp": 33800,
+      "fn": 16697,
+      "point": [
+        26,
+        110,
+        116
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00557-100",
+      "prediction_sha256": "4e18be94b599c02b3ccc5b7c5f382d3995aa4c3bbc2273a2c7f50aed8af7eb02",
+      "tp": 73681,
+      "fp": 3770,
+      "fn": 8676,
+      "point": [
+        110,
+        111,
+        102
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-00557-101",
+      "prediction_sha256": "1ba930331c439188629215e6b25076798f72a7155ac9b89a91efbcc82595b661",
+      "tp": 69572,
+      "fp": 6400,
+      "fn": 14457,
+      "point": [
+        98,
+        112,
+        103
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02060-100",
+      "prediction_sha256": "86a8e060ae43b2f9a539493d7fdcb89b672c9bef56dd7f717180cd65c4cf766a",
+      "tp": 96287,
+      "fp": 16089,
+      "fn": 14504,
+      "point": [
+        44,
+        54,
+        58
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02060-101",
+      "prediction_sha256": "64be6835cc85cf9273e3c35fd1f24e61b4314da8984edeecb044373598d7809a",
+      "tp": 41222,
+      "fp": 7054,
+      "fn": 11638,
+      "point": [
+        31,
+        61,
+        55
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02068-100",
+      "prediction_sha256": "c641cbba4b3a787d26d32c4191eefb72f0552fcd3407682d29e28f95ff934b16",
+      "tp": 23873,
+      "fp": 3333,
+      "fn": 4861,
+      "point": [
+        37,
+        26,
+        64
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02068-101",
+      "prediction_sha256": "b94a51baed7709a3b278644da5def874f1c47e21b5f04527277b43f82f9df907",
+      "tp": 18478,
+      "fp": 3341,
+      "fn": 5101,
+      "point": [
+        26,
+        24,
+        89
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02102-100",
+      "prediction_sha256": "0bc08b3a300e011b9a854cc46d696f7faca24aba1b95b547683910bc8690638b",
+      "tp": 220945,
+      "fp": 8922,
+      "fn": 30294,
+      "point": [
+        87,
+        156,
+        117
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02102-101",
+      "prediction_sha256": "e23242ed33489f7f7dd5b37c81acdddb6e94553681b1ffc3946d3effb35e4309",
+      "tp": 243378,
+      "fp": 7871,
+      "fn": 30125,
+      "point": [
+        74,
+        160,
+        76
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02103-100",
+      "prediction_sha256": "422ea1ebf34fc8cdda40f5fd3971ae93a1643d6071614455ed1ab4c6966b1192",
+      "tp": 23995,
+      "fp": 7379,
+      "fn": 5491,
+      "point": [
+        62,
+        125,
+        56
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02103-101",
+      "prediction_sha256": "35bbd0a191e2bc3070b49bf302868d3ad99fb30b41231d434af53b1a44925f64",
+      "tp": 22719,
+      "fp": 5586,
+      "fn": 6736,
+      "point": [
+        57,
+        125,
+        46
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02103-102",
+      "prediction_sha256": "c9e776ef7c60ffa00d8688e317c218b4d6394c0eae525539289bd703398dd422",
+      "tp": 19573,
+      "fp": 9692,
+      "fn": 24575,
+      "point": [
+        62,
+        143,
+        60
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02103-103",
+      "prediction_sha256": "79edd20a052b9c345617c094f27b447bfac5c1a039c41e6439909f05f4a54abe",
+      "tp": 43642,
+      "fp": 19522,
+      "fn": 75734,
+      "point": [
+        62,
+        142,
+        60
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02103-104",
+      "prediction_sha256": "414bb7ea0b2c02b1f4f7ce4ad25b23078215196c4725f279cf254f1788e0aaf9",
+      "tp": 84919,
+      "fp": 24897,
+      "fn": 46832,
+      "point": [
+        74,
+        106,
+        79
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02103-105",
+      "prediction_sha256": "c9d5bd91d9af780995d7060a0090f411c3786a7989c5dcc2e3d9ea63fc430ec8",
+      "tp": 122502,
+      "fp": 15375,
+      "fn": 79256,
+      "point": [
+        55,
+        125,
+        40
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02103-106",
+      "prediction_sha256": "e084b4bacea06d33bab88c30f138b29f0f8f7147aa469f3dac2bfa28a33b57e5",
+      "tp": 118168,
+      "fp": 46747,
+      "fn": 39705,
+      "point": [
+        56,
+        126,
+        43
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02112-100",
+      "prediction_sha256": "b2b4c8947e2ee88ad02d383cacc9d5f113bfbf7e41d326219b644f57f435e471",
+      "tp": 60526,
+      "fp": 7396,
+      "fn": 5083,
+      "point": [
+        78,
+        33,
+        103
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02112-101",
+      "prediction_sha256": "7e12830ecf17c2337222077684240d2112d4f973901f00303c5026a7f50e9a8a",
+      "tp": 67002,
+      "fp": 9770,
+      "fn": 4089,
+      "point": [
+        77,
+        32,
+        111
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02112-102",
+      "prediction_sha256": "6d9e7e0a05f1f0f23db268b1df5ebfb44fcaffe3eff14a25f0fdb00964d23443",
+      "tp": 59352,
+      "fp": 10229,
+      "fn": 5828,
+      "point": [
+        71,
+        22,
+        105
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02112-103",
+      "prediction_sha256": "fba007e31c4a44ef39f15e9daed273bd6b24edec7f5abed6f4d3235cab155fb5",
+      "tp": 43989,
+      "fp": 8240,
+      "fn": 4670,
+      "point": [
+        105,
+        52,
+        107
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02128-100",
+      "prediction_sha256": "8b52b6edeae1de648005e883b2d1901634991f9d7b07792fa281064df3a350f0",
+      "tp": 50121,
+      "fp": 13928,
+      "fn": 11998,
+      "point": [
+        93,
+        64,
+        105
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02128-101",
+      "prediction_sha256": "f172e9389bcb21fa3bb88e4b14332b4cb8f078e60425bf284541b11e3d8b2353",
+      "tp": 52501,
+      "fp": 5442,
+      "fn": 9757,
+      "point": [
+        91,
+        62,
+        120
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02128-102",
+      "prediction_sha256": "cb337c938cbb57bce7f74765d4f3b952e4803ae0e242cd5236b10992afa43df1",
+      "tp": 54704,
+      "fp": 4630,
+      "fn": 12630,
+      "point": [
+        91,
+        62,
+        118
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02128-103",
+      "prediction_sha256": "07c3ab8e579a78882c27f288b1deed39f07190d3db3b8540b7284db0759a8ee2",
+      "tp": 55162,
+      "fp": 9647,
+      "fn": 12945,
+      "point": [
+        97,
+        46,
+        104
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02178-100",
+      "prediction_sha256": "ce66c98b0b7b57c866a04dcbc98b5319fa19fce15ad53006954fbfce15388a37",
+      "tp": 39036,
+      "fp": 14612,
+      "fn": 5018,
+      "point": [
+        56,
+        99,
+        135
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02178-101",
+      "prediction_sha256": "e1902d43ade5ccfaf7d501d35d138cf0f7d8c40013ce722f9aaf58357925a46f",
+      "tp": 48199,
+      "fp": 5810,
+      "fn": 2645,
+      "point": [
+        58,
+        94,
+        134
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02178-102",
+      "prediction_sha256": "92f550857b6449e3c2e75f14bee1c1dddfd2bf8645e1087549f2ca8eee297622",
+      "tp": 50456,
+      "fp": 3685,
+      "fn": 9142,
+      "point": [
+        57,
+        97,
+        126
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02196-100",
+      "prediction_sha256": "59b6149d36718b7a7127e19c860d61587daaf765910f99cc01e7c9df31f0c21f",
+      "tp": 90191,
+      "fp": 15788,
+      "fn": 9926,
+      "point": [
+        84,
+        130,
+        101
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02196-101",
+      "prediction_sha256": "76c4330369fe35aedea1585d7d538e071dca059ab157c5703ff99abdb8c80a0d",
+      "tp": 134483,
+      "fp": 23369,
+      "fn": 9186,
+      "point": [
+        85,
+        127,
+        98
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02196-102",
+      "prediction_sha256": "4c7fe5671c510e83cb15f86cd9fa4c2173030827fb4d7edf0908cde057ec6d3e",
+      "tp": 72930,
+      "fp": 11977,
+      "fn": 17131,
+      "point": [
+        86,
+        137,
+        88
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02196-103",
+      "prediction_sha256": "a1dcb077ef0a9bbb50353663a1b4c9726e3bf2f9d2f9dcca3ec3beb559e5bc54",
+      "tp": 131918,
+      "fp": 14849,
+      "fn": 26716,
+      "point": [
+        88,
+        138,
+        82
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02196-104",
+      "prediction_sha256": "d4f2bc835af05f58ef2eaa0a5c0173b0e1dd47bf361e2bff311ce5933116126c",
+      "tp": 124226,
+      "fp": 17463,
+      "fn": 28495,
+      "point": [
+        86,
+        146,
+        85
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02196-105",
+      "prediction_sha256": "54583886a7e9ff6f34c5ed584b37cfb9369dde122a6c63d56856d859a7aef957",
+      "tp": 162368,
+      "fp": 17211,
+      "fn": 31232,
+      "point": [
+        86,
+        143,
+        83
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02196-106",
+      "prediction_sha256": "0d919e989b70b7ec918ecce738a2345902a6f739d78c0c396d290d1dd9939a2f",
+      "tp": 136333,
+      "fp": 13827,
+      "fn": 46388,
+      "point": [
+        85,
+        144,
+        89
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02208-100",
+      "prediction_sha256": "e0c30cd8a9fdc529fd01b96bc6be1e7691de836a54189da8adc932ad3dc09d14",
+      "tp": 2318,
+      "fp": 1177,
+      "fn": 2076,
+      "point": [
+        59,
+        21,
+        103
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02208-101",
+      "prediction_sha256": "dc7229cf3795e77bdbb85493162838f99cf34fbb9f8dc69cf35a89b5a3e5fdee",
+      "tp": 1775,
+      "fp": 2199,
+      "fn": 2343,
+      "point": [
+        62,
+        22,
+        96
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02208-102",
+      "prediction_sha256": "d63ddce1048a70e1824aa5e86fb497d989fe2dbc36635d4588ce467b082778d3",
+      "tp": 976,
+      "fp": 3153,
+      "fn": 1720,
+      "point": [
+        59,
+        20,
+        99
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02219-100",
+      "prediction_sha256": "69ced0176489ff709f2bbfe2f4fc3711a075f947e70fc925ac4032154583e725",
+      "tp": 5643,
+      "fp": 914,
+      "fn": 1897,
+      "point": [
+        104,
+        95,
+        103
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02219-101",
+      "prediction_sha256": "b207a2edd39c49144ab70376dc51df32753798d58896a17b8eac7eed659082a8",
+      "tp": 5347,
+      "fp": 1650,
+      "fn": 1786,
+      "point": [
+        101,
+        95,
+        135
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02219-102",
+      "prediction_sha256": "d19e9b7bc6623326ae976c9ff835c072a0d0393e7bd52e7f7fb3866a2332ea10",
+      "tp": 10476,
+      "fp": 2064,
+      "fn": 1865,
+      "point": [
+        96,
+        106,
+        111
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02219-103",
+      "prediction_sha256": "177d44cb0cb07f52d35bcbb14a29ed475024cc11e26752254e9c21868d17bf8b",
+      "tp": 9479,
+      "fp": 2215,
+      "fn": 631,
+      "point": [
+        97,
+        80,
+        114
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02249-100",
+      "prediction_sha256": "00df8b1eac374f7966242621bb83080a6300a6c323c09879d0cff23f41f4b7f9",
+      "tp": 536,
+      "fp": 2954,
+      "fn": 3046,
+      "point": [
+        83,
+        112,
+        106
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02249-101",
+      "prediction_sha256": "79f60b1b9521d9fdd1b9c9de87cffbf1d67e96c32bc8e8a207cc07d2e06ad19d",
+      "tp": 6718,
+      "fp": 1750,
+      "fn": 5637,
+      "point": [
+        96,
+        117,
+        97
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02256-100",
+      "prediction_sha256": "1dcb7484346dd71c376585f76f58a3854e0497200c369493306d0667c059936a",
+      "tp": 37283,
+      "fp": 25599,
+      "fn": 5414,
+      "point": [
+        124,
+        42,
+        66
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02256-101",
+      "prediction_sha256": "6f43f03d6297bb4b39c14b6db906d129e3e1e62bb40ab1e269c0d59f15184cf1",
+      "tp": 36056,
+      "fp": 9569,
+      "fn": 10788,
+      "point": [
+        107,
+        59,
+        72
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02258-100",
+      "prediction_sha256": "542e235147868b8c4e92789c22eaa5a57776a109ee9f2c610504294a20338dce",
+      "tp": 45689,
+      "fp": 15655,
+      "fn": 10849,
+      "point": [
+        47,
+        132,
+        122
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02258-101",
+      "prediction_sha256": "5cbd02e736981595874fd2840967c13e9f2d555b315310b4b8f61cfeab0dce0d",
+      "tp": 100223,
+      "fp": 12568,
+      "fn": 9892,
+      "point": [
+        59,
+        171,
+        103
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02327-100",
+      "prediction_sha256": "ff49ca950113565b765f243791ff76f2f2330e0b8ba5c2ef491f515502038335",
+      "tp": 15275,
+      "fp": 27624,
+      "fn": 3527,
+      "point": [
+        96,
+        47,
+        107
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02381-100",
+      "prediction_sha256": "9dbad49c9ac6608ef73485662e4b2161f1b9a3a031d2da5e53141549277efaa0",
+      "tp": 128450,
+      "fp": 8914,
+      "fn": 12337,
+      "point": [
+        43,
+        69,
+        63
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02386-100",
+      "prediction_sha256": "dbb37a7932f9c00a914bbda21a9d0785f0699bb5fb9781a4286d60ffc0462584",
+      "tp": 16229,
+      "fp": 1108,
+      "fn": 4022,
+      "point": [
+        108,
+        82,
+        72
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02387-100",
+      "prediction_sha256": "abe577cf2bf2b415e7c88458716f5d8e76142e28d665b64e661b6e22434fd117",
+      "tp": 58844,
+      "fp": 29213,
+      "fn": 23921,
+      "point": [
+        101,
+        78,
+        120
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02647-100",
+      "prediction_sha256": "98277f7d85c0ea969f8a5c5bc33b0055d1fd0dbdbe1114a5ba1dde2bbffe4da2",
+      "tp": 25075,
+      "fp": 1812,
+      "fn": 17355,
+      "point": [
+        36,
+        125,
+        100
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02656-100",
+      "prediction_sha256": "488fdebf2845627c27baae0b61fb01e415866b835ec52bd8e39a899e01e6b437",
+      "tp": 82091,
+      "fp": 20021,
+      "fn": 40021,
+      "point": [
+        106,
+        123,
+        54
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02657-100",
+      "prediction_sha256": "305a79a9530ebca04e59039b1e66f93e785a880027433916ca18940e865c4c01",
+      "tp": 792,
+      "fp": 1990,
+      "fn": 2325,
+      "point": [
+        93,
+        66,
+        100
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02694-100",
+      "prediction_sha256": "b8c1e8a0a5fb8eb01a1eae9f8eadb570090d288fbd03cac1b8f94ad59ec68c3f",
+      "tp": 26042,
+      "fp": 14274,
+      "fn": 10862,
+      "point": [
+        24,
+        98,
+        44
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02720-100",
+      "prediction_sha256": "50f01335129a7ea13bc06110185cfefe3de44f2e96339dbca22abea38d1973e0",
+      "tp": 5849,
+      "fp": 1458,
+      "fn": 4829,
+      "point": [
+        53,
+        139,
+        56
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02724-100",
+      "prediction_sha256": "a51d3e745f578f66190267d9e277548fc88dfbc298cd4a0066149c6e491e53f0",
+      "tp": 122354,
+      "fp": 12745,
+      "fn": 27269,
+      "point": [
+        100,
+        111,
+        113
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02750-100",
+      "prediction_sha256": "cb27434c901e10bf11283ba1060e8331db835fdc72083abb63791304aacfb5fd",
+      "tp": 6391,
+      "fp": 1226,
+      "fn": 2640,
+      "point": [
+        25,
+        54,
+        30
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02750-101",
+      "prediction_sha256": "cf7c92d45e13e1dd80a1fd0d730203dbe0d08dff98d84dd9ab3e34d9f537f0ce",
+      "tp": 8666,
+      "fp": 4707,
+      "fn": 2152,
+      "point": [
+        24,
+        52,
+        29
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02782-100",
+      "prediction_sha256": "e4f4ddab0d78d64202c3a05d251241593c4a08aa717fc74f1ee69e5d945f2d93",
+      "tp": 28195,
+      "fp": 3633,
+      "fn": 7513,
+      "point": [
+        46,
+        116,
+        111
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02782-101",
+      "prediction_sha256": "13fff1844e5181991adf208ae62993c4b5ed622116939bfb70407451ae9ec64f",
+      "tp": 28804,
+      "fp": 5936,
+      "fn": 9670,
+      "point": [
+        45,
+        118,
+        112
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02792-100",
+      "prediction_sha256": "89905ae9715b8f4a8b000bfc444870e815a0674cda5db536ba7f15e80035d07e",
+      "tp": 47387,
+      "fp": 38681,
+      "fn": 14846,
+      "point": [
+        43,
+        76,
+        128
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02792-101",
+      "prediction_sha256": "2115d12d04c99cf4452412b09c59f2320d32e37ed7c0ec9de0a7bd3ee086273f",
+      "tp": 44230,
+      "fp": 33177,
+      "fn": 10062,
+      "point": [
+        41,
+        70,
+        130
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02796-100",
+      "prediction_sha256": "ab8cbbe7c7a21928635fd1f5c549f7b0ab812cddb147a3790a59744d2e9aaf09",
+      "tp": 43849,
+      "fp": 6723,
+      "fn": 4268,
+      "point": [
+        32,
+        61,
+        98
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02796-101",
+      "prediction_sha256": "75e506250c33136b95d06f72495587e12eacb27d6b9f835094277d5afcaf78d3",
+      "tp": 42933,
+      "fp": 7814,
+      "fn": 5463,
+      "point": [
+        31,
+        60,
+        98
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02800-100",
+      "prediction_sha256": "7859672f9f44e05985824e7d116d11f5785b9baef79123b7d28b84a5698667c0",
+      "tp": 27596,
+      "fp": 6763,
+      "fn": 3872,
+      "point": [
+        83,
+        104,
+        94
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02800-101",
+      "prediction_sha256": "b70b793e6de9714a4113f4a5aca3f148df249a8fbeb89f6809c5a04074ba9e32",
+      "tp": 31988,
+      "fp": 6910,
+      "fn": 6122,
+      "point": [
+        83,
+        96,
+        95
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02829-100",
+      "prediction_sha256": "75bd2da547a623e3d90b2d0ccf678173775c23d4bdb66a438bd4a7fc25cbb4e7",
+      "tp": 56145,
+      "fp": 5119,
+      "fn": 9005,
+      "point": [
+        88,
+        60,
+        87
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02829-101",
+      "prediction_sha256": "f548d03180e0cba4bb22da086fac5f32fad0a76cd41bf5d8c9b81b11e91172f1",
+      "tp": 65239,
+      "fp": 17491,
+      "fn": 4850,
+      "point": [
+        86,
+        56,
+        88
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02845-100",
+      "prediction_sha256": "4f6b670859041743b42fc753762c9d7ab6513914358649a5976d0e738b7d4d7a",
+      "tp": 13689,
+      "fp": 781,
+      "fn": 3725,
+      "point": [
+        38,
+        61,
+        90
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02845-101",
+      "prediction_sha256": "f1dbe22dfc02f5913d93e0473a3a117ecd1be01f9da236a8883c617a17d8ef2c",
+      "tp": 13271,
+      "fp": 426,
+      "fn": 4168,
+      "point": [
+        36,
+        58,
+        91
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02859-100",
+      "prediction_sha256": "c5848d6d9b7a7b039f82a34d0e13c7d22ee36624f5ad7959cb5066b3b0bd3fd1",
+      "tp": 56258,
+      "fp": 2679,
+      "fn": 6164,
+      "point": [
+        34,
+        108,
+        104
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02859-101",
+      "prediction_sha256": "80dbe1bbc1919a3bbe01b74f716d8452db2bac0bcb78339ca1877393266894cb",
+      "tp": 45828,
+      "fp": 7498,
+      "fn": 10714,
+      "point": [
+        30,
+        108,
+        103
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02875-100",
+      "prediction_sha256": "3e46aa4b28bf624df691ab661dd773a4f0513c164adcbf52d253e2c36c1910ec",
+      "tp": 34304,
+      "fp": 13670,
+      "fn": 5432,
+      "point": [
+        92,
+        165,
+        77
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02875-101",
+      "prediction_sha256": "46ea210a8206ca2d7478939141edb3ba067c33350cac8d76aa84cd3243be7319",
+      "tp": 31788,
+      "fp": 14972,
+      "fn": 4462,
+      "point": [
+        91,
+        164,
+        78
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02883-100",
+      "prediction_sha256": "98cd9c1a97ea70886687a136c3029314b2348bb3b5bbcaefd09e2585324ebeb8",
+      "tp": 36010,
+      "fp": 7596,
+      "fn": 4519,
+      "point": [
+        52,
+        89,
+        97
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02883-101",
+      "prediction_sha256": "081023a44150c3387bc6baa2035de85f8ece3858211e3f27ce865fcf5e3958a4",
+      "tp": 41067,
+      "fp": 7922,
+      "fn": 4297,
+      "point": [
+        50,
+        88,
+        100
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02905-100",
+      "prediction_sha256": "b38f529384c13a6b7a2c804ccb951a959241035776870292e1872b044cc76f43",
+      "tp": 13464,
+      "fp": 15859,
+      "fn": 1524,
+      "point": [
+        20,
+        125,
+        79
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02905-101",
+      "prediction_sha256": "9d20522c2b67e42a9a7eceffdfc4b0490f0149857ff28c70e41f7a03decef042",
+      "tp": 14329,
+      "fp": 15988,
+      "fn": 1574,
+      "point": [
+        18,
+        129,
+        82
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02910-100",
+      "prediction_sha256": "1fa9a57592857512c9a49808f63dab7518617f41fb1f7f25b43bc5dfb5b19c0e",
+      "tp": 14244,
+      "fp": 7741,
+      "fn": 5583,
+      "point": [
+        23,
+        100,
+        50
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02910-101",
+      "prediction_sha256": "eb7f53ff39e27f2567ee1470fbdf0bfc4a834018ea4a4ddb6bc5ba66718534bf",
+      "tp": 15815,
+      "fp": 6885,
+      "fn": 4691,
+      "point": [
+        11,
+        105,
+        51
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02912-100",
+      "prediction_sha256": "5ce97bf7ad460ab5da011c25da77e327e0d95edb11a4d5260f55f1ce3f7ac2d1",
+      "tp": 16937,
+      "fp": 6575,
+      "fn": 7930,
+      "point": [
+        83,
+        105,
+        60
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02912-101",
+      "prediction_sha256": "d9be22be7b97634a5472f3cd7f239b99fcb6f002ef51e5a96d523ef0fbfb8be9",
+      "tp": 28003,
+      "fp": 11170,
+      "fn": 6261,
+      "point": [
+        83,
+        105,
+        59
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02919-100",
+      "prediction_sha256": "a5a8aa6ce9db5e3a12dd131c7dbc35ddfdada82db790764d72edadf09f2eedda",
+      "tp": 40007,
+      "fp": 13411,
+      "fn": 12351,
+      "point": [
+        17,
+        57,
+        72
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02919-101",
+      "prediction_sha256": "39a77cde21bb9b56a1b6d0473d0b3a76eb43b7c8e40873f6e0dbdd8a97cb6dc7",
+      "tp": 67924,
+      "fp": 13692,
+      "fn": 14473,
+      "point": [
+        17,
+        57,
+        72
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02927-100",
+      "prediction_sha256": "f206a9f12f911868a0660e5aef0a304e02052f57fdf3e6950d930a32e4559929",
+      "tp": 81899,
+      "fp": 20040,
+      "fn": 19670,
+      "point": [
+        103,
+        101,
+        101
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02927-101",
+      "prediction_sha256": "0d67adb57e00d5c80f13695f9032cee11de137537b26f75227a4bae78c1b49b6",
+      "tp": 121950,
+      "fp": 27960,
+      "fn": 19054,
+      "point": [
+        58,
+        110,
+        78
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02976-100",
+      "prediction_sha256": "0c3ad299dbc6f76b994dab53c3676fcc4c5bda7e6792d13acb9de0800e929888",
+      "tp": 26593,
+      "fp": 4959,
+      "fn": 13403,
+      "point": [
+        49,
+        106,
+        97
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02976-101",
+      "prediction_sha256": "0461bbb9f371412bdae8146377608df5b7cddc3ced57f48a933bb0d73ded6976",
+      "tp": 68692,
+      "fp": 17345,
+      "fn": 6264,
+      "point": [
+        29,
+        118,
+        57
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02980-100",
+      "prediction_sha256": "2d98a8f4ff9b471f895bb758064a0481b1cd79d95b27068d0370c0889ef92d7e",
+      "tp": 11485,
+      "fp": 1483,
+      "fn": 4304,
+      "point": [
+        84,
+        115,
+        79
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02980-101",
+      "prediction_sha256": "b86b989fc82c5aaab4844600050223e8c4061bdeba4cd9d038e4698c441d10ea",
+      "tp": 11389,
+      "fp": 608,
+      "fn": 3625,
+      "point": [
+        90,
+        117,
+        79
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02991-100",
+      "prediction_sha256": "c8e2a63df7c1046382741d4462c3b63a81539d9b189e8ad3377cc3c146f6e786",
+      "tp": 19994,
+      "fp": 15374,
+      "fn": 13417,
+      "point": [
+        76,
+        67,
+        72
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-02991-101",
+      "prediction_sha256": "103da6a602b0d2ce2cab89aa152fc669377c58e9eb17e227dee937c8983ecb2c",
+      "tp": 11471,
+      "fp": 14874,
+      "fn": 14663,
+      "point": [
+        70,
+        65,
+        63
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-03007-100",
+      "prediction_sha256": "60da6312610b2f415e0a3c49e66acf1155f3e63775ff2952830ce50c2b65d0e7",
+      "tp": 19304,
+      "fp": 9701,
+      "fn": 6286,
+      "point": [
+        115,
+        110,
+        42
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-03007-101",
+      "prediction_sha256": "b3f859aa06f615e107ebe0b950c70f152ba240138cfe6a71856255489869b0f8",
+      "tp": 23914,
+      "fp": 9685,
+      "fn": 7195,
+      "point": [
+        119,
+        119,
+        62
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-03020-100",
+      "prediction_sha256": "fcb2f55efa77151ef0cf8788ba71d4198e04ce3fa7c598d1ddac083fa475e0a2",
+      "tp": 50996,
+      "fp": 4403,
+      "fn": 5496,
+      "point": [
+        112,
+        79,
+        88
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-03020-101",
+      "prediction_sha256": "3df107566c6a0945331fafada075800e7abde0774a1934b5aa963a9af60afce1",
+      "tp": 78181,
+      "fp": 10970,
+      "fn": 6363,
+      "point": [
+        118,
+        84,
+        84
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-03059-100",
+      "prediction_sha256": "f2407a4c450ff810d60a163f6176a56f0e395b4a4542a88c67dca8e0abae7b11",
+      "tp": 82920,
+      "fp": 38492,
+      "fn": 6829,
+      "point": [
+        16,
+        77,
+        45
+      ]
+    },
+    {
+      "case_id": "BraTS-GLI-03059-101",
+      "prediction_sha256": "0e94071f3d5b28df7fc9d41649f4d8c7647c0e03b86a9536c379d96f05bce717",
+      "tp": 13383,
+      "fp": 3261,
+      "fn": 4774,
+      "point": [
+        32,
+        55,
+        78
+      ]
+    }
+  ],
+  "new_neural_forwards": 0,
+  "test_access": false
+}

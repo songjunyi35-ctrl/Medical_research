@@ -1,0 +1,18 @@
+{
+  "at_utc": "2026-10-29T10:24:27.606141+00:00",
+  "state": "preaccess_preparation_amendment",
+  "issue": "New-final transfer/normalization branch loaded handoff without explicitly setting historical cudnn/TF32 numeric_mode in its new process.",
+  "reviewer": "training agent CPU read-only review",
+  "impact": "No new-final patient branch or270 access had executed; existing164 validation used load_model with numeric_mode and is unchanged.",
+  "remedy": "New versioned numeric_entry launcher calls numeric_mode and delegates transfer/final in the same process; old frozen modules and recipes remain byte-identical.",
+  "patient_neural_restarts": 0,
+  "training_changes": 0,
+  "original_108_results_preserved": true,
+  "evidence": [
+    "WAITERS_V2.json",
+    "NUMERIC_MODE_RECEIPT_transfer.json",
+    "NUMERIC_MODE_RECEIPT_final270.json",
+    "FINAL_SNAPSHOT_TRANSFER_FREEZE_V2.json",
+    "../2026-10-29_race_v2_inference_a/FINAL270_NORMALIZATION_ENTRY_FREEZE_V2.json"
+  ]
+}

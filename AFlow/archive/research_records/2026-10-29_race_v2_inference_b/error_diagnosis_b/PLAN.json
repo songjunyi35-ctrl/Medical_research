@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-29T18:24:40.166767+08:00",
+  "analysis_only": true,
+  "new_configurations": 0,
+  "models": 2,
+  "new_forwards": 0,
+  "split": "validation108 full native crop",
+  "confidence_logit": 2.1972245773362196,
+  "confidence_interpretation": "all16 views probability<=.1 on FN or>=.9 on FP",
+  "partition": [
+    "all16_wrong_confident09",
+    "all16_wrong_not_all_confident09",
+    "mean_experts_wrong_but_some_view_correct",
+    "mean_expert_conflict_but_alpha_bound_cannot_correct",
+    "bounded_alpha_can_correct"
+  ],
+  "full_crop_including_FN_outside_nonzero_image": true,
+  "patient_folds": "same fixedsha256 50 patients10each",
+  "oracle": "GT post-hoc mathematical bound only; no deployedGTroute, no new inference selection",
+  "approved_by": "root new task CPU error diagnostic, no GPU/new candidate authorization"
+}

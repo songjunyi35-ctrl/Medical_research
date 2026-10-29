@@ -1,41 +1,41 @@
 {
-  "at": "2026-10-29T17:32:42.508375+08:00",
-  "state": "original80_training_unchanged_inference_innovations108_complete_registered_terminal_queues",
+  "at": "2026-10-29T19:06:44.533385+08:00",
+  "state": "bounded_inference_ideas_completed_original80_terminal_and_fixed270_queues",
   "head_node_supervisors": [
     {
       "name": "resource_monitor",
       "pid": 2030618,
-      "alive": true
+      "alive_at_registration": true
     },
     {
-      "name": "initial_stage_observer",
+      "name": "initial_observer",
       "pid": 2034737,
-      "alive": true
+      "alive_at_registration": true
     },
     {
-      "name": "innovation_stage_observer",
-      "pid": 2082805,
-      "alive": true
+      "name": "all_research_observer",
+      "pid": 2105350,
+      "alive_at_registration": true
     },
     {
       "name": "accept_final_handoff",
       "pid": 2038213,
-      "alive": true
+      "alive_at_registration": true
     },
     {
-      "name": "final_selector_innovation",
-      "pid": 2079633,
-      "alive": true
+      "name": "final_selector_continuation",
+      "pid": 2104998,
+      "alive_at_registration": true
     },
     {
-      "name": "final_publication_innovation_v2",
-      "pid": 2082077,
-      "alive": true
+      "name": "final_publication_continuation",
+      "pid": 2104999,
+      "alive_at_registration": true
     },
     {
-      "name": "training_checkpoint_backup_only",
+      "name": "training_checkpoint_backup",
       "pid": 2047159,
-      "alive": true
+      "alive_at_registration": true
     }
   ],
   "worker_queues": {
@@ -61,12 +61,15 @@
         0
       ],
       "snapshot_waiter_pid": 1642,
-      "final_waiter_pid": 12037,
+      "final_waiter_pid": 17038,
       "innovation_pid": 10722,
       "innovation_completed108": true,
       "innovation_transfer_waiter_pid": 12036,
       "innovation108_state": "complete",
-      "innovation108_pid_at_execution": 10722
+      "innovation108_pid_at_execution": 10722,
+      "local_transfer_waiter_pid": 12036,
+      "normalization_transfer_barrier_pid": 16493,
+      "soft_context_transfer_pid": 17037
     },
     "inference_b": {
       "worker": 1154121,
@@ -74,12 +77,16 @@
         1
       ],
       "snapshot_waiter_pid": 9260,
-      "final_waiter_pid": 11777,
+      "final_waiter_pid": 17456,
       "innovation_pid": 10631,
       "innovation_completed108": true,
       "innovation_transfer_waiter_pid": 11776,
       "innovation108_state": "complete",
-      "innovation108_pid_at_execution": 10631
+      "innovation108_pid_at_execution": 10631,
+      "covariance_transfer_pid": 11776,
+      "contralateral_transfer_pid": 15135,
+      "guided_transfer_pid": 16407,
+      "appearance_transfer_pid": 17455
     }
   },
   "execution_chain": [
@@ -106,5 +113,9 @@
     9259,
     9261
   ],
-  "original_training_changed_for_innovation": false
+  "original_training_changed_for_innovation": false,
+  "latest_policy": "FINAL_SELECTION_CONTINUATION_POLICY_FREEZE.json",
+  "all_patient_network_research_released": true,
+  "new_families_after_final_policy": false,
+  "original_training_changed_for_inference_research": false
 }

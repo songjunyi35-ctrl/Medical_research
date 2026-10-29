@@ -5,7 +5,7 @@ import os
 import time
 
 from .governance import RECORD, atomic_json, guard
-from .select_final_innovation import IA, IB, A, B, TRAIN
+from .select_final_continuation import IA, IB, A, B, TRAIN, NA, NB, SC, EDGE, APPEARANCE
 
 
 def small(path, keys=None):
@@ -20,10 +20,13 @@ def main():
         guard(1154121)
         fields = ('at', 'state', 'stage', 'phase', 'completed', 'total', 'new_epoch',
                   'iteration', 'new_updates', 'best_new_epoch', 'best_scan', 'actual_new_epochs',
-                  'actual_new_updates', 'checkpoint_sha256', 'metrics', 'recipe_id', 'partner_model_id')
+                  'actual_new_updates', 'checkpoint_sha256', 'metrics', 'recipe_id', 'partner_model_id',
+                  'new_case_forwards', 'new_network_forwards', 'new_model_forwards', 'maximum', 'input_group')
         queues = {}
         for name, folder in [('training', TRAIN), ('innovation_a', IA), ('innovation_b', IB),
                              ('a_transfer', IA / 'final_snapshot'), ('b_transfer', IB / 'final_snapshot'),
+                             ('healthy_input_a', NA), ('image_evidence_b', NB), ('soft_context_a', SC),
+                             ('guided_input_b', EDGE), ('appearance_b', APPEARANCE),
                              ('a_final', A / 'final270'), ('b_final', B / 'final270')]:
             state = {}
             for filename in ('STATUS.json', 'HEARTBEAT.json', 'RESULT.json', 'DONE.json',
@@ -44,7 +47,7 @@ def main():
             final_test_selection_frozen=(RECORD / 'FINAL_TEST_SELECTION.json').exists(),
             final_result=final, no_training_or_model_operation_by_observer=True,
             report='INFERENCE_INNOVATION108_RESULT.md',
-            note='Completed cached decoders may leave GPUs idle while waiting for the original80 training; no artificial load'))
+            note='Actual new forwards and completed studies are listed; CPU analysis/audits may leave GPUs idle; no artificial load'))
         if complete:
             return
         time.sleep(60)

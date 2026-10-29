@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-29T18:34:10.786444+08:00",
+  "source_sha256": {
+    "scripts/segresnet_auto_inference12h_20261028/roi_render_v2.py": "13b4c7339ca5dda3e0c544fca31bc539339fac1fdccd3d1c356878db9ee830d6",
+    "scripts/segresnet_auto_inference12h_20261028/render_v1.py": "4ca8989961d29664d970a31a61d4e01aeacba5f8c8fc8a918da288845ce67495",
+    "scripts/segresnet_auto_inference12h_20261028/phase512_v2.py": "bc7aec4229500fc129e3151a9f72afcd2e11473185f356f8e04f29e4b85988b7",
+    "archive/research_records/2026-10-28_segresnet_auto_inference12h/ALL_COMPLETED_ANALYSES.tsv": "7d649fe9508d2f8497e96f6bb40ca47ccc252bf5e96861369888b80fc6ae5790"
+  },
+  "old_ROI": "predicted bbox crop/resize to canvas then feather output into original5-view probability; six ROI fusion grids best0.780745, below old final0.784382; not a fresh causal comparison",
+  "old_phase": "padding translations/512 phases, no seed-shaped continuous input gain",
+  "old_intensity": "global fixed gain/offset/gamma and latest healthy-moment affine; no spatial context field",
+  "primary_source": {
+    "title": "Attention U-Net: Learning Where to Look for the Pancreas",
+    "url": "https://arxiv.org/abs/1804.03999",
+    "summary": "Learned feature gates suppress irrelevant background in trained abdominal CT networks. It supplies only a weak analogy: our fixed input gain is neither learned feature attention nor a reproduction, and no benefit follows from that paper."
+  },
+  "key_risks": [
+    "seed omissions are still attenuated although never hard-zeroed",
+    "shared model errors may persist",
+    "instance normalization propagates context changes",
+    "symmetric protection can make change small"
+  ],
+  "no_novelty_or_benefit_claim": true
+}
