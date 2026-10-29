@@ -1,0 +1,63 @@
+{
+  "state": "formal_training_started",
+  "startup_evidence_sha256": "25ea94ebd9d6d2bc08faf4b999331e676aaab32aedccf48d2c9b31b81f5267f6",
+  "budget": {
+    "at": "2026-10-29T15:19:46.619977+08:00",
+    "status": "passed",
+    "new_epochs": 80,
+    "new_updates": 9760,
+    "seconds_per_update": 1.3506509102880955,
+    "per_epoch_estimated_seconds": 337.1691165827215,
+    "remaining_training_seconds": 76370.3800342083,
+    "estimated_training_seconds": 26973.529326617718,
+    "training_deadline_unix": 1793337457.0,
+    "effective_batch": 8,
+    "microbatch_per_gpu": 2,
+    "world_size": 2,
+    "updates_per_epoch": 122,
+    "examples_per_epoch": 972,
+    "epochs_chosen_before_patient_updates": true
+  },
+  "no_new270_scoring": true,
+  "source_startup": {
+    "at": "2026-10-29T15:23:22.622763+08:00",
+    "status": "passed",
+    "new_epoch": 1,
+    "new_updates": 122,
+    "real_train_cases": 972,
+    "real_validation_cases": 108,
+    "effective_batch": 8,
+    "updates_per_epoch": 122,
+    "optimizer_new_at_stage_start": true,
+    "source_checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+    "strict_cpu_reload": {
+      "at": "2026-10-29T15:23:22.362590+08:00",
+      "status": "passed",
+      "sha256": "5cde90a094a0be1efbaa14164190f9d75920f565b4649a0c5c1d4bf01e3d74a1",
+      "new_updates": 122,
+      "strict_cpu_reload": true,
+      "optimizer_checked": true
+    },
+    "rank_parameter_sha256": "f35c71953b90c4302ba069c07d124fb903d681dbe924dfda883bb4b6eb6dd65e",
+    "epoch_seconds": 204.64627039059997,
+    "metrics": {
+      "scan_dice": 0.7569348334714219,
+      "subject_dice": 0.7451706407467524,
+      "scan_ci95": [
+        0.7146262845037116,
+        0.7933619460236965
+      ],
+      "subject_ci95": [
+        0.702559254395465,
+        0.7829929829811055
+      ],
+      "point_hit": 0.9074074074074074,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 98
+    },
+    "early_score_not_final_result": true,
+    "test_pixels": false
+  }
+}

@@ -16,7 +16,7 @@ worker/tmp独立；本节点初始没有训练/验证载荷。`/tmp/aflow_race_v
 
 完整合成稳态约1.282s/update，冻结预算用`(122*实测速度+60s验证)*1.5`每轮及45min额外余量，最多80轮约7.22h。`RECIPE.json`为预定配方：LR2e-5，新增前10轮恒定后cosine到2e-6，.05参照收益校准、.002收益死区，继承.05类型对比。训练更新前的实际轮数与source SHA见`BUDGET_DECISION.json`、`EXECUTION_FREEZE.json`。
 
-每次GPU队列全程持有总控canonical两个fcntl锁。每轮保存完整optimizer latest到worker/tmp/run，best也在此。每epoch从确定seed重新构造global972顺序和两rank RNG；恢复仅从完整epoch、配方不变、最多2次工程恢复。首完整真实epoch需`STARTUP_VERIFIED.json`；该分数只是早期结果。最后checkpoint后若仅出版失败，只恢复统计/出版，不重复更新。
+每次GPU队列全程持有总控canonical两个fcntl锁。每轮保存完整optimizer latest到worker/tmp/run，入选best也保存当时的完整optimizer、计数与下一轮seed信息；两者都异步备份至主节点/tmp。新增0轮best只含本次新建AdamW的空初始状态，并不恢复历史e164缺失的动量。每epoch从确定seed重新构造global972顺序和两rank RNG；恢复仅从完整epoch、配方不变、最多2次工程恢复。首完整真实epoch需`STARTUP_VERIFIED.json`；该分数只是早期结果。最后checkpoint后若仅出版失败，只恢复统计/出版，不重复更新。
 
 ## 恢复与推理交接
 

@@ -37,12 +37,13 @@ def main():
                 assert temporary.stat().st_size==remote['bytes'] and sha(temporary)==remote['sha256']
                 saved=torch.load(temporary,map_location='cpu',weights_only=False)
                 assert saved['new_epoch']>=epoch
-                if name=='latest':assert all(int(s['step'])==saved['new_updates'] for s in saved['optimizer_state_dict']['state'].values())
+                assert 'optimizer_state_dict' in saved
+                assert all(int(s['step'])==saved['new_updates'] for s in saved['optimizer_state_dict']['state'].values())
                 target=BACKUP/f'{name}.pth';os.replace(temporary,target)
                 last[name]=saved['new_epoch']
                 event=dict(at=now(),name=name,new_epoch=saved['new_epoch'],new_updates=saved['new_updates'],
                     sha256=remote['sha256'],bytes=remote['bytes'],local_path=str(target),worker_snapshot=remote['path'],
-                    sha_verified=True,optimizer_checked=name=='latest')
+                    sha_verified=True,optimizer_checked=True)
                 events.append(event)
                 write(R/'RECOVERY_BACKUP.json',dict(at=now(),status='active',head_node_scratch=str(BACKUP),
                     latest_by_name={row['name']:row for row in events},events=events))

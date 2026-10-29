@@ -269,7 +269,10 @@ def train(rank,bare,resume=False):
               source_optimizer_missing=True,new_optimizer=True,new_epochs=epochs,new_update_budget=epochs*122,
               train=972,validation=108,test_pixels=False,freeze_sha256=freeze_sha),handle)
         checkpoint(target/'best.pth',dict(model_state_dict=bare.state_dict(),new_epoch=0,new_updates=0,
-             source_epoch=164,source_sha256=SOURCE_SHA,run_id=recipe['run_id'],freeze_sha256=freeze_sha))
+             optimizer_state_dict=opt.state_dict(),best_scan=best,best_new_epoch=0,elapsed_seconds=0.,
+             source_epoch=164,source_sha256=SOURCE_SHA,run_id=recipe['run_id'],freeze_sha256=freeze_sha,
+             source_optimizer_missing=True,new_optimizer=True,seed=SEED,world_size=2,
+             next_epoch_global_order_seed=SEED+1,next_epoch_rank_rng_seeds=[SEED+10+r for r in (0,1)]))
     dist.barrier();model=DDP(bare,device_ids=[rank],broadcast_buffers=False);check_sync(bare)
     if first>epochs:
         # A publication/I/O failure after final latest must not repeat updates.
@@ -311,8 +314,12 @@ def train(rank,bare,resume=False):
         if report['metrics']['scan_dice']>best:
             best=report['metrics']['scan_dice'];best_epoch=epoch
             if rank==0:
-                checkpoint(target/'best.pth',dict(model_state_dict=bare.state_dict(),new_epoch=epoch,new_updates=updates,
-                    source_epoch=164,source_sha256=SOURCE_SHA,run_id=recipe['run_id'],freeze_sha256=freeze_sha))
+                checkpoint(target/'best.pth',dict(model_state_dict=bare.state_dict(),optimizer_state_dict=opt.state_dict(),
+                    new_epoch=epoch,new_updates=updates,best_scan=best,best_new_epoch=epoch,
+                    elapsed_seconds=elapsed_before+time.monotonic()-begun,source_epoch=164,source_sha256=SOURCE_SHA,
+                    run_id=recipe['run_id'],freeze_sha256=freeze_sha,source_optimizer_missing=True,new_optimizer=True,
+                    seed=SEED,world_size=2,next_epoch_global_order_seed=SEED+epoch+1,
+                    next_epoch_rank_rng_seeds=[SEED+(epoch+1)*10+r for r in (0,1)]))
                 write(R/'BEST.json',dict(at=now(),new_epoch=epoch,new_updates=updates,metrics=report['metrics'],
                     checkpoint_path=str(target/'best.pth'),checkpoint_sha256=sha(target/'best.pth')))
         if rank==0:

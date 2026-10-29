@@ -1,17 +1,71 @@
 {
-  "at_beijing": "2026-10-29T15:12:50.945908+08:00",
+  "at_beijing": "2026-10-29T15:23:50.962892+08:00",
   "state": "active_new_stage",
   "supervisor_pid": 2034737,
   "queues": {
     "training": {
       "PIPELINE_STATUS.json": {
-        "at": "2026-10-29T15:12:48.720836+08:00",
-        "phase": "waiting_for_train972_payload"
+        "at": "2026-10-29T15:19:46.646303+08:00",
+        "phase": "all_gates_passed_starting_new_optimizer_finetuning"
+      },
+      "STATUS.json": {
+        "at": "2026-10-29T15:23:22.544253+08:00",
+        "state": "training",
+        "new_epoch": 1,
+        "new_updates": 122,
+        "best_new_epoch": 0,
+        "best_scan": 0.7632662633226978,
+        "metrics": {
+          "scan_dice": 0.7569348334714219,
+          "subject_dice": 0.7451706407467524,
+          "scan_ci95": [
+            0.7146262845037116,
+            0.7933619460236965
+          ],
+          "subject_ci95": [
+            0.702559254395465,
+            0.7829929829811055
+          ],
+          "point_hit": 0.9074074074074074,
+          "scans": 108,
+          "subjects": 50,
+          "bootstrap": "10000 patient cluster percentile95 seed20260917",
+          "point_hits": 98
+        }
+      },
+      "HEARTBEAT.json": {
+        "at": "2026-10-29T15:23:26.515457+08:00",
+        "phase": "training",
+        "new_epoch": 2,
+        "iteration": 1,
+        "new_updates": 123
       },
       "PREPARE_HEARTBEAT.json": {
-        "at": "2026-10-29T15:12:22.768948+08:00",
-        "done": 750,
+        "at": "2026-10-29T15:18:24.004040+08:00",
+        "done": 972,
         "count": 972
+      },
+      "STARTUP_VERIFIED.json": {
+        "at": "2026-10-29T15:23:22.622763+08:00",
+        "new_epoch": 1,
+        "new_updates": 122,
+        "metrics": {
+          "scan_dice": 0.7569348334714219,
+          "subject_dice": 0.7451706407467524,
+          "scan_ci95": [
+            0.7146262845037116,
+            0.7933619460236965
+          ],
+          "subject_ci95": [
+            0.702559254395465,
+            0.7829929829811055
+          ],
+          "point_hit": 0.9074074074074074,
+          "scans": 108,
+          "subjects": 50,
+          "bootstrap": "10000 patient cluster percentile95 seed20260917",
+          "point_hits": 98
+        }
       },
       "failure_receipts": []
     },
