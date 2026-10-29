@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-29T14:34:07.971454+08:00",
+  "run_id": "race_v2_benefit80_20261029",
+  "source_epoch": 164,
+  "source_checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+  "architecture": "RaceBenefitSeg width32/dropout0.1/dim16; parameter-identical RaceSeg",
+  "optimizer": "AdamW new/fused",
+  "learning_rate": 2e-05,
+  "min_learning_rate": 2e-06,
+  "constant_epochs": 10,
+  "weight_decay": 1e-05,
+  "gradient_clip_norm": 5,
+  "effective_batch": 8,
+  "microbatch_per_gpu": 2,
+  "world_size": 2,
+  "train_cases_per_epoch": 972,
+  "updates_per_epoch": 122,
+  "supervised": ".5 DiceCE(final)+.5 DiceCE(base); Dice1/CE0.1",
+  "contrast_coefficient": 0.05,
+  "calibration_coefficient": 0.05,
+  "gain_margin": 0.002,
+  "calibration": "detached local ungated proposal BCE gain; balanced positive/negative classes within case; neutral ignored; normal+APmismatch on even updates",
+  "removed_previous_terms": [
+    "blanket bad_gate penalty0.02",
+    "bad-output/base fallback penalty0.02"
+  ],
+  "new_epochs_suggested": 80,
+  "selection": "maximum108 raw threshold0.5 Scan, earliest tie; baseline e0 eligible",
+  "promotion_gate": {
+    "scan_delta_min": 0.003,
+    "patient_cluster_ci95_lower_min": 0,
+    "strict_ci_lower": true,
+    "subject_not_lower": true,
+    "point_hits_not_lower": true
+  },
+  "validation_threshold": 0.5,
+  "training_test_pixels": false,
+  "training_candidates": 1
+}

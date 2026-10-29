@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-29T14:32:06.816305+08:00",
+  "pid": 798,
+  "launcher_pid": 797,
+  "worker": "1154259",
+  "gpus": [
+    0,
+    1
+  ],
+  "command": [
+    "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=2",
+    "-m",
+    "scripts.race_v2_20261029.runner",
+    "smoke"
+  ],
+  "lock_paths": [
+    "/tmp/aflow_race_v2_20261029/locks/worker1154259_gpu0.lock",
+    "/tmp/aflow_race_v2_20261029/locks/worker1154259_gpu1.lock"
+  ]
+}

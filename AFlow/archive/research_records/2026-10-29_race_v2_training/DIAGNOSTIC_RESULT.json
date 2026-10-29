@@ -1,0 +1,208 @@
+{
+  "at": "2026-10-29T14:38:05.183619+08:00",
+  "status": "diagnosis_complete_training0",
+  "metrics": {
+    "normal": {
+      "scan_dice": 0.7632662633226978,
+      "subject_dice": 0.7530849785109361,
+      "scan_ci95": [
+        0.7229142021315879,
+        0.7984521837643825
+      ],
+      "subject_ci95": [
+        0.7119299712926148,
+        0.7896401731818914
+      ],
+      "point_hit": 0.8981481481481481,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 97
+    },
+    "base": {
+      "scan_dice": 0.7632658894139307,
+      "subject_dice": 0.753084461738666,
+      "scan_ci95": [
+        0.7229141126164589,
+        0.7984517575139407
+      ],
+      "subject_ci95": [
+        0.7119296464983906,
+        0.7896395330322639
+      ],
+      "point_hit": 0.8981481481481481,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 97
+    },
+    "mismatch": {
+      "scan_dice": 0.7632658866544565,
+      "subject_dice": 0.7530844587584338,
+      "scan_ci95": [
+        0.7229141075320799,
+        0.798451754719973
+      ],
+      "subject_ci95": [
+        0.7119296464983906,
+        0.7896395272208111
+      ],
+      "point_hit": 0.8981481481481481,
+      "scans": 108,
+      "subjects": 50,
+      "bootstrap": "10000 patient cluster percentile95 seed20260917",
+      "point_hits": 97
+    }
+  },
+  "region_summary": {
+    "normal": {
+      "lesion": {
+        "gate": {
+          "mean_of_case_means": 0.00034371298357724654,
+          "max_any_case": 0.345703125
+        },
+        "logit_correction": {
+          "mean_of_case_means": 0.00018607189919987876,
+          "max_any_case": 0.17493820190429688
+        },
+        "probability_correction": {
+          "mean_of_case_means": 1.6323164851106846e-06,
+          "max_any_case": 0.018256664276123047
+        }
+      },
+      "boundary3mm": {
+        "gate": {
+          "mean_of_case_means": 0.00045004507130675655,
+          "max_any_case": 0.349609375
+        },
+        "logit_correction": {
+          "mean_of_case_means": 0.0002588713951060076,
+          "max_any_case": 0.22582340240478516
+        },
+        "probability_correction": {
+          "mean_of_case_means": 1.4966423426988433e-06,
+          "max_any_case": 0.02603071928024292
+        }
+      },
+      "brain": {
+        "gate": {
+          "mean_of_case_means": 0.00033705746591294883,
+          "max_any_case": 0.349609375
+        },
+        "logit_correction": {
+          "mean_of_case_means": 0.00024431308220637557,
+          "max_any_case": 0.22582340240478516
+        },
+        "probability_correction": {
+          "mean_of_case_means": 2.658294874089942e-07,
+          "max_any_case": 0.02603071928024292
+        }
+      }
+    },
+    "mismatch": {
+      "lesion": {
+        "gate": {
+          "mean_of_case_means": 1.9414567366764174e-05,
+          "max_any_case": 0.00860595703125
+        },
+        "logit_correction": {
+          "mean_of_case_means": 8.87979911222427e-06,
+          "max_any_case": 0.0037169456481933594
+        },
+        "probability_correction": {
+          "mean_of_case_means": 1.0375704543047874e-07,
+          "max_any_case": 0.0006784796714782715
+        }
+      },
+      "boundary3mm": {
+        "gate": {
+          "mean_of_case_means": 2.1158802437150194e-05,
+          "max_any_case": 0.010986328125
+        },
+        "logit_correction": {
+          "mean_of_case_means": 1.0177745724862621e-05,
+          "max_any_case": 0.0037169456481933594
+        },
+        "probability_correction": {
+          "mean_of_case_means": 7.67349142807541e-08,
+          "max_any_case": 0.0007025301456451416
+        }
+      },
+      "brain": {
+        "gate": {
+          "mean_of_case_means": 1.1511393162672229e-05,
+          "max_any_case": 0.01361083984375
+        },
+        "logit_correction": {
+          "mean_of_case_means": 5.106550422945483e-06,
+          "max_any_case": 0.007988929748535156
+        },
+        "probability_correction": {
+          "mean_of_case_means": 1.0221497809521301e-08,
+          "max_any_case": 0.0007025301456451416
+        }
+      }
+    }
+  },
+  "proposal_targets": {
+    "proposal_targets": {
+      "positive": 9754,
+      "negative": 24691,
+      "neutral": 282797,
+      "cases_with_positive": 108
+    },
+    "mismatch_proposal_targets": {
+      "positive": 9741,
+      "negative": 24670,
+      "neutral": 282831,
+      "cases_with_positive": 108
+    }
+  },
+  "gradients": {
+    "gate_head_segmentation": {
+      "minimum": 3.2513691738955686e-09,
+      "median": 1.49605625665572e-06,
+      "maximum": 6.828839104855433e-05
+    },
+    "correction_segmentation": {
+      "minimum": 2.005526647530509e-11,
+      "median": 2.9988432181937696e-08,
+      "maximum": 5.326583959686104e-06
+    },
+    "strength_segmentation": {
+      "minimum": -9.406955541635398e-06,
+      "median": -1.3040050372836731e-08,
+      "maximum": 2.8726777600240894e-05
+    },
+    "gate_head_calibration": {
+      "minimum": 2.4161157608032227,
+      "median": 4.55008339881897,
+      "maximum": 10.525152206420898
+    }
+  },
+  "comparison_normal_minus_base": {
+    "scan_delta": 3.739087669937699e-07,
+    "subject_delta": 5.167722702026367e-07,
+    "scan_delta_ci95": [
+      -1.5202378098097663e-07,
+      9.774160076637351e-07
+    ],
+    "subject_delta_ci95": [
+      9.059054510934013e-08,
+      1.0147328887666975e-06
+    ],
+    "point_hits_delta": 0,
+    "improved_scans": 11,
+    "worse_scans": 5,
+    "tied_scans": 92,
+    "bootstrap": "10000 patient cluster paired percentile95 seed20260918"
+  },
+  "cumulative_diagnostic_network_case_forwards": 216,
+  "cumulative_reference_branches": 432,
+  "training_updates": 0,
+  "diagnostic_parameters_unchanged": true,
+  "diagnostic_v1_probability_statistics_invalid": true,
+  "diagnostic_v2_probability_float32": true,
+  "support": "normal local gates can open; ungated proposal has positive and negative target cells; direct calibration gradient survives weak segmentation-to-gate signal",
+  "limits": "e164 explicit deployment correction contributes tiny Dice difference; training benefit cannot be attributed to this residual; no evidence of improved generalization yet"
+}

@@ -2,6 +2,10 @@
 
 更新时间：2026-10-29 UTC
 
+<!-- RACE_V2_STAGE_20261029 -->
+新阶段已授权：RACE164新优化器微调、RACE专属校准与w32有限融合，先108选择、最终最多2固定270候选；当前没有新270分数，不新增排名。单模型／纯SegResNet多模型分别报告，继承test-tuned历史。[本轮分工与状态](archive/research_records/2026-10-29_race_v2_stage/RUNBOOK.md)。
+<!-- END_RACE_V2_STAGE_20261029 -->
+
 这是项目唯一的快速排行榜入口。详细实验解释、因果边界和哈希以各自归档为准。不同cohort、数据角色、定位权限和交互协议不得混排。
 
 2026-09-05来源补记：最近Flip8 A/B与镜像一致训练C/D的“fresh inner”仅指学生fit隔离及新划分；固定history/EMA教师的756例训练集与四个inner分别重叠87/72/88/72 scans（39/33/39/37 subjects），所以不具备教师—学生全链路患者隔离。存在间接信息泄漏风险，偏差大小尚未量化；不改变已保存测试点估计/区间，也不撤销UCSD75与项目患者差集结论。[清单审计](archive/reviews/2026-09-05_30h_chain_audit/TEACHER_INNER_EXPOSURE.json)。

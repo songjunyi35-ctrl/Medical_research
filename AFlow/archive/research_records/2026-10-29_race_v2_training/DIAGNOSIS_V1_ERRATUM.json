@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-29T14:36:33.999979+08:00",
+  "first_diagnostic_launch": {
+    "at": "2026-10-29T14:34:44.579714+08:00",
+    "pid": 1089,
+    "launcher_pid": 1088,
+    "worker": "1154259",
+    "gpus": [
+      0,
+      1
+    ],
+    "command": [
+      "/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/bin/python",
+      "-m",
+      "torch.distributed.run",
+      "--standalone",
+      "--nproc-per-node=2",
+      "-m",
+      "scripts.race_v2_20261029.runner",
+      "diagnose"
+    ],
+    "lock_paths": [
+      "/tmp/aflow_race_v2_20261029/locks/worker1154259_gpu0.lock",
+      "/tmp/aflow_race_v2_20261029/locks/worker1154259_gpu1.lock"
+    ]
+  },
+  "first_diagnostic_report_sha256": "8597c067b38d5021aa4f0db2be184dcbd7c9eae931b9ef15b765fd2610a47c3b",
+  "original_probability_correction_invalid": true,
+  "reason": "base sigmoid computed in bf16 whereas final sigmoid fp32; quantify residual with both cast fp32",
+  "unaffected": [
+    "all Dice/Point",
+    "gate distributions",
+    "logit residuals",
+    "gradients",
+    "detached proposal gain counts"
+  ],
+  "bounded_repeat_case_forwards": 108,
+  "training_updates": 0
+}

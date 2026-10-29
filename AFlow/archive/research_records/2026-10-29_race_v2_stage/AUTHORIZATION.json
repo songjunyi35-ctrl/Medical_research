@@ -1,0 +1,57 @@
+{
+  "run_id": "race_v2_stage_20261029",
+  "recorded_at_utc": "2026-10-29T06:29:07.045398+00:00",
+  "state": "authorized_preparation_and_gated_execution",
+  "user_instruction": "24小时起步；保证利用率可达到96小时；利用率不足5小时被查杀",
+  "platform_expiry_returned": false,
+  "deadline_basis": "Conservative initial 24h from each worker creation; conditional 96h not spent or silently extended",
+  "conditional_max_total_hours": 96,
+  "workers": {
+    "1154259": {
+      "role": "training_ddp",
+      "gpus": [
+        0,
+        1
+      ],
+      "created_at_utc": "2026-10-29T06:17:37+00:00",
+      "deadline_unix": 1793341057.0,
+      "training_deadline_unix": 1793337457.0,
+      "deadline_beijing": "2026-10-30T14:17:37+08:00",
+      "training_deadline_beijing": "2026-10-30T13:17:37+08:00"
+    },
+    "1154121": {
+      "role": "inference_a_and_b",
+      "gpus": [
+        0,
+        1
+      ],
+      "created_at_utc": "2026-10-29T04:59:34+00:00",
+      "deadline_unix": 1793336374.0,
+      "deadline_beijing": "2026-10-30T12:59:34+08:00"
+    }
+  },
+  "persistent_free_min_bytes": 21474836480,
+  "persistent_new_max_bytes": 805306368,
+  "new_persistent_roots": [
+    "archive/research_records/2026-10-29_race_v2_stage",
+    "archive/research_records/2026-10-29_race_v2_training",
+    "archive/research_records/2026-10-29_race_v2_inference_a",
+    "archive/research_records/2026-10-29_race_v2_inference_b",
+    "scripts/race_v2_stage_20261029",
+    "scripts/race_v2_20261029",
+    "scripts/race_v2_inference_a_20261029",
+    "scripts/race_v2_inference_b_20261029"
+  ],
+  "no_old_coordinator_restart": true,
+  "training_candidates_max": 2,
+  "initial_training_candidates": 1,
+  "final_test_candidates_max": 2,
+  "test_scope": "Freeze on108 first; reuse audited RACE164270 atoms for new fixed decoding; new models require own predictions; no270-driven selection",
+  "single_t1ce": true,
+  "model_family": "SegResNet including RACE; no nnU-Net",
+  "initial_pair_models": [
+    "race_e164",
+    "w32_e171"
+  ],
+  "max_pair_forwards_per_case": 16
+}

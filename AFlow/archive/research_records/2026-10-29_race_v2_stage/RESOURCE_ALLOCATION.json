@@ -1,0 +1,39 @@
+{
+  "run_id": "race_v2_stage_20261029",
+  "only_root_may_reassign": true,
+  "no_cross_node_ddp": true,
+  "queues": {
+    "training": {
+      "worker": 1154259,
+      "gpus": [
+        0,
+        1
+      ],
+      "agent": "/root/training",
+      "record": "archive/research_records/2026-10-29_race_v2_training",
+      "persistent_max_bytes": 536870912
+    },
+    "inference_a": {
+      "worker": 1154121,
+      "gpus": [
+        0
+      ],
+      "agent": "/root/inference_a",
+      "record": "archive/research_records/2026-10-29_race_v2_inference_a",
+      "persistent_max_bytes": 67108864
+    },
+    "inference_b": {
+      "worker": 1154121,
+      "gpus": [
+        1
+      ],
+      "agent": "/root/inference_b",
+      "record": "archive/research_records/2026-10-29_race_v2_inference_b",
+      "persistent_max_bytes": 67108864
+    }
+  },
+  "lock_template": "/tmp/aflow_race_v2_20261029/locks/worker{worker}_gpu{gpu}.lock",
+  "lock_requirement": "fcntl exclusive held throughout queue GPU work; metadata includes GPU UUID; validate four physical UUIDs are distinct",
+  "shared_arrays": "worker-specific /tmp only, complete published cache manifests read-only",
+  "checkpoint_handoff": "atomic fixed export, CPU strict reload, architecture+args, SHA, actual new epochs/updates, code+recipe freeze,108 per-case report,geometry/reference conventions"
+}

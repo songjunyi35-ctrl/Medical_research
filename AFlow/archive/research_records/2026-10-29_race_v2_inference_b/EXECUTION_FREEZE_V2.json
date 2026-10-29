@@ -1,0 +1,119 @@
+{
+  "at": "2026-10-29T06:30:37.945695+00:00",
+  "run_id": "race_v2_inference_b_20261029",
+  "worker": 1154121,
+  "gpu": 1,
+  "canvas": [
+    160,
+    208,
+    160
+  ],
+  "training": false,
+  "new_test_access": false,
+  "configuration_count": 12,
+  "configurations": [
+    {
+      "id": "race0.5_logit_raw",
+      "race_weight": 0.5,
+      "space": "logit",
+      "decoder": "raw"
+    },
+    {
+      "id": "race0.5_logit_full",
+      "race_weight": 0.5,
+      "space": "logit",
+      "decoder": "full"
+    },
+    {
+      "id": "race0.5_probability_raw",
+      "race_weight": 0.5,
+      "space": "probability",
+      "decoder": "raw"
+    },
+    {
+      "id": "race0.5_probability_full",
+      "race_weight": 0.5,
+      "space": "probability",
+      "decoder": "full"
+    },
+    {
+      "id": "race0.75_logit_raw",
+      "race_weight": 0.75,
+      "space": "logit",
+      "decoder": "raw"
+    },
+    {
+      "id": "race0.75_logit_full",
+      "race_weight": 0.75,
+      "space": "logit",
+      "decoder": "full"
+    },
+    {
+      "id": "race0.75_probability_raw",
+      "race_weight": 0.75,
+      "space": "probability",
+      "decoder": "raw"
+    },
+    {
+      "id": "race0.75_probability_full",
+      "race_weight": 0.75,
+      "space": "probability",
+      "decoder": "full"
+    },
+    {
+      "id": "race0.9_logit_raw",
+      "race_weight": 0.9,
+      "space": "logit",
+      "decoder": "raw"
+    },
+    {
+      "id": "race0.9_logit_full",
+      "race_weight": 0.9,
+      "space": "logit",
+      "decoder": "full"
+    },
+    {
+      "id": "race0.9_probability_raw",
+      "race_weight": 0.9,
+      "space": "probability",
+      "decoder": "raw"
+    },
+    {
+      "id": "race0.9_probability_full",
+      "race_weight": 0.9,
+      "space": "probability",
+      "decoder": "full"
+    }
+  ],
+  "reference_schemes": [
+    "race_identity",
+    "race_equal8",
+    "race_full",
+    "w32_identity",
+    "w32_equal8",
+    "w32_full"
+  ],
+  "raw_semantics": "logit domain: mean8 logits then global model weights; probability: mean8 sigmoid then model weights; threshold0.5",
+  "full_semantics": "apply fixed historical consistency aggregation independently per model; fuse resulting probabilities in indicated domain; one shared historical decoder/postprocessing; identity original fused with same global weights",
+  "selection": "highest Scan Dice of12 only; tiebreak Subject then id",
+  "folds": "5 patient folds: sorted sha256(race_v2_20261029:+subject_id), index mod5; choose12 on4 folds",
+  "forwards_per_model": 864,
+  "total_models": 2,
+  "maximum_forwards_per_case": 16,
+  "shared_cache": "/tmp/aflow_race_v2_20261029/shared_validation/native",
+  "atoms": "/tmp/aflow_race_v2_20261029/inference_b/atoms/{slot:03}/flip{view}.npy",
+  "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+  "race_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+  "source_sha256": {
+    "scripts/race_v2_inference_b_20261029/analyze.py": "b080c2fd64e4c08843e41eeedbe3ba97e9ca989e78b278d47cca1e7e0a01e538",
+    "scripts/race_v2_inference_b_20261029/common.py": "83ea87cdfb9e904ab19f833969e48063d69059cf3d40b0cf751f45a5a00b1ce0",
+    "scripts/race_v2_inference_b_20261029/forward.py": "75d01d29e6dc4e5bddf9538448b939674fac0e49cd0e689bdf0660f2628d0e04"
+  },
+  "manifest_sha256": "f85f7df19908c7ab5bc7aafc2ce16fab1ff9786dbf3ea4ee72b97721888d35fb",
+  "recipe_sha256": "ebf9b74acfc5af85580fab7d4dc0900cc8b011e63fe67dd7bc015157546253bf",
+  "deadline_unix": 1793336374,
+  "provenance": "Historical test-tuned checkpoints/decoder;108 reused validation; no independent confirmation",
+  "supersedes": "EXECUTION_FREEZE.json",
+  "reason": "Before patient model access: hardware-only batch2/4/8 throughput selection, strongest of6 single-model reference reporting; no candidate expansion",
+  "previous_freeze_sha256": "4ae10996c2e0008f4113eedd64d7ca86fa05aca2c0022264566b4735861c577a"
+}

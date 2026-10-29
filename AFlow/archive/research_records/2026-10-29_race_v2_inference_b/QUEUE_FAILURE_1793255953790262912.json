@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-29T14:39:13.790280+08:00",
+  "error": "BlockingIOError(11, 'Resource temporarily unavailable')",
+  "traceback": "Traceback (most recent call last):\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_b_20261029/run.py\", line 32, in <module>\n    try:main(a.cache)\n        ^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_b_20261029/run.py\", line 26, in main\n    analyze(cache,str(A/'ATOMS_READY.json'))\n  File \"/mlx_devbox/users/songjunyi.666/playground/sammed3d-venv/lib/python3.11/site-packages/torch/utils/_contextlib.py\", line 116, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_b_20261029/analyze.py\", line 75, in main\n    lock=gpu_lock();verify();numeric_mode();index,images,labels=data(cache);cohort=rows();config=read(RECIPE)\n         ^^^^^^^^^^\n  File \"/mlx_devbox/users/songjunyi.666/playground/AFlow/scripts/race_v2_inference_b_20261029/common.py\", line 62, in gpu_lock\n    fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)\nBlockingIOError: [Errno 11] Resource temporarily unavailable\n",
+  "no_automatic_neural_retry": true,
+  "completed_atoms_retained": true
+}
