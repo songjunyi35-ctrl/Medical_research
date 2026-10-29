@@ -1,0 +1,62 @@
+{
+  "at": "2026-10-29T19:08:15.341484+08:00",
+  "state": "complete",
+  "run_id": "race_v2_benefit80_20261029",
+  "best_new_epoch": 0,
+  "metrics": {
+    "scan_dice": 0.7632662633226978,
+    "subject_dice": 0.7530849785109361,
+    "scan_ci95": [
+      0.7230703610197162,
+      0.7987943675832928
+    ],
+    "subject_ci95": [
+      0.7126655172792573,
+      0.7898831647820772
+    ],
+    "scans": 108,
+    "subjects": 50,
+    "point_hits": 97,
+    "bootstrap": "10000 patient whole-cluster percentile seed20261029; descriptive after selection"
+  },
+  "comparison": {
+    "scan_delta": 0.0,
+    "subject_delta": 0.0,
+    "scan_delta_ci95": [
+      0.0,
+      0.0
+    ],
+    "subject_delta_ci95": [
+      0.0,
+      0.0
+    ],
+    "point_hits_delta": 0,
+    "improved_scans": 0,
+    "worse_scans": 0,
+    "tied_scans": 108,
+    "bootstrap": "10000 paired patient whole-cluster percentile seed20261029; descriptive after selection"
+  },
+  "promoted": false,
+  "worse_cases": [],
+  "portable": {
+    "best": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_training/checkpoints/best.pth",
+      "sha256": "ca66a77f1e8e340893ead920eb1994a61977755d542ed61116288c6911bd0caa",
+      "new_epoch": 0,
+      "new_updates": 0,
+      "strict_cpu_reload": true
+    },
+    "latest": {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_training/checkpoints/latest.pth",
+      "sha256": "bda991aec82d53b2cc1e2ba3f81edaf8f28a643c84a466cdc1003ede351f1e0f",
+      "new_epoch": 80,
+      "new_updates": 9760,
+      "strict_cpu_reload": true
+    }
+  },
+  "actual_new_epochs": 80,
+  "actual_new_updates": 9760,
+  "test_pixels": false,
+  "test_tuned_development_history": true,
+  "interpretation": "new-optimizer finetuning plus benefit objective; no matched control causal attribution"
+}

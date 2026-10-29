@@ -1,16 +1,16 @@
 # AFlow BraTS 单T1ce分割方法目录
 
 <!-- RACE_V2_STAGE_20261029 -->
-## 2026-10-29：参照收益校准与局部推理依赖建模｜训练／108研究并行
+## 2026-10-29新阶段最终270完成
 
-**一句话：** 学习何时参考有益，检验镜像之间及模型之间的局部相关信息。
-**出发点：** 旧RACE完整推理270 Scan0.789263，首批融合稳定收益未确认。
-**具体做法：** 原80轮参照收益微调保持不变；另一worker研究16项单模局部相关分歧与12项双模配对协方差收缩。
-**结果：** 新机制108单模0.768314657／双模0.769835511，较各自旧最强参照差+0.000303／+0.000281，区间均跨0，无本轮新270评分。
-**是否支持直觉：** 首批等权镜像有收益；融合分折区间跨0，新局部机制不能把扰动代理当真实错误。
-**代价/下一步：** 新解码网络0，部署8／16前向；最终模型和配方只在108选，最多两个270候选。
+原270/119、单T1ce、原生1mm，单模型Scan0.788697343／Subject0.775536380／Point251/270；纯SegResNet双模型Scan0.789070115／Subject0.776314624／Point254/270。Scan>0.8000分别为False/False。新增训练80轮／9760更新，新优化器微调，训练选中best为新增0轮（0表示未胜初始化）；实际部署权重以结果的固定候选为准。最终两个配方先108冻结，继承test-tuned历史，非独立确认。没有新outer/confirmation，本轮停止，不自动扩搜/续训/重测。[完整结果](archive/research_records/2026-10-29_race_v2_stage/RESULT.md)。
 
-[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · [推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · [新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · [持续输入研究](archive/research_records/2026-10-29_race_v2_stage/CONTINUED_INPUT_PLAN.md) · [实时状态](archive/research_records/2026-10-29_race_v2_stage/INNOVATION_STAGE_STATUS.json) · [清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)
+**一句话：** 学习参考意见的收益并固定验证选择的多视图与双模型配方。
+**出发点：** 旧RACE完整推理0.789263，目标超过0.8000。
+**具体做法：** 单T1ce、固定972/108/270与原生1mm，新优化器校准后108选最多两个固定270配置。
+**结果：** 本阶段270单模型0.788697343，双模型0.789070115；区间和变差病例见报告。
+**是否支持直觉：** 以本次同队列实测为准；首轮融合分折稳定优势未确认，未识别独立算法因果收益。
+**代价/下一步：** 单模8／双模16前向，缓存共享；本轮关闭，不扩搜。
 <!-- END_RACE_V2_STAGE_20261029 -->
 
 <!-- RACE164_TEST270_20261029 -->

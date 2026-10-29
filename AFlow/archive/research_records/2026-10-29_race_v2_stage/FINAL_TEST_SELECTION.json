@@ -1,0 +1,899 @@
+{
+  "schema": "aflow.race_v2.final_test270.v1",
+  "registered_by": "root",
+  "approval_scope": "final_frozen_test270_only",
+  "at": "2026-10-29T11:08:47.053408+00:00",
+  "selection_policy_sha256": "f923924f2248e024665ac0cf2be41d93def80c32e896eb278b3159af22be09b5",
+  "training_terminal": {
+    "done_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_training/DONE.json",
+    "done_sha256": "2fb4ac8396f9f3f0cc0fb3ff15004da90efbf0c7d53ab8277621c34a59383311",
+    "budget_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_training/BUDGET_DECISION.json",
+    "budget_sha256": "15cce9e6287a9b1e4d235d6ddc993ed8c19b772ddba9d58d99d0c96d93b17fdd",
+    "result_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_training/RESULT.json",
+    "result_sha256": "33ddeae8ecf398d82c6efbf1d0edf8ad09462859f480d906b8267a93e61e0f8d"
+  },
+  "validation_audit": [
+    {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_stage/JOINT_INFERENCE108_AUDIT.json",
+      "sha256": "b6208babdd2574ebe918caff36b66d42b4c45e701777548fdba0f398366d6598"
+    },
+    {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_stage/INNOVATION108_ARITHMETIC_AUDIT.json",
+      "sha256": "372ddfbde4dbb6db265bc1881333f448a2c1c2b07ae0ef00fa3ff2b23ff42e43"
+    },
+    {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_stage/CONTINUATION108_ARITHMETIC_AUDIT.json",
+      "sha256": "63a1f1be3e954df014acbe1402222f1dc5539ecf56a043efff79bbb2c25c54c1"
+    },
+    {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_stage/INPUT_PHASE4_108_ARITHMETIC_AUDIT.json",
+      "sha256": "3eb3a50d1cd4f8c7b084df50f23a56e0e75b22ce47a084bde393cf3ad380a909"
+    },
+    {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_stage/APPEARANCE108_ARITHMETIC_AUDIT.json",
+      "sha256": "46a6c3eb18fba5e48a53d4432ae7d058f86c0c02a7c92f0d5acef74dd9cb9a06"
+    },
+    {
+      "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_stage/FINAL_HANDOFF_NO_NEW_MODEL.json",
+      "sha256": "9023dc2d8d35a70b21f292d5c372118b632f03434d6836a9c336d27d6e7ad917"
+    }
+  ],
+  "cohort": {
+    "manifest_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/data/datasets/brats2024_t1ce_va_hdfs_20260812_v1/sealed_test/test_cases_t1ce.jsonl",
+    "manifest_sha256": "a5ddc0ed2c0b269431758b14061da3c6163dd0c48133b60a2ef8efd7f23aa8f9",
+    "scans": 270,
+    "subjects": 119,
+    "canvas": [
+      160,
+      208,
+      168
+    ],
+    "spacing_mm": [
+      1,
+      1,
+      1
+    ],
+    "modality": "T1ce",
+    "scoring": "native1mm original crop excludes padding"
+  },
+  "data": {
+    "native_cache": "/tmp/aflow_race_e164_test270_20261029/native",
+    "index_sha256": "0593265eeaa910a477f2dadb5fdb1518d9a60ade22676bf9afe6bc0167c843a3",
+    "payload_sha256": {
+      "native_image": "845ee16e29afd3c84161791ead53870aeb7f9dd06a45cb19d4d42653a6d0842a",
+      "native_label": "044384d4941af5a93deac0dc252ce6138444012f2016a4f839184c983b170803",
+      "canon_image": "cf834d2b4e6cdaa414689c8723d532178980f6ad459324d13a903321f1064888",
+      "canon_label": "ecb28a45607d54cf453ece3208ef8261ea30f496e747f919242ac1172445f222"
+    },
+    "existing_cache_audit_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_a/EXISTING270_CACHE_AUDIT.json",
+    "existing_cache_audit_sha256": "7c1b5a9c2359622e63151e3e9d0a03f8aa09dea8fd9d912ef461bda643ec6a5a"
+  },
+  "candidates": [
+    {
+      "candidate_id": "single",
+      "kind": "single",
+      "models": [
+        {
+          "model_id": "race164",
+          "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/segresnet_t1ce_wt/race_20261028/race/best.pth",
+          "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+          "architecture": "sammed3d.race_seg.RaceSeg",
+          "construction": {
+            "width": 32,
+            "dropout": 0.1,
+            "dim": 16,
+            "enabled": true
+          },
+          "atom_source": "reuse_race164",
+          "owner": "inference_a",
+          "atoms_ready_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_a/final270/reuse_race164/ATOMS_READY.json",
+          "atoms_ready_sha256": "4cc016339d95aa9ac07827307ca3d74c484d37ebfb9f23b51fddc05024a73398",
+          "historical_atom_reports": [
+            {
+              "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_e164_inference_test270/FORWARD_COMPLETE_0.json",
+              "sha256": "80babfa4e4e75841bb8fef8048b9b6d33a4955a36f7a803256e5a16fb6643a90"
+            },
+            {
+              "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_e164_inference_test270/FORWARD_COMPLETE_1.json",
+              "sha256": "759844d1798b20aba57936310707909912ee9324fee5dbb3463a5167074fcfd2"
+            }
+          ]
+        }
+      ],
+      "single_recipe": {
+        "id": "race8_local_joint_k17_ridge0.2_blend1.0",
+        "mode": "race8_local_dependency",
+        "config": {
+          "id": "race8_local_joint_k17_ridge0.2_blend1.0",
+          "kind": "race_same_model8_local_dependency",
+          "dependency": "joint",
+          "box_mm": 17,
+          "lattice_stride": 4,
+          "ridge": 0.2,
+          "blend": 1.0,
+          "residual_clip": 2.0,
+          "uncertain_logit_band": 2.0,
+          "vote_logit_threshold": 0.0,
+          "output_logit_threshold": 0.0,
+          "point_rule": "final_refined_logit_argmax",
+          "base_point_auxiliary": true,
+          "neural_case_forwards": 8
+        },
+        "neural_case_forwards": 8
+      },
+      "validation_metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7683146568360152,
+        "subject_dice": 0.7584739059067909,
+        "point_hits": 98,
+        "scan_ci95": [
+          0.7285715769540082,
+          0.8032561713786573
+        ],
+        "subject_ci95": [
+          0.7184078584625608,
+          0.7946545279331152
+        ]
+      },
+      "validation_sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_v2_inference_innovation_a/RESULT.json",
+          "sha256": "9d4d431131af2f64d195d2d57120efcb1eef16744d14194f333edcf96e23593f"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_v2_inference_innovation_a/DEPLOYMENT_RECIPE.json",
+          "sha256": "2a84c9be7f74aad88c8399f24252462e93ce5bc07096f1d7c9e49a46c4470f7c"
+        }
+      ],
+      "origin": "old_model_new_inference",
+      "deployment_forwards": 8
+    },
+    {
+      "candidate_id": "fusion",
+      "kind": "fusion",
+      "models": [
+        {
+          "model_id": "race164",
+          "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/workspace/BraTS/segresnet_t1ce_wt/race_20261028/race/best.pth",
+          "checkpoint_sha256": "4bd6c35f7e12ecdf1540bf88128f9d3f9853340d801b32e77779fc4ba56eb3d7",
+          "architecture": "sammed3d.race_seg.RaceSeg",
+          "construction": {
+            "width": 32,
+            "dropout": 0.1,
+            "dim": 16,
+            "enabled": true
+          },
+          "atom_source": "reuse_race164",
+          "owner": "inference_a",
+          "atoms_ready_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_a/final270/reuse_race164/ATOMS_READY.json",
+          "atoms_ready_sha256": "4cc016339d95aa9ac07827307ca3d74c484d37ebfb9f23b51fddc05024a73398",
+          "historical_atom_reports": [
+            {
+              "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_e164_inference_test270/FORWARD_COMPLETE_0.json",
+              "sha256": "80babfa4e4e75841bb8fef8048b9b6d33a4955a36f7a803256e5a16fb6643a90"
+            },
+            {
+              "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_e164_inference_test270/FORWARD_COMPLETE_1.json",
+              "sha256": "759844d1798b20aba57936310707909912ee9324fee5dbb3463a5167074fcfd2"
+            }
+          ]
+        },
+        {
+          "model_id": "w32e171",
+          "checkpoint_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-28_segresnet_w32_e171_test270/checkpoint_epoch171.pth",
+          "checkpoint_sha256": "02a60b2d37da0d8de8018c221e1c00566106bd21d0d713b95ac3d9f94d87fade",
+          "architecture": "sammed3d.t1ce_wt_capg3d.AutomaticPromptLocator",
+          "construction": {
+            "center_aware": false,
+            "init_filters": 32,
+            "dropout": 0.1
+          },
+          "atom_source": "new_w32",
+          "owner": "inference_b",
+          "atoms_ready_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/final270/models/w32e171/ATOMS_READY.json"
+        }
+      ],
+      "fusion": {
+        "primary_weight": 0.75,
+        "space": "image_appearance_unary",
+        "decoder": "raw",
+        "algorithm_recipe": {
+          "id": "appearance_k1_lambda0.5",
+          "kind": "image_appearance_unary",
+          "components": 1,
+          "strength": 0.5,
+          "base_covariance_recipe": {
+            "id": "paired_cov_k5_ridge4_conflict0",
+            "kind": "paired_covariance_shrinkage",
+            "kernel": 5,
+            "ridge": 4.0,
+            "conflict_gate": false,
+            "anchor": 0.75,
+            "alpha_min": 0.5,
+            "alpha_max": 0.95,
+            "statistics_temperature": 4.0,
+            "epsilon": 0.0001,
+            "singular_relative_tolerance": 1e-06,
+            "zero_variance_floor": 1e-08,
+            "threshold_logit": 0.0,
+            "models": 2,
+            "forwards_per_scan": 16
+          },
+          "foreground_probability_minimum": 0.95,
+          "background_probability_maximum": 0.01,
+          "foreground_seed_minimum": 64,
+          "background_seed_minimum": 1024,
+          "histogram_bins": 256,
+          "histogram_domain": "full_image_nonzero_min_max",
+          "sampling": "all_seed_voxels_no_subsampling",
+          "maximum_crop_voxels": 5591040,
+          "initialization": "equal_weights_weighted_hist_midquantiles_global_variance",
+          "EM_iterations": 5,
+          "variance_floor": 0.01,
+          "mixture_weight_floor": 1e-06,
+          "range_floor": 1e-06,
+          "log_likelihood_ratio_clip": 6.0,
+          "trust": "one_minus_Bhattacharyya_coefficient_of_normalized_densities_on256bin_centers",
+          "threshold_logit": 0.0,
+          "models": 2,
+          "forwards_per_scan": 16,
+          "new_neural_forwards": 0
+        },
+        "algorithm_recipe_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/appearance_b/DEPLOYMENT_RECIPE.json",
+        "algorithm_recipe_sha256": "b36e86bc6e6039c51d9e6d4aa1cb0f776114da7136edff2acaa87f8eb64f3a5d",
+        "algorithm_source_sha256": "0f096a65ddc4ec4f219488f0cae447993965708f3ce9a9317a096f0e0c540332"
+      },
+      "full_recipe_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_e164_inference_test270/SELECTED_RECIPE.json",
+      "full_recipe_sha256": "ebf9b74acfc5af85580fab7d4dc0900cc8b011e63fe67dd7bc015157546253bf",
+      "validation_metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7698957535127798,
+        "subject_dice": 0.7595199319649311,
+        "point_hits": 99,
+        "scan_ci95": [
+          0.7301724141915187,
+          0.8044475254893118
+        ],
+        "subject_ci95": [
+          0.7195629359662886,
+          0.7957510297766752
+        ]
+      },
+      "validation_sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/appearance_b/RESULT.json",
+          "sha256": "91fc6e658fc56826069abb8a4897bfda8a3f72f8035b07ab12721b59c29b8d12"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/appearance_b/DEPLOYMENT_RECIPE.json",
+          "sha256": "b36e86bc6e6039c51d9e6d4aa1cb0f776114da7136edff2acaa87f8eb64f3a5d"
+        }
+      ],
+      "patient_fold_stability": "within-reused108 patient-grouped robustness; transductive image seeds are GT-free",
+      "origin": "old_models_image_appearance",
+      "deployment_forwards": 16
+    }
+  ],
+  "entry_source_sha256": {
+    "scripts/race_v2_stage_20261029/select_final_continuation.py": "42ac6447db0c5322ab4bf1e9bbef563983aeeaa030e376d20b997cb9f1d3e0bb",
+    "scripts/race_v2_stage_20261029/select_final.py": "60d298bde1b370c31a48ac9380050cf9cd974a1da9760872718caeb1210a1533",
+    "scripts/race_v2_stage_20261029/audit_validation.py": "c7e2854955d5716ee891127c411349e9421b3533eb5dc3cab433b17bd25457aa",
+    "scripts/race_v2_stage_20261029/governance.py": "5014175ddce0b2be2a0b7da8645e0393b84660f0b997b850cb6c361ee1506951",
+    "scripts/race_v2_inference_a_20261029/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "scripts/race_v2_inference_a_20261029/register.py": "bd163bbffe284563fdaa7521f6fd1008a6200be85627ea02ec141edb47e54189",
+    "scripts/race_v2_inference_a_20261029/common.py": "58495a4907cf6f8faeea483a173ed18f3c0bd70cb1a66e6ee32c3cc8a5cc5c20",
+    "scripts/race_v2_inference_a_20261029/predictor.py": "4b4cd80515091fc723a1907f0898c8994aa8293967a6c96a6e8e7d2f94e2ed0b",
+    "scripts/race_v2_inference_a_20261029/audit_old_cache.py": "cb84a22e97edacb7da3d7bd8d51a67e06d34e7aa4d9631dc9aa04ac66a3c663f",
+    "scripts/race_v2_inference_a_20261029/run.py": "c7d65b5c103244656dae86c353b2967fa0d47e949cead943b049ab04b838abf5",
+    "scripts/race_v2_inference_a_20261029/prepare_validation.py": "3de4ea03a8295b35dd71841e40448255f8998da66c266a8dc562c027b993eb6f",
+    "scripts/race_v2_inference_a_20261029/analyze.py": "448f43a3c2e2f00269c07c3feaa71fbfca95f8c4354b0644a3068cff5d7585a2",
+    "scripts/race_v2_inference_a_20261029/statistics.py": "29f9c76f0012401d5e3b4578bddaf77112e4e38b704bef6486c9c4caf3053a1d",
+    "sammed3d/race_seg.py": "bcb24540a996ddb231ac21eba3b5cc9178361a3b2fbeeda3cedc6f87ff4350ac",
+    "scripts/race_seg_20261028/prepare.py": "b0d94d8db842006e67937b53948546c40250943ce2f0223b30847befbd25d01e",
+    "scripts/race_inference_test270_20261029/predictor.py": "198ecbf61c47edc97915e1ffd7a36bfc706021cf5b0d06b990abfaceee837e19",
+    "scripts/segresnet_auto_inference12h_20261028/promote_v6.py": "e18da9ecbb82ddd137d174477ece17f36c50fc148e8d237492285e4ebbc4152e",
+    "scripts/segresnet_auto_inference12h_20261028/component_sweep_v1.py": "879adeab2853f1621b83707ca91ee961ad4eae68f8e555d4a068812968f6c032",
+    "scripts/segresnet_auto_inference12h_20261028/postprocess_sweep_v1.py": "d52d0150fa8d7395b6f633f82c86fa37a0e60602949b779640951990bc036bbd",
+    "scripts/segresnet_auto_inference12h_20261028/cpu_binary_fast_v1.py": "f30610c728550b6aa55a07347e345473ce8a958df383681d680c120eabf54411",
+    "scripts/nnunet_local_full_20261022/native_builder_v2.py": "154e38f9f936a6ba425898312bf9bfb698954c9b7cd0b62a49dcba2ad5d4a250",
+    "scripts/race_v2_inference_a_20261029/snapshot108.py": "4adbdcb2dbb83c1d5e05da974ddb792d584b889d7b7405b9b955127bfacc8158",
+    "scripts/race_v2_inference_a_20261029/final270.py": "9b2b4ea95001280e89e8338c4f7427a11d9e986479a540d925b83318c8a9ea7d",
+    "scripts/race_v2_inference_a_20261029/prepare270_reuse_manifest.py": "80a694781ea013ba032f79f0cedd4075b90b6729db2a0c8b70d36fd9b74afd90",
+    "scripts/race_v2_inference_a_20261029/final270_watch.py": "11cf7954ddc05724fb5ba3318c59b100be38ba3d0515c6ae01aceb2444b857f5",
+    "scripts/race_v2_inference_innovation_a_20261029/final270_innovation.py": "4828e45d659163e7053d2cc78667160a9723b53180b7f0f889a77ee490ddb8d4",
+    "scripts/race_v2_inference_innovation_a_20261029/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "scripts/race_v2_inference_innovation_a_20261029/register.py": "f695b2154ae68afcf96e4fb904a9cfcc49394a9c0fc7eacd06e16f7d686fe06e",
+    "scripts/race_v2_inference_innovation_a_20261029/common.py": "f2abce5dcf9cee11f5c882650faf3340bec1f2e907414dc2d7736a623c56afd0",
+    "scripts/race_v2_inference_innovation_a_20261029/publish_audit.py": "9717b5997de6823f9cb0153ff83ff7b7ebb33ee24343095258ec3f1a665ca502",
+    "scripts/race_v2_inference_innovation_a_20261029/transfer.py": "4ca996dde99bdabe2d3d86d2205c4d547e782fdf73d187319fb2abb2823720ac",
+    "scripts/race_v2_inference_innovation_a_20261029/run.py": "b264ef730b93a52322c6e008f4c3bd759ecfcf0f0b53e3875c52b3f730c04c6d",
+    "scripts/race_v2_inference_innovation_a_20261029/algorithm.py": "912e050df5c08b7d0d8183d9fa512a6f13016bc79c8cbdd6cf7423d4d91fbf6d",
+    "scripts/race_v2_inference_innovation_a_20261029/io_helpers.py": "1bde840c13755ff68233818d12f63dcb372dff59c7db3e8afb4691f023408580",
+    "scripts/race_v2_inference_innovation_a_20261029/deployment.py": "32e5b365a075936702c4d543ab8e50e2ed06fe9c9c9d5538dc1dd0180bcd28ca",
+    "scripts/race_v2_inference_normalization_a_20261029/__init__.py": "0c0c17778c1beb95a8ac2c5a7ba9ef9b40f4c64dd1c5afe4dd4fa8bb3429247a",
+    "scripts/race_v2_inference_normalization_a_20261029/register.py": "e6dfa30605385f8c9249961130ce111007e206c512860e0cb73a19204cf44a3d",
+    "scripts/race_v2_inference_normalization_a_20261029/common.py": "2115a6853d2b1e0ad5436d1e70020eaca4e6bb38edd043ce9f90c78450d2ed7d",
+    "scripts/race_v2_inference_normalization_a_20261029/run.py": "dfe28757896ca0616ada8a8c6255c116ac6317f51641bf22aaa5ea7b4fc68898",
+    "scripts/race_v2_inference_normalization_a_20261029/algorithm.py": "fbc6efda8ae44acf92a25422894486ed5eaecf9b4e780a33312ab999979c8f5e",
+    "scripts/race_v2_inference_normalization_a_20261029/transfer.py": "f24aefcc55073f0a708ffb4d538b331143e5bcf73bab802f0103731d9cabb9d7",
+    "scripts/race_v2_inference_normalization_a_20261029/final270.py": "fa5d3b1fd7613b4e3c9df9637fc78cc64dd8c8b82664e6cde34ea062bbde47dd",
+    "scripts/race_v2_inference_normalization_a_20261029/publish.py": "3e61859ef5562ed2f12928a10bc4cfcde2bb8cc5d453d6a783a678a671f85b42",
+    "scripts/race_v2_inference_normalization_a_20261029/cache.py": "912348c5dcc4e8a14a45dfb09432d0ac3db68983779dc03b914e8bafee4e1297",
+    "scripts/race_v2_inference_normalization_a_20261029/deployment.py": "28e22202fa79cd5e0a73c2fe80e6cdd7df5921f88a7b33090cb61aa749275716",
+    "scripts/race_v2_inference_normalization_a_20261029/numeric_entry.py": "613a33c8673db340b1dc2646cd4b699d8732b91303f97be7a6618859443f6156",
+    "scripts/followup_test270_common.py": "3f9c120df078951f81d8a40005949998a4b5ce19b73964de5ec9fca69ea1ec7a",
+    "scripts/race_v2_inference_soft_context_a_20261029/queue_barrier.py": "bf8ba4df3a825785a021d3625ba269a87866a5a1d7e7c39d108fb16dc62d22a7",
+    "scripts/race_v2_inference_soft_context_a_20261029/common.py": "9b472e9f2b27d4026ac4b2da3559f1c33d6ad967050aed167db528567169408a",
+    "scripts/race_v2_inference_soft_context_a_20261029/__init__.py": "58708e22174e3bce927b376517c7a14915f9b33a8853a4bf0f85048f121058f3",
+    "scripts/race_v2_inference_soft_context_a_20261029/register.py": "7aa4fb99f1ed7e9bd1eeb33f59c5ba3273fa01eb13c3fa18ff5ad2689528da0a",
+    "scripts/race_v2_inference_soft_context_a_20261029/transfer.py": "272cd4c5da1abf5f9dbd3eec17759450367ece39b42316db610f2a5063a3c1f6",
+    "scripts/race_v2_inference_soft_context_a_20261029/final270.py": "5860252e379db1633506fdb6b2b0f797b59f5863e1dfe6381dcedf8368d70ca9",
+    "scripts/race_v2_inference_soft_context_a_20261029/run.py": "b53f19a93714e1217e93be0c8c861307946eb092ec6dee5dbd6afb55b57f4a2b",
+    "scripts/race_v2_inference_soft_context_a_20261029/algorithm.py": "3907dd2c64d100699b83275582aed08dc3b81b6278c0f9af0f9a80274a04a6c7",
+    "scripts/race_v2_inference_soft_context_a_20261029/cache.py": "fadd23993ef42a4fe0310f68682ae62961eab77d0fb736b7a43c50649c041348",
+    "scripts/race_v2_inference_soft_context_a_20261029/deployment.py": "4063cd9aca73195a3fbf5894839e9096fdad50cf76bb0c9ba2eaa2a74d598279",
+    "sammed3d/t1ce_wt_capg3d.py": "276ee7c131e413cf7943dc29e5372c1e5bbbb85c780e27f030343c5ef8bf4cd0",
+    "scripts/race_seg_20261028/common.py": "0777fa834e12051a17f7418f7fb97e829d5964458f98377a836c1995e831c3d7",
+    "scripts/race_v2_inference_b_20261029/analyze.py": "e63bc17d34d0a055125034233f48f3793961ae08814cd4367960fba958bb9ef4",
+    "scripts/race_v2_inference_b_20261029/appearance_b/core.py": "0f096a65ddc4ec4f219488f0cae447993965708f3ce9a9317a096f0e0c540332",
+    "scripts/race_v2_inference_b_20261029/appearance_b/final270.py": "e46a01c28a2aa9fb1cd2dac2196ca366099c7c3b1a8116c1747712c197a1e620",
+    "scripts/race_v2_inference_b_20261029/common.py": "688b8887e0d2867406e3f67957cfefcc816e5666d29cb152254fa89348235932",
+    "scripts/race_v2_inference_b_20261029/edge_input_b/core.py": "0b8797b7e82c2399c86edf236fbf0dca3c9fd1274085f86174b87a88453d89c4",
+    "scripts/race_v2_inference_b_20261029/edge_input_b/final270.py": "771245b04f492df7ba175391cde1b13fcf80484d3efdae68a87fc3408c53b3ac",
+    "scripts/race_v2_inference_b_20261029/final270.py": "1096c93356c6772924c220730607c79443c6ddc48ecfc3e2e9a1d49bdb8ada66",
+    "scripts/race_v2_inference_b_20261029/forward.py": "23c0835c8cbd39ebe75a84bfae6482a4ff43a91404fce65855d845d68e309a7a",
+    "scripts/race_v2_inference_b_20261029/image_conflict_b/core.py": "55bc0a9b9b69bc4b671b689f354b57ff7eb2b46029ee337f669180f056a5420d",
+    "scripts/race_v2_inference_b_20261029/image_conflict_b/final270.py": "96ca3502e69b7b767c58093f7dc130a388458e51e293a36677822abe160543ab",
+    "scripts/race_v2_inference_b_20261029/innovation_b/core.py": "d50cce7bb5c0ffcee78aa4c5fc23516d83ea5506c7a2192a46bbe5798ddd9469",
+    "scripts/race_v2_inference_b_20261029/innovation_b/final270.py": "8818baf54a6829cfa569fddf73e716399016cb908d1a15f4aff5c0eb4499cb98",
+    "scripts/segresnet_auto_inference12h_20261028/brain_domain_v1.py": "d52d77fb9783043f4d7b69ef161de875bc690a24554e92763b72286362be9a38",
+    "scripts/segresnet_auto_inference12h_20261028/case_consistency_v1.py": "ab03bbcd0a02b216e6737fb1e7656beb6cb01ceb20f156287b582525ccdf133c",
+    "scripts/segresnet_auto_inference12h_20261028/deploy_core_v3.py": "654e08de4e84903dadaccf1c2881ad8d7adf4145a31532b9ea5a8df99eeac2fb"
+  },
+  "single_selection_options": [
+    {
+      "origin": "old_equal8",
+      "model_id": "race164",
+      "recipe": {
+        "id": "equal8_logit_t05",
+        "mode": "equal",
+        "config": null,
+        "neural_case_forwards": 8
+      },
+      "metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7680118805556385,
+        "subject_dice": 0.7582598586238567,
+        "point_hits": 98,
+        "scan_ci95": [
+          0.7279056461996511,
+          0.8030896060275887
+        ],
+        "subject_ci95": [
+          0.7181756252195863,
+          0.7945500674985705
+        ]
+      },
+      "sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_a/RANKING.json",
+          "sha256": "946ad96fa1c1dd907ef0503fc227171f8b7f28c906c3c9221e11d4c339e17208"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_a/SELECTED_RECIPE.json",
+          "sha256": "9a4d14dbd1e8bb056b23314cf5012fa18ab245532542bc55e9ef824d98a71a71"
+        }
+      ]
+    },
+    {
+      "origin": "old_model_new_inference",
+      "model_id": "race164",
+      "recipe": {
+        "id": "race8_local_joint_k17_ridge0.2_blend1.0",
+        "mode": "race8_local_dependency",
+        "config": {
+          "id": "race8_local_joint_k17_ridge0.2_blend1.0",
+          "kind": "race_same_model8_local_dependency",
+          "dependency": "joint",
+          "box_mm": 17,
+          "lattice_stride": 4,
+          "ridge": 0.2,
+          "blend": 1.0,
+          "residual_clip": 2.0,
+          "uncertain_logit_band": 2.0,
+          "vote_logit_threshold": 0.0,
+          "output_logit_threshold": 0.0,
+          "point_rule": "final_refined_logit_argmax",
+          "base_point_auxiliary": true,
+          "neural_case_forwards": 8
+        },
+        "neural_case_forwards": 8
+      },
+      "metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7683146568360152,
+        "subject_dice": 0.7584739059067909,
+        "point_hits": 98,
+        "scan_ci95": [
+          0.7285715769540082,
+          0.8032561713786573
+        ],
+        "subject_ci95": [
+          0.7184078584625608,
+          0.7946545279331152
+        ]
+      },
+      "sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_v2_inference_innovation_a/RESULT.json",
+          "sha256": "9d4d431131af2f64d195d2d57120efcb1eef16744d14194f333edcf96e23593f"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_v2_inference_innovation_a/DEPLOYMENT_RECIPE.json",
+          "sha256": "2a84c9be7f74aad88c8399f24252462e93ce5bc07096f1d7c9e49a46c4470f7c"
+        }
+      ]
+    },
+    {
+      "origin": "old_weight_seed_health_normalization",
+      "model_id": "race164_healthnorm",
+      "recipe": {
+        "id": "healthy_q0.1_alpha0.5_seed0.125",
+        "mode": "race8_seed_health_normalization",
+        "config": {
+          "id": "healthy_q0.1_alpha0.5_seed0.125",
+          "kind": "race_seed_healthy_normalization",
+          "input_group": {
+            "id": "healthy_q0.1_alpha0.5",
+            "exclude_probability": 0.1,
+            "alpha": 0.5,
+            "dilation_voxels": 3,
+            "dilation_metric": "Chebyshev",
+            "minimum_healthy_fraction": 0.2,
+            "minimum_standard_deviation": 0.1,
+            "gain_bounds": [
+              0.85,
+              1.15
+            ],
+            "offset_bounds": [
+              -0.15,
+              0.15
+            ]
+          },
+          "seed_weight": 0.125,
+          "other_views": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "output_logit_threshold": 0.0,
+          "point_rule": "actual_final_score_argmax",
+          "neural_case_forwards": 8
+        },
+        "neural_case_forwards": 8
+      },
+      "metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7679434529057255,
+        "subject_dice": 0.758179504743644,
+        "point_hits": 98,
+        "scan_ci95": [
+          0.7278133694693593,
+          0.8030068346208571
+        ],
+        "subject_ci95": [
+          0.7181256740462213,
+          0.7945272662884423
+        ]
+      },
+      "sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_normalization_a/RESULT.json",
+          "sha256": "5cac11244819260892a639077ca472dca18fa57c559cba3f6b1be90e35219ff2"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_normalization_a/NORMALIZATION_DEPLOYMENT_RECIPE.json",
+          "sha256": "92d69a5a9870202474153e207d570b389d5512206c63b4993634daa0f54019b4"
+        }
+      ]
+    },
+    {
+      "origin": "old_weight_seed_soft_context",
+      "model_id": "race164_softcontext",
+      "recipe": {
+        "id": "race8_softcontext_r20_floor0.9",
+        "mode": "race8_seed_soft_context",
+        "config": {
+          "id": "race8_softcontext_r20_floor0.9",
+          "radius_mm": 20,
+          "floor": 0.9,
+          "seed_probability_threshold": 0.1,
+          "reference_symmetric": true,
+          "seed_weight": 0.125,
+          "views": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "output_logit_threshold": 0.0,
+          "point_rule": "actual_final_score_argmax",
+          "empty_seed": "identity_reuse",
+          "reference_disabled": "unreflected_field_only",
+          "image_resampling": false,
+          "input_renormalization": false,
+          "original_support_retained": true,
+          "neural_case_forwards": 8
+        },
+        "neural_case_forwards": 8
+      },
+      "metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7667788358198272,
+        "subject_dice": 0.7568083002028011,
+        "point_hits": 98,
+        "scan_ci95": [
+          0.7253469707114455,
+          0.802423963483241
+        ],
+        "subject_ci95": [
+          0.7160229957032772,
+          0.7938249489310242
+        ]
+      },
+      "sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_soft_context_a/RESULT.json",
+          "sha256": "c72072c5b655ed0b1b0cdf9e002789e29dbd317480779653a63ea3f888cd3725"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_soft_context_a/SOFT_CONTEXT_DEPLOYMENT_RECIPE.json",
+          "sha256": "82ff8b8c6d65c96d3959a8e57bcad3854f091d960777e650ad4a21cf1d55f589"
+        }
+      ]
+    }
+  ],
+  "fusion_selection_options": [
+    {
+      "origin": "old_global_fusion",
+      "ids": [
+        "race164",
+        "w32e171"
+      ],
+      "fusion": {
+        "primary_weight": 0.75,
+        "space": "logit",
+        "decoder": "raw"
+      },
+      "metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7695545650742672,
+        "subject_dice": 0.7592392948269844,
+        "point_hits": 98,
+        "scan_ci95": [
+          0.7296301634587121,
+          0.8041511641643941
+        ],
+        "subject_ci95": [
+          0.7193128753056129,
+          0.7954716160098712
+        ]
+      },
+      "sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/RESULT.json",
+          "sha256": "0e42b8981e0840481c02b185c19bc6933b8cd8f36c23145ee079e9918c82d59e"
+        }
+      ],
+      "stability": {
+        "scan_dice": 0.7681778685914146,
+        "subject_dice": 0.7574413404720169,
+        "point_hits": 101,
+        "scans": 108,
+        "subjects": 50
+      }
+    },
+    {
+      "origin": "old_models_new_inference",
+      "ids": [
+        "race164",
+        "w32e171"
+      ],
+      "fusion": {
+        "primary_weight": 0.75,
+        "space": "paired_covariance_shrinkage",
+        "decoder": "raw",
+        "algorithm_recipe": {
+          "id": "paired_cov_k5_ridge4_conflict0",
+          "kind": "paired_covariance_shrinkage",
+          "kernel": 5,
+          "ridge": 4.0,
+          "conflict_gate": false,
+          "anchor": 0.75,
+          "alpha_min": 0.5,
+          "alpha_max": 0.95,
+          "statistics_temperature": 4.0,
+          "epsilon": 0.0001,
+          "singular_relative_tolerance": 1e-06,
+          "zero_variance_floor": 1e-08,
+          "threshold_logit": 0.0,
+          "models": 2,
+          "forwards_per_scan": 16
+        },
+        "algorithm_recipe_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/SELECTED_RECIPE.json",
+        "algorithm_recipe_sha256": "2b1ed94eaf2ee9f1692afedde04ff3a8a5c39e47843f5ab911e76ec5c0a1f8dd",
+        "algorithm_source_sha256": "d50cce7bb5c0ffcee78aa4c5fc23516d83ea5506c7a2192a46bbe5798ddd9469"
+      },
+      "metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7698355114294423,
+        "subject_dice": 0.7594712525819028,
+        "point_hits": 99,
+        "scan_ci95": [
+          0.730108486912417,
+          0.8044300774179445
+        ],
+        "subject_ci95": [
+          0.7194849955278139,
+          0.7957415172670569
+        ]
+      },
+      "sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/RESULT.json",
+          "sha256": "a1491a42be9b7788363eb02f42a2183a0bdede065af2874e05ceca75677e768c"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/SELECTED_RECIPE.json",
+          "sha256": "2b1ed94eaf2ee9f1692afedde04ff3a8a5c39e47843f5ab911e76ec5c0a1f8dd"
+        }
+      ],
+      "stability": {
+        "scan_dice": 0.7696605998056906,
+        "subject_dice": 0.7592734905509723,
+        "scan_ci95": [
+          0.7298999548443041,
+          0.8043219762470042
+        ],
+        "subject_ci95": [
+          0.7192918875338067,
+          0.7955516576731488
+        ],
+        "scans": 108,
+        "subjects": 50,
+        "point_hits": 99,
+        "bootstrap": "10000 patient whole-cluster percentile seed20261029; descriptive after selection"
+      }
+    },
+    {
+      "origin": "old_models_contralateral_image_evidence",
+      "ids": [
+        "race164",
+        "w32e171"
+      ],
+      "fusion": {
+        "primary_weight": 0.75,
+        "space": "contralateral_image_evidence",
+        "decoder": "raw",
+        "algorithm_recipe": {
+          "id": "contra_absolute_k11_b0.2",
+          "kind": "contralateral_image_evidence",
+          "evidence": "absolute",
+          "kernel": 11,
+          "beta": 0.2,
+          "anchor": 0.75,
+          "alpha_min": 0.5,
+          "alpha_max": 0.95,
+          "image_center": 0.0,
+          "image_scale": 1.0,
+          "standard_deviation_floor": 0.25,
+          "reference_probability_ceiling": 0.2,
+          "plane_minimum_dice": 0.8,
+          "direction_temperature": 4.0,
+          "threshold_logit": 0.0,
+          "models": 2,
+          "forwards_per_scan": 16
+        },
+        "algorithm_recipe_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/image_conflict_b/DEPLOYMENT_RECIPE.json",
+        "algorithm_recipe_sha256": "c68e7e6c25b27695f53ad3d99427df92378320497f0ab6885599cae55e0f8ca0",
+        "algorithm_source_sha256": "55bc0a9b9b69bc4b671b689f354b57ff7eb2b46029ee337f669180f056a5420d"
+      },
+      "metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7697541214249752,
+        "subject_dice": 0.7595563177551543,
+        "point_hits": 98,
+        "scan_ci95": [
+          0.7301048704191387,
+          0.8043366022607578
+        ],
+        "subject_ci95": [
+          0.7197948035498459,
+          0.7956538603071656
+        ]
+      },
+      "sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/image_conflict_b/RESULT.json",
+          "sha256": "319d733eba7cf23931a01ba0356950c861b348bb82d607caf05a39a557514281"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/image_conflict_b/DEPLOYMENT_RECIPE.json",
+          "sha256": "c68e7e6c25b27695f53ad3d99427df92378320497f0ab6885599cae55e0f8ca0"
+        }
+      ],
+      "stability": "patient folds in source RESULT; conditional on previously selected models"
+    },
+    {
+      "origin": "old_primary_guided_w32_input",
+      "ids": [
+        "race164",
+        "w32e171_guided"
+      ],
+      "fusion": {
+        "primary_weight": 0.75,
+        "space": "paired_covariance_shrinkage",
+        "decoder": "raw",
+        "algorithm_recipe": {
+          "id": "paired_cov_k5_ridge4_conflict0",
+          "kind": "paired_covariance_shrinkage",
+          "kernel": 5,
+          "ridge": 4.0,
+          "conflict_gate": false,
+          "anchor": 0.75,
+          "alpha_min": 0.5,
+          "alpha_max": 0.95,
+          "statistics_temperature": 4.0,
+          "epsilon": 0.0001,
+          "singular_relative_tolerance": 1e-06,
+          "zero_variance_floor": 1e-08,
+          "threshold_logit": 0.0,
+          "models": 2,
+          "forwards_per_scan": 16
+        },
+        "algorithm_recipe_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/innovation_b/SELECTED_RECIPE.json",
+        "algorithm_recipe_sha256": "2b1ed94eaf2ee9f1692afedde04ff3a8a5c39e47843f5ab911e76ec5c0a1f8dd",
+        "algorithm_source_sha256": "d50cce7bb5c0ffcee78aa4c5fc23516d83ea5506c7a2192a46bbe5798ddd9469"
+      },
+      "metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7692396352412524,
+        "subject_dice": 0.7589599972324712,
+        "point_hits": 99,
+        "scan_ci95": [
+          0.7293342469883357,
+          0.803910931864715
+        ],
+        "subject_ci95": [
+          0.718976030717116,
+          0.79524026277342
+        ]
+      },
+      "sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/edge_input_b/RESULT.json",
+          "sha256": "e49429f73ba721363af0cc4b09c77e9a7d29e335f8344f1651f05c5921e83e9f"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/edge_input_b/DEPLOYMENT_RECIPE.json",
+          "sha256": "1cfcac5622987203e2b472c9f5f3c01544e612d9b0f7388aa500a1fa1ab6a364"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/edge_input_b/INPUT_DEPLOYMENT_RECIPE.json",
+          "sha256": "0d16f5980129bafe2ff1bc4ef99de362915bf6096db673e4869043aa0cc31774"
+        }
+      ],
+      "stability": "patient grouped selection in source; reused historically selected weights/decoder"
+    },
+    {
+      "origin": "old_models_image_appearance",
+      "ids": [
+        "race164",
+        "w32e171"
+      ],
+      "fusion": {
+        "primary_weight": 0.75,
+        "space": "image_appearance_unary",
+        "decoder": "raw",
+        "algorithm_recipe": {
+          "id": "appearance_k1_lambda0.5",
+          "kind": "image_appearance_unary",
+          "components": 1,
+          "strength": 0.5,
+          "base_covariance_recipe": {
+            "id": "paired_cov_k5_ridge4_conflict0",
+            "kind": "paired_covariance_shrinkage",
+            "kernel": 5,
+            "ridge": 4.0,
+            "conflict_gate": false,
+            "anchor": 0.75,
+            "alpha_min": 0.5,
+            "alpha_max": 0.95,
+            "statistics_temperature": 4.0,
+            "epsilon": 0.0001,
+            "singular_relative_tolerance": 1e-06,
+            "zero_variance_floor": 1e-08,
+            "threshold_logit": 0.0,
+            "models": 2,
+            "forwards_per_scan": 16
+          },
+          "foreground_probability_minimum": 0.95,
+          "background_probability_maximum": 0.01,
+          "foreground_seed_minimum": 64,
+          "background_seed_minimum": 1024,
+          "histogram_bins": 256,
+          "histogram_domain": "full_image_nonzero_min_max",
+          "sampling": "all_seed_voxels_no_subsampling",
+          "maximum_crop_voxels": 5591040,
+          "initialization": "equal_weights_weighted_hist_midquantiles_global_variance",
+          "EM_iterations": 5,
+          "variance_floor": 0.01,
+          "mixture_weight_floor": 1e-06,
+          "range_floor": 1e-06,
+          "log_likelihood_ratio_clip": 6.0,
+          "trust": "one_minus_Bhattacharyya_coefficient_of_normalized_densities_on256bin_centers",
+          "threshold_logit": 0.0,
+          "models": 2,
+          "forwards_per_scan": 16,
+          "new_neural_forwards": 0
+        },
+        "algorithm_recipe_path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/appearance_b/DEPLOYMENT_RECIPE.json",
+        "algorithm_recipe_sha256": "b36e86bc6e6039c51d9e6d4aa1cb0f776114da7136edff2acaa87f8eb64f3a5d",
+        "algorithm_source_sha256": "0f096a65ddc4ec4f219488f0cae447993965708f3ce9a9317a096f0e0c540332"
+      },
+      "metrics": {
+        "scans": 108,
+        "subjects": 50,
+        "scan_dice": 0.7698957535127798,
+        "subject_dice": 0.7595199319649311,
+        "point_hits": 99,
+        "scan_ci95": [
+          0.7301724141915187,
+          0.8044475254893118
+        ],
+        "subject_ci95": [
+          0.7195629359662886,
+          0.7957510297766752
+        ]
+      },
+      "sources": [
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/appearance_b/RESULT.json",
+          "sha256": "91fc6e658fc56826069abb8a4897bfda8a3f72f8035b07ab12721b59c29b8d12"
+        },
+        {
+          "path": "/mlx_devbox/users/songjunyi.666/playground/AFlow/archive/research_records/2026-10-29_race_v2_inference_b/appearance_b/DEPLOYMENT_RECIPE.json",
+          "sha256": "b36e86bc6e6039c51d9e6d4aa1cb0f776114da7136edff2acaa87f8eb64f3a5d"
+        }
+      ],
+      "stability": "within-reused108 patient-grouped robustness; transductive image seeds are GT-free"
+    }
+  ],
+  "resource_guard": {
+    "persistent_free_bytes": 24653582336,
+    "stage_bytes": 263503402,
+    "deadline_unix": 1793336374.0,
+    "extended_stage_bytes": 274896881
+  },
+  "new270_used_for_selection": false,
+  "inherited_test_tuned_history": true,
+  "independent_confirmation": false,
+  "training_scope_unchanged": true
+}

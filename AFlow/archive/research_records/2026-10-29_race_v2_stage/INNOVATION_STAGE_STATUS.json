@@ -1,40 +1,87 @@
 {
-  "at_beijing": "2026-10-29T19:07:34.842366+08:00",
+  "at_beijing": "2026-10-29T19:37:35.609648+08:00",
   "state": "original_training_and_registered_inference_queues",
   "observer_pid": 2105350,
   "queues": {
     "training": {
       "STATUS.json": {
-        "at": "2026-10-29T19:05:02.911936+08:00",
-        "state": "training",
-        "new_epoch": 79,
-        "new_updates": 9638,
+        "at": "2026-10-29T19:07:53.670280+08:00",
+        "state": "complete",
+        "new_epoch": 80,
+        "new_updates": 9760,
         "best_new_epoch": 0,
         "best_scan": 0.7632662633226978,
         "metrics": {
-          "scan_dice": 0.7552599996604301,
-          "subject_dice": 0.7462168562128432,
+          "scan_dice": 0.7555244523617957,
+          "subject_dice": 0.7464663541316986,
           "scan_ci95": [
-            0.7068796026422863,
-            0.7954409024466701
+            0.7076280960027761,
+            0.7953863337758402
           ],
           "subject_ci95": [
-            0.6997795361809078,
-            0.7862923375403597
+            0.7004691060781479,
+            0.7862504825815557
           ],
-          "point_hit": 0.8796296296296297,
+          "point_hit": 0.8703703703703703,
           "scans": 108,
           "subjects": 50,
           "bootstrap": "10000 patient cluster percentile95 seed20260917",
-          "point_hits": 95
+          "point_hits": 94
         }
       },
       "HEARTBEAT.json": {
-        "at": "2026-10-29T19:07:12.653243+08:00",
-        "phase": "training",
+        "at": "2026-10-29T19:07:40.032230+08:00",
+        "phase": "validation",
         "new_epoch": 80,
-        "iteration": 100,
-        "new_updates": 9738
+        "new_updates": 9760
+      },
+      "RESULT.json": {
+        "at": "2026-10-29T19:08:15.341484+08:00",
+        "state": "complete",
+        "best_new_epoch": 0,
+        "actual_new_epochs": 80,
+        "actual_new_updates": 9760,
+        "metrics": {
+          "scan_dice": 0.7632662633226978,
+          "subject_dice": 0.7530849785109361,
+          "scan_ci95": [
+            0.7230703610197162,
+            0.7987943675832928
+          ],
+          "subject_ci95": [
+            0.7126655172792573,
+            0.7898831647820772
+          ],
+          "scans": 108,
+          "subjects": 50,
+          "point_hits": 97,
+          "bootstrap": "10000 patient whole-cluster percentile seed20261029; descriptive after selection"
+        }
+      },
+      "DONE.json": {
+        "at": "2026-10-29T19:07:53.670280+08:00",
+        "state": "complete",
+        "new_epoch": 80,
+        "new_updates": 9760,
+        "best_new_epoch": 0,
+        "best_scan": 0.7632662633226978,
+        "metrics": {
+          "scan_dice": 0.7555244523617957,
+          "subject_dice": 0.7464663541316986,
+          "scan_ci95": [
+            0.7076280960027761,
+            0.7953863337758402
+          ],
+          "subject_ci95": [
+            0.7004691060781479,
+            0.7862504825815557
+          ],
+          "point_hit": 0.8703703703703703,
+          "scans": 108,
+          "subjects": 50,
+          "bootstrap": "10000 patient cluster percentile95 seed20260917",
+          "point_hits": 94
+        }
       }
     },
     "innovation_a": {
@@ -152,7 +199,7 @@
     "b_final": {}
   },
   "new_innovation_failures": [],
-  "final_test_selection_frozen": false,
+  "final_test_selection_frozen": true,
   "final_result": null,
   "no_training_or_model_operation_by_observer": true,
   "report": "INFERENCE_INNOVATION108_RESULT.md",

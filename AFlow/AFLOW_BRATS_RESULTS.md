@@ -1,16 +1,9 @@
 # 科研流水账：从T1ce基础模型复现到当前结果
 
 <!-- RACE_V2_STAGE_20261029 -->
-## 2026-10-29：原80轮微调继续，新增两路有界推理创新
+## 2026-10-29新阶段最终270完成
 
-**问题→** 单T1ce SegResNet目标270 Scan>0.8000；旧RACE完整推理0.789263。
-**做法→** 用户最新明确：1154259 GPU0+1保持正在执行的80新增轮／9760更新RACE-v2双卡训练，进程、源码冻结、数据、优化器、学习率和预算均不改；1154121 GPU0做RACE单模型推理创新，GPU1做纯SegResNet双模型推理创新。第二训练候选只做过CPU评审，未实施，现已取消。
-**结果→** 首批108单模equal8 Scan0.768011881，双模固定0.75融合0.769554565，分折融合0.768177869，稳定优势未确认。推理侧继续两项已登记新机制：A局部跨镜像相关分歧融合16配置，B配对镜像协方差收缩融合12配置；只读复用108视图，新增网络前向0，部署单模8／双模16前向。新机制已完成：A最高Scan0.768314657／Subject0.758473906／Point98，对equal8差+0.000302776；B最高Scan0.769835511／Subject0.759471253／Point99，对旧固定融合差+0.000280946，两者患者配对区间均跨0，未确认稳定收益。用户指出空闲后恢复研究：健康脑归一化8项、软上下文4项均未胜equal8，w32边缘保留输入4项未胜cov；真实新增网络分别3024／3024／1728。对侧图像证据8项最高0.769754121，也未胜cov；最后四项同图外观unary已完成，108最高0.769895753，仅比旧cov高0.000060242。原80训练保持运行，后续研究不改其配方或进程。
-**决定→** 保持单T1ce、原972／108／270与原生1mm完整裁剪评分；108选择后最终最多两个候选270，旧RACE270视图经完整SHA审计后直接复用，新模型生成自身预测。保留test-tuned历史，单模型与纯SegResNet融合分别报告，禁GT路由、额外模态和nnU-Net。尚无本轮新270分数，目标0.8待实测。
-
-按用户授权删除1134份旧缓存，实际释放2.900753GiB，清理后空闲约23.19GiB；构建源码／索引／SHA、193份模型和当前worker缓存均保留，训练未中断。大数组仅worker/tmp，持久空闲至少20GiB，总新增上限0.75GiB。资源仅按原保守24小时截止执行，条件96小时不预支，不重启旧协调器。
-
-[首批108](archive/research_records/2026-10-29_race_v2_stage/INITIAL_STAGE_RESULT.md) · [推理创新方案](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION_PLAN.md) · [新机制108结果](archive/research_records/2026-10-29_race_v2_stage/INFERENCE_INNOVATION108_RESULT.md) · [持续输入研究](archive/research_records/2026-10-29_race_v2_stage/CONTINUED_INPUT_PLAN.md) · [实时状态](archive/research_records/2026-10-29_race_v2_stage/INNOVATION_STAGE_STATUS.json) · [清理审计](archive/research_records/2026-10-29_race_v2_stage/cache_cleanup_20261029/RESULT.md)
+原270/119、单T1ce、原生1mm，单模型Scan0.788697343／Subject0.775536380／Point251/270；纯SegResNet双模型Scan0.789070115／Subject0.776314624／Point254/270。Scan>0.8000分别为False/False。新增训练80轮／9760更新，新优化器微调，训练选中best为新增0轮（0表示未胜初始化）；实际部署权重以结果的固定候选为准。最终两个配方先108冻结，继承test-tuned历史，非独立确认。没有新outer/confirmation，本轮停止，不自动扩搜/续训/重测。[完整结果](archive/research_records/2026-10-29_race_v2_stage/RESULT.md)。
 <!-- END_RACE_V2_STAGE_20261029 -->
 
 <!-- RACE164_TEST270_20261029 -->

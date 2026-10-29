@@ -1,44 +1,43 @@
 {
-  "at_beijing": "2026-10-29T19:06:51.401459+08:00",
+  "at_beijing": "2026-10-29T19:36:51.462636+08:00",
   "state": "active_new_stage",
   "supervisor_pid": 2034737,
   "queues": {
     "training": {
       "PIPELINE_STATUS.json": {
-        "at": "2026-10-29T15:19:46.646303+08:00",
-        "phase": "all_gates_passed_starting_new_optimizer_finetuning"
+        "at": "2026-10-29T19:08:16.145004+08:00",
+        "phase": "complete"
       },
       "STATUS.json": {
-        "at": "2026-10-29T19:05:02.911936+08:00",
-        "state": "training",
-        "new_epoch": 79,
-        "new_updates": 9638,
+        "at": "2026-10-29T19:07:53.670280+08:00",
+        "state": "complete",
+        "new_epoch": 80,
+        "new_updates": 9760,
         "best_new_epoch": 0,
         "best_scan": 0.7632662633226978,
         "metrics": {
-          "scan_dice": 0.7552599996604301,
-          "subject_dice": 0.7462168562128432,
+          "scan_dice": 0.7555244523617957,
+          "subject_dice": 0.7464663541316986,
           "scan_ci95": [
-            0.7068796026422863,
-            0.7954409024466701
+            0.7076280960027761,
+            0.7953863337758402
           ],
           "subject_ci95": [
-            0.6997795361809078,
-            0.7862923375403597
+            0.7004691060781479,
+            0.7862504825815557
           ],
-          "point_hit": 0.8796296296296297,
+          "point_hit": 0.8703703703703703,
           "scans": 108,
           "subjects": 50,
           "bootstrap": "10000 patient cluster percentile95 seed20260917",
-          "point_hits": 95
+          "point_hits": 94
         }
       },
       "HEARTBEAT.json": {
-        "at": "2026-10-29T19:06:47.205436+08:00",
-        "phase": "training",
+        "at": "2026-10-29T19:07:40.032230+08:00",
+        "phase": "validation",
         "new_epoch": 80,
-        "iteration": 80,
-        "new_updates": 9718
+        "new_updates": 9760
       },
       "PREPARE_HEARTBEAT.json": {
         "at": "2026-10-29T15:18:24.004040+08:00",
@@ -65,6 +64,31 @@
           "subjects": 50,
           "bootstrap": "10000 patient cluster percentile95 seed20260917",
           "point_hits": 98
+        }
+      },
+      "DONE.json": {
+        "at": "2026-10-29T19:07:53.670280+08:00",
+        "state": "complete",
+        "new_epoch": 80,
+        "new_updates": 9760,
+        "best_new_epoch": 0,
+        "best_scan": 0.7632662633226978,
+        "metrics": {
+          "scan_dice": 0.7555244523617957,
+          "subject_dice": 0.7464663541316986,
+          "scan_ci95": [
+            0.7076280960027761,
+            0.7953863337758402
+          ],
+          "subject_ci95": [
+            0.7004691060781479,
+            0.7862504825815557
+          ],
+          "point_hit": 0.8703703703703703,
+          "scans": 108,
+          "subjects": 50,
+          "bootstrap": "10000 patient cluster percentile95 seed20260917",
+          "point_hits": 94
         }
       },
       "failure_receipts": []
@@ -108,7 +132,7 @@
     }
   },
   "validation_audit_passed": true,
-  "final_test_selection_frozen": false,
+  "final_test_selection_frozen": true,
   "test270_scoring_automatically_started": false,
   "note": "Observer only; queue progress is not proof of achieved0.8; no old task restarts"
 }
